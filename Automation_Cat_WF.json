@@ -1,0 +1,2194 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh",
+    "name": "Create a Cat and Map to Multiple WF",
+    "title": "Create a Cat and Map to Multiple WF",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "Local Loop",
+          "type": "datatype.integer",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1OTI5NDc1NDAsImV4cCI6MTYyNDQ4Njc2NiwiYXVkIjpbInN4by11aSJdLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJGaXJzdE5hbWUiOiJWaW5heUt1bWFyIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vcmcvaWQiOiIxMjM5IiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL3JvbGUiOiJhZG1pbiIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9zY29wZXMiOlsiYW8iXX0.bBPcQwGszaP9AWrwK8Ms17QDF5KcozOzUf7Is2dlBNE",
+          "scope": "input",
+          "name": "Token",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Create a Cat and Map to Multiple WF",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01EOZMYH25RSG1rDfjUIjQwHEPioIElydk9",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01UNMQTVPCJIV18LfuPmWpx3CQWuLmdC5OW",
+        "name": "Parallel Block",
+        "title": "Parallel Block",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Parallel Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01UNMQTVYKON94KsZBGDyqvp3w2KE3n7Pqz",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01UNMQFNMTUJL1q9h7ySFwYwnK1tMaCpaKF",
+                "name": "Group",
+                "title": "Group",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Group",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01UNMPTALF1P44Uodo5Gcdim1lBugcWBdQq",
+                    "name": "Group",
+                    "title": "Category-Group",
+                    "type": "logic.group",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Category-Group",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01UNMDPY4P6IO5PC3rXDZbJ3B7AvXsgxgFr",
+                        "name": "Execute Python Script",
+                        "title": "Execute Python Script For Cat",
+                        "type": "python3.script",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": false,
+                          "display_name": "Execute Python Script For Cat",
+                          "script": "import string    \nimport random # define the random module  \nS = 10  # number of characters in the string.  \n# call random.choices() string module to find the string in Uppercase + numeric data.  \nran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    \nprint(str(ran)) # print the random data",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01UNLPY0AYO641Hh4j7XSp47fJDWrqGTcy9",
+                        "name": "HTTP Request",
+                        "title": "Create a Category",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "accept": "application/json",
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "body": "{\n  \"category_type\": \"custom\",\n  \"name\": \"Cat-$activity.definition_activity_01UNMDPY4P6IO5PC3rXDZbJ3B7AvXsgxgFr.output.response_body$\",\n  \"schema_id\": \"01U0BY5SSA6QG51031lDpRa9LWn5p9RGjV6\",\n  \"title\": \"Cat-$activity.definition_activity_01UNMDPY4P6IO5PC3rXDZbJ3B7AvXsgxgFr.output.response_body$\"\n}",
+                          "content_type": "application/json",
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "custom_headers": [
+                            {
+                              "name": "Authorization",
+                              "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                            }
+                          ],
+                          "display_name": "Create a Category",
+                          "method": "POST",
+                          "relative_url": "/be-console/api/v1/categories",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01UNLR0UPX03W3bKiJfkeVtEhtnR55J9pQZ",
+                        "name": "JSONPath Query",
+                        "title": "CatID",
+                        "type": "corejava.jsonpathquery",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": false,
+                          "display_name": "CatID",
+                          "input_json": "$activity.definition_activity_01UNLPY0AYO641Hh4j7XSp47fJDWrqGTcy9.output.response_body$",
+                          "jsonpath_queries": [
+                            {
+                              "jsonpath_query": "$.id",
+                              "jsonpath_query_name": "CatID",
+                              "jsonpath_query_type": "string"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_01UNMQ68A128G0Drl2fy8armycxM1wdZyoT",
+                        "name": "Group",
+                        "title": "WF- Group",
+                        "type": "logic.group",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "WF- Group",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01UNLC9PV34PU0MUAlUXMbI7i7rxQBHYUJ4",
+                            "name": "While Loop",
+                            "title": "While Loop",
+                            "type": "logic.while",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "While Loop",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "blocks": [
+                              {
+                                "unique_name": "definition_activity_01UNLC9Q10YN73207k0M9m2fjungtfwbCtm",
+                                "name": "Condition Branch",
+                                "title": "Condition Branch",
+                                "type": "logic.condition_block",
+                                "base_type": "activity",
+                                "properties": {
+                                  "condition": {
+                                    "left_operand": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$",
+                                    "operator": "lte",
+                                    "right_operand": 19
+                                  },
+                                  "continue_on_failure": false,
+                                  "display_name": "Condition Branch",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity",
+                                "actions": [
+                                  {
+                                    "unique_name": "definition_activity_01UNLP414MJ9Y3qp5ZvAaMYUfwNB5bICQkW",
+                                    "name": "Execute Python Script",
+                                    "title": "Execute Python Script",
+                                    "type": "python3.script",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "action_timeout": 180,
+                                      "continue_on_failure": false,
+                                      "display_name": "Execute Python Script",
+                                      "script": "import string    \nimport random # define the random module  \nS = 10  # number of characters in the string.  \n# call random.choices() string module to find the string in Uppercase + numeric data.  \nran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    \nprint(str(ran)) # print the random data",
+                                      "skip_execution": false
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_01UNLD3XVQRKA0sZmdjlVWDZaEm6Rt9JsMT",
+                                    "name": "HTTP Request",
+                                    "title": "Create a WF",
+                                    "type": "web-service.http_request",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "accept": "application/json",
+                                      "action_timeout": 180,
+                                      "allow_auto_redirect": true,
+                                      "body": "{\n  \"schema_id\": \"01U0BY66TZQWI6XMp8gT2C7K4lT6I3tJZsx\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"WF01-$activity.definition_activity_01UNLP414MJ9Y3qp5ZvAaMYUfwNB5bICQkW.output.response_body$\",\n  \"title\": \"WF01-$activity.definition_activity_01UNLP414MJ9Y3qp5ZvAaMYUfwNB5bICQkW.output.response_body$\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"Test01-$activity.definition_activity_01UNLP414MJ9Y3qp5ZvAaMYUfwNB5bICQkW.output.response_body$\"\n  },\n  \"categories\": [\n    \"$activity.definition_activity_01UNLR0UPX03W3bKiJfkeVtEhtnR55J9pQZ.output.jsonpath_queries.CatID$\"\n  ],\n  \"variables\": null\n}",
+                                      "content_type": "application/json",
+                                      "continue_on_error_status_code": false,
+                                      "continue_on_failure": false,
+                                      "custom_headers": [
+                                        {
+                                          "name": "Authorization",
+                                          "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                        }
+                                      ],
+                                      "display_name": "Create a WF",
+                                      "method": "POST",
+                                      "relative_url": "/be-console/api/v1/workflows",
+                                      "runtime_user": {
+                                        "target_default": true
+                                      },
+                                      "skip_execution": false,
+                                      "target": {
+                                        "use_workflow_target": true
+                                      }
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_01UNLZVE5WCQQ6KSy5y4ty7GAAGsXyTdqYT",
+                                    "name": "JSONPath Query",
+                                    "title": "WFID",
+                                    "type": "corejava.jsonpathquery",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "action_timeout": 180,
+                                      "continue_on_failure": false,
+                                      "display_name": "WFID",
+                                      "input_json": "$activity.definition_activity_01UNLD3XVQRKA0sZmdjlVWDZaEm6Rt9JsMT.output.response_body$",
+                                      "jsonpath_queries": [
+                                        {
+                                          "jsonpath_query": "$.id",
+                                          "jsonpath_query_name": "WFID",
+                                          "jsonpath_query_type": "string"
+                                        }
+                                      ],
+                                      "skip_execution": false
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_01UNM0HMNIVZN4Lt24jGPheCj36dRDHxGz4",
+                                    "name": "Sleep",
+                                    "title": "Sleep",
+                                    "type": "core.sleep",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": false,
+                                      "display_name": "Sleep",
+                                      "skip_execution": false,
+                                      "sleep_interval": 1
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_01UNLZ66TMGRK14CdSjgSxx0kbwn26mzhyH",
+                                    "name": "HTTP Request",
+                                    "title": "Add a Action",
+                                    "type": "web-service.http_request",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "accept": "application/json",
+                                      "action_timeout": 180,
+                                      "allow_auto_redirect": true,
+                                      "body": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_01UNLZVE5WCQQ6KSy5y4ty7GAAGsXyTdqYT.output.jsonpath_queries.WFID$\",\n    \"schema_id\": \"01U0BY66TZQWI6XMp8gT2C7K4lT6I3tJZsx\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"id\": \"01U0BYCE57YSY7041CAXbBO2IIujHnPT1XV\",\n    \"schema_id\": \"01U0BYCE57YSY7041CAXbBO2IIujHnPT1XV\",\n    \"type\": \"core.sleep\",\n    \"base_type\": \"activity\",\n    \"name\": \"Sleep\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n      \"display_name\": \"Sleep\"\n    },\n    \"title\": \"Sleep\"\n  }\n}",
+                                      "content_type": "application/json",
+                                      "continue_on_error_status_code": false,
+                                      "continue_on_failure": false,
+                                      "custom_headers": [
+                                        {
+                                          "name": "Authorization",
+                                          "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                        }
+                                      ],
+                                      "display_name": "Add a Action",
+                                      "method": "POST",
+                                      "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNLZVE5WCQQ6KSy5y4ty7GAAGsXyTdqYT.output.jsonpath_queries.WFID$/actions",
+                                      "runtime_user": {
+                                        "target_default": true
+                                      },
+                                      "skip_execution": false,
+                                      "target": {
+                                        "use_workflow_target": true
+                                      }
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_01UNM1PWM948U0SYmLPLLuxWsH9p5NFGw0a",
+                                    "name": "JSONPath Query",
+                                    "title": "ActionID",
+                                    "type": "corejava.jsonpathquery",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "action_timeout": 180,
+                                      "continue_on_failure": false,
+                                      "display_name": "ActionID",
+                                      "input_json": "$activity.definition_activity_01UNLZ66TMGRK14CdSjgSxx0kbwn26mzhyH.output.response_body$",
+                                      "jsonpath_queries": [
+                                        {
+                                          "jsonpath_query": "$.id",
+                                          "jsonpath_query_name": "ActionID",
+                                          "jsonpath_query_type": "string"
+                                        }
+                                      ],
+                                      "skip_execution": false
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_01UNLZC2VWEAI6KNG3GhJdgYqVpfqwN7onp",
+                                    "name": "HTTP Request",
+                                    "title": "Update a Action",
+                                    "type": "web-service.http_request",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "accept": "application/json",
+                                      "action_timeout": 180,
+                                      "allow_auto_redirect": true,
+                                      "body": "{\n  \"id\": \"$activity.definition_activity_01UNM1PWM948U0SYmLPLLuxWsH9p5NFGw0a.output.jsonpath_queries.ActionID$\",\n  \"title\": \"Sleep\",\n  \"properties\": {\n    \"continue_on_failure\": false,\n    \"display_name\": \"Sleep\",\n    \"skip_execution\": false,\n    \"sleep_interval\": 1\n  }\n}",
+                                      "content_type": "application/json",
+                                      "continue_on_error_status_code": false,
+                                      "continue_on_failure": false,
+                                      "custom_headers": [
+                                        {
+                                          "name": "Authorization",
+                                          "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                        }
+                                      ],
+                                      "display_name": "Update a Action",
+                                      "method": "PUT",
+                                      "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNLZVE5WCQQ6KSy5y4ty7GAAGsXyTdqYT.output.jsonpath_queries.WFID$/actions/$activity.definition_activity_01UNM1PWM948U0SYmLPLLuxWsH9p5NFGw0a.output.jsonpath_queries.ActionID$",
+                                      "runtime_user": {
+                                        "target_default": true
+                                      },
+                                      "skip_execution": false,
+                                      "target": {
+                                        "use_workflow_target": true
+                                      }
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_01UNLZG0JEUCX2xvwxsK4nvLzoALMmWaoWU",
+                                    "name": "HTTP Request",
+                                    "title": "Validate WF",
+                                    "type": "web-service.http_request",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "accept": "application/json",
+                                      "action_timeout": 180,
+                                      "allow_auto_redirect": true,
+                                      "content_type": "application/json",
+                                      "continue_on_error_status_code": false,
+                                      "continue_on_failure": false,
+                                      "custom_headers": [
+                                        {
+                                          "name": "Authorization",
+                                          "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                        }
+                                      ],
+                                      "display_name": "Validate WF",
+                                      "method": "POST",
+                                      "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNLZVE5WCQQ6KSy5y4ty7GAAGsXyTdqYT.output.jsonpath_queries.WFID$/validate",
+                                      "runtime_user": {
+                                        "target_default": true
+                                      },
+                                      "skip_execution": false,
+                                      "target": {
+                                        "use_workflow_target": true
+                                      }
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_01UNM4XBY3O580mUrzYnmk1OchDkmRdJmP6",
+                                    "name": "Sleep",
+                                    "title": "Sleep",
+                                    "type": "core.sleep",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": false,
+                                      "display_name": "Sleep",
+                                      "skip_execution": false,
+                                      "sleep_interval": 3
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_01UNLZLALJXIW5tf3rbtMn176D2b6htqZpt",
+                                    "name": "HTTP Request",
+                                    "title": "RUN WF",
+                                    "type": "web-service.http_request",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "accept": "application/json",
+                                      "action_timeout": 180,
+                                      "allow_auto_redirect": true,
+                                      "content_type": "application/json",
+                                      "continue_on_error_status_code": false,
+                                      "continue_on_failure": false,
+                                      "custom_headers": [
+                                        {
+                                          "name": "Authorization",
+                                          "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                        }
+                                      ],
+                                      "display_name": "RUN WF",
+                                      "method": "POST",
+                                      "relative_url": "/be-console/api/v1.1/workflows/ui/start?workflow_id=$activity.definition_activity_01UNLZVE5WCQQ6KSy5y4ty7GAAGsXyTdqYT.output.jsonpath_queries.WFID$",
+                                      "runtime_user": {
+                                        "target_default": true
+                                      },
+                                      "skip_execution": false,
+                                      "target": {
+                                        "use_workflow_target": true
+                                      }
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_01UNLDADAOHHT3zV4wXLJCQF1z4RYYrqXGI",
+                                    "name": "Set Variables",
+                                    "title": "Set Variables",
+                                    "type": "core.set_multiple_variables",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": false,
+                                      "display_name": "Set Variables",
+                                      "skip_execution": false,
+                                      "variables_to_update": [
+                                        {
+                                          "variable_to_update": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$",
+                                          "variable_value_new": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$+1"
+                                        }
+                                      ]
+                                    },
+                                    "object_type": "definition_activity"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01UNMQTW4R4PN7QBwOoOvdGi79YYnyzFbyp",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01UNMQMBM61180A1WSNOeX6eWA07hzaX3bB",
+                "name": "Group",
+                "title": "Category-Group",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Category-Group",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01UNMQMBM9DTL4oYGhfen3hVAFAzetZ3RVT",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script For Cat",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Execute Python Script For Cat",
+                      "script": "import string    \nimport random # define the random module  \nS = 10  # number of characters in the string.  \n# call random.choices() string module to find the string in Uppercase + numeric data.  \nran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    \nprint(str(ran)) # print the random data",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMQMBMBJDV5Jko6YYaZtzvXtrD5UW4u6",
+                    "name": "HTTP Request",
+                    "title": "Create a Category",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "accept": "application/json",
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "body": "{\n  \"category_type\": \"custom\",\n  \"name\": \"Cat-$activity.definition_activity_01UNMQMBM9DTL4oYGhfen3hVAFAzetZ3RVT.output.response_body$\",\n  \"schema_id\": \"01U0BY5SSA6QG51031lDpRa9LWn5p9RGjV6\",\n  \"title\": \"Cat-$activity.definition_activity_01UNMQMBM9DTL4oYGhfen3hVAFAzetZ3RVT.output.response_body$\"\n}",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": false,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                        }
+                      ],
+                      "display_name": "Create a Category",
+                      "method": "POST",
+                      "relative_url": "/be-console/api/v1/categories",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMQMBMDV423ZKAI8eXqT4iaTHbLV9OXo",
+                    "name": "JSONPath Query",
+                    "title": "CatID",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "CatID",
+                      "input_json": "$activity.definition_activity_01UNMQMBMBJDV5Jko6YYaZtzvXtrD5UW4u6.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.id",
+                          "jsonpath_query_name": "CatID",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMQMBMELF445DndUuIe1V0hP0e5h0qNt",
+                    "name": "Group",
+                    "title": "WF- Group",
+                    "type": "logic.group",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "WF- Group",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01UNMQMBMIBZ10yg4uCziUWCWKtomLZ3QP5",
+                        "name": "While Loop",
+                        "title": "While Loop",
+                        "type": "logic.while",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "While Loop",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01UNMQMBMJ0704x8lQl5w1J5VXd671DEQzu",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$",
+                                "operator": "lte",
+                                "right_operand": 19
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01UNMQMBMKPG135tC91s8E6QWB1OzkuCbkE",
+                                "name": "Execute Python Script",
+                                "title": "Execute Python Script",
+                                "type": "python3.script",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "Execute Python Script",
+                                  "script": "import string    \nimport random # define the random module  \nS = 10  # number of characters in the string.  \n# call random.choices() string module to find the string in Uppercase + numeric data.  \nran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    \nprint(str(ran)) # print the random data",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMQMBMNMY812L3rWaWBhVqMxSmlsAsbz",
+                                "name": "HTTP Request",
+                                "title": "Create a WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"schema_id\": \"01U0BY66TZQWI6XMp8gT2C7K4lT6I3tJZsx\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"WF01-$activity.definition_activity_01UNMQMBMKPG135tC91s8E6QWB1OzkuCbkE.output.response_body$\",\n  \"title\": \"WF01-$activity.definition_activity_01UNMQMBMKPG135tC91s8E6QWB1OzkuCbkE.output.response_body$\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"Test01-$activity.definition_activity_01UNMQMBMKPG135tC91s8E6QWB1OzkuCbkE.output.response_body$\"\n  },\n  \"categories\": [\n    \"$activity.definition_activity_01UNMQMBMDV423ZKAI8eXqT4iaTHbLV9OXo.output.jsonpath_queries.CatID$\"\n  ],\n  \"variables\": null\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Create a WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMQMBMOB9X1cQcyvHjOLlmniSX4SXpq7",
+                                "name": "JSONPath Query",
+                                "title": "WFID",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "WFID",
+                                  "input_json": "$activity.definition_activity_01UNMQMBMNMY812L3rWaWBhVqMxSmlsAsbz.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$.id",
+                                      "jsonpath_query_name": "WFID",
+                                      "jsonpath_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMQMBMPLFE7SN35L6FLu796NAepQLM1B",
+                                "name": "Sleep",
+                                "title": "Sleep",
+                                "type": "core.sleep",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Sleep",
+                                  "skip_execution": false,
+                                  "sleep_interval": 1
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMQMBMSMPB2532jD3wB5SW4LjnNcwSdf",
+                                "name": "HTTP Request",
+                                "title": "Add a Action",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_01UNMQMBMOB9X1cQcyvHjOLlmniSX4SXpq7.output.jsonpath_queries.WFID$\",\n    \"schema_id\": \"01U0BY66TZQWI6XMp8gT2C7K4lT6I3tJZsx\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"id\": \"01U0BYCE57YSY7041CAXbBO2IIujHnPT1XV\",\n    \"schema_id\": \"01U0BYCE57YSY7041CAXbBO2IIujHnPT1XV\",\n    \"type\": \"core.sleep\",\n    \"base_type\": \"activity\",\n    \"name\": \"Sleep\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n      \"display_name\": \"Sleep\"\n    },\n    \"title\": \"Sleep\"\n  }\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Add a Action",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMQMBMOB9X1cQcyvHjOLlmniSX4SXpq7.output.jsonpath_queries.WFID$/actions",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMQMBMTCB01mbsyxAZqQO051rLlRflm5",
+                                "name": "JSONPath Query",
+                                "title": "ActionID",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "ActionID",
+                                  "input_json": "$activity.definition_activity_01UNMQMBMSMPB2532jD3wB5SW4LjnNcwSdf.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$.id",
+                                      "jsonpath_query_name": "ActionID",
+                                      "jsonpath_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMQMBMV7VT3ix8aMrVkdrcMSGjvXXUpB",
+                                "name": "HTTP Request",
+                                "title": "Update a Action",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"id\": \"$activity.definition_activity_01UNMQMBMTCB01mbsyxAZqQO051rLlRflm5.output.jsonpath_queries.ActionID$\",\n  \"title\": \"Sleep\",\n  \"properties\": {\n    \"continue_on_failure\": false,\n    \"display_name\": \"Sleep\",\n    \"skip_execution\": false,\n    \"sleep_interval\": 1\n  }\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Update a Action",
+                                  "method": "PUT",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMQMBMOB9X1cQcyvHjOLlmniSX4SXpq7.output.jsonpath_queries.WFID$/actions/$activity.definition_activity_01UNMQMBMTCB01mbsyxAZqQO051rLlRflm5.output.jsonpath_queries.ActionID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMQMBMYTEU0GCb1p6det48tqXOPkoJkv",
+                                "name": "HTTP Request",
+                                "title": "Validate WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Validate WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMQMBMOB9X1cQcyvHjOLlmniSX4SXpq7.output.jsonpath_queries.WFID$/validate",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMQMBMZG854zQlj6D075fKKs4KnTemNH",
+                                "name": "Sleep",
+                                "title": "Sleep",
+                                "type": "core.sleep",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Sleep",
+                                  "skip_execution": false,
+                                  "sleep_interval": 3
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMQMBN1HM14iNYXanxXodgIKwgstlbpW",
+                                "name": "HTTP Request",
+                                "title": "RUN WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "RUN WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1.1/workflows/ui/start?workflow_id=$activity.definition_activity_01UNMQMBMOB9X1cQcyvHjOLlmniSX4SXpq7.output.jsonpath_queries.WFID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMQMBN3ZBQ215aguHrhN1jqkgghKkKuF",
+                                "name": "Set Variables",
+                                "title": "Set Variables",
+                                "type": "core.set_multiple_variables",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Set Variables",
+                                  "skip_execution": false,
+                                  "variables_to_update": [
+                                    {
+                                      "variable_to_update": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$",
+                                      "variable_value_new": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$+1"
+                                    }
+                                  ]
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01UNMU6XFJH3S7BkrgKqAxT21Hoa0TQVQJu",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01UNMU6XFK6MY6LUWqIT09geNRqRIx0eLzA",
+                "name": "Group",
+                "title": "Category-Group",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Category-Group",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01UNMU6XFOB640GHqA8dY13WVddlNCF2mJN",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script For Cat",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Execute Python Script For Cat",
+                      "script": "import string    \nimport random # define the random module  \nS = 10  # number of characters in the string.  \n# call random.choices() string module to find the string in Uppercase + numeric data.  \nran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    \nprint(str(ran)) # print the random data",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMU6XFPOR45oHnhSrAgq9Bduqu1UmKIA",
+                    "name": "HTTP Request",
+                    "title": "Create a Category",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "accept": "application/json",
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "body": "{\n  \"category_type\": \"custom\",\n  \"name\": \"Cat-$activity.definition_activity_01UNMU6XFOB640GHqA8dY13WVddlNCF2mJN.output.response_body$\",\n  \"schema_id\": \"01U0BY5SSA6QG51031lDpRa9LWn5p9RGjV6\",\n  \"title\": \"Cat-$activity.definition_activity_01UNMU6XFOB640GHqA8dY13WVddlNCF2mJN.output.response_body$\"\n}",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": false,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                        }
+                      ],
+                      "display_name": "Create a Category",
+                      "method": "POST",
+                      "relative_url": "/be-console/api/v1/categories",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMU6XFSG0Q5UmOuXGSw8Dx47GQGOaZNH",
+                    "name": "JSONPath Query",
+                    "title": "CatID",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "CatID",
+                      "input_json": "$activity.definition_activity_01UNMU6XFPOR45oHnhSrAgq9Bduqu1UmKIA.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.id",
+                          "jsonpath_query_name": "CatID",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMU6XFT0D43i0q9WzUF6TaPdFXpr3UQb",
+                    "name": "Group",
+                    "title": "WF- Group",
+                    "type": "logic.group",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "WF- Group",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01UNMU6XFX5N17EFWDUAy5efxibjiyWV1n4",
+                        "name": "While Loop",
+                        "title": "While Loop",
+                        "type": "logic.while",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "While Loop",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01UNMU6XFXW8J7EP6IqKH54UNXKM8aQ4vQ8",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$",
+                                "operator": "lte",
+                                "right_operand": 19
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01UNMU6XFZ62V0E4oqwUiSaLleqxF6z0rBk",
+                                "name": "Execute Python Script",
+                                "title": "Execute Python Script",
+                                "type": "python3.script",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "Execute Python Script",
+                                  "script": "import string    \nimport random # define the random module  \nS = 10  # number of characters in the string.  \n# call random.choices() string module to find the string in Uppercase + numeric data.  \nran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    \nprint(str(ran)) # print the random data",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU6XG2UO00mBkuRIAo8N8Cpy2KOxn79",
+                                "name": "HTTP Request",
+                                "title": "Create a WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"schema_id\": \"01U0BY66TZQWI6XMp8gT2C7K4lT6I3tJZsx\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"WF01-$activity.definition_activity_01UNMU6XFZ62V0E4oqwUiSaLleqxF6z0rBk.output.response_body$\",\n  \"title\": \"WF01-$activity.definition_activity_01UNMU6XFZ62V0E4oqwUiSaLleqxF6z0rBk.output.response_body$\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"Test01-$activity.definition_activity_01UNMU6XFZ62V0E4oqwUiSaLleqxF6z0rBk.output.response_body$\"\n  },\n  \"categories\": [\n    \"$activity.definition_activity_01UNMU6XFSG0Q5UmOuXGSw8Dx47GQGOaZNH.output.jsonpath_queries.CatID$\"\n  ],\n  \"variables\": null\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Create a WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU6XG3KTH6N6fNwOiL8roqkkqaNolcw",
+                                "name": "JSONPath Query",
+                                "title": "WFID",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "WFID",
+                                  "input_json": "$activity.definition_activity_01UNMU6XG2UO00mBkuRIAo8N8Cpy2KOxn79.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$.id",
+                                      "jsonpath_query_name": "WFID",
+                                      "jsonpath_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU6XG4NPP5UAAmA70wYSf0lfZBreG4S",
+                                "name": "Sleep",
+                                "title": "Sleep",
+                                "type": "core.sleep",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Sleep",
+                                  "skip_execution": false,
+                                  "sleep_interval": 1
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU6XG8X4X7a9REPgHJZjvugl3X582PX",
+                                "name": "HTTP Request",
+                                "title": "Add a Action",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_01UNMU6XG3KTH6N6fNwOiL8roqkkqaNolcw.output.jsonpath_queries.WFID$\",\n    \"schema_id\": \"01U0BY66TZQWI6XMp8gT2C7K4lT6I3tJZsx\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"id\": \"01U0BYCE57YSY7041CAXbBO2IIujHnPT1XV\",\n    \"schema_id\": \"01U0BYCE57YSY7041CAXbBO2IIujHnPT1XV\",\n    \"type\": \"core.sleep\",\n    \"base_type\": \"activity\",\n    \"name\": \"Sleep\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n      \"display_name\": \"Sleep\"\n    },\n    \"title\": \"Sleep\"\n  }\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Add a Action",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMU6XG3KTH6N6fNwOiL8roqkkqaNolcw.output.jsonpath_queries.WFID$/actions",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU6XG9O1L5KEbp8ZX4kHc0VTodq59En",
+                                "name": "JSONPath Query",
+                                "title": "ActionID",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "ActionID",
+                                  "input_json": "$activity.definition_activity_01UNMU6XG8X4X7a9REPgHJZjvugl3X582PX.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$.id",
+                                      "jsonpath_query_name": "ActionID",
+                                      "jsonpath_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU6XGC2MA0DoP4eKeJrbERs2c9YPIoz",
+                                "name": "HTTP Request",
+                                "title": "Update a Action",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"id\": \"$activity.definition_activity_01UNMU6XG9O1L5KEbp8ZX4kHc0VTodq59En.output.jsonpath_queries.ActionID$\",\n  \"title\": \"Sleep\",\n  \"properties\": {\n    \"continue_on_failure\": false,\n    \"display_name\": \"Sleep\",\n    \"skip_execution\": false,\n    \"sleep_interval\": 1\n  }\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Update a Action",
+                                  "method": "PUT",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMU6XG3KTH6N6fNwOiL8roqkkqaNolcw.output.jsonpath_queries.WFID$/actions/$activity.definition_activity_01UNMU6XG9O1L5KEbp8ZX4kHc0VTodq59En.output.jsonpath_queries.ActionID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU6XGFRPE7by9zxHC1U5xkN3TZ5WfmP",
+                                "name": "HTTP Request",
+                                "title": "Validate WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Validate WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMU6XG3KTH6N6fNwOiL8roqkkqaNolcw.output.jsonpath_queries.WFID$/validate",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU6XGGL1I0I0HGqxShA5gvXbeZxQbBe",
+                                "name": "Sleep",
+                                "title": "Sleep",
+                                "type": "core.sleep",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Sleep",
+                                  "skip_execution": false,
+                                  "sleep_interval": 3
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU6XGJJRV2NWRQ7n7qMmL0YKZzs4D7D",
+                                "name": "HTTP Request",
+                                "title": "RUN WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "RUN WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1.1/workflows/ui/start?workflow_id=$activity.definition_activity_01UNMU6XG3KTH6N6fNwOiL8roqkkqaNolcw.output.jsonpath_queries.WFID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU6XGK66A2uRNUr2wLuPV45yeaNcUFT",
+                                "name": "Set Variables",
+                                "title": "Set Variables",
+                                "type": "core.set_multiple_variables",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Set Variables",
+                                  "skip_execution": false,
+                                  "variables_to_update": [
+                                    {
+                                      "variable_to_update": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$",
+                                      "variable_value_new": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$+1"
+                                    }
+                                  ]
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01UNMU8WXNRT93nENYkNw7enEH7JISSQkP4",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01UNMU8WXOR5427RynZngduL0SrUG7xsHjS",
+                "name": "Group",
+                "title": "Category-Group",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Category-Group",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01UNMU8WXT6U43OBXQhGtMscNGiobSlZvwN",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script For Cat",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Execute Python Script For Cat",
+                      "script": "import string    \nimport random # define the random module  \nS = 10  # number of characters in the string.  \n# call random.choices() string module to find the string in Uppercase + numeric data.  \nran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    \nprint(str(ran)) # print the random data",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMU8WXU9M12jFPGgWex1QM17Ja2mfJkz",
+                    "name": "HTTP Request",
+                    "title": "Create a Category",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "accept": "application/json",
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "body": "{\n  \"category_type\": \"custom\",\n  \"name\": \"Cat-$activity.definition_activity_01UNMU8WXT6U43OBXQhGtMscNGiobSlZvwN.output.response_body$\",\n  \"schema_id\": \"01U0BY5SSA6QG51031lDpRa9LWn5p9RGjV6\",\n  \"title\": \"Cat-$activity.definition_activity_01UNMU8WXT6U43OBXQhGtMscNGiobSlZvwN.output.response_body$\"\n}",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": false,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                        }
+                      ],
+                      "display_name": "Create a Category",
+                      "method": "POST",
+                      "relative_url": "/be-console/api/v1/categories",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMU8WXXFI93BKqdSY6ZBFWQzmTZk63Vt",
+                    "name": "JSONPath Query",
+                    "title": "CatID",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "CatID",
+                      "input_json": "$activity.definition_activity_01UNMU8WXU9M12jFPGgWex1QM17Ja2mfJkz.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.id",
+                          "jsonpath_query_name": "CatID",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMU8WXY6NG6vR7PqAaEJxrOh1s3Gb5Gf",
+                    "name": "Group",
+                    "title": "WF- Group",
+                    "type": "logic.group",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "WF- Group",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01UNMU8WY1ZHJ6k5Pk9th1vG5yaTBeZN3MI",
+                        "name": "While Loop",
+                        "title": "While Loop",
+                        "type": "logic.while",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "While Loop",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01UNMU8WY2Q3W6agoxxEcT6I3cmiPXGRsgB",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$",
+                                "operator": "lte",
+                                "right_operand": 19
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01UNMU8WY3XHZ6d07TpNsaiAvgWD7VKm3gP",
+                                "name": "Execute Python Script",
+                                "title": "Execute Python Script",
+                                "type": "python3.script",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "Execute Python Script",
+                                  "script": "import string    \nimport random # define the random module  \nS = 10  # number of characters in the string.  \n# call random.choices() string module to find the string in Uppercase + numeric data.  \nran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    \nprint(str(ran)) # print the random data",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU8WY85KL59TsGbWl9ttWetqs53XQHH",
+                                "name": "HTTP Request",
+                                "title": "Create a WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"schema_id\": \"01U0BY66TZQWI6XMp8gT2C7K4lT6I3tJZsx\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"WF01-$activity.definition_activity_01UNMU8WY3XHZ6d07TpNsaiAvgWD7VKm3gP.output.response_body$\",\n  \"title\": \"WF01-$activity.definition_activity_01UNMU8WY3XHZ6d07TpNsaiAvgWD7VKm3gP.output.response_body$\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"Test01-$activity.definition_activity_01UNMU8WY3XHZ6d07TpNsaiAvgWD7VKm3gP.output.response_body$\"\n  },\n  \"categories\": [\n    \"$activity.definition_activity_01UNMU8WXXFI93BKqdSY6ZBFWQzmTZk63Vt.output.jsonpath_queries.CatID$\"\n  ],\n  \"variables\": null\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Create a WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU8WY93XR2QoFYgbb2bsDX5UWUO1a5j",
+                                "name": "JSONPath Query",
+                                "title": "WFID",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "WFID",
+                                  "input_json": "$activity.definition_activity_01UNMU8WY85KL59TsGbWl9ttWetqs53XQHH.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$.id",
+                                      "jsonpath_query_name": "WFID",
+                                      "jsonpath_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU8WYAJJW75M7VvoRs4uwJjfNAIFPIr",
+                                "name": "Sleep",
+                                "title": "Sleep",
+                                "type": "core.sleep",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Sleep",
+                                  "skip_execution": false,
+                                  "sleep_interval": 1
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU8WYECC51uUaSKIfQI4PQZJSmKYp18",
+                                "name": "HTTP Request",
+                                "title": "Add a Action",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_01UNMU8WY93XR2QoFYgbb2bsDX5UWUO1a5j.output.jsonpath_queries.WFID$\",\n    \"schema_id\": \"01U0BY66TZQWI6XMp8gT2C7K4lT6I3tJZsx\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"id\": \"01U0BYCE57YSY7041CAXbBO2IIujHnPT1XV\",\n    \"schema_id\": \"01U0BYCE57YSY7041CAXbBO2IIujHnPT1XV\",\n    \"type\": \"core.sleep\",\n    \"base_type\": \"activity\",\n    \"name\": \"Sleep\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n      \"display_name\": \"Sleep\"\n    },\n    \"title\": \"Sleep\"\n  }\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Add a Action",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMU8WY93XR2QoFYgbb2bsDX5UWUO1a5j.output.jsonpath_queries.WFID$/actions",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU8WYFMXE5tJVdU0IcFz7P5JewD6WE9",
+                                "name": "JSONPath Query",
+                                "title": "ActionID",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "ActionID",
+                                  "input_json": "$activity.definition_activity_01UNMU8WYECC51uUaSKIfQI4PQZJSmKYp18.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$.id",
+                                      "jsonpath_query_name": "ActionID",
+                                      "jsonpath_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU8WYHUTW5dVkiu0uuj2t8HcKHyeRkO",
+                                "name": "HTTP Request",
+                                "title": "Update a Action",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"id\": \"$activity.definition_activity_01UNMU8WYFMXE5tJVdU0IcFz7P5JewD6WE9.output.jsonpath_queries.ActionID$\",\n  \"title\": \"Sleep\",\n  \"properties\": {\n    \"continue_on_failure\": false,\n    \"display_name\": \"Sleep\",\n    \"skip_execution\": false,\n    \"sleep_interval\": 1\n  }\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Update a Action",
+                                  "method": "PUT",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMU8WY93XR2QoFYgbb2bsDX5UWUO1a5j.output.jsonpath_queries.WFID$/actions/$activity.definition_activity_01UNMU8WYFMXE5tJVdU0IcFz7P5JewD6WE9.output.jsonpath_queries.ActionID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU8WYLL4359WxiIDUYyDdDBLvppl9uw",
+                                "name": "HTTP Request",
+                                "title": "Validate WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Validate WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMU8WY93XR2QoFYgbb2bsDX5UWUO1a5j.output.jsonpath_queries.WFID$/validate",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU8WYMJ9B6qPVKIsdeZekrIHeWE5YRU",
+                                "name": "Sleep",
+                                "title": "Sleep",
+                                "type": "core.sleep",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Sleep",
+                                  "skip_execution": false,
+                                  "sleep_interval": 3
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU8WYQ1JJ0U7sBAF46lSVpx07Uy4hHM",
+                                "name": "HTTP Request",
+                                "title": "RUN WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "RUN WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1.1/workflows/ui/start?workflow_id=$activity.definition_activity_01UNMU8WY93XR2QoFYgbb2bsDX5UWUO1a5j.output.jsonpath_queries.WFID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMU8WYQOSG3IsQVmWQhFUGUKbGQkIYQR",
+                                "name": "Set Variables",
+                                "title": "Set Variables",
+                                "type": "core.set_multiple_variables",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Set Variables",
+                                  "skip_execution": false,
+                                  "variables_to_update": [
+                                    {
+                                      "variable_to_update": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$",
+                                      "variable_value_new": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$+1"
+                                    }
+                                  ]
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01UNMUAQGY2ZI0jNa8I6ogM0VT2kNmTvnpx",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01UNMUAQGZ3DF4pQyJf2FYVlao2u7Uknp2R",
+                "name": "Group",
+                "title": "Category-Group",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Category-Group",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01UNMUAQH59AD0ADZ0Z4bU1sr3aPjLG0dAm",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script For Cat",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Execute Python Script For Cat",
+                      "script": "import string    \nimport random # define the random module  \nS = 10  # number of characters in the string.  \n# call random.choices() string module to find the string in Uppercase + numeric data.  \nran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    \nprint(str(ran)) # print the random data",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMUAQH6MB57EQgxrqGGHHeLHXXuy7doo",
+                    "name": "HTTP Request",
+                    "title": "Create a Category",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "accept": "application/json",
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "body": "{\n  \"category_type\": \"custom\",\n  \"name\": \"Cat-$activity.definition_activity_01UNMUAQH59AD0ADZ0Z4bU1sr3aPjLG0dAm.output.response_body$\",\n  \"schema_id\": \"01U0BY5SSA6QG51031lDpRa9LWn5p9RGjV6\",\n  \"title\": \"Cat-$activity.definition_activity_01UNMUAQH59AD0ADZ0Z4bU1sr3aPjLG0dAm.output.response_body$\"\n}",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": false,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                        }
+                      ],
+                      "display_name": "Create a Category",
+                      "method": "POST",
+                      "relative_url": "/be-console/api/v1/categories",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMUAQHC4QO65hP0t301FxtrVzlJmPzfi",
+                    "name": "JSONPath Query",
+                    "title": "CatID",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "CatID",
+                      "input_json": "$activity.definition_activity_01UNMUAQH6MB57EQgxrqGGHHeLHXXuy7doo.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.id",
+                          "jsonpath_query_name": "CatID",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01UNMUAQHCP4Q1s2FmNu1gM8rctZ8SzOTAj",
+                    "name": "Group",
+                    "title": "WF- Group",
+                    "type": "logic.group",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "WF- Group",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01UNMUAQHGPWX6nBwXOUqbgVWqtBrbTyq0L",
+                        "name": "While Loop",
+                        "title": "While Loop",
+                        "type": "logic.while",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "While Loop",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_01UNMUAQHH6GS7DPY8uwuS9he2D41MhcgyE",
+                            "name": "Condition Branch",
+                            "title": "Condition Branch",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$",
+                                "operator": "lte",
+                                "right_operand": 19
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Condition Branch",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01UNMUAQHIA4I11ZrjJAPryOzOmzQeVVvEG",
+                                "name": "Execute Python Script",
+                                "title": "Execute Python Script",
+                                "type": "python3.script",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "Execute Python Script",
+                                  "script": "import string    \nimport random # define the random module  \nS = 10  # number of characters in the string.  \n# call random.choices() string module to find the string in Uppercase + numeric data.  \nran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))    \nprint(str(ran)) # print the random data",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMUAQHMJYQ332fKvt6gyPgFX5vM66tW7",
+                                "name": "HTTP Request",
+                                "title": "Create a WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"schema_id\": \"01U0BY66TZQWI6XMp8gT2C7K4lT6I3tJZsx\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"WF01-$activity.definition_activity_01UNMUAQHIA4I11ZrjJAPryOzOmzQeVVvEG.output.response_body$\",\n  \"title\": \"WF01-$activity.definition_activity_01UNMUAQHIA4I11ZrjJAPryOzOmzQeVVvEG.output.response_body$\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"Test01-$activity.definition_activity_01UNMUAQHIA4I11ZrjJAPryOzOmzQeVVvEG.output.response_body$\"\n  },\n  \"categories\": [\n    \"$activity.definition_activity_01UNMUAQHC4QO65hP0t301FxtrVzlJmPzfi.output.jsonpath_queries.CatID$\"\n  ],\n  \"variables\": null\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Create a WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMUAQHNACZ1uzLWn1KoFWND7G1dfkY0w",
+                                "name": "JSONPath Query",
+                                "title": "WFID",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "WFID",
+                                  "input_json": "$activity.definition_activity_01UNMUAQHMJYQ332fKvt6gyPgFX5vM66tW7.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$.id",
+                                      "jsonpath_query_name": "WFID",
+                                      "jsonpath_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMUAQHO5KI3fuyCtj3YsrzNCxhCVfS2m",
+                                "name": "Sleep",
+                                "title": "Sleep",
+                                "type": "core.sleep",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Sleep",
+                                  "skip_execution": false,
+                                  "sleep_interval": 1
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMUAQHSWDG1Ed5bQSZSqHlTzqC9C1HvL",
+                                "name": "HTTP Request",
+                                "title": "Add a Action",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_01UNMUAQHNACZ1uzLWn1KoFWND7G1dfkY0w.output.jsonpath_queries.WFID$\",\n    \"schema_id\": \"01U0BY66TZQWI6XMp8gT2C7K4lT6I3tJZsx\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"id\": \"01U0BYCE57YSY7041CAXbBO2IIujHnPT1XV\",\n    \"schema_id\": \"01U0BYCE57YSY7041CAXbBO2IIujHnPT1XV\",\n    \"type\": \"core.sleep\",\n    \"base_type\": \"activity\",\n    \"name\": \"Sleep\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n      \"display_name\": \"Sleep\"\n    },\n    \"title\": \"Sleep\"\n  }\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Add a Action",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMUAQHNACZ1uzLWn1KoFWND7G1dfkY0w.output.jsonpath_queries.WFID$/actions",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMUAQHTYL47FsDQkQP0YkoGiA2pujffD",
+                                "name": "JSONPath Query",
+                                "title": "ActionID",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "ActionID",
+                                  "input_json": "$activity.definition_activity_01UNMUAQHSWDG1Ed5bQSZSqHlTzqC9C1HvL.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$.id",
+                                      "jsonpath_query_name": "ActionID",
+                                      "jsonpath_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMUAQHVI184jXEpJtC0Ks2V8gKamwPwJ",
+                                "name": "HTTP Request",
+                                "title": "Update a Action",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "body": "{\n  \"id\": \"$activity.definition_activity_01UNMUAQHTYL47FsDQkQP0YkoGiA2pujffD.output.jsonpath_queries.ActionID$\",\n  \"title\": \"Sleep\",\n  \"properties\": {\n    \"continue_on_failure\": false,\n    \"display_name\": \"Sleep\",\n    \"skip_execution\": false,\n    \"sleep_interval\": 1\n  }\n}",
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Update a Action",
+                                  "method": "PUT",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMUAQHNACZ1uzLWn1KoFWND7G1dfkY0w.output.jsonpath_queries.WFID$/actions/$activity.definition_activity_01UNMUAQHTYL47FsDQkQP0YkoGiA2pujffD.output.jsonpath_queries.ActionID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMUAQHZH1S0jAQAlQGZw2oAwuV8xNjcq",
+                                "name": "HTTP Request",
+                                "title": "Validate WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "Validate WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01UNMUAQHNACZ1uzLWn1KoFWND7G1dfkY0w.output.jsonpath_queries.WFID$/validate",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMUAQHZXKJ7WOdTtychJr7BbvNvyaNnh",
+                                "name": "Sleep",
+                                "title": "Sleep",
+                                "type": "core.sleep",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Sleep",
+                                  "skip_execution": false,
+                                  "sleep_interval": 3
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMUAQI1A9F5vZcGRYQuODMcB7yANaqb5",
+                                "name": "HTTP Request",
+                                "title": "RUN WF",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "accept": "application/json",
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": false,
+                                  "custom_headers": [
+                                    {
+                                      "name": "Authorization",
+                                      "value": "Bearer $workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.input.variable_workflow_01UNLTXFWH8RQ3dOwuTMW78DJXSJbn2mQO5$"
+                                    }
+                                  ],
+                                  "display_name": "RUN WF",
+                                  "method": "POST",
+                                  "relative_url": "/be-console/api/v1.1/workflows/ui/start?workflow_id=$activity.definition_activity_01UNMUAQHNACZ1uzLWn1KoFWND7G1dfkY0w.output.jsonpath_queries.WFID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01UNMUAQI3LQV1VDhMHRD8sCAa325pDektx",
+                                "name": "Set Variables",
+                                "title": "Set Variables",
+                                "type": "core.set_multiple_variables",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Set Variables",
+                                  "skip_execution": false,
+                                  "variables_to_update": [
+                                    {
+                                      "variable_to_update": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$",
+                                      "variable_value_new": "$workflow.definition_workflow_01UNLC10IE4630DKf8yqZAmN1tPPiLL3QGh.local.variable_workflow_01UNLCHDYRIZV5zCnhxVxObpi1oXFY2zwTl$+1"
+                                    }
+                                  ]
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_01UNMA2NLDBPA0WZPHuSwOIgzHNRf6RZSi9"
+    ]
+  },
+  "categories": {
+    "category_01UNMA2NLDBPA0WZPHuSwOIgzHNRf6RZSi9": {
+      "unique_name": "category_01UNMA2NLDBPA0WZPHuSwOIgzHNRf6RZSi9",
+      "name": "SpyGlass_Automation",
+      "title": "SpyGlass_Automation",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  }
+}
