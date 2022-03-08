@@ -1,0 +1,82 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01VE07H5K0Z3B1Aqq0iL23Y0YhRrt3ksYCs",
+    "name": "Time_Difference_WF",
+    "title": "Time_Difference_WF",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.date",
+        "properties": {
+          "value": "2022-03-04T09:05:00.862+00:00",
+          "scope": "input",
+          "name": "started_on",
+          "type": "datatype.date",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01VE0JWSLYUT01UX8mgJASAAo8fruJ01eUE",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.date",
+        "properties": {
+          "value": "2022-03-04T09:05:01.916+00:00",
+          "scope": "input",
+          "name": "ended_on",
+          "type": "datatype.date",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01VE0JHH6O6Z50lVvQy9LEREbSbIjYoe1s6",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Time_Difference_WF",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01VE07L307YIG3pNkGkiJyqcN5etLnES7zT",
+        "name": "Calculate Date Time Difference",
+        "title": "Calculate Date Time Difference",
+        "type": "core.calculate_date_time_difference",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Calculate Date Time Difference",
+          "original_date": "$workflow.definition_workflow_01VE07H5K0Z3B1Aqq0iL23Y0YhRrt3ksYCs.input.variable_workflow_01VE0JHH6O6Z50lVvQy9LEREbSbIjYoe1s6$",
+          "skip_execution": false,
+          "subtract_date": "$workflow.definition_workflow_01VE07H5K0Z3B1Aqq0iL23Y0YhRrt3ksYCs.input.variable_workflow_01VE0JWSLYUT01UX8mgJASAAo8fruJ01eUE$"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01VE0J59SYSJT0roWvSA2srCuqG67IA183m"
+    ]
+  },
+  "categories": {
+    "category_01VE0J59SYSJT0roWvSA2srCuqG67IA183m": {
+      "unique_name": "category_01VE0J59SYSJT0roWvSA2srCuqG67IA183m",
+      "name": "time_category",
+      "title": "time_category",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  }
+}
