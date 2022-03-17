@@ -1,0 +1,199 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01VOZJVFYXTUT2vZ8zRtIUAltpe6NvIiqxf",
+    "name": "ParentWF_Having_Atomic_Reqres",
+    "title": "ParentWF_Having_Atomic_Reqres",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Post_output",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01VOZSRVDW11G1Mw5j9eJuzwHLTPjmjblIW",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "/api/users",
+          "scope": "input",
+          "name": "URL_For_GET_Delete",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01VOZOFTM3CJX2nxQi4kRVjTxHtyjYEmMgV",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\n    \"name\": \"morpheus\",\n    \"job\": \"leader\",\n    \"id\": \"231\",\n    \"createdAt\": \"2022-03-17T06:45:43.520Z\"\n}",
+          "scope": "input",
+          "name": "Paylaod",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01VOZKZ6SAG8U3AhmP4LTHbfBNjA4BVhnO7",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "DEL_output",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01VOZT1HEY40E0pOBrpDt8kxM0mbQtdZPLO",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "/api/users",
+          "scope": "input",
+          "name": "URL",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01VOZKQZ9B7SR3Du1B3M9cK1XcJQ0kNy7CF",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "GET_output",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01VOZSWF2F47A2UzDk9R4wGQuh20LDcvcXK",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "ParentWF_Having_Atomic_Reqres",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_01VP02HMALAS83Yh1QYnvdkOKp7AF3hR3Za",
+          "run_on_all_targets": true,
+          "selected_target_types": [
+            "web-service.endpoint"
+          ]
+        }
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01VOZK9KPKA4H3QDtqLzHMV5WpGBrJLOXBb",
+        "name": "Atomic-Reqres",
+        "title": "Atomic-Reqres",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Atomic-Reqres",
+          "input": {
+            "variable_workflow_01VOZCVKR3C9K0cuTrCXktlBMPKoLDq9Q9V": "$workflow.definition_workflow_01VOZJVFYXTUT2vZ8zRtIUAltpe6NvIiqxf.input.variable_workflow_01VOZKQZ9B7SR3Du1B3M9cK1XcJQ0kNy7CF$",
+            "variable_workflow_01VOZCZK63PMT2UmlPTQAljlgCvGGo6P76c": "$workflow.definition_workflow_01VOZJVFYXTUT2vZ8zRtIUAltpe6NvIiqxf.input.variable_workflow_01VOZKZ6SAG8U3AhmP4LTHbfBNjA4BVhnO7$",
+            "variable_workflow_01VOZNLAQMVJW2LNyrd9h0r8ZitGuU9ga4E": "$workflow.definition_workflow_01VOZJVFYXTUT2vZ8zRtIUAltpe6NvIiqxf.input.variable_workflow_01VOZOFTM3CJX2nxQi4kRVjTxHtyjYEmMgV$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target_group": true
+          },
+          "workflow_id": "definition_workflow_01VOZBW0GTY6A2OrYef8gOeCEymj46Agu5t",
+          "workflow_name": "Atomic-Reqres"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01VOZSG662D0C5PtLl0TtZSUVhBUZBbZ6ps",
+        "name": "Set Variables",
+        "title": "Set Variables",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01VOZJVFYXTUT2vZ8zRtIUAltpe6NvIiqxf.output.variable_workflow_01VOZSRVDW11G1Mw5j9eJuzwHLTPjmjblIW$",
+              "variable_value_new": "$activity.definition_activity_01VOZK9KPKA4H3QDtqLzHMV5WpGBrJLOXBb.output.variable_workflow_01VOZQ9M422FW2N49AJgFzgxiCMHBYm9m8m$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_01VOZJVFYXTUT2vZ8zRtIUAltpe6NvIiqxf.output.variable_workflow_01VOZSWF2F47A2UzDk9R4wGQuh20LDcvcXK$",
+              "variable_value_new": "$activity.definition_activity_01VOZK9KPKA4H3QDtqLzHMV5WpGBrJLOXBb.output.variable_workflow_01VOZQF58F4840uVT689XBTi2kTb55kSPj8$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_01VOZJVFYXTUT2vZ8zRtIUAltpe6NvIiqxf.output.variable_workflow_01VOZT1HEY40E0pOBrpDt8kxM0mbQtdZPLO$",
+              "variable_value_new": "$activity.definition_activity_01VOZK9KPKA4H3QDtqLzHMV5WpGBrJLOXBb.output.variable_workflow_01VOZQK0WI5JH1pEEMlIR1dJC2oWRR5LRxy$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "target_groups": {
+    "target_group_01VP02HMALAS83Yh1QYnvdkOKp7AF3hR3Za": {
+      "unique_name": "target_group_01VP02HMALAS83Yh1QYnvdkOKp7AF3hR3Za",
+      "name": "Target_Group_Vinay",
+      "title": "Target_Group_Vinay",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": false,
+          "criteria": [
+            {
+              "operator": "eq",
+              "left_operand": "$input.host$",
+              "right_operand": "reqres.in"
+            }
+          ]
+        }
+      ],
+      "object_type": "target_group"
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_01VOZBW0GTY6A2OrYef8gOeCEymj46Agu5t"
+  ],
+  "dependent_workflows": [
+    "definition_workflow_01VOZBW0GTY6A2OrYef8gOeCEymj46Agu5t"
+  ]
+}
