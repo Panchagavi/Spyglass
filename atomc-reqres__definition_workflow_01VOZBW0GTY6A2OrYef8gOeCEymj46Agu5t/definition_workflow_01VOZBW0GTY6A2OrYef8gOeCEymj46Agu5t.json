@@ -10,13 +10,13 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "input",
-          "name": "Request_URL",
+          "scope": "output",
+          "name": "Read_Output",
           "type": "datatype.string",
-          "is_required": true,
+          "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01VOZCVKR3C9K0cuTrCXktlBMPKoLDq9Q9V",
+        "unique_name": "variable_workflow_01VOZQF58F4840uVT689XBTi2kTb55kSPj8",
         "object_type": "variable_workflow"
       },
       {
@@ -37,12 +37,12 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "URL_GET_Delete",
+          "name": "Request_URL",
           "type": "datatype.string",
           "is_required": true,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01VOZNLAQMVJW2LNyrd9h0r8ZitGuU9ga4E",
+        "unique_name": "variable_workflow_01VOZCVKR3C9K0cuTrCXktlBMPKoLDq9Q9V",
         "object_type": "variable_workflow"
       },
       {
@@ -62,13 +62,13 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "output",
-          "name": "Read_Output",
+          "scope": "input",
+          "name": "URL_GET_Delete",
           "type": "datatype.string",
-          "is_required": false,
+          "is_required": true,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01VOZQF58F4840uVT689XBTi2kTb55kSPj8",
+        "unique_name": "variable_workflow_01VOZNLAQMVJW2LNyrd9h0r8ZitGuU9ga4E",
         "object_type": "variable_workflow"
       },
       {
@@ -98,7 +98,8 @@
       },
       "target": {
         "target_type": "web-service.endpoint",
-        "specify_on_workflow_start": true
+        "target_id": "definition_target_01VOZMNOH5MZ16HMVr5GJZIksz2P5isB9kB",
+        "execute_on_workflow_target": true
       }
     },
     "object_type": "definition_workflow",
@@ -462,5 +463,23 @@
     "categories": [
       "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
     ]
+  },
+  "targets": {
+    "definition_target_01VOZMNOH5MZ16HMVr5GJZIksz2P5isB9kB": {
+      "unique_name": "definition_target_01VOZMNOH5MZ16HMVr5GJZIksz2P5isB9kB",
+      "name": "reqres-vinay",
+      "title": "reqres-vinay",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "reqres-vinay",
+        "host": "reqres.in",
+        "ignore_proxy": true,
+        "no_runtime_user": true,
+        "protocol": "https"
+      }
+    }
   }
 }
