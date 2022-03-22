@@ -1,0 +1,92 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01VTEXEGX7K3O72PsYCAEb8QfQaqFFgWFBd",
+    "name": "NEXTG-20751",
+    "title": "NEXTG-20751",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Input_Token",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01VTF3ZZ5WRJ72btMJDJb0tg7HtOqCVrqJ1",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "NEXTG-20751",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01EOZMYH25RSG1rDfjUIjQwHEPioIElydk9",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01VTEY10T9VHW4zXcWNRhPGFLBwb4N4Ho4E",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Execute Python Script",
+          "script": "import random\nimport string\n\nletters = string.ascii_letters\nprint ( ''.join(random.choice(letters) for i in range(10)) )",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01VTEXIK8CD6I4RFWcjfWvFIHTDB3sJJeA8",
+        "name": "HTTP Request",
+        "title": "HTTP Request",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n\"type\": \"generic.workflow\",\n\"base_type\": \"workflow\",\n\"name\": \"WF01-$activity.definition_activity_01VTEY10T9VHW4zXcWNRhPGFLBwb4N4Ho4E.output.response_body$\",\n\"title\": \"WF01-$activity.definition_activity_01VTEY10T9VHW4zXcWNRhPGFLBwb4N4Ho4E.output.response_body$\",\n\"valid\": true,\n\"properties\": {\n\"atomic\":\n\n{ \"is_atomic\": false }\n,\n\"delete_workflow_instance\": false,\n\"runtime_user\":\n\n{ \"target_default\": true }\n,\n\"target\":\n\n{ \"no_target\": true }\n,\n\"display_name\": \"Test01-$activity.definition_activity_01VTEY10T9VHW4zXcWNRhPGFLBwb4N4Ho4E.output.response_body$\"\n},\n\"variables\": null\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $workflow.definition_workflow_01VTEXEGX7K3O72PsYCAEb8QfQaqFFgWFBd.input.variable_workflow_01VTF3ZZ5WRJ72btMJDJb0tg7HtOqCVrqJ1$"
+            }
+          ],
+          "display_name": "HTTP Request",
+          "method": "POST",
+          "relative_url": "be-console/api/v1/workflows",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
