@@ -1,0 +1,398 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01W8DLPPURFA80oGr0HrjtQ9S9XiSq3UlSy",
+    "name": "Copy(1)-Create_Failed_Instances",
+    "title": "Copy(1)-Create_Failed_Instances",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "Local_Loop",
+          "type": "datatype.integer",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01W8DLPQK4PKI5fFPpdfp8XD6ritAp19oSV",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Copy(1)-Create_Failed_Instances",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01W8DLQA7QVE93JNn2XQbkS0ekPCU32iidW",
+        "name": "While Loop",
+        "title": "While Loop",
+        "type": "logic.while",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "While Loop",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01W8DLQBOGKJ77XRtNtxZyy53tiKTNjXKyg",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01W8DLPPURFA80oGr0HrjtQ9S9XiSq3UlSy.local.variable_workflow_01W8DLPQK4PKI5fFPpdfp8XD6ritAp19oSV$",
+                "operator": "lte",
+                "right_operand": 500
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01W8DLQDKW0GV5QJXZinSwMNQyveAYuA6IF",
+                "name": "Failed01",
+                "title": "Failed01",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Failed01",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "no_target": true
+                  },
+                  "workflow_id": "definition_workflow_01W8DLPSTTYR47YtpGx6vKO0IQ19RZo3yf0",
+                  "workflow_name": "Copy(1)-Failed01"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01W8DLQF5S0010JVWAAh7jyTruqwO7Y7JvE",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01W8DLPPURFA80oGr0HrjtQ9S9XiSq3UlSy.local.variable_workflow_01W8DLPQK4PKI5fFPpdfp8XD6ritAp19oSV$",
+                      "variable_value_new": "$workflow.definition_workflow_01W8DLPPURFA80oGr0HrjtQ9S9XiSq3UlSy.local.variable_workflow_01W8DLPQK4PKI5fFPpdfp8XD6ritAp19oSV$+1"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerevent_01W8DLQ5IZBHV6xKepnjdNnpAmNSURf82E2": {
+      "workflow_id": "definition_workflow_01W8DLPPURFA80oGr0HrjtQ9S9XiSq3UlSy",
+      "name": "event",
+      "title": "",
+      "lowercase_name": "event.event",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_webhook_01W613WTTYZW30ck7r3JNe926tzOllcH7MT",
+      "version": "",
+      "disabled": false,
+      "unique_name": "triggerevent_01W8DLQ5IZBHV6xKepnjdNnpAmNSURf82E2",
+      "object_type": "triggerevent"
+    },
+    "triggerevent_01W8DLQ6I4XSO45fwOLBJ7xlYQELFZ198hB": {
+      "workflow_id": "definition_workflow_01W8DLPPURFA80oGr0HrjtQ9S9XiSq3UlSy",
+      "name": "event_xml",
+      "title": "",
+      "lowercase_name": "event.event_xml",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_webhook_01W61B6NX4E4R4kVJx97xK5AsIIAjO4kGIW",
+      "version": "",
+      "disabled": false,
+      "unique_name": "triggerevent_01W8DLQ6I4XSO45fwOLBJ7xlYQELFZ198hB",
+      "object_type": "triggerevent"
+    },
+    "triggerevent_01W8DLQ7F6PHM2WtlXc5QF4YBz3yGJ2LPK7": {
+      "workflow_id": "definition_workflow_01W8DLPPURFA80oGr0HrjtQ9S9XiSq3UlSy",
+      "name": "event_utf8",
+      "title": "",
+      "lowercase_name": "event.event_utf8",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_webhook_01W61BTJABPQ33Ny34FTgBflowdqWSKei4C",
+      "version": "",
+      "disabled": false,
+      "unique_name": "triggerevent_01W8DLQ7F6PHM2WtlXc5QF4YBz3yGJ2LPK7",
+      "object_type": "triggerevent"
+    },
+    "triggerevent_01W8DLQ8CCQU33LcJOcar7xM0iUy0710ran": {
+      "workflow_id": "definition_workflow_01W8DLPPURFA80oGr0HrjtQ9S9XiSq3UlSy",
+      "name": "event_urlencoded",
+      "title": "",
+      "lowercase_name": "event.event_urlencoded",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_webhook_01W61BE7P7XJ65FJyQX9b7uOWG0QnmildhM",
+      "version": "",
+      "disabled": false,
+      "unique_name": "triggerevent_01W8DLQ8CCQU33LcJOcar7xM0iUy0710ran",
+      "object_type": "triggerevent"
+    },
+    "triggerschedule_01W8DLQ991SRW5e9VtwCjD1K2Ah4tSvc085": {
+      "workflow_id": "definition_workflow_01W8DLPPURFA80oGr0HrjtQ9S9XiSq3UlSy",
+      "name": "trigger",
+      "title": "",
+      "lowercase_name": "schedule.trigger",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01VV4IQE3DX057CVjRHUfTcDK95KlTI4XjT",
+      "version": "",
+      "disabled": false,
+      "unique_name": "triggerschedule_01W8DLQ991SRW5e9VtwCjD1K2Ah4tSvc085",
+      "object_type": "triggerschedule"
+    }
+  },
+  "events": {
+    "event_webhook_01W613WTTYZW30ck7r3JNe926tzOllcH7MT": {
+      "name": "Vin_WebhookEvent_Json",
+      "title": "Vin_WebhookEvent_Json",
+      "type": "webhook.event",
+      "base_type": "event",
+      "object_type": "event_webhook",
+      "target_id": "",
+      "webhook_id": "webhook_01W612PFAOB647JQ3JZqZfs9eNvMcHtiABk",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "Vin_WebhookEvent",
+        "title": "Vin_WebhookEvent_Json",
+        "webhook_id": "webhook_01W612PFAOB647JQ3JZqZfs9eNvMcHtiABk"
+      },
+      "unique_name": "event_webhook_01W613WTTYZW30ck7r3JNe926tzOllcH7MT"
+    },
+    "event_webhook_01W61B6NX4E4R4kVJx97xK5AsIIAjO4kGIW": {
+      "name": "vin_webhook_Event_XML",
+      "title": "vin_webhook_Event_XML",
+      "type": "webhook.event",
+      "base_type": "event",
+      "object_type": "event_webhook",
+      "target_id": "",
+      "webhook_id": "webhook_01W615EEPOKHN3cXOLGjdKHQd58o59pIuXu",
+      "version": "1.0.0",
+      "properties": {
+        "title": "vin_webhook_Event_XML",
+        "webhook_id": "webhook_01W615EEPOKHN3cXOLGjdKHQd58o59pIuXu"
+      },
+      "unique_name": "event_webhook_01W61B6NX4E4R4kVJx97xK5AsIIAjO4kGIW"
+    },
+    "event_webhook_01W61BE7P7XJ65FJyQX9b7uOWG0QnmildhM": {
+      "name": "vin_webhook_Event_URLENCODED",
+      "title": "vin_webhook_Event_URLENCODED",
+      "type": "webhook.event",
+      "base_type": "event",
+      "object_type": "event_webhook",
+      "target_id": "",
+      "webhook_id": "webhook_01W615WBIW7GH55ohDc3RQ45ijzHnfLRXsh",
+      "version": "1.0.0",
+      "properties": {
+        "title": "vin_webhook_Event_URLENCODED",
+        "webhook_id": "webhook_01W615WBIW7GH55ohDc3RQ45ijzHnfLRXsh"
+      },
+      "unique_name": "event_webhook_01W61BE7P7XJ65FJyQX9b7uOWG0QnmildhM"
+    },
+    "event_webhook_01W61BTJABPQ33Ny34FTgBflowdqWSKei4C": {
+      "name": "vin_webhook_Event_UTF8",
+      "title": "vin_webhook_Event_UTF8",
+      "type": "webhook.event",
+      "base_type": "event",
+      "object_type": "event_webhook",
+      "target_id": "",
+      "webhook_id": "webhook_01W615NU2UVFC29Le2yfdVMW3vkHG3tdf4Z",
+      "version": "1.0.0",
+      "properties": {
+        "title": "vin_webhook_Event_UTF8",
+        "webhook_id": "webhook_01W615NU2UVFC29Le2yfdVMW3vkHG3tdf4Z"
+      },
+      "unique_name": "event_webhook_01W61BTJABPQ33Ny34FTgBflowdqWSKei4C"
+    }
+  },
+  "schedules": {
+    "schedule_01VV4IQE3DX057CVjRHUfTcDK95KlTI4XjT": {
+      "unique_name": "schedule_01VV4IQE3DX057CVjRHUfTcDK95KlTI4XjT",
+      "name": "New_Vinay_RecurringSchedule",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_01VJ4VH317T8X500Zpv9BEUZy8UZDwJEdfR",
+        "timezone": "Asia/Kolkata",
+        "starttime": "08:47",
+        "interval_hours": 0,
+        "interval_minutes": 1,
+        "number_of_times": 100,
+        "display_name": "New_Vinay_RecurringSchedule",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "calendars": {
+    "calendar_recurring_01VJ4VH317T8X500Zpv9BEUZy8UZDwJEdfR": {
+      "unique_name": "calendar_recurring_01VJ4VH317T8X500Zpv9BEUZy8UZDwJEdfR",
+      "name": "Recurring_Calender_Vinay",
+      "title": "Recurring_Calender_Vinay",
+      "base_type": "calendar",
+      "type": "calendar.recurring",
+      "properties": {
+        "date_range": {
+          "end_date": "2022-04-30",
+          "start_date": "2022-03-10"
+        },
+        "repeats": {
+          "every": 1,
+          "on": {
+            "day": "none",
+            "day_num": 0,
+            "day_of": "none"
+          },
+          "period": "daily"
+        }
+      },
+      "version": "1.0.0",
+      "object_type": "calendar_recurring"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01W8DLPSTTYR47YtpGx6vKO0IQ19RZo3yf0",
+        "name": "Copy(1)-Failed01",
+        "title": "Copy(1)-Failed01",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "Copy(1)-Failed01",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01W8DLPWQV7RK4CysjciYSi2NLnNRZm4vzc",
+            "name": "Completed",
+            "title": "Completed",
+            "type": "logic.completed",
+            "base_type": "activity",
+            "properties": {
+              "completion_type": "failed-completed",
+              "continue_on_failure": false,
+              "display_name": "Completed",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ],
+  "webhooks": {
+    "webhook_01W612PFAOB647JQ3JZqZfs9eNvMcHtiABk": {
+      "name": "webhook_json",
+      "title": "webhook_json",
+      "description": "webhook_json",
+      "type": "generic.webhook",
+      "base_type": "webhook",
+      "object_type": "webhook",
+      "version": "1.0.0",
+      "properties": {
+        "description": "webhook_json",
+        "display_name": "webhook_json",
+        "request_content_type": "application/json"
+      },
+      "unique_name": "webhook_01W612PFAOB647JQ3JZqZfs9eNvMcHtiABk"
+    },
+    "webhook_01W615EEPOKHN3cXOLGjdKHQd58o59pIuXu": {
+      "name": "webhook_xml",
+      "title": "webhook_xml",
+      "type": "generic.webhook",
+      "base_type": "webhook",
+      "object_type": "webhook",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "webhook_xml",
+        "request_content_type": "application/xml"
+      },
+      "unique_name": "webhook_01W615EEPOKHN3cXOLGjdKHQd58o59pIuXu"
+    },
+    "webhook_01W615NU2UVFC29Le2yfdVMW3vkHG3tdf4Z": {
+      "name": "webhook_utf8",
+      "title": "webhook_utf8",
+      "type": "generic.webhook",
+      "base_type": "webhook",
+      "object_type": "webhook",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "webhook_utf8",
+        "request_content_type": "application/json; charset=utf-8"
+      },
+      "unique_name": "webhook_01W615NU2UVFC29Le2yfdVMW3vkHG3tdf4Z"
+    },
+    "webhook_01W615WBIW7GH55ohDc3RQ45ijzHnfLRXsh": {
+      "name": "webhook_urlencoded",
+      "title": "webhook_urlencoded",
+      "type": "generic.webhook",
+      "base_type": "webhook",
+      "object_type": "webhook",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "webhook_urlencoded",
+        "request_content_type": "application/x-www-form-urlencoded"
+      },
+      "unique_name": "webhook_01W615WBIW7GH55ohDc3RQ45ijzHnfLRXsh"
+    }
+  },
+  "dependent_workflows": [
+    "definition_workflow_01W8DLPSTTYR47YtpGx6vKO0IQ19RZo3yf0"
+  ]
+}
