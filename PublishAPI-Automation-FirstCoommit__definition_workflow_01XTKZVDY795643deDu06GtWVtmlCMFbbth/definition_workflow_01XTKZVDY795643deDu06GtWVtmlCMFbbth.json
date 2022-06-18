@@ -24,19 +24,6 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Xchange_UniqueName",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01XTM7X3SOW4Y6l5meksLfXufgXQFWt2wVP",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
           "name": "Publish API TestCase Pass/Fail",
           "type": "datatype.string",
           "is_required": false,
@@ -50,12 +37,25 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "TestCase Pass/Fail",
+          "name": "Xchange_UniqueName",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01XVFCEA8RMKW5FkaUXZh3gnEX2Wxsb2m7a",
+        "unique_name": "variable_workflow_01XTM7X3SOW4Y6l5meksLfXufgXQFWt2wVP",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Xchange Category Name",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01XTMRCJHNFS87FAeLUF309cdiFyJmSBG9D",
         "object_type": "variable_workflow"
       },
       {
@@ -76,12 +76,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Xchange Category Name",
+          "name": "TestCase Pass/Fail",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01XTMRCJHNFS87FAeLUF309cdiFyJmSBG9D",
+        "unique_name": "variable_workflow_01XVFCEA8RMKW5FkaUXZh3gnEX2Wxsb2m7a",
         "object_type": "variable_workflow"
       },
       {
@@ -123,7 +123,7 @@
         "type": "logic.parallel",
         "base_type": "activity",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "description": "Import Workflow and Publish it",
           "display_name": "Publish Workflow ",
           "skip_execution": false
@@ -137,7 +137,7 @@
             "type": "logic.parallel_block",
             "base_type": "activity",
             "properties": {
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "description": "Import the workflow \nValidate the workflow \nPublish workflow to Xchange \nFetch the Category , Unique_name , blurb, descriptio, display Name from the resposne. \nDelete the Imported workflow form My workflows ",
               "display_name": "Publish Workflow_ISE-Quarantine-Endpoint-WF",
               "skip_execution": false
@@ -151,7 +151,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "description": "Import Workflow to Publish",
                   "display_name": "SXO- CRUD Operations Automation WF",
                   "input": {
@@ -187,7 +187,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -214,7 +214,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Publish Reusable workflow",
                   "input": {
                     "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz": "ISE-Quarintine-EndPoint",
@@ -249,7 +249,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -278,7 +278,7 @@
             "type": "logic.parallel_block",
             "base_type": "activity",
             "properties": {
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "description": "Import the workflow \nValidate the workflow \nPublish workflow to Xchange \nFetch the Category , Unique_name , blurb, descriptio, display Name from the resposne. \nDelete the Imported workflow form My workflows ",
               "display_name": "Publish Workflow_Orbital-WF to ServiceNow",
               "skip_execution": false
@@ -292,7 +292,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "description": "Import Workflow to Publish",
                   "display_name": "SXO- CRUD Operations Automation WF",
                   "input": {
@@ -328,7 +328,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -355,7 +355,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Publish Reusable workflow",
                   "input": {
                     "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz": "Orbital-WF",
@@ -390,7 +390,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -419,7 +419,7 @@
             "type": "logic.parallel_block",
             "base_type": "activity",
             "properties": {
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "description": "Import the workflow \nValidate the workflow \nPublish workflow to Xchange \nFetch the Category , Unique_name , blurb, descriptio, display Name from the resposne. \nDelete the Imported workflow form My workflows ",
               "display_name": "Publish Workflow_SecureEndPoint",
               "skip_execution": false
@@ -433,7 +433,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "description": "Import Workflow to Publish",
                   "display_name": "SXO- CRUD Operations Automation WF",
                   "input": {
@@ -469,7 +469,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -496,7 +496,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Publish Reusable workflow",
                   "input": {
                     "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz": "Secure-EndPoint",
@@ -531,7 +531,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -560,7 +560,7 @@
             "type": "logic.parallel_block",
             "base_type": "activity",
             "properties": {
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "description": "Import the workflow \nValidate the workflow \nPublish workflow to Xchange \nFetch the Category , Unique_name , blurb, descriptio, display Name from the resposne. \nDelete the Imported workflow form My workflows ",
               "display_name": "Publish Workflow_UmbrellaAPI",
               "skip_execution": false
@@ -574,7 +574,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "description": "Import Workflow to Publish",
                   "display_name": "SXO- CRUD Operations Automation WF",
                   "input": {
@@ -610,7 +610,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -637,7 +637,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Publish Reusable workflow",
                   "input": {
                     "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz": "Umbrella-API",
@@ -672,7 +672,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -701,7 +701,7 @@
             "type": "logic.parallel_block",
             "base_type": "activity",
             "properties": {
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "description": "Import the workflow having target, variables and account keys\nValidate the workflow \nPublish workflow to Xchange \nFetch the Category , Unique_name , blurb, descriptio, display Name from the resposne. \nDelete the Imported workflow form My workflows ",
               "display_name": "Publish Workflow_having AccountKeys",
               "skip_execution": false
@@ -715,11 +715,11 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "description": "Import Workflow to Publish",
                   "display_name": "SXO- CRUD Operations Automation WF",
                   "input": {
-                    "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_01XUGSWLG97L43xBukquHcEDENsP54jk0qJ\",\n    \"name\": \"WF_targets_accountKeys\",\n    \"title\": \"WF_targets_accountKeys\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"01IL87A7MKTRQ6ZxUPi73QJzdbFTSxvHWc3\",\n        \"properties\": {\n          \"value\": \"admin\",\n          \"scope\": \"local\",\n          \"name\": \"InPut_SecureString\",\n          \"type\": \"datatype.secure_string\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01XUGWHC7NEFL4FIh3vn7KO7gpJKwhGrry5\",\n        \"object_type\": \"variable_workflow\",\n        \"created_on\": \"0001-01-01T00:00:00Z\",\n        \"updated_on\": \"0001-01-01T00:00:00Z\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"WF_targets_accountKeys\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"target_type\": \"web-service.endpoint\",\n        \"target_id\": \"definition_target_01XUGUG6MLKYN1kgWYJjFcwwH1yYk80qD8Z\",\n        \"execute_on_workflow_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_01XUGTFNPZHN13laQa918m3hxoun6aNO942\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"Create a User\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"body\": \"{\\n    \\\"name\\\": \\\"$env.variable_01XC084WS6KB57ABiCl1fbvPMY5wh29V9Uj.env.variable_01XC084WS6KB57ABiCl1fbvPMY5wh29V9Uj$-$workflow.definition_workflow_01XUGSWLG97L43xBukquHcEDENsP54jk0qJ.local.variable_workflow_01XUGWHC7NEFL4FIh3vn7KO7gpJKwhGrry5$\\\",\\n    \\\"job\\\": \\\"$global.variable_01XC07VS4PHAT27HPijSdaeDTzrg6g3bMku.global.variable_01XC07VS4PHAT27HPijSdaeDTzrg6g3bMku$\\\"\\n}\",\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Create a User\",\n          \"method\": \"POST\",\n          \"relative_url\": \"/api/users\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_01XUGXGSQCCU80as9znHpAPrMND6yaGJblG\",\n        \"name\": \"JSONPath Query\",\n        \"title\": \"Fetch USER Id\",\n        \"type\": \"corejava.jsonpathquery\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Fetch USER Id\",\n          \"input_json\": \"$activity.definition_activity_01XUGTFNPZHN13laQa918m3hxoun6aNO942.output.response_body$\",\n          \"jsonpath_queries\": [\n            {\n              \"jsonpath_query\": \"$.id\",\n              \"jsonpath_query_name\": \"id\",\n              \"jsonpath_query_type\": \"string\"\n            }\n          ],\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_01XUGY62D1Q9M3WKOGcYSGhVQBBTchCrE4Z\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"Delete a User\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Delete a User\",\n          \"method\": \"DELETE\",\n          \"relative_url\": \"/api/users/$activity.definition_activity_01XUGXGSQCCU80as9znHpAPrMND6yaGJblG.output.jsonpath_queries.id$\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"targets\": {\n    \"definition_target_01XUGUG6MLKYN1kgWYJjFcwwH1yYk80qD8Z\": {\n      \"unique_name\": \"definition_target_01XUGUG6MLKYN1kgWYJjFcwwH1yYk80qD8Z\",\n      \"name\": \"reqres_target\",\n      \"title\": \"reqres_target\",\n      \"type\": \"web-service.endpoint\",\n      \"base_type\": \"target\",\n      \"object_type\": \"definition_target\",\n      \"properties\": {\n        \"default_runtime_user_id\": \"definition_runtime_user_01XUGU43J17SM737AT9vQMQ2GZc60Oljtqe\",\n        \"disable_certificate_validation\": true,\n        \"display_name\": \"reqres_target\",\n        \"host\": \"reqres.in\",\n        \"ignore_proxy\": true,\n        \"no_runtime_user\": false,\n        \"protocol\": \"https\"\n      }\n    }\n  },\n  \"runtime_users\": {\n    \"definition_runtime_user_01XUGU43J17SM737AT9vQMQ2GZc60Oljtqe\": {\n      \"unique_name\": \"definition_runtime_user_01XUGU43J17SM737AT9vQMQ2GZc60Oljtqe\",\n      \"name\": \"reqres_credentials\",\n      \"title\": \"reqres_credentials\",\n      \"type\": \"runtime_user.web-service_basic_credentials\",\n      \"base_type\": \"runtime_user\",\n      \"object_type\": \"definition_runtime_user\",\n      \"properties\": {\n        \"auth_option\": \"Basic\",\n        \"basic_password\": \"admin\",\n        \"basic_username\": \"admin\",\n        \"display_name\": \"reqres_credentials\"\n      },\n      \"schema_id\": \"01IL873KLG4GW6TwryntZEZOJEUoS6kmanj\"\n    }\n  },\n  \"variables\": {\n    \"variable_01XC07VS4PHAT27HPijSdaeDTzrg6g3bMku\": {\n      \"unique_name\": \"variable_01XC07VS4PHAT27HPijSdaeDTzrg6g3bMku\",\n      \"properties\": {\n        \"value\": \"*****\",\n        \"scope\": \"global\",\n        \"name\": \"vin_secure_global\",\n        \"type\": \"datatype.secure_string\",\n        \"is_required\": false,\n        \"is_invisible\": false\n      },\n      \"object_type\": \"variable\"\n    },\n    \"variable_01XC084WS6KB57ABiCl1fbvPMY5wh29V9Uj\": {\n      \"unique_name\": \"variable_01XC084WS6KB57ABiCl1fbvPMY5wh29V9Uj\",\n      \"properties\": {\n        \"value\": \"*****\",\n        \"scope\": \"env\",\n        \"name\": \"vin_env_secure\",\n        \"type\": \"datatype.secure_string\",\n        \"is_required\": false,\n        \"is_invisible\": false\n      },\n      \"object_type\": \"variable\"\n    }\n  }\n}",
+                    "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_01XUGSWLG97L43xBukquHcEDENsP54jk0qJ\",\n    \"name\": \"WF_targets_accountKeys\",\n    \"title\": \"WF_targets_accountKeys\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"01IL87A7MKTRQ6ZxUPi73QJzdbFTSxvHWc3\",\n        \"properties\": {\n          \"value\": \"admin\",\n          \"scope\": \"local\",\n          \"name\": \"InPut_SecureString\",\n          \"type\": \"datatype.secure_string\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01XUGWHC7NEFL4FIh3vn7KO7gpJKwhGrry5\",\n        \"object_type\": \"variable_workflow\",\n        \"created_on\": \"0001-01-01T00:00:00Z\",\n        \"updated_on\": \"0001-01-01T00:00:00Z\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"WF_targets_accountKeys\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"target_type\": \"web-service.endpoint\",\n        \"target_id\": \"definition_target_01XUGUG6MLKYN1kgWYJjFcwwH1yYk80qD8Z\",\n        \"execute_on_workflow_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_01XUGTFNPZHN13laQa918m3hxoun6aNO942\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"Create a User\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"body\": \"{\\n    \\\"name\\\": \\\"$env.variable_01XC084WS6KB57ABiCl1fbvPMY5wh29V9Uj.env.variable_01XC084WS6KB57ABiCl1fbvPMY5wh29V9Uj$-$workflow.definition_workflow_01XUGSWLG97L43xBukquHcEDENsP54jk0qJ.local.variable_workflow_01XUGWHC7NEFL4FIh3vn7KO7gpJKwhGrry5$\\\",\\n    \\\"job\\\": \\\"$global.variable_01XC07VS4PHAT27HPijSdaeDTzrg6g3bMku.global.variable_01XC07VS4PHAT27HPijSdaeDTzrg6g3bMku$\\\"\\n}\",\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Create a User\",\n          \"method\": \"POST\",\n          \"relative_url\": \"/api/users\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_01XUGXGSQCCU80as9znHpAPrMND6yaGJblG\",\n        \"name\": \"JSONPath Query\",\n        \"title\": \"Fetch USER Id\",\n        \"type\": \"corejava.jsonpathquery\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Fetch USER Id\",\n          \"input_json\": \"$activity.definition_activity_01XUGTFNPZHN13laQa918m3hxoun6aNO942.output.response_body$\",\n          \"jsonpath_queries\": [\n            {\n              \"jsonpath_query\": \"$.id\",\n              \"jsonpath_query_name\": \"id\",\n              \"jsonpath_query_type\": \"string\"\n            }\n          ],\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_01XUGY62D1Q9M3WKOGcYSGhVQBBTchCrE4Z\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"Delete a User\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Delete a User\",\n          \"method\": \"DELETE\",\n          \"relative_url\": \"/api/users/$activity.definition_activity_01XUGXGSQCCU80as9znHpAPrMND6yaGJblG.output.jsonpath_queries.id$\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"targets\": {\n    \"definition_target_01XUGUG6MLKYN1kgWYJjFcwwH1yYk80qD8Z\": {\n      \"unique_name\": \"definition_target_01XUGUG6MLKYN1kgWYJjFcwwH1yYk80qD8Z\",\n      \"name\": \"reqres_target\",\n      \"title\": \"reqres_target\",\n      \"type\": \"web-service.endpoint\",\n      \"base_type\": \"target\",\n      \"object_type\": \"definition_target\",\n      \"properties\": {\n        \"default_runtime_user_id\": \"definition_runtime_user_01XUGU43J17SM737AT9vQMQ2GZc60Oljtqe\",\n        \"disable_certificate_validation\": true,\n        \"display_name\": \"reqres_target\",\n        \"host\": \"reqres.in\",\n        \"ignore_proxy\": true,\n        \"no_runtime_user\": false,\n        \"protocol\": \"https\"\n      }\n    }\n  },\n  \"runtime_users\": {\n    \"definition_runtime_user_01XUGU43J17SM737AT9vQMQ2GZc60Oljtqe\": {\n      \"unique_name\": \"definition_runtime_user_01XUGU43J17SM737AT9vQMQ2GZc60Oljtqe\",\n      \"name\": \"reqres_credentials\",\n      \"title\": \"reqres_credentials\",\n      \"type\": \"runtime_user.web-service_basic_credentials\",\n      \"base_type\": \"runtime_user\",\n      \"object_type\": \"definition_runtime_user\",\n      \"properties\": {\n        \"auth_option\": \"Basic\",\n        \"basic_password\": \"admin\",\n        \"basic_username\": \"admin\",\n        \"display_name\": \"reqres_credentials\"\n      },\n      \"schema_id\": \"01IL873KLG4GW6TwryntZEZOJEUoS6kmanj\"\n    }\n  },\n  \"variables\": {\n    \"variable_01XC07VS4PHAT27HPijSdaeDTzrg6g3bMku\": {\n      \"unique_name\": \"variable_01XC07VS4PHAT27HPijSdaeDTzrg6g3bMku\",\n      \"properties\": {\n        \"value\": \"admin\",\n        \"scope\": \"global\",\n        \"name\": \"vin_secure_global\",\n        \"type\": \"datatype.secure_string\",\n        \"is_required\": false,\n        \"is_invisible\": false\n      },\n      \"object_type\": \"variable\",\n      \"schema_id\": \"01IL87A7MKTRQ6ZxUPi73QJzdbFTSxvHWc3\",\n      \"created_on\": \"0001-01-01T00:00:00Z\",\n      \"updated_on\": \"0001-01-01T00:00:00Z\",\n      \"base_type\": \"datatype\"\n    },\n    \"variable_01XC084WS6KB57ABiCl1fbvPMY5wh29V9Uj\": {\n      \"unique_name\": \"variable_01XC084WS6KB57ABiCl1fbvPMY5wh29V9Uj\",\n      \"properties\": {\n        \"value\": \"admin\",\n        \"scope\": \"env\",\n        \"name\": \"vin_env_secure\",\n        \"type\": \"datatype.secure_string\",\n        \"is_required\": false,\n        \"is_invisible\": false\n      },\n      \"object_type\": \"variable\",\n      \"schema_id\": \"01IL87A7MKTRQ6ZxUPi73QJzdbFTSxvHWc3\",\n      \"created_on\": \"0001-01-01T00:00:00Z\",\n      \"updated_on\": \"0001-01-01T00:00:00Z\",\n      \"base_type\": \"datatype\"\n    }\n  }\n}",
                     "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe": "Bearer $workflow.definition_workflow_01XTKZVDY795643deDu06GtWVtmlCMFbbth.input.variable_workflow_01XTL1SFWODOX4F0we1yLelnBNk100CBwX4$",
                     "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "POST",
                     "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "be-importexport/api/v1/workflows/import?create_new=true\u0026overwrite=false\u0026workflow_unique_name=definition_workflow_01XUGSWLG97L43xBukquHcEDENsP54jk0qJ",
@@ -746,7 +746,7 @@
                 "type": "core.sleep",
                 "base_type": "activity",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Sleep",
                   "skip_execution": false,
                   "sleep_interval": 15
@@ -765,7 +765,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -792,7 +792,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Publish Reusable workflow",
                   "input": {
                     "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz": "WF-AccKeys",
@@ -827,7 +827,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -856,7 +856,7 @@
             "type": "logic.parallel_block",
             "base_type": "activity",
             "properties": {
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "description": "Import the workflow having target, variables and account keys\nValidate the workflow \nPublish workflow to Xchange \nFetch the Category , Unique_name , blurb, descriptio, display Name from the resposne. \nDelete the Imported workflow form My workflows ",
               "display_name": "Publish Workflow_having SubWF",
               "skip_execution": false
@@ -870,7 +870,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "description": "Import Workflow to Publish",
                   "display_name": "SXO- CRUD Operations Automation WF",
                   "input": {
@@ -920,7 +920,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -947,7 +947,7 @@
                 "type": "workflow.sub_workflow",
                 "base_type": "subworkflow",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Publish Reusable workflow",
                   "input": {
                     "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz": "WF-SubWF",
@@ -982,7 +982,7 @@
                   "allow_headers_redirect": false,
                   "content_type": "application/json",
                   "continue_on_error_status_code": false,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "custom_headers": [
                     {
                       "name": "Authorization",
@@ -1013,7 +1013,7 @@
         "type": "logic.if_else",
         "base_type": "activity",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "Verify the Publish API Test Case Status",
           "skip_execution": false
         },
@@ -1215,7 +1215,7 @@
                   "right_operand": 204
                 }
               },
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Pass Case",
               "skip_execution": false
             },
@@ -1321,16 +1321,16 @@
                                                 },
                                                 "operator": "or",
                                                 "right_operand": {
-                                                  "left_operand": "$activity.definition_activity_01XTLDIS21J2F4XC8ea3zkGbS4hJKKMa7ey.output.status_code$",
+                                                  "left_operand": "$activity.definition_activity_01XTLDIS21J2F4XC8ea3zkGbS4hJKKMa7ey.output.error.code$",
                                                   "operator": "ne",
-                                                  "right_operand": 200
+                                                  "right_operand": "200"
                                                 }
                                               },
                                               "operator": "or",
                                               "right_operand": {
-                                                "left_operand": "$activity.definition_activity_01XTLB0BU4ZGZ5hYfQEFhcP6jwPsqRRNwqA.output.status_code$",
+                                                "left_operand": "$activity.definition_activity_01XTLB0BU4ZGZ5hYfQEFhcP6jwPsqRRNwqA.output.error.code$",
                                                 "operator": "ne",
-                                                "right_operand": 204
+                                                "right_operand": "204"
                                               }
                                             },
                                             "operator": "or",
@@ -1342,16 +1342,16 @@
                                           },
                                           "operator": "or",
                                           "right_operand": {
-                                            "left_operand": "$activity.definition_activity_01XTQ3N4TN9797MzfWBufwQuW0zqRp2xwhE.output.status_code$",
+                                            "left_operand": "$activity.definition_activity_01XTQ3N4TN9797MzfWBufwQuW0zqRp2xwhE.output.error.code$",
                                             "operator": "ne",
-                                            "right_operand": 200
+                                            "right_operand": "200"
                                           }
                                         },
                                         "operator": "or",
                                         "right_operand": {
-                                          "left_operand": "$activity.definition_activity_01XTQ3N4U0QPO6aSs1gX96VEsEhWMOT0scE.output.status_code$",
+                                          "left_operand": "$activity.definition_activity_01XTQ3N4U0QPO6aSs1gX96VEsEhWMOT0scE.output.error.code$",
                                           "operator": "ne",
-                                          "right_operand": 204
+                                          "right_operand": "200"
                                         }
                                       },
                                       "operator": "or",
@@ -1363,16 +1363,16 @@
                                     },
                                     "operator": "or",
                                     "right_operand": {
-                                      "left_operand": "$activity.definition_activity_01XUDBTNRNJ0Z0CSzZ0uDhFNKKhXFgs3JnD.output.status_code$",
+                                      "left_operand": "$activity.definition_activity_01XUDBTNRNJ0Z0CSzZ0uDhFNKKhXFgs3JnD.output.error.code$",
                                       "operator": "ne",
-                                      "right_operand": 200
+                                      "right_operand": "200"
                                     }
                                   },
                                   "operator": "or",
                                   "right_operand": {
-                                    "left_operand": "$activity.definition_activity_01XUDBTNS555T6i5rMsWlK8CrJ8vuvGfcMG.output.status_code$",
+                                    "left_operand": "$activity.definition_activity_01XUDBTNS555T6i5rMsWlK8CrJ8vuvGfcMG.output.error.code$",
                                     "operator": "ne",
-                                    "right_operand": 204
+                                    "right_operand": "204"
                                   }
                                 },
                                 "operator": "or",
@@ -1384,16 +1384,16 @@
                               },
                               "operator": "or",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_01XUDKW4I2QOP6hhwwA3OykF6zb2ziU5D6N.output.status_code$",
+                                "left_operand": "$activity.definition_activity_01XUDKW4I2QOP6hhwwA3OykF6zb2ziU5D6N.output.error.code$",
                                 "operator": "ne",
-                                "right_operand": 200
+                                "right_operand": "200"
                               }
                             },
                             "operator": "or",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_01XUDKW4IJ9QO4uvK1xRn2cK5gzoFmrXg7u.output.status_code$",
+                              "left_operand": "$activity.definition_activity_01XUDKW4IJ9QO4uvK1xRn2cK5gzoFmrXg7u.output.error.code$",
                               "operator": "ne",
-                              "right_operand": 204
+                              "right_operand": "204"
                             }
                           },
                           "operator": "or",
@@ -1405,16 +1405,16 @@
                         },
                         "operator": "or",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_01XUDIGGISPM87W0ICEd5GJtdayFm87p69F.output.status_code$",
+                          "left_operand": "$activity.definition_activity_01XUDIGGISPM87W0ICEd5GJtdayFm87p69F.output.error.code$",
                           "operator": "ne",
-                          "right_operand": 200
+                          "right_operand": "200"
                         }
                       },
                       "operator": "or",
                       "right_operand": {
-                        "left_operand": "$activity.definition_activity_01XUDIGGJ98A31hRY7MI0SZx3B3FkhXOqjZ.output.status_code$",
+                        "left_operand": "$activity.definition_activity_01XUDIGGJ98A31hRY7MI0SZx3B3FkhXOqjZ.output.error.code$",
                         "operator": "ne",
-                        "right_operand": 204
+                        "right_operand": "204"
                       }
                     },
                     "operator": "or",
@@ -1426,19 +1426,19 @@
                   },
                   "operator": "or",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_01XUMB1VUEU164EuB0Tm4L1Qf1o32vLXQ82.output.status_code$",
+                    "left_operand": "$activity.definition_activity_01XUMB1VUEU164EuB0Tm4L1Qf1o32vLXQ82.output.error.code$",
                     "operator": "ne",
-                    "right_operand": 200
+                    "right_operand": "200"
                   }
                 },
                 "operator": "or",
                 "right_operand": {
-                  "left_operand": "$activity.definition_activity_01XUMB1VUYPGG257lNAcMNkS2rVwNgA8yPu.output.status_code$",
+                  "left_operand": "$activity.definition_activity_01XUMB1VUYPGG257lNAcMNkS2rVwNgA8yPu.output.error.code$",
                   "operator": "ne",
-                  "right_operand": 204
+                  "right_operand": "204"
                 }
               },
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Fail Case",
               "skip_execution": false
             },
@@ -1474,7 +1474,7 @@
         "type": "logic.group",
         "base_type": "activity",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "Negative Test Case for Publish API",
           "skip_execution": false
         },
@@ -1487,7 +1487,7 @@
             "type": "workflow.sub_workflow",
             "base_type": "subworkflow",
             "properties": {
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "SXO- CRUD Operations Automation WF",
               "input": {
                 "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_01XUI4T5KXCGG2rldANk5miDkCSGPsDzll0\",\n    \"name\": \"Test_WF_Publish_NegativeTestCase\",\n    \"title\": \"Test_WF_Publish_NegativeTestCase\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"Test_WF_Publish_NegativeTestCase\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_01XUI4VT8VHBD7c1JbnsyBI3UIA7rbqNu1y\",\n        \"name\": \"Sleep\",\n        \"title\": \"Sleep\",\n        \"type\": \"core.sleep\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Sleep\",\n          \"skip_execution\": false,\n          \"sleep_interval\": 1\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
@@ -1880,7 +1880,7 @@
         "type": "logic.if_else",
         "base_type": "activity",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "Verify Publish Negative TestCases",
           "skip_execution": false
         },
@@ -1962,7 +1962,7 @@
                   "right_operand": "404"
                 }
               },
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Pass Case",
               "skip_execution": false
             },
@@ -2065,7 +2065,7 @@
                   "right_operand": "404"
                 }
               },
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Fail Case",
               "skip_execution": false
             },
@@ -2101,7 +2101,7 @@
         "type": "logic.if_else",
         "base_type": "activity",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "Verify TestCases Status",
           "skip_execution": false
         },
@@ -2110,7 +2110,7 @@
           {
             "unique_name": "definition_activity_01XVFBQQHQVC85cXSPkF0AWa7UrRQPGmgAs",
             "name": "Condition Branch",
-            "title": "Condition Branch",
+            "title": "Pass Case",
             "type": "logic.condition_block",
             "base_type": "activity",
             "properties": {
@@ -2127,8 +2127,8 @@
                   "right_operand": "Pass"
                 }
               },
-              "continue_on_failure": false,
-              "display_name": "Condition Branch",
+              "continue_on_failure": true,
+              "display_name": "Pass Case",
               "skip_execution": false
             },
             "object_type": "definition_activity",
@@ -2157,7 +2157,7 @@
           {
             "unique_name": "definition_activity_01XVFBQQPV0PE20uiz6KLWhLWTKy0uJSAU9",
             "name": "Condition Branch",
-            "title": "Condition Branch",
+            "title": "Fail Case",
             "type": "logic.condition_block",
             "base_type": "activity",
             "properties": {
@@ -2165,17 +2165,17 @@
                 "left_operand": {
                   "left_operand": "$workflow.definition_workflow_01XTKZVDY795643deDu06GtWVtmlCMFbbth.output.variable_workflow_01XVEGPSWTH0N1E0Mbzx04zt5JJIWSsOQ3g$",
                   "operator": "eq",
-                  "right_operand": "Pass"
+                  "right_operand": "Fail"
                 },
                 "operator": "or",
                 "right_operand": {
                   "left_operand": "$workflow.definition_workflow_01XTKZVDY795643deDu06GtWVtmlCMFbbth.output.variable_workflow_01XVF2NHMUYDT3aH3HOnFotB9oM3ZQl7LIu$",
                   "operator": "eq",
-                  "right_operand": "Pass"
+                  "right_operand": "Fail"
                 }
               },
-              "continue_on_failure": false,
-              "display_name": "Condition Branch",
+              "continue_on_failure": true,
+              "display_name": "Fail Case",
               "skip_execution": false
             },
             "object_type": "definition_activity",
@@ -2250,6 +2250,32 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "be-console/api/v1/",
+              "scope": "input",
+              "name": "Relative URL",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "",
               "scope": "output",
               "name": "Response Body",
@@ -2263,6 +2289,45 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Token",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Select Method (EX: GET, PUT, POST, DELETE)",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schema ID's",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "",
               "scope": "input",
               "name": "Value (Only For Tenant creation) Provide Tenant id",
@@ -2271,6 +2336,59 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Error Message",
+              "type": "datatype.string",
+              "description": "Created Object Error Message",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Authorization",
+              "scope": "local",
+              "name": "Authorization",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Error Code",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
             "object_type": "variable_workflow"
           },
           {
@@ -2303,97 +2421,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Select Method (EX: GET, PUT, POST, DELETE)",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Pass or Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Authorization",
-              "scope": "local",
-              "name": "Authorization",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "be-console/api/v1/",
-              "scope": "input",
-              "name": "Relative URL",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Schema ID's",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Error Code",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "output",
               "name": "Created Object ID",
               "type": "datatype.string",
@@ -2401,33 +2428,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Error Message",
-              "type": "datatype.string",
-              "description": "Created Object Error Message",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Token",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe",
             "object_type": "variable_workflow"
           }
         ],
@@ -3197,12 +3197,38 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange_Category_ID",
+              "name": "Xchange Category Name",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
+            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Blurb_Short_Description",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAQ44U0LB103IOLIAMFq4qo3ljG9TfQy",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Reusable PublishAPI TestCase Pass/Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
             "object_type": "variable_workflow"
           },
           {
@@ -3216,6 +3242,32 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Display_Name",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Blurb",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
             "object_type": "variable_workflow"
           },
           {
@@ -3242,6 +3294,19 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Category_ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
             "object_type": "variable_workflow"
           },
           {
@@ -3275,32 +3340,6 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange_Blurb_Short_Description",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAQ44U0LB103IOLIAMFq4qo3ljG9TfQy",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_UniqueName",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
               "name": "Xchnage_Publish_DisplayName",
               "type": "datatype.string",
               "is_required": false,
@@ -3314,51 +3353,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Reusable PublishAPI TestCase Pass/Fail",
+              "name": "Xchange_UniqueName",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange Category Name",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Blurb",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Display_Name",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
+            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
             "object_type": "variable_workflow"
           }
         ],
@@ -3387,7 +3387,7 @@
             "base_type": "activity",
             "properties": {
               "action_timeout": 180,
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Execute Python Script",
               "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
               "skip_execution": false
@@ -3407,7 +3407,7 @@
               "body": "{\n\t\"name\": \"PublishWFName-TopLevel-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\"title\": \"Title-TopLevel-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\"blurb\": \"Blurb-TopLevel-Automation\",\n\t\"type\": \"generic.xchange\",\n\t\"base_type\": \"xchange\",\n\t\"description\": \"Description-TopLevel-Automation\",\n\t\"workflow_ids\": [\n\t\t\"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4$\"\n\t],\n\t\n\t\"properties\": {\n\t\t\"display_name\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz$-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\t\"blurb\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs$\",\n\t\t\"description\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF$\"\n\t}\n}",
               "content_type": "application/json",
               "continue_on_error_status_code": false,
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "custom_headers": [
                 {
                   "name": "Authorization",
@@ -3434,7 +3434,7 @@
             "type": "core.sleep",
             "base_type": "activity",
             "properties": {
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Sleep",
               "skip_execution": false,
               "sleep_interval": 30
@@ -3449,7 +3449,7 @@
             "base_type": "activity",
             "properties": {
               "action_timeout": 180,
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Fetch the Details from Publish API Resposne ",
               "input_json": "$activity.definition_activity_01XVA9MRO110S3TdJbrvwVl10TI4vmTeS2Q.output.response_body$",
               "jsonpath_queries": [
@@ -3500,7 +3500,7 @@
               "allow_headers_redirect": false,
               "content_type": "application/json",
               "continue_on_error_status_code": false,
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "custom_headers": [
                 {
                   "name": "Authorization",
@@ -3528,7 +3528,7 @@
             "base_type": "activity",
             "properties": {
               "action_timeout": 180,
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Fetch Category Name",
               "input_json": "$activity.definition_activity_01XVB7GNMFBNE4lqSUVMNyflWpHUkO8F60y.output.response_body$",
               "jsonpath_queries": [
@@ -3549,7 +3549,7 @@
             "type": "core.set_multiple_variables",
             "base_type": "activity",
             "properties": {
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Storing Publish API Response ID's",
               "skip_execution": false,
               "variables_to_update": [
@@ -3592,7 +3592,7 @@
             "type": "logic.if_else",
             "base_type": "activity",
             "properties": {
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Publish API Status",
               "skip_execution": false
             },
@@ -3618,7 +3618,7 @@
                       "right_operand": 200
                     }
                   },
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Pass",
                   "skip_execution": false
                 },
@@ -3654,18 +3654,18 @@
                 "properties": {
                   "condition": {
                     "left_operand": {
-                      "left_operand": "$activity.definition_activity_01XVA9MRO110S3TdJbrvwVl10TI4vmTeS2Q.output.status_code$",
+                      "left_operand": "$activity.definition_activity_01XVA9MRO110S3TdJbrvwVl10TI4vmTeS2Q.output.error.code$",
                       "operator": "ne",
-                      "right_operand": 201
+                      "right_operand": "201"
                     },
                     "operator": "or",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_01XVB7GNMFBNE4lqSUVMNyflWpHUkO8F60y.output.status_code$",
+                      "left_operand": "$activity.definition_activity_01XVB7GNMFBNE4lqSUVMNyflWpHUkO8F60y.output.error.code$",
                       "operator": "ne",
-                      "right_operand": 200
+                      "right_operand": "201"
                     }
                   },
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Fail",
                   "skip_execution": false
                 },
