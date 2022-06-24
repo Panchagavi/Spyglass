@@ -1,0 +1,2198 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi",
+    "name": "NEXTG-21301-Featured-Automation-Workflow",
+    "title": "NEXTG-21301-Featured-Automation-Workflow",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Category_PublishedWF1",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01XYRE5V16IVX7Fuf3rUCTFgHm9fJZJDiXu",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1OTI5NDc1NDAsImV4cCI6MTYyNDQ4Njc2NiwiYXVkIjpbInN4by11aSJdLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJGaXJzdE5hbWUiOiJWaW5heSIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb3JnL2lkIjoiMTYwMSIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9yb2xlIjoiYWRtaW4iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvc2NvcGVzIjpbImFvIl19.rTc1yRq-ul7tr1T9JHHZmyROzmRpqhRwZ77GVP8e7Rk",
+          "scope": "input",
+          "name": "Provide Input Token",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "DisplayOrder_PublishedWF1",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01XYREJ05SCKU14BITXYIaaRf64JTu3MJUW",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Category_PublishedWF2",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01XYREASR8QOZ1cTatDpHVdfYeRLiP5efUM",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "DisplayOrder_PublishedWF2",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01XYREN36779E4MlMO6CtlTtT1pPBj92xOI",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "NEXTG-21301-Featured-Automation-Workflow",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01EOZMYH25RSG1rDfjUIjQwHEPioIElydk9",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01XYQS028UMIM72OgxNSGwPdRDwQI3kgGSe",
+        "name": "Parallel Block",
+        "title": "Parallel Block",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Parallel Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01XYQS032IB9V6gNykqHx7mI9gIvkvbFTp8",
+            "name": "Parallel Branch",
+            "title": "Publish 1 ",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Publish 1 ",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01XYPY804W1LZ6S2O2WoQeaPDJpxn27pjk6",
+                "name": "SXO- CRUD Operations Automation WF",
+                "title": "SXO- CRUD Operations Automation WF",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "SXO- CRUD Operations Automation WF",
+                  "input": {
+                    "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "{\"workflow\":{\"unique_name\":\"definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir\",\"name\":\"ISE - Quarantine Endpoint\",\"title\":\"0027 - ISE - Quarantine Endpoint\",\"type\":\"generic.workflow\",\"base_type\":\"workflow\",\"variables\":[{\"schema_id\":\"datatype.string\",\"properties\":{\"value\":\"Quarantine\",\"scope\":\"local\",\"name\":\"ANC Policy Name\",\"type\":\"datatype.string\",\"description\":\"The name of the Adaptive Network Control (ANC) policy to apply to the endpoint\",\"is_required\":false,\"is_invisible\":false},\"unique_name\":\"variable_workflow_01O39JUF544P92uKoQ4SYLFEcm6k2fcfj2w\",\"object_type\":\"variable_workflow\"},{\"schema_id\":\"datatype.string\",\"properties\":{\"value\":\"\",\"scope\":\"input\",\"name\":\"observable_type\",\"type\":\"datatype.string\",\"description\":\"The type of observable pivoted on\",\"is_required\":true,\"is_invisible\":false},\"unique_name\":\"variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI\",\"object_type\":\"variable_workflow\"},{\"schema_id\":\"datatype.string\",\"properties\":{\"value\":\"\",\"scope\":\"input\",\"name\":\"observable_value\",\"type\":\"datatype.string\",\"description\":\"The value of the observable pivoted on\",\"is_required\":true,\"is_invisible\":false},\"unique_name\":\"variable_workflow_01O39J53BYU8N2hUF1DHH7qrvrhFI3inWEx\",\"object_type\":\"variable_workflow\"}],\"properties\":{\"atomic\":{\"is_atomic\":false},\"delete_workflow_instance\":false,\"description\":\"This workflow quarantines an endpoint in Cisco Identity Services Engine (ISE) by applying an Adaptive Network Control (ANC) policy. Supported observable: mac_address\\n\\nTarget Group: Default TargetGroup\\n\\nTargets: Cisco ISE ERS\\n\\nSteps:\\n[] Make sure the observable type provided is supported\\n[] Apply the ANC policy to the endpoint\\n\\nMore information: http://ciscosecurity.github.io/sxo-05-security-workflows/workflows/0027\",\"display_name\":\"0027 - ISE - Quarantine Endpoint\",\"runtime_user\":{\"override_target_runtime_user\":false,\"specify_on_workflow_start\":false,\"target_default\":true},\"target\":{\"execute_on_target_group\":true,\"target_group\":{\"target_group_id\":\"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\"run_on_all_targets\":false,\"selected_target_types\":[\"web-service.endpoint\"],\"use_criteria\":{\"choose_target_using_algorithm\":\"choose_first_with_matching_criteria\",\"conditions\":[{\"operator\":\"eqi\",\"left_operand\":\"$targetgroup.web-service endpoint.input.display_name$\",\"right_operand\":\"Cisco ISE ERS\"}]}}}},\"object_type\":\"definition_workflow\",\"actions\":[{\"unique_name\":\"definition_activity_01O39K7GPFNUJ67x3TpAUqmdidKkPXvte61\",\"name\":\"Condition Block\",\"title\":\"Is the observable type supported?\",\"type\":\"logic.if_else\",\"base_type\":\"activity\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Is the observable type supported?\",\"skip_execution\":false},\"object_type\":\"definition_activity\",\"blocks\":[{\"unique_name\":\"definition_activity_01O39K8ASDWHQ4eacm8GSPRjnbaBMflZMVX\",\"name\":\"Condition Branch\",\"title\":\"No\",\"type\":\"logic.condition_block\",\"base_type\":\"activity\",\"properties\":{\"condition\":{\"left_operand\":\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI$\",\"operator\":\"ne\",\"right_operand\":\"mac_address\"},\"continue_on_failure\":false,\"display_name\":\"No\",\"skip_execution\":false},\"object_type\":\"definition_activity\",\"actions\":[{\"unique_name\":\"definition_activity_01O39L665V3VE2EGtvTIW3mImcua1bZjY4i\",\"name\":\"Completed\",\"title\":\"Unsupported observable\",\"type\":\"logic.completed\",\"base_type\":\"activity\",\"properties\":{\"completion_type\":\"failed-completed\",\"continue_on_failure\":false,\"display_name\":\"Unsupported observable\",\"result_message\":\"The observable type \\\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI$\\\" is not supported by this workflow\",\"skip_execution\":false},\"object_type\":\"definition_activity\"}]}]},{\"unique_name\":\"definition_activity_01O39IP3NAT2O4D5RaFYI4pdQ1Y4QdxmAI5\",\"name\":\"ISE - ERS - ANC Policy - Apply to Endpoint\",\"title\":\"ISE - ERS - ANC Policy - Apply to Endpoint\",\"type\":\"workflow.atomic_workflow\",\"base_type\":\"subworkflow\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"ISE - ERS - ANC Policy - Apply to Endpoint\",\"input\":{\"variable_workflow_01PP75L8RFFWV7bYw0yB9CXoORchlK0UOwP\":\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.local.variable_workflow_01O39JUF544P92uKoQ4SYLFEcm6k2fcfj2w$\",\"variable_workflow_01PP75L8RFJJB2nDpihlgz0K4sz98ywgScY\":\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J53BYU8N2hUF1DHH7qrvrhFI3inWEx$\"},\"runtime_user\":{\"target_default\":true},\"skip_execution\":false,\"target\":{\"use_workflow_target_group\":true},\"workflow_id\":\"definition_workflow_01PP75L8X1V3A5Dw4f1rzJBPEiv0XeLyvSi\"},\"object_type\":\"definition_activity\"}],\"categories\":[\"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\"]},\"categories\":{\"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\":{\"unique_name\":\"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\",\"name\":\"response\",\"title\":\"response\",\"type\":\"basic.category\",\"base_type\":\"category\",\"category_type\":\"custom\",\"object_type\":\"category\"}},\"target_groups\":{\"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\":{\"unique_name\":\"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\"name\":\"Default TargetGroup\",\"title\":\"Default TargetGroup\",\"type\":\"generic.target_group\",\"base_type\":\"target_group\",\"version\":\"1.0.0\",\"targets\":[{\"data_target_type\":\"web-service.endpoint\",\"view_target_type\":\"web-service.endpoint\",\"include_all_targets\":true},{\"data_target_type\":\"email.smtp_endpoint\",\"view_target_type\":\"email.smtp_endpoint\",\"include_all_targets\":true}],\"object_type\":\"target_group\"}},\"atomic_workflows\":[\"definition_workflow_01PP75L8X1V3A5Dw4f1rzJBPEiv0XeLyvSi\"]}",
+                    "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$",
+                    "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "POST",
+                    "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "be-importexport/api/v1/workflows/import?create_new=true\u0026overwrite=false\u0026workflow_unique_name=definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir",
+                    "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
+                    "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": ""
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
+                  "workflow_name": "SXO- CRUD Operations Automation WF"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01XYRK8BVZMDQ4PhnJ59Nj2mAM40AGhdT6A",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "skip_execution": false,
+                  "sleep_interval": 10
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01XYRJ88FKNPF6RNWCTcLq4G2Bq9dry89NF",
+                "name": "HTTP Request",
+                "title": "Validate Imported Workflow ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+                    }
+                  ],
+                  "display_name": "Validate Imported Workflow ",
+                  "method": "POST",
+                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01XYPY804W1LZ6S2O2WoQeaPDJpxn27pjk6.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$/validate",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01XYPXC9MSR9Q1jBYmQ7k2M4pEGi9waQzLV",
+                "name": "Publish Reusable workflow",
+                "title": "Publish Reusable workflow",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Publish Reusable workflow",
+                  "input": {
+                    "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz": "Publish1-Featured",
+                    "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs": "This is workflow published to add to featured category",
+                    "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4": "$activity.definition_activity_01XYPY804W1LZ6S2O2WoQeaPDJpxn27pjk6.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$",
+                    "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF": "This is workflow published to add to featured category",
+                    "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "execute_on_this_target": true,
+                    "target_id": "definition_target_01EOZMYH25RSG1rDfjUIjQwHEPioIElydk9",
+                    "target_type": "web-service.endpoint"
+                  },
+                  "workflow_id": "definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l",
+                  "workflow_name": "Publish Reusable workflow"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01XYRKH0CBRJV0JoyPLZ17aJy0DWV3iR234",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "skip_execution": false,
+                  "sleep_interval": 10
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01XYRI5ZDIE751TPfCtqoHsvjXzuXHI8ejW",
+                "name": "HTTP Request",
+                "title": "Delete Imported Workflow ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+                    }
+                  ],
+                  "display_name": "Delete Imported Workflow ",
+                  "method": "DELETE",
+                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01XYPY804W1LZ6S2O2WoQeaPDJpxn27pjk6.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01XYQS03DUE366L9Io3hBK4qpaJn0kmfqb2",
+            "name": "Parallel Branch",
+            "title": "Publish 2",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Publish 2",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01XYQS46OAIJZ0XCqZOutqkoSFlo5HGPbKc",
+                "name": "SXO- CRUD Operations Automation WF",
+                "title": "SXO- CRUD Operations Automation WF",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "SXO- CRUD Operations Automation WF",
+                  "input": {
+                    "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5\",\n    \"name\": \"Umbrella - Add to Destination List\",\n    \"title\": \"0017 - Umbrella - Add to Destination List\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"observable_value\",\n          \"type\": \"datatype.string\",\n          \"description\": \"The value of the observable pivoted on\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01N8SU73XGBU53LOwNS2lAY8aQfkTQGRoxf\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"local\",\n          \"name\": \"Umbrella Organization ID\",\n          \"type\": \"datatype.string\",\n          \"description\": \"Your Umbrella organization ID. This can be found in the URL of your Umbrella dashboard. For example, in this URL the organization ID is \\\"1234567\\\": https://dashboard.umbrella.com/o/1234567/#/overview\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01N8SUWB4QWLQ1Lzb9SpNsCmvTqhJPl0opk\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"observable_type\",\n          \"type\": \"datatype.string\",\n          \"description\": \"The type of observable pivoted on\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01N8SU3XTRQTG6Y5Kkar7VLvng4DrbdWnVK\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"Global Block List\",\n          \"scope\": \"local\",\n          \"name\": \"Destination List Name\",\n          \"type\": \"datatype.string\",\n          \"description\": \"The name of the destination list you want records added to\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01N8SX42CUI766QzPyCMY66ZucixntbJR1h\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"description\": \"This workflow adds an observable to the configured destination list in Cisco Umbrella. Supported observables: ip, domain\\n\\nTarget Group: Default TargetGroup\\n\\nTarget: Umbrella Management\\n\\nSteps:\\n[] Make sure the observable type provided is supported\\n[] Get all of the organization's destination lists\\n[] Extract the ID of the configured destination list\\n[] Check if extracting the destination list ID was successful:\\n[]\u003e If it was, add the record to the list\\n[]\u003e If it wasn't, output an error\\n\\nMore information: https://ciscosecurity.github.io/sxo-05-security-workflows/workflows/0017\",\n      \"display_name\": \"0017 - Umbrella - Add to Destination List\",\n      \"runtime_user\": {\n        \"override_target_runtime_user\": false,\n        \"specify_on_workflow_start\": false,\n        \"target_default\": true\n      },\n      \"target\": {\n        \"execute_on_target_group\": true,\n        \"target_group\": {\n          \"target_group_id\": \"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\n          \"run_on_all_targets\": false,\n          \"selected_target_types\": [\n            \"web-service.endpoint\"\n          ],\n          \"use_criteria\": {\n            \"choose_target_using_algorithm\": \"choose_first_with_matching_criteria\",\n            \"conditions\": [\n              {\n                \"operator\": \"eqi\",\n                \"left_operand\": \"$targetgroup.web-service endpoint.input.display_name$\",\n                \"right_operand\": \"Umbrella Management\"\n              }\n            ]\n          }\n        }\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_01NCYFT8AWC7U2RP8jM7UMGqqK5j94QGZsI\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Is the observable type supported?\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Is the observable type supported?\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_01NCYFTYR65SJ6RbnvCBbGkSElGSpc3BC7A\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"No\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": \"$workflow.definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5.input.variable_workflow_01N8SU3XTRQTG6Y5Kkar7VLvng4DrbdWnVK$\",\n                    \"operator\": \"ne\",\n                    \"right_operand\": \"ip\"\n                  },\n                  \"operator\": \"and\",\n                  \"right_operand\": {\n                    \"left_operand\": \"$workflow.definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5.input.variable_workflow_01N8SU3XTRQTG6Y5Kkar7VLvng4DrbdWnVK$\",\n                    \"operator\": \"ne\",\n                    \"right_operand\": \"domain\"\n                  }\n                },\n                \"operator\": \"and\",\n                \"right_operand\": {\n                  \"left_operand\": \"$workflow.definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5.input.variable_workflow_01N8SU3XTRQTG6Y5Kkar7VLvng4DrbdWnVK$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"url\"\n                }\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"No\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_01NCYH18P6XJ36hRKW8ZxHsPjR1F4z4S1ho\",\n                \"name\": \"Completed\",\n                \"title\": \"Unsupported observable\",\n                \"type\": \"logic.completed\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"completion_type\": \"failed-completed\",\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Unsupported observable\",\n                  \"result_message\": \"The observable type \\\"$workflow.definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5.input.variable_workflow_01N8SU3XTRQTG6Y5Kkar7VLvng4DrbdWnVK$\\\" is not supported by this workflow\",\n                  \"skip_execution\": false\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"unique_name\": \"definition_activity_01N8UPF48V2L92Hwfs4IjMmeWuMpkFFyzJp\",\n        \"name\": \"Umbrella - Management - Get Destination Lists\",\n        \"title\": \"Umbrella - Management - Get Destination Lists\",\n        \"type\": \"workflow.atomic_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Umbrella - Management - Get Destination Lists\",\n          \"input\": {\n            \"variable_workflow_01PP76E2I524R2Ds69P8MPBNOsTC97lLsjE\": \"$workflow.definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5.local.variable_workflow_01N8SUWB4QWLQ1Lzb9SpNsCmvTqhJPl0opk$\",\n            \"variable_workflow_01PP76E2I57QC1YKSGlj4FvrIirJajhuiJU\": 100,\n            \"variable_workflow_01PP76E2I598J2s8XLXecj9Ai9616xQ7Vv3\": 1\n          },\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target_group\": true\n          },\n          \"workflow_id\": \"definition_workflow_01PP76E2PZZDF6jy3jVpYnYp5STVy3zReDB\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_01N8UOVO5WFWG2bpePpxlqtJkbqb9vpJtFE\",\n        \"name\": \"JSONPath Query\",\n        \"title\": \"Extract destination list ID\",\n        \"type\": \"corejava.jsonpathquery\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"continue_on_failure\": true,\n          \"display_name\": \"Extract destination list ID\",\n          \"input_json\": \"$activity.definition_activity_01N8UPF48V2L92Hwfs4IjMmeWuMpkFFyzJp.output.variable_workflow_01PP76E2I5AGW6ER9Z87Zvcb4O1pjn9Wcwc$\",\n          \"jsonpath_queries\": [\n            {\n              \"jsonpath_query\": \"$.data[?(@.name==\\\"$workflow.definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5.local.variable_workflow_01N8SX42CUI766QzPyCMY66ZucixntbJR1h$\\\")].id\",\n              \"jsonpath_query_name\": \"destinationListId\",\n              \"jsonpath_query_type\": \"string\"\n            }\n          ],\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_01NCYAFZF3ZMO0lBDS7mv2yk1LdTHAVnqbZ\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Was extraction successful?\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Was extraction successful?\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_01NCYAGQI5M8B2VXeNCvEnqUqywNNCOysbN\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Yes\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$activity.definition_activity_01N8UOVO5WFWG2bpePpxlqtJkbqb9vpJtFE.output.succeeded$\",\n                \"operator\": \"eq\",\n                \"right_operand\": true\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Yes\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_01N8SUJTZKNLF2n1YlYfLoQhlfdH8R4xrbV\",\n                \"name\": \"Umbrella - Management - Add Record to Destination List\",\n                \"title\": \"Umbrella - Management - Add Record to Destination List\",\n                \"type\": \"workflow.atomic_workflow\",\n                \"base_type\": \"subworkflow\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Umbrella - Management - Add Record to Destination List\",\n                  \"input\": {\n                    \"variable_workflow_01PR38PRA8DAV0ueGoV9r6wwpoD7SSF757y\": \"Added by SecureX orchestration\",\n                    \"variable_workflow_01PR38PRA8HGK1pzCqHFCWKILh6nWkPrpC0\": \"$workflow.definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5.local.variable_workflow_01N8SUWB4QWLQ1Lzb9SpNsCmvTqhJPl0opk$\",\n                    \"variable_workflow_01PR38PRA8ISH0QK4PJTeo7pPubN1Ft8vi7\": \"$activity.definition_activity_01N8UOVO5WFWG2bpePpxlqtJkbqb9vpJtFE.output.jsonpath_queries.destinationListId$\",\n                    \"variable_workflow_01PR38PRA8JXW531nZH86NP15pwRBtmRMOT\": \"$workflow.definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5.input.variable_workflow_01N8SU73XGBU53LOwNS2lAY8aQfkTQGRoxf$\"\n                  },\n                  \"runtime_user\": {\n                    \"target_default\": true\n                  },\n                  \"skip_execution\": false,\n                  \"target\": {\n                    \"use_workflow_target_group\": true\n                  },\n                  \"workflow_id\": \"definition_workflow_01PR38PRIL1R04x7je59e5UtYqDQ0B1NHet\"\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          },\n          {\n            \"unique_name\": \"definition_activity_01NCYAGR89YMY1vKpCBGJlBanQRWte26Com\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"No\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$activity.definition_activity_01N8UOVO5WFWG2bpePpxlqtJkbqb9vpJtFE.output.succeeded$\",\n                \"operator\": \"eq\",\n                \"right_operand\": false\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"No\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_01NCYASONY23T1Y8iX3RzckTBhJ6HHTOVPX\",\n                \"name\": \"Completed\",\n                \"title\": \"Failed\",\n                \"type\": \"logic.completed\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"completion_type\": \"failed-completed\",\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Failed\",\n                  \"result_message\": \"Failed to extract the destination list ID for the list \\\"$workflow.definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5.local.variable_workflow_01N8SX42CUI766QzPyCMY66ZucixntbJR1h$\\\"\",\n                  \"skip_execution\": false\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"categories\": [\n      \"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\"\n    ]\n  },\n  \"categories\": {\n    \"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\": {\n      \"unique_name\": \"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\",\n      \"name\": \"response\",\n      \"title\": \"response\",\n      \"type\": \"basic.category\",\n      \"base_type\": \"category\",\n      \"category_type\": \"custom\",\n      \"object_type\": \"category\"\n    }\n  },\n  \"target_groups\": {\n    \"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\": {\n      \"unique_name\": \"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\n      \"name\": \"Default TargetGroup\",\n      \"title\": \"Default TargetGroup\",\n      \"type\": \"generic.target_group\",\n      \"base_type\": \"target_group\",\n      \"version\": \"1.0.0\",\n      \"targets\": [\n        {\n          \"data_target_type\": \"web-service.endpoint\",\n          \"view_target_type\": \"web-service.endpoint\",\n          \"include_all_targets\": true\n        },\n        {\n          \"data_target_type\": \"email.smtp_endpoint\",\n          \"view_target_type\": \"email.smtp_endpoint\",\n          \"include_all_targets\": true\n        }\n      ],\n      \"object_type\": \"target_group\"\n    }\n  },\n  \"atomic_workflows\": [\n    \"definition_workflow_01PP76E2PZZDF6jy3jVpYnYp5STVy3zReDB\",\n    \"definition_workflow_01PR38PRIL1R04x7je59e5UtYqDQ0B1NHet\"\n  ]\n}",
+                    "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$",
+                    "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "POST",
+                    "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "be-importexport/api/v1/workflows/import?create_new=true\u0026overwrite=false\u0026workflow_unique_name=definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5",
+                    "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
+                    "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": ""
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
+                  "workflow_name": ""
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01XYRKBC200IZ0FnthOtXAYmrEr1kBh5vFp",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "skip_execution": false,
+                  "sleep_interval": 15
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01XYRJSIIWB6I3X3EbUyYFwYThtpdO4S8h5",
+                "name": "HTTP Request",
+                "title": "Validate Imported Workflow ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+                    }
+                  ],
+                  "display_name": "Validate Imported Workflow ",
+                  "method": "POST",
+                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01XYQS46OAIJZ0XCqZOutqkoSFlo5HGPbKc.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$/validate",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01XYQS737II6R7CPCGDXllgIV6tqF4hHVtQ",
+                "name": "Publish Reusable workflow",
+                "title": "Publish Reusable workflow",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Publish Reusable workflow",
+                  "input": {
+                    "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz": "Publish1-Featured",
+                    "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs": "This is workflow published to add to featured category",
+                    "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4": "$activity.definition_activity_01XYQS46OAIJZ0XCqZOutqkoSFlo5HGPbKc.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$",
+                    "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF": "This is workflow published to add to featured category",
+                    "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "execute_on_this_target": true,
+                    "target_id": "definition_target_01EOZMYH25RSG1rDfjUIjQwHEPioIElydk9",
+                    "target_type": "web-service.endpoint"
+                  },
+                  "workflow_id": "definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l",
+                  "workflow_name": ""
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01XYRKK2YSTB62ydY3cEJOtteGBvHcxtH3O",
+                "name": "Sleep",
+                "title": "Sleep",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep",
+                  "skip_execution": false,
+                  "sleep_interval": 15
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01XYRIEEY6P7A0JcCsN3jePQEf4HSCciOWN",
+                "name": "HTTP Request",
+                "title": "Delete Imported Workflow ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+                    }
+                  ],
+                  "display_name": "Delete Imported Workflow ",
+                  "method": "GET",
+                  "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01XYQS46OAIJZ0XCqZOutqkoSFlo5HGPbKc.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01XYQSWYVY5KT55L7KafbHG9GIWXx2DN90R",
+        "name": "HTTP Request",
+        "title": "Add Published workflow to Featured Category",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "body": "[\n\t{\n\t\t\"xchange_id\": \"$activity.definition_activity_01XYPY804W1LZ6S2O2WoQeaPDJpxn27pjk6.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$\",\n\t\t\"display_order\": 1\n\t},\n\t{\n\t\t\"xchange_id\": \"$activity.definition_activity_01XYQS46OAIJZ0XCqZOutqkoSFlo5HGPbKc.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$\",\n\t\t\"display_order\": 2\n\t}\n]",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+            }
+          ],
+          "display_name": "Add Published workflow to Featured Category",
+          "method": "POST",
+          "relative_url": "be-console/api/v1/xchanges/featured",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01XYQUT9X5O5N5pfv51cESWR1vwCrcj0G4P",
+        "name": "HTTP Request",
+        "title": "Get DisplayOrder and Category",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+            }
+          ],
+          "display_name": "Get DisplayOrder and Category",
+          "method": "GET",
+          "relative_url": "/be-console/api/v1/xchanges?section=featured\u0026limit=2\u0026start=0",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01XYR79CFPTSS0zobMsSqZk4pAC9nfpqqt8",
+        "name": "JSONPath Query",
+        "title": "Fetch Category ID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Fetch Category ID",
+          "input_json": "$activity.definition_activity_01XYQUT9X5O5N5pfv51cESWR1vwCrcj0G4P.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.results[0].categories[1]",
+              "jsonpath_query_name": "Featured_Category_PublishedWF1",
+              "jsonpath_query_type": "string"
+            },
+            {
+              "jsonpath_query": "$.results[1].categories[1]",
+              "jsonpath_query_name": "Featured_Category_PublishedWF2",
+              "jsonpath_query_type": "string"
+            },
+            {
+              "jsonpath_query": "$.results[0].properties.display_order",
+              "jsonpath_query_name": "Display_Order1",
+              "jsonpath_query_type": "string"
+            },
+            {
+              "jsonpath_query": "$.results[1].properties.display_order",
+              "jsonpath_query_name": "Display_Order2",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01XYR889K6Q097HtrTskT6Q9FxMKHhPZtXG",
+        "name": "HTTP Request",
+        "title": "Get Featured CategoryName for PublishedWF1",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+            }
+          ],
+          "display_name": "Get Featured CategoryName for PublishedWF1",
+          "method": "GET",
+          "relative_url": "be-console/api/v1/categories/$activity.definition_activity_01XYR79CFPTSS0zobMsSqZk4pAC9nfpqqt8.output.jsonpath_queries.Featured_Category_PublishedWF1$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01XYRBDKEQRFX6qHSc9ghRWPD6KAkG8ZvFK",
+        "name": "JSONPath Query",
+        "title": "Fetch CategoryName for PublsihedWF1",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Fetch CategoryName for PublsihedWF1",
+          "input_json": "$activity.definition_activity_01XYR889K6Q097HtrTskT6Q9FxMKHhPZtXG.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.title",
+              "jsonpath_query_name": "Categrory_Name_PublishedWF1",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01XYRAOATLO7M1fR64gDUWcztOEH8ptNYRW",
+        "name": "HTTP Request",
+        "title": "Get Featured CategoryName for PublishedWF2",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+            }
+          ],
+          "display_name": "Get Featured CategoryName for PublishedWF2",
+          "method": "GET",
+          "relative_url": "be-console/api/v1/categories/$activity.definition_activity_01XYR79CFPTSS0zobMsSqZk4pAC9nfpqqt8.output.jsonpath_queries.Featured_Category_PublishedWF2$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01XYRBQEPK3AU13RyJGcHcfpFrEGKqJDsvQ",
+        "name": "JSONPath Query",
+        "title": "Fetch CategoryName for PublsihedWF2",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Fetch CategoryName for PublsihedWF2",
+          "input_json": "$activity.definition_activity_01XYRAOATLO7M1fR64gDUWcztOEH8ptNYRW.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.title",
+              "jsonpath_query_name": "Categrory_Name_PublishedWF2",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01XYRDOYWEZGB76TBTEXFyj6IuFbixW8Lj2",
+        "name": "Set Variables",
+        "title": "Store Category and Display Orders",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Store Category and Display Orders",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.output.variable_workflow_01XYRE5V16IVX7Fuf3rUCTFgHm9fJZJDiXu$",
+              "variable_value_new": "$activity.definition_activity_01XYRBDKEQRFX6qHSc9ghRWPD6KAkG8ZvFK.output.jsonpath_queries.Categrory_Name_PublishedWF1$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.output.variable_workflow_01XYREASR8QOZ1cTatDpHVdfYeRLiP5efUM$",
+              "variable_value_new": "$activity.definition_activity_01XYRBQEPK3AU13RyJGcHcfpFrEGKqJDsvQ.output.jsonpath_queries.Categrory_Name_PublishedWF2$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.output.variable_workflow_01XYREJ05SCKU14BITXYIaaRf64JTu3MJUW$",
+              "variable_value_new": "$activity.definition_activity_01XYR79CFPTSS0zobMsSqZk4pAC9nfpqqt8.output.jsonpath_queries.Display_Order1$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.output.variable_workflow_01XYREN36779E4MlMO6CtlTtT1pPBj92xOI$",
+              "variable_value_new": "$activity.definition_activity_01XYR79CFPTSS0zobMsSqZk4pAC9nfpqqt8.output.jsonpath_queries.Display_Order2$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01XYRFZJSK47M5xgwGTm3Ke5pb8WQ7VL4tV",
+        "name": "HTTP Request",
+        "title": "Negative test case for Invalid WF ID for Featured API",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "body": "[\n\t{\n\t\t\"xchange_id\": \"01XLXVIBMVVYK2C8PgvfrbcOXDoP3TJCCk2\",\n\t\t\"display_order\": 1\n\t},\n\t{\n\t\t\"xchange_id\": \"01XPNZ76RIG9O0x8pWgyd7CnBWhdpwuuNR3\",\n\t\t\"display_order\": 2\n\t}\n]",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+            }
+          ],
+          "display_name": "Negative test case for Invalid WF ID for Featured API",
+          "method": "POST",
+          "relative_url": "be-console/api/v1/xchanges/featured",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "categories": {
+    "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A": {
+      "unique_name": "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A",
+      "name": "CA Web Services",
+      "title": "CA Web Services",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
+        "name": "SXO- CRUD Operations Automation WF",
+        "title": "SXO- CRUD Operations Automation WF",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Token",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Error Code",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Authorization",
+              "scope": "local",
+              "name": "Authorization",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Response Body",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schema ID's",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Select Method (EX: GET, PUT, POST, DELETE)",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "be-console/api/v1/",
+              "scope": "input",
+              "name": "Relative URL",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Value (Only For Tenant creation) Provide Tenant id",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Created Object ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Error Message",
+              "type": "datatype.string",
+              "description": "Created Object Error Message",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "SXO- CRUD Operations Automation WF",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "target_type": "web-service.endpoint",
+            "specify_on_workflow_start": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd",
+            "name": "HTTP Request",
+            "title": "Create/Delete/Read/update (Targets, WF's, Calendars, Etc)",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "body": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.input.variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m$",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "custom_headers": [
+                {
+                  "name": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.local.variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO$",
+                  "value": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.input.variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe$"
+                },
+                {
+                  "name": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.input.variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0$",
+                  "value": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.input.variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt$"
+                }
+              ],
+              "description": "Create an Objects (targets, runtime_users, workflows, calendars)",
+              "display_name": "Create/Delete/Read/update (Targets, WF's, Calendars, Etc)",
+              "method": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.input.variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr$",
+              "relative_url": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.input.variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01W1OOM1BXR6P1Dy3Y0wBi5ueKFGfNCkYPZ",
+            "name": "Set Variables",
+            "title": "Storing Response Body O/P",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Storing Response Body O/P",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
+                  "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.response_body$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01V58VFYPCIBY78lJQA24QE9Q3XhuGeZ2IQ",
+            "name": "JSONPath Query",
+            "title": "Extracting ID's (ex: targets, runtime_users, wf's)",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Extracting ID's (ex: targets, runtime_users, wf's)",
+              "input_json": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$..id",
+                  "jsonpath_query_name": "Object Id",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$..schema_id",
+                  "jsonpath_query_name": "object Schema Id",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01V58VFZQBB7Z7Miym8XFgv5DrA1dkuaFie",
+            "name": "Set Variables",
+            "title": "Storing Id's, R Body in O/P Variable (ex: targets, A_keys, wf's)",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Storing Id's, R Body in O/P Variable (ex: targets, A_keys, wf's)",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$",
+                  "variable_value_new": "$activity.definition_activity_01V58VFYPCIBY78lJQA24QE9Q3XhuGeZ2IQ.output.jsonpath_queries.Object Id$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL$",
+                  "variable_value_new": "$activity.definition_activity_01V58VFYPCIBY78lJQA24QE9Q3XhuGeZ2IQ.output.jsonpath_queries.object Schema Id$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01V58VG0X80Q81dupz4g3Vsn9YjbtoqgiuT",
+            "name": "Condition Block",
+            "title": "Objects Create Validation pass/Fail (ex: targets and so on)",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Objects Create Validation pass/Fail (ex: targets and so on)",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01V58VG1X6MH45WG2ZRTc77f0ABBBOAP5i6",
+                "name": "Condition Branch",
+                "title": "200 valid -pass",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "mregex",
+                      "right_operand": "200"
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.succeeded$",
+                      "operator": "eq",
+                      "right_operand": true
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "200 valid -pass",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01V58VG2WR8VN1GssQVllBS5oNh4NygTmo5",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "true"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01V58VG3ZT0GC45uKeBPeLMKfPUjT8c9JDs",
+                "name": "Condition Branch",
+                "title": "400 Error- Bad Request required missing",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "400"
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*required missing"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "400 Error- Bad Request required missing",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01V58VG5380NB1qGcNVQYbU0VGVP9OP7RXz",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01V58VG6698L35j00yGPXbMg2wIGYX4Sukw",
+                "name": "Condition Branch",
+                "title": "400 Error- Default Run time user id is missing in the payload",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*Default run time user id is missing in the payload"
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "400"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "400 Error- Default Run time user id is missing in the payload",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01V58VG76G6P20zQ2wRUILebQBBamruwQcs",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01V58VG83PO1O6akuSowL9FX6aqC7fVFioC",
+                "name": "Condition Branch",
+                "title": "403 Error- Access forbidden",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*Access forbidden"
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "403"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "403 Error- Access forbidden",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01V58VG99XO5Z3LVCKlyBAyONGIQb6swvZD",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01V5BL8VF7TJ72XE6NTKwUXX6nvZ3t3GfqK",
+                "name": "Condition Branch",
+                "title": "404 Error- Not Found",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*Not Found"
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "404"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "description": "action execution  errored for type web-service.http_request err:code:404 message::{\"code\":404,\"message\":\"Not Found\",\"description\":\"not found\"}",
+                  "display_name": "404 Error- Not Found",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01V5BL8VF948M6X3r2ZZDkOvfgQ2kacsNS5",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01W50P347E8T06iHzdskF60UgLRxQw2oaks",
+                "name": "Condition Branch",
+                "title": "404 Error- Resource not Found",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*not found"
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "404"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "description": "action execution  errored for type web-service.http_request err:code:404 message::{\"code\":404,\"message\":\"not Found\",\"description\":\"not found\"}",
+                  "display_name": "404 Error- Resource not Found",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01W50P347EXHY3lIOsF2xecOw58KDK8bDmN",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01V5AJ87YM5RU6u6zbTpDC8lFEuwF37PUB0",
+                "name": "Condition Branch",
+                "title": "405 Error- action execution errored for type web-service",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*action execution  errored"
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "405"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "405 Error- action execution errored for type web-service",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01V5AJ87YMUQ879sT4WAbmAeR2rLN6ugRaY",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01V58VGAG4M7Y6fPY0SdakW0BjOmP4VGQ6b",
+                "name": "Condition Branch",
+                "title": "500 Error- Oh no !! Something unexpected happened",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*Oh no !! Something unexpected happened"
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "500"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "500 Error- Oh no !! Something unexpected happened",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01V58VGBK6Y0E7ayY0ih12vvZmHDK0S4thG",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01V58VGCTQDJL0dJa8wllZnac1L4ZuLuxXe",
+                "name": "Condition Branch",
+                "title": "500 Error- EOF Cannot connect to backend service",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*Cannot connect to backend"
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "500"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "500 Error- EOF Cannot connect to backend service",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01V58VGDVE6SZ5sYWlHNwL9BtLiXZhkOokR",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01V5BV3NGXUUB2hLXG9BcCn8PoARJy7JVto",
+                "name": "Condition Branch",
+                "title": "401 Error- Unauthorized/missing token in header",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "400"
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*missing token in header"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "description": "action execution  errored for type web-service.http_request err:code:401 message::{\"code\":401,\"message\":\"Unauthorized\",\"description\":\"missing token in header\"}\n",
+                  "display_name": "401 Error- Unauthorized/missing token in header",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01V5BV3NGYZNU32u4f1nXK8JV43KNjdvCRC",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01V5REIH47QGD0o0cMrCM6ItMyGANpc4JKI",
+                "name": "Condition Branch",
+                "title": "400 Error- Display name length must be 64 chars",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "400"
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*length must be"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "description": "action execution  errored for type web-service.http_request err:code:400 message::{\"code\":2700,\"message\":\"Bad request\",\"description\":\",property:display_name error:length must be \\u003c= 64, but got 78\",\"traceid\":\"da025be7\"}",
+                  "display_name": "400 Error- Display name length must be 64 chars",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01V5REIH48MNE4T9x8qNvQiPieuKkoKxWCj",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l",
+        "name": "Publish Reusable workflow",
+        "title": "Publish Reusable workflow",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Blurb",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Category_ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_UniqueName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Description",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchnage_Publish_DisplayName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Input Token",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Description",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Display_Name",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_UserTenantID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Blurb_Short_Description",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAQ44U0LB103IOLIAMFq4qo3ljG9TfQy",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Reusable PublishAPI TestCase Pass/Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Workflow_ID",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange Category Name",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "Publish Reusable workflow",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "target_type": "web-service.endpoint",
+            "target_id": "definition_target_01EOZMYH25RSG1rDfjUIjQwHEPioIElydk9",
+            "execute_on_workflow_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y",
+            "name": "Execute Python Script",
+            "title": "Execute Python Script",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Execute Python Script",
+              "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01XVA9MRO110S3TdJbrvwVl10TI4vmTeS2Q",
+            "name": "HTTP Request",
+            "title": "Publish API",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "body": "{\n\t\"name\": \"PublishWFName-TopLevel-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\"title\": \"Title-TopLevel-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\"blurb\": \"Blurb-TopLevel-Automation\",\n\t\"type\": \"generic.xchange\",\n\t\"base_type\": \"xchange\",\n\t\"description\": \"Description-TopLevel-Automation\",\n\t\"workflow_ids\": [\n\t\t\"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4$\"\n\t],\n\t\n\t\"properties\": {\n\t\t\"display_name\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz$-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\t\"blurb\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs$\",\n\t\t\"description\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF$\"\n\t}\n}",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "custom_headers": [
+                {
+                  "name": "Authorization",
+                  "value": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT$"
+                }
+              ],
+              "display_name": "Publish API",
+              "method": "POST",
+              "relative_url": "be-importexport/api/v1/xchanges",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01XVAKQJ840OJ0GsQ4TZcyADcT41E7Pg5lj",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Sleep",
+              "skip_execution": false,
+              "sleep_interval": 30
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01XVAKINGWS306wEflQccsTS3yO7YVs1HFS",
+            "name": "JSONPath Query",
+            "title": "Fetch the Details from Publish API Resposne ",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch the Details from Publish API Resposne ",
+              "input_json": "$activity.definition_activity_01XVA9MRO110S3TdJbrvwVl10TI4vmTeS2Q.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$._id",
+                  "jsonpath_query_name": "User Tenant Xchange ID",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.unique_name",
+                  "jsonpath_query_name": "Xchange unique_name",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.categories[0]",
+                  "jsonpath_query_name": "Xchange Category ID",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.properties.blurb",
+                  "jsonpath_query_name": "Xchange Short Description",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.properties.display_name",
+                  "jsonpath_query_name": "Xchange display_name",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.properties.description",
+                  "jsonpath_query_name": "Xchange description",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01XVB7GNMFBNE4lqSUVMNyflWpHUkO8F60y",
+            "name": "HTTP Request",
+            "title": "Get Category for Published Xchange",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "custom_headers": [
+                {
+                  "name": "Authorization",
+                  "value": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT$"
+                }
+              ],
+              "display_name": "Get Category for Published Xchange",
+              "method": "GET",
+              "relative_url": "be-console/api/v1/categories/$activity.definition_activity_01XVAKINGWS306wEflQccsTS3yO7YVs1HFS.output.jsonpath_queries.Xchange Category ID$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01XVB8ED4FT3F0kUAK9p7kbOeKDf35c2Y8y",
+            "name": "JSONPath Query",
+            "title": "Fetch Category Name",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch Category Name",
+              "input_json": "$activity.definition_activity_01XVB7GNMFBNE4lqSUVMNyflWpHUkO8F60y.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.title",
+                  "jsonpath_query_name": "Xchange Category Name",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01XVAOE0JW59L21hkGoE0COqQRIXn7jekRd",
+            "name": "Set Variables",
+            "title": "Storing Publish API Response ID's",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Storing Publish API Response ID's",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.output.variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw$",
+                  "variable_value_new": "$activity.definition_activity_01XVAKINGWS306wEflQccsTS3yO7YVs1HFS.output.jsonpath_queries.User Tenant Xchange ID$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.output.variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb$",
+                  "variable_value_new": "$activity.definition_activity_01XVAKINGWS306wEflQccsTS3yO7YVs1HFS.output.jsonpath_queries.Xchange unique_name$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.output.variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO$",
+                  "variable_value_new": "$activity.definition_activity_01XVAKINGWS306wEflQccsTS3yO7YVs1HFS.output.jsonpath_queries.Xchange display_name$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.output.variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4$",
+                  "variable_value_new": "$activity.definition_activity_01XVAKINGWS306wEflQccsTS3yO7YVs1HFS.output.jsonpath_queries.Xchange Category ID$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.output.variable_workflow_01XVAQ44U0LB103IOLIAMFq4qo3ljG9TfQy$",
+                  "variable_value_new": "$activity.definition_activity_01XVAKINGWS306wEflQccsTS3yO7YVs1HFS.output.jsonpath_queries.Xchange Short Description$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.output.variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP$",
+                  "variable_value_new": "$activity.definition_activity_01XVAKINGWS306wEflQccsTS3yO7YVs1HFS.output.jsonpath_queries.Xchange description$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.output.variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn$",
+                  "variable_value_new": "$activity.definition_activity_01XVB8ED4FT3F0kUAK9p7kbOeKDf35c2Y8y.output.jsonpath_queries.Xchange Category Name$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01XVEHZB9QQ2L5tHuwCB1mp0HwzkLSvWHni",
+            "name": "Condition Block",
+            "title": "Publish API Status",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Publish API Status",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01XVEHZBER7095zmWZCSq60BjiW38eFyTV5",
+                "name": "Condition Branch",
+                "title": "Pass",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01XVA9MRO110S3TdJbrvwVl10TI4vmTeS2Q.output.status_code$",
+                      "operator": "eq",
+                      "right_operand": 201
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01XVB7GNMFBNE4lqSUVMNyflWpHUkO8F60y.output.status_code$",
+                      "operator": "eq",
+                      "right_operand": 200
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Pass",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01XVEIIJQYLAO2XeCJCSoVziNMCCNz2I4ca",
+                    "name": "Set Variables",
+                    "title": "Pass",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Pass",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                          "variable_value_new": "Pass"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01XVEHZBLQM346nHSKhY3kc9neMwMBJSk9d",
+                "name": "Condition Branch",
+                "title": "Fail",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01XVA9MRO110S3TdJbrvwVl10TI4vmTeS2Q.output.error.code$",
+                      "operator": "ne",
+                      "right_operand": "201"
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01XVB7GNMFBNE4lqSUVMNyflWpHUkO8F60y.output.error.code$",
+                      "operator": "ne",
+                      "right_operand": "201"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01XVEIJN3P7BL2RX5Lgman3R9BBQrJInxQU",
+                    "name": "Set Variables",
+                    "title": "Fail",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Fail",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                          "variable_value_new": "Fail"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ],
+  "dependent_workflows": [
+    "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
+    "definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l"
+  ]
+}
