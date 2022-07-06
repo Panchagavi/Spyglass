@@ -11,19 +11,6 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Xchange_UniqueName",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01XTM7X3SOW4Y6l5meksLfXufgXQFWt2wVP",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
           "name": "Publish API TestCase Pass/Fail",
           "type": "datatype.string",
           "is_required": false,
@@ -37,12 +24,25 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "EmailTable",
+          "name": "Publish API Negative TestCase Pass/Fail",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01XVFEQMO9WZV68IR8bKjNb6pWfvreaPXjK",
+        "unique_name": "variable_workflow_01XVF2NHMUYDT3aH3HOnFotB9oM3ZQl7LIu",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Xchange_UniqueName",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01XTM7X3SOW4Y6l5meksLfXufgXQFWt2wVP",
         "object_type": "variable_workflow"
       },
       {
@@ -56,6 +56,19 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_01XVFCEA8RMKW5FkaUXZh3gnEX2Wxsb2m7a",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "EmailTable",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01XVFEQMO9WZV68IR8bKjNb6pWfvreaPXjK",
         "object_type": "variable_workflow"
       },
       {
@@ -82,19 +95,6 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_01XTMRCJHNFS87FAeLUF309cdiFyJmSBG9D",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Publish API Negative TestCase Pass/Fail",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01XVF2NHMUYDT3aH3HOnFotB9oM3ZQl7LIu",
         "object_type": "variable_workflow"
       }
     ],
@@ -296,6 +296,38 @@
                   }
                 },
                 "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01YBGHIFVFVLN7CLl6f0XcuNfmSHewqwPC6",
+                "name": "HTTP Request",
+                "title": "Delete Published Xchange ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_01XTKZVDY795643deDu06GtWVtmlCMFbbth.input.variable_workflow_01XTL1SFWODOX4F0we1yLelnBNk100CBwX4$"
+                    }
+                  ],
+                  "display_name": "Delete Published Xchange ",
+                  "method": "DELETE",
+                  "relative_url": "be-importexport/api/v1/xchanges/$activity.definition_activity_01XVAXMKHWYH95hha7zoYZuY6hkwrKMiltp.output.variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
               }
             ]
           },
@@ -456,6 +488,38 @@
                   "display_name": "Delete Imported Workflow",
                   "method": "DELETE",
                   "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01XTQ3N4TIT7A0oGA9YlS63vMjXCgvTMENr.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01YBGIJNXX1E16RbYRy9j9Rq4BnyFKwiwdc",
+                "name": "HTTP Request",
+                "title": "Delete Published Xchange ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_01XTKZVDY795643deDu06GtWVtmlCMFbbth.input.variable_workflow_01XTL1SFWODOX4F0we1yLelnBNk100CBwX4$"
+                    }
+                  ],
+                  "display_name": "Delete Published Xchange ",
+                  "method": "DELETE",
+                  "relative_url": "be-importexport/api/v1/xchanges/$activity.definition_activity_01XVDMSHF49R64JV9ltl7FCLdHbMv7iJbZd.output.variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw$",
                   "runtime_user": {
                     "target_default": true
                   },
@@ -634,6 +698,38 @@
                   }
                 },
                 "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01YBGIUS55JBO4eWWvZXVAURFleMx8YtTmh",
+                "name": "HTTP Request",
+                "title": "Delete Published Xchange ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_01XTKZVDY795643deDu06GtWVtmlCMFbbth.input.variable_workflow_01XTL1SFWODOX4F0we1yLelnBNk100CBwX4$"
+                    }
+                  ],
+                  "display_name": "Delete Published Xchange ",
+                  "method": "DELETE",
+                  "relative_url": "be-importexport/api/v1/xchanges/$activity.definition_activity_01XVDON52JAND6TRqd0A9GNuohbkDgxK56G.output.variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
               }
             ]
           },
@@ -794,6 +890,38 @@
                   "display_name": "Delete Imported Workflow",
                   "method": "DELETE",
                   "relative_url": "/be-console/api/v1/workflows/$activity.definition_activity_01XUDKW4HYKK67mvBddhXwin1zTolKxjeZS.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01YBGIWCQOBQJ3vnkUIkzT9YEsGrRg40a0W",
+                "name": "HTTP Request",
+                "title": "Delete Published Xchange ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_01XTKZVDY795643deDu06GtWVtmlCMFbbth.input.variable_workflow_01XTL1SFWODOX4F0we1yLelnBNk100CBwX4$"
+                    }
+                  ],
+                  "display_name": "Delete Published Xchange ",
+                  "method": "DELETE",
+                  "relative_url": "be-importexport/api/v1/xchanges/$activity.definition_activity_01XVDQ7K8PKHR5T01nfNoicrSZpVcES3GMX.output.variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw$",
                   "runtime_user": {
                     "target_default": true
                   },
@@ -972,6 +1100,38 @@
                   }
                 },
                 "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01YBGIXPP855T5Zxbl9d1LMi7lADuWaOswt",
+                "name": "HTTP Request",
+                "title": "Delete Published Xchange ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_01XTKZVDY795643deDu06GtWVtmlCMFbbth.input.variable_workflow_01XTL1SFWODOX4F0we1yLelnBNk100CBwX4$"
+                    }
+                  ],
+                  "display_name": "Delete Published Xchange ",
+                  "method": "DELETE",
+                  "relative_url": "be-importexport/api/v1/xchanges/$activity.definition_activity_01XVDSAQ9TMQN5YNa26r0Ey4zmcszM4QSxM.output.variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
               }
             ]
           },
@@ -1141,6 +1301,38 @@
                   }
                 },
                 "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01YBGJMPPCHRB2sxwH4PY1s3tbO00uFTC2I",
+                "name": "HTTP Request",
+                "title": "Delete Published Xchange ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_01XTKZVDY795643deDu06GtWVtmlCMFbbth.input.variable_workflow_01XTL1SFWODOX4F0we1yLelnBNk100CBwX4$"
+                    }
+                  ],
+                  "display_name": "Delete Published Xchange ",
+                  "method": "DELETE",
+                  "relative_url": "be-importexport/api/v1/xchanges/$activity.definition_activity_01XVDUCAG6MZU7Eti8tn2EHa22Npj992vAS.output.variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
               }
             ]
           }
@@ -1190,169 +1382,217 @@
                                                         "left_operand": {
                                                           "left_operand": {
                                                             "left_operand": {
-                                                              "left_operand": "$activity.definition_activity_01XTL18ZXZDKM3fsMXL93E2ww2rvU0XhNwh.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
-                                                              "operator": "eq",
-                                                              "right_operand": "true"
+                                                              "left_operand": {
+                                                                "left_operand": {
+                                                                  "left_operand": {
+                                                                    "left_operand": {
+                                                                      "left_operand": {
+                                                                        "left_operand": {
+                                                                          "left_operand": "$activity.definition_activity_01XTL18ZXZDKM3fsMXL93E2ww2rvU0XhNwh.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                                                          "operator": "eq",
+                                                                          "right_operand": "true"
+                                                                        },
+                                                                        "operator": "and",
+                                                                        "right_operand": {
+                                                                          "left_operand": "$activity.definition_activity_01XTLDIS21J2F4XC8ea3zkGbS4hJKKMa7ey.output.status_code$",
+                                                                          "operator": "eq",
+                                                                          "right_operand": 200
+                                                                        }
+                                                                      },
+                                                                      "operator": "and",
+                                                                      "right_operand": {
+                                                                        "left_operand": "$activity.definition_activity_01XVAXMKHWYH95hha7zoYZuY6hkwrKMiltp.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                                        "operator": "eq",
+                                                                        "right_operand": "Pass"
+                                                                      }
+                                                                    },
+                                                                    "operator": "and",
+                                                                    "right_operand": {
+                                                                      "left_operand": "$activity.definition_activity_01XTLB0BU4ZGZ5hYfQEFhcP6jwPsqRRNwqA.output.status_code$",
+                                                                      "operator": "eq",
+                                                                      "right_operand": 204
+                                                                    }
+                                                                  },
+                                                                  "operator": "and",
+                                                                  "right_operand": {
+                                                                    "left_operand": "$activity.definition_activity_01XTQ3N4TIT7A0oGA9YlS63vMjXCgvTMENr.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                                                    "operator": "eq",
+                                                                    "right_operand": "true"
+                                                                  }
+                                                                },
+                                                                "operator": "and",
+                                                                "right_operand": {
+                                                                  "left_operand": "$activity.definition_activity_01XTQ3N4TN9797MzfWBufwQuW0zqRp2xwhE.output.status_code$",
+                                                                  "operator": "eq",
+                                                                  "right_operand": 200
+                                                                }
+                                                              },
+                                                              "operator": "and",
+                                                              "right_operand": {
+                                                                "left_operand": "$activity.definition_activity_01XVDMSHF49R64JV9ltl7FCLdHbMv7iJbZd.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                                "operator": "eq",
+                                                                "right_operand": "Pass"
+                                                              }
                                                             },
                                                             "operator": "and",
                                                             "right_operand": {
-                                                              "left_operand": "$activity.definition_activity_01XTLDIS21J2F4XC8ea3zkGbS4hJKKMa7ey.output.status_code$",
+                                                              "left_operand": "$activity.definition_activity_01XTQ3N4U0QPO6aSs1gX96VEsEhWMOT0scE.output.status_code$",
                                                               "operator": "eq",
-                                                              "right_operand": 200
+                                                              "right_operand": 204
                                                             }
                                                           },
                                                           "operator": "and",
                                                           "right_operand": {
-                                                            "left_operand": "$activity.definition_activity_01XVAXMKHWYH95hha7zoYZuY6hkwrKMiltp.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                            "left_operand": "$activity.definition_activity_01XUDBTNRIQGM4LWYt0Q3HjLffwjOul0yoo.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                                             "operator": "eq",
-                                                            "right_operand": "Pass"
+                                                            "right_operand": "true"
                                                           }
                                                         },
                                                         "operator": "and",
                                                         "right_operand": {
-                                                          "left_operand": "$activity.definition_activity_01XTLB0BU4ZGZ5hYfQEFhcP6jwPsqRRNwqA.output.status_code$",
+                                                          "left_operand": "$activity.definition_activity_01XUDBTNRNJ0Z0CSzZ0uDhFNKKhXFgs3JnD.output.status_code$",
                                                           "operator": "eq",
-                                                          "right_operand": 204
+                                                          "right_operand": 200
                                                         }
                                                       },
                                                       "operator": "and",
                                                       "right_operand": {
-                                                        "left_operand": "$activity.definition_activity_01XTQ3N4TIT7A0oGA9YlS63vMjXCgvTMENr.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                                        "left_operand": "$activity.definition_activity_01XVDON52JAND6TRqd0A9GNuohbkDgxK56G.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
                                                         "operator": "eq",
-                                                        "right_operand": "true"
+                                                        "right_operand": "Pass"
                                                       }
                                                     },
                                                     "operator": "and",
                                                     "right_operand": {
-                                                      "left_operand": "$activity.definition_activity_01XTQ3N4TN9797MzfWBufwQuW0zqRp2xwhE.output.status_code$",
+                                                      "left_operand": "$activity.definition_activity_01XUDBTNS555T6i5rMsWlK8CrJ8vuvGfcMG.output.status_code$",
                                                       "operator": "eq",
-                                                      "right_operand": 200
+                                                      "right_operand": 204
                                                     }
                                                   },
                                                   "operator": "and",
                                                   "right_operand": {
-                                                    "left_operand": "$activity.definition_activity_01XVDMSHF49R64JV9ltl7FCLdHbMv7iJbZd.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                    "left_operand": "$activity.definition_activity_01XUDKW4HYKK67mvBddhXwin1zTolKxjeZS.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                                     "operator": "eq",
-                                                    "right_operand": "Pass"
+                                                    "right_operand": "true"
                                                   }
                                                 },
                                                 "operator": "and",
                                                 "right_operand": {
-                                                  "left_operand": "$activity.definition_activity_01XTQ3N4U0QPO6aSs1gX96VEsEhWMOT0scE.output.status_code$",
+                                                  "left_operand": "$activity.definition_activity_01XUDKW4I2QOP6hhwwA3OykF6zb2ziU5D6N.output.status_code$",
                                                   "operator": "eq",
-                                                  "right_operand": 204
+                                                  "right_operand": 200
                                                 }
                                               },
                                               "operator": "and",
                                               "right_operand": {
-                                                "left_operand": "$activity.definition_activity_01XUDBTNRIQGM4LWYt0Q3HjLffwjOul0yoo.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                                "left_operand": "$activity.definition_activity_01XVDQ7K8PKHR5T01nfNoicrSZpVcES3GMX.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
                                                 "operator": "eq",
-                                                "right_operand": "true"
+                                                "right_operand": "Pass"
                                               }
                                             },
                                             "operator": "and",
                                             "right_operand": {
-                                              "left_operand": "$activity.definition_activity_01XUDBTNRNJ0Z0CSzZ0uDhFNKKhXFgs3JnD.output.status_code$",
+                                              "left_operand": "$activity.definition_activity_01XUDKW4IJ9QO4uvK1xRn2cK5gzoFmrXg7u.output.status_code$",
                                               "operator": "eq",
-                                              "right_operand": 200
+                                              "right_operand": 204
                                             }
                                           },
                                           "operator": "and",
                                           "right_operand": {
-                                            "left_operand": "$activity.definition_activity_01XVDON52JAND6TRqd0A9GNuohbkDgxK56G.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                            "left_operand": "$activity.definition_activity_01XUDIGGIO1TT2gRCuCPuaU9iJWIRNWwJ3K.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                             "operator": "eq",
-                                            "right_operand": "Pass"
+                                            "right_operand": "true"
                                           }
                                         },
                                         "operator": "and",
                                         "right_operand": {
-                                          "left_operand": "$activity.definition_activity_01XUDBTNS555T6i5rMsWlK8CrJ8vuvGfcMG.output.status_code$",
+                                          "left_operand": "$activity.definition_activity_01XUDIGGISPM87W0ICEd5GJtdayFm87p69F.output.status_code$",
                                           "operator": "eq",
-                                          "right_operand": 204
+                                          "right_operand": 200
                                         }
                                       },
                                       "operator": "and",
                                       "right_operand": {
-                                        "left_operand": "$activity.definition_activity_01XUDKW4HYKK67mvBddhXwin1zTolKxjeZS.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                        "left_operand": "$activity.definition_activity_01XVDSAQ9TMQN5YNa26r0Ey4zmcszM4QSxM.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
                                         "operator": "eq",
-                                        "right_operand": "true"
+                                        "right_operand": "Pass"
                                       }
                                     },
                                     "operator": "and",
                                     "right_operand": {
-                                      "left_operand": "$activity.definition_activity_01XUDKW4I2QOP6hhwwA3OykF6zb2ziU5D6N.output.status_code$",
+                                      "left_operand": "$activity.definition_activity_01XUDIGGJ98A31hRY7MI0SZx3B3FkhXOqjZ.output.status_code$",
                                       "operator": "eq",
-                                      "right_operand": 200
+                                      "right_operand": 204
                                     }
                                   },
                                   "operator": "and",
                                   "right_operand": {
-                                    "left_operand": "$activity.definition_activity_01XVDQ7K8PKHR5T01nfNoicrSZpVcES3GMX.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                    "left_operand": "$activity.definition_activity_01XUMB1VU93LQ1RWlS4YWDL2RUKur85HP86.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                     "operator": "eq",
-                                    "right_operand": "Pass"
+                                    "right_operand": "true"
                                   }
                                 },
                                 "operator": "and",
                                 "right_operand": {
-                                  "left_operand": "$activity.definition_activity_01XUDKW4IJ9QO4uvK1xRn2cK5gzoFmrXg7u.output.status_code$",
+                                  "left_operand": "$activity.definition_activity_01XUMB1VUEU164EuB0Tm4L1Qf1o32vLXQ82.output.status_code$",
                                   "operator": "eq",
-                                  "right_operand": 204
+                                  "right_operand": 200
                                 }
                               },
                               "operator": "and",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_01XUDIGGIO1TT2gRCuCPuaU9iJWIRNWwJ3K.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                "left_operand": "$activity.definition_activity_01XVDUCAG6MZU7Eti8tn2EHa22Npj992vAS.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
                                 "operator": "eq",
-                                "right_operand": "true"
+                                "right_operand": "Pass"
                               }
                             },
                             "operator": "and",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_01XUDIGGISPM87W0ICEd5GJtdayFm87p69F.output.status_code$",
+                              "left_operand": "$activity.definition_activity_01XUMB1VUYPGG257lNAcMNkS2rVwNgA8yPu.output.status_code$",
                               "operator": "eq",
-                              "right_operand": 200
+                              "right_operand": 204
                             }
                           },
                           "operator": "and",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_01XVDSAQ9TMQN5YNa26r0Ey4zmcszM4QSxM.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                            "left_operand": "$activity.definition_activity_01YBGHIFVFVLN7CLl6f0XcuNfmSHewqwPC6.output.status_code$",
                             "operator": "eq",
-                            "right_operand": "Pass"
+                            "right_operand": 202
                           }
                         },
                         "operator": "and",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_01XUDIGGJ98A31hRY7MI0SZx3B3FkhXOqjZ.output.status_code$",
+                          "left_operand": "$activity.definition_activity_01YBGIJNXX1E16RbYRy9j9Rq4BnyFKwiwdc.output.status_code$",
                           "operator": "eq",
-                          "right_operand": 204
+                          "right_operand": 202
                         }
                       },
                       "operator": "and",
                       "right_operand": {
-                        "left_operand": "$activity.definition_activity_01XUMB1VU93LQ1RWlS4YWDL2RUKur85HP86.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                        "left_operand": "$activity.definition_activity_01YBGIUS55JBO4eWWvZXVAURFleMx8YtTmh.output.status_code$",
                         "operator": "eq",
-                        "right_operand": "true"
+                        "right_operand": 202
                       }
                     },
                     "operator": "and",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_01XUMB1VUEU164EuB0Tm4L1Qf1o32vLXQ82.output.status_code$",
+                      "left_operand": "$activity.definition_activity_01YBGIWCQOBQJ3vnkUIkzT9YEsGrRg40a0W.output.status_code$",
                       "operator": "eq",
-                      "right_operand": 200
+                      "right_operand": 202
                     }
                   },
                   "operator": "and",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_01XVDUCAG6MZU7Eti8tn2EHa22Npj992vAS.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                    "left_operand": "$activity.definition_activity_01YBGIXPP855T5Zxbl9d1LMi7lADuWaOswt.output.status_code$",
                     "operator": "eq",
-                    "right_operand": "Pass"
+                    "right_operand": 202
                   }
                 },
                 "operator": "and",
                 "right_operand": {
-                  "left_operand": "$activity.definition_activity_01XUMB1VUYPGG257lNAcMNkS2rVwNgA8yPu.output.status_code$",
+                  "left_operand": "$activity.definition_activity_01YBGJMPPCHRB2sxwH4PY1s3tbO00uFTC2I.output.status_code$",
                   "operator": "eq",
-                  "right_operand": 204
+                  "right_operand": 202
                 }
               },
               "continue_on_failure": true,
@@ -1413,169 +1653,217 @@
                                                         "left_operand": {
                                                           "left_operand": {
                                                             "left_operand": {
-                                                              "left_operand": "$activity.definition_activity_01XVAXMKHWYH95hha7zoYZuY6hkwrKMiltp.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
-                                                              "operator": "eq",
-                                                              "right_operand": "Fail"
+                                                              "left_operand": {
+                                                                "left_operand": {
+                                                                  "left_operand": {
+                                                                    "left_operand": {
+                                                                      "left_operand": {
+                                                                        "left_operand": {
+                                                                          "left_operand": "$activity.definition_activity_01XVAXMKHWYH95hha7zoYZuY6hkwrKMiltp.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                                          "operator": "eq",
+                                                                          "right_operand": "Fail"
+                                                                        },
+                                                                        "operator": "or",
+                                                                        "right_operand": {
+                                                                          "left_operand": "$activity.definition_activity_01XVDMSHF49R64JV9ltl7FCLdHbMv7iJbZd.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                                          "operator": "eq",
+                                                                          "right_operand": "Fail"
+                                                                        }
+                                                                      },
+                                                                      "operator": "or",
+                                                                      "right_operand": {
+                                                                        "left_operand": "$activity.definition_activity_01XVDON52JAND6TRqd0A9GNuohbkDgxK56G.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                                        "operator": "eq",
+                                                                        "right_operand": "Fail"
+                                                                      }
+                                                                    },
+                                                                    "operator": "or",
+                                                                    "right_operand": {
+                                                                      "left_operand": "$activity.definition_activity_01XVDQ7K8PKHR5T01nfNoicrSZpVcES3GMX.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                                      "operator": "eq",
+                                                                      "right_operand": "Fail"
+                                                                    }
+                                                                  },
+                                                                  "operator": "or",
+                                                                  "right_operand": {
+                                                                    "left_operand": "$activity.definition_activity_01XVDSAQ9TMQN5YNa26r0Ey4zmcszM4QSxM.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                                    "operator": "eq",
+                                                                    "right_operand": "Fail"
+                                                                  }
+                                                                },
+                                                                "operator": "or",
+                                                                "right_operand": {
+                                                                  "left_operand": "$activity.definition_activity_01XVDUCAG6MZU7Eti8tn2EHa22Npj992vAS.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                                  "operator": "eq",
+                                                                  "right_operand": "Fail"
+                                                                }
+                                                              },
+                                                              "operator": "or",
+                                                              "right_operand": {
+                                                                "left_operand": "$activity.definition_activity_01XTL18ZXZDKM3fsMXL93E2ww2rvU0XhNwh.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                                                "operator": "eq",
+                                                                "right_operand": "false"
+                                                              }
                                                             },
                                                             "operator": "or",
                                                             "right_operand": {
-                                                              "left_operand": "$activity.definition_activity_01XVDMSHF49R64JV9ltl7FCLdHbMv7iJbZd.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
-                                                              "operator": "eq",
-                                                              "right_operand": "Fail"
+                                                              "left_operand": "$activity.definition_activity_01XTLDIS21J2F4XC8ea3zkGbS4hJKKMa7ey.output.error.code$",
+                                                              "operator": "ne",
+                                                              "right_operand": "200"
                                                             }
                                                           },
                                                           "operator": "or",
                                                           "right_operand": {
-                                                            "left_operand": "$activity.definition_activity_01XVDON52JAND6TRqd0A9GNuohbkDgxK56G.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
-                                                            "operator": "eq",
-                                                            "right_operand": "Fail"
+                                                            "left_operand": "$activity.definition_activity_01XTLB0BU4ZGZ5hYfQEFhcP6jwPsqRRNwqA.output.error.code$",
+                                                            "operator": "ne",
+                                                            "right_operand": "204"
                                                           }
                                                         },
                                                         "operator": "or",
                                                         "right_operand": {
-                                                          "left_operand": "$activity.definition_activity_01XVDQ7K8PKHR5T01nfNoicrSZpVcES3GMX.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                                          "left_operand": "$activity.definition_activity_01XTQ3N4TIT7A0oGA9YlS63vMjXCgvTMENr.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                                           "operator": "eq",
-                                                          "right_operand": "Fail"
+                                                          "right_operand": "false"
                                                         }
                                                       },
                                                       "operator": "or",
                                                       "right_operand": {
-                                                        "left_operand": "$activity.definition_activity_01XVDSAQ9TMQN5YNa26r0Ey4zmcszM4QSxM.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
-                                                        "operator": "eq",
-                                                        "right_operand": "Fail"
+                                                        "left_operand": "$activity.definition_activity_01XTQ3N4TN9797MzfWBufwQuW0zqRp2xwhE.output.error.code$",
+                                                        "operator": "ne",
+                                                        "right_operand": "200"
                                                       }
                                                     },
                                                     "operator": "or",
                                                     "right_operand": {
-                                                      "left_operand": "$activity.definition_activity_01XVDUCAG6MZU7Eti8tn2EHa22Npj992vAS.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
-                                                      "operator": "eq",
-                                                      "right_operand": "Fail"
+                                                      "left_operand": "$activity.definition_activity_01XTQ3N4U0QPO6aSs1gX96VEsEhWMOT0scE.output.error.code$",
+                                                      "operator": "ne",
+                                                      "right_operand": "200"
                                                     }
                                                   },
                                                   "operator": "or",
                                                   "right_operand": {
-                                                    "left_operand": "$activity.definition_activity_01XTL18ZXZDKM3fsMXL93E2ww2rvU0XhNwh.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                                    "left_operand": "$activity.definition_activity_01XUDBTNRIQGM4LWYt0Q3HjLffwjOul0yoo.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                                     "operator": "eq",
                                                     "right_operand": "false"
                                                   }
                                                 },
                                                 "operator": "or",
                                                 "right_operand": {
-                                                  "left_operand": "$activity.definition_activity_01XTLDIS21J2F4XC8ea3zkGbS4hJKKMa7ey.output.error.code$",
+                                                  "left_operand": "$activity.definition_activity_01XUDBTNRNJ0Z0CSzZ0uDhFNKKhXFgs3JnD.output.error.code$",
                                                   "operator": "ne",
                                                   "right_operand": "200"
                                                 }
                                               },
                                               "operator": "or",
                                               "right_operand": {
-                                                "left_operand": "$activity.definition_activity_01XTLB0BU4ZGZ5hYfQEFhcP6jwPsqRRNwqA.output.error.code$",
+                                                "left_operand": "$activity.definition_activity_01XUDBTNS555T6i5rMsWlK8CrJ8vuvGfcMG.output.error.code$",
                                                 "operator": "ne",
                                                 "right_operand": "204"
                                               }
                                             },
                                             "operator": "or",
                                             "right_operand": {
-                                              "left_operand": "$activity.definition_activity_01XTQ3N4TIT7A0oGA9YlS63vMjXCgvTMENr.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                              "left_operand": "$activity.definition_activity_01XUDKW4HYKK67mvBddhXwin1zTolKxjeZS.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                               "operator": "eq",
                                               "right_operand": "false"
                                             }
                                           },
                                           "operator": "or",
                                           "right_operand": {
-                                            "left_operand": "$activity.definition_activity_01XTQ3N4TN9797MzfWBufwQuW0zqRp2xwhE.output.error.code$",
+                                            "left_operand": "$activity.definition_activity_01XUDKW4I2QOP6hhwwA3OykF6zb2ziU5D6N.output.error.code$",
                                             "operator": "ne",
                                             "right_operand": "200"
                                           }
                                         },
                                         "operator": "or",
                                         "right_operand": {
-                                          "left_operand": "$activity.definition_activity_01XTQ3N4U0QPO6aSs1gX96VEsEhWMOT0scE.output.error.code$",
+                                          "left_operand": "$activity.definition_activity_01XUDKW4IJ9QO4uvK1xRn2cK5gzoFmrXg7u.output.error.code$",
                                           "operator": "ne",
-                                          "right_operand": "200"
+                                          "right_operand": "204"
                                         }
                                       },
                                       "operator": "or",
                                       "right_operand": {
-                                        "left_operand": "$activity.definition_activity_01XUDBTNRIQGM4LWYt0Q3HjLffwjOul0yoo.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                        "left_operand": "$activity.definition_activity_01XUDIGGIO1TT2gRCuCPuaU9iJWIRNWwJ3K.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                         "operator": "eq",
                                         "right_operand": "false"
                                       }
                                     },
                                     "operator": "or",
                                     "right_operand": {
-                                      "left_operand": "$activity.definition_activity_01XUDBTNRNJ0Z0CSzZ0uDhFNKKhXFgs3JnD.output.error.code$",
+                                      "left_operand": "$activity.definition_activity_01XUDIGGISPM87W0ICEd5GJtdayFm87p69F.output.error.code$",
                                       "operator": "ne",
                                       "right_operand": "200"
                                     }
                                   },
                                   "operator": "or",
                                   "right_operand": {
-                                    "left_operand": "$activity.definition_activity_01XUDBTNS555T6i5rMsWlK8CrJ8vuvGfcMG.output.error.code$",
+                                    "left_operand": "$activity.definition_activity_01XUDIGGJ98A31hRY7MI0SZx3B3FkhXOqjZ.output.error.code$",
                                     "operator": "ne",
                                     "right_operand": "204"
                                   }
                                 },
                                 "operator": "or",
                                 "right_operand": {
-                                  "left_operand": "$activity.definition_activity_01XUDKW4HYKK67mvBddhXwin1zTolKxjeZS.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                  "left_operand": "$activity.definition_activity_01XUMB1VU93LQ1RWlS4YWDL2RUKur85HP86.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                   "operator": "eq",
                                   "right_operand": "false"
                                 }
                               },
                               "operator": "or",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_01XUDKW4I2QOP6hhwwA3OykF6zb2ziU5D6N.output.error.code$",
+                                "left_operand": "$activity.definition_activity_01XUMB1VUEU164EuB0Tm4L1Qf1o32vLXQ82.output.error.code$",
                                 "operator": "ne",
                                 "right_operand": "200"
                               }
                             },
                             "operator": "or",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_01XUDKW4IJ9QO4uvK1xRn2cK5gzoFmrXg7u.output.error.code$",
+                              "left_operand": "$activity.definition_activity_01XUMB1VUYPGG257lNAcMNkS2rVwNgA8yPu.output.error.code$",
                               "operator": "ne",
                               "right_operand": "204"
                             }
                           },
                           "operator": "or",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_01XUDIGGIO1TT2gRCuCPuaU9iJWIRNWwJ3K.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
-                            "operator": "eq",
-                            "right_operand": "false"
+                            "left_operand": "$activity.definition_activity_01YBGHIFVFVLN7CLl6f0XcuNfmSHewqwPC6.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "202"
                           }
                         },
                         "operator": "or",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_01XUDIGGISPM87W0ICEd5GJtdayFm87p69F.output.error.code$",
+                          "left_operand": "$activity.definition_activity_01YBGIJNXX1E16RbYRy9j9Rq4BnyFKwiwdc.output.error.code$",
                           "operator": "ne",
-                          "right_operand": "200"
+                          "right_operand": "202"
                         }
                       },
                       "operator": "or",
                       "right_operand": {
-                        "left_operand": "$activity.definition_activity_01XUDIGGJ98A31hRY7MI0SZx3B3FkhXOqjZ.output.error.code$",
+                        "left_operand": "$activity.definition_activity_01YBGIUS55JBO4eWWvZXVAURFleMx8YtTmh.output.error.code$",
                         "operator": "ne",
-                        "right_operand": "204"
+                        "right_operand": "202"
                       }
                     },
                     "operator": "or",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_01XUMB1VU93LQ1RWlS4YWDL2RUKur85HP86.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
-                      "operator": "eq",
-                      "right_operand": "false"
+                      "left_operand": "$activity.definition_activity_01YBGIWCQOBQJ3vnkUIkzT9YEsGrRg40a0W.output.error.code$",
+                      "operator": "ne",
+                      "right_operand": "202"
                     }
                   },
                   "operator": "or",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_01XUMB1VUEU164EuB0Tm4L1Qf1o32vLXQ82.output.error.code$",
+                    "left_operand": "$activity.definition_activity_01YBGIXPP855T5Zxbl9d1LMi7lADuWaOswt.output.error.code$",
                     "operator": "ne",
-                    "right_operand": "200"
+                    "right_operand": "202"
                   }
                 },
                 "operator": "or",
                 "right_operand": {
-                  "left_operand": "$activity.definition_activity_01XUMB1VUYPGG257lNAcMNkS2rVwNgA8yPu.output.error.code$",
+                  "left_operand": "$activity.definition_activity_01YBGJMPPCHRB2sxwH4PY1s3tbO00uFTC2I.output.error.code$",
                   "operator": "ne",
-                  "right_operand": "204"
+                  "right_operand": "202"
                 }
               },
               "continue_on_failure": true,
@@ -2010,6 +2298,39 @@
               }
             },
             "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01YBGXZXF0HPS1y26fIdongKNWOD2hJl5RG",
+            "name": "HTTP Request",
+            "title": "Delete Published Xchange - Negative Case ",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "custom_headers": [
+                {
+                  "name": "Authorization",
+                  "value": "Bearer $workflow.definition_workflow_01XTKZVDY795643deDu06GtWVtmlCMFbbth.input.variable_workflow_01XTL1SFWODOX4F0we1yLelnBNk100CBwX4$"
+                }
+              ],
+              "description": "Try to Delete Xchnage whic is already deleted",
+              "display_name": "Delete Published Xchange - Negative Case ",
+              "method": "DELETE",
+              "relative_url": "be-importexport/api/v1/xchanges/$activity.definition_activity_01XVDQ7K8PKHR5T01nfNoicrSZpVcES3GMX.output.variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
           }
         ]
       },
@@ -2042,62 +2363,70 @@
                           "left_operand": {
                             "left_operand": {
                               "left_operand": {
-                                "left_operand": "$activity.definition_activity_01XUMUDF3VBWG4eNocO2COStWwkrhyU97WV.output.error.code$",
-                                "operator": "eq",
-                                "right_operand": "403"
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_01XUMUDF3VBWG4eNocO2COStWwkrhyU97WV.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "403"
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_01XUPUCRTQ1A03eIOQniTvULhHMh8zRNgN0.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "403"
+                                }
                               },
                               "operator": "and",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_01XUPUCRTQ1A03eIOQniTvULhHMh8zRNgN0.output.error.code$",
+                                "left_operand": "$activity.definition_activity_01XUIJX0Z08K41JnEtULgBAm8D5Sdc3ezIs.output.error.code$",
                                 "operator": "eq",
-                                "right_operand": "403"
+                                "right_operand": "400"
                               }
                             },
                             "operator": "and",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_01XUIJX0Z08K41JnEtULgBAm8D5Sdc3ezIs.output.error.code$",
+                              "left_operand": "$activity.definition_activity_01XUI77NM3Y5M35SRy7JmsQpWsFl4YLbUK8.output.error.code$",
                               "operator": "eq",
                               "right_operand": "400"
                             }
                           },
                           "operator": "and",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_01XUI77NM3Y5M35SRy7JmsQpWsFl4YLbUK8.output.error.code$",
+                            "left_operand": "$activity.definition_activity_01XUIADGAL2UF5xsvuW5TKsDUGX5JLLVveG.output.error.code$",
                             "operator": "eq",
                             "right_operand": "400"
                           }
                         },
                         "operator": "and",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_01XUIADGAL2UF5xsvuW5TKsDUGX5JLLVveG.output.error.code$",
+                          "left_operand": "$activity.definition_activity_01XUIAOPQWRF04ad4Bk1kTe795CxBNdb4MA.output.error.code$",
                           "operator": "eq",
                           "right_operand": "400"
                         }
                       },
                       "operator": "and",
                       "right_operand": {
-                        "left_operand": "$activity.definition_activity_01XUIAOPQWRF04ad4Bk1kTe795CxBNdb4MA.output.error.code$",
+                        "left_operand": "$activity.definition_activity_01XUIH8TCXVA35PVeYQ15RJ6aGIwDgJ0UX8.output.error.code$",
                         "operator": "eq",
                         "right_operand": "400"
                       }
                     },
                     "operator": "and",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_01XUIH8TCXVA35PVeYQ15RJ6aGIwDgJ0UX8.output.error.code$",
+                      "left_operand": "$activity.definition_activity_01XUIAYAYM1CU4nJ8G1EZBrkJE8RFzE0QrX.output.error.code$",
                       "operator": "eq",
                       "right_operand": "400"
                     }
                   },
                   "operator": "and",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_01XUIAYAYM1CU4nJ8G1EZBrkJE8RFzE0QrX.output.error.code$",
+                    "left_operand": "$activity.definition_activity_01XUI8SGMWS504bV89Q2U3mtqe7ZovSF80j.output.error.code$",
                     "operator": "eq",
-                    "right_operand": "400"
+                    "right_operand": "404"
                   }
                 },
                 "operator": "and",
                 "right_operand": {
-                  "left_operand": "$activity.definition_activity_01XUI8SGMWS504bV89Q2U3mtqe7ZovSF80j.output.error.code$",
+                  "left_operand": "$activity.definition_activity_01YBGXZXF0HPS1y26fIdongKNWOD2hJl5RG.output.error.code$",
                   "operator": "eq",
                   "right_operand": "404"
                 }
@@ -2145,62 +2474,70 @@
                           "left_operand": {
                             "left_operand": {
                               "left_operand": {
-                                "left_operand": "$activity.definition_activity_01XUMUDF3VBWG4eNocO2COStWwkrhyU97WV.output.error.code$",
-                                "operator": "ne",
-                                "right_operand": "403"
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_01XUMUDF3VBWG4eNocO2COStWwkrhyU97WV.output.error.code$",
+                                  "operator": "ne",
+                                  "right_operand": "403"
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_01XUPUCRTQ1A03eIOQniTvULhHMh8zRNgN0.output.error.code$",
+                                  "operator": "ne",
+                                  "right_operand": "403"
+                                }
                               },
                               "operator": "or",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_01XUPUCRTQ1A03eIOQniTvULhHMh8zRNgN0.output.error.code$",
+                                "left_operand": "$activity.definition_activity_01XUIJX0Z08K41JnEtULgBAm8D5Sdc3ezIs.output.error.code$",
                                 "operator": "ne",
-                                "right_operand": "403"
+                                "right_operand": "400"
                               }
                             },
                             "operator": "or",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_01XUIJX0Z08K41JnEtULgBAm8D5Sdc3ezIs.output.error.code$",
+                              "left_operand": "$activity.definition_activity_01XUI77NM3Y5M35SRy7JmsQpWsFl4YLbUK8.output.error.code$",
                               "operator": "ne",
                               "right_operand": "400"
                             }
                           },
                           "operator": "or",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_01XUI77NM3Y5M35SRy7JmsQpWsFl4YLbUK8.output.error.code$",
+                            "left_operand": "$activity.definition_activity_01XUIADGAL2UF5xsvuW5TKsDUGX5JLLVveG.output.error.code$",
                             "operator": "ne",
                             "right_operand": "400"
                           }
                         },
                         "operator": "or",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_01XUIADGAL2UF5xsvuW5TKsDUGX5JLLVveG.output.error.code$",
+                          "left_operand": "$activity.definition_activity_01XUIAOPQWRF04ad4Bk1kTe795CxBNdb4MA.output.error.code$",
                           "operator": "ne",
                           "right_operand": "400"
                         }
                       },
                       "operator": "or",
                       "right_operand": {
-                        "left_operand": "$activity.definition_activity_01XUIAOPQWRF04ad4Bk1kTe795CxBNdb4MA.output.error.code$",
+                        "left_operand": "$activity.definition_activity_01XUIH8TCXVA35PVeYQ15RJ6aGIwDgJ0UX8.output.error.code$",
                         "operator": "ne",
                         "right_operand": "400"
                       }
                     },
                     "operator": "or",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_01XUIH8TCXVA35PVeYQ15RJ6aGIwDgJ0UX8.output.error.code$",
+                      "left_operand": "$activity.definition_activity_01XUIAYAYM1CU4nJ8G1EZBrkJE8RFzE0QrX.output.error.code$",
                       "operator": "ne",
                       "right_operand": "400"
                     }
                   },
                   "operator": "or",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_01XUIAYAYM1CU4nJ8G1EZBrkJE8RFzE0QrX.output.error.code$",
+                    "left_operand": "$activity.definition_activity_01XUI8SGMWS504bV89Q2U3mtqe7ZovSF80j.output.error.code$",
                     "operator": "ne",
-                    "right_operand": "400"
+                    "right_operand": "404"
                   }
                 },
                 "operator": "or",
                 "right_operand": {
-                  "left_operand": "$activity.definition_activity_01XUI8SGMWS504bV89Q2U3mtqe7ZovSF80j.output.error.code$",
+                  "left_operand": "$activity.definition_activity_01YBGXZXF0HPS1y26fIdongKNWOD2hJl5RG.output.error.code$",
                   "operator": "ne",
                   "right_operand": "404"
                 }
@@ -2390,14 +2727,27 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Pass or Fail",
+              "value": "be-console/api/v1/",
+              "scope": "input",
+              "name": "Relative URL",
               "type": "datatype.string",
-              "is_required": false,
+              "is_required": true,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
+            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Token",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe",
             "object_type": "variable_workflow"
           },
           {
@@ -2418,26 +2768,51 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Error Message",
+              "name": "Error Code",
               "type": "datatype.string",
-              "description": "Created Object Error Message",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
+            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
             "object_type": "variable_workflow"
           },
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "be-console/api/v1/",
-              "scope": "input",
-              "name": "Relative URL",
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
               "type": "datatype.string",
-              "is_required": true,
+              "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
+            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Created Object ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
             "object_type": "variable_workflow"
           },
           {
@@ -2457,6 +2832,33 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "input",
+              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Error Message",
+              "type": "datatype.string",
+              "description": "Created Object Error Message",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
               "scope": "output",
               "name": "Response Body",
               "type": "datatype.string",
@@ -2464,6 +2866,19 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
             "object_type": "variable_workflow"
           },
           {
@@ -2490,84 +2905,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Token",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "local",
-              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Error Code",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Created Object ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
             "object_type": "variable_workflow"
           }
         ],
@@ -3337,12 +3674,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange_Description",
+              "name": "Xchange_UserTenantID",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
+            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
             "object_type": "variable_workflow"
           },
           {
@@ -3350,64 +3687,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange_UniqueName",
+              "name": "Xchange_Category_ID",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Reusable PublishAPI TestCase Pass/Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Workflow_ID",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Blurb",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_Blurb_Short_Description",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAQ44U0LB103IOLIAMFq4qo3ljG9TfQy",
+            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
             "object_type": "variable_workflow"
           },
           {
@@ -3428,12 +3713,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange_UserTenantID",
+              "name": "Reusable PublishAPI TestCase Pass/Fail",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
+            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
             "object_type": "variable_workflow"
           },
           {
@@ -3441,12 +3726,51 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange Category Name",
+              "name": "Xchange_Blurb_Short_Description",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
+            "unique_name": "variable_workflow_01XVAQ44U0LB103IOLIAMFq4qo3ljG9TfQy",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Blurb",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Workflow_ID",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_UniqueName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
             "object_type": "variable_workflow"
           },
           {
@@ -3460,19 +3784,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchnage_Publish_DisplayName",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
             "object_type": "variable_workflow"
           },
           {
@@ -3493,12 +3804,38 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange_Category_ID",
+              "name": "Xchange_Description",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
+            "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange Category Name",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchnage_Publish_DisplayName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
             "object_type": "variable_workflow"
           }
         ],
