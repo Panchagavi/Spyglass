@@ -1,0 +1,112 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01YICQ5N4WPNF60P7ZdbpgReILSzTVH8wcH",
+    "name": "While_Loop",
+    "title": "While_Loop",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "Counter",
+          "type": "datatype.integer",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01YICRE98GNDT0hCcpLfpm6dRDOgSh66UFB",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "While_Loop",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01YICQ8EVEI0T4pyhZv53dMFKE2IaQx8own",
+        "name": "While Loop",
+        "title": "While Loop",
+        "type": "logic.while",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "While Loop",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01YICQ8F28YJ90VLvsWzwBfbo5eH34AyjpL",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_01YICQ5N4WPNF60P7ZdbpgReILSzTVH8wcH.local.variable_workflow_01YICRE98GNDT0hCcpLfpm6dRDOgSh66UFB$",
+                "operator": "lte",
+                "right_operand": 2
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01YICQFLYMZ506VTKL2XmLQzWnErtVVrIwl",
+                "name": "XSL Transform",
+                "title": "XSL Transform",
+                "type": "core.xsl_transform",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "XSL Transform",
+                  "document": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cbreakfast_menu\u003e\n  \u003cfood\u003e\n    \u003cname\u003eBelgian Waffles\u003c/name\u003e\n    \u003cprice\u003e$5.95\u003c/price\u003e\n    \u003cdescription\u003eTwo of our famous Belgian Waffles with plenty of real maple syrup\u003c/description\u003e\n    \u003ccalories\u003e650\u003c/calories\u003e\n  \u003c/food\u003e\n  \u003cfood\u003e\n    \u003cname\u003eStrawberry Belgian Waffles\u003c/name\u003e\n    \u003cprice\u003e$7.95\u003c/price\u003e\n    \u003cdescription\u003eLight Belgian waffles covered with strawberries and whipped cream\u003c/description\u003e\n    \u003ccalories\u003e900\u003c/calories\u003e\n  \u003c/food\u003e\n  \u003cfood\u003e\n    \u003cname\u003eBerry-Berry Belgian Waffles\u003c/name\u003e\n    \u003cprice\u003e$8.95\u003c/price\u003e\n    \u003cdescription\u003eLight Belgian waffles covered with an assortment of fresh berries and whipped cream\u003c/description\u003e\n    \u003ccalories\u003e900\u003c/calories\u003e\n  \u003c/food\u003e\n  \u003cfood\u003e\n    \u003cname\u003eFrench Toast\u003c/name\u003e\n    \u003cprice\u003e$4.50\u003c/price\u003e\n    \u003cdescription\u003eThick slices made from our homemade sourdough bread\u003c/description\u003e\n    \u003ccalories\u003e600\u003c/calories\u003e\n  \u003c/food\u003e\n  \u003cfood\u003e\n    \u003cname\u003eHomestyle Breakfast\u003c/name\u003e\n    \u003cprice\u003e$6.95\u003c/price\u003e\n    \u003cdescription\u003eTwo eggs, bacon or sausage, toast, and our ever-popular hash browns\u003c/description\u003e\n    \u003ccalories\u003e950\u003c/calories\u003e\n  \u003c/food\u003e\n\u003c/breakfast_menu\u003e",
+                  "skip_execution": false,
+                  "stylesheet": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003chtml xsl:version=\"1.0\" \n  xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\"\u003e\n  \u003cbody style=\"font-family:Arial;font-size:12pt;background-color:#EEEEEE\"\u003e\n    \u003cxsl:for-each select=\"breakfast_menu/food\"\u003e\n      \u003cdiv style=\"background-color:teal;color:white;padding:4px\"\u003e\n        \u003cspan style=\"font-weight:bold\"\u003e\n          \u003cxsl:value-of select=\"name\"/\u003e - \n        \n        \u003c/span\u003e\n        \u003cxsl:value-of select=\"price\"/\u003e\n      \u003c/div\u003e\n      \u003cdiv style=\"margin-left:20px;margin-bottom:1em;font-size:10pt\"\u003e\n        \u003cp\u003e\n          \u003cxsl:value-of select=\"description\"/\u003e\n          \u003cspan style=\"font-style:italic\"\u003e (\n            \n            \u003cxsl:value-of select=\"calories\"/\u003e calories per serving)\n          \n          \u003c/span\u003e\n        \u003c/p\u003e\n      \u003c/div\u003e\n    \u003c/xsl:for-each\u003e\n  \u003c/body\u003e\n\u003c/html\u003e"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01YICRO7AWJMR4hX3hUIpZD5eXwp7602PMF",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01YICQ5N4WPNF60P7ZdbpgReILSzTVH8wcH.local.variable_workflow_01YICRE98GNDT0hCcpLfpm6dRDOgSh66UFB$",
+                      "variable_value_new": "$workflow.definition_workflow_01YICQ5N4WPNF60P7ZdbpgReILSzTVH8wcH.local.variable_workflow_01YICRE98GNDT0hCcpLfpm6dRDOgSh66UFB$+1"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
