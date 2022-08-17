@@ -1,0 +1,182 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01Z9WB0VCPC492e0QloTca0r4bFHYh6dxZI",
+    "name": "Test trigger 8/15",
+    "title": "Test trigger 8/15",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "Empty string",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01Z9WCDQP61L32SNtWtDWoY52EepeoIVjaV",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Test trigger 8/15",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01Z9ZB5GXSOZ14AEMX9sDutjixqoTot3gxA",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "skip_execution": false,
+          "source_array": "$trigger.triggerevent_01Z9Z1M2RKYGJ0jvH29FarinZMVaGtOioDm.output.attachments$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01Z9Z5I8DW2R73KmW6jFeqdOdSivk7eOHlJ",
+            "name": "To Upper",
+            "title": "To Upper",
+            "type": "core.string2upper",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "To Upper",
+              "skip_execution": false,
+              "source": "$activity.definition_activity_01Z9ZB5GXSOZ14AEMX9sDutjixqoTot3gxA.input.source_array[@].attachment_raw_body$"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01Z9Z0Q38TKB705k0YoLK0laBDVpA6FDpk0",
+        "name": "To Upper",
+        "title": "To Upper",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "To Upper",
+          "skip_execution": false,
+          "source": "$trigger.triggerevent_01Z9Z1M2RKYGJ0jvH29FarinZMVaGtOioDm.output.attachments[0].file_name$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01Z9WBAVP5J984CJx3ozMrH0Jsec4GBEDBk",
+        "name": "XPath Query",
+        "title": "XPath Query",
+        "type": "core.xpathquery",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "XPath Query",
+          "input_xml": "\u003cTRSummary\u003e\n\u003cTravellerRequest\u003e\n\u003cTravelRequestNumber\u003e338\u003c/TravelRequestNumber\u003e\n\u003cOriginatorName\u003eSureshVL RonVL\u003c/OriginatorName\u003e\n\u003cRequestDate\u003e2015-01-06T17:51:01.67+05:30\u003c/RequestDate\u003e\n\u003cCostCenter\u003e800\u003c/CostCenter\u003e\n\u003cProjectManagerName\u003ePrasannavl Athinavl Athinavl\u003c/ProjectManagerName\u003e\n\u003cJobNumber\u003e1234\u003c/JobNumber\u003e\n\u003cElementNumber\u003e1234\u003c/ElementNumber\u003e\n\u003cRemarks\u003eremarks\u003c/Remarks\u003e\n\u003cExpectedTravelCost\u003e1200.01\u003c/ExpectedTravelCost\u003e\n\u003cPMC\u003etrue\u003c/PMC\u003e\n\u003c/TravellerRequest\u003e\n\u003cTravellerRequest\u003e\n\u003cTravelRequestNumber\u003e338\u003c/TravelRequestNumber\u003e\n\u003cOriginatorName\u003eSureshVL RonVL\u003c/OriginatorName\u003e\n\u003cRequestDate\u003e2015-01-06T17:51:01.67+05:30\u003c/RequestDate\u003e\n\u003cCostCenter\u003e800\u003c/CostCenter\u003e\n\u003cProjectManagerName\u003ePrasannavl Athinavl Athinavl\u003c/ProjectManagerName\u003e\n\u003cJobNumber\u003e1234\u003c/JobNumber\u003e\n\u003cElementNumber\u003e1234\u003c/ElementNumber\u003e\n\u003cRemarks\u003eremarks\u003c/Remarks\u003e\n\u003cExpectedTravelCost\u003e1200.01\u003c/ExpectedTravelCost\u003e\n\u003cPMC\u003etrue\u003c/PMC\u003e\n\u003c/TravellerRequest\u003e\n\u003c/TRSummary\u003e",
+          "skip_execution": true,
+          "xpath_queries": [
+            {
+              "xpath_query": "$workflow.definition_workflow_01Z9WB0VCPC492e0QloTca0r4bFHYh6dxZI.local.variable_workflow_01Z9WCDQP61L32SNtWtDWoY52EepeoIVjaV$",
+              "xpath_query_name": "RequestDate",
+              "xpath_query_type": "date",
+              "xpath_query_type_format": "2006-01-02T15:04:05-0700"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerevent_01Z9Z1M2RKYGJ0jvH29FarinZMVaGtOioDm": {
+      "workflow_id": "definition_workflow_01Z9WB0VCPC492e0QloTca0r4bFHYh6dxZI",
+      "name": "E- Trigger",
+      "title": "",
+      "lowercase_name": "event.e-_trigger",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_01Z9Z1B0CYK8T7kLfjQphvgYWi1GVf73IHv",
+      "version": "",
+      "disabled": false,
+      "unique_name": "triggerevent_01Z9Z1M2RKYGJ0jvH29FarinZMVaGtOioDm",
+      "object_type": "triggerevent"
+    }
+  },
+  "events": {
+    "event_01Z9Z1B0CYK8T7kLfjQphvgYWi1GVf73IHv": {
+      "name": "CA Email Event 8/15",
+      "title": "CA Email Event 8/15",
+      "type": "email.event",
+      "base_type": "event",
+      "object_type": "event",
+      "target_id": "definition_target_01IN0IBFT1GVD6Pi9CyDUiC6rtkGnybyCC0",
+      "webhook_id": "",
+      "version": "1.0.0",
+      "properties": {
+        "action": "read",
+        "display_name": "CA Email Event 8/15",
+        "download_attachments": true,
+        "folder": "INBOX",
+        "target_id": "definition_target_01IN0IBFT1GVD6Pi9CyDUiC6rtkGnybyCC0",
+        "title": "CA Email Event 8/15"
+      },
+      "unique_name": "event_01Z9Z1B0CYK8T7kLfjQphvgYWi1GVf73IHv"
+    }
+  },
+  "targets": {
+    "definition_target_01IN0IBFT1GVD6Pi9CyDUiC6rtkGnybyCC0": {
+      "unique_name": "definition_target_01IN0IBFT1GVD6Pi9CyDUiC6rtkGnybyCC0",
+      "name": "CA IMAP",
+      "title": "CA IMAP",
+      "type": "email.imap_endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01IN0E0V8IWMV3J7zmGGmbZXiDjx9lZGgWe",
+        "description": "ca",
+        "display_name": "CA IMAP",
+        "ignore_certificate_errors": true,
+        "polling_interval": 10,
+        "port": 993,
+        "protocol": "IMAP",
+        "server": "imap.gmail.com",
+        "tls_enabled": true
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01IN0E0V8IWMV3J7zmGGmbZXiDjx9lZGgWe": {
+      "unique_name": "definition_runtime_user_01IN0E0V8IWMV3J7zmGGmbZXiDjx9lZGgWe",
+      "name": "CA GMAIL",
+      "title": "CA GMAIL",
+      "type": "runtime_user.email_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "description": "fgyhjk",
+        "display_name": "CA GMAIL",
+        "password": "*****",
+        "sender": "longhornproj2@gmail.com"
+      }
+    }
+  }
+}
