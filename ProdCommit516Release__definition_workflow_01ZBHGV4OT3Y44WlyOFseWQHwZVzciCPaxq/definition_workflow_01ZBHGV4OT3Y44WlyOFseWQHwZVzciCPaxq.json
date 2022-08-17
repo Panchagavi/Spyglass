@@ -1,0 +1,50 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01ZBHGV4OT3Y44WlyOFseWQHwZVzciCPaxq",
+    "name": "NK_Webhook_17Aug",
+    "title": "NK_Webhook_17Aug",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "NK_Webhook_17Aug",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01ZBHGYVJ6G0T6sBlF8nu1P9cZqDmT12zZh",
+        "name": "Wait For Event",
+        "title": "Wait For Event",
+        "type": "task.wait_for_event",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Wait For Event",
+          "event_info": {
+            "add_event": true,
+            "event_definition": {
+              "webhook_id": "01ZBHFQP9RIXF3yhYqbNbAqvxn2638Rivpv"
+            }
+          },
+          "event_timeout": 2580000,
+          "event_type": "webhook.event",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
