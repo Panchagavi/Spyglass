@@ -9,14 +9,27 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir\",\n    \"name\": \"ISE - Quarantine Endpoint\",\n    \"title\": \"0027 - ISE - Quarantine Endpoint\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"Quarantine\",\n          \"scope\": \"local\",\n          \"name\": \"ANC Policy Name\",\n          \"type\": \"datatype.string\",\n          \"description\": \"The name of the Adaptive Network Control (ANC) policy to apply to the endpoint\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01O39JUF544P92uKoQ4SYLFEcm6k2fcfj2w\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"observable_type\",\n          \"type\": \"datatype.string\",\n          \"description\": \"The type of observable pivoted on\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"observable_value\",\n          \"type\": \"datatype.string\",\n          \"description\": \"The value of the observable pivoted on\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01O39J53BYU8N2hUF1DHH7qrvrhFI3inWEx\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"description\": \"This workflow quarantines an endpoint in Cisco Identity Services Engine (ISE) by applying an Adaptive Network Control (ANC) policy. Supported observable: mac_address\\n\\nTarget Group: Default TargetGroup\\n\\nTargets: Cisco ISE ERS\\n\\nSteps:\\n[] Make sure the observable type provided is supported\\n[] Apply the ANC policy to the endpoint\\n\\nMore information: http://ciscosecurity.github.io/sxo-05-security-workflows/workflows/0027\",\n      \"display_name\": \"0027 - ISE - Quarantine Endpoint\",\n      \"runtime_user\": {\n        \"override_target_runtime_user\": false,\n        \"specify_on_workflow_start\": false,\n        \"target_default\": true\n      },\n      \"target\": {\n        \"execute_on_target_group\": true,\n        \"target_group\": {\n          \"target_group_id\": \"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\n          \"run_on_all_targets\": false,\n          \"selected_target_types\": [\n            \"web-service.endpoint\"\n          ],\n          \"use_criteria\": {\n            \"choose_target_using_algorithm\": \"choose_first_with_matching_criteria\",\n            \"conditions\": [\n              {\n                \"operator\": \"eqi\",\n                \"left_operand\": \"$targetgroup.web-service endpoint.input.display_name$\",\n                \"right_operand\": \"Cisco ISE ERS\"\n              }\n            ]\n          }\n        }\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_01O39K7GPFNUJ67x3TpAUqmdidKkPXvte61\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Is the observable type supported?\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Is the observable type supported?\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_01O39K8ASDWHQ4eacm8GSPRjnbaBMflZMVX\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"No\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI$\",\n                \"operator\": \"ne\",\n                \"right_operand\": \"mac_address\"\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"No\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_01O39L665V3VE2EGtvTIW3mImcua1bZjY4i\",\n                \"name\": \"Completed\",\n                \"title\": \"Unsupported observable\",\n                \"type\": \"logic.completed\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"completion_type\": \"failed-completed\",\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Unsupported observable\",\n                  \"result_message\": \"The observable type \\\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI$\\\" is not supported by this workflow\",\n                  \"skip_execution\": false\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"unique_name\": \"definition_activity_01O39IP3NAT2O4D5RaFYI4pdQ1Y4QdxmAI5\",\n        \"name\": \"ISE - ERS - ANC Policy - Apply to Endpoint\",\n        \"title\": \"ISE - ERS - ANC Policy - Apply to Endpoint\",\n        \"type\": \"workflow.atomic_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"ISE - ERS - ANC Policy - Apply to Endpoint\",\n          \"input\": {\n            \"variable_workflow_01PP75L8RFFWV7bYw0yB9CXoORchlK0UOwP\": \"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.local.variable_workflow_01O39JUF544P92uKoQ4SYLFEcm6k2fcfj2w$\",\n            \"variable_workflow_01PP75L8RFJJB2nDpihlgz0K4sz98ywgScY\": \"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J53BYU8N2hUF1DHH7qrvrhFI3inWEx$\"\n          },\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target_group\": true\n          },\n          \"workflow_id\": \"definition_workflow_01PP75L8X1V3A5Dw4f1rzJBPEiv0XeLyvSi\"\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\"\n    ]\n  },\n  \"categories\": {\n    \"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\": {\n      \"unique_name\": \"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\",\n      \"name\": \"response\",\n      \"title\": \"response\",\n      \"type\": \"basic.category\",\n      \"base_type\": \"category\",\n      \"category_type\": \"custom\",\n      \"object_type\": \"category\"\n    }\n  },\n  \"target_groups\": {\n    \"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\": {\n      \"unique_name\": \"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\n      \"name\": \"Default TargetGroup\",\n      \"title\": \"Default TargetGroup\",\n      \"type\": \"generic.target_group\",\n      \"base_type\": \"target_group\",\n      \"version\": \"1.0.0\",\n      \"targets\": [\n        {\n          \"data_target_type\": \"web-service.endpoint\",\n          \"view_target_type\": \"web-service.endpoint\",\n          \"include_all_targets\": true\n        },\n        {\n          \"data_target_type\": \"email.smtp_endpoint\",\n          \"view_target_type\": \"email.smtp_endpoint\",\n          \"include_all_targets\": true\n        }\n      ],\n      \"object_type\": \"target_group\"\n    }\n  },\n  \"atomic_workflows\": [\n    \"definition_workflow_01PP75L8X1V3A5Dw4f1rzJBPEiv0XeLyvSi\"\n  ]\n}",
-          "scope": "local",
-          "name": "Paylaod to Import ISE Quartine Endpoint Workflow",
+          "value": "",
+          "scope": "output",
+          "name": "Negative_UploadImage_API_TestCase",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01ZNYYK7ZQ92439Ib4NlDSyb4ZSaKjxAJzD",
+        "unique_name": "variable_workflow_0203BLIYVWVW12PhtLkN1fGkXMxCPoGjdfY",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Upload_Image_API_TestCase",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0203BLSC9WIIA3IeMh9FeFXJZQdAVU4gb7T",
         "object_type": "variable_workflow"
       },
       {
@@ -37,12 +50,38 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Image_Upload_TestCase",
+          "name": "Image_Upload_TestCase_Positive",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
         "unique_name": "variable_workflow_01ZNZM7FZOZ2H3QVzpUzSLKp8cZUHTk8U3H",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir\",\n    \"name\": \"ISE - Quarantine Endpoint\",\n    \"title\": \"0027 - ISE - Quarantine Endpoint\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"Quarantine\",\n          \"scope\": \"local\",\n          \"name\": \"ANC Policy Name\",\n          \"type\": \"datatype.string\",\n          \"description\": \"The name of the Adaptive Network Control (ANC) policy to apply to the endpoint\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01O39JUF544P92uKoQ4SYLFEcm6k2fcfj2w\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"observable_type\",\n          \"type\": \"datatype.string\",\n          \"description\": \"The type of observable pivoted on\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"observable_value\",\n          \"type\": \"datatype.string\",\n          \"description\": \"The value of the observable pivoted on\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01O39J53BYU8N2hUF1DHH7qrvrhFI3inWEx\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"description\": \"This workflow quarantines an endpoint in Cisco Identity Services Engine (ISE) by applying an Adaptive Network Control (ANC) policy. Supported observable: mac_address\\n\\nTarget Group: Default TargetGroup\\n\\nTargets: Cisco ISE ERS\\n\\nSteps:\\n[] Make sure the observable type provided is supported\\n[] Apply the ANC policy to the endpoint\\n\\nMore information: http://ciscosecurity.github.io/sxo-05-security-workflows/workflows/0027\",\n      \"display_name\": \"0027 - ISE - Quarantine Endpoint\",\n      \"runtime_user\": {\n        \"override_target_runtime_user\": false,\n        \"specify_on_workflow_start\": false,\n        \"target_default\": true\n      },\n      \"target\": {\n        \"execute_on_target_group\": true,\n        \"target_group\": {\n          \"target_group_id\": \"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\n          \"run_on_all_targets\": false,\n          \"selected_target_types\": [\n            \"web-service.endpoint\"\n          ],\n          \"use_criteria\": {\n            \"choose_target_using_algorithm\": \"choose_first_with_matching_criteria\",\n            \"conditions\": [\n              {\n                \"operator\": \"eqi\",\n                \"left_operand\": \"$targetgroup.web-service endpoint.input.display_name$\",\n                \"right_operand\": \"Cisco ISE ERS\"\n              }\n            ]\n          }\n        }\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_01O39K7GPFNUJ67x3TpAUqmdidKkPXvte61\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Is the observable type supported?\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Is the observable type supported?\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_01O39K8ASDWHQ4eacm8GSPRjnbaBMflZMVX\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"No\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI$\",\n                \"operator\": \"ne\",\n                \"right_operand\": \"mac_address\"\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"No\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_01O39L665V3VE2EGtvTIW3mImcua1bZjY4i\",\n                \"name\": \"Completed\",\n                \"title\": \"Unsupported observable\",\n                \"type\": \"logic.completed\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"completion_type\": \"failed-completed\",\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Unsupported observable\",\n                  \"result_message\": \"The observable type \\\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI$\\\" is not supported by this workflow\",\n                  \"skip_execution\": false\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"unique_name\": \"definition_activity_01O39IP3NAT2O4D5RaFYI4pdQ1Y4QdxmAI5\",\n        \"name\": \"ISE - ERS - ANC Policy - Apply to Endpoint\",\n        \"title\": \"ISE - ERS - ANC Policy - Apply to Endpoint\",\n        \"type\": \"workflow.atomic_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"ISE - ERS - ANC Policy - Apply to Endpoint\",\n          \"input\": {\n            \"variable_workflow_01PP75L8RFFWV7bYw0yB9CXoORchlK0UOwP\": \"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.local.variable_workflow_01O39JUF544P92uKoQ4SYLFEcm6k2fcfj2w$\",\n            \"variable_workflow_01PP75L8RFJJB2nDpihlgz0K4sz98ywgScY\": \"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J53BYU8N2hUF1DHH7qrvrhFI3inWEx$\"\n          },\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target_group\": true\n          },\n          \"workflow_id\": \"definition_workflow_01PP75L8X1V3A5Dw4f1rzJBPEiv0XeLyvSi\"\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\"\n    ]\n  },\n  \"categories\": {\n    \"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\": {\n      \"unique_name\": \"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\",\n      \"name\": \"response\",\n      \"title\": \"response\",\n      \"type\": \"basic.category\",\n      \"base_type\": \"category\",\n      \"category_type\": \"custom\",\n      \"object_type\": \"category\"\n    }\n  },\n  \"target_groups\": {\n    \"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\": {\n      \"unique_name\": \"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\n      \"name\": \"Default TargetGroup\",\n      \"title\": \"Default TargetGroup\",\n      \"type\": \"generic.target_group\",\n      \"base_type\": \"target_group\",\n      \"version\": \"1.0.0\",\n      \"targets\": [\n        {\n          \"data_target_type\": \"web-service.endpoint\",\n          \"view_target_type\": \"web-service.endpoint\",\n          \"include_all_targets\": true\n        },\n        {\n          \"data_target_type\": \"email.smtp_endpoint\",\n          \"view_target_type\": \"email.smtp_endpoint\",\n          \"include_all_targets\": true\n        }\n      ],\n      \"object_type\": \"target_group\"\n    }\n  },\n  \"atomic_workflows\": [\n    \"definition_workflow_01PP75L8X1V3A5Dw4f1rzJBPEiv0XeLyvSi\"\n  ]\n}",
+          "scope": "local",
+          "name": "Paylaod to Import ISE Quartine Endpoint Workflow",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01ZNYYK7ZQ92439Ib4NlDSyb4ZSaKjxAJzD",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email_Table",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0204FRHP2TRMM1YQEsNFTtIYFkcvPHFThaq",
         "object_type": "variable_workflow"
       }
     ],
@@ -445,12 +484,12 @@
       {
         "unique_name": "definition_activity_01ZNZKZRHY7F04uDkCBatkt3COZycNOMJ37",
         "name": "Condition Block",
-        "title": "Verify the Image",
+        "title": "Verify the ImageUpload-PositiveTestCase",
         "type": "logic.if_else",
         "base_type": "activity",
         "properties": {
           "continue_on_failure": true,
-          "display_name": "Verify the Image",
+          "display_name": "Verify the ImageUpload-PositiveTestCase",
           "skip_execution": false
         },
         "object_type": "definition_activity",
@@ -566,7 +605,7 @@
                   "variables_to_update": [
                     {
                       "variable_to_update": "$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_01ZNZM7FZOZ2H3QVzpUzSLKp8cZUHTk8U3H$",
-                      "variable_value_new": "Uplaoded Image -Uplaoded Image is -  $activity.definition_activity_01ZNZJH1WKCN30RSVuZQPLJcviMapOFM2vX.output.jsonpath_queries.Image_ID$"
+                      "variable_value_new": "Pass- Uplaoded Image -Uplaoded Image is -  $activity.definition_activity_01ZNZJH1WKCN30RSVuZQPLJcviMapOFM2vX.output.jsonpath_queries.Image_ID$"
                     }
                   ]
                 },
@@ -696,6 +735,100 @@
         ]
       },
       {
+        "unique_name": "definition_activity_0203BEUS3OZC73eqMp5JRWthv85bc1Ja3aN",
+        "name": "Download File",
+        "title": "Download Large Image which is Greater than 500KB",
+        "type": "email.download_file",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Download Large Image which is Greater than 500KB",
+          "http_request": {
+            "allow_auto_redirect": true,
+            "allow_headers_redirect": false,
+            "continue_on_error_status_code": false,
+            "method": "GET",
+            "relative_url": "/wp-content/uploads/2020/08/Sample-Small-Image-PNG-file-Download.png"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01ZNYUE21EEPY2kSyRWTlrrvSpQrmlXavqz"
+          },
+          "target_type": "web-service.endpoint"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0203BHK6YBH3J4jLerzMzDWrynDpU645bYw",
+        "name": "Download File",
+        "title": "Download JPG Image",
+        "type": "email.download_file",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Download JPG Image",
+          "http_request": {
+            "allow_auto_redirect": true,
+            "allow_headers_redirect": false,
+            "continue_on_error_status_code": false,
+            "method": "GET",
+            "relative_url": "/wp-content/uploads/2020/07/Sample-JPEG-Image-File-Download-scaled.jpg"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01ZNYUE21EEPY2kSyRWTlrrvSpQrmlXavqz"
+          },
+          "target_type": "web-service.endpoint"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0203BFVNMUOBU1VdwGEFF2SUe9MduLAauvH",
+        "name": "Execute Python Script",
+        "title": "Upload large Image Using Python - Negative Case",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Upload large Image Using Python - Negative Case",
+          "script": "import requests\n\nurl = \"$env.variable_02038CGLTCD427Orsr3p5MbgFAn9rpD7wME.env.variable_02038CGLTCD427Orsr3p5MbgFAn9rpD7wME$/$activity.definition_activity_01ZNYVLBX64756ecMj4cWxLg41wgjMC8Ctl.output.variable_workflow_01YCNIL3PHIL51LcRbut4AZjbktw4xOe10M$/uploadimage\"\n\npayload = \"------WebKitFormBoundary7MA4YWxkTrZu0gW\\r\\nContent-Disposition: form-data; name=\\\"image\\\"; filename=\\\"$activity.definition_activity_0203BEUS3OZC73eqMp5JRWthv85bc1Ja3aN.output.files[0].file_name$\\\"\\r\\nContent-Type: false\\r\\n\\r\\n\\r\\n------WebKitFormBoundary7MA4YWxkTrZu0gW--\"\nheaders = {\n    'content-type': \"multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW\",\n    'authorization': \"Bearer $workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.input.variable_workflow_01ZNYW6VJHMC83lAoMB6nVEquAIxdUmiJuq$\",\n\n    }\n\nresponse = requests.request(\"PUT\", url, data=payload, headers=headers)\nprint(response.text)",
+          "script_arguments": [
+            ""
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0203BHSCGCTWO3C7AErxpDb9ah6K9MU4fzq",
+        "name": "Execute Python Script",
+        "title": "Upload JPEG Image Using Python - Negative Case",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Upload JPEG Image Using Python - Negative Case",
+          "script": "import requests\n\nurl = \"$env.variable_02038CGLTCD427Orsr3p5MbgFAn9rpD7wME.env.variable_02038CGLTCD427Orsr3p5MbgFAn9rpD7wME$/$activity.definition_activity_01ZNYVLBX64756ecMj4cWxLg41wgjMC8Ctl.output.variable_workflow_01YCNIL3PHIL51LcRbut4AZjbktw4xOe10M$/uploadimage\"\n\npayload = \"------WebKitFormBoundary7MA4YWxkTrZu0gW\\r\\nContent-Disposition: form-data; name=\\\"image\\\"; filename=\\\"$activity.definition_activity_0203BHK6YBH3J4jLerzMzDWrynDpU645bYw.output.files[0].file_name$\\\"\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n\\r\\n------WebKitFormBoundary7MA4YWxkTrZu0gW--\"\nheaders = {\n    'content-type': \"multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW\",\n    'authorization': \"Bearer $workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.input.variable_workflow_01ZNYW6VJHMC83lAoMB6nVEquAIxdUmiJuq$\",\n\n    }\n\nresponse = requests.request(\"PUT\", url, data=payload, headers=headers)\nprint(response.text)",
+          "script_arguments": [
+            ""
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
         "unique_name": "definition_activity_01ZNZNZFKULOT1TOHMbvoVlbS71TIa4Cppg",
         "name": "Delete Published Workflow",
         "title": "Delete Published Workflow",
@@ -708,7 +841,7 @@
             "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "",
             "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe": "Bearer $workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.input.variable_workflow_01ZNYW6VJHMC83lAoMB6nVEquAIxdUmiJuq$",
             "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "DELETE",
-            "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "/be-console/api/v1/workflows/$activity.definition_activity_01ZNYVLBX64756ecMj4cWxLg41wgjMC8Ctl.output.variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw$",
+            "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "be-importexport/api/v1/xchanges/$activity.definition_activity_01ZNYVLBX64756ecMj4cWxLg41wgjMC8Ctl.output.variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw$",
             "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
             "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": ""
           },
@@ -723,6 +856,291 @@
           },
           "workflow_id": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
           "workflow_name": ""
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0203BJ2GGC74D002S4un0XhQM8dzXjkV97B",
+        "name": "Condition Block",
+        "title": "UploadImage-NegativeTestCaseVerification",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "UploadImage-NegativeTestCaseVerification",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_0203BJ2GNSGAB6piJACT7e1Nvs9JRh2ntaj",
+            "name": "Condition Branch",
+            "title": "NegativeTestCase-ImageUploadAPI-Pass",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_0203BEUS3OZC73eqMp5JRWthv85bc1Ja3aN.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": true
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_0203BHK6YBH3J4jLerzMzDWrynDpU645bYw.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": true
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_0203BFVNMUOBU1VdwGEFF2SUe9MduLAauvH.output.response_body$",
+                      "operator": "mw",
+                      "right_operand": "*message*"
+                    }
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_0203BHSCGCTWO3C7AErxpDb9ah6K9MU4fzq.output.response_body$",
+                    "operator": "mw",
+                    "right_operand": "*message*"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01ZNZNZFKULOT1TOHMbvoVlbS71TIa4Cppg.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                  "operator": "eq",
+                  "right_operand": "true"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "NegativeTestCase-ImageUploadAPI-Pass",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0203BLWOMEPU562Y0c41ul1T5VlnU8HnxnP",
+                "name": "Set Variables",
+                "title": "Pass",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Pass",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_0203BLIYVWVW12PhtLkN1fGkXMxCPoGjdfY$",
+                      "variable_value_new": "Pass"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_0203BJ2GYFOXJ28Hw9hHsdMRmIk1yLk3DQr",
+            "name": "Condition Branch",
+            "title": "NegativeTestCase-ImageUploadAPI - Fail",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_0203BEUS3OZC73eqMp5JRWthv85bc1Ja3aN.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": false
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_0203BHK6YBH3J4jLerzMzDWrynDpU645bYw.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": false
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_0203BFVNMUOBU1VdwGEFF2SUe9MduLAauvH.output.response_body$",
+                      "operator": "nmw",
+                      "right_operand": "*message*"
+                    }
+                  },
+                  "operator": "or",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_0203BHSCGCTWO3C7AErxpDb9ah6K9MU4fzq.output.response_body$",
+                    "operator": "nmw",
+                    "right_operand": "*message*"
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01ZNZNZFKULOT1TOHMbvoVlbS71TIa4Cppg.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                  "operator": "eq",
+                  "right_operand": "false"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "NegativeTestCase-ImageUploadAPI - Fail",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0203BM4VQJT8D7YmGg9y5E9r7acFhjppNCl",
+                "name": "Set Variables",
+                "title": "Fail",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Fail",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_0203BLIYVWVW12PhtLkN1fGkXMxCPoGjdfY$",
+                      "variable_value_new": "Fail"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_0203BO3MH50EF4Q5e5Lbw4Ge7MCBo0EYfcd",
+        "name": "Condition Block",
+        "title": "ImageUpload-TestCaseStatus",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "ImageUpload-TestCaseStatus",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_0203BO3MOPUT00oP2i4dJWAI7mZnm3tju9o",
+            "name": "Condition Branch",
+            "title": "PassCase-Condition",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_01ZNZM7FZOZ2H3QVzpUzSLKp8cZUHTk8U3H$",
+                  "operator": "mw",
+                  "right_operand": "Pass*"
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_0203BLIYVWVW12PhtLkN1fGkXMxCPoGjdfY$",
+                  "operator": "mw",
+                  "right_operand": "Pass*"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "PassCase-Condition",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0203BQYY0UVR178NdcWUNzmJ3XmwfCbHRc8",
+                "name": "Set Variables",
+                "title": "Pass",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Pass",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_0203BLSC9WIIA3IeMh9FeFXJZQdAVU4gb7T$",
+                      "variable_value_new": "Pass"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_0203BO3MZZ4MN3mxhZ8RHBYwsHYbguLObOI",
+            "name": "Condition Branch",
+            "title": "FailCase-Condition",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_01ZNZM7FZOZ2H3QVzpUzSLKp8cZUHTk8U3H$",
+                  "operator": "mw",
+                  "right_operand": "Pass*"
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_0203BLIYVWVW12PhtLkN1fGkXMxCPoGjdfY$",
+                  "operator": "mw",
+                  "right_operand": "Fail*"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "FailCase-Condition",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0203BR7X5JGUV4gQ3uThLxVm8iitiBmDsD9",
+                "name": "Set Variables",
+                "title": "Fail",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Fail",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_0203BLSC9WIIA3IeMh9FeFXJZQdAVU4gb7T$",
+                      "variable_value_new": "Fail"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_0204FR63MWUG85z7dzc0GSMxClHPol6gbLQ",
+        "name": "Set Variables",
+        "title": "EmailTable",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "EmailTable",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_0204FRHP2TRMM1YQEsNFTtIYFkcvPHFThaq$",
+              "variable_value_new": "\u003ch2\u003eExchange Publish API Automation\u003c/h2\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003cth\u003eActivity Name\u003c/th\u003e\n\u003cth\u003eTrue/False\u003c/th\u003e\n\u003cth\u003eError Code\u003c/th\u003e\n\u003cth\u003eError Message\u003c/th\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eUploading PNG Image to Published Workflow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_020388XQ4PYSI57B1G6YGrlxDliAgYnrczI.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_020388XQ4PYSI57B1G6YGrlxDliAgYnrczI.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_020388XQ4PYSI57B1G6YGrlxDliAgYnrczI.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eLearnMore API - GET PNG Image\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01ZNZG9C1O89K42R11mjC4WIPXN2a58EXHv.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01ZNZG9C1O89K42R11mjC4WIPXN2a58EXHv.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01ZNZG9C1O89K42R11mjC4WIPXN2a58EXHv.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eUploading SVG Image to Published Workflow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203AQL6ZZTBB0i0lrT4a586T7GtwNDrJgm.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203AQL6ZZTBB0i0lrT4a586T7GtwNDrJgm.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203AQL6ZZTBB0i0lrT4a586T7GtwNDrJgm.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eLearnMore API - GET SVG Image\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203ASK6EVVYJ0nMCd1BuLa7BqKro6rcj9W.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203ASK6EVVYJ0nMCd1BuLa7BqKro6rcj9W.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203ASK6EVVYJ0nMCd1BuLa7BqKro6rcj9W.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eImages Uploaded to Published Exchange\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_01ZNZM7FZOZ2H3QVzpUzSLKp8cZUHTk8U3H$\u003c/td\u003e\n\u003ctd\u003ePNG Image - $activity.definition_activity_01ZNZJH1WKCN30RSVuZQPLJcviMapOFM2vX.output.jsonpath_queries.Image_ID$\u003c/td\u003e\n\u003ctd\u003eSVG Image - $activity.definition_activity_0203ASOFUNLMN4oLHEdgGGg2KhxHCqPpozz.output.jsonpath_queries.Image_ID$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eNegative test Case - Uploading Large File\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203BFVNMUOBU1VdwGEFF2SUe9MduLAauvH.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203BFVNMUOBU1VdwGEFF2SUe9MduLAauvH.output.response_body$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203BFVNMUOBU1VdwGEFF2SUe9MduLAauvH.output.error.code$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eNegative test caxe - Uploading File Formats other than SVG and PNG\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203BHSCGCTWO3C7AErxpDb9ah6K9MU4fzq.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203BHSCGCTWO3C7AErxpDb9ah6K9MU4fzq.output.response_body$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203BHSCGCTWO3C7AErxpDb9ah6K9MU4fzq.output.error.code$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eUpload Image Positive Test Cases\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_01ZNZM7FZOZ2H3QVzpUzSLKp8cZUHTk8U3H$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01ZNZKZRHY7F04uDkCBatkt3COZycNOMJ37.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01ZNZKZRHY7F04uDkCBatkt3COZycNOMJ37.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eUpload Image Negative Test Cases\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_0203BLIYVWVW12PhtLkN1fGkXMxCPoGjdfY$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203BJ2GGC74D002S4un0XhQM8dzXjkV97B.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203BJ2GGC74D002S4un0XhQM8dzXjkV97B.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eImage Upload Test Case Status\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_01ZNYSI6SDLMW089oeRudNyNEs3HHN3U7mn.output.variable_workflow_0203BLSC9WIIA3IeMh9FeFXJZQdAVU4gb7T$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203BO3MH50EF4Q5e5Lbw4Ge7MCBo0EYfcd.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0203BO3MH50EF4Q5e5Lbw4Ge7MCBo0EYfcd.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e"
+            }
+          ]
         },
         "object_type": "definition_activity"
       }
@@ -755,6 +1173,22 @@
         "display_name": "ry mongo Data API",
         "host": "data.mongodb-api.com",
         "ignore_proxy": false,
+        "no_runtime_user": true,
+        "protocol": "https"
+      }
+    },
+    "definition_target_01ZNYUE21EEPY2kSyRWTlrrvSpQrmlXavqz": {
+      "unique_name": "definition_target_01ZNYUE21EEPY2kSyRWTlrrvSpQrmlXavqz",
+      "name": "Large_Image_Downlaod_Target",
+      "title": "Large_Image_Downlaod_Target",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "Large_Image_Downlaod_Target",
+        "host": "www.learningcontainer.com",
+        "ignore_proxy": true,
         "no_runtime_user": true,
         "protocol": "https"
       }
@@ -819,6 +1253,19 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "Authorization",
+              "scope": "local",
+              "name": "Authorization",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "",
               "scope": "output",
               "name": "Pass or Fail",
@@ -827,6 +1274,19 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "be-console/api/v1/",
+              "scope": "input",
+              "name": "Relative URL",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
             "object_type": "variable_workflow"
           },
           {
@@ -859,45 +1319,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Value (Only For Tenant creation) Provide Tenant id",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Response Body",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "output",
               "name": "Schema ID's",
               "type": "datatype.string",
@@ -905,45 +1326,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Authorization",
-              "scope": "local",
-              "name": "Authorization",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "local",
-              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Created Object ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
             "object_type": "variable_workflow"
           },
           {
@@ -963,6 +1345,20 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "output",
+              "name": "Error Message",
+              "type": "datatype.string",
+              "description": "Created Object Error Message",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
               "scope": "input",
               "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
               "type": "datatype.string",
@@ -975,14 +1371,14 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "be-console/api/v1/",
-              "scope": "input",
-              "name": "Relative URL",
+              "value": "",
+              "scope": "output",
+              "name": "Created Object ID",
               "type": "datatype.string",
-              "is_required": true,
+              "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
+            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
             "object_type": "variable_workflow"
           },
           {
@@ -990,13 +1386,51 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Error Message",
+              "name": "Response Body",
               "type": "datatype.string",
-              "description": "Created Object Error Message",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
+            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Value (Only For Tenant creation) Provide Tenant id",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
             "object_type": "variable_workflow"
           }
         ],
@@ -1780,12 +2214,38 @@
             "properties": {
               "value": "",
               "scope": "output",
+              "name": "Xchange Category Name",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
               "name": "Xchange_Description",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Description",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF",
             "object_type": "variable_workflow"
           },
           {
@@ -1805,13 +2265,39 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "input",
+              "name": "Display_Name",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
               "scope": "output",
-              "name": "Random_String",
+              "name": "Xchange_XchnageTenantID",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01YD2XVZJVVOF4aeLs2JYrA4kM8KM6js8oK",
+            "unique_name": "variable_workflow_01YCNIL3PHIL51LcRbut4AZjbktw4xOe10M",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Reusable PublishAPI TestCase Pass/Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
             "object_type": "variable_workflow"
           },
           {
@@ -1845,64 +2331,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange_XchnageTenantID",
+              "name": "Random_String",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01YCNIL3PHIL51LcRbut4AZjbktw4xOe10M",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_UserTenantID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Display_Name",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Description",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange Category Name",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
+            "unique_name": "variable_workflow_01YD2XVZJVVOF4aeLs2JYrA4kM8KM6js8oK",
             "object_type": "variable_workflow"
           },
           {
@@ -1934,6 +2368,19 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Category_ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "Bearer ",
               "scope": "input",
               "name": "Provide Input Token",
@@ -1949,25 +2396,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Reusable PublishAPI TestCase Pass/Fail",
+              "name": "Xchange_UserTenantID",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_Category_ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
+            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
             "object_type": "variable_workflow"
           }
         ],
