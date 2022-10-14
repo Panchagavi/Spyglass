@@ -1,0 +1,378 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_020F9GI68R8185V7PnZSA8hCBn17KrxE5dS",
+    "name": "Vin_Atomic_SubWF_ParentWF_Oct3",
+    "title": "Vin_Atomic_SubWF_ParentWF_Oct3",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Vin_Atomic_SubWF_ParentWF_Oct3",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": true,
+        "target_group": {
+          "target_group_id": "target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH",
+          "run_on_all_targets": false,
+          "use_criteria": {
+            "choose_target_using_algorithm": "choose_all_with_matching_criteria",
+            "conditions": [
+              {
+                "operator": "mw",
+                "left_operand": "$targetgroup.email smtp_endpoint.input.display_name$",
+                "right_operand": "*gmail*"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_020F9GNMZ6F6A5HURopC3tnL6jvsORDRIc0",
+        "name": "GenerateAccessToken_VIn_Oct3_SubWF",
+        "title": "GenerateAccessToken_VIn_Oct3_SubWF",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "GenerateAccessToken_VIn_Oct3_SubWF",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "execute_on_this_target_group": true,
+            "target_group_id": "target_group_020F9FUE1KZU81fAqRZ0VvG27ckSJZSm3iU"
+          },
+          "workflow_id": "definition_workflow_020F9EGCVQ0DZ1RAQGIpTA5q1jQwZTczXPc",
+          "workflow_name": "GenerateAccessToken_VIn_Oct3_SubWF"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_020F9GMFY4RZG4FZV5NargOk448R0TsY6Jl",
+        "name": "GenerateAccessToken_VIn_Oct3_Atomic",
+        "title": "GenerateAccessToken_VIn_Oct3_Atomic",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "GenerateAccessToken_VIn_Oct3_Atomic",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "execute_on_this_target_group": true,
+            "target_group_id": "target_group_020F96T39I3PH1JUIGv7aK2PDbsQbURah5X"
+          },
+          "workflow_id": "definition_workflow_020F94IEHHS062pIsQhZKbSHosNs3VaAwtn",
+          "workflow_name": "GenerateAccessToken_VIn_Oct3_Atomic"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "categories": {
+    "category_01U2VICEZ2M6E5dwuI5uVDql4hS7bP3W2UC": {
+      "unique_name": "category_01U2VICEZ2M6E5dwuI5uVDql4hS7bP3W2UC",
+      "name": "duo",
+      "title": "duo",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "target_groups": {
+    "target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH": {
+      "unique_name": "target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH",
+      "name": "Default TargetGroup",
+      "title": "Default TargetGroup",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": true
+        },
+        {
+          "data_target_type": "email.smtp_endpoint",
+          "view_target_type": "email.smtp_endpoint",
+          "include_all_targets": true
+        }
+      ],
+      "object_type": "target_group"
+    },
+    "target_group_020F96T39I3PH1JUIGv7aK2PDbsQbURah5X": {
+      "unique_name": "target_group_020F96T39I3PH1JUIGv7aK2PDbsQbURah5X",
+      "name": "Atomic_TargetGroup_Oct3",
+      "title": "Atomic_TargetGroup_Oct3",
+      "description": "Atomic_TargetGroup",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": false,
+          "criteria": [
+            {
+              "operator": "mw",
+              "left_operand": "$input.display_name$",
+              "right_operand": "*CTR*"
+            },
+            {
+              "operator": "eq",
+              "left_operand": "$input.host$",
+              "right_operand": "oauth2.token.com"
+            }
+          ]
+        }
+      ],
+      "object_type": "target_group"
+    },
+    "target_group_020F9FUE1KZU81fAqRZ0VvG27ckSJZSm3iU": {
+      "unique_name": "target_group_020F9FUE1KZU81fAqRZ0VvG27ckSJZSm3iU",
+      "name": "Vin_SubWF_Oct3",
+      "title": "Vin_SubWF_Oct3",
+      "description": "Vin_SubWF_Oct3",
+      "type": "generic.target_group",
+      "base_type": "target_group",
+      "version": "1.0.0",
+      "targets": [
+        {
+          "data_target_type": "web-service.endpoint",
+          "view_target_type": "web-service.endpoint",
+          "include_all_targets": false,
+          "criteria": [
+            {
+              "operator": "mw",
+              "left_operand": "$input.display_name$",
+              "right_operand": "*subwf*"
+            }
+          ]
+        }
+      ],
+      "object_type": "target_group"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_020F9EGCVQ0DZ1RAQGIpTA5q1jQwZTczXPc",
+        "name": "GenerateAccessToken_VIn_Oct3_SubWF",
+        "title": "GenerateAccessToken_VIn_Oct3_SubWF",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "output",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020F9EGEGH90T3HpUNyVsBkdfhTFLpZETTF",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "GenerateAccessToken_VIn_Oct3_SubWF",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "execute_on_target_group": true,
+            "target_group": {
+              "target_group_id": "target_group_020F9FUE1KZU81fAqRZ0VvG27ckSJZSm3iU",
+              "run_on_all_targets": false,
+              "selected_target_types": [
+                "web-service.endpoint"
+              ],
+              "use_criteria": {
+                "choose_target_using_algorithm": "choose_all_with_matching_criteria",
+                "conditions": [
+                  {
+                    "operator": "mw",
+                    "left_operand": "$targetgroup.target_group_020F9FUE1KZU81fAqRZ0VvG27ckSJZSm3iU.common.display_name$",
+                    "right_operand": "*subwf*"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_020F9EGN5F4774tX5aqLGgh19FfnyZyfr58",
+            "name": "HTTP Request",
+            "title": "HTTP Request",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "HTTP Request",
+              "method": "GET",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target_group": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_020F9EGPASXAF6knWTZRrVclizpRMDzkTca",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_020F9EGR792M40TMi2YZEG2Dh3A4hKaqS5v",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_020F9EGN5F4774tX5aqLGgh19FfnyZyfr58.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 201
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_020F9EGU4JGAZ2wxnQQ1SxwRvcZXYCU9Cno",
+                    "name": "JSONPath Query",
+                    "title": "Extract Token",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Extract Token",
+                      "input_json": "$activity.definition_activity_020F9EGN5F4774tX5aqLGgh19FfnyZyfr58.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.token",
+                          "jsonpath_query_name": "token",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_020F9EGXAWRDV13D04Nk7uU2sorB4SmuQC5",
+                    "name": "Set Variables",
+                    "title": "Token",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Token",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_020F9EGCVQ0DZ1RAQGIpTA5q1jQwZTczXPc.output.variable_workflow_020F9EGEGH90T3HpUNyVsBkdfhTFLpZETTF$",
+                          "variable_value_new": "$activity.definition_activity_020F9EGU4JGAZ2wxnQQ1SxwRvcZXYCU9Cno.output.jsonpath_queries.token$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_020F9EH0OW2W92DoypCpdG6NmW0LbQFIume",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_020F9EGN5F4774tX5aqLGgh19FfnyZyfr58.output.status_code$",
+                    "operator": "ne",
+                    "right_operand": 201
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_020F9EH4TPDB07N3iBQOahYko5nPBUhwRKe",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_020F9EGCVQ0DZ1RAQGIpTA5q1jQwZTczXPc.output.variable_workflow_020F9EGEGH90T3HpUNyVsBkdfhTFLpZETTF$",
+                          "variable_value_new": "$activity.definition_activity_020F9EGN5F4774tX5aqLGgh19FfnyZyfr58.output.status_text$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_01U2VICEZ2M6E5dwuI5uVDql4hS7bP3W2UC"
+        ]
+      }
+    }
+  ],
+  "atomic_workflows": [
+    "definition_workflow_020F94IEHHS062pIsQhZKbSHosNs3VaAwtn"
+  ],
+  "dependent_workflows": [
+    "definition_workflow_020F9EGCVQ0DZ1RAQGIpTA5q1jQwZTczXPc",
+    "definition_workflow_020F94IEHHS062pIsQhZKbSHosNs3VaAwtn"
+  ]
+}
