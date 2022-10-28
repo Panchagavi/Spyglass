@@ -1,0 +1,110 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_0210GBROK7RTY0WI5Wj04VyMpyGWqo7Gyn6",
+    "name": "parent1",
+    "title": "parent1",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "parent1",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_0210GCF12VGX63BlJy0qlwCoJrU84juKtoE",
+        "name": "subwf",
+        "title": "subwf",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "subwf",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_0210GC2SHZALZ3OhkY6DNxLF6Y6zOgj9PFH",
+          "workflow_name": "subwf"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0210GBY9BPW876wKycSIXOKfLT54jPaGQZ8",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 2
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_0210GC2SHZALZ3OhkY6DNxLF6Y6zOgj9PFH",
+        "name": "subwf",
+        "title": "subwf",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "subwf",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_0210GC6ONRHAT2RNgoSUE2eaqP2HWMhyhyu",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "skip_execution": false,
+              "sleep_interval": 2
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ],
+  "dependent_workflows": [
+    "definition_workflow_0210GC2SHZALZ3OhkY6DNxLF6Y6zOgj9PFH"
+  ]
+}
