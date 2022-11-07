@@ -1,64 +1,11 @@
 {
   "workflow": {
     "unique_name": "definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1",
-    "name": "CA- Automation Import/Export Using GIT Token ✅",
-    "title": "CA- Automation Import/Export Using GIT Token ✅",
+    "name": "CA Import/Export Using GIT Target - HTTP",
+    "title": "CA Import/Export Using GIT Target - HTTP",
     "type": "generic.workflow",
     "base_type": "workflow",
     "variables": [
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Condition Block 1",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01I2MJQW5N7HA3xun5vJqSnBieSkKjl3wbd",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Pass Value",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01O4MK5GEG6I44U0VvTqW9Bgm7gnlPAOd1M",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.secure_string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Provide GIT Token Password",
-          "type": "datatype.secure_string",
-          "description": "e2d35506f18f4f2144d2f62233a78289f742a573",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01I2MJQW5NG2W2I6iRLBloREU9zqvHYqoKS",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Execution Time",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01N4NBLYWHYBI410sW6OlJAyxbvlB0ASPL2",
-        "object_type": "variable_workflow"
-      },
       {
         "schema_id": "datatype.string",
         "properties": {
@@ -90,12 +37,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "All Action True/False",
+          "name": "Email Template",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01I2MJQW5N9WI5YwyxNfuKiDGIM2YDiytfu",
+        "unique_name": "variable_workflow_01I2MJQW5NB5I3mJfjlbDTukV5eQLRvWcGg",
         "object_type": "variable_workflow"
       },
       {
@@ -103,12 +50,38 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Email Template",
+          "name": "Condition Block 1",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01I2MJQW5NB5I3mJfjlbDTukV5eQLRvWcGg",
+        "unique_name": "variable_workflow_01I2MJQW5N7HA3xun5vJqSnBieSkKjl3wbd",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide GIT Token Password",
+          "type": "datatype.secure_string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01I2MJQW5NG2W2I6iRLBloREU9zqvHYqoKS",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "All Action True/False",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01I2MJQW5N9WI5YwyxNfuKiDGIM2YDiytfu",
         "object_type": "variable_workflow"
       }
     ],
@@ -117,7 +90,8 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "display_name": "CA- Automation Import/Export Using GIT Token ✅",
+      "description": "This workflow performs  this below operations to import workflow to GIT\n\nCreate GIT Accrountkey\nCraete GIT Target\nImport worklfow\nValidates Import WorkflowStatus\nExecute Workflow\nverfiy WF Instance Run status\nExport Workflow\nverfiy Exported Workflow status (Export success/Failed)\nDetach GIT Target from Workflow\nDelete GIT Target\nDelete Git Key\nDelete WF Instance\nDelete Workflow\n",
+      "display_name": "CA Import/Export Using GIT Target - HTTP",
       "runtime_user": {
         "override_target_runtime_user": false,
         "specify_on_workflow_start": false,
@@ -153,8 +127,7 @@
             "properties": {
               "action_timeout": 180,
               "allow_auto_redirect": true,
-              "allow_headers_redirect": false,
-              "body": "{\n  \"type\": \"runtime_user.git_token_credentials\",\n  \"base_type\": \"runtime_user\",\n  \"name\": \"CA GIT KEY\",\n  \"title\": \"CA GIT KEY\",\n  \"properties\": {\n    \"display_name\": \"CA GIT KEY\",\n    \"token\": \"$workflow.definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1.input.variable_workflow_01I2MJQW5NG2W2I6iRLBloREU9zqvHYqoKS$\"\n  }\n}",
+              "body": "{\n  \"type\": \"runtime_user.git_password_credentials\",\n  \"base_type\": \"runtime_user\",\n  \"name\": \"CA GIT KEY\",\n  \"title\": \"CA GIT KEY\",\n  \"properties\": {\n    \"display_name\": \"CA GIT KEY\",\n    \"username\": \"ChandraAddan\",\n    \"password\": \"$workflow.definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1.input.variable_workflow_01I2MJQW5NG2W2I6iRLBloREU9zqvHYqoKS$\"\n  }\n}",
               "continue_on_error_status_code": false,
               "continue_on_failure": true,
               "custom_headers": [
@@ -216,7 +189,6 @@
             "properties": {
               "action_timeout": 180,
               "allow_auto_redirect": true,
-              "allow_headers_redirect": false,
               "body": "{\n  \"name\": \"CA GIT test Import/Export\",\n  \"title\": \"CA GIT test Import/Export\",\n  \"properties\": {\n    \"no_runtime_user\": false,\n    \"repo_type\": \"github\",\n    \"branch\": \"master\",\n    \"display_name\": \"CA GIT test Import/Export\",\n    \"default_runtime_user_id\": \"$activity.definition_activity_01I2MJT7DA5NP72tYTRad5Tpkj8FAolYvoF.output.jsonpath_queries.GIT Accountkey ID$\",\n    \"protocol\": \"https\",\n    \"repo\": \"api.github.com/repos/ChandraAddan/Test\"\n  },\n  \"type\": \"git.repository\",\n  \"base_type\": \"target\"\n}",
               "continue_on_error_status_code": false,
               "continue_on_failure": true,
@@ -370,7 +342,6 @@
             "properties": {
               "action_timeout": 180,
               "allow_auto_redirect": true,
-              "allow_headers_redirect": false,
               "continue_on_error_status_code": false,
               "continue_on_failure": true,
               "custom_headers": [
@@ -606,8 +577,8 @@
                             "left_operand": {
                               "left_operand": {
                                 "left_operand": "$activity.definition_activity_01I2MJT7DA5NP72tYTRad5Tpkj8FAolYvoF.output.jsonpath_queries.Accountkey Status$",
-                                "operator": "mregex",
-                                "right_operand": "(?:valid|created)"
+                                "operator": "eq",
+                                "right_operand": "created"
                               },
                               "operator": "and",
                               "right_operand": {
@@ -694,7 +665,7 @@
                               "left_operand": {
                                 "left_operand": "$activity.definition_activity_01I2MJT7DA5NP72tYTRad5Tpkj8FAolYvoF.output.jsonpath_queries.Accountkey Status$",
                                 "operator": "ne",
-                                "right_operand": "valid"
+                                "right_operand": "created"
                               },
                               "operator": "or",
                               "right_operand": {
@@ -1185,10 +1156,6 @@
                         {
                           "variable_to_update": "$workflow.definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1.output.variable_workflow_01I2MJQW5N9WI5YwyxNfuKiDGIM2YDiytfu$",
                           "variable_value_new": "✔✅All Import/Export Actions Passed"
-                        },
-                        {
-                          "variable_to_update": "$workflow.definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1.output.variable_workflow_01O4MK5GEG6I44U0VvTqW9Bgm7gnlPAOd1M$",
-                          "variable_value_new": "1"
                         }
                       ]
                     },
@@ -1276,10 +1243,6 @@
                         {
                           "variable_to_update": "$workflow.definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1.output.variable_workflow_01I2MJQW5N9WI5YwyxNfuKiDGIM2YDiytfu$",
                           "variable_value_new": "❌⭕Import/Export actions failed Please check The instacne : $workflow.definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1.output.instance_id$"
-                        },
-                        {
-                          "variable_to_update": "$workflow.definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1.output.variable_workflow_01O4MK5GEG6I44U0VvTqW9Bgm7gnlPAOd1M$",
-                          "variable_value_new": "0"
                         }
                       ]
                     },
@@ -1292,38 +1255,19 @@
         ]
       },
       {
-        "unique_name": "definition_activity_01N4H62URXB992qWdGWHoigxLKLWlk5NXDv",
-        "name": "Calculate Date Time Difference",
-        "title": "Calculate Date Time Difference",
-        "type": "core.calculate_date_time_difference",
-        "base_type": "activity",
-        "properties": {
-          "continue_on_failure": false,
-          "display_name": "Calculate Date Time Difference",
-          "original_date": "$activity.definition_activity_01I2MK27GXEHY7UAVviRGF9jqok0Cw4EU8E.output.end_time$",
-          "skip_execution": false,
-          "subtract_date": "$workflow.definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1.output.start_time$"
-        },
-        "object_type": "definition_activity"
-      },
-      {
         "unique_name": "definition_activity_01I2MK4TBKMBS2PJ5qo8PTc5eQiqiL9UEWe",
         "name": "Set Variables",
-        "title": "Email Template 🟢",
+        "title": "Email Tempalate",
         "type": "core.set_multiple_variables",
         "base_type": "activity",
         "properties": {
           "continue_on_failure": true,
-          "display_name": "Email Template 🟢",
+          "display_name": "Email Tempalate",
           "skip_execution": false,
           "variables_to_update": [
             {
               "variable_to_update": "$workflow.definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1.output.variable_workflow_01I2MJQW5NB5I3mJfjlbDTukV5eQLRvWcGg$",
               "variable_value_new": "\u003ch2\u003eImport/Eport Using GIT\u003c/h2\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003cth\u003eActivity Name\u003c/th\u003e\n\u003cth\u003eTrue/False\u003c/th\u003e\n\u003cth\u003eError Code\u003c/th\u003e\n\u003cth\u003eError Message\u003c/th\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eCreate GIT Accrountkey\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJT7DA5NP72tYTRad5Tpkj8FAolYvoF.output.jsonpath_queries.Accountkey Status$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJSSQ35L24iRp6tmVADwSvs7tdRJCdW.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJSSQ35L24iRp6tmVADwSvs7tdRJCdW.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eCraete GIT Target\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJU5I2WAD5nVdz6FcEs1LCilZzliSRR.output.jsonpath_queries.Git Target Status$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJTOF5P895bP49Hu95K5lmNkphA3EEM.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJTOF5P895bP49Hu95K5lmNkphA3EEM.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eImport worklfow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJUUCOKDK5iFTi3hpCfCGVo7qb3w2Y8.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJUUCOKDK5iFTi3hpCfCGVo7qb3w2Y8.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJUUCOKDK5iFTi3hpCfCGVo7qb3w2Y8.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eImport WorkflowStatus \u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJWC7OMEC1Mn5ikQVPAKAKizzfSwwa1.output.jsonpath_queries.Imported Status$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJUUCOKDK5iFTi3hpCfCGVo7qb3w2Y8.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJUUCOKDK5iFTi3hpCfCGVo7qb3w2Y8.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eExecute Workflow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJX2KFA0E6zXtkySFlZMqr9YBMLLo7x.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJX2KFA0E6zXtkySFlZMqr9YBMLLo7x.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJX2KFA0E6zXtkySFlZMqr9YBMLLo7x.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eWF Instance Run status\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJYJCGD000HePHrSOCqb3eDqVW7L5j2.output.jsonpath_queries.Workflow Instance Status$\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eExport Workflow \u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK151P23W6KF6Ls2AZNht2ABedNgZge.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK151P23W6KF6Ls2AZNht2ABedNgZge.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK151P23W6KF6Ls2AZNht2ABedNgZge.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eExported Workflow status\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK1YFRLS53I6NtQKgNZ5ZdWZZVD5oyv.output.jsonpath_queries.Exported Status$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK1NRK9A25Badi16PlMoSRzIgAyu3Cp.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK1NRK9A25Badi16PlMoSRzIgAyu3Cp.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eDetach GIT Target from Workflow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK2I4TH7T6vAtpxnlpFJom8nNRK8hg7.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK2I4TH7T6vAtpxnlpFJom8nNRK8hg7.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK2I4TH7T6vAtpxnlpFJom8nNRK8hg7.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eDelete GIT Target \u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK2QXBMZT5p81ZEVzasimxQuOoNQ3ea.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK2QXBMZT5p81ZEVzasimxQuOoNQ3ea.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK2QXBMZT5p81ZEVzasimxQuOoNQ3ea.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eDelete Git Key\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK311Q0B72PmjpWkxFlRUHfRnRwJkQp.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK311Q0B72PmjpWkxFlRUHfRnRwJkQp.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK311Q0B72PmjpWkxFlRUHfRnRwJkQp.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eDelete WF Instance\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK38518KO0P2fuNd6i53SGkRQcPdNCH.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK38518KO0P2fuNd6i53SGkRQcPdNCH.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK38518KO0P2fuNd6i53SGkRQcPdNCH.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eDelete Workflow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK3LGX6JW6dIf12NnbhlAG702QBmvcC.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK3LGX6JW6dIf12NnbhlAG702QBmvcC.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MK3LGX6JW6dIf12NnbhlAG702QBmvcC.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003c/table\u003e"
-            },
-            {
-              "variable_to_update": "$workflow.definition_workflow_01I2MJQXFUNF621mVxhS1BqIgYLU7TQtem1.output.variable_workflow_01N4NBLYWHYBI410sW6OlJAyxbvlB0ASPL2$",
-              "variable_value_new": "$activity.definition_activity_01N4H62URXB992qWdGWHoigxLKLWlk5NXDv.output.total_minutes$"
             }
           ]
         },
