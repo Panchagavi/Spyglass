@@ -9,14 +9,92 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1OTI5NDc1NDAsImV4cCI6MTYyNDQ4Njc2NiwiYXVkIjpbInN4by11aSJdLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJGaXJzdE5hbWUiOiJWaW5heSIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb3JnL2lkIjoiMTUwMiIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9yb2xlIjoiYWRtaW4iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvc2NvcGVzIjpbImFvIl19.gwhiUZwaei6Jfs4r9rqyjqrsFmuRvvY_J5ZKbVLG9cU",
-          "scope": "input",
-          "name": "Token_For_Publish",
+          "value": "",
+          "scope": "output",
+          "name": "OP_PublishXchange_TestStatus",
           "type": "datatype.string",
-          "is_required": true,
+          "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_022AG1K2040KX5zhviXwMmbAcHyo9VjJ9gM",
+        "unique_name": "variable_workflow_022BLIQPJ45123u3n6tk5hH8inA9JByNYn8",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_022AE9NF0YBEQ3QBL9RQNNKLlB1F15YYv5a\",\n    \"name\": \"Main_WF_Install_API_Automation\",\n    \"title\": \"Main_WF_Install_API_Automation\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"Main_WF_Install_API_Automation\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_022AE9ZA70GS96Om8NSiB5b1ZX6DDASLMx7\",\n        \"name\": \"SubWorkflow_Install_API_Automation\",\n        \"title\": \"SubWorkflow_Install_API_Automation\",\n        \"type\": \"workflow.sub_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"display_name\": \"SubWorkflow_Install_API_Automation\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_022AE799UOK7R2WIjjpitYXVhFg0BMagI65\",\n          \"workflow_name\": \"SubWorkflow_Install_API_Automation\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_022AEA346CPHD7iMEBDOnqPp9CT2Bk99y7u\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"Delete a User\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Delete a User\",\n          \"method\": \"DELETE\",\n          \"relative_url\": \"/api/users/$activity.definition_activity_022AE9ZA70GS96Om8NSiB5b1ZX6DDASLMx7.output.variable_workflow_022AEO1C1G8055fCLxi2dFoF4zVoP2j9sPy$\",\n          \"runtime_user\": {\n            \"override_target_runtime_user\": true,\n            \"runtime_user_id\": \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\"\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"override_workflow_target\": true,\n            \"target_id\": \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\"\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"triggers\": {\n    \"triggerschedule_022AEU6314T0T5HGy9dsJiJ2hcTgIgn9pOa\": {\n      \"workflow_id\": \"definition_workflow_022AE9NF0YBEQ3QBL9RQNNKLlB1F15YYv5a\",\n      \"name\": \"Schedule_Install_Auto\",\n      \"title\": \"\",\n      \"lowercase_name\": \"schedule.schedule_install_auto\",\n      \"type\": \"schedule\",\n      \"base_type\": \"trigger\",\n      \"ref_id\": \"schedule_022AEU4CXCNUG1mlHzKlg7lWVu0x3f8a7Wd\",\n      \"version\": \"1.0.0\",\n      \"disabled\": false,\n      \"unique_name\": \"triggerschedule_022AEU6314T0T5HGy9dsJiJ2hcTgIgn9pOa\",\n      \"object_type\": \"triggerschedule\"\n    }\n  },\n  \"schedules\": {\n    \"schedule_022AEU4CXCNUG1mlHzKlg7lWVu0x3f8a7Wd\": {\n      \"unique_name\": \"schedule_022AEU4CXCNUG1mlHzKlg7lWVu0x3f8a7Wd\",\n      \"name\": \"Schedule_INstall_API_Once\",\n      \"type\": \"basic.schedule\",\n      \"base_type\": \"schedule\",\n      \"properties\": {\n        \"calendar\": \"calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ\",\n        \"timezone\": \"Asia/Kolkata\",\n        \"starttime\": \"13:00\",\n        \"interval_hours\": 0,\n        \"interval_minutes\": 0,\n        \"number_of_times\": 1,\n        \"display_name\": \"Schedule_INstall_API_Once\",\n        \"description\": \"\"\n      },\n      \"version\": \"1.0.0\",\n      \"object_type\": \"schedule\"\n    }\n  },\n  \"targets\": {\n    \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\": {\n      \"unique_name\": \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\",\n      \"name\": \"Reqres_Install_API_Auto\",\n      \"title\": \"Reqres_Install_API_Auto\",\n      \"type\": \"web-service.endpoint\",\n      \"base_type\": \"target\",\n      \"object_type\": \"definition_target\",\n      \"properties\": {\n        \"disable_certificate_validation\": true,\n        \"display_name\": \"Reqres_Install_API_Auto\",\n        \"host\": \"reqres.in\",\n        \"ignore_proxy\": true,\n        \"no_runtime_user\": true,\n        \"protocol\": \"https\"\n      }\n    }\n  },\n  \"runtime_users\": {\n    \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\": {\n      \"unique_name\": \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\",\n      \"name\": \"Reqres_AccKeys_Install_API\",\n      \"title\": \"Reqres_AccKeys_Install_API\",\n      \"type\": \"runtime_user.web-service_basic_credentials\",\n      \"base_type\": \"runtime_user\",\n      \"object_type\": \"definition_runtime_user\",\n      \"properties\": {\n        \"auth_option\": \"Basic\",\n        \"basic_password\": \"*****\",\n        \"basic_username\": \"admin\",\n        \"display_name\": \"Reqres_AccKeys_Install_API\"\n      }\n    }\n  },\n  \"subworkflows\": [\n    {\n      \"workflow\": {\n        \"unique_name\": \"definition_workflow_022AE799UOK7R2WIjjpitYXVhFg0BMagI65\",\n        \"name\": \"SubWorkflow_Install_API_Automation\",\n        \"title\": \"SubWorkflow_Install_API_Automation\",\n        \"type\": \"generic.workflow\",\n        \"base_type\": \"workflow\",\n        \"variables\": [\n          {\n            \"schema_id\": \"datatype.string\",\n            \"properties\": {\n              \"value\": \"\",\n              \"scope\": \"output\",\n              \"name\": \"User_ID\",\n              \"type\": \"datatype.string\",\n              \"is_required\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_022AEO1C1G8055fCLxi2dFoF4zVoP2j9sPy\",\n            \"object_type\": \"variable_workflow\"\n          }\n        ],\n        \"properties\": {\n          \"atomic\": {\n            \"is_atomic\": false\n          },\n          \"delete_workflow_instance\": false,\n          \"display_name\": \"SubWorkflow_Install_API_Automation\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          }\n        },\n        \"object_type\": \"definition_workflow\",\n        \"actions\": [\n          {\n            \"unique_name\": \"definition_activity_022AE7F7CDC8Q3OUWUL3qC0g8BGwPeBGOrs\",\n            \"name\": \"User_Creation_Atomic_Install_API_Automation\",\n            \"title\": \"User_Creation_Atomic_Install_API_Automation\",\n            \"type\": \"workflow.atomic_workflow\",\n            \"base_type\": \"subworkflow\",\n            \"properties\": {\n              \"display_name\": \"User_Creation_Atomic_Install_API_Automation\",\n              \"runtime_user\": {\n                \"target_default\": true\n              },\n              \"target\": {\n                \"no_target\": true\n              },\n              \"workflow_id\": \"definition_workflow_022AD8KDNLT1G0dadWM6ktPWG98ABNfmrwM\",\n              \"workflow_name\": \"User_Creation_Atomic_Install_API_Automation\"\n            },\n            \"object_type\": \"definition_activity\"\n          },\n          {\n            \"unique_name\": \"definition_activity_022AE7IQCP1JL5qCG8CRffBVyngZowFTXu5\",\n            \"name\": \"HTTP Request\",\n            \"title\": \"Update User Records\",\n            \"type\": \"web-service.http_request\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"action_timeout\": 180,\n              \"allow_auto_redirect\": true,\n              \"allow_headers_redirect\": false,\n              \"body\": \"{\\n    \\\"name\\\": \\\"Vinay-Updated\\\",\\n    \\\"job\\\": \\\"Test Engineer - Updated\\\"\\n}\",\n              \"continue_on_error_status_code\": false,\n              \"continue_on_failure\": false,\n              \"display_name\": \"Update User Records\",\n              \"method\": \"PUT\",\n              \"relative_url\": \"/api/users/$activity.definition_activity_022AE7F7CDC8Q3OUWUL3qC0g8BGwPeBGOrs.output.variable_workflow_022ADCIFII5AW2w50dYP8C7TSclG95A3xyg$\",\n              \"runtime_user\": {\n                \"override_target_runtime_user\": true,\n                \"runtime_user_id\": \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\"\n              },\n              \"skip_execution\": false,\n              \"target\": {\n                \"override_workflow_target\": true,\n                \"target_id\": \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\"\n              }\n            },\n            \"object_type\": \"definition_activity\"\n          },\n          {\n            \"unique_name\": \"definition_activity_022AEO4M5ZR7E63ix5LSWGWgBgECAZGC4Ev\",\n            \"name\": \"Set Variables\",\n            \"title\": \"UserID\",\n            \"type\": \"core.set_multiple_variables\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"continue_on_failure\": false,\n              \"display_name\": \"UserID\",\n              \"skip_execution\": false,\n              \"variables_to_update\": [\n                {\n                  \"variable_to_update\": \"$workflow.definition_workflow_022AE799UOK7R2WIjjpitYXVhFg0BMagI65.output.variable_workflow_022AEO1C1G8055fCLxi2dFoF4zVoP2j9sPy$\",\n                  \"variable_value_new\": \"$activity.definition_activity_022AE7F7CDC8Q3OUWUL3qC0g8BGwPeBGOrs.output.variable_workflow_022ADCIFII5AW2w50dYP8C7TSclG95A3xyg$\"\n                }\n              ]\n            },\n            \"object_type\": \"definition_activity\"\n          }\n        ],\n        \"categories\": [\n          \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n        ]\n      },\n      \"atomic_workflows\": [\n        \"definition_workflow_022AD8KDNLT1G0dadWM6ktPWG98ABNfmrwM\"\n      ],\n      \"dependent_workflows\": [\n        \"definition_workflow_022AD8KDNLT1G0dadWM6ktPWG98ABNfmrwM\"\n      ]\n    }\n  ],\n  \"dependent_workflows\": [\n    \"definition_workflow_022AE799UOK7R2WIjjpitYXVhFg0BMagI65\"\n  ]\n}",
+          "scope": "local",
+          "name": "Import_Mian_WF_Payload",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_022AFOPFT10ZU0VMmMGpdPtjkkVuNULUI5A",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "definition_workflow_022AE9NF0YBEQ3QBL9RQNNKLlB1F15YYv5a",
+          "scope": "local",
+          "name": "Import_Unique_name",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_022AFPG0A98XJ5iZgoKI63CYZzySWaSwE2X",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "User_Creation_Atomic_Install_API_Automation",
+          "scope": "local",
+          "name": "Atomic_WF_Title",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_022APF290F35D7eEyusMNrB0qQiZcqsugul",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Schedule_Install_Auto",
+          "scope": "static",
+          "name": "Schedule_Trigger_Name",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_022AN5POD6O800UlMV7Aq4rTrUW8kpYVyeY",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "OP_Installed_WF_Triggred_by_Schedule",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_022BLGU0ISV836QMmIpUCHZrmyD4Zut4Iiq",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "OP_UpdateSchedule_TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_022BLJ04QO19J1igI6CTrX5Xe391XEmmssr",
         "object_type": "variable_workflow"
       },
       {
@@ -36,53 +114,66 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "data-syggf",
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_022AD8KDNLT1G0dadWM6ktPWG98ABNfmrwM\",\n    \"name\": \"User_Creation_Atomic_Install_API_Automation\",\n    \"title\": \"User_Creation_Atomic_Install_API_Automation\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"output\",\n          \"name\": \"User_ID\",\n          \"type\": \"datatype.string\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_022ADCIFII5AW2w50dYP8C7TSclG95A3xyg\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"atomic_group\": \"Atomic\",\n        \"is_atomic\": true\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"User_Creation_Atomic_Install_API_Automation\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_022AD8NJFCNEC6eVlILU2ncCGxSv4UtuRy5\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"Create User in Reqres\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"body\": \"{\\\"Name\\\":\\\"Vinay\\\",\\n\\\"Job\\\":\\\"Test Engineer\\\"}\",\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Create User in Reqres\",\n          \"method\": \"POST\",\n          \"relative_url\": \"/api/users\",\n          \"runtime_user\": {\n            \"override_target_runtime_user\": true,\n            \"runtime_user_id\": \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\"\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"override_workflow_target\": true,\n            \"target_id\": \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\"\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_022ADBUQBLFRU3YM0Ix4qjjZ2zDNIMldPgz\",\n        \"name\": \"JSONPath Query\",\n        \"title\": \"Fetch UserID\",\n        \"type\": \"corejava.jsonpathquery\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Fetch UserID\",\n          \"input_json\": \"$activity.definition_activity_022AD8NJFCNEC6eVlILU2ncCGxSv4UtuRy5.output.response_body$\",\n          \"jsonpath_queries\": [\n            {\n              \"jsonpath_query\": \"$.id\",\n              \"jsonpath_query_name\": \"User_ID\",\n              \"jsonpath_query_type\": \"string\",\n              \"zdate_type_format\": \"yyyy-MM-dd'T'HH:mm:ssZ\"\n            }\n          ],\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_022ADCB1OAT9O6LvZZCks0oz9pdfl4AeimL\",\n        \"name\": \"Set Variables\",\n        \"title\": \"Store UserID\",\n        \"type\": \"core.set_multiple_variables\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Store UserID\",\n          \"skip_execution\": false,\n          \"variables_to_update\": [\n            {\n              \"variable_to_update\": \"$workflow.definition_workflow_022AD8KDNLT1G0dadWM6ktPWG98ABNfmrwM.output.variable_workflow_022ADCIFII5AW2w50dYP8C7TSclG95A3xyg$\",\n              \"variable_value_new\": \"$activity.definition_activity_022ADBUQBLFRU3YM0Ix4qjjZ2zDNIMldPgz.output.jsonpath_queries.User_ID$\"\n            }\n          ]\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"targets\": {\n    \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\": {\n      \"unique_name\": \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\",\n      \"name\": \"Reqres_Install_API_Auto\",\n      \"title\": \"Reqres_Install_API_Auto\",\n      \"type\": \"web-service.endpoint\",\n      \"base_type\": \"target\",\n      \"object_type\": \"definition_target\",\n      \"properties\": {\n        \"disable_certificate_validation\": true,\n        \"display_name\": \"Reqres_Install_API_Auto\",\n        \"host\": \"reqres.in\",\n        \"ignore_proxy\": true,\n        \"no_runtime_user\": true,\n        \"protocol\": \"https\"\n      }\n    }\n  },\n  \"runtime_users\": {\n    \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\": {\n      \"unique_name\": \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\",\n      \"name\": \"Reqres_AccKeys_Install_API\",\n      \"title\": \"Reqres_AccKeys_Install_API\",\n      \"type\": \"runtime_user.web-service_basic_credentials\",\n      \"base_type\": \"runtime_user\",\n      \"object_type\": \"definition_runtime_user\",\n      \"properties\": {\n        \"auth_option\": \"Basic\",\n        \"basic_password\": \"admin\",\n        \"basic_username\": \"admin\",\n        \"display_name\": \"Reqres_AccKeys_Install_API\"\n      },\n      \"schema_id\": \"01IL873KLG4GW6TwryntZEZOJEUoS6kmanj\"\n    }\n  }\n}",
+          "scope": "static",
+          "name": "Atomic_Payload",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_022AI21FR6VTC3B4K5eSW47yRLNm5uyDfW3",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "OP_Install_TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_022BLIDHLH1LY7InKoGFgx3WlJKOfE8Iz3V",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1OTI5NDc1NDAsImV4cCI6MTYyNDQ4Njc2NiwiYXVkIjpbInN4by11aSJdLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJGaXJzdE5hbWUiOiJWaW5heSIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb3JnL2lkIjoiMTUwMiIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9yb2xlIjoiYWRtaW4iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvc2NvcGVzIjpbImFvIl19.gwhiUZwaei6Jfs4r9rqyjqrsFmuRvvY_J5ZKbVLG9cU",
           "scope": "input",
-          "name": "MangoDB_APP_Name",
+          "name": "Token_For_Publish",
           "type": "datatype.string",
           "is_required": true,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_022AG2G6E4L9C7JuTAIOwYkom3DGI4HjylU",
+        "unique_name": "variable_workflow_022AG1K2040KX5zhviXwMmbAcHyo9VjJ9gM",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_022AE9NF0YBEQ3QBL9RQNNKLlB1F15YYv5a\",\n    \"name\": \"Main_WF_Install_API_Automation\",\n    \"title\": \"Main_WF_Install_API_Automation\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"Main_WF_Install_API_Automation\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_022AE9ZA70GS96Om8NSiB5b1ZX6DDASLMx7\",\n        \"name\": \"SubWorkflow_Install_API_Automation\",\n        \"title\": \"SubWorkflow_Install_API_Automation\",\n        \"type\": \"workflow.sub_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"display_name\": \"SubWorkflow_Install_API_Automation\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_022AE799UOK7R2WIjjpitYXVhFg0BMagI65\",\n          \"workflow_name\": \"SubWorkflow_Install_API_Automation\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_022AEA346CPHD7iMEBDOnqPp9CT2Bk99y7u\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"Delete a User\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Delete a User\",\n          \"method\": \"DELETE\",\n          \"relative_url\": \"/api/users/$activity.definition_activity_022AE9ZA70GS96Om8NSiB5b1ZX6DDASLMx7.output.variable_workflow_022AEO1C1G8055fCLxi2dFoF4zVoP2j9sPy$\",\n          \"runtime_user\": {\n            \"override_target_runtime_user\": true,\n            \"runtime_user_id\": \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\"\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"override_workflow_target\": true,\n            \"target_id\": \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\"\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"triggers\": {\n    \"triggerschedule_022AEU6314T0T5HGy9dsJiJ2hcTgIgn9pOa\": {\n      \"workflow_id\": \"definition_workflow_022AE9NF0YBEQ3QBL9RQNNKLlB1F15YYv5a\",\n      \"name\": \"Schedule_Install_Auto\",\n      \"title\": \"\",\n      \"lowercase_name\": \"schedule.schedule_install_auto\",\n      \"type\": \"schedule\",\n      \"base_type\": \"trigger\",\n      \"ref_id\": \"schedule_022AEU4CXCNUG1mlHzKlg7lWVu0x3f8a7Wd\",\n      \"version\": \"1.0.0\",\n      \"disabled\": false,\n      \"unique_name\": \"triggerschedule_022AEU6314T0T5HGy9dsJiJ2hcTgIgn9pOa\",\n      \"object_type\": \"triggerschedule\"\n    }\n  },\n  \"schedules\": {\n    \"schedule_022AEU4CXCNUG1mlHzKlg7lWVu0x3f8a7Wd\": {\n      \"unique_name\": \"schedule_022AEU4CXCNUG1mlHzKlg7lWVu0x3f8a7Wd\",\n      \"name\": \"Schedule_INstall_API_Once\",\n      \"type\": \"basic.schedule\",\n      \"base_type\": \"schedule\",\n      \"properties\": {\n        \"calendar\": \"calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ\",\n        \"timezone\": \"Asia/Kolkata\",\n        \"starttime\": \"13:00\",\n        \"interval_hours\": 0,\n        \"interval_minutes\": 0,\n        \"number_of_times\": 1,\n        \"display_name\": \"Schedule_INstall_API_Once\",\n        \"description\": \"\"\n      },\n      \"version\": \"1.0.0\",\n      \"object_type\": \"schedule\"\n    }\n  },\n  \"targets\": {\n    \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\": {\n      \"unique_name\": \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\",\n      \"name\": \"Reqres_Install_API_Auto\",\n      \"title\": \"Reqres_Install_API_Auto\",\n      \"type\": \"web-service.endpoint\",\n      \"base_type\": \"target\",\n      \"object_type\": \"definition_target\",\n      \"properties\": {\n        \"disable_certificate_validation\": true,\n        \"display_name\": \"Reqres_Install_API_Auto\",\n        \"host\": \"reqres.in\",\n        \"ignore_proxy\": true,\n        \"no_runtime_user\": true,\n        \"protocol\": \"https\"\n      }\n    }\n  },\n  \"runtime_users\": {\n    \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\": {\n      \"unique_name\": \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\",\n      \"name\": \"Reqres_AccKeys_Install_API\",\n      \"title\": \"Reqres_AccKeys_Install_API\",\n      \"type\": \"runtime_user.web-service_basic_credentials\",\n      \"base_type\": \"runtime_user\",\n      \"object_type\": \"definition_runtime_user\",\n      \"properties\": {\n        \"auth_option\": \"Basic\",\n        \"basic_password\": \"*****\",\n        \"basic_username\": \"admin\",\n        \"display_name\": \"Reqres_AccKeys_Install_API\"\n      }\n    }\n  },\n  \"subworkflows\": [\n    {\n      \"workflow\": {\n        \"unique_name\": \"definition_workflow_022AE799UOK7R2WIjjpitYXVhFg0BMagI65\",\n        \"name\": \"SubWorkflow_Install_API_Automation\",\n        \"title\": \"SubWorkflow_Install_API_Automation\",\n        \"type\": \"generic.workflow\",\n        \"base_type\": \"workflow\",\n        \"variables\": [\n          {\n            \"schema_id\": \"datatype.string\",\n            \"properties\": {\n              \"value\": \"\",\n              \"scope\": \"output\",\n              \"name\": \"User_ID\",\n              \"type\": \"datatype.string\",\n              \"is_required\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_022AEO1C1G8055fCLxi2dFoF4zVoP2j9sPy\",\n            \"object_type\": \"variable_workflow\"\n          }\n        ],\n        \"properties\": {\n          \"atomic\": {\n            \"is_atomic\": false\n          },\n          \"delete_workflow_instance\": false,\n          \"display_name\": \"SubWorkflow_Install_API_Automation\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          }\n        },\n        \"object_type\": \"definition_workflow\",\n        \"actions\": [\n          {\n            \"unique_name\": \"definition_activity_022AE7F7CDC8Q3OUWUL3qC0g8BGwPeBGOrs\",\n            \"name\": \"User_Creation_Atomic_Install_API_Automation\",\n            \"title\": \"User_Creation_Atomic_Install_API_Automation\",\n            \"type\": \"workflow.atomic_workflow\",\n            \"base_type\": \"subworkflow\",\n            \"properties\": {\n              \"display_name\": \"User_Creation_Atomic_Install_API_Automation\",\n              \"runtime_user\": {\n                \"target_default\": true\n              },\n              \"target\": {\n                \"no_target\": true\n              },\n              \"workflow_id\": \"definition_workflow_022AD8KDNLT1G0dadWM6ktPWG98ABNfmrwM\",\n              \"workflow_name\": \"User_Creation_Atomic_Install_API_Automation\"\n            },\n            \"object_type\": \"definition_activity\"\n          },\n          {\n            \"unique_name\": \"definition_activity_022AE7IQCP1JL5qCG8CRffBVyngZowFTXu5\",\n            \"name\": \"HTTP Request\",\n            \"title\": \"Update User Records\",\n            \"type\": \"web-service.http_request\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"action_timeout\": 180,\n              \"allow_auto_redirect\": true,\n              \"allow_headers_redirect\": false,\n              \"body\": \"{\\n    \\\"name\\\": \\\"Vinay-Updated\\\",\\n    \\\"job\\\": \\\"Test Engineer - Updated\\\"\\n}\",\n              \"continue_on_error_status_code\": false,\n              \"continue_on_failure\": false,\n              \"display_name\": \"Update User Records\",\n              \"method\": \"PUT\",\n              \"relative_url\": \"/api/users/$activity.definition_activity_022AE7F7CDC8Q3OUWUL3qC0g8BGwPeBGOrs.output.variable_workflow_022ADCIFII5AW2w50dYP8C7TSclG95A3xyg$\",\n              \"runtime_user\": {\n                \"override_target_runtime_user\": true,\n                \"runtime_user_id\": \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\"\n              },\n              \"skip_execution\": false,\n              \"target\": {\n                \"override_workflow_target\": true,\n                \"target_id\": \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\"\n              }\n            },\n            \"object_type\": \"definition_activity\"\n          },\n          {\n            \"unique_name\": \"definition_activity_022AEO4M5ZR7E63ix5LSWGWgBgECAZGC4Ev\",\n            \"name\": \"Set Variables\",\n            \"title\": \"UserID\",\n            \"type\": \"core.set_multiple_variables\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"continue_on_failure\": false,\n              \"display_name\": \"UserID\",\n              \"skip_execution\": false,\n              \"variables_to_update\": [\n                {\n                  \"variable_to_update\": \"$workflow.definition_workflow_022AE799UOK7R2WIjjpitYXVhFg0BMagI65.output.variable_workflow_022AEO1C1G8055fCLxi2dFoF4zVoP2j9sPy$\",\n                  \"variable_value_new\": \"$activity.definition_activity_022AE7F7CDC8Q3OUWUL3qC0g8BGwPeBGOrs.output.variable_workflow_022ADCIFII5AW2w50dYP8C7TSclG95A3xyg$\"\n                }\n              ]\n            },\n            \"object_type\": \"definition_activity\"\n          }\n        ],\n        \"categories\": [\n          \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n        ]\n      },\n      \"atomic_workflows\": [\n        \"definition_workflow_022AD8KDNLT1G0dadWM6ktPWG98ABNfmrwM\"\n      ],\n      \"dependent_workflows\": [\n        \"definition_workflow_022AD8KDNLT1G0dadWM6ktPWG98ABNfmrwM\"\n      ]\n    }\n  ],\n  \"dependent_workflows\": [\n    \"definition_workflow_022AE799UOK7R2WIjjpitYXVhFg0BMagI65\"\n  ]\n}",
+          "value": "Copy(1)-SubWorkflow_Install_API_Automation",
           "scope": "local",
-          "name": "Import_Mian_WF_Payload",
+          "name": "SubWF_Title",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_022AFOPFT10ZU0VMmMGpdPtjkkVuNULUI5A",
+        "unique_name": "variable_workflow_022APEO4EQKTK73UoBWYpLDkS16VJMdzIHw",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Copy(1)-Main_WF_Install_API_Automation",
-          "scope": "local",
-          "name": "Main_WF_Title",
+          "value": "XLSReVftz7HNZWoP8PMRgpHwDI01bWGREGXgmygLsOeriU15cDJW93z8bAaCKhWb",
+          "scope": "input",
+          "name": "MangoDB_API_Key",
           "type": "datatype.string",
-          "is_required": false,
+          "is_required": true,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_022AOOOKJSDXU3QcKYA5DzVAn0asIyEVw3O",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "schedule_022AEU4CXCNUG1mlHzKlg7lWVu0x3f8a7Wd",
-          "scope": "static",
-          "name": "Schedule_UniqueName",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_022AH0LBW6G932dQlFI71mYIje3qqoFQTB9",
+        "unique_name": "variable_workflow_022AG237XSKYW428zhncXlxUv8SFMEP1Ymq",
         "object_type": "variable_workflow"
       },
       {
@@ -114,40 +205,40 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "definition_workflow_022AE9NF0YBEQ3QBL9RQNNKLlB1F15YYv5a",
+          "value": "Copy(1)-Main_WF_Install_API_Automation",
           "scope": "local",
-          "name": "Import_Unique_name",
+          "name": "Main_WF_Title",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_022AFPG0A98XJ5iZgoKI63CYZzySWaSwE2X",
+        "unique_name": "variable_workflow_022AOOOKJSDXU3QcKYA5DzVAn0asIyEVw3O",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Copy(1)-SubWorkflow_Install_API_Automation",
-          "scope": "local",
-          "name": "SubWF_Title",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_022APEO4EQKTK73UoBWYpLDkS16VJMdzIHw",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_022AD8KDNLT1G0dadWM6ktPWG98ABNfmrwM\",\n    \"name\": \"User_Creation_Atomic_Install_API_Automation\",\n    \"title\": \"User_Creation_Atomic_Install_API_Automation\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"output\",\n          \"name\": \"User_ID\",\n          \"type\": \"datatype.string\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_022ADCIFII5AW2w50dYP8C7TSclG95A3xyg\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"atomic_group\": \"Atomic\",\n        \"is_atomic\": true\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"User_Creation_Atomic_Install_API_Automation\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_022AD8NJFCNEC6eVlILU2ncCGxSv4UtuRy5\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"Create User in Reqres\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"body\": \"{\\\"Name\\\":\\\"Vinay\\\",\\n\\\"Job\\\":\\\"Test Engineer\\\"}\",\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Create User in Reqres\",\n          \"method\": \"POST\",\n          \"relative_url\": \"/api/users\",\n          \"runtime_user\": {\n            \"override_target_runtime_user\": true,\n            \"runtime_user_id\": \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\"\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"override_workflow_target\": true,\n            \"target_id\": \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\"\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_022ADBUQBLFRU3YM0Ix4qjjZ2zDNIMldPgz\",\n        \"name\": \"JSONPath Query\",\n        \"title\": \"Fetch UserID\",\n        \"type\": \"corejava.jsonpathquery\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Fetch UserID\",\n          \"input_json\": \"$activity.definition_activity_022AD8NJFCNEC6eVlILU2ncCGxSv4UtuRy5.output.response_body$\",\n          \"jsonpath_queries\": [\n            {\n              \"jsonpath_query\": \"$.id\",\n              \"jsonpath_query_name\": \"User_ID\",\n              \"jsonpath_query_type\": \"string\",\n              \"zdate_type_format\": \"yyyy-MM-dd'T'HH:mm:ssZ\"\n            }\n          ],\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_022ADCB1OAT9O6LvZZCks0oz9pdfl4AeimL\",\n        \"name\": \"Set Variables\",\n        \"title\": \"Store UserID\",\n        \"type\": \"core.set_multiple_variables\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Store UserID\",\n          \"skip_execution\": false,\n          \"variables_to_update\": [\n            {\n              \"variable_to_update\": \"$workflow.definition_workflow_022AD8KDNLT1G0dadWM6ktPWG98ABNfmrwM.output.variable_workflow_022ADCIFII5AW2w50dYP8C7TSclG95A3xyg$\",\n              \"variable_value_new\": \"$activity.definition_activity_022ADBUQBLFRU3YM0Ix4qjjZ2zDNIMldPgz.output.jsonpath_queries.User_ID$\"\n            }\n          ]\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"targets\": {\n    \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\": {\n      \"unique_name\": \"definition_target_022AD99ANUPF170N4iwg2pLr9ZKD4zlVgMo\",\n      \"name\": \"Reqres_Install_API_Auto\",\n      \"title\": \"Reqres_Install_API_Auto\",\n      \"type\": \"web-service.endpoint\",\n      \"base_type\": \"target\",\n      \"object_type\": \"definition_target\",\n      \"properties\": {\n        \"disable_certificate_validation\": true,\n        \"display_name\": \"Reqres_Install_API_Auto\",\n        \"host\": \"reqres.in\",\n        \"ignore_proxy\": true,\n        \"no_runtime_user\": true,\n        \"protocol\": \"https\"\n      }\n    }\n  },\n  \"runtime_users\": {\n    \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\": {\n      \"unique_name\": \"definition_runtime_user_022AD9WUXMOCM4nXD7fMY5xJ9e5kPHU9Db4\",\n      \"name\": \"Reqres_AccKeys_Install_API\",\n      \"title\": \"Reqres_AccKeys_Install_API\",\n      \"type\": \"runtime_user.web-service_basic_credentials\",\n      \"base_type\": \"runtime_user\",\n      \"object_type\": \"definition_runtime_user\",\n      \"properties\": {\n        \"auth_option\": \"Basic\",\n        \"basic_password\": \"admin\",\n        \"basic_username\": \"admin\",\n        \"display_name\": \"Reqres_AccKeys_Install_API\"\n      },\n      \"schema_id\": \"01IL873KLG4GW6TwryntZEZOJEUoS6kmanj\"\n    }\n  }\n}",
+          "value": "schedule_022AEU4CXCNUG1mlHzKlg7lWVu0x3f8a7Wd",
           "scope": "static",
-          "name": "Atomic_Payload",
+          "name": "Schedule_UniqueName",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_022AI21FR6VTC3B4K5eSW47yRLNm5uyDfW3",
+        "unique_name": "variable_workflow_022AH0LBW6G932dQlFI71mYIje3qqoFQTB9",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "OP_Trigger_Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_022BLA00K4VEG6x2jenlEaCo2TbMc4FTkqZ",
         "object_type": "variable_workflow"
       },
       {
@@ -166,40 +257,27 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "User_Creation_Atomic_Install_API_Automation",
-          "scope": "local",
-          "name": "Atomic_WF_Title",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_022APF290F35D7eEyusMNrB0qQiZcqsugul",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "XLSReVftz7HNZWoP8PMRgpHwDI01bWGREGXgmygLsOeriU15cDJW93z8bAaCKhWb",
+          "value": "data-syggf",
           "scope": "input",
-          "name": "MangoDB_API_Key",
+          "name": "MangoDB_APP_Name",
           "type": "datatype.string",
           "is_required": true,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_022AG237XSKYW428zhncXlxUv8SFMEP1Ymq",
+        "unique_name": "variable_workflow_022AG2G6E4L9C7JuTAIOwYkom3DGI4HjylU",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Schedule_Install_Auto",
-          "scope": "static",
-          "name": "Schedule_Trigger_Name",
+          "value": "",
+          "scope": "output",
+          "name": "OP_Pre-requiste_TestStatus",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_022AN5POD6O800UlMV7Aq4rTrUW8kpYVyeY",
+        "unique_name": "variable_workflow_022BLHZ8128PC0mhQrdwMNZcy0meRKcbodK",
         "object_type": "variable_workflow"
       }
     ],
@@ -454,6 +532,92 @@
         ]
       },
       {
+        "unique_name": "definition_activity_022BLJ3FNFLJE2omKKSrh096r995hnRU5fM",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_022BLJ3HFH6JP6ZJwRjlnz3pKLTiK2bHcQR",
+            "name": "Condition Branch",
+            "title": "Verify Pre-Requsiste test Case",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_022AI25CZFMMU3yDtE5OFN1wDQAdXHhQ5AN.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                        "operator": "eq",
+                        "right_operand": "true"
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_022AI6FA5H9973ZmBfyxgtqxsfSRS1kVs9x.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                        "operator": "eq",
+                        "right_operand": "true"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_022AFJF4SAHF61NeKND7WcD126pC6nwt2Cm.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                      "operator": "eq",
+                      "right_operand": "true"
+                    }
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_022AI7KTHN3EF3tk1Weo7jzjTIp9sitgOr9.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                    "operator": "eq",
+                    "right_operand": "true"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_022AI966XN132096DJukz1SFFTZCXfoH3N6.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                  "operator": "eq",
+                  "right_operand": "true"
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Verify Pre-Requsiste test Case",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_022BLKXT7Q1AI4JRGf5kKauApToN5IDpEQU",
+                "name": "Set Variables",
+                "title": "Pass",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Pass",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.output.variable_workflow_022BLHZ8128PC0mhQrdwMNZcy0meRKcbodK$",
+                      "variable_value_new": "Pass"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "unique_name": "definition_activity_022AJ1NC6Z2U76TbOhDx79AKGI2VFmcoTWC",
         "name": "Group",
         "title": "Publish the Above Workflow to Exchange",
@@ -591,6 +755,68 @@
               "skip_execution": false
             },
             "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_022BLLMTAM0463bP5RJmJgl9llAMyNTkZTs",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_022BLLMUWN5DC3kswMZgogMVA2GXrs9mDwb",
+            "name": "Condition Branch",
+            "title": "Verify Publish Test Case",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$activity.definition_activity_022AJ25XELFIN12vsecz3YL9YKhDDMNtWFz.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                  "operator": "eq",
+                  "right_operand": "Pass"
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_022AJUJ7KZRBT5ZJ38WkWDMFxww2nkcPKHF.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                  "operator": "eq",
+                  "right_operand": "true"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Verify Publish Test Case",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_022BLN1UCCPSL0ZrYTUPLAuSNMGfq53iy98",
+                "name": "Set Variables",
+                "title": "Pass",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Pass",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.output.variable_workflow_022BLIQPJ45123u3n6tk5hH8inA9JByNYn8$",
+                      "variable_value_new": "Pass"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
           }
         ]
       },
@@ -886,18 +1112,94 @@
           {
             "unique_name": "definition_activity_022AN3GF2GNP40oolPI0Ywyw1MXenNoQOMd",
             "name": "JSONPath Query",
-            "title": "Fetch Trigger ID from Triggers API",
+            "title": "Fetch Trigger Status and ID from Triggers API",
             "type": "corejava.jsonpathquery",
             "base_type": "activity",
             "properties": {
               "action_timeout": 180,
               "continue_on_failure": true,
-              "display_name": "Fetch Trigger ID from Triggers API",
+              "display_name": "Fetch Trigger Status and ID from Triggers API",
               "input_json": "$activity.definition_activity_022AN2PUO391G5eYygu7eOsaotVVSoZUMRZ.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
               "jsonpath_queries": [
                 {
                   "jsonpath_query": "$..[?(@.name=='$workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.static.variable_workflow_022AN5POD6O800UlMV7Aq4rTrUW8kpYVyeY$')].status.state",
-                  "jsonpath_query_name": "Xchange_Id_from_UsedBy",
+                  "jsonpath_query_name": "Trigger_Status",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                },
+                {
+                  "jsonpath_query": "$..id",
+                  "jsonpath_query_name": "Trigger_ID",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_022BKD1V8779Z50PEe9KTxVm0JY7M7woepN",
+        "name": "Group",
+        "title": "Update Schedule",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Update Schedule",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_022BBSLEYM8JE7RbOLAH36U4XUy2iRrbyxS",
+            "name": "Search Schedules IN Installed Tenant",
+            "title": "Search Schedules IN Installed Tenant",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Search Schedules IN Installed Tenant",
+              "input": {
+                "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "",
+                "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe": "Bearer $workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.input.variable_workflow_022AJ35J15PMA7buAPcfgbHmvyOvzfI7QZG$",
+                "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "GET",
+                "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "/api/v1/schedules",
+                "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
+                "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": "x-cisco-tenant-id",
+                "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29": "",
+                "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX": "",
+                "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P": ""
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "target_type": "web-service.endpoint",
+                "use_workflow_target": true
+              },
+              "workflow_id": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
+              "workflow_name": "SXO- Main CRUD Operations Automation WF"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_022BBSLF2X0B83vtgjGER4Bz4wzM7bWRMP1",
+            "name": "JSONPath Query",
+            "title": "Fetch Schedule ID IN Installed Tenant",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch Schedule ID IN Installed Tenant",
+              "input_json": "$activity.definition_activity_022BBSLEYM8JE7RbOLAH36U4XUy2iRrbyxS.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$..[?(@.unique_name=='$workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.static.variable_workflow_022AH0LBW6G932dQlFI71mYIje3qqoFQTB9$')].id",
+                  "jsonpath_query_name": "Schedule_ID",
                   "jsonpath_query_type": "string",
                   "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                 }
@@ -905,6 +1207,321 @@
               "skip_execution": false
             },
             "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_022BKFACWOUJT3QaEBifiaoGNj3QqHNZtnV",
+            "name": "GET Schedules By ID",
+            "title": "GET Schedules By ID",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "GET Schedules By ID",
+              "input": {
+                "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "",
+                "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe": "Bearer $workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.input.variable_workflow_022AJ35J15PMA7buAPcfgbHmvyOvzfI7QZG$",
+                "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "GET",
+                "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "/api/v1/schedules/$activity.definition_activity_022BBSLF2X0B83vtgjGER4Bz4wzM7bWRMP1.output.jsonpath_queries.Schedule_ID$",
+                "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
+                "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": "x-cisco-tenant-id",
+                "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29": "",
+                "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX": "",
+                "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P": ""
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "target_type": "web-service.endpoint",
+                "use_workflow_target": true
+              },
+              "workflow_id": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
+              "workflow_name": "SXO- Main CRUD Operations Automation WF"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_022BKG6A0SN3K5hhlhvlk8CzTypFkpM4rbZ",
+            "name": "JSONPath Query",
+            "title": "Fetch Schedule Details",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch Schedule Details",
+              "input_json": "$activity.definition_activity_022BKFACWOUJT3QaEBifiaoGNj3QqHNZtnV.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.properties.display_name",
+                  "jsonpath_query_name": "Schedule_DisplayName",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                },
+                {
+                  "jsonpath_query": "$.properties.calendar",
+                  "jsonpath_query_name": "Schedule_Calender",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_022BKDV7T0TD835Ig3FY7YGIFAUYhVyB4zl",
+            "name": "Execute Python Script",
+            "title": "Fetch the StartTime for Schedule",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch the StartTime for Schedule",
+              "script": "import time\nfrom datetime import datetime\n\ncurrentTime_timestamp = time.time()\ncurrentTime = datetime.fromtimestamp(currentTime_timestamp    ).strftime(\"%Y-%m-%d %H:%M:%S\")\n\nnextTime = currentTime_timestamp + 60\n\nprint (str(datetime.fromtimestamp(nextTime).strftime(\"%H:%M\")))",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_022BKH1ILNRHR0WmO2ytH0RZh9QhGQ4XT5g",
+            "name": "Update Schedule",
+            "title": "Update Schedule",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Update Schedule",
+              "input": {
+                "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "{\n\"name\": \"$activity.definition_activity_022BKG6A0SN3K5hhlhvlk8CzTypFkpM4rbZ.output.jsonpath_queries.Schedule_DisplayName$\",\n\"title\": \"$activity.definition_activity_022BKG6A0SN3K5hhlhvlk8CzTypFkpM4rbZ.output.jsonpath_queries.Schedule_DisplayName$\",\n\n\"properties\": {\n\"display_name\": \"$activity.definition_activity_022BKG6A0SN3K5hhlhvlk8CzTypFkpM4rbZ.output.jsonpath_queries.Schedule_DisplayName$\",\n\"calendar\": \"$activity.definition_activity_022BKG6A0SN3K5hhlhvlk8CzTypFkpM4rbZ.output.jsonpath_queries.Schedule_Calender$\",\n\"timezone\": \"Etc/GMT+0\",\n\"starttime\": \"$activity.definition_activity_022BKDV7T0TD835Ig3FY7YGIFAUYhVyB4zl.output.response_body$\",\n\"interval_hours\": 0,\n\"interval_minutes\": 0,\n\"number_of_times\": 1\n}\n}",
+                "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe": "Bearer $workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.input.variable_workflow_022AJ35J15PMA7buAPcfgbHmvyOvzfI7QZG$",
+                "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "PUT",
+                "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "/api/v1/schedules/$activity.definition_activity_022BBSLF2X0B83vtgjGER4Bz4wzM7bWRMP1.output.jsonpath_queries.Schedule_ID$",
+                "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
+                "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": "x-cisco-tenant-id",
+                "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29": "",
+                "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX": "",
+                "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P": ""
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "target_type": "web-service.endpoint",
+                "use_workflow_target": true
+              },
+              "workflow_id": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
+              "workflow_name": "SXO- Main CRUD Operations Automation WF"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_022BKZA22JUVV2YzIvReBQZGTHT2yMmxWob",
+        "name": "Sleep",
+        "title": "Sleep for 100s",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep for 100s",
+          "skip_execution": false,
+          "sleep_interval": 100
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_022BL063MXARM7401y4VOckZklcdaT1MlDM",
+        "name": "Condition Block",
+        "title": "Verify Schedule Status",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Verify Schedule Status",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_022BL065843HE293NATafhQYGPdjFOIqSoq",
+            "name": "Condition Branch",
+            "title": "Verify View Runs For Installed Status",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_022AN3GF2GNP40oolPI0Ywyw1MXenNoQOMd.output.jsonpath_queries.Trigger_Status$",
+                "operator": "eq",
+                "right_operand": "started-polling"
+              },
+              "continue_on_failure": false,
+              "display_name": "Verify View Runs For Installed Status",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_022BL5KNQPA091hXfv9clLf5lwBWyldhHSN",
+                "name": "Calculate Date",
+                "title": "Fetch The from_Date for View Runs API",
+                "type": "core.calculate_date",
+                "base_type": "activity",
+                "properties": {
+                  "adjustment": -86400,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch The from_Date for View Runs API",
+                  "original_date": "$workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.output.start_time$",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_022BL2OQ4LAEO6DO9O9PrIu07FkBksKaWps",
+                "name": "View Runs for Installed Workflow",
+                "title": "View Runs for Installed Workflow",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "View Runs for Installed Workflow",
+                  "input": {
+                    "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "{\n\"owner\": [],\n\"workflow_ids\": [\n\"$activity.definition_activity_022AMULY1HX6748UvqhbRAURra28DHH84OB.output.jsonpath_queries.Installed_WF_ID$\"\n]\n}",
+                    "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe": "Bearer $workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.input.variable_workflow_022AJ35J15PMA7buAPcfgbHmvyOvzfI7QZG$",
+                    "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "POST",
+                    "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "/api/v1.1/instances?date_from=$activity.definition_activity_022BL5KNQPA091hXfv9clLf5lwBWyldhHSN.output.result$\u0026start=0\u0026limit=24",
+                    "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
+                    "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": "x-cisco-tenant-id",
+                    "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29": "",
+                    "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX": "",
+                    "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P": ""
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
+                  "workflow_name": "SXO- Main CRUD Operations Automation WF"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_022BL773X4HKA4wTkHwHqkNtPJ8D7iXMgCd",
+                "name": "JSONPath Query",
+                "title": "Fetch the Installed WF Run Status , StartedBy. InstaceID",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch the Installed WF Run Status , StartedBy. InstaceID",
+                  "input_json": "$activity.definition_activity_022BL2OQ4LAEO6DO9O9PrIu07FkBksKaWps.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.results[0].status.state",
+                      "jsonpath_query_name": "Schedule_Status",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.results[0].started_by",
+                      "jsonpath_query_name": "Schedule_Trigger_StartedBy",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.results[0].id",
+                      "jsonpath_query_name": "Schedule_Instance_ID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_022BLA891H5F72zYzpfmQAFvMIdX2s01mGz",
+                "name": "Set Variables",
+                "title": "Pass",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Pass",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.output.variable_workflow_022BLA00K4VEG6x2jenlEaCo2TbMc4FTkqZ$",
+                      "variable_value_new": "Pass"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_022BLF5V3HFGG6GbJgmePR1HSPKwHyS8zbB",
+                "name": "Condition Block",
+                "title": "Verify the Installed WF Instance Triggered by Schedule",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Verify the Installed WF Instance Triggered by Schedule",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_022BLF5WOER507MQ4xysVV1OluuAIwawgem",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_022AN3GF2GNP40oolPI0Ywyw1MXenNoQOMd.output.jsonpath_queries.Trigger_ID$",
+                        "operator": "eq",
+                        "right_operand": "$activity.definition_activity_022BL773X4HKA4wTkHwHqkNtPJ8D7iXMgCd.output.jsonpath_queries.Schedule_Trigger_StartedBy$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_022BLH5W9FHU40oVgH5E7KUHBHkH3M2lIFy",
+                        "name": "Set Variables",
+                        "title": "Pass",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Pass",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.output.variable_workflow_022BLGU0ISV836QMmIpUCHZrmyD4Zut4Iiq$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
@@ -1527,62 +2144,6 @@
                 "object_type": "definition_activity"
               },
               {
-                "unique_name": "definition_activity_022BBSLEYM8JE7RbOLAH36U4XUy2iRrbyxS",
-                "name": "Search Schedules IN Installed Tenant",
-                "title": "Search Schedules IN Installed Tenant",
-                "type": "workflow.sub_workflow",
-                "base_type": "subworkflow",
-                "properties": {
-                  "continue_on_failure": true,
-                  "display_name": "Search Schedules IN Installed Tenant",
-                  "input": {
-                    "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m": "",
-                    "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe": "Bearer $workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.input.variable_workflow_022AJ35J15PMA7buAPcfgbHmvyOvzfI7QZG$",
-                    "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "GET",
-                    "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "/api/v1/schedules",
-                    "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
-                    "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": "x-cisco-tenant-id",
-                    "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29": "",
-                    "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX": "",
-                    "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P": ""
-                  },
-                  "runtime_user": {
-                    "target_default": true
-                  },
-                  "skip_execution": false,
-                  "target": {
-                    "target_type": "web-service.endpoint",
-                    "use_workflow_target": true
-                  },
-                  "workflow_id": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
-                  "workflow_name": "SXO- Main CRUD Operations Automation WF"
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_022BBSLF2X0B83vtgjGER4Bz4wzM7bWRMP1",
-                "name": "JSONPath Query",
-                "title": "Fetch Schedule ID IN Installed Tenant",
-                "type": "corejava.jsonpathquery",
-                "base_type": "activity",
-                "properties": {
-                  "action_timeout": 180,
-                  "continue_on_failure": true,
-                  "display_name": "Fetch Schedule ID IN Installed Tenant",
-                  "input_json": "$activity.definition_activity_022BBSLEYM8JE7RbOLAH36U4XUy2iRrbyxS.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
-                  "jsonpath_queries": [
-                    {
-                      "jsonpath_query": "$..[?(@.unique_name=='$workflow.definition_workflow_022AEVDNXYA7Y0KoLSKXgmHsm3VKetfe8j2.static.variable_workflow_022AH0LBW6G932dQlFI71mYIje3qqoFQTB9$')].id",
-                      "jsonpath_query_name": "Schedule_ID",
-                      "jsonpath_query_type": "string",
-                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                    }
-                  ],
-                  "skip_execution": false
-                },
-                "object_type": "definition_activity"
-              },
-              {
                 "unique_name": "definition_activity_022BBSLFAARKM0EivRntXhIyM9fmwHnRWYU",
                 "name": "Delete schedules IN Installed Tenant",
                 "title": "Delete schedules IN Installed Tenant",
@@ -1699,40 +2260,27 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Action Id",
+              "scope": "input",
+              "name": "Headers Cookie (Not Mandatory)",
               "type": "datatype.string",
+              "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_020FOLLJP0WDO7B8ep2v5S17F9drfRIk5eb",
+            "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
             "object_type": "variable_workflow"
           },
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
+              "value": "Authorization",
+              "scope": "local",
+              "name": "Authorization",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Select Method (EX: GET, PUT, POST, DELETE)",
-              "type": "datatype.string",
-              "description": "The primary or most commonly-used HTTP methods are POST, GET, PUT, PATCH, and DELETE. These methods correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other methods, too, but they are utilized less frequently.",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
+            "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
             "object_type": "variable_workflow"
           },
           {
@@ -1751,40 +2299,14 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "x-cisco-tenant-id",
-              "scope": "input",
-              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "",
               "scope": "output",
-              "name": "Response Body",
+              "name": "Schema ID's",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "local",
-              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
+            "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
             "object_type": "variable_workflow"
           },
           {
@@ -1799,33 +2321,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Value (Only For Tenant creation) Provide Tenant id",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Header Accept (Optional)",
-              "type": "datatype.string",
-              "description": "The Accept request HTTP header indicates which content types, expressed as MIME types, the client is able to understand. The server uses content negotiation to select one of the proposals and informs the client of the choice with the Content-Type response header.",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29",
             "object_type": "variable_workflow"
           },
           {
@@ -1847,52 +2342,26 @@
             "properties": {
               "value": "",
               "scope": "input",
-              "name": "Header User-Agent (optional)",
+              "name": "Header Accept (Optional)",
               "type": "datatype.string",
-              "description": "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent",
+              "description": "The Accept request HTTP header indicates which content types, expressed as MIME types, the client is able to understand. The server uses content negotiation to select one of the proposals and informs the client of the choice with the Content-Type response header.",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX",
+            "unique_name": "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29",
             "object_type": "variable_workflow"
           },
           {
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Pass or Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Authorization",
               "scope": "local",
-              "name": "Authorization",
+              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
               "type": "datatype.string",
-              "is_required": false,
+              "is_required": true,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Error Code",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
+            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
             "object_type": "variable_workflow"
           },
           {
@@ -1912,14 +2381,13 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Headers Cookie (Not Mandatory)",
+              "scope": "output",
+              "name": "Action Id",
               "type": "datatype.string",
-              "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
+            "unique_name": "variable_workflow_020FOLLJP0WDO7B8ep2v5S17F9drfRIk5eb",
             "object_type": "variable_workflow"
           },
           {
@@ -1927,12 +2395,105 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Schema ID's",
+              "name": "Error Code",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
+            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Select Method (EX: GET, PUT, POST, DELETE)",
+              "type": "datatype.string",
+              "description": "The primary or most commonly-used HTTP methods are POST, GET, PUT, PATCH, and DELETE. These methods correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other methods, too, but they are utilized less frequently.",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Header User-Agent (optional)",
+              "type": "datatype.string",
+              "description": "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Response Body",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Value (Only For Tenant creation) Provide Tenant id",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "x-cisco-tenant-id",
+              "scope": "input",
+              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
             "object_type": "variable_workflow"
           }
         ],
@@ -2956,6 +3517,19 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Description",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "Bearer ",
               "scope": "input",
               "name": "Provide Input Token",
@@ -2964,6 +3538,71 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange Category Name",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Blurb_Short_Description",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAQ44U0LB103IOLIAMFq4qo3ljG9TfQy",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_XchnageTenantID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01YCNIL3PHIL51LcRbut4AZjbktw4xOe10M",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Display_Name",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Blurb",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
             "object_type": "variable_workflow"
           },
           {
@@ -2983,13 +3622,26 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "MangoDB_AppName",
+              "scope": "output",
+              "name": "Xchnage_Publish_DisplayName",
               "type": "datatype.string",
-              "is_required": true,
+              "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_021HJV97VDQCF2DgImQ5n49rxNSmnrIoy1k",
+            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_UserTenantID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
             "object_type": "variable_workflow"
           },
           {
@@ -2997,12 +3649,38 @@
             "properties": {
               "value": "",
               "scope": "input",
-              "name": "Blurb",
+              "name": "Workflow_ID",
               "type": "datatype.string",
               "is_required": true,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
+            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_UniqueName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Reusable PublishAPI TestCase Pass/Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
             "object_type": "variable_workflow"
           },
           {
@@ -3036,97 +3714,6 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange_Blurb_Short_Description",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAQ44U0LB103IOLIAMFq4qo3ljG9TfQy",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchnage_Publish_DisplayName",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Display_Name",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Reusable PublishAPI TestCase Pass/Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_UserTenantID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange Category Name",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_XchnageTenantID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01YCNIL3PHIL51LcRbut4AZjbktw4xOe10M",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
               "name": "Xchange_Description",
               "type": "datatype.string",
               "is_required": false,
@@ -3139,39 +3726,13 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Xchange_UniqueName",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "input",
-              "name": "Workflow_ID",
+              "name": "MangoDB_AppName",
               "type": "datatype.string",
               "is_required": true,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Description",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF",
+            "unique_name": "variable_workflow_021HJV97VDQCF2DgImQ5n49rxNSmnrIoy1k",
             "object_type": "variable_workflow"
           }
         ],
@@ -4218,6 +4779,19 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "input",
+              "name": "Xchange_ID",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_021CA999SE4S11I0OclZtpN5qe3J7hhhKO3",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
               "scope": "output",
               "name": "Install_Response_Body",
               "type": "datatype.string",
@@ -4258,38 +4832,25 @@
             "properties": {
               "value": "",
               "scope": "input",
-              "name": "Token",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_021CAA2V0JPM632AITjHxQFhghOeGMXLAj1",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Xchange_ID",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_021CA999SE4S11I0OclZtpN5qe3J7hhhKO3",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
               "name": "Install_Payload",
               "type": "datatype.string",
               "is_required": true,
               "is_invisible": false
             },
             "unique_name": "variable_workflow_021CA9RS90VFT1DwQOADskqduGPb6NkyrLv",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Token",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_021CAA2V0JPM632AITjHxQFhghOeGMXLAj1",
             "object_type": "variable_workflow"
           }
         ],
