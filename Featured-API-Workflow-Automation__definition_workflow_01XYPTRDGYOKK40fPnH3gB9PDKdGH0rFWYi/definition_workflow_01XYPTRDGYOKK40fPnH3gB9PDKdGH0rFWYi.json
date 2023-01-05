@@ -11,25 +11,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "DisplayOrder_PublishedWF1",
+          "name": "TestCase Status",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01XYREJ05SCKU14BITXYIaaRf64JTu3MJUW",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Provide Input Token",
-          "type": "datatype.string",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl",
+        "unique_name": "variable_workflow_01ZI0MZUNF33N10oVIHJIZA5EIpdf6g9jur",
         "object_type": "variable_workflow"
       },
       {
@@ -50,12 +37,25 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Publish_Pass/Fail",
+          "name": "Category_PublishedWF2",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01ZI0AA7JN5ML15kqiR7ZN4RNe2n42tGHAw",
+        "unique_name": "variable_workflow_01XYREASR8QOZ1cTatDpHVdfYeRLiP5efUM",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide Input Token",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl",
         "object_type": "variable_workflow"
       },
       {
@@ -63,51 +63,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "TestCase Status",
+          "name": "Category_PublishedWF1",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01ZI0MZUNF33N10oVIHJIZA5EIpdf6g9jur",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Featured_TestStatus",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01ZI0D49SU9ZS3QI0ZE0CY6SWZpobNgj32T",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "{\"workflow\":{\"unique_name\":\"definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir\",\"name\":\"ISE - Quarantine Endpoint\",\"title\":\"0027 - ISE - Quarantine Endpoint\",\"type\":\"generic.workflow\",\"base_type\":\"workflow\",\"variables\":[{\"schema_id\":\"datatype.string\",\"properties\":{\"value\":\"Quarantine\",\"scope\":\"local\",\"name\":\"ANC Policy Name\",\"type\":\"datatype.string\",\"description\":\"The name of the Adaptive Network Control (ANC) policy to apply to the endpoint\",\"is_required\":false,\"is_invisible\":false},\"unique_name\":\"variable_workflow_01O39JUF544P92uKoQ4SYLFEcm6k2fcfj2w\",\"object_type\":\"variable_workflow\"},{\"schema_id\":\"datatype.string\",\"properties\":{\"value\":\"\",\"scope\":\"input\",\"name\":\"observable_type\",\"type\":\"datatype.string\",\"description\":\"The type of observable pivoted on\",\"is_required\":true,\"is_invisible\":false},\"unique_name\":\"variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI\",\"object_type\":\"variable_workflow\"},{\"schema_id\":\"datatype.string\",\"properties\":{\"value\":\"\",\"scope\":\"input\",\"name\":\"observable_value\",\"type\":\"datatype.string\",\"description\":\"The value of the observable pivoted on\",\"is_required\":true,\"is_invisible\":false},\"unique_name\":\"variable_workflow_01O39J53BYU8N2hUF1DHH7qrvrhFI3inWEx\",\"object_type\":\"variable_workflow\"}],\"properties\":{\"atomic\":{\"is_atomic\":false},\"delete_workflow_instance\":false,\"description\":\"This workflow quarantines an endpoint in Cisco Identity Services Engine (ISE) by applying an Adaptive Network Control (ANC) policy. Supported observable: mac_address\\n\\nTarget Group: Default TargetGroup\\n\\nTargets: Cisco ISE ERS\\n\\nSteps:\\n[] Make sure the observable type provided is supported\\n[] Apply the ANC policy to the endpoint\\n\\nMore information: http://ciscosecurity.github.io/sxo-05-security-workflows/workflows/0027\",\"display_name\":\"0027 - ISE - Quarantine Endpoint\",\"runtime_user\":{\"override_target_runtime_user\":false,\"specify_on_workflow_start\":false,\"target_default\":true},\"target\":{\"execute_on_target_group\":true,\"target_group\":{\"target_group_id\":\"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\"run_on_all_targets\":false,\"selected_target_types\":[\"web-service.endpoint\"],\"use_criteria\":{\"choose_target_using_algorithm\":\"choose_first_with_matching_criteria\",\"conditions\":[{\"operator\":\"eqi\",\"left_operand\":\"$targetgroup.web-service endpoint.input.display_name$\",\"right_operand\":\"Cisco ISE ERS\"}]}}}},\"object_type\":\"definition_workflow\",\"actions\":[{\"unique_name\":\"definition_activity_01O39K7GPFNUJ67x3TpAUqmdidKkPXvte61\",\"name\":\"Condition Block\",\"title\":\"Is the observable type supported?\",\"type\":\"logic.if_else\",\"base_type\":\"activity\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Is the observable type supported?\",\"skip_execution\":false},\"object_type\":\"definition_activity\",\"blocks\":[{\"unique_name\":\"definition_activity_01O39K8ASDWHQ4eacm8GSPRjnbaBMflZMVX\",\"name\":\"Condition Branch\",\"title\":\"No\",\"type\":\"logic.condition_block\",\"base_type\":\"activity\",\"properties\":{\"condition\":{\"left_operand\":\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI$\",\"operator\":\"ne\",\"right_operand\":\"mac_address\"},\"continue_on_failure\":false,\"display_name\":\"No\",\"skip_execution\":false},\"object_type\":\"definition_activity\",\"actions\":[{\"unique_name\":\"definition_activity_01O39L665V3VE2EGtvTIW3mImcua1bZjY4i\",\"name\":\"Completed\",\"title\":\"Unsupported observable\",\"type\":\"logic.completed\",\"base_type\":\"activity\",\"properties\":{\"completion_type\":\"failed-completed\",\"continue_on_failure\":false,\"display_name\":\"Unsupported observable\",\"result_message\":\"The observable type \\\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI$\\\" is not supported by this workflow\",\"skip_execution\":false},\"object_type\":\"definition_activity\"}]}]},{\"unique_name\":\"definition_activity_01O39IP3NAT2O4D5RaFYI4pdQ1Y4QdxmAI5\",\"name\":\"ISE - ERS - ANC Policy - Apply to Endpoint\",\"title\":\"ISE - ERS - ANC Policy - Apply to Endpoint\",\"type\":\"workflow.atomic_workflow\",\"base_type\":\"subworkflow\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"ISE - ERS - ANC Policy - Apply to Endpoint\",\"input\":{\"variable_workflow_01PP75L8RFFWV7bYw0yB9CXoORchlK0UOwP\":\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.local.variable_workflow_01O39JUF544P92uKoQ4SYLFEcm6k2fcfj2w$\",\"variable_workflow_01PP75L8RFJJB2nDpihlgz0K4sz98ywgScY\":\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J53BYU8N2hUF1DHH7qrvrhFI3inWEx$\"},\"runtime_user\":{\"target_default\":true},\"skip_execution\":false,\"target\":{\"use_workflow_target_group\":true},\"workflow_id\":\"definition_workflow_01PP75L8X1V3A5Dw4f1rzJBPEiv0XeLyvSi\"},\"object_type\":\"definition_activity\"}],\"categories\":[\"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\"]},\"categories\":{\"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\":{\"unique_name\":\"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\",\"name\":\"response\",\"title\":\"response\",\"type\":\"basic.category\",\"base_type\":\"category\",\"category_type\":\"custom\",\"object_type\":\"category\"}},\"target_groups\":{\"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\":{\"unique_name\":\"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\"name\":\"Default TargetGroup\",\"title\":\"Default TargetGroup\",\"type\":\"generic.target_group\",\"base_type\":\"target_group\",\"version\":\"1.0.0\",\"targets\":[{\"data_target_type\":\"web-service.endpoint\",\"view_target_type\":\"web-service.endpoint\",\"include_all_targets\":true},{\"data_target_type\":\"email.smtp_endpoint\",\"view_target_type\":\"email.smtp_endpoint\",\"include_all_targets\":true}],\"object_type\":\"target_group\"}},\"atomic_workflows\":[\"definition_workflow_01PP75L8X1V3A5Dw4f1rzJBPEiv0XeLyvSi\"]}",
-          "scope": "local",
-          "name": "Payload_For_Publish1Block",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01ZIR8GL43HDX6T4SD4bfu2WiG4EAKfnrBv",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Email Table",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_01ZI0P5BIHQSU1xCB5hTBGBRhklK8rU4Zgq",
+        "unique_name": "variable_workflow_01XYRE5V16IVX7Fuf3rUCTFgHm9fJZJDiXu",
         "object_type": "variable_workflow"
       },
       {
@@ -128,12 +89,25 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Category_PublishedWF2",
+          "name": "Email Table",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01XYREASR8QOZ1cTatDpHVdfYeRLiP5efUM",
+        "unique_name": "variable_workflow_01ZI0P5BIHQSU1xCB5hTBGBRhklK8rU4Zgq",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\"workflow\":{\"unique_name\":\"definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir\",\"name\":\"ISE - Quarantine Endpoint\",\"title\":\"0027 - ISE - Quarantine Endpoint\",\"type\":\"generic.workflow\",\"base_type\":\"workflow\",\"variables\":[{\"schema_id\":\"datatype.string\",\"properties\":{\"value\":\"Quarantine\",\"scope\":\"local\",\"name\":\"ANC Policy Name\",\"type\":\"datatype.string\",\"description\":\"The name of the Adaptive Network Control (ANC) policy to apply to the endpoint\",\"is_required\":false,\"is_invisible\":false},\"unique_name\":\"variable_workflow_01O39JUF544P92uKoQ4SYLFEcm6k2fcfj2w\",\"object_type\":\"variable_workflow\"},{\"schema_id\":\"datatype.string\",\"properties\":{\"value\":\"\",\"scope\":\"input\",\"name\":\"observable_type\",\"type\":\"datatype.string\",\"description\":\"The type of observable pivoted on\",\"is_required\":true,\"is_invisible\":false},\"unique_name\":\"variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI\",\"object_type\":\"variable_workflow\"},{\"schema_id\":\"datatype.string\",\"properties\":{\"value\":\"\",\"scope\":\"input\",\"name\":\"observable_value\",\"type\":\"datatype.string\",\"description\":\"The value of the observable pivoted on\",\"is_required\":true,\"is_invisible\":false},\"unique_name\":\"variable_workflow_01O39J53BYU8N2hUF1DHH7qrvrhFI3inWEx\",\"object_type\":\"variable_workflow\"}],\"properties\":{\"atomic\":{\"is_atomic\":false},\"delete_workflow_instance\":false,\"description\":\"This workflow quarantines an endpoint in Cisco Identity Services Engine (ISE) by applying an Adaptive Network Control (ANC) policy. Supported observable: mac_address\\n\\nTarget Group: Default TargetGroup\\n\\nTargets: Cisco ISE ERS\\n\\nSteps:\\n[] Make sure the observable type provided is supported\\n[] Apply the ANC policy to the endpoint\\n\\nMore information: http://ciscosecurity.github.io/sxo-05-security-workflows/workflows/0027\",\"display_name\":\"0027 - ISE - Quarantine Endpoint\",\"runtime_user\":{\"override_target_runtime_user\":false,\"specify_on_workflow_start\":false,\"target_default\":true},\"target\":{\"execute_on_target_group\":true,\"target_group\":{\"target_group_id\":\"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\"run_on_all_targets\":false,\"selected_target_types\":[\"web-service.endpoint\"],\"use_criteria\":{\"choose_target_using_algorithm\":\"choose_first_with_matching_criteria\",\"conditions\":[{\"operator\":\"eqi\",\"left_operand\":\"$targetgroup.web-service endpoint.input.display_name$\",\"right_operand\":\"Cisco ISE ERS\"}]}}}},\"object_type\":\"definition_workflow\",\"actions\":[{\"unique_name\":\"definition_activity_01O39K7GPFNUJ67x3TpAUqmdidKkPXvte61\",\"name\":\"Condition Block\",\"title\":\"Is the observable type supported?\",\"type\":\"logic.if_else\",\"base_type\":\"activity\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"Is the observable type supported?\",\"skip_execution\":false},\"object_type\":\"definition_activity\",\"blocks\":[{\"unique_name\":\"definition_activity_01O39K8ASDWHQ4eacm8GSPRjnbaBMflZMVX\",\"name\":\"Condition Branch\",\"title\":\"No\",\"type\":\"logic.condition_block\",\"base_type\":\"activity\",\"properties\":{\"condition\":{\"left_operand\":\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI$\",\"operator\":\"ne\",\"right_operand\":\"mac_address\"},\"continue_on_failure\":false,\"display_name\":\"No\",\"skip_execution\":false},\"object_type\":\"definition_activity\",\"actions\":[{\"unique_name\":\"definition_activity_01O39L665V3VE2EGtvTIW3mImcua1bZjY4i\",\"name\":\"Completed\",\"title\":\"Unsupported observable\",\"type\":\"logic.completed\",\"base_type\":\"activity\",\"properties\":{\"completion_type\":\"failed-completed\",\"continue_on_failure\":false,\"display_name\":\"Unsupported observable\",\"result_message\":\"The observable type \\\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J0ZF9LG33PPD5KmBz8xnytFhDAscVI$\\\" is not supported by this workflow\",\"skip_execution\":false},\"object_type\":\"definition_activity\"}]}]},{\"unique_name\":\"definition_activity_01O39IP3NAT2O4D5RaFYI4pdQ1Y4QdxmAI5\",\"name\":\"ISE - ERS - ANC Policy - Apply to Endpoint\",\"title\":\"ISE - ERS - ANC Policy - Apply to Endpoint\",\"type\":\"workflow.atomic_workflow\",\"base_type\":\"subworkflow\",\"properties\":{\"continue_on_failure\":false,\"display_name\":\"ISE - ERS - ANC Policy - Apply to Endpoint\",\"input\":{\"variable_workflow_01PP75L8RFFWV7bYw0yB9CXoORchlK0UOwP\":\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.local.variable_workflow_01O39JUF544P92uKoQ4SYLFEcm6k2fcfj2w$\",\"variable_workflow_01PP75L8RFJJB2nDpihlgz0K4sz98ywgScY\":\"$workflow.definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir.input.variable_workflow_01O39J53BYU8N2hUF1DHH7qrvrhFI3inWEx$\"},\"runtime_user\":{\"target_default\":true},\"skip_execution\":false,\"target\":{\"use_workflow_target_group\":true},\"workflow_id\":\"definition_workflow_01PP75L8X1V3A5Dw4f1rzJBPEiv0XeLyvSi\"},\"object_type\":\"definition_activity\"}],\"categories\":[\"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\"]},\"categories\":{\"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\":{\"unique_name\":\"category_01FM7CGPZZCMY0KcvgiGjVH5UaB4y4aDJ7m\",\"name\":\"response\",\"title\":\"response\",\"type\":\"basic.category\",\"base_type\":\"category\",\"category_type\":\"custom\",\"object_type\":\"category\"}},\"target_groups\":{\"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\":{\"unique_name\":\"target_group_01EJ0TQWPQWBD0qiWqClJKj9FOzwiZRfOFH\",\"name\":\"Default TargetGroup\",\"title\":\"Default TargetGroup\",\"type\":\"generic.target_group\",\"base_type\":\"target_group\",\"version\":\"1.0.0\",\"targets\":[{\"data_target_type\":\"web-service.endpoint\",\"view_target_type\":\"web-service.endpoint\",\"include_all_targets\":true},{\"data_target_type\":\"email.smtp_endpoint\",\"view_target_type\":\"email.smtp_endpoint\",\"include_all_targets\":true}],\"object_type\":\"target_group\"}},\"atomic_workflows\":[\"definition_workflow_01PP75L8X1V3A5Dw4f1rzJBPEiv0XeLyvSi\"]}",
+          "scope": "local",
+          "name": "Payload_For_Publish1Block",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01ZIR8GL43HDX6T4SD4bfu2WiG4EAKfnrBv",
         "object_type": "variable_workflow"
       },
       {
@@ -141,12 +115,38 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Category_PublishedWF1",
+          "name": "Publish_Pass/Fail",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_01XYRE5V16IVX7Fuf3rUCTFgHm9fJZJDiXu",
+        "unique_name": "variable_workflow_01ZI0AA7JN5ML15kqiR7ZN4RNe2n42tGHAw",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "DisplayOrder_PublishedWF1",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01XYREJ05SCKU14BITXYIaaRf64JTu3MJUW",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Featured_TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01ZI0D49SU9ZS3QI0ZE0CY6SWZpobNgj32T",
         "object_type": "variable_workflow"
       }
     ],
@@ -209,7 +209,10 @@
                     "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "POST",
                     "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "be-importexport/api/v1/workflows/import?create_new=true\u0026overwrite=false\u0026workflow_unique_name=definition_workflow_01O39GXAGAAR65AsfAl2NPgy97Z8XcT6Bir",
                     "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
-                    "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": ""
+                    "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": "",
+                    "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29": "",
+                    "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX": "",
+                    "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P": ""
                   },
                   "runtime_user": {
                     "target_default": true
@@ -285,7 +288,9 @@
                     "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs": "This is workflow published to add to featured category",
                     "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4": "$activity.definition_activity_01XYPY804W1LZ6S2O2WoQeaPDJpxn27pjk6.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$",
                     "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF": "This is workflow published to add to featured category",
-                    "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+                    "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$",
+                    "variable_workflow_021HJM82VV60H0U0rBwV0UQVjqFtyE0go6r": "XLSReVftz7HNZWoP8PMRgpHwDI01bWGREGXgmygLsOeriU15cDJW93z8bAaCKhWb",
+                    "variable_workflow_021HJV97VDQCF2DgImQ5n49rxNSmnrIoy1k": "data-syggf"
                   },
                   "runtime_user": {
                     "target_default": true
@@ -378,7 +383,10 @@
                     "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "POST",
                     "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "be-importexport/api/v1/workflows/import?create_new=true\u0026overwrite=false\u0026workflow_unique_name=definition_workflow_01N8STV59EM7C519ZuO1Sx67ovm5MDpdBn5",
                     "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
-                    "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": ""
+                    "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": "",
+                    "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29": "",
+                    "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX": "",
+                    "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P": ""
                   },
                   "runtime_user": {
                     "target_default": true
@@ -389,7 +397,7 @@
                     "use_workflow_target": true
                   },
                   "workflow_id": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
-                  "workflow_name": ""
+                  "workflow_name": "SXO- Main CRUD Operations Automation WF"
                 },
                 "object_type": "definition_activity"
               },
@@ -454,7 +462,9 @@
                     "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs": "This is workflow published to add to featured category",
                     "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4": "$activity.definition_activity_01XYQS46OAIJZ0XCqZOutqkoSFlo5HGPbKc.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$",
                     "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF": "This is workflow published to add to featured category",
-                    "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$"
+                    "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT": "Bearer $workflow.definition_workflow_01XYPTRDGYOKK40fPnH3gB9PDKdGH0rFWYi.input.variable_workflow_01XYPZVCTY1DG4RjmEV5aiU7JIeF49kzSnl$",
+                    "variable_workflow_021HJM82VV60H0U0rBwV0UQVjqFtyE0go6r": "XLSReVftz7HNZWoP8PMRgpHwDI01bWGREGXgmygLsOeriU15cDJW93z8bAaCKhWb",
+                    "variable_workflow_021HJV97VDQCF2DgImQ5n49rxNSmnrIoy1k": "data-syggf"
                   },
                   "runtime_user": {
                     "target_default": true
@@ -466,7 +476,7 @@
                     "target_type": "web-service.endpoint"
                   },
                   "workflow_id": "definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l",
-                  "workflow_name": ""
+                  "workflow_name": "Publish Reusable workflow"
                 },
                 "object_type": "definition_activity"
               },
@@ -708,7 +718,10 @@
             "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr": "POST",
             "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq": "be-console/api/v1/xchanges/featured",
             "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt": "",
-            "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": ""
+            "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0": "",
+            "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29": "",
+            "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX": "",
+            "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P": ""
           },
           "runtime_user": {
             "target_default": true
@@ -719,7 +732,7 @@
             "use_workflow_target": true
           },
           "workflow_id": "definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g",
-          "workflow_name": ""
+          "workflow_name": "SXO- Main CRUD Operations Automation WF"
         },
         "object_type": "definition_activity"
       },
@@ -1424,6 +1437,98 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "local",
+              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Action Id",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020FOLLJP0WDO7B8ep2v5S17F9drfRIk5eb",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "x-cisco-tenant-id",
+              "scope": "input",
+              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "be-console/api/v1/",
+              "scope": "input",
+              "name": "Relative URL",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Error Message",
+              "type": "datatype.string",
+              "description": "Created Object Error Message",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
               "scope": "output",
               "name": "Schema ID's",
               "type": "datatype.string",
@@ -1437,13 +1542,82 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Created Object ID",
+              "scope": "input",
+              "name": "Value (Only For Tenant creation) Provide Tenant id",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
+            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Token to run a workflow",
+              "type": "datatype.string",
+              "description": "Provide a Token to Execute the workflow",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Response Body",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Header User-Agent (optional)",
+              "type": "datatype.string",
+              "description": "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Header Accept (Optional)",
+              "type": "datatype.string",
+              "description": "The Accept request HTTP header indicates which content types, expressed as MIME types, the client is able to understand. The server uses content negotiation to select one of the proposals and informs the client of the choice with the Content-Type response header.",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Headers Cookie (Not Mandatory)",
+              "type": "datatype.string",
+              "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
             "object_type": "variable_workflow"
           },
           {
@@ -1476,65 +1650,13 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Token",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "output",
-              "name": "Pass or Fail",
+              "name": "Created Object ID",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Value (Only For Tenant creation) Provide Tenant id",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
+            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
             "object_type": "variable_workflow"
           },
           {
@@ -1544,63 +1666,11 @@
               "scope": "input",
               "name": "Select Method (EX: GET, PUT, POST, DELETE)",
               "type": "datatype.string",
+              "description": "The primary or most commonly-used HTTP methods are POST, GET, PUT, PATCH, and DELETE. These methods correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other methods, too, but they are utilized less frequently.",
               "is_required": true,
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "local",
-              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "be-console/api/v1/",
-              "scope": "input",
-              "name": "Relative URL",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Response Body",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Error Message",
-              "type": "datatype.string",
-              "description": "Created Object Error Message",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
             "object_type": "variable_workflow"
           }
         ],
@@ -1627,6 +1697,7 @@
             "type": "web-service.http_request",
             "base_type": "activity",
             "properties": {
+              "accept": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.input.variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29$",
               "action_timeout": 180,
               "allow_auto_redirect": true,
               "allow_headers_redirect": false,
@@ -1634,6 +1705,9 @@
               "content_type": "application/json",
               "continue_on_error_status_code": false,
               "continue_on_failure": true,
+              "cookie": [
+                "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.input.variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P$"
+              ],
               "custom_headers": [
                 {
                   "name": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.local.variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO$",
@@ -1654,7 +1728,8 @@
               "skip_execution": false,
               "target": {
                 "use_workflow_target": true
-              }
+              },
+              "user_agent": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.input.variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX$"
             },
             "object_type": "definition_activity"
           },
@@ -1705,6 +1780,28 @@
             "object_type": "definition_activity"
           },
           {
+            "unique_name": "definition_activity_020FOKGZYOJGJ4A8Z5kjkXbw3WHDrmnaTum",
+            "name": "JSONPath Query",
+            "title": "Extracting Newly Added Action Id (Ex: Upper, Sleep, WFE )",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Extracting Newly Added Action Id (Ex: Upper, Sleep, WFE )",
+              "input_json": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.id",
+                  "jsonpath_query_name": "Newly Added Action Id",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
             "unique_name": "definition_activity_01V58VFZQBB7Z7Miym8XFgv5DrA1dkuaFie",
             "name": "Set Variables",
             "title": "Storing Id's, R Body in O/P Variable (ex: targets, A_keys, wf's)",
@@ -1722,6 +1819,10 @@
                 {
                   "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL$",
                   "variable_value_new": "$activity.definition_activity_01V58VFYPCIBY78lJQA24QE9Q3XhuGeZ2IQ.output.jsonpath_queries.object Schema Id$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_020FOLLJP0WDO7B8ep2v5S17F9drfRIk5eb$",
+                  "variable_value_new": "$activity.definition_activity_020FOKGZYOJGJ4A8Z5kjkXbw3WHDrmnaTum.output.jsonpath_queries.Newly Added Action Id$"
                 }
               ]
             },
@@ -2029,7 +2130,7 @@
                       "operator": "mregex",
                       "right_operand": ".*not found"
                     },
-                    "operator": "and",
+                    "operator": "or",
                     "right_operand": {
                       "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
                       "operator": "eq",
@@ -2085,7 +2186,7 @@
                       "operator": "mregex",
                       "right_operand": ".*action execution  errored"
                     },
-                    "operator": "and",
+                    "operator": "or",
                     "right_operand": {
                       "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
                       "operator": "eq",
@@ -2395,6 +2496,126 @@
                     "object_type": "definition_activity"
                   }
                 ]
+              },
+              {
+                "unique_name": "definition_activity_020IYAYM1H2IS1RWDFquZZ8GDbz7a8zSg75",
+                "name": "Condition Branch",
+                "title": "413 Error - Request Entity Too Large",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                        "operator": "eq",
+                        "right_operand": "413"
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                        "operator": "mregex",
+                        "right_operand": ".*size limit reached"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*Entity Too Large"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "description": "error: action execution  errored for type web-service.http_request err:code:413 message::{\"code\":2723,\"message\":\"Request Entity Too Large\",\"description\":\"Variable 1mb file size limit reached: size must be \\u003c= 1048576 bytes, but got 1512197 bytes\",",
+                  "display_name": "413 Error - Request Entity Too Large",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_020IYAYM1HP7F0jovKD6iBxPmYjcqRCzal0",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_020IYMI0RJL4L0gsd0lDBjmN6Mi6Wm6n5pu",
+                "name": "Condition Branch",
+                "title": "412 Error - Precondition failed",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "412"
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$",
+                      "operator": "mregex",
+                      "right_operand": ".*Precondition failed"
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "description": "error: action execution  errored for type web-service.http_request err:code:412 message::{\"code\":2722,\"message\":\"Precondition failed\",\"description\":\"Workflow is invalid, please run validate API before workflow run\",\"traceid\":\"a6447582\"}",
+                  "display_name": "412 Error - Precondition failed",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_020IYMI0RK8701qtJmqVush8QBrguewzcc8",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                          "variable_value_new": "false"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01V58VFTHTEJ65ycs9U6lbKvQFSIHvOaE7g.output.variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ$",
+                          "variable_value_new": "$activity.definition_activity_01V58VFXNMLJB6kEqJ8EXfvtZGI3vLz0Tcd.output.error.code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
               }
             ]
           },
@@ -2475,19 +2696,6 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange Category Name",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
               "name": "Xchange_UserTenantID",
               "type": "datatype.string",
               "is_required": false,
@@ -2500,39 +2708,13 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Xchange_Description",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Reusable PublishAPI TestCase Pass/Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "input",
-              "name": "Display_Name",
+              "name": "Workflow_ID",
               "type": "datatype.string",
               "is_required": true,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
+            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
             "object_type": "variable_workflow"
           },
           {
@@ -2553,12 +2735,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchnage_Publish_DisplayName",
+              "name": "Xchange Category Name",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
+            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
             "object_type": "variable_workflow"
           },
           {
@@ -2591,6 +2773,19 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "input",
+              "name": "MangoDB_API_Key",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_021HJM82VV60H0U0rBwV0UQVjqFtyE0go6r",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
               "scope": "output",
               "name": "Xchange_Category_ID",
               "type": "datatype.string",
@@ -2598,6 +2793,45 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Input Token",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Description",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Blurb",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
             "object_type": "variable_workflow"
           },
           {
@@ -2618,6 +2852,45 @@
             "properties": {
               "value": "",
               "scope": "output",
+              "name": "Xchnage_Publish_DisplayName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Reusable PublishAPI TestCase Pass/Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Display_Name",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
               "name": "Xchange_XchnageTenantID",
               "type": "datatype.string",
               "is_required": false,
@@ -2629,40 +2902,14 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Input Token",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "",
               "scope": "input",
-              "name": "Workflow_ID",
+              "name": "MangoDB_AppName",
               "type": "datatype.string",
               "is_required": true,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Blurb",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
+            "unique_name": "variable_workflow_021HJV97VDQCF2DgImQ5n49rxNSmnrIoy1k",
             "object_type": "variable_workflow"
           }
         ],
@@ -2727,7 +2974,7 @@
               "action_timeout": 180,
               "allow_auto_redirect": true,
               "allow_headers_redirect": false,
-              "body": "{\n\t\"name\": \"PublishWFName-TopLevel-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\"title\": \"Title-TopLevel-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\"blurb\": \"Blurb-TopLevel-Automation\",\n\t\"type\": \"generic.xchange\",\n\t\"base_type\": \"xchange\",\n\t\"description\": \"Description-TopLevel-Automation\",\n\t\"workflow_ids\": [\n\t\t\"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4$\"\n\t],\n\t\n\t\"properties\": {\n\t\t\"display_name\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz$-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\t\"blurb\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs$\",\n\t\t\"description\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF$\"\n\t}\n}",
+              "body": "{\n\t\"name\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz$-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\"title\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz$-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\"blurb\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs$\",\n\t\"type\": \"generic.xchange\",\n\t\"base_type\": \"xchange\",\n\t\"description\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF$\",\n\t\"workflow_ids\": [\n\t\t\"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4$\"\n\t],\n\t\n\t\"properties\": {\n\t\t\"display_name\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz$-$activity.definition_activity_01XVADI5G0G571k7tSGUDIdXrjJkam8DT2y.output.response_body$\",\n\t\t\"blurb\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs$\",\n\t\t\"description\": \"$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF$\"\n\t}\n}",
               "content_type": "application/json",
               "continue_on_error_status_code": false,
               "continue_on_failure": true,
@@ -2739,7 +2986,7 @@
               ],
               "display_name": "Publish API",
               "method": "POST",
-              "relative_url": "be-importexport/api/v1/xchanges",
+              "relative_url": "be-importexport/api/v1/xchanges?publish=true",
               "runtime_user": {
                 "target_default": true
               },
@@ -2866,6 +3113,20 @@
             "object_type": "definition_activity"
           },
           {
+            "unique_name": "definition_activity_022MLOXDY85615EJeQdC1rKl6XXrdlnJeaF",
+            "name": "Sleep",
+            "title": "Sleep for 20s",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep for 20s",
+              "skip_execution": false,
+              "sleep_interval": 20
+            },
+            "object_type": "definition_activity"
+          },
+          {
             "unique_name": "definition_activity_01YCNECX2WKWE4QlWR6PHiR2sozJx47pUkD",
             "name": "HTTP Request",
             "title": "Fetch Xchange Tenat ID - Fetch Data From MongoDB",
@@ -2881,7 +3142,7 @@
               "custom_headers": [
                 {
                   "name": "api-key",
-                  "value": "YA8yUsiFot4Rn4XJPcfWqLwH1hnp3QN6Jm05ubPzoWR6MQcuzA2Qn8NjX6I5zfHE"
+                  "value": "$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_021HJM82VV60H0U0rBwV0UQVjqFtyE0go6r$"
                 },
                 {
                   "name": "data-raw",
@@ -2894,7 +3155,7 @@
               ],
               "display_name": "Fetch Xchange Tenat ID - Fetch Data From MongoDB",
               "method": "POST",
-              "relative_url": "/app/data-rhigg/endpoint/data/beta/action/find",
+              "relative_url": "/app/$workflow.definition_workflow_01XVA9EVFGHGA6rLbdTynYq5bawHx3kZu5l.input.variable_workflow_021HJV97VDQCF2DgImQ5n49rxNSmnrIoy1k$/endpoint/data/v1/action/find",
               "runtime_user": {
                 "target_default": true
               },
