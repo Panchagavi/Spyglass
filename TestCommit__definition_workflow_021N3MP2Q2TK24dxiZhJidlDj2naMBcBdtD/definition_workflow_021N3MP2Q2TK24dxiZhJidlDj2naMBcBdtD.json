@@ -1,0 +1,168 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_021N3MP2Q2TK24dxiZhJidlDj2naMBcBdtD",
+    "name": "Test-Republish-WF-Updated",
+    "title": "Test-Republish-WF-Updated",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Test",
+          "scope": "local",
+          "name": "T1",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021RWAPIWKPV06TOfQxBFEQg7TRBZkDcWCU",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 1,
+          "scope": "local",
+          "name": "T2",
+          "type": "datatype.integer",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021RWFIDCZVUR1pipNeA2LQK7OGE6dVNDpe",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "Description for testing.",
+      "display_name": "Test-Republish-WF-Updated",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_021N3N085TBLJ5T48OAZqfxRFNS37kUot3e",
+        "name": "Sleep",
+        "title": "Sleep-Updated-4",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep-Updated-4",
+          "skip_execution": false,
+          "sleep_interval": "$workflow.definition_workflow_021N3MP2Q2TK24dxiZhJidlDj2naMBcBdtD.local.variable_workflow_021RWFIDCZVUR1pipNeA2LQK7OGE6dVNDpe$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_021N3XV8X4OC52WSbVgfw6U0gPPy0cTJvu2",
+        "name": "Sleep",
+        "title": "Sleep-Updated-5",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep-Updated-5",
+          "skip_execution": false,
+          "sleep_interval": "$workflow.definition_workflow_021N3MP2Q2TK24dxiZhJidlDj2naMBcBdtD.local.variable_workflow_021RWFIDCZVUR1pipNeA2LQK7OGE6dVNDpe$"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerschedule_021RWGFXU1KI66dc6im5Tmd7jbg5EqZLDjo": {
+      "workflow_id": "definition_workflow_021N3MP2Q2TK24dxiZhJidlDj2naMBcBdtD",
+      "name": "Trigger1-Updated",
+      "title": "",
+      "lowercase_name": "schedule.trigger1-updated",
+      "description": "Trigger description for testing.",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_01JQ1TOE1LYY53hHyrDF6xWd7Zp8I5JQBZr",
+      "version": "",
+      "disabled": false,
+      "unique_name": "triggerschedule_021RWGFXU1KI66dc6im5Tmd7jbg5EqZLDjo",
+      "object_type": "triggerschedule"
+    },
+    "triggerschedule_021RWUUUK32CZ7YaZYDnlpomm67ayERyvCb": {
+      "workflow_id": "definition_workflow_021N3MP2Q2TK24dxiZhJidlDj2naMBcBdtD",
+      "name": "Trigger-2",
+      "title": "",
+      "lowercase_name": "schedule.trigger-2",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_021RWUIJMTWZN1AKekKcRTXGfP2PkpdBdFw",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_021RWUUUK32CZ7YaZYDnlpomm67ayERyvCb",
+      "object_type": "triggerschedule"
+    }
+  },
+  "schedules": {
+    "schedule_01JQ1TOE1LYY53hHyrDF6xWd7Zp8I5JQBZr": {
+      "unique_name": "schedule_01JQ1TOE1LYY53hHyrDF6xWd7Zp8I5JQBZr",
+      "name": "1HourRun",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "timezone": "US/Pacific",
+        "starttime": "13:20",
+        "interval_hours": 0,
+        "interval_minutes": 1,
+        "number_of_times": 60,
+        "display_name": "1HourRun",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    },
+    "schedule_021RWUIJMTWZN1AKekKcRTXGfP2PkpdBdFw": {
+      "unique_name": "schedule_021RWUIJMTWZN1AKekKcRTXGfP2PkpdBdFw",
+      "name": "Date-Schedule",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_datelist_021RWTQ04SZZQ795S5K5Yta1BS2MCDOooEW",
+        "timezone": "Etc/GMT+0",
+        "starttime": "18:00",
+        "interval_hours": 0,
+        "interval_minutes": 0,
+        "number_of_times": 1,
+        "display_name": "Date-Schedule",
+        "description": ""
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  },
+  "calendars": {
+    "calendar_datelist_021RWTQ04SZZQ795S5K5Yta1BS2MCDOooEW": {
+      "unique_name": "calendar_datelist_021RWTQ04SZZQ795S5K5Yta1BS2MCDOooEW",
+      "name": "Test-Calendar",
+      "title": "Test-Calendar",
+      "base_type": "calendar",
+      "type": "calendar.datelist",
+      "properties": {
+        "date_list": [
+          "2022-11-30"
+        ]
+      },
+      "version": "1.0.0",
+      "object_type": "calendar_datelist"
+    }
+  }
+}
