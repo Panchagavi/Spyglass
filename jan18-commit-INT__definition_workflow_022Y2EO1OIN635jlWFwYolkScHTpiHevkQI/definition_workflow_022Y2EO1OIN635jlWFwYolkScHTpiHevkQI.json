@@ -1,0 +1,119 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_022Y2EO1OIN635jlWFwYolkScHTpiHevkQI",
+    "name": "WF-Jan18-ModuleTargets",
+    "title": "WF-Jan18-ModuleTargets",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "WF-Jan18-ModuleTargets",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "$module_target;Meraki;securex:ao:meraki$",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_022Y2ERHRYZ3L05lF0BUdRi5dmCSpQYiIgN",
+        "name": "HTTP Request",
+        "title": "HTTP Request-Meraki",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "HTTP Request-Meraki",
+          "method": "GET",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_022Y2F4QVLUYI4P7Io3oKJcWST20EXWOoHF",
+        "name": "HTTP Request",
+        "title": "HTTP Request-Orbital",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "HTTP Request-Orbital",
+          "method": "GET",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "$module_target;Orbital;securex:ao:orbital$"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_022Y2F3LSEWW73Mri6U2o0PNG9lKtVgQPec",
+        "name": "HTTP Request",
+        "title": "HTTP Request-SecureEndPoint",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "HTTP Request-SecureEndPoint",
+          "method": "GET",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "$module_target;Secure Endpoint;securex:ao:secure_endpoint$"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "module_targets": [
+    {
+      "module_type": "Meraki",
+      "external_id": "securex:ao:meraki"
+    },
+    {
+      "module_type": "Orbital",
+      "external_id": "securex:ao:orbital"
+    },
+    {
+      "module_type": "Secure Endpoint",
+      "external_id": "securex:ao:secure_endpoint"
+    }
+  ]
+}
