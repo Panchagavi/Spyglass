@@ -10,19 +10,6 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "output",
-          "name": "Install_Pass_Fail_Status",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_021CABGY82WJQ2TFYsP3XgrXNYNo89uMgYd",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
           "scope": "input",
           "name": "Token",
           "type": "datatype.string",
@@ -49,13 +36,13 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "input",
-          "name": "Xchange_ID",
+          "scope": "output",
+          "name": "Installed_Mian_Workflow_ID",
           "type": "datatype.string",
-          "is_required": true,
+          "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_021CA999SE4S11I0OclZtpN5qe3J7hhhKO3",
+        "unique_name": "variable_workflow_022Z0P9HOGQ7C7lEVrqXDW31MYq8SnaAssW",
         "object_type": "variable_workflow"
       },
       {
@@ -82,6 +69,45 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_021CDSUCDVOBW2NGAttvQ7EnX3tpmCmzDkJ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Install_Pass_Fail_Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021CABGY82WJQ2TFYsP3XgrXNYNo89uMgYd",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Xchange_ID",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_021CA999SE4S11I0OclZtpN5qe3J7hhhKO3",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Installed_Mian_Workflow_name",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_022Z0PKZFQSQY5rXY55lBYxNnqHTeb5Hgkz",
         "object_type": "variable_workflow"
       }
     ],
@@ -172,6 +198,66 @@
         "object_type": "definition_activity"
       },
       {
+        "unique_name": "definition_activity_022Z0DVVT3BQP2XH2mJpLgFykAZwVGZydyR",
+        "name": "HTTP Request",
+        "title": "Fetch the Installed Workflow ID ",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $workflow.definition_workflow_021CA6LVR4YLP4DbO6bk3tf05uy1cVFE9FP.input.variable_workflow_021CAA2V0JPM632AITjHxQFhghOeGMXLAj1$"
+            }
+          ],
+          "description": "This will Help to get the installed ID and Same thing can be consumed to Add Trigger Functionality. \n\nAPI from the Epic -- NEXTG-23300",
+          "display_name": "Fetch the Installed Workflow ID ",
+          "method": "GET",
+          "relative_url": "/api/v1/references/$workflow.definition_workflow_021CA6LVR4YLP4DbO6bk3tf05uy1cVFE9FP.input.variable_workflow_021CA999SE4S11I0OclZtpN5qe3J7hhhKO3$?base_type=xchange\u0026uses=true",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_022Z0H7XXABXI2LWcPYnoMCF54lbUZZspbq",
+        "name": "JSONPath Query",
+        "title": "Fetch the Installed Workflow ID and Name",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Fetch the Installed Workflow ID and Name",
+          "input_json": "$activity.definition_activity_022Z0DVVT3BQP2XH2mJpLgFykAZwVGZydyR.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.uses..id",
+              "jsonpath_query_name": "Installed_Workflow_ID",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$.uses..name",
+              "jsonpath_query_name": "Installed_Workflow_Name",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
         "unique_name": "definition_activity_021CAAWI0A0QP0b76fWJ6F14Qwm9PdxEWK1",
         "name": "Set Variables",
         "title": "Store Installed IDs and Response Body",
@@ -189,6 +275,14 @@
             {
               "variable_to_update": "$workflow.definition_workflow_021CA6LVR4YLP4DbO6bk3tf05uy1cVFE9FP.output.variable_workflow_021CDSUCDVOBW2NGAttvQ7EnX3tpmCmzDkJ$",
               "variable_value_new": "$activity.definition_activity_021CDR93PEJ9I0G8LqmqK8C3gdUz77vjnMp.output.jsonpath_queries.Installed_Xchange_UniqueName$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_021CA6LVR4YLP4DbO6bk3tf05uy1cVFE9FP.output.variable_workflow_022Z0P9HOGQ7C7lEVrqXDW31MYq8SnaAssW$",
+              "variable_value_new": "$activity.definition_activity_022Z0H7XXABXI2LWcPYnoMCF54lbUZZspbq.output.jsonpath_queries.Installed_Workflow_ID$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_021CA6LVR4YLP4DbO6bk3tf05uy1cVFE9FP.output.variable_workflow_022Z0PKZFQSQY5rXY55lBYxNnqHTeb5Hgkz$",
+              "variable_value_new": "$activity.definition_activity_022Z0H7XXABXI2LWcPYnoMCF54lbUZZspbq.output.jsonpath_queries.Installed_Workflow_Name$"
             }
           ]
         },
