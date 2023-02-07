@@ -1,0 +1,1299 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q",
+    "name": "Install WF - ADD Trigger Reusable WF",
+    "title": "Install WF - ADD Trigger Reusable WF",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Schedule/Event_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EENAGE614P2KRKfk80i73q7HGiYOki4E",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Add Trigger to Installed WF Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EH7U7IXBKA5GB9H9zT35BMYlB3qI7Pgt",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": false,
+          "scope": "input",
+          "name": "trigger_enable_disable_flag",
+          "type": "datatype.boolean",
+          "description": "flag should be true or false \n\ntrue -- started-polling\nfalse -- disabled",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EEQ9PDBNFW4eJcAqPwYJlEo2eV22v4T1",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "type",
+          "type": "datatype.string",
+          "description": "trigger type should be schedule or event",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EE3A9LJJGO0uO1KM4F8Tc3Zc3YCpqNve",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "installed_wf_ID",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EEQFM9JC7M4O0ip9hVQKzo8DRzAF2v1W",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "IMAP_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FIRP5ATKWC64IXoS5Md3qr5C3L1NK5KR",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "SMTP_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FIRL40CNKM7hvgxwbQ3WqQXULAXSv974",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "application/json",
+          "scope": "input",
+          "name": "Provide the Request_Content_type",
+          "type": "datatype.string",
+          "description": "Supported Content Type -- Provide the Input\napplication/json\napplication/x-www-form-urlencoded\napplication/json; charset=utf-8\napplication/xml",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FAYUOZCOL46U7X1xpUbVr6bJjFQLIrf3",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Webhook_URI",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FB24IWCKY13sghMBqdZlZghyL5bgL79k",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Webhook_Event_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FBG8K74WD95RgLzTxSNLJ054FKSZoZ8M",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email_Event_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FJ5AUFTR4O6QRT19sSU1bgR6uZ6C9PYE",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email_AccountKey_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FIRGNGE5Z77D6BjGUIcBTnHMi5kmoWON",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Webhook_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FBGEFO3P2G1T8YWSY0lhDmACTvKAbTLz",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Approval_Event_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FI76ALIKCY7M7x2n6ekkbnMd2hQjkvjX",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Input_Token",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Trigger_Name",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EFQ3R3KCUL4K32L0irMv0zxy00DDYj0u",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Test Status for Event Trigger",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EGX82AFE991IBBHQfrOIjiRmJP82Xbnl",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Test Status for Schedule Trigger",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EGX0RFYVGT0rJPzzPkarX0OJ7J5GyCuE",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Trigger_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EET8CDUDCP2Tj7FG91djtT5Vr7Y1ZKTF",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Install WF - ADD Trigger Reusable WF",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01EOZMYH25RSG1rDfjUIjQwHEPioIElydk9",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_023EE190IGNND46Ij6v9QaouiIyXUgteaJG",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_023EE190XEODO7dJHpkqlQTa1AI1BVRMSTT",
+            "name": "Condition Branch",
+            "title": "Create a Schedule",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE3A9LJJGO0uO1KM4F8Tc3Zc3YCpqNve$",
+                "operator": "eq",
+                "right_operand": "schedule"
+              },
+              "continue_on_failure": false,
+              "display_name": "Create a Schedule",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_023ED6YFKK4KV7daH9bxd5K7PWRpZgFA0qQ",
+                "name": "HTTP Request",
+                "title": "GET Calenders",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ$"
+                    }
+                  ],
+                  "display_name": "GET Calenders",
+                  "method": "GET",
+                  "relative_url": "/api/v1/calendars",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023EDBZFN8U2E6TijQYOWOdfLD306MaJj9m",
+                "name": "JSONPath Query",
+                "title": "Extract Calender ID",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Extract Calender ID",
+                  "input_json": "$activity.definition_activity_023ED6YFKK4KV7daH9bxd5K7PWRpZgFA0qQ.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.[?(@.name=='Daily')].id",
+                      "jsonpath_query_name": "Daily_CalenderID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='Workdays')].id",
+                      "jsonpath_query_name": "Workdays_CalenderID",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023EEDMTG2YP45J4Jvt6UxkKJMK9PyQZujZ",
+                "name": "Execute Python Script",
+                "title": "Fetch the StartTime for Schedule",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch the StartTime for Schedule",
+                  "script": "import time\nfrom datetime import datetime\n\ncurrentTime_timestamp = time.time()\ncurrentTime = datetime.fromtimestamp(currentTime_timestamp    ).strftime(\"%Y-%m-%d %H:%M:%S\")\n\nnextTime = currentTime_timestamp + 60\n\nprint (str(datetime.fromtimestamp(nextTime).strftime(\"%H:%M\")))",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023EE3SOZERS10qktpeZpNI2KruDhdPN2G7",
+                "name": "HTTP Request",
+                "title": "Create Schedule",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"name\": \"Schedule-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"title\": \"Schedule-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"type\": \"basic.schedule\",\n  \"base_type\": \"schedule\",\n  \"properties\": {\n    \"calendar\": \"$activity.definition_activity_023EDBZFN8U2E6TijQYOWOdfLD306MaJj9m.output.jsonpath_queries.Daily_CalenderID$\",\n    \"timezone\": \"Etc/GMT+0\",\n    \"display_name\": \"Schedule-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n    \"starttime\": \"$activity.definition_activity_023EEDMTG2YP45J4Jvt6UxkKJMK9PyQZujZ.output.response_body$\",\n    \"number_of_times\": 1,\n    \"interval_minutes\": 0,\n    \"interval_hours\": 0\n  }\n}",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ$"
+                    }
+                  ],
+                  "display_name": "Create Schedule",
+                  "method": "POST",
+                  "relative_url": "/api/v1/schedules",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023EEG1W45H1C7HqJHnB14p33JZ98MJUMjr",
+                "name": "JSONPath Query",
+                "title": "Extract ScheduleID",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Extract ScheduleID",
+                  "input_json": "$activity.definition_activity_023EE3SOZERS10qktpeZpNI2KruDhdPN2G7.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$..id",
+                      "jsonpath_query_name": "Schedule_Id",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023EENLTZR8J75h1C7GZV1Z5K9EQtovDdeO",
+                "name": "HTTP Request",
+                "title": "Create Trigger for Installed WF",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"type\": \"$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE3A9LJJGO0uO1KM4F8Tc3Zc3YCpqNve$\",\n  \"disabled\": $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EEQ9PDBNFW4eJcAqPwYJlEo2eV22v4T1$,\n  \"name\": \"Trigger01-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"ref_id\": \"$activity.definition_activity_023EEG1W45H1C7HqJHnB14p33JZ98MJUMjr.output.jsonpath_queries.Schedule_Id$\",\n  \"title\": \"Trigger01-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\"\n}",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ$"
+                    }
+                  ],
+                  "display_name": "Create Trigger for Installed WF",
+                  "method": "POST",
+                  "relative_url": "/api/v1/workflows/$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EEQFM9JC7M4O0ip9hVQKzo8DRzAF2v1W$/triggers",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023EESMM2A8YD28PBJpeJMTmtcyY8gTfPFB",
+                "name": "JSONPath Query",
+                "title": "Extract TriggerID",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Extract TriggerID",
+                  "input_json": "$activity.definition_activity_023EENLTZR8J75h1C7GZV1Z5K9EQtovDdeO.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.id",
+                      "jsonpath_query_name": "Trigger_Id",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.name",
+                      "jsonpath_query_name": "Trigger_Name",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023EETBESCQDO0MB2LSYMh5XYPzb3wHMAkD",
+                "name": "Set Variables",
+                "title": "Storing Schedule and TriggerID",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Storing Schedule and TriggerID",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023EENAGE614P2KRKfk80i73q7HGiYOki4E$",
+                      "variable_value_new": "$activity.definition_activity_023EEG1W45H1C7HqJHnB14p33JZ98MJUMjr.output.jsonpath_queries.Schedule_Id$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023EET8CDUDCP2Tj7FG91djtT5Vr7Y1ZKTF$",
+                      "variable_value_new": "$activity.definition_activity_023EESMM2A8YD28PBJpeJMTmtcyY8gTfPFB.output.jsonpath_queries.Trigger_Id$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023EFQ3R3KCUL4K32L0irMv0zxy00DDYj0u$",
+                      "variable_value_new": "$activity.definition_activity_023EESMM2A8YD28PBJpeJMTmtcyY8gTfPFB.output.jsonpath_queries.Trigger_Name$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023EGV8EYV1IQ5NGJEuESPMcBZwCQ85R2pp",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_023EGV8FC3LPY73wcwMNd9aG3BQYd8Ve5np",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_023ED6YFKK4KV7daH9bxd5K7PWRpZgFA0qQ.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_023EEDMTG2YP45J4Jvt6UxkKJMK9PyQZujZ.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_023EE3SOZERS10qktpeZpNI2KruDhdPN2G7.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_023EENLTZR8J75h1C7GZV1Z5K9EQtovDdeO.output.error.code$",
+                          "operator": "eq",
+                          "right_operand": "200"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_023EH5IDKSKUD0pTDYVOKBvzVikKZVjgPMr",
+                        "name": "Set Variables",
+                        "title": "Set Variables",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Set Variables",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023EGX0RFYVGT0rJPzzPkarX0OJ7J5GyCuE$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_023EGV8FRNWW75XVc3RzzRl4eAMhDR55BAi",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_023ED6YFKK4KV7daH9bxd5K7PWRpZgFA0qQ.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "200"
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_023EEDMTG2YP45J4Jvt6UxkKJMK9PyQZujZ.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "200"
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_023EE3SOZERS10qktpeZpNI2KruDhdPN2G7.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_023EENLTZR8J75h1C7GZV1Z5K9EQtovDdeO.output.error.code$",
+                          "operator": "ne",
+                          "right_operand": "200"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_023EH6RIF6LYC6Kmj8Pl4CRkoPQWIjyaYCo",
+                        "name": "Set Variables",
+                        "title": "Set Variables",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Set Variables",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023EGX0RFYVGT0rJPzzPkarX0OJ7J5GyCuE$",
+                              "variable_value_new": "Fail"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_023EE191CN8GU0K9EAtP42FMzBBAfdvPGEo",
+            "name": "Condition Branch",
+            "title": "Create a WebhookEvent",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE3A9LJJGO0uO1KM4F8Tc3Zc3YCpqNve$",
+                "operator": "eq",
+                "right_operand": "event-wh"
+              },
+              "continue_on_failure": false,
+              "display_name": "Create a WebhookEvent",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_023FAQAN9L7J80m6Mf1QfsLKw2L7r99GJKZ",
+                "name": "HTTP Request",
+                "title": "Create WebHook",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"type\": \"generic.webhook\",\n  \"title\": \"WH-json-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"properties\": {\n    \"request_content_type\": \"$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023FAYUOZCOL46U7X1xpUbVr6bJjFQLIrf3$\",\n    \"display_name\": \"WH-json-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\"\n  }\n}",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ$"
+                    }
+                  ],
+                  "display_name": "Create WebHook",
+                  "method": "POST",
+                  "relative_url": "/api/v1/webhooks",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FAZJV2LPAZ1xzfuxCfuIgeMydwM9W9Qv",
+                "name": "JSONPath Query",
+                "title": "Fetch the Webhook details",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch the Webhook details",
+                  "input_json": "$activity.definition_activity_023FAQAN9L7J80m6Mf1QfsLKw2L7r99GJKZ.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.properties.display_name",
+                      "jsonpath_query_name": "WebHook_Displayname",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.id",
+                      "jsonpath_query_name": "Webhook_ID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.uri",
+                      "jsonpath_query_name": "Webhook_URI",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FB2NJ5SNFC5fuJzCY4zVwjGUirsASFTP",
+                "name": "HTTP Request",
+                "title": "Create WebHook Event",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"title\": \"WH-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"type\": \"webhook.event\",\n  \"properties\": {\n    \"title\": \"WH-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n    \"webhook_id\": \"$activity.definition_activity_023FAZJV2LPAZ1xzfuxCfuIgeMydwM9W9Qv.output.jsonpath_queries.Webhook_ID$\",\n    \"conditions\": {\n      \"operator\": \"mw\",\n      \"left_operand\": \"$output.request_body$\",\n      \"right_operand\": \"*test*\"\n    }\n  }\n}",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ$"
+                    }
+                  ],
+                  "display_name": "Create WebHook Event",
+                  "method": "POST",
+                  "relative_url": "/api/v1/events",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FBF9S2QBAS1HGqntlKdoEoLe3KH7uHGk",
+                "name": "JSONPath Query",
+                "title": "Fetch the Webhook Event details",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch the Webhook Event details",
+                  "input_json": "$activity.definition_activity_023FB2NJ5SNFC5fuJzCY4zVwjGUirsASFTP.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.id",
+                      "jsonpath_query_name": "WEbhook_Event_ID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FBGO7BH2UI1VvQcvNMPboW81d73UlBm4",
+                "name": "Set Variables",
+                "title": "Store Output Values",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Store Output Values",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023FBGEFO3P2G1T8YWSY0lhDmACTvKAbTLz$",
+                      "variable_value_new": "$activity.definition_activity_023FAZJV2LPAZ1xzfuxCfuIgeMydwM9W9Qv.output.jsonpath_queries.Webhook_ID$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023FB24IWCKY13sghMBqdZlZghyL5bgL79k$",
+                      "variable_value_new": "$activity.definition_activity_023FAZJV2LPAZ1xzfuxCfuIgeMydwM9W9Qv.output.jsonpath_queries.Webhook_URI$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023FBG8K74WD95RgLzTxSNLJ054FKSZoZ8M$",
+                      "variable_value_new": "$activity.definition_activity_023FBF9S2QBAS1HGqntlKdoEoLe3KH7uHGk.output.jsonpath_queries.WEbhook_Event_ID$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_023FBUNWE19YG5G6XTH0lJXhKDzlTyhUrnF",
+            "name": "Condition Branch",
+            "title": "Create a AprEvent",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE3A9LJJGO0uO1KM4F8Tc3Zc3YCpqNve$",
+                "operator": "eq",
+                "right_operand": "event-apr"
+              },
+              "continue_on_failure": false,
+              "display_name": "Create a AprEvent",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_023FBUNWEATOL7EpH50m2b1SfJ4X63Hk5wr",
+                "name": "HTTP Request",
+                "title": "Create Approval Event",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"title\": \"apr_task\",\n  \"type\": \"approval_task.event\",\n  \"properties\": {\n    \"conditions\": {\n      \"operator\": \"mw\",\n      \"left_operand\": \"$output.subject_line$\",\n      \"right_operand\": \"*auto*\"\n    },\n    \"title\": \"apr_task\"\n  }\n}",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ$"
+                    }
+                  ],
+                  "display_name": "Create Approval Event",
+                  "method": "POST",
+                  "relative_url": "/api/v1/events",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FBUNWEBFD31rJijXEvogUJ4egAXrAHA4",
+                "name": "JSONPath Query",
+                "title": "Fetch the Approval Event details",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch the Approval Event details",
+                  "input_json": "$activity.definition_activity_023FBUNWEATOL7EpH50m2b1SfJ4X63Hk5wr.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.id",
+                      "jsonpath_query_name": "Apr_Event_ID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FBUNWECUDL790SwmjLGujiNN7S6XWByB",
+                "name": "Set Variables",
+                "title": "Store Output Values",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Store Output Values",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023FI76ALIKCY7M7x2n6ekkbnMd2hQjkvjX$",
+                      "variable_value_new": "$activity.definition_activity_023FBUNWEBFD31rJijXEvogUJ4egAXrAHA4.output.jsonpath_queries.Apr_Event_ID$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_023FI9L2GEFWL3IpC1L47wQdzVkPNINcRVv",
+            "name": "Condition Branch",
+            "title": "Create a EmailEvent",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE3A9LJJGO0uO1KM4F8Tc3Zc3YCpqNve$",
+                "operator": "eq",
+                "right_operand": "event-apr"
+              },
+              "continue_on_failure": false,
+              "display_name": "Create a EmailEvent",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_023FI9L2GFB2B3TnCZGtpykZq4YdzUTyEwb",
+                "name": "HTTP Request",
+                "title": "Create Email AccountKeys",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"type\": \"runtime_user.email_credentials\",\n  \"name\": \"Mail_Cred-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"title\": \"Mail_Cred-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"properties\": {\n    \"display_name\": \"Mail_Cred-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n    \"sender\": \"longhornproj2@gmail.com\",\n    \"password\": \"xukbgyvejlekzwoa\"\n  }\n}",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ$"
+                    }
+                  ],
+                  "display_name": "Create Email AccountKeys",
+                  "method": "POST",
+                  "relative_url": "/api/v1/runtime_users",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FI9L2GHJIR68fAKzjU9rXl4zsiHH5yxk",
+                "name": "JSONPath Query",
+                "title": "Fetch the AccountKeysID Event details",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch the AccountKeysID Event details",
+                  "input_json": "$activity.definition_activity_023FI9L2GFB2B3TnCZGtpykZq4YdzUTyEwb.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.id",
+                      "jsonpath_query_name": "Email_AccKeys_ID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FISPUOTNPG4BXoHzKXkMupCvFVIXNKXE",
+                "name": "HTTP Request",
+                "title": "Create SMTP Target",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"name\": \"SMTP-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"title\": \"SMTP-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"properties\": {\n    \"no_runtime_user\": false,\n    \"protocol\": \"SMTP\",\n    \"display_name\": \"SMTP-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n    \"default_runtime_user_id\": \"$activity.definition_activity_023FI9L2GHJIR68fAKzjU9rXl4zsiHH5yxk.output.jsonpath_queries.Email_AccKeys_ID$\",\n    \"server\": \"smtp.gmail.com\",\n    \"port\": 587\n  },\n  \"type\": \"email.smtp_endpoint\"\n}",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ$"
+                    }
+                  ],
+                  "display_name": "Create SMTP Target",
+                  "method": "POST",
+                  "relative_url": "/api/v1/targets",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FIZYSY097X5twQstAPrU0Sa3nvkeu7jq",
+                "name": "JSONPath Query",
+                "title": "Fetch the SMTP Target ID",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch the SMTP Target ID",
+                  "input_json": "$activity.definition_activity_023FISPUOTNPG4BXoHzKXkMupCvFVIXNKXE.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.id",
+                      "jsonpath_query_name": "Email_SMTP_ID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FIVA4AE9871ecuklf69zhTWwUYybmZs1",
+                "name": "HTTP Request",
+                "title": "Create IMAP Target",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"name\": \"IMAP-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"title\": \"IMAP-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"properties\": {\n    \"ignore_certificate_errors\": true,\n    \"port\": 993,\n    \"protocol\": \"IMAP\",\n    \"tls_enabled\": true,\n    \"polling_interval\": 30,\n    \"display_name\": \"IMAP-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n    \"default_runtime_user_id\": \"$activity.definition_activity_023FI9L2GHJIR68fAKzjU9rXl4zsiHH5yxk.output.jsonpath_queries.Email_AccKeys_ID$\",\n    \"server\": \"imap.gmail.com\"\n  },\n  \"type\": \"email.imap_endpoint\"\n}",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ$"
+                    }
+                  ],
+                  "display_name": "Create IMAP Target",
+                  "method": "POST",
+                  "relative_url": "/api/v1/targets",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FJ00SVKSMI55MmUG0tPbNv2POB5FwYky",
+                "name": "JSONPath Query",
+                "title": "Fetch the IMAP target ID ",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch the IMAP target ID ",
+                  "input_json": "$activity.definition_activity_023FIVA4AE9871ecuklf69zhTWwUYybmZs1.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.id",
+                      "jsonpath_query_name": "Email_IMAP_ID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FIXS5BCLHA0YKCA0AWTYKktwUquebqgh",
+                "name": "HTTP Request",
+                "title": "Create Email Event",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"title\": \"Email-$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.instance_id$\",\n  \"target_id\": \"$activity.definition_activity_023FJ00SVKSMI55MmUG0tPbNv2POB5FwYky.output.jsonpath_queries.Email_IMAP_ID$\",\n  \"type\": \"email.event\",\n  \"properties\": {\n    \"folder\": \"INBOX\",\n    \"action\": \"read\",\n    \"download_attachments\": true,\n    \"title\": \"Email\",\n    \"target_id\": \"$activity.definition_activity_023FJ00SVKSMI55MmUG0tPbNv2POB5FwYky.output.jsonpath_queries.Email_IMAP_ID$\",\n    \"conditions\": {\n      \"operator\": \"mw\",\n      \"left_operand\": \"$output.message$\",\n      \"right_operand\": \"*smtp auto*\"\n    }\n  }\n}",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ$"
+                    }
+                  ],
+                  "display_name": "Create Email Event",
+                  "method": "POST",
+                  "relative_url": "/api/v1/events",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FJ42GQW39W1z1SOxM1ySjd3rnuV5TTrO",
+                "name": "JSONPath Query",
+                "title": "Fetch the Email Event ID ",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch the Email Event ID ",
+                  "input_json": "$activity.definition_activity_023FIXS5BCLHA0YKCA0AWTYKktwUquebqgh.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.id",
+                      "jsonpath_query_name": "Email_Event_ID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_023FI9L2GJS1V26q71dJyObSYtSLiUQhX0I",
+                "name": "Set Variables",
+                "title": "Store Output Values",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Store Output Values",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023FIRGNGE5Z77D6BjGUIcBTnHMi5kmoWON$",
+                      "variable_value_new": "$activity.definition_activity_023FI9L2GHJIR68fAKzjU9rXl4zsiHH5yxk.output.jsonpath_queries.Email_AccKeys_ID$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023FIRL40CNKM7hvgxwbQ3WqQXULAXSv974$",
+                      "variable_value_new": "$activity.definition_activity_023FIZYSY097X5twQstAPrU0Sa3nvkeu7jq.output.jsonpath_queries.Email_SMTP_ID$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023FIRP5ATKWC64IXoS5Md3qr5C3L1NK5KR$",
+                      "variable_value_new": "$activity.definition_activity_023FJ00SVKSMI55MmUG0tPbNv2POB5FwYky.output.jsonpath_queries.Email_IMAP_ID$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023FJ5AUFTR4O6QRT19sSU1bgR6uZ6C9PYE$",
+                      "variable_value_new": "$activity.definition_activity_023FJ42GQW39W1z1SOxM1ySjd3rnuV5TTrO.output.jsonpath_queries.Email_Event_ID$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_023EH77XZQJOK2YX8Hg9pqlyelxCpevTOXT",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_023EH77YE27AN2UkR5WgCS9eNeTzw5at7TI",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023EGX0RFYVGT0rJPzzPkarX0OJ7J5GyCuE$",
+                "operator": "eq",
+                "right_operand": "Pass"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_023EH7XTCMHV05JDPvUdqpqW4rZefRFb2jO",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023EH7U7IXBKA5GB9H9zT35BMYlB3qI7Pgt$",
+                      "variable_value_new": "Pass"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_023EH77YW3SL43nIMUniy61iQ4YpVZdyecU",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023EGX0RFYVGT0rJPzzPkarX0OJ7J5GyCuE$",
+                "operator": "eq",
+                "right_operand": "Fail"
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_023EH85LZBG355JPMQ7i5WtNMF1ogFSxFDm",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.output.variable_workflow_023EH7U7IXBKA5GB9H9zT35BMYlB3qI7Pgt$",
+                      "variable_value_new": "Fail"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
