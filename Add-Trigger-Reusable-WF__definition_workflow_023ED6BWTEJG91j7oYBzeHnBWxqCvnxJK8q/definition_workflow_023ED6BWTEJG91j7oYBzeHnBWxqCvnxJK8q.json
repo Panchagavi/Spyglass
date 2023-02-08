@@ -10,27 +10,13 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "input",
-          "name": "Input_Token",
+          "scope": "output",
+          "name": "Webhook_Trigger_Name",
           "type": "datatype.string",
-          "is_required": true,
+          "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "application/json",
-          "scope": "input",
-          "name": "Provide the Request_Content_type",
-          "type": "datatype.string",
-          "description": "Supported Content Type -- Provide the Input\napplication/json\napplication/x-www-form-urlencoded\napplication/json; charset=utf-8\napplication/xml",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_023FAYUOZCOL46U7X1xpUbVr6bJjFQLIrf3",
+        "unique_name": "variable_workflow_023G0T7MUNI5S0vqtasl0voPNQ9DsrwhsGl",
         "object_type": "variable_workflow"
       },
       {
@@ -38,12 +24,25 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Email_AccountKey_ID",
+          "name": "Schedule_Trigger_Name",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023FIRGNGE5Z77D6BjGUIcBTnHMi5kmoWON",
+        "unique_name": "variable_workflow_023EFQ3R3KCUL4K32L0irMv0zxy00DDYj0u",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Schedule_Trigger_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EET8CDUDCP2Tj7FG91djtT5Vr7Y1ZKTF",
         "object_type": "variable_workflow"
       },
       {
@@ -63,13 +62,14 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "output",
-          "name": "Approval_Event_ID",
+          "scope": "input",
+          "name": "Trigger_Condition_type",
           "type": "datatype.string",
-          "is_required": false,
+          "description": "Trigger condition type should be one of item from below list. \nschedule, \nevent-wh,\nevent-apr,\nevent-email",
+          "is_required": true,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023FI76ALIKCY7M7x2n6ekkbnMd2hQjkvjX",
+        "unique_name": "variable_workflow_023G1RWEZIPSO6QUXJQU7jhhtZ4Ne2lvW3Z",
         "object_type": "variable_workflow"
       },
       {
@@ -90,12 +90,25 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Schedule_Trigger_ID",
+          "name": "IMAP_ID",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023EET8CDUDCP2Tj7FG91djtT5Vr7Y1ZKTF",
+        "unique_name": "variable_workflow_023FIRP5ATKWC64IXoS5Md3qr5C3L1NK5KR",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Test Status for Schedule Trigger",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EGX0RFYVGT0rJPzzPkarX0OJ7J5GyCuE",
         "object_type": "variable_workflow"
       },
       {
@@ -117,25 +130,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Email_Event_ID",
+          "name": "Email_Trigger_ID",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023FJ5AUFTR4O6QRT19sSU1bgR6uZ6C9PYE",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Test Status for Event Trigger",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_023EGX82AFE991IBBHQfrOIjiRmJP82Xbnl",
+        "unique_name": "variable_workflow_023G0TRVVFFVJ4wfCGbBAjS2TiQl63Pob6k",
         "object_type": "variable_workflow"
       },
       {
@@ -156,12 +156,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Webhook_Event_TestStatus",
+          "name": "Approval_Event_TestStatus",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023FZ8089V8751ygAd6FkN6TJq0Vav3Mw7M",
+        "unique_name": "variable_workflow_023FZ84WTG5TE6lqPM5qZYHMogpgI4QhJFF",
         "object_type": "variable_workflow"
       },
       {
@@ -169,38 +169,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Approval_Trigger_ID",
+          "name": "Webhook_Event_ID",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023G0TF0ZMSYL6gYdTGzRjYbYwN1KnFseiC",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "IMAP_ID",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_023FIRP5ATKWC64IXoS5Md3qr5C3L1NK5KR",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Email_Event_TestStatus",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_023FZ8AXXAJ4U6XxzqMYuDhfKiTmWaLT9wD",
+        "unique_name": "variable_workflow_023FBG8K74WD95RgLzTxSNLJ054FKSZoZ8M",
         "object_type": "variable_workflow"
       },
       {
@@ -222,12 +196,51 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Email_Trigger_ID",
+          "name": "Approval_Trigger_Name",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023G0TRVVFFVJ4wfCGbBAjS2TiQl63Pob6k",
+        "unique_name": "variable_workflow_023G0TJHT6C6R3vwQFKEfPGPlYY5e90I4DM",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Webhook_Event_TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FZ8089V8751ygAd6FkN6TJq0Vav3Mw7M",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Approval_Event_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FI76ALIKCY7M7x2n6ekkbnMd2hQjkvjX",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Test Status for Event Trigger",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EGX82AFE991IBBHQfrOIjiRmJP82Xbnl",
         "object_type": "variable_workflow"
       },
       {
@@ -248,90 +261,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Webhook_Trigger_Name",
+          "name": "Email_Event_TestStatus",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023G0T7MUNI5S0vqtasl0voPNQ9DsrwhsGl",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "installed_wf_ID",
-          "type": "datatype.string",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_023EEQFM9JC7M4O0ip9hVQKzo8DRzAF2v1W",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Approval_Trigger_Name",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_023G0TJHT6C6R3vwQFKEfPGPlYY5e90I4DM",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Approval_Event_TestStatus",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_023FZ84WTG5TE6lqPM5qZYHMogpgI4QhJFF",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Schedule_Trigger_Name",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_023EFQ3R3KCUL4K32L0irMv0zxy00DDYj0u",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Webhook_Trigger_ID",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_023G0T40KVDE12z2HRCjBXZIOeQkrM8lkj9",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Schedule/Event_ID",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_023EENAGE614P2KRKfk80i73q7HGiYOki4E",
+        "unique_name": "variable_workflow_023FZ8AXXAJ4U6XxzqMYuDhfKiTmWaLT9wD",
         "object_type": "variable_workflow"
       },
       {
@@ -352,12 +287,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Webhook_Event_ID",
+          "name": "Webhook_Trigger_ID",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023FBG8K74WD95RgLzTxSNLJ054FKSZoZ8M",
+        "unique_name": "variable_workflow_023G0T40KVDE12z2HRCjBXZIOeQkrM8lkj9",
         "object_type": "variable_workflow"
       },
       {
@@ -365,12 +300,93 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Test Status for Schedule Trigger",
+          "name": "Email_AccountKey_ID",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_023EGX0RFYVGT0rJPzzPkarX0OJ7J5GyCuE",
+        "unique_name": "variable_workflow_023FIRGNGE5Z77D6BjGUIcBTnHMi5kmoWON",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email_Event_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FJ5AUFTR4O6QRT19sSU1bgR6uZ6C9PYE",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "application/json",
+          "scope": "input",
+          "name": "Provide the Request_Content_type",
+          "type": "datatype.string",
+          "description": "This is applicable when user creating event of Webhook type and below are the Supported Content Type -- \napplication/json,\napplication/x-www-form-urlencoded,\napplication/json; charset=utf-8,\napplication/xml",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023FAYUOZCOL46U7X1xpUbVr6bJjFQLIrf3",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Schedule/Event_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EENAGE614P2KRKfk80i73q7HGiYOki4E",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Approval_Trigger_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023G0TF0ZMSYL6gYdTGzRjYbYwN1KnFseiC",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "installed_wf_ID",
+          "type": "datatype.string",
+          "description": "Provide the Xchange ID which user want to install, or This  can be obtained from the Install reusable workflow. ",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EEQFM9JC7M4O0ip9hVQKzo8DRzAF2v1W",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Input_Token",
+          "type": "datatype.string",
+          "description": "Provide the token of tenant where user want to install the exchange. ",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_023EE5YJGCK026cUtL99EINj3bXKOjQJYVJ",
         "object_type": "variable_workflow"
       }
     ],
@@ -412,7 +428,7 @@
             "base_type": "activity",
             "properties": {
               "condition": {
-                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE3A9LJJGO0uO1KM4F8Tc3Zc3YCpqNve$",
+                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023G1RWEZIPSO6QUXJQU7jhhtZ4Ne2lvW3Z$",
                 "operator": "eq",
                 "right_operand": "schedule"
               },
@@ -789,7 +805,7 @@
             "base_type": "activity",
             "properties": {
               "condition": {
-                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE3A9LJJGO0uO1KM4F8Tc3Zc3YCpqNve$",
+                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023G1RWEZIPSO6QUXJQU7jhhtZ4Ne2lvW3Z$",
                 "operator": "eq",
                 "right_operand": "event-wh"
               },
@@ -1151,7 +1167,7 @@
             "base_type": "activity",
             "properties": {
               "condition": {
-                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE3A9LJJGO0uO1KM4F8Tc3Zc3YCpqNve$",
+                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023G1RWEZIPSO6QUXJQU7jhhtZ4Ne2lvW3Z$",
                 "operator": "eq",
                 "right_operand": "event-apr"
               },
@@ -1423,9 +1439,9 @@
             "base_type": "activity",
             "properties": {
               "condition": {
-                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023EE3A9LJJGO0uO1KM4F8Tc3Zc3YCpqNve$",
+                "left_operand": "$workflow.definition_workflow_023ED6BWTEJG91j7oYBzeHnBWxqCvnxJK8q.input.variable_workflow_023G1RWEZIPSO6QUXJQU7jhhtZ4Ne2lvW3Z$",
                 "operator": "eq",
-                "right_operand": "event-apr"
+                "right_operand": "event-email"
               },
               "continue_on_failure": false,
               "display_name": "Create a EmailEvent",
