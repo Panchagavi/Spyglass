@@ -9,19 +9,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "data-syggf",
-          "scope": "input",
-          "name": "MangBD_AppName",
-          "type": "datatype.string",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_0242YVFK6I9YC5uIyARUsd3h9w92UfcqI2c",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_021S1T8BT8DQD2W5mN7lsM975Ri304tmhJA\",\n    \"name\": \"SJ_SecureString_Var_Parent_No_InputVar\",\n    \"title\": \"SJ_SecureString_Var_Parent_No_InputVar\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"01IL87A7MKTRQ6ZxUPi73QJzdbFTSxvHWc3\",\n        \"properties\": {\n          \"value\": \"test\",\n          \"scope\": \"local\",\n          \"name\": \"ss1\",\n          \"type\": \"datatype.secure_string\",\n          \"description\": \"test\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_021S1UB9CTVRK44CG8JDvQ6hREMrcG7FzBH\",\n        \"object_type\": \"variable_workflow\",\n        \"created_on\": \"0001-01-01T00:00:00Z\",\n        \"updated_on\": \"0001-01-01T00:00:00Z\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"SJ_SecureString_Var_Parent_No_InputVar\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_021S1YTQ6OHAT0GnfZ9QfnidL1IWbDOPeoP\",\n        \"name\": \"Sj_secure_string_child\",\n        \"title\": \"Sj_secure_string_child\",\n        \"type\": \"workflow.sub_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"display_name\": \"Sj_secure_string_child\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_021S1VO5OCC5Y3EFgYRNkDng8j6qIPOYOF7\",\n          \"workflow_name\": \"Sj_secure_string_child\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_021S1TUJ5WBKK042jSpHD3iWhanyId5FxWF\",\n        \"name\": \"Set Variables\",\n        \"title\": \"Set Variables\",\n        \"type\": \"core.set_multiple_variables\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Set Variables\",\n          \"skip_execution\": false,\n          \"variables_to_update\": [\n            {\n              \"variable_to_update\": \"$workflow.definition_workflow_021S1T8BT8DQD2W5mN7lsM975Ri304tmhJA.local.variable_workflow_021S1UB9CTVRK44CG8JDvQ6hREMrcG7FzBH$\",\n              \"variable_value_new\": \"$activity.definition_activity_021S1YTQ6OHAT0GnfZ9QfnidL1IWbDOPeoP.output.variable_workflow_021S1XYR1Z2PY09V3z9fIeaMJFJuz8L6zET$\"\n            }\n          ]\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"subworkflows\": [\n    {\n      \"workflow\": {\n        \"unique_name\": \"definition_workflow_021S1VO5OCC5Y3EFgYRNkDng8j6qIPOYOF7\",\n        \"name\": \"Sj_secure_string_child\",\n        \"title\": \"Sj_secure_string_child\",\n        \"type\": \"generic.workflow\",\n        \"base_type\": \"workflow\",\n        \"variables\": [\n          {\n            \"schema_id\": \"datatype.secure_string\",\n            \"properties\": {\n              \"value\": \"\",\n              \"scope\": \"output\",\n              \"name\": \"ss3\",\n              \"type\": \"datatype.secure_string\",\n              \"is_required\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_021S1XYR1Z2PY09V3z9fIeaMJFJuz8L6zET\",\n            \"object_type\": \"variable_workflow\"\n          },\n          {\n            \"schema_id\": \"01IL87A7MKTRQ6ZxUPi73QJzdbFTSxvHWc3\",\n            \"properties\": {\n              \"value\": \"test\",\n              \"scope\": \"local\",\n              \"name\": \"ss2\",\n              \"type\": \"datatype.secure_string\",\n              \"description\": \"test2\",\n              \"is_required\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_021S4J08LS77O41d87dvy7ZPA2SR94Vukh7\",\n            \"object_type\": \"variable_workflow\",\n            \"created_on\": \"0001-01-01T00:00:00Z\",\n            \"updated_on\": \"0001-01-01T00:00:00Z\"\n          }\n        ],\n        \"properties\": {\n          \"atomic\": {\n            \"is_atomic\": false\n          },\n          \"delete_workflow_instance\": false,\n          \"display_name\": \"Sj_secure_string_child\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          }\n        },\n        \"object_type\": \"definition_workflow\",\n        \"actions\": [\n          {\n            \"unique_name\": \"definition_activity_021S1XNSHCLLL6PcB3SyGuSY1vSbgyHbikz\",\n            \"name\": \"Set Variables\",\n            \"title\": \"Set Variables\",\n            \"type\": \"core.set_multiple_variables\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"continue_on_failure\": false,\n              \"display_name\": \"Set Variables\",\n              \"skip_execution\": false,\n              \"variables_to_update\": [\n                {\n                  \"variable_to_update\": \"$workflow.definition_workflow_021S1VO5OCC5Y3EFgYRNkDng8j6qIPOYOF7.output.variable_workflow_021S1XYR1Z2PY09V3z9fIeaMJFJuz8L6zET$\",\n                  \"variable_value_new\": \"$workflow.definition_workflow_021S1VO5OCC5Y3EFgYRNkDng8j6qIPOYOF7.local.variable_workflow_021S4J08LS77O41d87dvy7ZPA2SR94Vukh7$\"\n                }\n              ]\n            },\n            \"object_type\": \"definition_activity\"\n          }\n        ],\n        \"categories\": [\n          \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n        ]\n      }\n    }\n  ],\n  \"dependent_workflows\": [\n    \"definition_workflow_021S1VO5OCC5Y3EFgYRNkDng8j6qIPOYOF7\"\n  ]\n}",
           "scope": "input",
           "name": "Paylaod_for_Import_Workflow",
@@ -35,14 +22,15 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Cleanup_Test_Status",
+          "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJscmNidExVeUI3aFRVQ0JGTVpvWU9VeTZTWThIeWJVNzBXVkk2ZzdaYmsifQ.eyJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvc2NvcGVzIjpbImlyb2gtYWRtaW4iLCJldmVudDpyZWFkIiwidmF1bHQvY29uZmlnczpyZWFkIiwiaW50ZWdyYXRpb24iLCJwcml2YXRlLWludGVsIiwiYWRtaW4iLCJwcm9maWxlIiwiaW5zcGVjdCIsImFzc2V0IiwiZmVlZGJhY2siLCJpcm9oLW1hc3RlciIsInNzZSIsInJlZ2lzdHJ5IiwidXNlcnMiLCJpbnZlc3RpZ2F0aW9uIiwiY2lzY28iLCJpbnZpdGUiLCJjYXNlYm9vayIsInZhdWx0L2NvbmZpZy9tZXRhZGF0YTpyZWFkIiwib3JiaXRhbCIsImVucmljaCIsIm9hdXRoIiwiZ2xvYmFsLWludGVsIiwiY29sbGVjdCIsInJlc3BvbnNlIiwidWktc2V0dGluZ3MiLCJ0ZWxlbWV0cnk6d3JpdGUiLCJvcGVuaWQiLCJub3RpZmljYXRpb24iLCJ3ZWJob29rIiwidmF1bHQvY29uZmlnL3Bvc3R1cmU6cmVhZCIsImFvIl0sImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9pZHAvaWQiOiJzeHNvIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL25pY2siOiJHdXkgTWFja2VuemllIiwiZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJhdWQiOlsiaXJvaC11aSIsImxvZ2luIl0sImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9yb2xlIjoiYWRtaW4iLCJzdWIiOiI2MTg1NTY4Ny02ZTQ3LTRkOTMtOTJhMi0yZDgwMDFkMzA5YmMiLCJpc3MiOiJJUk9IIEF1dGgiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL3JlZnJlc2gtdG9rZW4tanRpIjoicmVmcmVzaC1kN2NmZmM1YS0wZjQxLTRhZDgtYTQ4NS1iNGYwMDBiNzY4YzYiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3Njb3BlcyI6WyJpcm9oLWFkbWluIiwiZXZlbnQ6cmVhZCIsInZhdWx0L2NvbmZpZ3M6cmVhZCIsImludGVncmF0aW9uIiwicHJpdmF0ZS1pbnRlbCIsImFkbWluIiwicHJvZmlsZSIsImluc3BlY3QiLCJhc3NldCIsImZlZWRiYWNrIiwiaXJvaC1tYXN0ZXIiLCJzc2UiLCJyZWdpc3RyeSIsInVzZXJzIiwiaW52ZXN0aWdhdGlvbiIsImNpc2NvIiwiaW52aXRlIiwiY2FzZWJvb2siLCJ2YXVsdC9jb25maWcvbWV0YWRhdGE6cmVhZCIsIm9yYml0YWwiLCJlbnJpY2giLCJvYXV0aCIsImdsb2JhbC1pbnRlbCIsImNvbGxlY3QiLCJyZXNwb25zZSIsInVpLXNldHRpbmdzIiwidGVsZW1ldHJ5OndyaXRlIiwib3BlbmlkIiwibm90aWZpY2F0aW9uIiwid2ViaG9vayIsInZhdWx0L2NvbmZpZy9wb3N0dXJlOnJlYWQiLCJhbyJdLCJleHAiOjQxMDI0MjMxNDAsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgvY2xpZW50L25hbWUiOiJUaHJlYXQgUmVzcG9uc2UiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL3VzZXIvaWQiOiI2MTg1NTY4Ny02ZTQ3LTRkOTMtOTJhMi0yZDgwMDFkMzA5YmMiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29yZy9pZCI6IjIwMjkiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL2dyYW50IjoibG9naW4iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29yZy9uYW1lIjoiMjAyOSIsImp0aSI6InRva2VuLWRjOWQyZjNkLWFkMjAtNGM0Ni1hYjRhLWM5ZjZmNGFhYWZiNyIsIm5iZiI6MTY2Njc5MzM5MiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9zY29wZXMiOlsiaXJvaC1hZG1pbiIsImV2ZW50OnJlYWQiLCJ2YXVsdC9jb25maWdzOnJlYWQiLCJpbnRlZ3JhdGlvbiIsInByaXZhdGUtaW50ZWwiLCJhZG1pbiIsInByb2ZpbGUiLCJpbnNwZWN0IiwiYXNzZXQiLCJmZWVkYmFjayIsImlyb2gtbWFzdGVyIiwic3NlIiwicmVnaXN0cnkiLCJ1c2VycyIsImludmVzdGlnYXRpb24iLCJjaXNjbyIsImludml0ZSIsImNhc2Vib29rIiwidmF1bHQvY29uZmlnL21ldGFkYXRhOnJlYWQiLCJvcmJpdGFsIiwiZW5yaWNoIiwib2F1dGgiLCJnbG9iYWwtaW50ZWwiLCJjb2xsZWN0IiwicmVzcG9uc2UiLCJ1aS1zZXR0aW5ncyIsInRlbGVtZXRyeTp3cml0ZSIsIm9wZW5pZCIsIm5vdGlmaWNhdGlvbiIsIndlYmhvb2siLCJ2YXVsdC9jb25maWcvcG9zdHVyZTpyZWFkIiwiYW8iXSwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL25hbWUiOiJWaW5heSBQYW5jaGFnYXZpIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL2lkIjoiNjE4NTU2ODctNmU0Ny00ZDkzLTkyYTItMmQ4MDAxZDMwOWJjIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9jbGllbnQvaWQiOiJpcm9oLXVpIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoidjEuODMtYzgzZmVkNjEzMmE5OTUwNDM5NjMiLCJpYXQiOjE2NjY3OTM0NTIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgva2luZCI6InNlc3Npb24tdG9rZW4ifQ.JmOieL6OLT2Ti4HGyXFvPqYKJa81VVnzBj4-r48oXJiVQyKWSVfUDCcVLTpG5JsoP-V8u9DX0hTd_P9ruu_wNUWNN0iBgoefd2OBAhrn22PsABPcot2CGJgU9Nqmty2qYFTYj2ZzkYEUcXThkz3CmLWsr_4UkRpv1eot52SnDWfScdUS7WKbhs3M-_jEwcBvUKTLemI1NDDDLf730Gc3onl1DUKQL6Fve5rOqR-I0dT3z-e6E1J-JRBWCX0XQWt5-OFu3n6xoKBsiL50nnJniX82WTpNqcWmcvcOeNu_0oA7S90VswMZAeS0Dtf-t1aP_4v1SHgefhvuU4H9cFjDOw",
+          "scope": "input",
+          "name": "Install_Token",
           "type": "datatype.string",
-          "is_required": false,
+          "description": "2029",
+          "is_required": true,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_02431LOFTFUP74LuSlgOhQGp5tCMC3c6rJZ",
+        "unique_name": "variable_workflow_0242YJ85UQC0T3ia1WOIherV6z4vLvuufpi",
         "object_type": "variable_workflow"
       },
       {
@@ -50,12 +38,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Pre-Requiste-Test_Status",
+          "name": "Email Table",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_02431LDRWZDWT57FMiaDsZUmYVVxG5rCz03",
+        "unique_name": "variable_workflow_02432GXOYEEVZ1uIcPXC0EYNn9uzpTAcCEh",
         "object_type": "variable_workflow"
       },
       {
@@ -69,6 +57,46 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_0242YIR69U6RD40KCkZ4PQaNmwTjNsaAWYc",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "data-syggf",
+          "scope": "input",
+          "name": "MangBD_AppName",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0242YVFK6I9YC5uIyARUsd3h9w92UfcqI2c",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJscmNidExVeUI3aFRVQ0JGTVpvWU9VeTZTWThIeWJVNzBXVkk2ZzdaYmsifQ.eyJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvc2NvcGVzIjpbImlyb2gtYWRtaW4iLCJldmVudDpyZWFkIiwidmF1bHQvY29uZmlnczpyZWFkIiwiaW50ZWdyYXRpb24iLCJwcml2YXRlLWludGVsIiwiYWRtaW4iLCJwcm9maWxlIiwiaW5zcGVjdCIsImFzc2V0IiwiZmVlZGJhY2siLCJpcm9oLW1hc3RlciIsInNzZSIsInJlZ2lzdHJ5IiwidXNlcnMiLCJpbnZlc3RpZ2F0aW9uIiwiY2lzY28iLCJpbnZpdGUiLCJjYXNlYm9vayIsInZhdWx0L2NvbmZpZy9tZXRhZGF0YTpyZWFkIiwib3JiaXRhbCIsImVucmljaCIsIm9hdXRoIiwiZ2xvYmFsLWludGVsIiwiY29sbGVjdCIsInJlc3BvbnNlIiwidWktc2V0dGluZ3MiLCJ0ZWxlbWV0cnk6d3JpdGUiLCJvcGVuaWQiLCJub3RpZmljYXRpb24iLCJ3ZWJob29rIiwidmF1bHQvY29uZmlnL3Bvc3R1cmU6cmVhZCIsImFvIl0sImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9pZHAvaWQiOiJzeHNvIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL25pY2siOiJHdXkgTWFja2VuemllIiwiZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJhdWQiOlsiaXJvaC11aSIsImxvZ2luIl0sImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9yb2xlIjoiYWRtaW4iLCJzdWIiOiI2MTg1NTY4Ny02ZTQ3LTRkOTMtOTJhMi0yZDgwMDFkMzA5YmMiLCJpc3MiOiJJUk9IIEF1dGgiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL3JlZnJlc2gtdG9rZW4tanRpIjoicmVmcmVzaC1kN2NmZmM1YS0wZjQxLTRhZDgtYTQ4NS1iNGYwMDBiNzY4YzYiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3Njb3BlcyI6WyJpcm9oLWFkbWluIiwiZXZlbnQ6cmVhZCIsInZhdWx0L2NvbmZpZ3M6cmVhZCIsImludGVncmF0aW9uIiwicHJpdmF0ZS1pbnRlbCIsImFkbWluIiwicHJvZmlsZSIsImluc3BlY3QiLCJhc3NldCIsImZlZWRiYWNrIiwiaXJvaC1tYXN0ZXIiLCJzc2UiLCJyZWdpc3RyeSIsInVzZXJzIiwiaW52ZXN0aWdhdGlvbiIsImNpc2NvIiwiaW52aXRlIiwiY2FzZWJvb2siLCJ2YXVsdC9jb25maWcvbWV0YWRhdGE6cmVhZCIsIm9yYml0YWwiLCJlbnJpY2giLCJvYXV0aCIsImdsb2JhbC1pbnRlbCIsImNvbGxlY3QiLCJyZXNwb25zZSIsInVpLXNldHRpbmdzIiwidGVsZW1ldHJ5OndyaXRlIiwib3BlbmlkIiwibm90aWZpY2F0aW9uIiwid2ViaG9vayIsInZhdWx0L2NvbmZpZy9wb3N0dXJlOnJlYWQiLCJhbyJdLCJleHAiOjQxMDI0MjMxNDAsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgvY2xpZW50L25hbWUiOiJUaHJlYXQgUmVzcG9uc2UiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL3VzZXIvaWQiOiI2MTg1NTY4Ny02ZTQ3LTRkOTMtOTJhMi0yZDgwMDFkMzA5YmMiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29yZy9pZCI6IjE1MDIiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL2dyYW50IjoibG9naW4iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29yZy9uYW1lIjoiY2EgMTUwMiIsImp0aSI6InRva2VuLWRjOWQyZjNkLWFkMjAtNGM0Ni1hYjRhLWM5ZjZmNGFhYWZiNyIsIm5iZiI6MTY2Njc5MzM5MiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9zY29wZXMiOlsiaXJvaC1hZG1pbiIsImV2ZW50OnJlYWQiLCJ2YXVsdC9jb25maWdzOnJlYWQiLCJpbnRlZ3JhdGlvbiIsInByaXZhdGUtaW50ZWwiLCJhZG1pbiIsInByb2ZpbGUiLCJpbnNwZWN0IiwiYXNzZXQiLCJmZWVkYmFjayIsImlyb2gtbWFzdGVyIiwic3NlIiwicmVnaXN0cnkiLCJ1c2VycyIsImludmVzdGlnYXRpb24iLCJjaXNjbyIsImludml0ZSIsImNhc2Vib29rIiwidmF1bHQvY29uZmlnL21ldGFkYXRhOnJlYWQiLCJvcmJpdGFsIiwiZW5yaWNoIiwib2F1dGgiLCJnbG9iYWwtaW50ZWwiLCJjb2xsZWN0IiwicmVzcG9uc2UiLCJ1aS1zZXR0aW5ncyIsInRlbGVtZXRyeTp3cml0ZSIsIm9wZW5pZCIsIm5vdGlmaWNhdGlvbiIsIndlYmhvb2siLCJ2YXVsdC9jb25maWcvcG9zdHVyZTpyZWFkIiwiYW8iXSwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL25hbWUiOiJWaW5heSBQYW5jaGFnYXZpIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL2lkIjoiNjE4NTU2ODctNmU0Ny00ZDkzLTkyYTItMmQ4MDAxZDMwOWJjIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9jbGllbnQvaWQiOiJpcm9oLXVpIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoidjEuODMtYzgzZmVkNjEzMmE5OTUwNDM5NjMiLCJpYXQiOjE2NjY3OTM0NTIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgva2luZCI6InNlc3Npb24tdG9rZW4ifQ.wgfzCyidFezjalCPrrEkkLTzW2T0n2R_LMKL5uU8XlJbJ2v1iGGxQeXb2DinekCVp08Nnq1BFLpU8cPMiviUGRBC1CgiyjftmYZ28VyLWcaqLxoRAZQy24XeM8JQGeOkIWmIzpTO_rHbA1GlKnwq3epet2So1LYSuYFxla9geV_H4pw3gxxLUt54okKqbMdh_4KbMgzarQlinNzP85MU2b2Doy8aBYt6Rajw1wIVzBNNw9Mlz0LPN--3VpvnMQ0TiOY37ovCyNL3DpILtcWhjH5wuxM-6UOo8F57Lvv_4GEgUl4njHAnpQLjqjpzMxps8MN-lqip917rnXfqlhErCQ",
+          "scope": "input",
+          "name": "Publish_Install_Token",
+          "type": "datatype.string",
+          "description": "1502 Tenant",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0242YICXH3WYA08FSByeDai38yCDkPqidYK",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "XLSReVftz7HNZWoP8PMRgpHwDI01bWGREGXgmygLsOeriU15cDJW93z8bAaCKhWb",
+          "scope": "input",
+          "name": "MangoDB_APIKey",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0242YV85UHW5N1yqxuiDIjzmnzndqE5KZO3",
         "object_type": "variable_workflow"
       },
       {
@@ -102,6 +130,19 @@
         "properties": {
           "value": "",
           "scope": "output",
+          "name": "Cleanup_Test_Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02431LOFTFUP74LuSlgOhQGp5tCMC3c6rJZ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
           "name": "Defect Test Status",
           "type": "datatype.string",
           "is_required": false,
@@ -113,55 +154,14 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJscmNidExVeUI3aFRVQ0JGTVpvWU9VeTZTWThIeWJVNzBXVkk2ZzdaYmsifQ.eyJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvc2NvcGVzIjpbImlyb2gtYWRtaW4iLCJldmVudDpyZWFkIiwidmF1bHQvY29uZmlnczpyZWFkIiwiaW50ZWdyYXRpb24iLCJwcml2YXRlLWludGVsIiwiYWRtaW4iLCJwcm9maWxlIiwiaW5zcGVjdCIsImFzc2V0IiwiZmVlZGJhY2siLCJpcm9oLW1hc3RlciIsInNzZSIsInJlZ2lzdHJ5IiwidXNlcnMiLCJpbnZlc3RpZ2F0aW9uIiwiY2lzY28iLCJpbnZpdGUiLCJjYXNlYm9vayIsInZhdWx0L2NvbmZpZy9tZXRhZGF0YTpyZWFkIiwib3JiaXRhbCIsImVucmljaCIsIm9hdXRoIiwiZ2xvYmFsLWludGVsIiwiY29sbGVjdCIsInJlc3BvbnNlIiwidWktc2V0dGluZ3MiLCJ0ZWxlbWV0cnk6d3JpdGUiLCJvcGVuaWQiLCJub3RpZmljYXRpb24iLCJ3ZWJob29rIiwidmF1bHQvY29uZmlnL3Bvc3R1cmU6cmVhZCIsImFvIl0sImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9pZHAvaWQiOiJzeHNvIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL25pY2siOiJHdXkgTWFja2VuemllIiwiZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJhdWQiOlsiaXJvaC11aSIsImxvZ2luIl0sImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9yb2xlIjoiYWRtaW4iLCJzdWIiOiI2MTg1NTY4Ny02ZTQ3LTRkOTMtOTJhMi0yZDgwMDFkMzA5YmMiLCJpc3MiOiJJUk9IIEF1dGgiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL3JlZnJlc2gtdG9rZW4tanRpIjoicmVmcmVzaC1kN2NmZmM1YS0wZjQxLTRhZDgtYTQ4NS1iNGYwMDBiNzY4YzYiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3Njb3BlcyI6WyJpcm9oLWFkbWluIiwiZXZlbnQ6cmVhZCIsInZhdWx0L2NvbmZpZ3M6cmVhZCIsImludGVncmF0aW9uIiwicHJpdmF0ZS1pbnRlbCIsImFkbWluIiwicHJvZmlsZSIsImluc3BlY3QiLCJhc3NldCIsImZlZWRiYWNrIiwiaXJvaC1tYXN0ZXIiLCJzc2UiLCJyZWdpc3RyeSIsInVzZXJzIiwiaW52ZXN0aWdhdGlvbiIsImNpc2NvIiwiaW52aXRlIiwiY2FzZWJvb2siLCJ2YXVsdC9jb25maWcvbWV0YWRhdGE6cmVhZCIsIm9yYml0YWwiLCJlbnJpY2giLCJvYXV0aCIsImdsb2JhbC1pbnRlbCIsImNvbGxlY3QiLCJyZXNwb25zZSIsInVpLXNldHRpbmdzIiwidGVsZW1ldHJ5OndyaXRlIiwib3BlbmlkIiwibm90aWZpY2F0aW9uIiwid2ViaG9vayIsInZhdWx0L2NvbmZpZy9wb3N0dXJlOnJlYWQiLCJhbyJdLCJleHAiOjQxMDI0MjMxNDAsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgvY2xpZW50L25hbWUiOiJUaHJlYXQgUmVzcG9uc2UiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL3VzZXIvaWQiOiI2MTg1NTY4Ny02ZTQ3LTRkOTMtOTJhMi0yZDgwMDFkMzA5YmMiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29yZy9pZCI6IjE1MDIiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL2dyYW50IjoibG9naW4iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29yZy9uYW1lIjoiY2EgMTUwMiIsImp0aSI6InRva2VuLWRjOWQyZjNkLWFkMjAtNGM0Ni1hYjRhLWM5ZjZmNGFhYWZiNyIsIm5iZiI6MTY2Njc5MzM5MiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9zY29wZXMiOlsiaXJvaC1hZG1pbiIsImV2ZW50OnJlYWQiLCJ2YXVsdC9jb25maWdzOnJlYWQiLCJpbnRlZ3JhdGlvbiIsInByaXZhdGUtaW50ZWwiLCJhZG1pbiIsInByb2ZpbGUiLCJpbnNwZWN0IiwiYXNzZXQiLCJmZWVkYmFjayIsImlyb2gtbWFzdGVyIiwic3NlIiwicmVnaXN0cnkiLCJ1c2VycyIsImludmVzdGlnYXRpb24iLCJjaXNjbyIsImludml0ZSIsImNhc2Vib29rIiwidmF1bHQvY29uZmlnL21ldGFkYXRhOnJlYWQiLCJvcmJpdGFsIiwiZW5yaWNoIiwib2F1dGgiLCJnbG9iYWwtaW50ZWwiLCJjb2xsZWN0IiwicmVzcG9uc2UiLCJ1aS1zZXR0aW5ncyIsInRlbGVtZXRyeTp3cml0ZSIsIm9wZW5pZCIsIm5vdGlmaWNhdGlvbiIsIndlYmhvb2siLCJ2YXVsdC9jb25maWcvcG9zdHVyZTpyZWFkIiwiYW8iXSwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL25hbWUiOiJWaW5heSBQYW5jaGFnYXZpIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL2lkIjoiNjE4NTU2ODctNmU0Ny00ZDkzLTkyYTItMmQ4MDAxZDMwOWJjIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9jbGllbnQvaWQiOiJpcm9oLXVpIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoidjEuODMtYzgzZmVkNjEzMmE5OTUwNDM5NjMiLCJpYXQiOjE2NjY3OTM0NTIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgva2luZCI6InNlc3Npb24tdG9rZW4ifQ.wgfzCyidFezjalCPrrEkkLTzW2T0n2R_LMKL5uU8XlJbJ2v1iGGxQeXb2DinekCVp08Nnq1BFLpU8cPMiviUGRBC1CgiyjftmYZ28VyLWcaqLxoRAZQy24XeM8JQGeOkIWmIzpTO_rHbA1GlKnwq3epet2So1LYSuYFxla9geV_H4pw3gxxLUt54okKqbMdh_4KbMgzarQlinNzP85MU2b2Doy8aBYt6Rajw1wIVzBNNw9Mlz0LPN--3VpvnMQ0TiOY37ovCyNL3DpILtcWhjH5wuxM-6UOo8F57Lvv_4GEgUl4njHAnpQLjqjpzMxps8MN-lqip917rnXfqlhErCQ",
-          "scope": "input",
-          "name": "Publish_Install_Token",
-          "type": "datatype.string",
-          "description": "1502 Tenant",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_0242YICXH3WYA08FSByeDai38yCDkPqidYK",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "XLSReVftz7HNZWoP8PMRgpHwDI01bWGREGXgmygLsOeriU15cDJW93z8bAaCKhWb",
-          "scope": "input",
-          "name": "MangoDB_APIKey",
-          "type": "datatype.string",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_0242YV85UHW5N1yqxuiDIjzmnzndqE5KZO3",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJscmNidExVeUI3aFRVQ0JGTVpvWU9VeTZTWThIeWJVNzBXVkk2ZzdaYmsifQ.eyJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvc2NvcGVzIjpbImlyb2gtYWRtaW4iLCJldmVudDpyZWFkIiwidmF1bHQvY29uZmlnczpyZWFkIiwiaW50ZWdyYXRpb24iLCJwcml2YXRlLWludGVsIiwiYWRtaW4iLCJwcm9maWxlIiwiaW5zcGVjdCIsImFzc2V0IiwiZmVlZGJhY2siLCJpcm9oLW1hc3RlciIsInNzZSIsInJlZ2lzdHJ5IiwidXNlcnMiLCJpbnZlc3RpZ2F0aW9uIiwiY2lzY28iLCJpbnZpdGUiLCJjYXNlYm9vayIsInZhdWx0L2NvbmZpZy9tZXRhZGF0YTpyZWFkIiwib3JiaXRhbCIsImVucmljaCIsIm9hdXRoIiwiZ2xvYmFsLWludGVsIiwiY29sbGVjdCIsInJlc3BvbnNlIiwidWktc2V0dGluZ3MiLCJ0ZWxlbWV0cnk6d3JpdGUiLCJvcGVuaWQiLCJub3RpZmljYXRpb24iLCJ3ZWJob29rIiwidmF1bHQvY29uZmlnL3Bvc3R1cmU6cmVhZCIsImFvIl0sImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9pZHAvaWQiOiJzeHNvIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL25pY2siOiJHdXkgTWFja2VuemllIiwiZW1haWwiOiJ2c3BhbmNoYUBjaXNjby5jb20iLCJhdWQiOlsiaXJvaC11aSIsImxvZ2luIl0sImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvdXNlci9yb2xlIjoiYWRtaW4iLCJzdWIiOiI2MTg1NTY4Ny02ZTQ3LTRkOTMtOTJhMi0yZDgwMDFkMzA5YmMiLCJpc3MiOiJJUk9IIEF1dGgiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL3JlZnJlc2gtdG9rZW4tanRpIjoicmVmcmVzaC1kN2NmZmM1YS0wZjQxLTRhZDgtYTQ4NS1iNGYwMDBiNzY4YzYiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3Njb3BlcyI6WyJpcm9oLWFkbWluIiwiZXZlbnQ6cmVhZCIsInZhdWx0L2NvbmZpZ3M6cmVhZCIsImludGVncmF0aW9uIiwicHJpdmF0ZS1pbnRlbCIsImFkbWluIiwicHJvZmlsZSIsImluc3BlY3QiLCJhc3NldCIsImZlZWRiYWNrIiwiaXJvaC1tYXN0ZXIiLCJzc2UiLCJyZWdpc3RyeSIsInVzZXJzIiwiaW52ZXN0aWdhdGlvbiIsImNpc2NvIiwiaW52aXRlIiwiY2FzZWJvb2siLCJ2YXVsdC9jb25maWcvbWV0YWRhdGE6cmVhZCIsIm9yYml0YWwiLCJlbnJpY2giLCJvYXV0aCIsImdsb2JhbC1pbnRlbCIsImNvbGxlY3QiLCJyZXNwb25zZSIsInVpLXNldHRpbmdzIiwidGVsZW1ldHJ5OndyaXRlIiwib3BlbmlkIiwibm90aWZpY2F0aW9uIiwid2ViaG9vayIsInZhdWx0L2NvbmZpZy9wb3N0dXJlOnJlYWQiLCJhbyJdLCJleHAiOjQxMDI0MjMxNDAsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgvY2xpZW50L25hbWUiOiJUaHJlYXQgUmVzcG9uc2UiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL3VzZXIvaWQiOiI2MTg1NTY4Ny02ZTQ3LTRkOTMtOTJhMi0yZDgwMDFkMzA5YmMiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29yZy9pZCI6IjIwMjkiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL2dyYW50IjoibG9naW4iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29yZy9uYW1lIjoiMjAyOSIsImp0aSI6InRva2VuLWRjOWQyZjNkLWFkMjAtNGM0Ni1hYjRhLWM5ZjZmNGFhYWZiNyIsIm5iZiI6MTY2Njc5MzM5MiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9zY29wZXMiOlsiaXJvaC1hZG1pbiIsImV2ZW50OnJlYWQiLCJ2YXVsdC9jb25maWdzOnJlYWQiLCJpbnRlZ3JhdGlvbiIsInByaXZhdGUtaW50ZWwiLCJhZG1pbiIsInByb2ZpbGUiLCJpbnNwZWN0IiwiYXNzZXQiLCJmZWVkYmFjayIsImlyb2gtbWFzdGVyIiwic3NlIiwicmVnaXN0cnkiLCJ1c2VycyIsImludmVzdGlnYXRpb24iLCJjaXNjbyIsImludml0ZSIsImNhc2Vib29rIiwidmF1bHQvY29uZmlnL21ldGFkYXRhOnJlYWQiLCJvcmJpdGFsIiwiZW5yaWNoIiwib2F1dGgiLCJnbG9iYWwtaW50ZWwiLCJjb2xsZWN0IiwicmVzcG9uc2UiLCJ1aS1zZXR0aW5ncyIsInRlbGVtZXRyeTp3cml0ZSIsIm9wZW5pZCIsIm5vdGlmaWNhdGlvbiIsIndlYmhvb2siLCJ2YXVsdC9jb25maWcvcG9zdHVyZTpyZWFkIiwiYW8iXSwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL25hbWUiOiJWaW5heSBQYW5jaGFnYXZpIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL2lkIjoiNjE4NTU2ODctNmU0Ny00ZDkzLTkyYTItMmQ4MDAxZDMwOWJjIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9jbGllbnQvaWQiOiJpcm9oLXVpIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoidjEuODMtYzgzZmVkNjEzMmE5OTUwNDM5NjMiLCJpYXQiOjE2NjY3OTM0NTIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgva2luZCI6InNlc3Npb24tdG9rZW4ifQ.JmOieL6OLT2Ti4HGyXFvPqYKJa81VVnzBj4-r48oXJiVQyKWSVfUDCcVLTpG5JsoP-V8u9DX0hTd_P9ruu_wNUWNN0iBgoefd2OBAhrn22PsABPcot2CGJgU9Nqmty2qYFTYj2ZzkYEUcXThkz3CmLWsr_4UkRpv1eot52SnDWfScdUS7WKbhs3M-_jEwcBvUKTLemI1NDDDLf730Gc3onl1DUKQL6Fve5rOqR-I0dT3z-e6E1J-JRBWCX0XQWt5-OFu3n6xoKBsiL50nnJniX82WTpNqcWmcvcOeNu_0oA7S90VswMZAeS0Dtf-t1aP_4v1SHgefhvuU4H9cFjDOw",
-          "scope": "input",
-          "name": "Install_Token",
-          "type": "datatype.string",
-          "description": "2029",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_0242YJ85UQC0T3ia1WOIherV6z4vLvuufpi",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "",
           "scope": "output",
-          "name": "Email Table",
+          "name": "Pre-Requiste-Test_Status",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_02432GXOYEEVZ1uIcPXC0EYNn9uzpTAcCEh",
+        "unique_name": "variable_workflow_02431LDRWZDWT57FMiaDsZUmYVVxG5rCz03",
         "object_type": "variable_workflow"
       }
     ],
@@ -815,85 +815,101 @@
                                 "left_operand": {
                                   "left_operand": {
                                     "left_operand": {
-                                      "left_operand": "$activity.definition_activity_0242YTMKD4D730nnB06gVwWz0qdZ6LEO5GP.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
-                                      "operator": "eq",
-                                      "right_operand": "Pass"
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": "$activity.definition_activity_0242YTMKD4D730nnB06gVwWz0qdZ6LEO5GP.output.variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX$",
+                                          "operator": "eq",
+                                          "right_operand": "Pass"
+                                        },
+                                        "operator": "and",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_0242Z704B2UJ51KJNQuJtr4z0ZfTntaYFqe.output.succeeded$",
+                                          "operator": "eq",
+                                          "right_operand": true
+                                        }
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_0242Z0NYY80F36ncyPXFvPXC7VT9BYpcUWz.output.variable_workflow_021CABGY82WJQ2TFYsP3XgrXNYNo89uMgYd$",
+                                        "operator": "eq",
+                                        "right_operand": "Pass"
+                                      }
                                     },
                                     "operator": "and",
                                     "right_operand": {
-                                      "left_operand": "$activity.definition_activity_0242Z704B2UJ51KJNQuJtr4z0ZfTntaYFqe.output.succeeded$",
+                                      "left_operand": "$activity.definition_activity_0242ZF4FR64954PCEfSZN5rzeRYfu1qDD0E.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                       "operator": "eq",
-                                      "right_operand": true
+                                      "right_operand": "true"
                                     }
                                   },
                                   "operator": "and",
                                   "right_operand": {
-                                    "left_operand": "$activity.definition_activity_0242Z0NYY80F36ncyPXFvPXC7VT9BYpcUWz.output.variable_workflow_021CABGY82WJQ2TFYsP3XgrXNYNo89uMgYd$",
+                                    "left_operand": "$activity.definition_activity_0242ZK1AOY6VP0dcJqZuxG0i6pbpffdB1Vx.output.succeeded$",
                                     "operator": "eq",
-                                    "right_operand": "Pass"
+                                    "right_operand": true
                                   }
                                 },
                                 "operator": "and",
                                 "right_operand": {
-                                  "left_operand": "$activity.definition_activity_0242ZF4FR64954PCEfSZN5rzeRYfu1qDD0E.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                  "left_operand": "$activity.definition_activity_0242ZKV6ZP95F6a3GaBHqiYWX6klkYEUecs.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                   "operator": "eq",
                                   "right_operand": "true"
                                 }
                               },
                               "operator": "and",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_0242ZK1AOY6VP0dcJqZuxG0i6pbpffdB1Vx.output.succeeded$",
+                                "left_operand": "$activity.definition_activity_0242ZMD6LHLOL7fPNcwb9wmVHkn8IjSEncT.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                 "operator": "eq",
-                                "right_operand": true
+                                "right_operand": "true"
                               }
                             },
                             "operator": "and",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_0242ZKV6ZP95F6a3GaBHqiYWX6klkYEUecs.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                              "left_operand": "$activity.definition_activity_0242ZRKUCMZJ54kmCdZNZozH6KVUdhAICWl.output.succeeded$",
                               "operator": "eq",
-                              "right_operand": "true"
+                              "right_operand": true
                             }
                           },
                           "operator": "and",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_0242ZMD6LHLOL7fPNcwb9wmVHkn8IjSEncT.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                            "left_operand": "$activity.definition_activity_0242ZTMSORN7P5imYnHvieCA1DzPxPN9db6.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                             "operator": "eq",
                             "right_operand": "true"
                           }
                         },
                         "operator": "and",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_0242ZRKUCMZJ54kmCdZNZozH6KVUdhAICWl.output.succeeded$",
+                          "left_operand": "$activity.definition_activity_0242ZUE7K5VDR39eibUGzHL56Gq5hXsF7UY.output.succeeded$",
                           "operator": "eq",
                           "right_operand": true
                         }
                       },
                       "operator": "and",
                       "right_operand": {
-                        "left_operand": "$activity.definition_activity_0242ZTMSORN7P5imYnHvieCA1DzPxPN9db6.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                        "left_operand": "$activity.definition_activity_0242ZUY3R2L491lFO7iufsL24R43EuH3ZUO.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                         "operator": "eq",
                         "right_operand": "true"
                       }
                     },
                     "operator": "and",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_0242ZUE7K5VDR39eibUGzHL56Gq5hXsF7UY.output.succeeded$",
+                      "left_operand": "$activity.definition_activity_0242ZVJCIZS1E0UdvsUjodY8fTGrrrtQheG.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                       "operator": "eq",
-                      "right_operand": true
+                      "right_operand": "true"
                     }
                   },
                   "operator": "and",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_0242ZUY3R2L491lFO7iufsL24R43EuH3ZUO.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                    "left_operand": "$activity.definition_activity_0242ZK1AOY6VP0dcJqZuxG0i6pbpffdB1Vx.output.jsonpath_queries.Installed_Status$",
                     "operator": "eq",
-                    "right_operand": "true"
+                    "right_operand": "installed"
                   }
                 },
                 "operator": "and",
                 "right_operand": {
-                  "left_operand": "$activity.definition_activity_0242ZVJCIZS1E0UdvsUjodY8fTGrrrtQheG.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                  "left_operand": "$activity.definition_activity_0242ZUE7K5VDR39eibUGzHL56Gq5hXsF7UY.output.jsonpath_queries.installed_Instance_workflow_status$",
                   "operator": "eq",
-                  "right_operand": "true"
+                  "right_operand": "success"
                 }
               },
               "continue_on_failure": true,
@@ -1279,71 +1295,87 @@
                             "left_operand": {
                               "left_operand": {
                                 "left_operand": {
-                                  "left_operand": "$activity.definition_activity_02431ERQER1XG0AQnZ7LU4OqJTvGXIbnMmF.output.variable_workflow_021CABGY82WJQ2TFYsP3XgrXNYNo89uMgYd$",
-                                  "operator": "eq",
-                                  "right_operand": "Pass"
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": "$activity.definition_activity_02431ERQER1XG0AQnZ7LU4OqJTvGXIbnMmF.output.variable_workflow_021CABGY82WJQ2TFYsP3XgrXNYNo89uMgYd$",
+                                      "operator": "eq",
+                                      "right_operand": "Pass"
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02431I24EKU2Z1iMfEo3mw25hLoRZewpTzm.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                      "operator": "eq",
+                                      "right_operand": "true"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02431I24EM75N4b8nzQu1tKO6NSoMRyXqU8.output.succeeded$",
+                                    "operator": "eq",
+                                    "right_operand": true
+                                  }
                                 },
                                 "operator": "and",
                                 "right_operand": {
-                                  "left_operand": "$activity.definition_activity_02431I24EKU2Z1iMfEo3mw25hLoRZewpTzm.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                                  "left_operand": "$activity.definition_activity_02431I24EPSEU0e1oKZOVDMY3PbF0bls8CW.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                   "operator": "eq",
                                   "right_operand": "true"
                                 }
                               },
                               "operator": "and",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_02431I24EM75N4b8nzQu1tKO6NSoMRyXqU8.output.succeeded$",
+                                "left_operand": "$activity.definition_activity_02431I24EQNIO6pORL3ZiUsRmKvgSnzM1Y6.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                                 "operator": "eq",
-                                "right_operand": true
+                                "right_operand": "true"
                               }
                             },
                             "operator": "and",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_02431I24EPSEU0e1oKZOVDMY3PbF0bls8CW.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                              "left_operand": "$activity.definition_activity_02431I24EU54G1S7n9I6sHOyYb7Di9YPqCW.output.succeeded$",
                               "operator": "eq",
-                              "right_operand": "true"
+                              "right_operand": true
                             }
                           },
                           "operator": "and",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_02431I24EQNIO6pORL3ZiUsRmKvgSnzM1Y6.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                            "left_operand": "$activity.definition_activity_02431I24EV2JH3LssP9nUJfhdPdmv5zbYrc.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                             "operator": "eq",
                             "right_operand": "true"
                           }
                         },
                         "operator": "and",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_02431I24EU54G1S7n9I6sHOyYb7Di9YPqCW.output.succeeded$",
+                          "left_operand": "$activity.definition_activity_02431I24EXQEH7GzoySgivhSwPfjQTnOGMV.output.succeeded$",
                           "operator": "eq",
                           "right_operand": true
                         }
                       },
                       "operator": "and",
                       "right_operand": {
-                        "left_operand": "$activity.definition_activity_02431I24EV2JH3LssP9nUJfhdPdmv5zbYrc.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                        "left_operand": "$activity.definition_activity_02431I24EYFRA1GipmjDrLRZ0iuyJ2pbOxg.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                         "operator": "eq",
                         "right_operand": "true"
                       }
                     },
                     "operator": "and",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_02431I24EXQEH7GzoySgivhSwPfjQTnOGMV.output.succeeded$",
+                      "left_operand": "$activity.definition_activity_02431I24F195S0JaBCRFxyelhfJVdi4WEFF.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
                       "operator": "eq",
-                      "right_operand": true
+                      "right_operand": "true"
                     }
                   },
                   "operator": "and",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_02431I24EYFRA1GipmjDrLRZ0iuyJ2pbOxg.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                    "left_operand": "$activity.definition_activity_02431I24EM75N4b8nzQu1tKO6NSoMRyXqU8.output.jsonpath_queries.Installed_Status$",
                     "operator": "eq",
-                    "right_operand": "true"
+                    "right_operand": "installed"
                   }
                 },
                 "operator": "and",
                 "right_operand": {
-                  "left_operand": "$activity.definition_activity_02431I24F195S0JaBCRFxyelhfJVdi4WEFF.output.variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U$",
+                  "left_operand": "$activity.definition_activity_02431I24EXQEH7GzoySgivhSwPfjQTnOGMV.output.jsonpath_queries.installed_Instance_workflow_status$",
                   "operator": "eq",
-                  "right_operand": "true"
+                  "right_operand": "success"
                 }
               },
               "continue_on_failure": true,
@@ -1766,86 +1798,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Headers Cookie (Not Mandatory)",
-              "type": "datatype.string",
-              "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "x-cisco-tenant-id",
-              "scope": "input",
-              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Response Body",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Select Method (EX: GET, PUT, POST, DELETE)",
-              "type": "datatype.string",
-              "description": "The primary or most commonly-used HTTP methods are POST, GET, PUT, PATCH, and DELETE. These methods correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other methods, too, but they are utilized less frequently.",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Pass or Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "output",
               "name": "Created Object ID",
               "type": "datatype.string",
@@ -1853,112 +1805,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Error Message",
-              "type": "datatype.string",
-              "description": "Created Object Error Message",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Error Code",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Value (Only For Tenant creation) Provide Tenant id",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Action Id",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_020FOLLJP0WDO7B8ep2v5S17F9drfRIk5eb",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "local",
-              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Header User-Agent (optional)",
-              "type": "datatype.string",
-              "description": "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "be-console/api/v1/",
-              "scope": "input",
-              "name": "Relative URL",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Authorization",
-              "scope": "local",
-              "name": "Authorization",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
             "object_type": "variable_workflow"
           },
           {
@@ -1980,6 +1826,33 @@
             "properties": {
               "value": "",
               "scope": "input",
+              "name": "Select Method (EX: GET, PUT, POST, DELETE)",
+              "type": "datatype.string",
+              "description": "The primary or most commonly-used HTTP methods are POST, GET, PUT, PATCH, and DELETE. These methods correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other methods, too, but they are utilized less frequently.",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "x-cisco-tenant-id",
+              "scope": "input",
+              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
               "name": "Header Accept (Optional)",
               "type": "datatype.string",
               "description": "The Accept request HTTP header indicates which content types, expressed as MIME types, the client is able to understand. The server uses content negotiation to select one of the proposals and informs the client of the choice with the Content-Type response header.",
@@ -1993,6 +1866,72 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "input",
+              "name": "Header User-Agent (optional)",
+              "type": "datatype.string",
+              "description": "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "be-console/api/v1/",
+              "scope": "input",
+              "name": "Relative URL",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Response Body",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
               "scope": "output",
               "name": "Schema ID's",
               "type": "datatype.string",
@@ -2000,6 +1939,99 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Headers Cookie (Not Mandatory)",
+              "type": "datatype.string",
+              "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Action Id",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020FOLLJP0WDO7B8ep2v5S17F9drfRIk5eb",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Error Code",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "Provide object_name (ex: targets, runtime_users, calendars)",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Authorization",
+              "scope": "local",
+              "name": "Authorization",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Error Message",
+              "type": "datatype.string",
+              "description": "Created Object Error Message",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Value (Only For Tenant creation) Provide Tenant id",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
             "object_type": "variable_workflow"
           }
         ],
@@ -3024,162 +3056,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Xchnage_Publish_DisplayName",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_UserTenantID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Blurb",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "MangoDB_API_Key",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_021HJM82VV60H0U0rBwV0UQVjqFtyE0go6r",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange Category Name",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Random_String",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01YD2XVZJVVOF4aeLs2JYrA4kM8KM6js8oK",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Author",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0242A62JN3LRL5HiQSyTBwDJ4LZoxhprByI",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "published_status",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_023WBU8MVDXMV3pPoTHkhtEjDVhPKM77JfR",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_Description",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Input Token",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_XchnageTenantID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01YCNIL3PHIL51LcRbut4AZjbktw4xOe10M",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Workflow_ID",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "input",
               "name": "Description",
               "type": "datatype.string",
@@ -3187,84 +3063,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "MangoDB_AppName",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_021HJV97VDQCF2DgImQ5n49rxNSmnrIoy1k",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "MangoDB_Resposne",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_023X44VST0I8A6wGosgAHxdEWMqS2M53p16",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Display_Name",
-              "type": "datatype.string",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_Category_ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Reusable PublishAPI TestCase Pass/Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_UniqueName",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
             "object_type": "variable_workflow"
           },
           {
@@ -3285,12 +3083,155 @@
             "properties": {
               "value": "",
               "scope": "output",
+              "name": "MangoDB_Resposne",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_023X44VST0I8A6wGosgAHxdEWMqS2M53p16",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Input Token",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchnage_Publish_DisplayName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_UniqueName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
               "name": "xchange_metadata_details",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
             "unique_name": "variable_workflow_023W3VFOMJJSN58SCc5lB7pONJl9WN5AbFD",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "MangoDB_AppName",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_021HJV97VDQCF2DgImQ5n49rxNSmnrIoy1k",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Workflow_ID",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Category_ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Display_Name",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Description",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "MangoDB_API_Key",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_021HJM82VV60H0U0rBwV0UQVjqFtyE0go6r",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_XchnageTenantID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01YCNIL3PHIL51LcRbut4AZjbktw4xOe10M",
             "object_type": "variable_workflow"
           },
           {
@@ -3304,6 +3245,97 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_022OAOJHDPS9C5rvs7bTaGunnXB5zsNyg1S",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Author",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0242A62JN3LRL5HiQSyTBwDJ4LZoxhprByI",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Reusable PublishAPI TestCase Pass/Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Blurb",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVACMW7EV4E2DiZRdXjJ7TQxM0m6zeFXs",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_UserTenantID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Random_String",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01YD2XVZJVVOF4aeLs2JYrA4kM8KM6js8oK",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "published_status",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_023WBU8MVDXMV3pPoTHkhtEjDVhPKM77JfR",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange Category Name",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
             "object_type": "variable_workflow"
           }
         ],
@@ -4556,13 +4588,26 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Install_Payload",
+              "scope": "output",
+              "name": "Installed_Mian_Workflow_ID",
               "type": "datatype.string",
-              "is_required": true,
+              "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_021CA9RS90VFT1DwQOADskqduGPb6NkyrLv",
+            "unique_name": "variable_workflow_022Z0P9HOGQ7C7lEVrqXDW31MYq8SnaAssW",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Installed_Mian_Workflow_name",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_022Z0PKZFQSQY5rXY55lBYxNnqHTeb5Hgkz",
             "object_type": "variable_workflow"
           },
           {
@@ -4583,32 +4628,6 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Installed_Xchange_Unique_Name",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_021CDSUCDVOBW2NGAttvQ7EnX3tpmCmzDkJ",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Install_Pass_Fail_Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_021CABGY82WJQ2TFYsP3XgrXNYNo89uMgYd",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
               "name": "Install_Response_Body",
               "type": "datatype.string",
               "is_required": false,
@@ -4621,13 +4640,13 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Installed_Mian_Workflow_name",
+              "scope": "input",
+              "name": "Install_Payload",
               "type": "datatype.string",
-              "is_required": false,
+              "is_required": true,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_022Z0PKZFQSQY5rXY55lBYxNnqHTeb5Hgkz",
+            "unique_name": "variable_workflow_021CA9RS90VFT1DwQOADskqduGPb6NkyrLv",
             "object_type": "variable_workflow"
           },
           {
@@ -4635,12 +4654,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Installed_Mian_Workflow_ID",
+              "name": "Installed_Xchange_Unique_Name",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_022Z0P9HOGQ7C7lEVrqXDW31MYq8SnaAssW",
+            "unique_name": "variable_workflow_021CDSUCDVOBW2NGAttvQ7EnX3tpmCmzDkJ",
             "object_type": "variable_workflow"
           },
           {
@@ -4654,6 +4673,19 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_021CAA2V0JPM632AITjHxQFhghOeGMXLAj1",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Install_Pass_Fail_Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_021CABGY82WJQ2TFYsP3XgrXNYNo89uMgYd",
             "object_type": "variable_workflow"
           }
         ],
