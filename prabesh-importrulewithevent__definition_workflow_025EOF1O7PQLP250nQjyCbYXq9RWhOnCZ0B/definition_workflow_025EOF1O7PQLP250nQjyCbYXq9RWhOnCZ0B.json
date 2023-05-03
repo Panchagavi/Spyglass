@@ -1,0 +1,124 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_025EOF1O7PQLP250nQjyCbYXq9RWhOnCZ0B",
+    "name": "Ak_event trigger 2nd may",
+    "title": "Ak_event trigger 2nd may",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Ak_event trigger 2nd may",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_025EOH88KIJI15NNOiipQXJbDPKExQpjo4P",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "rules": {
+    "ruleevent_025EOHHXSSD7O5Mr7way6A0XXrC82ZLse9i": {
+      "name": "AK webhook application json",
+      "title": "AK webhook application json",
+      "type": "webhook.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": "$output.request_body$",
+          "operator": "eqi",
+          "right_operand": "Orchestration"
+        },
+        "description": "",
+        "disabled": false,
+        "display_name": "AK webhook application json",
+        "rule_type": "rule_event",
+        "title": "AK webhook application json",
+        "webhook_id": "webhook_025EOFXU5OGWW2Q1Yv8UkM1MB8dBb9udCCd",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_025EOF1O7PQLP250nQjyCbYXq9RWhOnCZ0B"
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_025EOHHXSSD7O5Mr7way6A0XXrC82ZLse9i"
+    }
+  },
+  "events": {
+    "event_webhook_025EVQJCZQS4J1BWn6IjCLxsoJwe47QwOSf": {
+      "name": "AK webhook application json",
+      "title": "AK webhook application json",
+      "type": "webhook.event",
+      "base_type": "event",
+      "object_type": "event_webhook",
+      "rule_id": "ruleevent_025EOHHXSSD7O5Mr7way6A0XXrC82ZLse9i",
+      "target_id": "",
+      "webhook_id": "webhook_025EOFXU5OGWW2Q1Yv8UkM1MB8dBb9udCCd",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": "$output.request_body$",
+          "operator": "eqi",
+          "right_operand": "Orchestration"
+        },
+        "description": "",
+        "disabled": false,
+        "display_name": "AK webhook application json",
+        "rule_type": "rule_event",
+        "title": "AK webhook application json",
+        "webhook_id": "webhook_025EOFXU5OGWW2Q1Yv8UkM1MB8dBb9udCCd"
+      },
+      "unique_name": "event_webhook_025EVQJCZQS4J1BWn6IjCLxsoJwe47QwOSf"
+    }
+  },
+  "webhooks": {
+    "webhook_025EOFXU5OGWW2Q1Yv8UkM1MB8dBb9udCCd": {
+      "name": "AK 2nd may application json",
+      "title": "AK 2nd may application json",
+      "type": "generic.webhook",
+      "base_type": "webhook",
+      "object_type": "webhook",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "AK 2nd may application json",
+        "request_content_type": "application/json"
+      },
+      "unique_name": "webhook_025EOFXU5OGWW2Q1Yv8UkM1MB8dBb9udCCd"
+    }
+  },
+  "wf_rule_trigger": {
+    "triggerevent_025EVQJDNS05Z5qsXSu9HqoI7OlW2lElKu2": {
+      "wf_unique_name": "definition_workflow_025EOF1O7PQLP250nQjyCbYXq9RWhOnCZ0B",
+      "rule_unique_name": "ruleevent_025EOHHXSSD7O5Mr7way6A0XXrC82ZLse9i",
+      "trig_unique_name": "triggerevent_025EVQJDNS05Z5qsXSu9HqoI7OlW2lElKu2"
+    }
+  }
+}
