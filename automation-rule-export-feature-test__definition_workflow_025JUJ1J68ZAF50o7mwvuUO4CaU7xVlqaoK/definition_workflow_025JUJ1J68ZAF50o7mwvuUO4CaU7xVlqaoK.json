@@ -1,0 +1,141 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_025JUJ1J68ZAF50o7mwvuUO4CaU7xVlqaoK",
+    "name": "Rule_WF_May08_Export_Import",
+    "title": "Rule_WF_May08_Export_Import",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Rule_WF_May08_Export_Import",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_025JUJEZ2MGOF2trBSFFi7bVxFom7wqGeIW",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "rules": {
+    "ruleevent_025JUIWWZ0X8Y2EGFnKddfbyQmRHkEClRiM": {
+      "name": "Approval_Task_Rule_Testing_May08",
+      "title": "Approval_Task_Rule_Testing_May08-Updated-Updated-updated-updated",
+      "description": "Approval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-Updated",
+      "type": "approval_task.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": {
+            "left_operand": {
+              "left_operand": "$output.approval_choices[0]$",
+              "operator": "eq",
+              "right_operand": "Approve"
+            },
+            "operator": "and",
+            "right_operand": {
+              "left_operand": "$output.assignee_responses[0].assignee$",
+              "operator": "eq",
+              "right_operand": "vspancha@cisco.com"
+            }
+          },
+          "operator": "or",
+          "right_operand": {
+            "left_operand": "$output.expiration_date$",
+            "operator": "lt",
+            "right_operand": "2023-01-18"
+          }
+        },
+        "description": "Approval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-Updated",
+        "disabled": false,
+        "display_name": "Approval_Task_Rule_Testing_May08-Updated-Updated-updated-updated",
+        "rule_type": "rule_event",
+        "title": "Approval_Task_Rule_Testing_May08-Updated-Updated-updated-updated",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_025JUJ1J68ZAF50o7mwvuUO4CaU7xVlqaoK"
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_025JUIWWZ0X8Y2EGFnKddfbyQmRHkEClRiM"
+    }
+  },
+  "events": {
+    "event_025JUIWWXKC1110CqKQqgI60z8rNij2MER3": {
+      "name": "Approval_Task_Rule_Testing_May08-Updated-Updated-updated-updated",
+      "title": "Approval_Task_Rule_Testing_May08-Updated-Updated-updated-updated",
+      "description": "Approval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-Updated",
+      "type": "approval_task.event",
+      "base_type": "event",
+      "object_type": "event",
+      "rule_id": "ruleevent_025JUIWWZ0X8Y2EGFnKddfbyQmRHkEClRiM",
+      "target_id": "",
+      "webhook_id": "",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": {
+            "left_operand": {
+              "left_operand": "$output.approval_choices[0]$",
+              "operator": "eq",
+              "right_operand": "Approve"
+            },
+            "operator": "and",
+            "right_operand": {
+              "left_operand": "$output.assignee_responses[0].assignee$",
+              "operator": "eq",
+              "right_operand": "vspancha@cisco.com"
+            }
+          },
+          "operator": "or",
+          "right_operand": {
+            "left_operand": "$output.expiration_date$",
+            "operator": "lt",
+            "right_operand": "2023-01-18"
+          }
+        },
+        "description": "Approval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-UpdatedApproval_Task_Rule_Testing_May08-Updated-Updated",
+        "disabled": false,
+        "display_name": "Approval_Task_Rule_Testing_May08-Updated-Updated-updated-updated",
+        "rule_type": "rule_event",
+        "title": "Approval_Task_Rule_Testing_May08-Updated-Updated-updated-updated"
+      },
+      "unique_name": "event_025JUIWWXKC1110CqKQqgI60z8rNij2MER3"
+    }
+  },
+  "wf_rule_trigger": {
+    "triggerevent_025JUKDXGPJA26oNPZnKQ5Rf1EjPjYQobs5": {
+      "wf_unique_name": "definition_workflow_025JUJ1J68ZAF50o7mwvuUO4CaU7xVlqaoK",
+      "rule_unique_name": "ruleevent_025JUIWWZ0X8Y2EGFnKddfbyQmRHkEClRiM",
+      "trig_unique_name": "triggerevent_025JUKDXGPJA26oNPZnKQ5Rf1EjPjYQobs5"
+    }
+  }
+}
