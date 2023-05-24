@@ -1,0 +1,204 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_025X8XYR64IYL7TV8qExqgXFkgPhgKNz6iU",
+    "name": "Observable_Type_19May_withInput",
+    "title": "Observable_Type_19May_withInput",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "observable_type",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025X8XYRPZE160j022xhqc5Zkv4SDmY4xUF",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "unsupported observable type",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025X92KZ24WEJ5HOeSmGnahtzi9rcjucsrA",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "observable_value",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025X8YWXJW9JJ3wh1VeDnuOnLO7qmqVgGNS",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Observable_Type_19May_withInput",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      },
+      "wf_metadata": {
+        "coa": {
+          "observable_types": [
+            "domain",
+            "email",
+            "hostname",
+            "ip",
+            "ipv6",
+            "md5",
+            "sha1",
+            "sha256",
+            "url",
+            "user",
+            "amp_computer_guid",
+            "certificate_common_name",
+            "certificate_issuer",
+            "certificate_serial",
+            "cisco_cm_id",
+            "cisco_mid",
+            "cisco_uc_id",
+            "crowdstrike_id",
+            "cybereason_id",
+            "device",
+            "email_messageid",
+            "email_subject",
+            "file_name",
+            "file_path",
+            "imei",
+            "imsi",
+            "mac_address",
+            "ms_machine_id",
+            "mutex",
+            "ngfw_id",
+            "ngfw_name",
+            "odns_identity",
+            "odns_identity_label",
+            "orbital_node_id",
+            "pki_serial",
+            "process_args",
+            "process_hash",
+            "process_name",
+            "process_path",
+            "process_username",
+            "processor_id",
+            "registry_key",
+            "registry_name",
+            "registry_path",
+            "s1_agent_id",
+            "serial_number",
+            "swc_device_id",
+            "trend_micro_id",
+            "user_agent"
+          ]
+        }
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_025X91CMZQ3NV6TbVonRtRRnXKId7QFqL7A",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_025X91CN6PKDM1wpCB8llx5SMgM6qdEfZ8M",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": "$workflow.definition_workflow_025X8XYR64IYL7TV8qExqgXFkgPhgKNz6iU.input.variable_workflow_025X8XYRPZE160j022xhqc5Zkv4SDmY4xUF$",
+                    "operator": "eq",
+                    "right_operand": "url"
+                  },
+                  "operator": "or",
+                  "right_operand": {
+                    "left_operand": "$workflow.definition_workflow_025X8XYR64IYL7TV8qExqgXFkgPhgKNz6iU.input.variable_workflow_025X8XYRPZE160j022xhqc5Zkv4SDmY4xUF$",
+                    "operator": "eq",
+                    "right_operand": "ip"
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_025X8XYR64IYL7TV8qExqgXFkgPhgKNz6iU.input.variable_workflow_025X8XYRPZE160j022xhqc5Zkv4SDmY4xUF$",
+                  "operator": "eq",
+                  "right_operand": "ipv6"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_025X93CHQC0254RCd6WlGsvaSshUOcdMoG1",
+                "name": "Completed",
+                "title": "Completed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "failed-completed",
+                  "continue_on_failure": false,
+                  "display_name": "Completed",
+                  "result_message": "$workflow.definition_workflow_025X8XYR64IYL7TV8qExqgXFkgPhgKNz6iU.input.variable_workflow_025X8XYRPZE160j022xhqc5Zkv4SDmY4xUF$ -- This Observable type Not supported by this Workflow ",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_025X8XYTWK2SY2SA6g1tAuuSiJ7XI8623ze",
+        "name": "To Upper",
+        "title": "To Upper",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "To Upper",
+          "skip_execution": false,
+          "source": "$workflow.definition_workflow_025X8XYR64IYL7TV8qExqgXFkgPhgKNz6iU.input.variable_workflow_025X8XYRPZE160j022xhqc5Zkv4SDmY4xUF$  --\u003e $workflow.definition_workflow_025X8XYR64IYL7TV8qExqgXFkgPhgKNz6iU.input.variable_workflow_025X8YWXJW9JJ3wh1VeDnuOnLO7qmqVgGNS$"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
