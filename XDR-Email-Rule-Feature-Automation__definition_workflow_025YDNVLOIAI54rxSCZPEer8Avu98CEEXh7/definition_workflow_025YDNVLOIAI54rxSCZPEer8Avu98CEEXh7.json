@@ -7,6 +7,136 @@
     "base_type": "workflow",
     "variables": [
       {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": true,
+          "scope": "input",
+          "name": "Downlaod_attachments",
+          "type": "datatype.boolean",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025YEKFRQJVZW3ncAVsyVVb9fJeFA3lQx7e",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "TestStaus When Trigger is Disabled at WF Level",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0261TCPAV83XC5L7uhDyOuksCYPHQA8Misg",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": false,
+          "scope": "input",
+          "name": "Workflow_Config_Disabled (Rule ON or Off)",
+          "type": "datatype.boolean",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025YEHPOES53P4KrZqEMPix19i8YgnJOYcG",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Email-Rule",
+          "scope": "input",
+          "name": "Rule_Name",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025YED8663USC0kMqLlK05es98TyMtmr8bd",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "definition_workflow_025AFHR4A1BVZ3Nex0wNurstgBVJ3ia8R8R",
+          "scope": "local",
+          "name": "workflow_payload_UniqueName",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025Z4CBHO5TN21CgE93oBvOKjmBA85l3z4t",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": " String_Req_Defaut_FromRulePage",
+          "scope": "input",
+          "name": " String_Req_Defaut_FromRulePage",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025YEBTJI171O29z2xMTPrr8CdaPIRm9ZLw",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Enter read or delete",
+          "scope": "input",
+          "name": "Email_Rule_Action",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025YEGGSXWW6P13BlfXFdjMn1zBGM4HO0e1",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "TestStatus For NegativeCases",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0261YHMLBPB3B54gRZxKH7oSRKHC3dUtTKV",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": \"$output.attachments_count$\",\n                    \"operator\": \"gte\",\n                    \"right_operand\": 0\n                  },\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.cc$\",\n                    \"operator\": \"mw\",\n                    \"right_operand\": \"*cisco.com\"\n                  },\n                  \"operator\": \"and\"\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.message$\",\n                  \"operator\": \"mregex\",\n                  \"right_operand\": \"(EmailTrigger)\"\n                },\n                \"operator\": \"or\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.subject$\",\n                \"operator\": \"mw\",\n                \"right_operand\": \"*sub*\"\n              },\n              \"operator\": \"and\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.to$\",\n              \"operator\": \"mw\",\n              \"right_operand\": \"*gmail.com\"\n            },\n            \"operator\": \"and\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.sender$\",\n            \"operator\": \"ne\",\n            \"right_operand\": \"vspancha@cisco.com\"\n          },\n          \"operator\": \"and\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.attachments[0].file_name$\",\n          \"operator\": \"mw\",\n          \"right_operand\": \"Un*\"\n        },\n        \"operator\": \"or\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.raw_message$\",\n        \"right_operand\": \"Automation\",\n        \"operator\": \"ne\"\n      },\n      \"operator\": \"and\"\n    },",
+          "scope": "input",
+          "name": "Rule_Condition_PUTCase",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025Z5IJ5XR6CX186Q5Iyhyd8sBtdxYsJhrM",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Delete Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025Z34P3BAJEW02DDcin9Ao2STC50gWFY4Z",
+        "object_type": "variable_workflow"
+      },
+      {
         "schema_id": "datatype.integer",
         "properties": {
           "value": 1000,
@@ -21,16 +151,69 @@
         "object_type": "variable_workflow"
       },
       {
-        "schema_id": "datatype.number",
+        "schema_id": "datatype.string",
         "properties": {
-          "value": 8.362,
+          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"operator\": \"gte\",\n                  \"left_operand\": \"$output.attachments_count$\",\n                  \"right_operand\": 0\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.cc$\",\n                  \"right_operand\": \"*cisco.com\",\n                  \"operator\": \"mw\"\n                },\n                \"operator\": \"and\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.message$\",\n                \"right_operand\": \"(EmailTrigger)\",\n                \"operator\": \"mregex\"\n              },\n              \"operator\": \"or\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.subject$\",\n              \"right_operand\": \"*sub*\",\n              \"operator\": \"mw\"\n            },\n            \"operator\": \"and\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.to$\",\n            \"right_operand\": \"*gmail.com\",\n            \"operator\": \"mw\"\n          },\n          \"operator\": \"and\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.sender$\",\n          \"right_operand\": \"vspancha@cisco.com\",\n          \"operator\": \"ne\"\n        },\n        \"operator\": \"and\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.attachments[0].file_name$\",\n        \"right_operand\": \"Un*\",\n        \"operator\": \"mw\"\n      },\n      \"operator\": \"or\"\n    },",
           "scope": "input",
-          "name": "Decimal_Input_From_RulePage",
-          "type": "datatype.number",
+          "name": "Rule_Conditions",
+          "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_025YEAAR7QLCK6xYgEcoQXTIoKDhDJ5LpWp",
+        "unique_name": "variable_workflow_025YECRYXVIC11f9gPqK5VzimHAqVA00NwO",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "TestStatus When Trigger Status is OFF (system Level)",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0261SM94Q4BS26hT4TmueUfJlaMdU59C2uU",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Pass",
+          "scope": "output",
+          "name": "Email_Not_Triggrred",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0262DY0ZEFM590pTs3Ip2wlBr1m0jLFd468",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "String_NotReq_No_Defaut_FromRulePage",
+          "scope": "input",
+          "name": "String_NotReq_No_Defaut_FromRulePage",
+          "type": "datatype.string",
+          "description": "String_NotReq_No_Defaut_FromRulePage",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025YEC6PLVG9E2sLo0U6X2Z1FVg8rNwh7da",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email Feature Automation TestCase Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_025Z38GL9OADX52x2JbmtkneJTyyeLs73kw",
         "object_type": "variable_workflow"
       },
       {
@@ -63,67 +246,14 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "String_NotReq_No_Defaut_FromRulePage",
-          "scope": "input",
-          "name": "String_NotReq_No_Defaut_FromRulePage",
-          "type": "datatype.string",
-          "description": "String_NotReq_No_Defaut_FromRulePage",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_025YEC6PLVG9E2sLo0U6X2Z1FVg8rNwh7da",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.boolean",
-        "properties": {
-          "value": false,
-          "scope": "input",
-          "name": "Workflow_Config_Disabled (Rule ON or Off)",
-          "type": "datatype.boolean",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_025YEHPOES53P4KrZqEMPix19i8YgnJOYcG",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Email-Rule",
-          "scope": "input",
-          "name": "Rule_Name",
-          "type": "datatype.string",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_025YED8663USC0kMqLlK05es98TyMtmr8bd",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Email Feature Automation TestCase Status",
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_025AFHR4A1BVZ3Nex0wNurstgBVJ3ia8R8R\",\n    \"name\": \"WF-For-Rule Mapping-Put-Case\",\n    \"title\": \"WF-For-Rule Mapping-Put-Case\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"WF-For-Rule Mapping-Put-Case\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_025AFHTUK7AD52kyqMJ7w7X4u9GYGsSrdIR\",\n        \"name\": \"Sleep\",\n        \"title\": \"Sleep\",\n        \"type\": \"core.sleep\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Sleep\",\n          \"skip_execution\": false,\n          \"sleep_interval\": 1\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
+          "scope": "local",
+          "name": "Workflow_Payload",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_025Z38GL9OADX52x2JbmtkneJTyyeLs73kw",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Delete Test Status",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_025Z34P3BAJEW02DDcin9Ao2STC50gWFY4Z",
+        "unique_name": "variable_workflow_025Z4C3MOLF514HzgNXtL8p1F8Z8rODLyhT",
         "object_type": "variable_workflow"
       },
       {
@@ -142,32 +272,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Pass",
-          "scope": "output",
-          "name": "Email_Not_Triggrred",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_0262DY0ZEFM590pTs3Ip2wlBr1m0jLFd468",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "definition_workflow_025AFHR4A1BVZ3Nex0wNurstgBVJ3ia8R8R",
-          "scope": "local",
-          "name": "workflow_payload_UniqueName",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_025Z4CBHO5TN21CgE93oBvOKjmBA85l3z4t",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "",
           "scope": "output",
           "name": "Update Rule - PUT Case Test Status",
@@ -179,16 +283,16 @@
         "object_type": "variable_workflow"
       },
       {
-        "schema_id": "datatype.string",
+        "schema_id": "datatype.number",
         "properties": {
-          "value": "Enter read or delete",
+          "value": 8.362,
           "scope": "input",
-          "name": "Email_Rule_Action",
-          "type": "datatype.string",
-          "is_required": true,
+          "name": "Decimal_Input_From_RulePage",
+          "type": "datatype.number",
+          "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_025YEGGSXWW6P13BlfXFdjMn1zBGM4HO0e1",
+        "unique_name": "variable_workflow_025YEAAR7QLCK6xYgEcoQXTIoKDhDJ5LpWp",
         "object_type": "variable_workflow"
       },
       {
@@ -196,64 +300,12 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "TestStaus When Trigger is Disabled at WF Level",
+          "name": "Email_Table",
           "type": "datatype.string",
           "is_required": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_0261TCPAV83XC5L7uhDyOuksCYPHQA8Misg",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"operator\": \"gte\",\n                  \"left_operand\": \"$output.attachments_count$\",\n                  \"right_operand\": 0\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.cc$\",\n                  \"right_operand\": \"*cisco.com\",\n                  \"operator\": \"mw\"\n                },\n                \"operator\": \"and\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.message$\",\n                \"right_operand\": \"(EmailTrigger)\",\n                \"operator\": \"mregex\"\n              },\n              \"operator\": \"or\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.subject$\",\n              \"right_operand\": \"*sub*\",\n              \"operator\": \"mw\"\n            },\n            \"operator\": \"and\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.to$\",\n            \"right_operand\": \"*gmail.com\",\n            \"operator\": \"mw\"\n          },\n          \"operator\": \"and\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.sender$\",\n          \"right_operand\": \"vspancha@cisco.com\",\n          \"operator\": \"ne\"\n        },\n        \"operator\": \"and\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.attachments[0].file_name$\",\n        \"right_operand\": \"Un*\",\n        \"operator\": \"mw\"\n      },\n      \"operator\": \"or\"\n    },",
-          "scope": "input",
-          "name": "Rule_Conditions",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_025YECRYXVIC11f9gPqK5VzimHAqVA00NwO",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "TestStatus For NegativeCases",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_0261YHMLBPB3B54gRZxKH7oSRKHC3dUtTKV",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": \"$output.attachments_count$\",\n                    \"operator\": \"gte\",\n                    \"right_operand\": 0\n                  },\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.cc$\",\n                    \"operator\": \"mw\",\n                    \"right_operand\": \"*cisco.com\"\n                  },\n                  \"operator\": \"and\"\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.message$\",\n                  \"operator\": \"mregex\",\n                  \"right_operand\": \"(EmailTrigger)\"\n                },\n                \"operator\": \"or\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.subject$\",\n                \"operator\": \"mw\",\n                \"right_operand\": \"*sub*\"\n              },\n              \"operator\": \"and\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.to$\",\n              \"operator\": \"mw\",\n              \"right_operand\": \"*gmail.com\"\n            },\n            \"operator\": \"and\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.sender$\",\n            \"operator\": \"ne\",\n            \"right_operand\": \"vspancha@cisco.com\"\n          },\n          \"operator\": \"and\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.attachments[0].file_name$\",\n          \"operator\": \"mw\",\n          \"right_operand\": \"Un*\"\n        },\n        \"operator\": \"or\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.raw_message$\",\n        \"right_operand\": \"Automation\",\n        \"operator\": \"ne\"\n      },\n      \"operator\": \"and\"\n    },",
-          "scope": "input",
-          "name": "Rule_Condition_PUTCase",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_025Z5IJ5XR6CX186Q5Iyhyd8sBtdxYsJhrM",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.boolean",
-        "properties": {
-          "value": true,
-          "scope": "input",
-          "name": "Downlaod_attachments",
-          "type": "datatype.boolean",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_025YEKFRQJVZW3ncAVsyVVb9fJeFA3lQx7e",
+        "unique_name": "variable_workflow_0262JXK6ITUFV5FC6Q5uUuZ8PzQIBVxFmbm",
         "object_type": "variable_workflow"
       },
       {
@@ -268,45 +320,6 @@
         },
         "unique_name": "variable_workflow_025YE5NIQL9F00IfR8YALWk5jNZpq2x6Caq",
         "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": " String_Req_Defaut_FromRulePage",
-          "scope": "input",
-          "name": " String_Req_Defaut_FromRulePage",
-          "type": "datatype.string",
-          "is_required": true,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_025YEBTJI171O29z2xMTPrr8CdaPIRm9ZLw",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_025AFHR4A1BVZ3Nex0wNurstgBVJ3ia8R8R\",\n    \"name\": \"WF-For-Rule Mapping-Put-Case\",\n    \"title\": \"WF-For-Rule Mapping-Put-Case\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"WF-For-Rule Mapping-Put-Case\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_025AFHTUK7AD52kyqMJ7w7X4u9GYGsSrdIR\",\n        \"name\": \"Sleep\",\n        \"title\": \"Sleep\",\n        \"type\": \"core.sleep\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Sleep\",\n          \"skip_execution\": false,\n          \"sleep_interval\": 1\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
-          "scope": "local",
-          "name": "Workflow_Payload",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_025Z4C3MOLF514HzgNXtL8p1F8Z8rODLyhT",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "TestStatus When Trigger Status is OFF (system Level)",
-          "type": "datatype.string",
-          "is_required": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_0261SM94Q4BS26hT4TmueUfJlaMdU59C2uU",
-        "object_type": "variable_workflow"
       }
     ],
     "properties": {
@@ -314,6 +327,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
+      "description": "1. Create a Email rule (combination of conditions) and Map the Workflow with Input Variables (Post) \n2. Update a Email rule with new condition , add one more workflow (PUT)\n3. Create a Workflow havingSend Email task \n4. Verify whthere rule triggered the workflow or not ? \n5. Disable the Rule at system level and Verify workflow is not triggered \n6. Disable the rule at workflow level and verify disabled rule on wf should not trigger and other should trigger \n7. Create a Rule with Invalid WF \n8. Create a Rule with Empty title \n9. Create a Rule with EMpty Conditions \n10. Create a Rule with Empty title in Properties Level\n11. Create a rule with display name more than 64 chars\n12. Create Rule with invalid schema id - Should throw valid error message\n13. Try to delete a rule with invalid id",
       "display_name": "XDR - Email Rule Feature Automation",
       "runtime_user": {
         "target_default": true
@@ -1764,7 +1778,7 @@
               "action_timeout": 180,
               "continue_on_failure": true,
               "display_name": "Fetch the Trigger Status",
-              "input_json": "$activity.definition_activity_0261SAV4OKQNP2VtTYNWKWuBiK2zDS87XRB.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
+              "input_json": "$activity.definition_activity_0261SC0VV71RP1qErTKGeWsLvhzXw0Jh4c1.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
               "jsonpath_queries": [
                 {
                   "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_025YDOEWIHGCG4C9SUzatChkiKNTPMCRIX4.output.variable_workflow_025Z4RFIU67R433NsJRd8hSeMTXVyZLQWyn$')].status.state",
@@ -2166,7 +2180,7 @@
                                       "right_operand": {
                                         "left_operand": "$activity.definition_activity_0261SD8VBMSWH4mhxbbr3VdN88Db7DwhBHm.output.jsonpath_queries.WF1_Trigger_Status_WhenFalgSetToTrue$",
                                         "operator": "ne",
-                                        "right_operand": "disabled"
+                                        "right_operand": "stopped-polling"
                                       }
                                     },
                                     "operator": "or",
@@ -2312,14 +2326,14 @@
           {
             "unique_name": "definition_activity_0262CQO532M6M6olg7eDAecPWL6hYlpZGfv",
             "name": "Sleep",
-            "title": "Sleep for 60s",
+            "title": "Sleep for 90s",
             "type": "core.sleep",
             "base_type": "activity",
             "properties": {
               "continue_on_failure": false,
-              "display_name": "Sleep for 60s",
+              "display_name": "Sleep for 90s",
               "skip_execution": false,
-              "sleep_interval": 60
+              "sleep_interval": 90
             },
             "object_type": "definition_activity"
           },
@@ -2366,7 +2380,7 @@
               "action_timeout": 180,
               "continue_on_failure": true,
               "display_name": "Fetch the Trigger Status",
-              "input_json": "$activity.definition_activity_0261SZVJWNY8M5SOyacIoGO96y7XO0cjJLT.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
+              "input_json": "$activity.definition_activity_0261SZVJWR42T3azBp2uHk4C8N3EQBdu4NF.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
               "jsonpath_queries": [
                 {
                   "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_025YDOEWIHGCG4C9SUzatChkiKNTPMCRIX4.output.variable_workflow_025Z4RFIU67R433NsJRd8hSeMTXVyZLQWyn$')].status.state",
@@ -4344,6 +4358,25 @@
             ]
           }
         ]
+      },
+      {
+        "unique_name": "definition_activity_0262JXNHSTBSE7R6S6LXgMaitfOOR0K6uab",
+        "name": "Set Variables",
+        "title": "Email Table",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Email Table",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_025YDNVLOIAI54rxSCZPEer8Avu98CEEXh7.output.variable_workflow_0262JXK6ITUFV5FC6Q5uUuZ8PzQIBVxFmbm$",
+              "variable_value_new": "\u003ch2\u003eCreation of Rule Using Approval Task Type and triggering the WF using Task Trigger rules\u003c/h2\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003cth\u003eActivity Name\u003c/th\u003e\n\u003cth\u003eTrue/False\u003c/th\u003e\n\u003cth\u003eError Code\u003c/th\u003e\n\u003cth\u003eError Message\u003c/th\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eCreation of Rule - POST\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_025YDNVLOIAI54rxSCZPEer8Avu98CEEXh7.output.variable_workflow_025YE3NR96RTH0BWat0kvnOEIUimL44HQDB$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_025YE2W1CULPN3XKJZMlI0P7yiDVLDzMbQ5.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_025YE2W1CULPN3XKJZMlI0P7yiDVLDzMbQ5.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eUpdate Rule - POST\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_025YDNVLOIAI54rxSCZPEer8Avu98CEEXh7.output.variable_workflow_025Z7EN4RKC4E10pRBdkqgBYZEFLHrUhd8W$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_025Z7GEXNOCQV1mR0G08h99ZxiJmFvdRnEp.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_025Z7GEXNOCQV1mR0G08h99ZxiJmFvdRnEp.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eTriggering the WF Using Task Rule Triggeres\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_025YDNVLOIAI54rxSCZPEer8Avu98CEEXh7.output.variable_workflow_0261OT8UAK6ES61yc72anQKfRWyc23PtcCS$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0262DVLXF3N3N0utZgmU3Zi429vHvkdytDV.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0262DVLXF3N3N0utZgmU3Zi429vHvkdytDV.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eDisable the Triggers at System Level\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_025YDNVLOIAI54rxSCZPEer8Avu98CEEXh7.output.variable_workflow_0261SM94Q4BS26hT4TmueUfJlaMdU59C2uU$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0261SP0DMA1OK0aTmjdDCtNmRBjQbzz5afb.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0261SP0DMA1OK0aTmjdDCtNmRBjQbzz5afb.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eDisable the Triggers at Workflow Level\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_025YDNVLOIAI54rxSCZPEer8Avu98CEEXh7.output.variable_workflow_0261TCPAV83XC5L7uhDyOuksCYPHQA8Misg$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0261TGB1KO9HB24HXCpw9KnXN29plwY2UOm.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0261TGB1KO9HB24HXCpw9KnXN29plwY2UOm.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eNegative Test Case Status\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_025YDNVLOIAI54rxSCZPEer8Avu98CEEXh7.output.variable_workflow_0261YHMLBPB3B54gRZxKH7oSRKHC3dUtTKV$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0261YH8KSURYZ5gP3vACBvm8PxIdKvMPoAl.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_0261YH8KSURYZ5gP3vACBvm8PxIdKvMPoAl.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eEntire Test Case Status\u003c/td\u003e\n\u003ctd\u003e$workflow.definition_workflow_025YDNVLOIAI54rxSCZPEer8Avu98CEEXh7.output.variable_workflow_025Z38GL9OADX52x2JbmtkneJTyyeLs73kw$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_025Z37WJNLZ7G6oInJzF170BU7edd1TRX22.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_025Z37WJNLZ7G6oInJzF170BU7edd1TRX22.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003c/table\u003e"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
@@ -4386,6 +4419,137 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Task- Reusable_WF_Test_status",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L7BBA6KxjmovTqFNHYYQbGZGtDj",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "definition_workflow_0254IMCV6IDFZ5M8fTSFhveLnOMowmcO3kO",
+              "scope": "local",
+              "name": "wf_uniqueName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L477Z1za9GGHUBbbKujE83zrsu2",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "WF_ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L4E9X6CkR5vdIeOzO3gFeKJWXHN",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Trigger_Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L74NB2olIS1853oYYV3Y6jdJiDu",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "IMAP_Target_ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254LLE3X6BAU0wiv5MaSyofbcWIgXezQpC",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Decimal_Value-Input",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_025Z5O5V60ZTB4gK3Z0io0zMA7eZk4rxaY7",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"operator\": \"gte\",\n                  \"left_operand\": \"$output.attachments_count$\",\n                  \"right_operand\": 0\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.cc$\",\n                  \"right_operand\": \"*cisco.com\",\n                  \"operator\": \"mw\"\n                },\n                \"operator\": \"and\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.message$\",\n                \"right_operand\": \"(EmailTrigger)\",\n                \"operator\": \"mregex\"\n              },\n              \"operator\": \"or\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.subject$\",\n              \"right_operand\": \"*sub*\",\n              \"operator\": \"mw\"\n            },\n            \"operator\": \"and\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.to$\",\n            \"right_operand\": \"*gmail.com\",\n            \"operator\": \"nmw\"\n          },\n          \"operator\": \"and\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.sender$\",\n          \"right_operand\": \"vspancha@cisco.com\",\n          \"operator\": \"ne\"\n        },\n        \"operator\": \"and\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.attachments[0].file_name$\",\n        \"right_operand\": \"Un*\",\n        \"operator\": \"mw\"\n      },\n      \"operator\": \"or\"\n    },",
+              "scope": "input",
+              "name": "Rule_Conditions",
+              "type": "datatype.string",
+              "description": "Provide the Rule Condition if User wants to create with condition , leave blank for a Rule with Empty condition ",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L68FT2Jeh6SUR3b0HuoX1gCSmy2",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Trigger_ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L5S0L6rHZYXDTCI30201WzRXZFR",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Integer_Default_Value",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_025Z5OGBCQ68R2PD5zHWFVbt4NLN5Q2wLd7",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "TriggerEvent_UniqueName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L51YD08d1DjmpMEiYszkMHnAWMw",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "read/delete",
               "scope": "input",
               "name": "Email_Rule_Action",
@@ -4402,53 +4566,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Rule_ID",
+              "name": "Email Creation Test",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_0254INS8L6FKL7gC37HPRqVcr3JrziOYcII",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Email-Rule",
-              "scope": "input",
-              "name": "Rule_Name",
-              "type": "datatype.string",
-              "description": "Rule Name \nApproval -- Start with 'Task-Rule-' Keyword \nIncident -- Start with 'INC-Rule-' Keyword \n",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254INS8L7IBV7STRQebJP7uB8HhHMrE4xX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.number",
-            "properties": {
-              "value": 8.362,
-              "scope": "input",
-              "name": "Decimal_Input_From_RulePage",
-              "type": "datatype.number",
-              "description": "This is Input Value will be updated in the Rule WF_Input_Variables",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254INS8L7PSP2tuf55kgcqYnmzRz2MXKSU",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "String_Input_NotReq_NoDefautValue",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_025Z5OB18BGFK3viQ5ZXkKiY0ffETOIjpVk",
+            "unique_name": "variable_workflow_0254LG9XUPD1J6XgUu3bftZbXKHL7tFRVzN",
             "object_type": "variable_workflow"
           },
           {
@@ -4481,14 +4604,15 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "SMTP_Target_ID",
+              "value": "rule_event",
+              "scope": "local",
+              "name": "rule_type",
               "type": "datatype.string",
+              "description": "Enter the rule_type as rule_event\n",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_0254LL5PIFS9Z5vvPiYtjo7SGucHHIx5wdV",
+            "unique_name": "variable_workflow_0254INS8L5D5219wUZtXA1uhzwDAITGO1NO",
             "object_type": "variable_workflow"
           },
           {
@@ -4496,12 +4620,107 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "WF_ID",
+              "name": "Email_AccountKey_ID",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_0254INS8L4E9X6CkR5vdIeOzO3gFeKJWXHN",
+            "unique_name": "variable_workflow_0254LLR13GWZ36XB9Jt1WKyvukCYCKem21W",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.boolean",
+            "properties": {
+              "value": false,
+              "scope": "input",
+              "name": "Boolean_from_RulePage",
+              "type": "datatype.boolean",
+              "description": "This is Input Value will be updated in the Rule WF_Input_Variables",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L4M1Y2oPIHAwL1JYkpaQI30FC78",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Token (without bearer)",
+              "type": "datatype.string",
+              "description": "Provide the Token for Env where you want to execute the wf (without bearer)",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L5ZSA1rcf3cJnixhzJFkZR23rNF",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.number",
+            "properties": {
+              "value": 8.362,
+              "scope": "input",
+              "name": "Decimal_Input_From_RulePage",
+              "type": "datatype.number",
+              "description": "This is Input Value will be updated in the Rule WF_Input_Variables",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L7PSP2tuf55kgcqYnmzRz2MXKSU",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Bool_INput",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_025Z5OSOTBV6235t1hykQYhcsmz7LWsfDeg",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "String_Input_NotReq_NoDefautValue",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_025Z5OB18BGFK3viQ5ZXkKiY0ffETOIjpVk",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Email-Rule",
+              "scope": "input",
+              "name": "Rule_Name",
+              "type": "datatype.string",
+              "description": "Rule Name \nApproval -- Start with 'Task-Rule-' Keyword \nIncident -- Start with 'INC-Rule-' Keyword \n",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0254INS8L7IBV7STRQebJP7uB8HhHMrE4xX",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Email_AccKey_UniqueName",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_025Z8D9PP0WCX7PGv5El7HiQCV7JihxJurv",
             "object_type": "variable_workflow"
           },
           {
@@ -4521,15 +4740,14 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"operator\": \"gte\",\n                  \"left_operand\": \"$output.attachments_count$\",\n                  \"right_operand\": 0\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.cc$\",\n                  \"right_operand\": \"*cisco.com\",\n                  \"operator\": \"mw\"\n                },\n                \"operator\": \"and\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.message$\",\n                \"right_operand\": \"(EmailTrigger)\",\n                \"operator\": \"mregex\"\n              },\n              \"operator\": \"or\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.subject$\",\n              \"right_operand\": \"*sub*\",\n              \"operator\": \"mw\"\n            },\n            \"operator\": \"and\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.to$\",\n            \"right_operand\": \"*gmail.com\",\n            \"operator\": \"nmw\"\n          },\n          \"operator\": \"and\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.sender$\",\n          \"right_operand\": \"vspancha@cisco.com\",\n          \"operator\": \"ne\"\n        },\n        \"operator\": \"and\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.attachments[0].file_name$\",\n        \"right_operand\": \"Un*\",\n        \"operator\": \"mw\"\n      },\n      \"operator\": \"or\"\n    },",
-              "scope": "input",
-              "name": "Rule_Conditions",
+              "value": "",
+              "scope": "output",
+              "name": "SMTP_target_UniqueName",
               "type": "datatype.string",
-              "description": "Provide the Rule Condition if User wants to create with condition , leave blank for a Rule with Empty condition ",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_0254INS8L68FT2Jeh6SUR3b0HuoX1gCSmy2",
+            "unique_name": "variable_workflow_025Z8DHG07CC74nkuryCloDnbuNBlNbpzFX",
             "object_type": "variable_workflow"
           },
           {
@@ -4537,25 +4755,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Decimal_Value-Input",
+              "name": "SMTP_Target_ID",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_025Z5O5V60ZTB4gK3Z0io0zMA7eZk4rxaY7",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "definition_workflow_0254IMCV6IDFZ5M8fTSFhveLnOMowmcO3kO",
-              "scope": "local",
-              "name": "wf_uniqueName",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254INS8L477Z1za9GGHUBbbKujE83zrsu2",
+            "unique_name": "variable_workflow_0254LL5PIFS9Z5vvPiYtjo7SGucHHIx5wdV",
             "object_type": "variable_workflow"
           },
           {
@@ -4563,26 +4768,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "TriggerEvent_UniqueName",
+              "name": "Event_ID",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_0254INS8L51YD08d1DjmpMEiYszkMHnAWMw",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Email_Rulename",
-              "type": "datatype.string",
-              "description": "Email_Rulename",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_025Z4RFIU67R433NsJRd8hSeMTXVyZLQWyn",
+            "unique_name": "variable_workflow_0254INS8L6MEZ4lWY28QfpExSikWfOF6O2d",
             "object_type": "variable_workflow"
           },
           {
@@ -4604,19 +4795,6 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Integer_Default_Value",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_025Z5OGBCQ68R2PD5zHWFVbt4NLN5Q2wLd7",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
               "name": "String_Input_Req_with_Default_value",
               "type": "datatype.string",
               "is_required": false,
@@ -4630,12 +4808,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Email_AccountKey_ID",
+              "name": "Email_Rulename",
               "type": "datatype.string",
+              "description": "Email_Rulename",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_0254LLR13GWZ36XB9Jt1WKyvukCYCKem21W",
+            "unique_name": "variable_workflow_025Z4RFIU67R433NsJRd8hSeMTXVyZLQWyn",
             "object_type": "variable_workflow"
           },
           {
@@ -4643,118 +4822,12 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Email Creation Test",
+              "name": "Rule_ID",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_0254LG9XUPD1J6XgUu3bftZbXKHL7tFRVzN",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "rule_event",
-              "scope": "local",
-              "name": "rule_type",
-              "type": "datatype.string",
-              "description": "Enter the rule_type as rule_event\n",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254INS8L5D5219wUZtXA1uhzwDAITGO1NO",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "IMAP_Target_ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254LLE3X6BAU0wiv5MaSyofbcWIgXezQpC",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Bool_INput",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_025Z5OSOTBV6235t1hykQYhcsmz7LWsfDeg",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Task- Reusable_WF_Test_status",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254INS8L7BBA6KxjmovTqFNHYYQbGZGtDj",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Trigger_ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254INS8L5S0L6rHZYXDTCI30201WzRXZFR",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "SMTP_target_UniqueName",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_025Z8DHG07CC74nkuryCloDnbuNBlNbpzFX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.boolean",
-            "properties": {
-              "value": false,
-              "scope": "input",
-              "name": "Boolean_from_RulePage",
-              "type": "datatype.boolean",
-              "description": "This is Input Value will be updated in the Rule WF_Input_Variables",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254INS8L4M1Y2oPIHAwL1JYkpaQI30FC78",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Event_ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254INS8L6MEZ4lWY28QfpExSikWfOF6O2d",
+            "unique_name": "variable_workflow_0254INS8L6FKL7gC37HPRqVcr3JrziOYcII",
             "object_type": "variable_workflow"
           },
           {
@@ -4769,46 +4842,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_0254INS8L5L4M2pxI7lDyt0wB63XybRsKR4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Token (without bearer)",
-              "type": "datatype.string",
-              "description": "Provide the Token for Env where you want to execute the wf (without bearer)",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254INS8L5ZSA1rcf3cJnixhzJFkZR23rNF",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Email_AccKey_UniqueName",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_025Z8D9PP0WCX7PGv5El7HiQCV7JihxJurv",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Trigger_Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0254INS8L74NB2olIS1853oYYV3Y6jdJiDu",
             "object_type": "variable_workflow"
           },
           {
@@ -5895,6 +5928,46 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "be-console/api/v1/",
+              "scope": "input",
+              "name": "Relative URL",
+              "type": "datatype.string",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Action Id",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020FOLLJP0WDO7B8ep2v5S17F9drfRIk5eb",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Headers Cookie (Not Mandatory)",
+              "type": "datatype.string",
+              "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "",
               "scope": "local",
               "name": "Provide object_name (ex: targets, runtime_users, calendars)",
@@ -5903,6 +5976,85 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Select Method (EX: GET, PUT, POST, DELETE)",
+              "type": "datatype.string",
+              "description": "The primary or most commonly-used HTTP methods are POST, GET, PUT, PATCH, and DELETE. These methods correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other methods, too, but they are utilized less frequently.",
+              "is_required": true,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Response Body",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Created Object ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schema ID's",
+              "type": "datatype.string",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
             "object_type": "variable_workflow"
           },
           {
@@ -5924,105 +6076,12 @@
             "properties": {
               "value": "",
               "scope": "input",
-              "name": "Headers Cookie (Not Mandatory)",
-              "type": "datatype.string",
-              "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "x-cisco-tenant-id",
-              "scope": "input",
-              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Schema ID's",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
               "name": "Value (Only For Tenant creation) Provide Tenant id",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Pass or Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Header User-Agent (optional)",
-              "type": "datatype.string",
-              "description": "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Created Object ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
             "object_type": "variable_workflow"
           },
           {
@@ -6043,26 +6102,14 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Response Body",
+              "scope": "input",
+              "name": "Header Accept (Optional)",
               "type": "datatype.string",
+              "description": "The Accept request HTTP header indicates which content types, expressed as MIME types, the client is able to understand. The server uses content negotiation to select one of the proposals and informs the client of the choice with the Content-Type response header.",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Error Code",
-              "type": "datatype.string",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
+            "unique_name": "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29",
             "object_type": "variable_workflow"
           },
           {
@@ -6082,54 +6129,40 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Select Method (EX: GET, PUT, POST, DELETE)",
-              "type": "datatype.string",
-              "description": "The primary or most commonly-used HTTP methods are POST, GET, PUT, PATCH, and DELETE. These methods correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other methods, too, but they are utilized less frequently.",
-              "is_required": true,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Header Accept (Optional)",
-              "type": "datatype.string",
-              "description": "The Accept request HTTP header indicates which content types, expressed as MIME types, the client is able to understand. The server uses content negotiation to select one of the proposals and informs the client of the choice with the Content-Type response header.",
-              "is_required": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "output",
-              "name": "Action Id",
+              "name": "Error Code",
               "type": "datatype.string",
               "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_020FOLLJP0WDO7B8ep2v5S17F9drfRIk5eb",
+            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
             "object_type": "variable_workflow"
           },
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "be-console/api/v1/",
+              "value": "x-cisco-tenant-id",
               "scope": "input",
-              "name": "Relative URL",
+              "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
               "type": "datatype.string",
-              "is_required": true,
+              "is_required": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
+            "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Header User-Agent (optional)",
+              "type": "datatype.string",
+              "description": "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX",
             "object_type": "variable_workflow"
           }
         ],
