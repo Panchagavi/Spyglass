@@ -1,0 +1,398 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60",
+    "name": "Automation - Get First 50 workflows (v1.1)",
+    "title": "Automation - Get First 50 workflows (v1.1)",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Workflow Status Ture/False",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01TNN7OLROHOE67sZYkQXBBvPulWLBxeC5b",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "0",
+          "scope": "input",
+          "name": "Start Count: Return list of workflows. By default set to 0",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01TNNRBXWN5E10OHUrCeOiZhaEUZKbSMuZm",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "50",
+          "scope": "input",
+          "name": "limit: No of Wf's return for this request. By Default Set to 50",
+          "type": "datatype.string",
+          "description": "Number of workflows to return for this request",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01TNNSK93DWQR0PNUGc68AfbqYt4F0SPyqJ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "updated_on",
+          "scope": "input",
+          "name": "sort_by:by Default as updated_on [ex: created_on ,started_on)",
+          "type": "datatype.string",
+          "description": "sort_by supported values are ['created_on', 'updated_on', 'started_on']",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01TNNTLSQ22GW2CmbNlOB8pa7zmQ2DTnNcR",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Workflow ID's",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01TNN7OLRPUR446GrZYKLH4kzSsjDRclojo",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide Token",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01TNN7OLRNYYW2glbmIZPNLsueOEEmWDIHu",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": false,
+          "scope": "input",
+          "name": "Is Atomic True/False. By default set to False",
+          "type": "datatype.boolean",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01TNNEMEGRILT3FsOuufiJ8uDKjtUPCgUv7",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "workflow Error Message",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01TNN7OLRQGO93BqsG5EHAc0mNvXCjjL7Qq",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01TNN7OLRPJJ46Fwf2ic64m3aqn2dQD6sHJ",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "atomic_group": "SXO- Automation Worklfows",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Automation - Get First 50 workflows (v1.1)",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01TNN7P608S8X7CIzJHRHjxHnwZtfAsPEDO",
+        "name": "Group",
+        "title": "Retrive Workflow Information",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Retrive Workflow Information",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5",
+            "name": "HTTP Request",
+            "title": "GET All Workfows",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "body": "{\n  \"categories\": [],\n  \"owner\": []\n}",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "custom_headers": [
+                {
+                  "name": "$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.input.variable_workflow_01TNN7OLRPJJ46Fwf2ic64m3aqn2dQD6sHJ$",
+                  "value": "$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.input.variable_workflow_01TNN7OLRNYYW2glbmIZPNLsueOEEmWDIHu$"
+                }
+              ],
+              "display_name": "GET All Workfows",
+              "method": "POST",
+              "relative_url": "be-console/api/v1.1/workflows?is_atomic=$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.input.variable_workflow_01TNNEMEGRILT3FsOuufiJ8uDKjtUPCgUv7$&start=$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.input.variable_workflow_01TNNRBXWN5E10OHUrCeOiZhaEUZKbSMuZm$&limit=$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.input.variable_workflow_01TNNSK93DWQR0PNUGc68AfbqYt4F0SPyqJ$&sort_by=$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.input.variable_workflow_01TNNTLSQ22GW2CmbNlOB8pa7zmQ2DTnNcR$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01TNN7PL38EOD170XAZvAHLPhlUBOzAUel2",
+            "name": "JSONPath Query",
+            "title": "Extract worklfow Id's",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Extract worklfow Id's",
+              "input_json": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.results..id",
+                  "jsonpath_query_name": "Workflow IDs",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01TNN7PU0TE580QkVFeSn26XELgMYTkQmO4",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01TNN7PYHDEMQ4SZlw8dkpwB8X0vAQKNMKR",
+                "name": "Condition Branch",
+                "title": "Pass == 200",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.error.message$",
+                        "operator": "eq",
+                        "right_operand": "success"
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.error.code$",
+                        "operator": "eq",
+                        "right_operand": "200"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.succeeded$",
+                      "operator": "eq",
+                      "right_operand": true
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Pass == 200",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01TNN7Q3A7BIQ0twFCPksq7P2EdzVJeK6QT",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.output.variable_workflow_01TNN7OLROHOE67sZYkQXBBvPulWLBxeC5b$",
+                          "variable_value_new": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.succeeded$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.output.variable_workflow_01TNN7OLRQGO93BqsG5EHAc0mNvXCjjL7Qq$",
+                          "variable_value_new": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.error.message$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.output.variable_workflow_01TNN7OLRPUR446GrZYKLH4kzSsjDRclojo$",
+                          "variable_value_new": "$activity.definition_activity_01TNN7PL38EOD170XAZvAHLPhlUBOzAUel2.output.jsonpath_queries.Workflow IDs$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_026R0Q7QFBWKJ3Frty1nLNsDXObVDuP36hP",
+                "name": "Condition Branch",
+                "title": "Pass == 200",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.error.message$",
+                        "operator": "ne",
+                        "right_operand": "success"
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.error.code$",
+                        "operator": "ne",
+                        "right_operand": "200"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.succeeded$",
+                      "operator": "eq",
+                      "right_operand": false
+                    }
+                  },
+                  "continue_on_failure": true,
+                  "display_name": "Pass == 200",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_026R0Q7QFDBZS1p5zK9Pqf9OSks5xVfx31F",
+                    "name": "Set Variables",
+                    "title": "Set Variables",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Set Variables",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.output.variable_workflow_01TNN7OLROHOE67sZYkQXBBvPulWLBxeC5b$",
+                          "variable_value_new": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.succeeded$"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01TNN7OJXTD4O6CRQDcuMn0grfiDA7ciB60.output.variable_workflow_01TNN7OLRQGO93BqsG5EHAc0mNvXCjjL7Qq$",
+                          "variable_value_new": "$activity.definition_activity_01TNN7PI5WKZD3K2jXTLGbFPKuPUsoZVAc5.output.error.message$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_026R11LKFQCEP7W5g373KwkLqgYQ6rRYvdS",
+                    "name": "Completed",
+                    "title": "Completed",
+                    "type": "logic.completed",
+                    "base_type": "activity",
+                    "properties": {
+                      "completion_type": "failed-completed",
+                      "continue_on_failure": false,
+                      "display_name": "Completed",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A"
+    ]
+  },
+  "categories": {
+    "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A": {
+      "unique_name": "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A",
+      "name": "CA Web Services",
+      "title": "CA Web Services",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "system",
+      "object_type": "category"
+    }
+  }
+}

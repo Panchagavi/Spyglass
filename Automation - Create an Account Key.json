@@ -1,0 +1,311 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_026YGDALYR2A04w3H2p1hrNvqhkvjiQMySL",
+    "name": "Automation - Create an Account Key",
+    "title": "Automation - Create an Account Key",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide Payload to Create an Account Key",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_026YGE3H8D61I57seoAJuZZJEcSpGcLzu1e",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide Token",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_026YGDRWUGR732NFzQE97Ec5feukNoqG5le",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Account Key Response",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_026YGHRYAW27H62hICycpAZJhE4UEHu9C4E",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Account Key ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_026YGEDNMXL1C71TKQy4DlzJYwsPGQQTCed",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Account Key Name",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_026YGE8WETCNO5aRzQ4nkI2jNicxeBtWF7K",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Workflow Status True/False",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_026YGK7RZB5IU3NA7kGlvYrPqMO0N0ksPAW",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_026YGDNQ4C9SW7HtPhhnX5YqYdxgeKvkpYm",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "atomic_group": "SXO- Automation Worklfows",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "description": "This Workflow Creates an accountkeys\nTarget: Automation APIs\nAccount keys: Not Required",
+      "display_name": "Automation - Create an Account Key",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_026YGEF4LSSAY2871LH7AUatVWJohwzWktt",
+        "name": "HTTP Request",
+        "title": "Create an Account Key",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "body": "$workflow.definition_workflow_026YGDALYR2A04w3H2p1hrNvqhkvjiQMySL.input.variable_workflow_026YGE3H8D61I57seoAJuZZJEcSpGcLzu1e$",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_026YGDALYR2A04w3H2p1hrNvqhkvjiQMySL.input.variable_workflow_026YGDNQ4C9SW7HtPhhnX5YqYdxgeKvkpYm$",
+              "value": "$workflow.definition_workflow_026YGDALYR2A04w3H2p1hrNvqhkvjiQMySL.input.variable_workflow_026YGDRWUGR732NFzQE97Ec5feukNoqG5le$"
+            }
+          ],
+          "display_name": "Create an Account Key",
+          "method": "POST",
+          "relative_url": "api/v1/runtime_users",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_026YGETHV4I631ayoWHDBpmaKhbh2HS2BZu",
+        "name": "JSONPath Query",
+        "title": "Extract Account key Name and ID ",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extract Account key Name and ID ",
+          "input_json": "$activity.definition_activity_026YGEF4LSSAY2871LH7AUatVWJohwzWktt.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.title",
+              "jsonpath_query_name": "Account Key Name",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$.id",
+              "jsonpath_query_name": "Account Key ID",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_026YGGDLVUBCC1y2VkkIbqSKJWDZ7cQAAnk",
+        "name": "Condition Block",
+        "title": "Validation",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Validation",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_026YGGDM5OT4X3damvLf0jwcH0GMavRAhTA",
+            "name": "Condition Branch",
+            "title": "Passed",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_026YGEF4LSSAY2871LH7AUatVWJohwzWktt.output.error.code$",
+                "operator": "eq",
+                "right_operand": "200"
+              },
+              "continue_on_failure": false,
+              "display_name": "Passed",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_026YGI28GILCW5HXjV62ltPXRIjXVixnmUa",
+                "name": "Set Variables",
+                "title": "Store in O/P Variable",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Store in O/P Variable",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_026YGDALYR2A04w3H2p1hrNvqhkvjiQMySL.output.variable_workflow_026YGEDNMXL1C71TKQy4DlzJYwsPGQQTCed$",
+                      "variable_value_new": "$activity.definition_activity_026YGETHV4I631ayoWHDBpmaKhbh2HS2BZu.output.jsonpath_queries.Account Key ID$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_026YGDALYR2A04w3H2p1hrNvqhkvjiQMySL.output.variable_workflow_026YGE8WETCNO5aRzQ4nkI2jNicxeBtWF7K$",
+                      "variable_value_new": "$activity.definition_activity_026YGETHV4I631ayoWHDBpmaKhbh2HS2BZu.output.jsonpath_queries.Account Key Name$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_026YGDALYR2A04w3H2p1hrNvqhkvjiQMySL.output.variable_workflow_026YGHRYAW27H62hICycpAZJhE4UEHu9C4E$",
+                      "variable_value_new": "$activity.definition_activity_026YGEF4LSSAY2871LH7AUatVWJohwzWktt.output.response_body$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_026YGDALYR2A04w3H2p1hrNvqhkvjiQMySL.output.variable_workflow_026YGK7RZB5IU3NA7kGlvYrPqMO0N0ksPAW$",
+                      "variable_value_new": "$activity.definition_activity_026YGEF4LSSAY2871LH7AUatVWJohwzWktt.output.succeeded$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_026YGGDMFXTZN4YhN4rVMuXe8Tq4TJPbNQh",
+            "name": "Condition Branch",
+            "title": "IF Anything Else",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_026YGEF4LSSAY2871LH7AUatVWJohwzWktt.output.error.code$",
+                "operator": "ne",
+                "right_operand": "200"
+              },
+              "continue_on_failure": true,
+              "display_name": "IF Anything Else",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_026YGJD1KYWJ92Jcsrm72GlIyhikOeWtfvb",
+                "name": "Set Variables",
+                "title": "Store in O/P Variable",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Store in O/P Variable",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_026YGDALYR2A04w3H2p1hrNvqhkvjiQMySL.output.variable_workflow_026YGK7RZB5IU3NA7kGlvYrPqMO0N0ksPAW$",
+                      "variable_value_new": "$activity.definition_activity_026YGEF4LSSAY2871LH7AUatVWJohwzWktt.output.succeeded$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_026YGJLAOUSX65nSJdPFFaZtetyi8MmxF9Y",
+                "name": "Completed",
+                "title": "Completed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "failed-completed",
+                  "continue_on_failure": false,
+                  "display_name": "Completed",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
