@@ -9,20 +9,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "TestCase1-Post-Creation Of Schedule Rule",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027GP5AXWY35Z5xnFQ0hSH9zecxUZLXEWJ4",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "Bearer ",
           "scope": "input",
           "name": "Provide the Env Token",
@@ -39,6 +25,20 @@
         "properties": {
           "value": "",
           "scope": "output",
+          "name": "TestCase4-Verify When Schedules triggers are disabled",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027KBJSVR84S70Wz3f4nS78Yw5Pt507euQK",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
           "name": "Cleanup TestStatus",
           "type": "datatype.string",
           "is_required": false,
@@ -46,6 +46,34 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_027GQ7WJG8KCT0xtGRZ6uVX1sreZIA94fUG",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "TestCase3-PUTCase-Pre-requisite Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027K7FWV59UTZ3Y65wsCQzlsEN4bckhyyxf",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "TestCase1-Post-Creation Of Schedule Rule",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027GP5AXWY35Z5xnFQ0hSH9zecxUZLXEWJ4",
         "object_type": "variable_workflow"
       },
       {
@@ -74,20 +102,6 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_027GQQI4ERM323ynLAuIYcg0N6AEkwzJyhO",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "TestCase3-PUTCase-Pre-requisite Status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027K7FWV59UTZ3Y65wsCQzlsEN4bckhyyxf",
         "object_type": "variable_workflow"
       },
       {
@@ -886,88 +900,117 @@
             ]
           },
           {
-            "unique_name": "definition_activity_027K6LYOU4WUI2bOdNLEjfOTO4lQOjPRWIW",
-            "name": "HTTP Request",
-            "title": "GET Trigger Status and Trigger ID of New WF",
-            "type": "web-service.http_request",
+            "unique_name": "definition_activity_027KBBJAMQIHT22NSbxPXRYbxItSAr7Xdey",
+            "name": "Group",
+            "title": "Fetch the Triggerd Ids and Status",
+            "type": "logic.group",
             "base_type": "activity",
             "properties": {
-              "action_timeout": 180,
-              "allow_auto_redirect": true,
-              "allow_headers_redirect": false,
-              "continue_on_error_status_code": false,
-              "continue_on_failure": true,
-              "custom_headers": [
-                {
-                  "name": "Authorization",
-                  "value": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.input.variable_workflow_027GO8TCGZEIZ3dLObDemrCR7uNDApzdv5i$"
-                }
-              ],
-              "display_name": "GET Trigger Status and Trigger ID of New WF",
-              "method": "GET",
-              "relative_url": "api/v1/workflows/$activity.definition_activity_027K4CZHD6L7H30v5hWkhShKTNqu0qQY2fU.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$/triggers",
-              "runtime_user": {
-                "target_default": true
-              },
-              "skip_execution": false,
-              "target": {
-                "use_workflow_target": true
-              }
-            },
-            "object_type": "definition_activity"
-          },
-          {
-            "unique_name": "definition_activity_027K6N9BD6FTN77miC1BsmfJtsm22q3PLMF",
-            "name": "JSONPath Query",
-            "title": "Fetch Trigger ID and Trigger Status",
-            "type": "corejava.jsonpathquery",
-            "base_type": "activity",
-            "properties": {
-              "action_timeout": 180,
-              "continue_on_failure": true,
-              "display_name": "Fetch Trigger ID and Trigger Status",
-              "input_json": "$activity.definition_activity_027K6LYOU4WUI2bOdNLEjfOTO4lQOjPRWIW.output.response_body$",
-              "jsonpath_queries": [
-                {
-                  "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW$')].status.state",
-                  "jsonpath_query_name": "NewWF_TriggerStatus_PUTCase_DailyCalType",
-                  "jsonpath_query_type": "string",
-                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                },
-                {
-                  "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW$')].id",
-                  "jsonpath_query_name": "NewWF_TriggerID_PUTCase_DailyCalType",
-                  "jsonpath_query_type": "string",
-                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                },
-                {
-                  "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0$')].status.state",
-                  "jsonpath_query_name": "NewWF_TriggerStatus_PUTCase_GroupCalType",
-                  "jsonpath_query_type": "string",
-                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                },
-                {
-                  "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0$')].id",
-                  "jsonpath_query_name": "NewWF_TriggerID_PUTCase_GroupCalType",
-                  "jsonpath_query_type": "string",
-                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                },
-                {
-                  "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C$')].status.state",
-                  "jsonpath_query_name": "NewWF_TriggerStatus_PUTCase_DateListCalType",
-                  "jsonpath_query_type": "string",
-                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                },
-                {
-                  "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C$')].id",
-                  "jsonpath_query_name": "NewWF_TriggerID_PUTCase_DateListCalType",
-                  "jsonpath_query_type": "string",
-                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                }
-              ],
+              "continue_on_failure": false,
+              "display_name": "Fetch the Triggerd Ids and Status",
               "skip_execution": false
             },
-            "object_type": "definition_activity"
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_027KDWI60SCCF1ZrjUYuLUFHTtG36pfGDYB",
+                "name": "Sleep",
+                "title": "wait for 10s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "wait for 10s",
+                  "skip_execution": false,
+                  "sleep_interval": 10
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027K6LYOU4WUI2bOdNLEjfOTO4lQOjPRWIW",
+                "name": "HTTP Request",
+                "title": "GET Trigger Status and Trigger ID of New WF",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.input.variable_workflow_027GO8TCGZEIZ3dLObDemrCR7uNDApzdv5i$"
+                    }
+                  ],
+                  "display_name": "GET Trigger Status and Trigger ID of New WF",
+                  "method": "GET",
+                  "relative_url": "api/v1/workflows/$activity.definition_activity_027K4CZHD6L7H30v5hWkhShKTNqu0qQY2fU.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$/triggers",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027K6N9BD6FTN77miC1BsmfJtsm22q3PLMF",
+                "name": "JSONPath Query",
+                "title": "Fetch Trigger ID and Trigger Status",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch Trigger ID and Trigger Status",
+                  "input_json": "$activity.definition_activity_027K6LYOU4WUI2bOdNLEjfOTO4lQOjPRWIW.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW$')].status.state",
+                      "jsonpath_query_name": "NewWF_TriggerStatus_PUTCase_DailyCalType",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW$')].id",
+                      "jsonpath_query_name": "NewWF_TriggerID_PUTCase_DailyCalType",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0$')].status.state",
+                      "jsonpath_query_name": "NewWF_TriggerStatus_PUTCase_GroupCalType",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0$')].id",
+                      "jsonpath_query_name": "NewWF_TriggerID_PUTCase_GroupCalType",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C$')].status.state",
+                      "jsonpath_query_name": "NewWF_TriggerStatus_PUTCase_DateListCalType",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C$')].id",
+                      "jsonpath_query_name": "NewWF_TriggerID_PUTCase_DateListCalType",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
           },
           {
             "unique_name": "definition_activity_027K7IBGGAJV54bpAGV9GzD02ylECKIFp5N",
@@ -1578,7 +1621,777 @@
           "display_name": "TestCase4 - Verify Test When Rules are disabled in System Level",
           "skip_execution": false
         },
-        "object_type": "definition_activity"
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_027KB9TUBMSEU1Bg4YOXdoWf5V967uiF2QD",
+            "name": "Parallel Block",
+            "title": "Update Schedule Rules - Disable the rules",
+            "type": "logic.parallel",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Update Schedule Rules - Disable the rules",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_027KB9TUBNVX32gyiIFHh2okAznQjUmpMGp",
+                "name": "Parallel Branch",
+                "title": "Daily Calender Type",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Daily Calender Type",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_027KB9TUBQBOF3TPZ1vHMuFebdMEhkys8yP",
+                    "name": "HTTP Request",
+                    "title": "Update Schedule Rule with New WF (Daily Calender Type)",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n  \"description\": \"Updating Schedule with New WF and Update time\",\n  \"title\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW$\",\n  \"name\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW$\",\n  \"type\": \"schedule.rule_schedule\",\n  \"rule_type\": \"rule_schedule\",\n  \"properties\": {\n    \"calendar\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027K4OJ8H1V2O4ggZg1aUfEN8PIc5WV1LJS$\",\n    \"display_name\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW$\",\n    \"interval_hours\": 0,\n    \"interval_minutes\": 0,\n    \"number_of_times\": 1,\n    \"rule_type\": \"rule_schedule\",\n    \"starttime\": \"$activity.definition_activity_027K54VP9516K7kihZW3rhSK4BOdurjsPwZ.output.response_body$\",\n    \"timezone\": \"Etc/GMT+0\",\n    \"title\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW$\",\n    \"workflows_config\": [\n      {\n        \"disabled\": false,\n        \"workflow_id\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G1VTJWLMWT3JTBJYmQcGkok7WUqDPf1t$\",\n        \"wf_input_variables\": {\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0E87XVZEH1bDKPWrAwJs0F9KNKFhGtl$\": \"String Required\",\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0E3ABCAPH4MJGuB0IrpJtPpyuBKrJ8N$\": \"String Not Required\",\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0DQ1AEPZE3ss1h09Kq5N7UmroKZA7aD$\": 1000,\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0DLKO4LK34O6Fur1QjOSHbHSQwuIVV4$\": 8.362,\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0DVP1N7X77a8yHLpiB8thYgDVjxtUdm$\": false\n        }\n      },\n      {\n        \"disabled\": false,\n        \"workflow_id\": \"$activity.definition_activity_027K4CZHD6L7H30v5hWkhShKTNqu0qQY2fU.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n        \"wf_input_variables\": {}\n      }\n    ],\n    \"group_by\": false,\n    \"disabled\": true\n  },\n  \"id\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G00II3TPCF2lKiJnBaOa6pO4kdcW7wG4$\"\n}",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.input.variable_workflow_027GO8TCGZEIZ3dLObDemrCR7uNDApzdv5i$"
+                        }
+                      ],
+                      "display_name": "Update Schedule Rule with New WF (Daily Calender Type)",
+                      "method": "PUT",
+                      "relative_url": "api/v1/rules/$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G00II3TPCF2lKiJnBaOa6pO4kdcW7wG4$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_027KB9TUBST9F6LhOSu5SgP7IJwSD2atKMH",
+                "name": "Parallel Branch",
+                "title": "Group Calender Type",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Group Calender Type",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_027KB9TUBTQ1D2B9rCXz1Jm27fqugCq2Va4",
+                    "name": "HTTP Request",
+                    "title": "Update Schedule Rule with New WF (Group Calender Type)",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n  \"description\": \"Updating Schedule with New WF and Update time\",\n  \"title\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0$\",\n  \"name\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0$\",\n  \"type\": \"schedule.rule_schedule\",\n  \"rule_type\": \"rule_schedule\",\n  \"properties\": {\n    \"calendar\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027K4ONS74CPF0fUnRQXZjYLTHI5baiE15t$\",\n    \"display_name\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0$\",\n    \"interval_hours\": 0,\n    \"interval_minutes\": 0,\n    \"number_of_times\": 1,\n    \"rule_type\": \"rule_schedule\",\n    \"starttime\": \"$activity.definition_activity_027K54VP9516K7kihZW3rhSK4BOdurjsPwZ.output.response_body$\",\n    \"timezone\": \"Etc/GMT+0\",\n    \"title\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0$\",\n    \"workflows_config\": [\n      {\n        \"disabled\": false,\n        \"workflow_id\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G1VTJWLMWT3JTBJYmQcGkok7WUqDPf1t$\",\n        \"wf_input_variables\": {\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0E87XVZEH1bDKPWrAwJs0F9KNKFhGtl$\": \"String Required\",\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0E3ABCAPH4MJGuB0IrpJtPpyuBKrJ8N$\": \"String Not Required\",\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0DQ1AEPZE3ss1h09Kq5N7UmroKZA7aD$\": 1000,\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0DLKO4LK34O6Fur1QjOSHbHSQwuIVV4$\": 8.362,\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0DVP1N7X77a8yHLpiB8thYgDVjxtUdm$\": false\n        }\n      },\n      {\n        \"disabled\": false,\n        \"workflow_id\": \"$activity.definition_activity_027K4CZHD6L7H30v5hWkhShKTNqu0qQY2fU.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n        \"wf_input_variables\": {}\n      }\n    ],\n    \"group_by\": false,\n    \"disabled\": true\n  },\n  \"id\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G00UWWK56J2Tqj9DqlfuORBTbcaYOTcw$\"\n}",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.input.variable_workflow_027GO8TCGZEIZ3dLObDemrCR7uNDApzdv5i$"
+                        }
+                      ],
+                      "display_name": "Update Schedule Rule with New WF (Group Calender Type)",
+                      "method": "PUT",
+                      "relative_url": "api/v1/rules/$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G00UWWK56J2Tqj9DqlfuORBTbcaYOTcw$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_027KB9TUBXBW31Esvv5HqZOj6ieOLncd0yz",
+                "name": "Parallel Branch",
+                "title": "DateList Calender Type",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "DateList Calender Type",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_027KB9TUBYD3V4kwWUgsF5vU22MOeUpuHM9",
+                    "name": "HTTP Request",
+                    "title": "Update Schedule Rule with New WF (DateList Calender Type)",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n  \"description\": \"Updating Schedule with New WF and Update time\",\n  \"title\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C$\",\n  \"name\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C$\",\n  \"type\": \"schedule.rule_schedule\",\n  \"rule_type\": \"rule_schedule\",\n  \"properties\": {\n    \"calendar\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027GQKV28Q8MF7L1626iQ5CtFT03zzQKyIM$\",\n    \"display_name\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C$\",\n    \"interval_hours\": 0,\n    \"interval_minutes\": 0,\n    \"number_of_times\": 1,\n    \"rule_type\": \"rule_schedule\",\n    \"starttime\": \"$activity.definition_activity_027K54VP9516K7kihZW3rhSK4BOdurjsPwZ.output.response_body$\",\n    \"timezone\": \"Etc/GMT+0\",\n    \"title\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C$\",\n    \"workflows_config\": [\n      {\n        \"disabled\": false,\n        \"workflow_id\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G1VTJWLMWT3JTBJYmQcGkok7WUqDPf1t$\",\n        \"wf_input_variables\": {\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0E87XVZEH1bDKPWrAwJs0F9KNKFhGtl$\": \"String Required\",\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0E3ABCAPH4MJGuB0IrpJtPpyuBKrJ8N$\": \"String Not Required\",\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0DQ1AEPZE3ss1h09Kq5N7UmroKZA7aD$\": 1000,\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0DLKO4LK34O6Fur1QjOSHbHSQwuIVV4$\": 8.362,\n          \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G0DVP1N7X77a8yHLpiB8thYgDVjxtUdm$\": false\n        }\n      },\n      {\n        \"disabled\": false,\n        \"workflow_id\": \"$activity.definition_activity_027K4CZHD6L7H30v5hWkhShKTNqu0qQY2fU.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n        \"wf_input_variables\": {}\n      }\n    ],\n    \"group_by\": false,\n    \"disabled\": true\n  },\n  \"id\": \"$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G08EK2ET0E6OAnsc10binQWiIrWP2Ov3$\"\n}",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.input.variable_workflow_027GO8TCGZEIZ3dLObDemrCR7uNDApzdv5i$"
+                        }
+                      ],
+                      "display_name": "Update Schedule Rule with New WF (DateList Calender Type)",
+                      "method": "PUT",
+                      "relative_url": "api/v1/rules/$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G08EK2ET0E6OAnsc10binQWiIrWP2Ov3$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_027KBBYGICMFR0w47KW5UnEzKGbVX0EcTHX",
+            "name": "Group",
+            "title": "Fetch the Triggerd Ids and Status when Rules are disabled",
+            "type": "logic.group",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Fetch the Triggerd Ids and Status when Rules are disabled",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_027KDWV2UDK015T7TTWkw4MjJFiP7ZjO6cE",
+                "name": "Sleep",
+                "title": "wait for 10s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "wait for 10s",
+                  "skip_execution": false,
+                  "sleep_interval": 10
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027KBCR2H2PMB3mC5Rb8bcNjqH41V5phvaY",
+                "name": "HTTP Request",
+                "title": "GET Trigger Status and Trigger ID of Imported WF",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.input.variable_workflow_027GO8TCGZEIZ3dLObDemrCR7uNDApzdv5i$"
+                    }
+                  ],
+                  "display_name": "GET Trigger Status and Trigger ID of Imported WF",
+                  "method": "GET",
+                  "relative_url": "api/v1/workflows/$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G1VTJWLMWT3JTBJYmQcGkok7WUqDPf1t$/triggers",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027KBCXMCHHH52BQRdbI2RdsOTz74HgXJIg",
+                "name": "JSONPath Query",
+                "title": "Fetch Trigger Status for Imported WF",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch Trigger Status for Imported WF",
+                  "input_json": "$activity.definition_activity_027KBCR2H2PMB3mC5Rb8bcNjqH41V5phvaY.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW$')].status.state",
+                      "jsonpath_query_name": "ImportedWF_TriggerStatus_DailyCalType_DisabledState",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0$')].status.state",
+                      "jsonpath_query_name": "ImportedWF_TriggerStatus_GroupCalType_DisabledState",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C$')].status.state",
+                      "jsonpath_query_name": "ImportedWF_TriggerStatus_DateListCalType_DisabledState",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027KBBYGIGFMG2Ck1ewflQwBW0I18Ko4NZH",
+                "name": "HTTP Request",
+                "title": "GET Trigger Status and Trigger ID of New WF",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.input.variable_workflow_027GO8TCGZEIZ3dLObDemrCR7uNDApzdv5i$"
+                    }
+                  ],
+                  "display_name": "GET Trigger Status and Trigger ID of New WF",
+                  "method": "GET",
+                  "relative_url": "api/v1/workflows/$activity.definition_activity_027K4CZHD6L7H30v5hWkhShKTNqu0qQY2fU.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$/triggers",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027KBBYGILZ0Z3NqQEwgSqpy5dgGlmTgeZN",
+                "name": "JSONPath Query",
+                "title": "Fetch Trigger Status for NewWF",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch Trigger Status for NewWF",
+                  "input_json": "$activity.definition_activity_027KBBYGIGFMG2Ck1ewflQwBW0I18Ko4NZH.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW$')].status.state",
+                      "jsonpath_query_name": "NewWF_TriggerStatus_PUTCase_DailyCalType_DisabledState",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0$')].status.state",
+                      "jsonpath_query_name": "NewWF_TriggerStatus_PUTCase_GroupCalType_DisabledState",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C$')].status.state",
+                      "jsonpath_query_name": "NewWF_TriggerStatus_PUTCase_DateListCalType_DisabledState",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_027KCN9K4ZFGO4mz0QEOtKNf1KOsHzl9e3M",
+            "name": "Group",
+            "title": "Verify the WF instances ",
+            "type": "logic.group",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Verify the WF instances ",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_027KD48VHCPFD0AQCuM78xmESskvJx2R7EA",
+                "name": "Calculate Date",
+                "title": "Construct Date",
+                "type": "core.calculate_date",
+                "base_type": "activity",
+                "properties": {
+                  "adjustment": -86400,
+                  "continue_on_failure": false,
+                  "display_name": "Construct Date",
+                  "original_date": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.start_time$",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027KD3W47KZND65cBKy8gdQhx4ZwiiW2M0z",
+                "name": "Automation - Get Workflow Instances Uisng WF_Id (Imported WF)",
+                "title": "Automation - Get Workflow Instances Uisng WF_Id (Imported WF)",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Automation - Get Workflow Instances Uisng WF_Id (Imported WF)",
+                  "input": {
+                    "variable_workflow_01UZ7Z9O42IC64072ReaAUSsOMTTcDGHFEl": "Authorization",
+                    "variable_workflow_01UZ7Z9O42QOF01FZkghXJmxKnHgZrgNnjr": "$activity.definition_activity_027GO7GYQ32AR0wPSB1o7bMDmbxDeqmErvK.output.variable_workflow_027G1VTJWLMWT3JTBJYmQcGkok7WUqDPf1t$",
+                    "variable_workflow_01UZ7Z9O42YAH2Hl0ZVRRo3ceK0aBG0h6rm": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.input.variable_workflow_027GO8TCGZEIZ3dLObDemrCR7uNDApzdv5i$",
+                    "variable_workflow_026R492UXOJOU7RuY7opvtWkUnZEUerdAe6": "$activity.definition_activity_027KD48VHCPFD0AQCuM78xmESskvJx2R7EA.output.result$",
+                    "variable_workflow_026R49A7K6J800OiPmdt7xChHP88FjK8SxH": "$activity.definition_activity_027KD48VHCPFD0AQCuM78xmESskvJx2R7EA.output.start_time$"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_01UZ7Z9MHSR8Y20t7PSJjT63cEZ65Y47hrV",
+                  "workflow_name": "Automation - Get Workflow Instances Uisng WF_Id"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027KD7S8L8YTP6zqSw8XVbwRzb6dNXKtI0S",
+                "name": "JSONPath Query",
+                "title": "Fetch results",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch results",
+                  "input_json": "$activity.definition_activity_027KD3W47KZND65cBKy8gdQhx4ZwiiW2M0z.output.variable_workflow_027GOIPDJYFXM23ENXrufm3q4vJDindZJZe$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.results",
+                      "jsonpath_query_name": "results_for_importedWF_WhenRuleDisabled",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027KD67LVOOQX07T5Lb348HMYM7zk2AseeV",
+                "name": "Automation - Get Workflow Instances Uisng WF_Id (Created WF)",
+                "title": "Automation - Get Workflow Instances Uisng WF_Id (Created WF)",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Automation - Get Workflow Instances Uisng WF_Id (Created WF)",
+                  "input": {
+                    "variable_workflow_01UZ7Z9O42IC64072ReaAUSsOMTTcDGHFEl": "Authorization",
+                    "variable_workflow_01UZ7Z9O42QOF01FZkghXJmxKnHgZrgNnjr": "$activity.definition_activity_027K4CZHD6L7H30v5hWkhShKTNqu0qQY2fU.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                    "variable_workflow_01UZ7Z9O42YAH2Hl0ZVRRo3ceK0aBG0h6rm": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.input.variable_workflow_027GO8TCGZEIZ3dLObDemrCR7uNDApzdv5i$",
+                    "variable_workflow_026R492UXOJOU7RuY7opvtWkUnZEUerdAe6": "$activity.definition_activity_027KD48VHCPFD0AQCuM78xmESskvJx2R7EA.output.result$",
+                    "variable_workflow_026R49A7K6J800OiPmdt7xChHP88FjK8SxH": "$activity.definition_activity_027KD48VHCPFD0AQCuM78xmESskvJx2R7EA.output.start_time$"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_01UZ7Z9MHSR8Y20t7PSJjT63cEZ65Y47hrV",
+                  "workflow_name": "Automation - Get Workflow Instances Uisng WF_Id"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027KD8MG22U421xD4qyjvMrVzcMQ8oxMHpV",
+                "name": "JSONPath Query",
+                "title": "Fetch results",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch results",
+                  "input_json": "$activity.definition_activity_027KD67LVOOQX07T5Lb348HMYM7zk2AseeV.output.variable_workflow_027GOIPDJYFXM23ENXrufm3q4vJDindZJZe$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.results",
+                      "jsonpath_query_name": "results_for_NewWF_WhenRuleDisabled",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_027KBL3T7WTWR6kGhDov51S0ZSkmqP7KQA2",
+            "name": "Condition Block",
+            "title": "Verify when Schedules Rules are disabled",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Verify when Schedules Rules are disabled",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_027KBL3TP7NQ95zjszUQ84gfqSIt7lpJHSa",
+                "name": "Condition Branch",
+                "title": "Pass",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": {
+                                            "left_operand": {
+                                              "left_operand": {
+                                                "left_operand": "$activity.definition_activity_027KB9TUBQBOF3TPZ1vHMuFebdMEhkys8yP.output.error.code$",
+                                                "operator": "eq",
+                                                "right_operand": "200"
+                                              },
+                                              "operator": "and",
+                                              "right_operand": {
+                                                "left_operand": "$activity.definition_activity_027KB9TUBTQ1D2B9rCXz1Jm27fqugCq2Va4.output.error.code$",
+                                                "operator": "eq",
+                                                "right_operand": "200"
+                                              }
+                                            },
+                                            "operator": "and",
+                                            "right_operand": {
+                                              "left_operand": "$activity.definition_activity_027KB9TUBYD3V4kwWUgsF5vU22MOeUpuHM9.output.error.code$",
+                                              "operator": "eq",
+                                              "right_operand": "200"
+                                            }
+                                          },
+                                          "operator": "and",
+                                          "right_operand": {
+                                            "left_operand": "$activity.definition_activity_027KBCR2H2PMB3mC5Rb8bcNjqH41V5phvaY.output.error.code$",
+                                            "operator": "eq",
+                                            "right_operand": "200"
+                                          }
+                                        },
+                                        "operator": "and",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_027KBCXMCHHH52BQRdbI2RdsOTz74HgXJIg.output.jsonpath_queries.ImportedWF_TriggerStatus_DailyCalType_DisabledState$",
+                                          "operator": "eq",
+                                          "right_operand": "stopped-polling"
+                                        }
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_027KBCXMCHHH52BQRdbI2RdsOTz74HgXJIg.output.jsonpath_queries.ImportedWF_TriggerStatus_DateListCalType_DisabledState$",
+                                        "operator": "eq",
+                                        "right_operand": "stopped-polling"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_027KBCXMCHHH52BQRdbI2RdsOTz74HgXJIg.output.jsonpath_queries.ImportedWF_TriggerStatus_GroupCalType_DisabledState$",
+                                      "operator": "eq",
+                                      "right_operand": "stopped-polling"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_027KBBYGIGFMG2Ck1ewflQwBW0I18Ko4NZH.output.error.code$",
+                                    "operator": "eq",
+                                    "right_operand": "200"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_027KBBYGILZ0Z3NqQEwgSqpy5dgGlmTgeZN.output.jsonpath_queries.NewWF_TriggerStatus_PUTCase_DailyCalType_DisabledState$",
+                                  "operator": "eq",
+                                  "right_operand": "stopped-polling"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_027KBBYGILZ0Z3NqQEwgSqpy5dgGlmTgeZN.output.jsonpath_queries.NewWF_TriggerStatus_PUTCase_DateListCalType_DisabledState$",
+                                "operator": "eq",
+                                "right_operand": "stopped-polling"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_027KBBYGILZ0Z3NqQEwgSqpy5dgGlmTgeZN.output.jsonpath_queries.NewWF_TriggerStatus_PUTCase_GroupCalType_DisabledState$",
+                              "operator": "eq",
+                              "right_operand": "stopped-polling"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_027KD3W47KZND65cBKy8gdQhx4ZwiiW2M0z.output.variable_workflow_01UZ7Z9O427N142z91xkv6JIXp41lX0dYRH$",
+                            "operator": "eq",
+                            "right_operand": "true"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_027KD7S8L8YTP6zqSw8XVbwRzb6dNXKtI0S.output.jsonpath_queries.results_for_importedWF_WhenRuleDisabled$",
+                          "operator": "eq",
+                          "right_operand": "[]"
+                        }
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_027KD67LVOOQX07T5Lb348HMYM7zk2AseeV.output.variable_workflow_01UZ7Z9O427N142z91xkv6JIXp41lX0dYRH$",
+                        "operator": "eq",
+                        "right_operand": "true"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_027KD8MG22U421xD4qyjvMrVzcMQ8oxMHpV.output.jsonpath_queries.results_for_NewWF_WhenRuleDisabled$",
+                      "operator": "eq",
+                      "right_operand": "[]"
+                    }
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Pass",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_027KBLL1WJA3Y76an83Eq1XKJYyJqWIQ7Vn",
+                    "name": "Set Variables",
+                    "title": "TestCases are Passed when Schedules Rules are disabled ✅",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "TestCases are Passed when Schedules Rules are disabled ✅",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027KBJSVR84S70Wz3f4nS78Yw5Pt507euQK$",
+                          "variable_value_new": "Pass"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_027KC3J1404XR322KHiHorzY0Mtb4BHNFgN",
+                "name": "Condition Branch",
+                "title": "Fail",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": {
+                                            "left_operand": {
+                                              "left_operand": {
+                                                "left_operand": "$activity.definition_activity_027KB9TUBQBOF3TPZ1vHMuFebdMEhkys8yP.output.error.code$",
+                                                "operator": "ne",
+                                                "right_operand": "200"
+                                              },
+                                              "operator": "or",
+                                              "right_operand": {
+                                                "left_operand": "$activity.definition_activity_027KB9TUBTQ1D2B9rCXz1Jm27fqugCq2Va4.output.error.code$",
+                                                "operator": "ne",
+                                                "right_operand": "200"
+                                              }
+                                            },
+                                            "operator": "and",
+                                            "right_operand": {
+                                              "left_operand": "$activity.definition_activity_027KB9TUBYD3V4kwWUgsF5vU22MOeUpuHM9.output.error.code$",
+                                              "operator": "eq",
+                                              "right_operand": "200"
+                                            }
+                                          },
+                                          "operator": "or",
+                                          "right_operand": {
+                                            "left_operand": "$activity.definition_activity_027KBCR2H2PMB3mC5Rb8bcNjqH41V5phvaY.output.error.code$",
+                                            "operator": "ne",
+                                            "right_operand": "200"
+                                          }
+                                        },
+                                        "operator": "or",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_027KBCXMCHHH52BQRdbI2RdsOTz74HgXJIg.output.jsonpath_queries.ImportedWF_TriggerStatus_DailyCalType_DisabledState$",
+                                          "operator": "ne",
+                                          "right_operand": "stopped-polling"
+                                        }
+                                      },
+                                      "operator": "or",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_027KBCXMCHHH52BQRdbI2RdsOTz74HgXJIg.output.jsonpath_queries.ImportedWF_TriggerStatus_DateListCalType_DisabledState$",
+                                        "operator": "ne",
+                                        "right_operand": "stopped-polling"
+                                      }
+                                    },
+                                    "operator": "or",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_027KBCXMCHHH52BQRdbI2RdsOTz74HgXJIg.output.jsonpath_queries.ImportedWF_TriggerStatus_GroupCalType_DisabledState$",
+                                      "operator": "ne",
+                                      "right_operand": "stopped-polling"
+                                    }
+                                  },
+                                  "operator": "or",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_027KBBYGIGFMG2Ck1ewflQwBW0I18Ko4NZH.output.error.code$",
+                                    "operator": "ne",
+                                    "right_operand": "200"
+                                  }
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_027KBBYGILZ0Z3NqQEwgSqpy5dgGlmTgeZN.output.jsonpath_queries.NewWF_TriggerStatus_PUTCase_DailyCalType_DisabledState$",
+                                  "operator": "ne",
+                                  "right_operand": "stopped-polling"
+                                }
+                              },
+                              "operator": "or",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_027KBBYGILZ0Z3NqQEwgSqpy5dgGlmTgeZN.output.jsonpath_queries.NewWF_TriggerStatus_PUTCase_DateListCalType_DisabledState$",
+                                "operator": "ne",
+                                "right_operand": "stopped-polling"
+                              }
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_027KBBYGILZ0Z3NqQEwgSqpy5dgGlmTgeZN.output.jsonpath_queries.NewWF_TriggerStatus_PUTCase_GroupCalType_DisabledState$",
+                              "operator": "ne",
+                              "right_operand": "stopped-polling"
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_027KD3W47KZND65cBKy8gdQhx4ZwiiW2M0z.output.variable_workflow_01UZ7Z9O427N142z91xkv6JIXp41lX0dYRH$",
+                            "operator": "eq",
+                            "right_operand": "false"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_027KD7S8L8YTP6zqSw8XVbwRzb6dNXKtI0S.output.jsonpath_queries.results_for_importedWF_WhenRuleDisabled$",
+                          "operator": "eq",
+                          "right_operand": "[]"
+                        }
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_027KD67LVOOQX07T5Lb348HMYM7zk2AseeV.output.variable_workflow_01UZ7Z9O427N142z91xkv6JIXp41lX0dYRH$",
+                        "operator": "eq",
+                        "right_operand": "false"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_027KD8MG22U421xD4qyjvMrVzcMQ8oxMHpV.output.jsonpath_queries.results_for_NewWF_WhenRuleDisabled$",
+                      "operator": "eq",
+                      "right_operand": "[]"
+                    }
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_027KC3J140X1Y1B9iCG0d6A9dQjz3a8ABxp",
+                    "name": "Set Variables",
+                    "title": "TestCases are Passed when Schedules Rules are disabled ❌⭕",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "TestCases are Passed when Schedules Rules are disabled ❌⭕",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027KBJSVR84S70Wz3f4nS78Yw5Pt507euQK$",
+                          "variable_value_new": "Fail"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
         "unique_name": "definition_activity_027GQ75O6SJ2O63bnMVwaXnMGWCx6ySFDsu",
@@ -1975,34 +2788,42 @@
                   "left_operand": {
                     "left_operand": {
                       "left_operand": {
-                        "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GP5AXWY35Z5xnFQ0hSH9zecxUZLXEWJ4$",
-                        "operator": "eq",
-                        "right_operand": "Pass"
+                        "left_operand": {
+                          "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GP5AXWY35Z5xnFQ0hSH9zecxUZLXEWJ4$",
+                          "operator": "eq",
+                          "right_operand": "Pass"
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GP9RXKV19F6r0hAdJaZGgyiv2VotNPU6$",
+                          "operator": "eq",
+                          "right_operand": "Pass"
+                        }
                       },
                       "operator": "and",
                       "right_operand": {
-                        "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GP9RXKV19F6r0hAdJaZGgyiv2VotNPU6$",
+                        "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GQ7WJG8KCT0xtGRZ6uVX1sreZIA94fUG$",
                         "operator": "eq",
                         "right_operand": "Pass"
                       }
                     },
                     "operator": "and",
                     "right_operand": {
-                      "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GQ7WJG8KCT0xtGRZ6uVX1sreZIA94fUG$",
+                      "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027K6IFP0GVW750nxal5ZVKId4moaKrzLfi$",
                       "operator": "eq",
                       "right_operand": "Pass"
                     }
                   },
                   "operator": "and",
                   "right_operand": {
-                    "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027K6IFP0GVW750nxal5ZVKId4moaKrzLfi$",
+                    "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027K7FWV59UTZ3Y65wsCQzlsEN4bckhyyxf$",
                     "operator": "eq",
                     "right_operand": "Pass"
                   }
                 },
                 "operator": "and",
                 "right_operand": {
-                  "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027K7FWV59UTZ3Y65wsCQzlsEN4bckhyyxf$",
+                  "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027KBJSVR84S70Wz3f4nS78Yw5Pt507euQK$",
                   "operator": "eq",
                   "right_operand": "Pass"
                 }
@@ -2046,34 +2867,42 @@
                   "left_operand": {
                     "left_operand": {
                       "left_operand": {
-                        "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GP5AXWY35Z5xnFQ0hSH9zecxUZLXEWJ4$",
-                        "operator": "eq",
-                        "right_operand": "Fail"
+                        "left_operand": {
+                          "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GP5AXWY35Z5xnFQ0hSH9zecxUZLXEWJ4$",
+                          "operator": "eq",
+                          "right_operand": "Fail"
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GP9RXKV19F6r0hAdJaZGgyiv2VotNPU6$",
+                          "operator": "eq",
+                          "right_operand": "Fail"
+                        }
                       },
                       "operator": "or",
                       "right_operand": {
-                        "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GP9RXKV19F6r0hAdJaZGgyiv2VotNPU6$",
+                        "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GQ7WJG8KCT0xtGRZ6uVX1sreZIA94fUG$",
                         "operator": "eq",
                         "right_operand": "Fail"
                       }
                     },
                     "operator": "or",
                     "right_operand": {
-                      "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027GQ7WJG8KCT0xtGRZ6uVX1sreZIA94fUG$",
+                      "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027K6IFP0GVW750nxal5ZVKId4moaKrzLfi$",
                       "operator": "eq",
                       "right_operand": "Fail"
                     }
                   },
                   "operator": "or",
                   "right_operand": {
-                    "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027K6IFP0GVW750nxal5ZVKId4moaKrzLfi$",
+                    "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027K7FWV59UTZ3Y65wsCQzlsEN4bckhyyxf$",
                     "operator": "eq",
                     "right_operand": "Fail"
                   }
                 },
                 "operator": "or",
                 "right_operand": {
-                  "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027K7FWV59UTZ3Y65wsCQzlsEN4bckhyyxf$",
+                  "left_operand": "$workflow.definition_workflow_027GO6ZVUGMO90KslV9FXBVK3QB43yds8Iw.output.variable_workflow_027KBJSVR84S70Wz3f4nS78Yw5Pt507euQK$",
                   "operator": "eq",
                   "right_operand": "Fail"
                 }
@@ -2126,335 +2955,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Pre-Create_WF_TestStatus",
+              "name": "Schedule_GroupCal_RuleName",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027G0GKHLOWAM2hs34I5fh2ZaYzkeT9Ry7J",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Create_ScheduleRec_TestStatus",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G0GYXAUCJ51kAabTg3JHDqdfroLinOqJ",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Imported_WFID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G1VTJWLMWT3JTBJYmQcGkok7WUqDPf1t",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "DateListCalenderID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027GQKV28Q8MF7L1626iQ5CtFT03zzQKyIM",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.boolean",
-            "properties": {
-              "value": false,
-              "scope": "input",
-              "name": "Workflow_Config_Disabled",
-              "type": "datatype.boolean",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027FY8DJ3RREW2EzaDmu3VDwcIkmVU2sn2c",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.integer",
-            "properties": {
-              "value": 1,
-              "scope": "input",
-              "name": "interval_minutes",
-              "type": "datatype.integer",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027FY8TD33CNO2G4XghMGhsHDm3NjxrX5Hw",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.integer",
-            "properties": {
-              "value": 2,
-              "scope": "input",
-              "name": "number_of_times",
-              "type": "datatype.integer",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027FY99O0VTDH6zWd3DiiGK6L9YDbTRgkKL",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Schedule_GroupCal_RuleID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G00UWWK56J2Tqj9DqlfuORBTbcaYOTcw",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Schedule_DateListCal_RuleStatus",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G08JQ4UK083SgdpwbtBVIYw1prdSricF",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "WF_Var_INT",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G0DQ1AEPZE3ss1h09Kq5N7UmroKZA7aD",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Token without Bearer",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027FWZL395Q3U788UHLndCWWgX4M692qh05",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Pre-Create_Cal_TestStatus",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G0GEM0K6WD5pqcxLtmkhJ6KRumu6SYwK",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "DailyCalenderID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027K4OJ8H1V2O4ggZg1aUfEN8PIc5WV1LJS",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Schedule_DateListCal_triggerID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027FZB9T7GVOV6xL9YCvyuQukik7XnK0Drc",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Schedule_DateListCal_RefID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027FZCDRXTH8I293Nk58cTpxyQKKjLGxLm2",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Schedule_DailyCal_RuleName",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Schedule_GroupCal_RuleStatus",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G0104OUK2P1q6SzlvMwf6GwkXeW6SS2Y",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "WF_Var_Decimal",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G0DLKO4LK34O6Fur1QjOSHbHSQwuIVV4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "WF_Var_String_NotReq",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G0E3ABCAPH4MJGuB0IrpJtPpyuBKrJ8N",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Create_ScheduleGroup_TestStatus",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G0H53GFOYW113aoiRhBJynzpfd3jPDJi",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Create Schedule Reusable Test Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G0I8LAP20K1uDn4ozKPyCB9tXC7PExFI",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Create_ScheduleDateList_TestStatus",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G0HIUNPDTG795prj4VF2PwJJ1Ym4kk1N",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Schedule_GroupCal_RefID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027FZBUN8JIHO7MaTNgS9B2qnX1wu9IpbCr",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Schedule_DailyCal_RuleStatus",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027G00NPST2MZ4l15mcrXrjQtCF9hG2rkxF",
+            "unique_name": "variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0",
             "object_type": "variable_workflow"
           },
           {
@@ -2476,13 +2983,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "GroupCalenderID",
+              "name": "WF_Var_String_NotReq",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027K4ONS74CPF0fUnRQXZjYLTHI5baiE15t",
+            "unique_name": "variable_workflow_027G0E3ABCAPH4MJGuB0IrpJtPpyuBKrJ8N",
             "object_type": "variable_workflow"
           },
           {
@@ -2490,13 +2997,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Schedule_DailyCal_RefID",
+              "name": "Create_ScheduleDateList_TestStatus",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027FZBOG9W6EH3mZ9EsbBW1204fvZEtW2lA",
+            "unique_name": "variable_workflow_027G0HIUNPDTG795prj4VF2PwJJ1Ym4kk1N",
             "object_type": "variable_workflow"
           },
           {
@@ -2504,13 +3011,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Schedule_DailyCal_RuleID",
+              "name": "Schedule_DateListCal_RefID",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027G00II3TPCF2lKiJnBaOa6pO4kdcW7wG4",
+            "unique_name": "variable_workflow_027FZCDRXTH8I293Nk58cTpxyQKKjLGxLm2",
             "object_type": "variable_workflow"
           },
           {
@@ -2532,6 +3039,34 @@
             "properties": {
               "value": "",
               "scope": "output",
+              "name": "Create Schedule Reusable Test Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G0I8LAP20K1uDn4ozKPyCB9tXC7PExFI",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.integer",
+            "properties": {
+              "value": 2,
+              "scope": "input",
+              "name": "number_of_times",
+              "type": "datatype.integer",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027FY99O0VTDH6zWd3DiiGK6L9YDbTRgkKL",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
               "name": "WF_Var_StringReq",
               "type": "datatype.string",
               "is_required": false,
@@ -2546,13 +3081,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Schedule_DateListCal_RuleName",
+              "name": "Schedule_GroupCal_RefID",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C",
+            "unique_name": "variable_workflow_027FZBUN8JIHO7MaTNgS9B2qnX1wu9IpbCr",
             "object_type": "variable_workflow"
           },
           {
@@ -2560,13 +3095,237 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Schedule_GroupCal_RuleName",
+              "name": "Pre-Create_WF_TestStatus",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027FZE64JA3JW3moZwHoR174Wv4Mhk7xso0",
+            "unique_name": "variable_workflow_027G0GKHLOWAM2hs34I5fh2ZaYzkeT9Ry7J",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schedule_DailyCal_RuleStatus",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G00NPST2MZ4l15mcrXrjQtCF9hG2rkxF",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schedule_GroupCal_RuleID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G00UWWK56J2Tqj9DqlfuORBTbcaYOTcw",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Token without Bearer",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027FWZL395Q3U788UHLndCWWgX4M692qh05",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Create_ScheduleRec_TestStatus",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G0GYXAUCJ51kAabTg3JHDqdfroLinOqJ",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.integer",
+            "properties": {
+              "value": 1,
+              "scope": "input",
+              "name": "interval_minutes",
+              "type": "datatype.integer",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027FY8TD33CNO2G4XghMGhsHDm3NjxrX5Hw",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Create_ScheduleGroup_TestStatus",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G0H53GFOYW113aoiRhBJynzpfd3jPDJi",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schedule_DailyCal_triggerID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027FZAU00ZZMM5DdgJYHGeoMguwkP2JDgpD",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schedule_GroupCal_RuleStatus",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G0104OUK2P1q6SzlvMwf6GwkXeW6SS2Y",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schedule_DateListCal_triggerID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027FZB9T7GVOV6xL9YCvyuQukik7XnK0Drc",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schedule_DailyCal_RuleID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G00II3TPCF2lKiJnBaOa6pO4kdcW7wG4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "DateListCalenderID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027GQKV28Q8MF7L1626iQ5CtFT03zzQKyIM",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4\",\n    \"name\": \"WF_For_Automation_Schedule-Rule_mapping\",\n    \"title\": \"WF_For_Automation_Schedule-Rule_mapping\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"output\",\n          \"name\": \"String_Output\",\n          \"type\": \"datatype.string\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQX1S85OsU67lOFK1895dTj244wN\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.boolean\",\n        \"properties\": {\n          \"value\": false,\n          \"scope\": \"input\",\n          \"name\": \"Bool_INput\",\n          \"type\": \"datatype.boolean\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQWRCL3PWSQ6H0hPQOUzd16DQKHQ\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.boolean\",\n        \"properties\": {\n          \"value\": true,\n          \"scope\": \"output\",\n          \"name\": \"Bool_Output\",\n          \"type\": \"datatype.boolean\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQXJME2vYMi1IaWgOo0Lp9ecg2mA\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"output\",\n          \"name\": \"Integer_Output\",\n          \"type\": \"datatype.integer\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQXRAV4lkaOxvcESeUNyqcPETR7O\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 8.6,\n          \"scope\": \"input\",\n          \"name\": \"Decimal_Value\",\n          \"type\": \"datatype.number\",\n          \"description\": \"Decimal_Value\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQY99F0IMPxYURgxw5vnpWxvLTrs\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 29,\n          \"scope\": \"local\",\n          \"name\": \"Integer_Local\",\n          \"type\": \"datatype.integer\",\n          \"description\": \"Integer_Local\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQZ9X56R27x9qgjZ3KY3Qe3r3YsY\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 5.8,\n          \"scope\": \"local\",\n          \"name\": \"Decimal_Local\",\n          \"type\": \"datatype.number\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQXB6X5uyV2ojzUnuCfFbnkEfAZZ\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"String_Input_Req_with_Default_value\",\n          \"scope\": \"input\",\n          \"name\": \"String_Input_Req_with_Default_value\",\n          \"type\": \"datatype.string\",\n          \"description\": \"String_Input_Req_with_Default_value\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQY0JN0fTzlsTXgaeJdqAiQrCWXE\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 100,\n          \"scope\": \"input\",\n          \"name\": \"Integer_Default_Value\",\n          \"type\": \"datatype.integer\",\n          \"description\": \"Integer_Default_Value\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQYGRA2jP4mRSCRxNinyaOafRc1D\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"output\",\n          \"name\": \"Decimal_Output\",\n          \"type\": \"datatype.number\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQYW6X0700GKrK4HXetirQabHTXQ\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"String_Input_NotReq_with_NODefault_value\",\n          \"type\": \"datatype.string\",\n          \"description\": \"String_Input_NotReq_with_NODefault_value\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQYPA81fOvgYkSfqjXagb2l0AFCO\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"String_Local\",\n          \"scope\": \"local\",\n          \"name\": \"String_Local\",\n          \"type\": \"datatype.string\",\n          \"description\": \"String_Local\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQZ2TJ6zV0ko69SoAUxACe94zimi\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"description\": \"WF_For_Automation_Rule_mapping\",\n      \"display_name\": \"WF_For_Automation_Schedule-Rule_mapping\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_02556EUQUDPD70vpu3Mmfdzt6zmjEK8v6zS\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Condition Block\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Condition Block\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_02556EURKX5G00mlebkPAFE26yTHoeTTLnK\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQWRCL3PWSQ6H0hPQOUzd16DQKHQ$\",\n                \"operator\": \"eq\",\n                \"right_operand\": true\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_02556EUTJS6XB3x7Qu88xGpx6lT7eeO0MuD\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Set Variables\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Set Variables\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQX1S85OsU67lOFK1895dTj244wN$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYPA81fOvgYkSfqjXagb2l0AFCO$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY0JN0fTzlsTXgaeJdqAiQrCWXE$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ2TJ6zV0ko69SoAUxACe94zimi$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQYW6X0700GKrK4HXetirQabHTXQ$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY99F0IMPxYURgxw5vnpWxvLTrs$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQXB6X5uyV2ojzUnuCfFbnkEfAZZ$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQXRAV4lkaOxvcESeUNyqcPETR7O$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ9X56R27x9qgjZ3KY3Qe3r3YsY$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYGRA2jP4mRSCRxNinyaOafRc1D$\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              },\n              {\n                \"unique_name\": \"definition_activity_02556EUUC4USZ2yEPq7MAUZzrAP2ATNHW4q\",\n                \"name\": \"To Upper\",\n                \"title\": \"To Upper\",\n                \"type\": \"core.string2upper\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"To Upper\",\n                  \"skip_execution\": false,\n                  \"source\": \"Input\\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYPA81fOvgYkSfqjXagb2l0AFCO$ \\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY0JN0fTzlsTXgaeJdqAiQrCWXE$\\n\\nLocal \\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ2TJ6zV0ko69SoAUxACe94zimi$\\n\"\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          },\n          {\n            \"unique_name\": \"definition_activity_02556EUV42ODI2iI4O5K3Y06w84Q6dcYpIO\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQWRCL3PWSQ6H0hPQOUzd16DQKHQ$\",\n                \"operator\": \"eq\",\n                \"right_operand\": false\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_02556EUX9KFRQ1NhafNMX4NIulBYEunwy3u\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Set Variables\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Set Variables\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQX1S85OsU67lOFK1895dTj244wN$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYPA81fOvgYkSfqjXagb2l0AFCO$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY0JN0fTzlsTXgaeJdqAiQrCWXE$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ2TJ6zV0ko69SoAUxACe94zimi$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQYW6X0700GKrK4HXetirQabHTXQ$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY99F0IMPxYURgxw5vnpWxvLTrs$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQXB6X5uyV2ojzUnuCfFbnkEfAZZ$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQXRAV4lkaOxvcESeUNyqcPETR7O$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ9X56R27x9qgjZ3KY3Qe3r3YsY$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYGRA2jP4mRSCRxNinyaOafRc1D$\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              },\n              {\n                \"unique_name\": \"definition_activity_02556EUY1J4UF0TBehVgYDgrQ8N0s4w9AGj\",\n                \"name\": \"To Upper\",\n                \"title\": \"To Upper\",\n                \"type\": \"core.string2upper\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"To Upper\",\n                  \"skip_execution\": false,\n                  \"source\": \"Input\\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYPA81fOvgYkSfqjXagb2l0AFCO$ \\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY0JN0fTzlsTXgaeJdqAiQrCWXE$\\n\\nLocal \\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ2TJ6zV0ko69SoAUxACe94zimi$\\n\"\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
+              "scope": "local",
+              "name": "WF_Payload_for_ImportWF",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027GNDNWI4OEW526pY6n2PiHX34sdsiXBXx",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "DailyCalenderID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027K4OJ8H1V2O4ggZg1aUfEN8PIc5WV1LJS",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schedule_DailyCal_RefID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027FZBOG9W6EH3mZ9EsbBW1204fvZEtW2lA",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schedule_DateListCal_RuleStatus",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G08JQ4UK083SgdpwbtBVIYw1prdSricF",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schedule_DailyCal_RuleName",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027FZDB6GJ2T170ai1hzQGgWMm06L5afsvW",
             "object_type": "variable_workflow"
           },
           {
@@ -2588,27 +3347,97 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Schedule_DailyCal_triggerID",
+              "name": "Schedule_DateListCal_RuleName",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027FZAU00ZZMM5DdgJYHGeoMguwkP2JDgpD",
+            "unique_name": "variable_workflow_027FZDODZVDUU4iYiaqH4w4ExViMOuUX50C",
             "object_type": "variable_workflow"
           },
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4\",\n    \"name\": \"WF_For_Automation_Schedule-Rule_mapping\",\n    \"title\": \"WF_For_Automation_Schedule-Rule_mapping\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"output\",\n          \"name\": \"String_Output\",\n          \"type\": \"datatype.string\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQX1S85OsU67lOFK1895dTj244wN\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.boolean\",\n        \"properties\": {\n          \"value\": false,\n          \"scope\": \"input\",\n          \"name\": \"Bool_INput\",\n          \"type\": \"datatype.boolean\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQWRCL3PWSQ6H0hPQOUzd16DQKHQ\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.boolean\",\n        \"properties\": {\n          \"value\": true,\n          \"scope\": \"output\",\n          \"name\": \"Bool_Output\",\n          \"type\": \"datatype.boolean\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQXJME2vYMi1IaWgOo0Lp9ecg2mA\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"output\",\n          \"name\": \"Integer_Output\",\n          \"type\": \"datatype.integer\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQXRAV4lkaOxvcESeUNyqcPETR7O\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 8.6,\n          \"scope\": \"input\",\n          \"name\": \"Decimal_Value\",\n          \"type\": \"datatype.number\",\n          \"description\": \"Decimal_Value\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQY99F0IMPxYURgxw5vnpWxvLTrs\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 29,\n          \"scope\": \"local\",\n          \"name\": \"Integer_Local\",\n          \"type\": \"datatype.integer\",\n          \"description\": \"Integer_Local\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQZ9X56R27x9qgjZ3KY3Qe3r3YsY\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 5.8,\n          \"scope\": \"local\",\n          \"name\": \"Decimal_Local\",\n          \"type\": \"datatype.number\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQXB6X5uyV2ojzUnuCfFbnkEfAZZ\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"String_Input_Req_with_Default_value\",\n          \"scope\": \"input\",\n          \"name\": \"String_Input_Req_with_Default_value\",\n          \"type\": \"datatype.string\",\n          \"description\": \"String_Input_Req_with_Default_value\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQY0JN0fTzlsTXgaeJdqAiQrCWXE\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 100,\n          \"scope\": \"input\",\n          \"name\": \"Integer_Default_Value\",\n          \"type\": \"datatype.integer\",\n          \"description\": \"Integer_Default_Value\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQYGRA2jP4mRSCRxNinyaOafRc1D\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"output\",\n          \"name\": \"Decimal_Output\",\n          \"type\": \"datatype.number\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQYW6X0700GKrK4HXetirQabHTXQ\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"String_Input_NotReq_with_NODefault_value\",\n          \"type\": \"datatype.string\",\n          \"description\": \"String_Input_NotReq_with_NODefault_value\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQYPA81fOvgYkSfqjXagb2l0AFCO\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"String_Local\",\n          \"scope\": \"local\",\n          \"name\": \"String_Local\",\n          \"type\": \"datatype.string\",\n          \"description\": \"String_Local\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_02556EUNQZ2TJ6zV0ko69SoAUxACe94zimi\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"description\": \"WF_For_Automation_Rule_mapping\",\n      \"display_name\": \"WF_For_Automation_Schedule-Rule_mapping\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_02556EUQUDPD70vpu3Mmfdzt6zmjEK8v6zS\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Condition Block\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Condition Block\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_02556EURKX5G00mlebkPAFE26yTHoeTTLnK\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQWRCL3PWSQ6H0hPQOUzd16DQKHQ$\",\n                \"operator\": \"eq\",\n                \"right_operand\": true\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_02556EUTJS6XB3x7Qu88xGpx6lT7eeO0MuD\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Set Variables\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Set Variables\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQX1S85OsU67lOFK1895dTj244wN$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYPA81fOvgYkSfqjXagb2l0AFCO$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY0JN0fTzlsTXgaeJdqAiQrCWXE$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ2TJ6zV0ko69SoAUxACe94zimi$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQYW6X0700GKrK4HXetirQabHTXQ$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY99F0IMPxYURgxw5vnpWxvLTrs$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQXB6X5uyV2ojzUnuCfFbnkEfAZZ$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQXRAV4lkaOxvcESeUNyqcPETR7O$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ9X56R27x9qgjZ3KY3Qe3r3YsY$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYGRA2jP4mRSCRxNinyaOafRc1D$\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              },\n              {\n                \"unique_name\": \"definition_activity_02556EUUC4USZ2yEPq7MAUZzrAP2ATNHW4q\",\n                \"name\": \"To Upper\",\n                \"title\": \"To Upper\",\n                \"type\": \"core.string2upper\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"To Upper\",\n                  \"skip_execution\": false,\n                  \"source\": \"Input\\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYPA81fOvgYkSfqjXagb2l0AFCO$ \\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY0JN0fTzlsTXgaeJdqAiQrCWXE$\\n\\nLocal \\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ2TJ6zV0ko69SoAUxACe94zimi$\\n\"\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          },\n          {\n            \"unique_name\": \"definition_activity_02556EUV42ODI2iI4O5K3Y06w84Q6dcYpIO\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQWRCL3PWSQ6H0hPQOUzd16DQKHQ$\",\n                \"operator\": \"eq\",\n                \"right_operand\": false\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_02556EUX9KFRQ1NhafNMX4NIulBYEunwy3u\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Set Variables\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Set Variables\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQX1S85OsU67lOFK1895dTj244wN$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYPA81fOvgYkSfqjXagb2l0AFCO$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY0JN0fTzlsTXgaeJdqAiQrCWXE$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ2TJ6zV0ko69SoAUxACe94zimi$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQYW6X0700GKrK4HXetirQabHTXQ$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY99F0IMPxYURgxw5vnpWxvLTrs$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQXB6X5uyV2ojzUnuCfFbnkEfAZZ$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.output.variable_workflow_02556EUNQXRAV4lkaOxvcESeUNyqcPETR7O$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ9X56R27x9qgjZ3KY3Qe3r3YsY$+$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYGRA2jP4mRSCRxNinyaOafRc1D$\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              },\n              {\n                \"unique_name\": \"definition_activity_02556EUY1J4UF0TBehVgYDgrQ8N0s4w9AGj\",\n                \"name\": \"To Upper\",\n                \"title\": \"To Upper\",\n                \"type\": \"core.string2upper\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"To Upper\",\n                  \"skip_execution\": false,\n                  \"source\": \"Input\\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQYPA81fOvgYkSfqjXagb2l0AFCO$ \\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.input.variable_workflow_02556EUNQY0JN0fTzlsTXgaeJdqAiQrCWXE$\\n\\nLocal \\n\\n$workflow.definition_workflow_02556EUNCU32S2XgHpAR0L89XB1vrVubIO4.local.variable_workflow_02556EUNQZ2TJ6zV0ko69SoAUxACe94zimi$\\n\"\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
-              "scope": "local",
-              "name": "WF_Payload_for_ImportWF",
+              "value": "",
+              "scope": "output",
+              "name": "WF_Var_Decimal",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027GNDNWI4OEW526pY6n2PiHX34sdsiXBXx",
+            "unique_name": "variable_workflow_027G0DLKO4LK34O6Fur1QjOSHbHSQwuIVV4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pre-Create_Cal_TestStatus",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G0GEM0K6WD5pqcxLtmkhJ6KRumu6SYwK",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Imported_WFID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G1VTJWLMWT3JTBJYmQcGkok7WUqDPf1t",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "WF_Var_INT",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027G0DQ1AEPZE3ss1h09Kq5N7UmroKZA7aD",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "GroupCalenderID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027K4ONS74CPF0fUnRQXZjYLTHI5baiE15t",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.boolean",
+            "properties": {
+              "value": false,
+              "scope": "input",
+              "name": "Workflow_Config_Disabled",
+              "type": "datatype.boolean",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027FY8DJ3RREW2EzaDmu3VDwcIkmVU2sn2c",
             "object_type": "variable_workflow"
           }
         ],
