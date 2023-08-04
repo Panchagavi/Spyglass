@@ -1,0 +1,631 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq",
+    "name": "Automation - Create a Email Rule",
+    "title": "Automation - Create a Email Rule",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "IMAP_Target_ID",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWFB50KZUN4Wl0uaQ4iWfiFHCyRQVnql",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide wf_id to create the rule",
+          "type": "datatype.string",
+          "description": "Workflow ID to map the created rule ID",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWBZI55xWqwI0Ruve6FwunJSkGLJ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "WF_Trigger_Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWBS4D4Ww9cPokRBwjsUB3smNlwQ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Rule Condition",
+          "type": "datatype.string",
+          "description": "enter the rule if user want to create condition with condition \n\nbelow is the syntax -- \n\n\"conditions\": {\n      \"operator\": \"eq\",\n      \"left_operand\": \"$output.subject$\",\n      \"right_operand\": \"Subject\"\n    },",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWAFFE4w9hfc2S4toe2N99aqdCA8",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email_Rule_UniqueName",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPW9RLC5tYbJN2JP1WkEAhFocjlO3",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Enter the Email Action",
+          "type": "datatype.string",
+          "description": "Action should be read/delete",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWGW7VH3044GVAOl4XaWhrMYqGpT4tWG",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide Token with Bearer",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWBCNC10W7EXhXAte7iTTJEDQNGi",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email_Rule_ResponseBody",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWA7VQ0OJHg2GLA9AuHDDWMKiDSe",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": true,
+          "scope": "input",
+          "name": "Downlaod_attachments",
+          "type": "datatype.boolean",
+          "description": "true/false",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWHY8XX6XL1DM3zOe7FZtuvRyYeLqwXd",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email_Rule_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPW8XGZ67vQT9X6sevJjpKg5Whw5E",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Email Rule Name",
+          "type": "datatype.string",
+          "description": "Rule Name ",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWA0IN4o3cQI2Rq5ysNCDCsLNLBA",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Rule Status True/False",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWBKN96DJjXnREzOHOYqgLkwnhZO",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email_Rule_Name",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWAMAT6tBAMTZMZAsHlGeziXMvPG",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWAY9X5Kqy8FlQ2yeEOC71odjbSG",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "WF_Trigger_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWC65X40VMf1lCsUqExMl87GvDbg",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.boolean",
+        "properties": {
+          "value": false,
+          "scope": "input",
+          "name": "Rule ON/OFF",
+          "type": "datatype.boolean",
+          "description": "This is input to control the Rule Enable or Disabled. by default rule will be enabled. ",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027MWAIPWCFPF1ESqsIOw10nAaZutNVRtGn",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "atomic_group": "SXO- Automation Worklfows",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Automation - Create a Email Rule",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_027MWAIVVI3NN03pjUl8nB0g9c7jE0aiNPw",
+        "name": "HTTP Request",
+        "title": "Create Rule",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "body": "{\n\"description\":\"created by automation reusable workflow\",\n\"target_id\": \"$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWFB50KZUN4Wl0uaQ4iWfiFHCyRQVnql$\",\n\"title\": \"$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWA0IN4o3cQI2Rq5ysNCDCsLNLBA$\",\n\"name\": \"$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWA0IN4o3cQI2Rq5ysNCDCsLNLBA$\",\n\"type\": \"email.rule_event\",\n\"rule_type\": \"rule_event\",\n\"properties\": {\n\"disabled\":$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWCFPF1ESqsIOw10nAaZutNVRtGn$,\n\"rule_type\": \"rule_event\",\n\"folder\": \"INBOX\",\n\"action\": \"$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWGW7VH3044GVAOl4XaWhrMYqGpT4tWG$\",\n\"download_attachments\":$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWHY8XX6XL1DM3zOe7FZtuvRyYeLqwXd$,\n\"workflows_config\": [\n{\n\"disabled\":false,\n\"workflow_id\": \"$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWBZI55xWqwI0Ruve6FwunJSkGLJ$\",\n\"wf_input_variables\": {}\n}\n],\n\"title\": \"$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWA0IN4o3cQI2Rq5ysNCDCsLNLBA$\",\n\"target_id\": \"$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWFB50KZUN4Wl0uaQ4iWfiFHCyRQVnql$\",\n$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWAFFE4w9hfc2S4toe2N99aqdCA8$\n\"display_name\": \"$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWA0IN4o3cQI2Rq5ysNCDCsLNLBA$\"\n}\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWAY9X5Kqy8FlQ2yeEOC71odjbSG$",
+              "value": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWBCNC10W7EXhXAte7iTTJEDQNGi$"
+            }
+          ],
+          "display_name": "Create Rule",
+          "method": "POST",
+          "relative_url": "api/v1/rules",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_027MWAIXIWY941WX2uBgrQVtbe7MrtGHHTb",
+        "name": "Sleep",
+        "title": "Waiting 10 seconds to complete the Creation",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Waiting 10 seconds to complete the Creation",
+          "skip_execution": false,
+          "sleep_interval": 10
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_027MWAIZ0BR9G5pz03tyjc25hIkP31eD64B",
+        "name": "JSONPath Query",
+        "title": "Fetch Rule Details",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Fetch Rule Details",
+          "input_json": "$activity.definition_activity_027MWAIVVI3NN03pjUl8nB0g9c7jE0aiNPw.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.title",
+              "jsonpath_query_name": "Rule_Title",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$.id",
+              "jsonpath_query_name": "Rule_ID",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$.unique_name",
+              "jsonpath_query_name": "Rule_UniqueName",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_027MWAJ15FUVP7IWTfP1WYxd5cCgaAptM2o",
+        "name": "HTTP Request",
+        "title": "Get Trigger Status and Trigger ID",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWAY9X5Kqy8FlQ2yeEOC71odjbSG$",
+              "value": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWBCNC10W7EXhXAte7iTTJEDQNGi$"
+            }
+          ],
+          "display_name": "Get Trigger Status and Trigger ID",
+          "method": "GET",
+          "relative_url": "api/v1/workflows/$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.input.variable_workflow_027MWAIPWBZI55xWqwI0Ruve6FwunJSkGLJ$/triggers",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_027MWAJ3DSH67251fUq79CxCu1G2xQqxts0",
+        "name": "JSONPath Query",
+        "title": "Fetch the Trigger ID and Status",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Fetch the Trigger ID and Status",
+          "input_json": "$activity.definition_activity_027MWAJ15FUVP7IWTfP1WYxd5cCgaAptM2o.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027MWAIZ0BR9G5pz03tyjc25hIkP31eD64B.output.jsonpath_queries.Rule_Title$')].id",
+              "jsonpath_query_name": "WF_Trigger_ID",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027MWAIZ0BR9G5pz03tyjc25hIkP31eD64B.output.jsonpath_queries.Rule_Title$')]status.state",
+              "jsonpath_query_name": "WF_Trigger_Status",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_027MWAJ6L5LEW1rkaIbHAOE4dBo6t6jqPkJ",
+        "name": "Set Variables",
+        "title": "Store Rule Details",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Store Rule Details",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.output.variable_workflow_027MWAIPW8XGZ67vQT9X6sevJjpKg5Whw5E$",
+              "variable_value_new": "$activity.definition_activity_027MWAIZ0BR9G5pz03tyjc25hIkP31eD64B.output.jsonpath_queries.Rule_ID$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.output.variable_workflow_027MWAIPWAMAT6tBAMTZMZAsHlGeziXMvPG$",
+              "variable_value_new": "$activity.definition_activity_027MWAIZ0BR9G5pz03tyjc25hIkP31eD64B.output.jsonpath_queries.Rule_Title$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.output.variable_workflow_027MWAIPWA7VQ0OJHg2GLA9AuHDDWMKiDSe$",
+              "variable_value_new": "$activity.definition_activity_027MWAIVVI3NN03pjUl8nB0g9c7jE0aiNPw.output.response_body$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.output.variable_workflow_027MWAIPW9RLC5tYbJN2JP1WkEAhFocjlO3$",
+              "variable_value_new": "$activity.definition_activity_027MWAIZ0BR9G5pz03tyjc25hIkP31eD64B.output.jsonpath_queries.Rule_UniqueName$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.output.variable_workflow_027MWAIPWC65X40VMf1lCsUqExMl87GvDbg$",
+              "variable_value_new": "$activity.definition_activity_027MWAJ3DSH67251fUq79CxCu1G2xQqxts0.output.jsonpath_queries.WF_Trigger_ID$"
+            },
+            {
+              "variable_to_update": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.output.variable_workflow_027MWAIPWBS4D4Ww9cPokRBwjsUB3smNlwQ$",
+              "variable_value_new": "$activity.definition_activity_027MWAJ3DSH67251fUq79CxCu1G2xQqxts0.output.jsonpath_queries.WF_Trigger_Status$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_027MWAJ9BQS5G2ceRBWpLiGLU5wnWXh1VJl",
+        "name": "Condition Block",
+        "title": "Pass or Fail",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Pass or Fail",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_027MWAJBTESQL5ZqyaZqsWlsnbZGcc5mcNp",
+            "name": "Condition Branch",
+            "title": "Pass",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_027MWAIVVI3NN03pjUl8nB0g9c7jE0aiNPw.output.error.code$",
+                          "operator": "eq",
+                          "right_operand": "200"
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_027MWAIVVI3NN03pjUl8nB0g9c7jE0aiNPw.output.error.message$",
+                          "operator": "eq",
+                          "right_operand": "success"
+                        }
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_027MWAJ15FUVP7IWTfP1WYxd5cCgaAptM2o.output.error.code$",
+                        "operator": "eq",
+                        "right_operand": "200"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_027MWAJ15FUVP7IWTfP1WYxd5cCgaAptM2o.output.error.message$",
+                      "operator": "eq",
+                      "right_operand": "success"
+                    }
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_027MWAJ3DSH67251fUq79CxCu1G2xQqxts0.output.jsonpath_queries.WF_Trigger_Status$",
+                    "operator": "eq",
+                    "right_operand": "started-polling"
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_027MWAJ3DSH67251fUq79CxCu1G2xQqxts0.output.jsonpath_queries.WF_Trigger_Status$",
+                  "operator": "eq",
+                  "right_operand": "disabled"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Pass",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_027MWAJEXR0RH2slUvnZ2TFSvfTHwGwO0qT",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.output.variable_workflow_027MWAIPWBKN96DJjXnREzOHOYqgLkwnhZO$",
+                      "variable_value_new": "true"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_027MWAJH44QM86iPrSCWlZR3n2wiu566drj",
+            "name": "Condition Branch",
+            "title": "Fail",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_027MWAIVVI3NN03pjUl8nB0g9c7jE0aiNPw.output.error.code$",
+                          "operator": "ne",
+                          "right_operand": "200"
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_027MWAIVVI3NN03pjUl8nB0g9c7jE0aiNPw.output.error.message$",
+                          "operator": "ne",
+                          "right_operand": "success"
+                        }
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_027MWAJ15FUVP7IWTfP1WYxd5cCgaAptM2o.output.error.code$",
+                        "operator": "ne",
+                        "right_operand": "200"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_027MWAJ15FUVP7IWTfP1WYxd5cCgaAptM2o.output.error.message$",
+                      "operator": "ne",
+                      "right_operand": "success"
+                    }
+                  },
+                  "operator": "or",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_027MWAJ3DSH67251fUq79CxCu1G2xQqxts0.output.jsonpath_queries.WF_Trigger_Status$",
+                    "operator": "ne",
+                    "right_operand": "started-polling"
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_027MWAJ3DSH67251fUq79CxCu1G2xQqxts0.output.jsonpath_queries.WF_Trigger_Status$",
+                  "operator": "ne",
+                  "right_operand": "disabled"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Fail",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_027MWAJJ93GZB1pehgN5CfTKXbwlnltvsc8",
+                "name": "Set Variables",
+                "title": "Set Variables",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Set Variables",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_027MWAIOPAA3G6ng2zEj2QlFDChEw8sQIvq.output.variable_workflow_027MWAIPWBKN96DJjXnREzOHOYqgLkwnhZO$",
+                      "variable_value_new": "false"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027MWAJK7X50M5fuaMsAWO2OEiSXSDfITWl",
+                "name": "Completed",
+                "title": "Completed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "failed-completed",
+                  "continue_on_failure": false,
+                  "display_name": "Completed",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
