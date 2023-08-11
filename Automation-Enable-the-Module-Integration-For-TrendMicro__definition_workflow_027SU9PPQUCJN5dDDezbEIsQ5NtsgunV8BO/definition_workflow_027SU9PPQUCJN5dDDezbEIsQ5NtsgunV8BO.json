@@ -1,0 +1,697 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_027SU9PPQUCJN5dDDezbEIsQ5NtsgunV8BO",
+    "name": "Automation -Enable the Module Integration For TrendMicro",
+    "title": "Automation -Enable the Module Integration For TrendMicro",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "TrendMicro_Module_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027SU9PQD0V3N00FpP4qbMsc3Xz7dhJirm9",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Trend-Micro-Token",
+          "type": "datatype.secure_string",
+          "description": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJjaWQiOiI5NjRkZTUwOC1hOTk5LTQ3Y2MtOWMyYi0yZjI3MDM0ZDJjNjIiLCJjcGlkIjoic3ZwIiwicHBpZCI6ImN1cyIsIml0IjoxNjY0MzkyNjI1LCJ1aWQiOiJtaWNoYWVsQGxtNGsuY29tIiwicGwiOiIiLCJldCI6MTY5NTkyODYyNX0.pG21x_VHIGNwRmsa8PDq9RFAzhbS4BYDBsYujjrXzAuY5QkaM6b9D3yiPZbhCfudXmmUXhOyuaTgFQlOOD1zahskKK1YPBjZ-yTVNraUvwyxD-iecWEPeqQe-AwlRHb3FYSi_JHMkj7mTkLeX1EnwA_Mz7K8qXLrUk8hNA67ZqHbLeAoiDOSQLZmOUyb2M_FSnRq7wAZgneBE6GQ3JPq3jjugJ0kLSzQtcwXDksj5IWVLYRSbZdIRmQV1d8cwvzX25P0qYlstbpmEsFnyJLceHCPAA20mk4gPTxPFA-JRWclsfQ7dUNvLDyO-2IxFq8ytc9HD1AOUv9JcQkPEhIsbrDOTXzKrZdJVjj-VaEFuiap-G7kVUrGWM9_17h-Jybt5fVf9U2OPx3MoSB45w9GlWNFlAiB6ZhHqwdQfeiIwh5Xv_fkGIBhY1kscttP11QoqpjcOLxOqJcl9uWZu5aZE-tXn-EUbY5FOn-jJxZj29oO4MGkrUDUt0jc9FqjD42YQ85J_rRJWkQ4J4vP1SgMsftF_H5aaPax-LhIzpe9yTHEfUzJI_-O0mw0JtFaQm6nfSz7amO-t-QJ7NvCKS5OOX9XeMawCYc1FFayg-D08sHMZo66YlH-PRxLhB-sYIqFH-BCK-vOqYX0kvxM26eJa0OrdmlbdbIjUXcmFNa8eMA",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027SU9PQD1SEG4Mkcw3t1OaSqYwLNsdV3gT",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "TrendMicro_Module_Enable_Integration_Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027SU9PQD23BI3NNSd6l31ILKgV9PrJ54Y9",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "TrendMicro_Module_target_UniqueName",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027SU9PQD14ZV1lgIHn8tKRc7PDHocUKncg",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "TrendMicro_Module_target_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027SU9PQD1FSV2Uxxi17LiHQILqKLgL1f0d",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "TrendMicro_Module_name",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027SU9PQD0M3P0X0IdQjrTpzOqrQXaSF1h0",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "TrendMicro-URL",
+          "type": "datatype.string",
+          "description": "URL: api.xdr.trendmicro.com",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027SUF49RCBTS1YiaDF0Vh7lNKESmLiPfK4",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "atomic_group": "SXO- Automation Worklfows",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "description": "Automation - Enable the Module Integration\nTrendMicro\n",
+      "display_name": "Automation -Enable the Module Integration For TrendMicro",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_027SU9PSRQRC055oZHqfKHfMr600zyYXCmJ",
+        "name": "Execute Python Script",
+        "title": "Generate Random String Using Python",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Generate Random String Using Python",
+          "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_027SU9PTHN5F00t9DwqZN7PiHmafLcvLMvf",
+        "name": "Group",
+        "title": "Enable Integration for Crowdstrike",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Enable Integration for Crowdstrike",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_027SU9PUXJ69P27xgUzdQ6GIGcnj2nDB2ay",
+            "name": "HTTP Request",
+            "title": "GET Module Type ID",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "GET Module Type ID",
+              "method": "GET",
+              "relative_url": "/iroh-int/module-type?query=Trend%20Micro",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_027SU9PVVFXL551dazmJojqcjhCC68Phix2",
+            "name": "JSONPath Query",
+            "title": "Fetch Module Type ID",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Fetch Module Type ID",
+              "input_json": "$activity.definition_activity_027SU9PUXJ69P27xgUzdQ6GIGcnj2nDB2ay.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$[?(@.default_name=='Trend Micro')].id",
+                  "jsonpath_query_name": "Module_Type_ID",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_027SU9PX6O7LE42GdMoknnRWD8jWLLgTZL5",
+            "name": "HTTP Request",
+            "title": "Enable Module Integration",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "body": "{\n  \"name\": \"Trend Micro-$activity.definition_activity_027SU9PSRQRC055oZHqfKHfMr600zyYXCmJ.output.response_body$\",\n  \"module_type_id\": \"$activity.definition_activity_027SU9PVVFXL551dazmJojqcjhCC68Phix2.output.jsonpath_queries.Module_Type_ID$\",\n  \"visibility\": \"org\",\n  \"settings\": {\n    \"custom_token\": \"$workflow.definition_workflow_027SU9PPQUCJN5dDDezbEIsQ5NtsgunV8BO.input.variable_workflow_027SU9PQD1SEG4Mkcw3t1OaSqYwLNsdV3gT$\",\n    \"custom_host\": \"$workflow.definition_workflow_027SU9PPQUCJN5dDDezbEIsQ5NtsgunV8BO.input.variable_workflow_027SUF49RCBTS1YiaDF0Vh7lNKESmLiPfK4$\"\n  }\n}",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Enable Module Integration",
+              "method": "POST",
+              "relative_url": "/iroh-int/module-instance",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_027SU9PYJ69ZE0KOrkuOvg4zZtFdOA04tXz",
+            "name": "Sleep",
+            "title": "wait for 5s",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "wait for 5s",
+              "skip_execution": false,
+              "sleep_interval": 5
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_027SU9PZ7YP436LQAN9Xotd66B9s0Zz73ig",
+            "name": "JSONPath Query",
+            "title": "Fetch Module ID",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Fetch Module ID",
+              "input_json": "$activity.definition_activity_027SU9PX6O7LE42GdMoknnRWD8jWLLgTZL5.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.id",
+                  "jsonpath_query_name": "Module_ID",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                },
+                {
+                  "jsonpath_query": "$.org_id",
+                  "jsonpath_query_name": "Module_Created_Org_ID",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                },
+                {
+                  "jsonpath_query": "$.name",
+                  "jsonpath_query_name": "Module_Name",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_027SU9Q0FXUL93nv1zIpCv87lipTSQhYEFT",
+            "name": "HTTP Request",
+            "title": "Health Check for Module",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Health Check for Module",
+              "method": "POST",
+              "relative_url": "/iroh-enrich/health/$activity.definition_activity_027SU9PZ7YP436LQAN9Xotd66B9s0Zz73ig.output.jsonpath_queries.Module_ID$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_027SU9Q1Q26JX7ittbLSJXC0NbS9GOVc0dI",
+            "name": "JSONPath Query",
+            "title": "Fetch the Module Status",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Fetch the Module Status",
+              "input_json": "$activity.definition_activity_027SU9Q0FXUL93nv1zIpCv87lipTSQhYEFT.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.data.data.status",
+                  "jsonpath_query_name": "Module_Status",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_027SU9Q2RGKF20PbBHzkxSmSlQ7Vu3TZOH2",
+        "name": "Group",
+        "title": "Verify the Target in Orchestrator",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Verify the Target in Orchestrator",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_027SU9Q412NLZ4USNxvNldjo4JeVj6SC2Wk",
+            "name": "HTTP Request",
+            "title": "Search the targets in Orchestrator",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Search the targets in Orchestrator",
+              "method": "GET",
+              "relative_url": "/api/v1/targets?is_internal=false",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_027SU9Q4TWMBD0nmjPuVOcpesb4VuUEvvgk",
+            "name": "JSONPath Query",
+            "title": "Fetch the Module Target ID",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Fetch the Module Target ID",
+              "input_json": "$activity.definition_activity_027SU9Q412NLZ4USNxvNldjo4JeVj6SC2Wk.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$[?(@.name=='$activity.definition_activity_027SU9PZ7YP436LQAN9Xotd66B9s0Zz73ig.output.jsonpath_queries.Module_Name$ - v3.0')].id",
+                  "jsonpath_query_name": "Module_target_ID",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                },
+                {
+                  "jsonpath_query": "$[?(@.name=='$activity.definition_activity_027SU9PZ7YP436LQAN9Xotd66B9s0Zz73ig.output.jsonpath_queries.Module_Name$ - v3.0')].unique_name",
+                  "jsonpath_query_name": "Module_target_Unique_Name",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_027SU9Q62ZTQA3qlrlRRAre5qyfiw9ccvAR",
+            "name": "HTTP Request",
+            "title": "GET Target by ID",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "GET Target by ID",
+              "method": "GET",
+              "relative_url": "/api/v1/targets/$activity.definition_activity_027SU9Q4TWMBD0nmjPuVOcpesb4VuUEvvgk.output.jsonpath_queries.Module_target_ID$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_027SU9Q73HLO14ZXqeuuFZJybxb0y0L9lgq",
+            "name": "JSONPath Query",
+            "title": "Fetch target Status",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Fetch target Status",
+              "input_json": "$activity.definition_activity_027SU9Q62ZTQA3qlrlRRAre5qyfiw9ccvAR.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.status.state",
+                  "jsonpath_query_name": "target_Status",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_027SU9Q84DC4D6dWcy54LhVQqchWujbLNLC",
+        "name": "Condition Block",
+        "title": "Verify the Test Status for Meraki Enable Integration",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Verify the Test Status for Meraki Enable Integration",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_027SU9Q9M49VG5keesaxlXwaDsXLolYhpFE",
+            "name": "Condition Branch",
+            "title": "Pass",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_027SU9PSRQRC055oZHqfKHfMr600zyYXCmJ.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_027SU9PUXJ69P27xgUzdQ6GIGcnj2nDB2ay.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_027SU9PX6O7LE42GdMoknnRWD8jWLLgTZL5.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_027SU9Q412NLZ4USNxvNldjo4JeVj6SC2Wk.output.error.code$",
+                          "operator": "eq",
+                          "right_operand": "200"
+                        }
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_027SU9Q62ZTQA3qlrlRRAre5qyfiw9ccvAR.output.error.code$",
+                        "operator": "eq",
+                        "right_operand": "200"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_027SU9Q73HLO14ZXqeuuFZJybxb0y0L9lgq.output.jsonpath_queries.target_Status$",
+                      "operator": "eq",
+                      "right_operand": "valid"
+                    }
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_027SU9Q0FXUL93nv1zIpCv87lipTSQhYEFT.output.error.code$",
+                    "operator": "eq",
+                    "right_operand": "200"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_027SU9Q1Q26JX7ittbLSJXC0NbS9GOVc0dI.output.jsonpath_queries.Module_Status$",
+                  "operator": "eq",
+                  "right_operand": "ok"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Pass",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_027SU9QCIN3ER4PhufzPyRU22BlPGGTJdRh",
+                "name": "Set Variables",
+                "title": "MS Defender Integration is Passed and Store Outputs",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "MS Defender Integration is Passed and Store Outputs",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_027SU9PPQUCJN5dDDezbEIsQ5NtsgunV8BO.output.variable_workflow_027SU9PQD23BI3NNSd6l31ILKgV9PrJ54Y9$",
+                      "variable_value_new": "Pass"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_027SU9PPQUCJN5dDDezbEIsQ5NtsgunV8BO.output.variable_workflow_027SU9PQD0V3N00FpP4qbMsc3Xz7dhJirm9$",
+                      "variable_value_new": "$activity.definition_activity_027SU9PZ7YP436LQAN9Xotd66B9s0Zz73ig.output.jsonpath_queries.Module_ID$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_027SU9PPQUCJN5dDDezbEIsQ5NtsgunV8BO.output.variable_workflow_027SU9PQD0M3P0X0IdQjrTpzOqrQXaSF1h0$",
+                      "variable_value_new": "$activity.definition_activity_027SU9PZ7YP436LQAN9Xotd66B9s0Zz73ig.output.jsonpath_queries.Module_Name$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_027SU9PPQUCJN5dDDezbEIsQ5NtsgunV8BO.output.variable_workflow_027SU9PQD1FSV2Uxxi17LiHQILqKLgL1f0d$",
+                      "variable_value_new": "$activity.definition_activity_027SU9Q4TWMBD0nmjPuVOcpesb4VuUEvvgk.output.jsonpath_queries.Module_target_ID$"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_027SU9PPQUCJN5dDDezbEIsQ5NtsgunV8BO.output.variable_workflow_027SU9PQD14ZV1lgIHn8tKRc7PDHocUKncg$",
+                      "variable_value_new": "$activity.definition_activity_027SU9Q4TWMBD0nmjPuVOcpesb4VuUEvvgk.output.jsonpath_queries.Module_target_Unique_Name$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_027SU9QEQGSNL21QAYolePdqyiv7MZXNPlg",
+            "name": "Condition Branch",
+            "title": "Fail",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_027SU9PSRQRC055oZHqfKHfMr600zyYXCmJ.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "200"
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_027SU9PUXJ69P27xgUzdQ6GIGcnj2nDB2ay.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "200"
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_027SU9PX6O7LE42GdMoknnRWD8jWLLgTZL5.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_027SU9Q412NLZ4USNxvNldjo4JeVj6SC2Wk.output.error.code$",
+                          "operator": "ne",
+                          "right_operand": "200"
+                        }
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_027SU9Q62ZTQA3qlrlRRAre5qyfiw9ccvAR.output.error.code$",
+                        "operator": "ne",
+                        "right_operand": "200"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_027SU9Q73HLO14ZXqeuuFZJybxb0y0L9lgq.output.jsonpath_queries.target_Status$",
+                      "operator": "eq",
+                      "right_operand": "valid"
+                    }
+                  },
+                  "operator": "or",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_027SU9Q0FXUL93nv1zIpCv87lipTSQhYEFT.output.error.code$",
+                    "operator": "ne",
+                    "right_operand": "200"
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_027SU9Q1Q26JX7ittbLSJXC0NbS9GOVc0dI.output.jsonpath_queries.Module_Status$",
+                  "operator": "ne",
+                  "right_operand": "ok"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Fail",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_027SU9QGPX5MG4bfAH5GPFt6ZJ990GJ4cBT",
+                "name": "Set Variables",
+                "title": "MS Defender Integration is Failed",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "MS Defender Integration is Failed",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_027SU9PPQUCJN5dDDezbEIsQ5NtsgunV8BO.output.variable_workflow_027SU9PQD23BI3NNSd6l31ILKgV9PrJ54Y9$",
+                      "variable_value_new": "Fail"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_027SU9QHHW4EC5gqkkg2AeFjjFNoLpbHdUb",
+                "name": "Completed",
+                "title": "Failed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "failed-completed",
+                  "continue_on_failure": false,
+                  "display_name": "Failed",
+                  "result_message": "Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "module_targets": [
+    {
+      "module_type": "Cisco XDR",
+      "external_id": "securex:ao:iroh_api"
+    }
+  ]
+}
