@@ -7,31 +7,17 @@
     "base_type": "workflow",
     "variables": [
       {
-        "schema_id": "tabletype_027Y1I73MPJ065OuN8rH4KtkAQHgc1OJ48b",
-        "properties": {
-          "scope": "output",
-          "name": "Results",
-          "type": "datatype.table",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027Y1JFOKWDYI7GqVpo2hpZrUXZipt2B5D1",
-        "object_type": "variable_workflow"
-      },
-      {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "{\n  \"module_targets\": [\n    {\n      \"module_type\": \"Meraki\",\n      \"external_id\": \"securex:ao:meraki\"\n    }\n  ],\n  \"module_targets_skip_list\": [\n    \"securex:ao:meraki\"\n  ],\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_027V8HPTZJM7C1mr4kNMGVFIXnw4ZQp4AM9\",\n    \"name\": \"WF-having_ModuleIntegrations-Meraki\",\n    \"title\": \"WF-having_ModuleIntegrations-Meraki\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"WF-having_ModuleIntegrations-Meraki\",\n      \"runtime_user\": {\n        \"override_target_runtime_user\": false,\n        \"specify_on_workflow_start\": false,\n        \"target_default\": true\n      },\n      \"target\": {\n        \"execute_on_target_group\": false,\n        \"execute_on_workflow_target\": false,\n        \"no_target\": true,\n        \"specify_on_workflow_start\": false\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_027V8HQ55RJY05WR9g4XZ5pRGJU35idj088\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request-Meraki\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"content_type\": \"application/json\",\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request-Meraki\",\n          \"method\": \"GET\",\n          \"relative_url\": \"v1/organizations\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"override_workflow_target\": true,\n            \"target_id\": \"$module_target;Meraki;securex:ao:meraki$\"\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
-          "scope": "local",
-          "name": "Meraki_Target_Payload_for_WF",
+          "value": "",
+          "scope": "output",
+          "name": "Test Status and Map Targets to Newly Created WF",
           "type": "datatype.string",
-          "description": "Meraki_Target_Payload",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_027VJNPD10RF70lECBjTWL8wAbviqcBxDbH",
+        "unique_name": "variable_workflow_027VJOIYROSKJ7FEzoMe7uoV6nqrXXnBrR5",
         "object_type": "variable_workflow"
       },
       {
@@ -39,56 +25,13 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Verify Run Status for Imported WF",
+          "name": "Test Status for Update Targets when It was Missed",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_027VJPHWW2GS91y2b7O7VlInaurq3qoOkNL",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "EmailTable",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027WNV827A9Z32BiDz90po5RLdhiyHaApTA",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Import_WF_Having_Module_targets_test_status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027VJNYBS6XA75KReyXYXMj7CKi9vFZXENY",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "meraki,crowdstrike,sentilneone,trendmicro,msdefender,cybereason",
-          "scope": "input",
-          "name": "Integration type",
-          "type": "datatype.string",
-          "description": "Enter the Module integration types for test. supported types are - meraki,crowdstrike,sentilneone,trendmicro,msdefender,cybereason\nNote : Remove type which you don't want to test. ",
-          "is_required": true,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027XPDYCQG00P5yF2bSZgJpF5iStc5VYUlr",
+        "unique_name": "variable_workflow_027VJOYWYXFNT5O4A0hiC7QpVsPQDfJcOII",
         "object_type": "variable_workflow"
       },
       {
@@ -110,13 +53,13 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Cleanup Test Status",
+          "name": "Import_WF_Having_Module_targets_test_status",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_027VJUFV2AHR21Fd9TlYUqhLvrjaZNHfH7s",
+        "unique_name": "variable_workflow_027VJNYBS6XA75KReyXYXMj7CKi9vFZXENY",
         "object_type": "variable_workflow"
       },
       {
@@ -138,27 +81,26 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Test Status and Map Targets to Newly Created WF",
+          "name": "Cleanup Test Status",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_027VJOIYROSKJ7FEzoMe7uoV6nqrXXnBrR5",
+        "unique_name": "variable_workflow_027VJUFV2AHR21Fd9TlYUqhLvrjaZNHfH7s",
         "object_type": "variable_workflow"
       },
       {
-        "schema_id": "datatype.string",
+        "schema_id": "tabletype_027Y1I73MPJ065OuN8rH4KtkAQHgc1OJ48b",
         "properties": {
-          "value": "",
           "scope": "output",
-          "name": "Test Status for Enable Integration",
-          "type": "datatype.string",
+          "name": "Results",
+          "type": "datatype.table",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_027VJORKWGGC31aGazRGBOsCwMWz57NAjXu",
+        "unique_name": "variable_workflow_027Y1JFOKWDYI7GqVpo2hpZrUXZipt2B5D1",
         "object_type": "variable_workflow"
       },
       {
@@ -194,27 +136,56 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Test Status for Update Targets when It was Missed",
+          "name": "Test Status for Enable Integration",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_027VJOYWYXFNT5O4A0hiC7QpVsPQDfJcOII",
+        "unique_name": "variable_workflow_027VJORKWGGC31aGazRGBOsCwMWz57NAjXu",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "definition_workflow_027V8HPTZJM7C1mr4kNMGVFIXnw4ZQp4AM9",
-          "scope": "local",
-          "name": "Import_WF_UniqueName-Meraki",
+          "value": "",
+          "scope": "output",
+          "name": "EmailTable",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_027VJOAS4B6W05IrlmJ5xOPH8UkoNQFtvCi",
+        "unique_name": "variable_workflow_027WNV827A9Z32BiDz90po5RLdhiyHaApTA",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Verify Run Status for Imported WF",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027VJPHWW2GS91y2b7O7VlInaurq3qoOkNL",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "meraki,crowdstrike,sentilneone,trendmicro,msdefender,cybereason",
+          "scope": "input",
+          "name": "Integration type",
+          "type": "datatype.string",
+          "description": "Enter the Module integration types for test. supported types are - meraki,crowdstrike,sentilneone,trendmicro,msdefender,cybereason\nNote : Remove type which you don't want to test. ",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027XPDYCQG00P5yF2bSZgJpF5iStc5VYUlr",
         "object_type": "variable_workflow"
       }
     ],
@@ -3790,6 +3761,1782 @@
                 ]
               }
             ]
+          },
+          {
+            "unique_name": "definition_activity_027YV2N3QKJHX0RlYsId2STVvP19buRqk8Q",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch3",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Branch3",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_027YV2N3QL31H1xIKUry4RHBSZebTUgkySu",
+                "name": "Condition Block",
+                "title": "SentinelOne Integration Type",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "SentinelOne Integration Type",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_027YV2N3QMOFI6Pf4pASJY9dmXCrO1DhpUI",
+                    "name": "Condition Branch",
+                    "title": "SentinelOne Test Case Execution",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_027V2LF7QZ4400MUMIHfBx2SJ4tsmiFTl7K.input.variable_workflow_027XPDYCQG00P5yF2bSZgJpF5iStc5VYUlr$",
+                        "operator": "mregex",
+                        "right_operand": "(?:sentilneone)"
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "SentinelOne Test Case Execution",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_027YV2N3QP03T06QdVtQaYrsGaqGTyOxpRn",
+                        "name": "Group",
+                        "title": "SentinelOne Test Case",
+                        "type": "logic.group",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "SentinelOne Test Case",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti",
+                            "name": "Automation - Import a Workflow having Module Targets",
+                            "title": "Automation - Import a Workflow having Module Targets",
+                            "type": "workflow.atomic_workflow",
+                            "base_type": "subworkflow",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Automation - Import a Workflow having Module Targets",
+                              "input": {
+                                "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "",
+                                "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "",
+                                "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "{\n\"module_targets\": [\n{\n\"module_type\": \"SentinelOne\",\n\"external_id\": \"securex:ao:sentinelone\"\n}\n],\n\"module_targets_skip_list\": [\n\"securex:ao:sentinelone\"\n],\n\"workflow\": {\n\"unique_name\": \"definition_workflow_027XOSQPE6HZJ1BjMjvGlVZXvKLvBpF2nGc\",\n\"name\": \"WF-having_ModuleIntegrations-SentinelOne\",\n\"title\": \"WF-having_ModuleIntegrations-SentinelOne\",\n\"type\": \"generic.workflow\",\n\"base_type\": \"workflow\",\n\"variables\": null,\n\"properties\": {\n\"atomic\": {\n\"is_atomic\": false\n},\n\"delete_workflow_instance\": false,\n\"display_name\": \"WF-having_ModuleIntegrations-SentinelOne\",\n\"runtime_user\": {\n\"target_default\": true\n},\n\"target\": {\n\"no_target\": true\n}\n},\n\"object_type\": \"definition_workflow\",\n\"actions\": [\n{\n\"unique_name\": \"definition_activity_027XOSQT0A9395kuuTECwGRy9ltnrlESDvI\",\n\"name\": \"HTTP Request\",\n\"title\": \"HTTP Request-SentinelOne\",\n\"type\": \"web-service.http_request\",\n\"base_type\": \"activity\",\n\"properties\": {\n\"action_timeout\": 180,\n\"allow_auto_redirect\": true,\n\"allow_headers_redirect\": false,\n\"content_type\": \"application/json\",\n\"continue_on_error_status_code\": false,\n\"continue_on_failure\": true,\n\"display_name\": \"HTTP Request-SentinelOne\",\n\"method\": \"GET\",\n\"relative_url\": \"agents\",\n\"runtime_user\": {\n\"target_default\": true\n},\n\"skip_execution\": false,\n\"target\": {\n\"override_workflow_target\": true,\n\"target_id\": \"$module_target;SentinelOne;securex:ao:sentinelone$\"\n}\n},\n\"object_type\": \"definition_activity\"\n}\n],\n\"categories\": [\n\"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n]\n}\n}",
+                                "variable_workflow_026Z2CUSXYZUP7CfGKMtqXdZf1PoKpCnqTQ": false,
+                                "variable_workflow_026Z2D4W3D6B73HR94LIqetofp263GiaCxF": true,
+                                "variable_workflow_026Z2DJMCM2QS65COEebrKJrHjYuVcFqUyW": "definition_workflow_027XOSQPE6HZJ1BjMjvGlVZXvKLvBpF2nGc"
+                              },
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "target_type": "web-service.endpoint",
+                                "use_workflow_target": true
+                              },
+                              "workflow_id": "definition_workflow_026YHAFYUYJSI57lobBfWruQIXVfnumQPnC",
+                              "workflow_name": "Automation - Import a Workflow"
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3QW4YP6u03WXZyeqYWA2ezrtw2bW",
+                            "name": "Automation - Validate Workflow",
+                            "title": "Automation - Validate Workflow",
+                            "type": "workflow.atomic_workflow",
+                            "base_type": "subworkflow",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Automation - Validate Workflow",
+                              "input": {
+                                "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "",
+                                "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "",
+                                "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
+                              },
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "target_type": "web-service.endpoint",
+                                "use_workflow_target": true
+                              },
+                              "workflow_id": "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+                              "workflow_name": "Automation - Validate Workflow"
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3QWTJ83Pa1FzOibbP6vaZ1jaTQdT",
+                            "name": "Automation - GET Workflow Info By Id",
+                            "title": "Automation - GET Workflow Info By Id",
+                            "type": "workflow.atomic_workflow",
+                            "base_type": "subworkflow",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Automation - GET Workflow Info By Id",
+                              "input": {
+                                "variable_workflow_02746F7NF9S5D0V94FU4AP0huEzEUFT2s8w": "$activity.definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                "variable_workflow_02746FJNVPNJ301SSoOE23c6XitchrgAhsX": "",
+                                "variable_workflow_02746FRCYSWHJ4XCO4CyNAdXgQiwjYzz22s": ""
+                              },
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "target_type": "web-service.endpoint",
+                                "use_workflow_target": true
+                              },
+                              "workflow_id": "definition_workflow_01QDXRT3P84291d9T550KwLpUmisTKtgBH7",
+                              "workflow_name": "Automation - GET Workflow Info By Id"
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3QYVZ91tgSLTE3q5SK9eYNyUIuai",
+                            "name": "JSONPath Query",
+                            "title": "Fetch the Actions ID",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Fetch the Actions ID",
+                              "input_json": "$activity.definition_activity_027YV2N3QWTJ83Pa1FzOibbP6vaZ1jaTQdT.output.variable_workflow_027471O0HJ0865WhDEt4CpOimDoESUI4jdf$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$.actions[?(@.title=='HTTP Request-Meraki')].id",
+                                  "jsonpath_query_name": "SentinelOne_ActionID",
+                                  "jsonpath_query_type": "string",
+                                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3R2M4D3jJz2hooSmTHg1An95gllM",
+                            "name": "HTTP Request",
+                            "title": "Get Actions By ID",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "allow_headers_redirect": false,
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "display_name": "Get Actions By ID",
+                              "method": "GET",
+                              "relative_url": "/api/v1/workflows/$activity.definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$/actions/$activity.definition_activity_027YV2N3QYVZ91tgSLTE3q5SK9eYNyUIuai.output.jsonpath_queries.SentinelOne_ActionID$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3R3IAV1ApGjOsobCS2DRG8rtdwn6",
+                            "name": "JSONPath Query",
+                            "title": "Fetch the Error Message for a Action",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Fetch the Error Message for a Action",
+                              "input_json": "$activity.definition_activity_027YV2N3R2M4D3jJz2hooSmTHg1An95gllM.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$.invalid_properties",
+                                  "jsonpath_query_name": "SentinelOne_Module_Target_Message",
+                                  "jsonpath_query_type": "string",
+                                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027V2TAPKT1QF7jpvTq8ftdjWYcz6VK8zQJ",
+                            "name": "Automation -Enable the Module Integration For SentinelOne",
+                            "title": "Automation -Enable the Module Integration For SentinelOne",
+                            "type": "workflow.atomic_workflow",
+                            "base_type": "subworkflow",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Automation -Enable the Module Integration For SentinelOne",
+                              "input": {
+                                "variable_workflow_027SQGVAXUEWK4W13M56EzPLMiNKSAJM0wJ": "usea1-partners.sentinelone.net",
+                                "variable_workflow_027V34QUSLJHG3SbfCwnA0J0sH8hDS2L4AD": "Bn38jgymePfaYIrSvJtB1MYxfkdvrSRxkPYq1ugeJmh0c9l7oSc0614bEOUUUGY8nNNfPfF2OhFQXtb8"
+                              },
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "target_type": "web-service.endpoint",
+                                "use_workflow_target": true
+                              },
+                              "workflow_id": "definition_workflow_027SQGVAB8RQP1u6rzdh2YplXAPmE3Lp2YE",
+                              "workflow_name": "Automation -Enable the Module Integration For SentinelOne"
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3R7RCZ5qNl0mTbuHRuvJdHBB4ZMw",
+                            "name": "Automation - Update An Action (Adding SentinelOne Target)",
+                            "title": "Automation - Update An Action (Adding SentinelOne Target)",
+                            "type": "workflow.atomic_workflow",
+                            "base_type": "subworkflow",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Automation - Update An Action (Adding SentinelOne Target)",
+                              "input": {
+                                "variable_workflow_01TNSB16AB8YM76W6y0JseGQUNpmojs5mLh": "",
+                                "variable_workflow_01TNSB16ABL2M4cqRV03TQYzhQlYvg3NUcw": "$activity.definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                "variable_workflow_01TNSB16ACZB74Qcd9NiOkA2ZzT6HFUHJ7R": "",
+                                "variable_workflow_01TNSB16ADAE06tPGCRFsfAFElvUaCHh7Xr": "$activity.definition_activity_027YV2N3QYVZ91tgSLTE3q5SK9eYNyUIuai.output.jsonpath_queries.SentinelOne_ActionID$",
+                                "variable_workflow_01TNSD41J57O15nYXnmkQgxtI4eabfE1GZh": "{\n\"title\": \"HTTP Request-SentinelOne\",\n\"properties\": {\n\"action_timeout\": 180,\n\"allow_auto_redirect\": true,\n\"allow_headers_redirect\": false,\n\"continue_on_error_status_code\": false,\n\"continue_on_failure\": true,\n\"display_name\": \"HTTP Request-SentinelOne\",\n\"method\": \"GET\",\n\"relative_url\": \"agents\",\n\"runtime_user\": {\n\"target_default\": true\n},\n\"skip_execution\": false,\n\"target\": {\n\"override_workflow_target\": true,\n\"target_id\": \"$activity.definition_activity_027V2TAPKT1QF7jpvTq8ftdjWYcz6VK8zQJ.output.variable_workflow_027SQGVAXVI7G4rLnKYva5umBouHn1meUuK$\"\n},\n\"content_type\":\"application/json\"\n}\n}"
+                              },
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "target_type": "web-service.endpoint",
+                                "use_workflow_target": true
+                              },
+                              "workflow_id": "definition_workflow_01TNSB14MMYZG37RQ4OVToolSWbOg9TOgW2",
+                              "workflow_name": "Automation - Update An Action"
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3R8QRT0Jj7SFgTKSzUUDyBHYXLI6",
+                            "name": "HTTP Request",
+                            "title": "GET View target SchemaID",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "allow_headers_redirect": false,
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "display_name": "GET View target SchemaID",
+                              "method": "GET",
+                              "relative_url": "/api/v1/schemas?schema_type=view\u0026type=web-service.endpoint\u0026base_type=target",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3RAM262BDPnyLG39THLmF46i14lm",
+                            "name": "JSONPath Query",
+                            "title": "Fetch View SchemaID",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Fetch View SchemaID",
+                              "input_json": "$activity.definition_activity_027YV2N3R8QRT0Jj7SFgTKSzUUDyBHYXLI6.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$[?(@.title=='HTTP Endpoint')].id",
+                                  "jsonpath_query_name": "view_schemaID_HTTP-EndPoint",
+                                  "jsonpath_query_type": "string",
+                                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3RE3BT0TjcH1V2FM3uF9zYNnKCeC",
+                            "name": "AddIng an Action to the WF (UpperCase and Map Target Var Ref)",
+                            "title": "AddIng an Action to the WF (UpperCase and Map Target Var Ref)",
+                            "type": "workflow.atomic_workflow",
+                            "base_type": "subworkflow",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "AddIng an Action to the WF (UpperCase and Map Target Var Ref)",
+                              "input": {
+                                "variable_workflow_01TNRGULATIS12xwBtFh5vlzkvz7165Gb4O": "{\n\"previous_action\": {\n\"id\": \"$activity.definition_activity_027YV2N3QYVZ91tgSLTE3q5SK9eYNyUIuai.output.jsonpath_queries.SentinelOne_ActionID$\",\n\"type\": \"generic.workflow\",\n\"base_type\": \"workflow\"\n},\n\"action\": {\n\"type\": \"core.string2upper\",\n\"base_type\": \"activity\",\n\"name\": \"To Upper-SentinelOne\",\n\"properties\": {\n\"continue_on_failure\": false,\n\"skip_execution\": false,\n\"source\": \"API Name -$activity.$activity.Fetch the Actions ID.output.Jsonpath Queries.SentinelOne_ActionID$.target.$activity.definition_activity_027YV2N3RAM262BDPnyLG39THLmF46i14lm.output.jsonpath_queries.view_schemaID_HTTP-EndPoint$.output.metadata.sx_module_info.api_name$\\n\\nExternal ID -$activity.$activity.definition_activity_027YV2N3QYVZ91tgSLTE3q5SK9eYNyUIuai.output.jsonpath_queries.SentinelOne_ActionID$.target.$activity.definition_activity_027YV2N3RAM262BDPnyLG39THLmF46i14lm.output.jsonpath_queries.view_schemaID_HTTP-EndPoint$.output.metadata.sx_module_info.external_id$\\n\\nModule Type -$activity.$activity.Fetch the Actions ID.output.Jsonpath Queries.SentinelOne_ActionID$.target.$activity.definition_activity_027YV2N3RAM262BDPnyLG39THLmF46i14lm.output.jsonpath_queries.view_schemaID_HTTP-EndPoint$.output.metadata.sx_module_info.module_type$\\n\\nTarget URL --$activity.$activity.Fetch the Actions ID.output.Jsonpath Queries.SentinelOne_ActionID$.target.$activity.definition_activity_027YV2N3RAM262BDPnyLG39THLmF46i14lm.output.jsonpath_queries.view_schemaID_HTTP-EndPoint$.output.metadata.sx_module_info.target_url$\\n\\n\",\n\"display_name\": \"To Upper-SentinelOne\"\n},\n\"title\": \"To Upper-SentinelOne\"\n}\n}",
+                                "variable_workflow_01TNRGULATYCS3YZOCTsAzqIqmW6pJXPjXH": "",
+                                "variable_workflow_01TNRGULAU5VJ5MZJeczlceLJVuSNTUGx9Y": "$activity.definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                "variable_workflow_01TNRGULAUKSY47ElJvhRkMLUfZ28jBg6Hb": ""
+                              },
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "target_type": "web-service.endpoint",
+                                "use_workflow_target": true
+                              },
+                              "workflow_id": "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+                              "workflow_name": "Automation - AddIng an Action to the Workflow"
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3RFOL63mPJuce21LdmxUMeuwiR7x",
+                            "name": "Automation - Create Generic Workflow",
+                            "title": "Automation - Create Generic Workflow",
+                            "type": "workflow.atomic_workflow",
+                            "base_type": "subworkflow",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Automation - Create Generic Workflow",
+                              "input": {
+                                "variable_workflow_026R3ITFC2SYD5IwFCCSGoDOyqkGJgCEwsd": "",
+                                "variable_workflow_026R3ITFC37UO0GCPYutjproHMzvdvq1KRV": "",
+                                "variable_workflow_026R3ITFC3WLQ0CQIbKxaAf0PetE6SpXHSj": "WF-SentinelOne-$workflow.definition_workflow_027V2LF7QZ4400MUMIHfBx2SJ4tsmiFTl7K.output.instance_id$"
+                              },
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "target_type": "web-service.endpoint",
+                                "use_workflow_target": true
+                              },
+                              "workflow_id": "definition_workflow_026R3ITF54S7O4wvqSwgTIkJRUX5qYemcV6",
+                              "workflow_name": "Automation - Create Generic Workflow"
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3RH3VT4PNRIMoe9kA3gqeT47sphx",
+                            "name": "Group",
+                            "title": "Adding Action and Mapping to Meraki Target",
+                            "type": "logic.group",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Adding Action and Mapping to Meraki Target",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_027YV2N3RKICL5MVX9lAL1rA9rkrBCRpTSB",
+                                "name": "AddIng an Action to the Workflow-For SentinelOne Target",
+                                "title": "AddIng an Action to the Workflow-For SentinelOne Target",
+                                "type": "workflow.atomic_workflow",
+                                "base_type": "subworkflow",
+                                "properties": {
+                                  "continue_on_failure": true,
+                                  "display_name": "AddIng an Action to the Workflow-For SentinelOne Target",
+                                  "input": {
+                                    "variable_workflow_01TNRGULATIS12xwBtFh5vlzkvz7165Gb4O": "{\n\"previous_action\": {\n\"id\": \"$activity.definition_activity_027YV2N3RFOL63mPJuce21LdmxUMeuwiR7x.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n\"type\": \"generic.workflow\",\n\"base_type\": \"workflow\"\n},\n\"action\": {\n\"type\": \"web-service.http_request\",\n\"base_type\": \"activity\",\n\"name\": \"HTTP Request\",\n\"properties\": {\n\"action_timeout\": 180,\n\"allow_auto_redirect\": true,\n\"allow_headers_redirect\": false,\n\"continue_on_error_status_code\": false,\n\"continue_on_failure\": false,\n\"method\": \"GET\",\n\"runtime_user\": {\n\"target_default\": true\n},\n\"skip_execution\": false,\n\"target\": {\n\"use_workflow_target\": true\n},\n\"display_name\": \"HTTP Request\"\n},\n\"title\": \"HTTP Request\"\n}\n}",
+                                    "variable_workflow_01TNRGULATYCS3YZOCTsAzqIqmW6pJXPjXH": "",
+                                    "variable_workflow_01TNRGULAU5VJ5MZJeczlceLJVuSNTUGx9Y": "$activity.definition_activity_027YV2N3RFOL63mPJuce21LdmxUMeuwiR7x.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                                    "variable_workflow_01TNRGULAUKSY47ElJvhRkMLUfZ28jBg6Hb": ""
+                                  },
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "target_type": "web-service.endpoint",
+                                    "use_workflow_target": true
+                                  },
+                                  "workflow_id": "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+                                  "workflow_name": "Automation - AddIng an Action to the Workflow"
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_027YV2N3RMKTP5X1RhslRtpk8JPOSMpGnCt",
+                                "name": "Automation - Update An Action (Adding Meraki Target)",
+                                "title": "Automation - Update An Action (Adding Meraki Target)",
+                                "type": "workflow.atomic_workflow",
+                                "base_type": "subworkflow",
+                                "properties": {
+                                  "continue_on_failure": true,
+                                  "display_name": "Automation - Update An Action (Adding Meraki Target)",
+                                  "input": {
+                                    "variable_workflow_01TNSB16AB8YM76W6y0JseGQUNpmojs5mLh": "",
+                                    "variable_workflow_01TNSB16ABL2M4cqRV03TQYzhQlYvg3NUcw": "$activity.definition_activity_027YV2N3RFOL63mPJuce21LdmxUMeuwiR7x.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                                    "variable_workflow_01TNSB16ACZB74Qcd9NiOkA2ZzT6HFUHJ7R": "",
+                                    "variable_workflow_01TNSB16ADAE06tPGCRFsfAFElvUaCHh7Xr": "$activity.definition_activity_027YV2N3RKICL5MVX9lAL1rA9rkrBCRpTSB.output.variable_workflow_01TNRGULAUDA61uGNUSw76hWwqAB8cdpZsQ$",
+                                    "variable_workflow_01TNSD41J57O15nYXnmkQgxtI4eabfE1GZh": "{\n\"title\": \"HTTP Request-SentinelOne\",\n\"properties\": {\n\"action_timeout\": 180,\n\"allow_auto_redirect\": true,\n\"allow_headers_redirect\": false,\n\"continue_on_error_status_code\": false,\n\"continue_on_failure\": true,\n\"display_name\": \"HTTP Request-SentinelOne\",\n\"method\": \"GET\",\n\"relative_url\": \"agents\",\n\"runtime_user\": {\n\"target_default\": true\n},\n\"skip_execution\": false,\n\"target\": {\n\"override_workflow_target\": true,\n\"target_id\": \"$activity.definition_activity_027V2TAPKT1QF7jpvTq8ftdjWYcz6VK8zQJ.output.variable_workflow_027SQGVAXVI7G4rLnKYva5umBouHn1meUuK$\"\n},\n\"content_type\":\"application/json\"\n}\n}"
+                                  },
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "target_type": "web-service.endpoint",
+                                    "use_workflow_target": true
+                                  },
+                                  "workflow_id": "definition_workflow_01TNSB14MMYZG37RQ4OVToolSWbOg9TOgW2",
+                                  "workflow_name": "Automation - Update An Action"
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3RPPD805mkQ0sZS2GeqXcjX8jITq",
+                            "name": "Automation - Validate Workflow (Created)",
+                            "title": "Automation - Validate Workflow (Created)",
+                            "type": "workflow.atomic_workflow",
+                            "base_type": "subworkflow",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Automation - Validate Workflow (Created)",
+                              "input": {
+                                "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "",
+                                "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "",
+                                "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_027YV2N3RFOL63mPJuce21LdmxUMeuwiR7x.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                              },
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "target_type": "web-service.endpoint",
+                                "use_workflow_target": true
+                              },
+                              "workflow_id": "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+                              "workflow_name": "Automation - Validate Workflow"
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3RQJ7Y5GYLKcSdVSogRch6y7TWGj",
+                            "name": "Automation - Validate Workflow (Imported)",
+                            "title": "Automation - Validate Workflow (Imported)",
+                            "type": "workflow.atomic_workflow",
+                            "base_type": "subworkflow",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Automation - Validate Workflow (Imported)",
+                              "input": {
+                                "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "",
+                                "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "",
+                                "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
+                              },
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "target_type": "web-service.endpoint",
+                                "use_workflow_target": true
+                              },
+                              "workflow_id": "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+                              "workflow_name": "Automation - Validate Workflow"
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3RRUYE2dQch2QdfomwdUjwQvetcd",
+                            "name": "Sleep",
+                            "title": "Sleep for 10s",
+                            "type": "core.sleep",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Sleep for 10s",
+                              "skip_execution": false,
+                              "sleep_interval": 10
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3RUISL17FFvkjnkvOFIafzlOHkql",
+                            "name": "Parallel Block",
+                            "title": "Running WF",
+                            "type": "logic.parallel",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Running WF",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "blocks": [
+                              {
+                                "unique_name": "definition_activity_027YV2N3RV1OC0Px0766uxUEN04xb037Qo4",
+                                "name": "Parallel Branch",
+                                "title": "Imported WF",
+                                "type": "logic.parallel_block",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Imported WF",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity",
+                                "actions": [
+                                  {
+                                    "unique_name": "definition_activity_027YV2N3RW4FC6T112LlYOXCd9k4SzUHkxe",
+                                    "name": "Group",
+                                    "title": "Run Imported WF",
+                                    "type": "logic.group",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": false,
+                                      "display_name": "Run Imported WF",
+                                      "skip_execution": false
+                                    },
+                                    "object_type": "definition_activity",
+                                    "actions": [
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3RYXH16Duesz0RF5L7Vwi5mD5G84",
+                                        "name": "HTTP Request",
+                                        "title": "Run the Imported WF",
+                                        "type": "web-service.http_request",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "allow_auto_redirect": true,
+                                          "allow_headers_redirect": false,
+                                          "continue_on_error_status_code": false,
+                                          "continue_on_failure": true,
+                                          "display_name": "Run the Imported WF",
+                                          "method": "POST",
+                                          "relative_url": "/api/v1.1/workflows/ui/start?workflow_id=$activity.definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                          "runtime_user": {
+                                            "target_default": true
+                                          },
+                                          "skip_execution": false,
+                                          "target": {
+                                            "use_workflow_target": true
+                                          }
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3S1W5L1H4YtfiFQg9rffHgSqUEA4",
+                                        "name": "Sleep",
+                                        "title": "Sleep for 60s",
+                                        "type": "core.sleep",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "continue_on_failure": true,
+                                          "display_name": "Sleep for 60s",
+                                          "skip_execution": false,
+                                          "sleep_interval": 60
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3S2DPH5cBWhHnC8ZyCSqrRpaArFh",
+                                        "name": "JSONPath Query",
+                                        "title": "Fetch the InstanceID",
+                                        "type": "corejava.jsonpathquery",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "continue_on_failure": true,
+                                          "display_name": "Fetch the InstanceID",
+                                          "input_json": "$activity.definition_activity_027YV2N3RYXH16Duesz0RF5L7Vwi5mD5G84.output.response_body$",
+                                          "jsonpath_queries": [
+                                            {
+                                              "jsonpath_query": "$..id",
+                                              "jsonpath_query_name": "ImportedWF_InstanceID",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            }
+                                          ],
+                                          "skip_execution": false
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3S4KFE5GQHSsXyvj2H2My0OgKjzi",
+                                        "name": "HTTP Request",
+                                        "title": "Get Instance by ID",
+                                        "type": "web-service.http_request",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "allow_auto_redirect": true,
+                                          "allow_headers_redirect": false,
+                                          "continue_on_error_status_code": false,
+                                          "continue_on_failure": true,
+                                          "display_name": "Get Instance by ID",
+                                          "method": "GET",
+                                          "relative_url": "/api/v1/instances/$activity.definition_activity_027YV2N3S2DPH5cBWhHnC8ZyCSqrRpaArFh.output.jsonpath_queries.ImportedWF_InstanceID$?detailed=true",
+                                          "runtime_user": {
+                                            "target_default": true
+                                          },
+                                          "skip_execution": false,
+                                          "target": {
+                                            "use_workflow_target": true
+                                          }
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3S58VW0W87fMUATeoGxOZO1A6iaV",
+                                        "name": "JSONPath Query",
+                                        "title": "Fetch the Instances Actions ID",
+                                        "type": "corejava.jsonpathquery",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "continue_on_failure": true,
+                                          "display_name": "Fetch the Instances Actions ID",
+                                          "input_json": "$activity.definition_activity_027YV2N3S4KFE5GQHSsXyvj2H2My0OgKjzi.output.response_body$",
+                                          "jsonpath_queries": [
+                                            {
+                                              "jsonpath_query": "$.actions[?(@.title=='HTTP Request-SentinelOne')].id",
+                                              "jsonpath_query_name": "SentinelOne_Instance_ActionID",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            },
+                                            {
+                                              "jsonpath_query": "$.actions[?(@.title=='To Upper-SentinelOne')].id",
+                                              "jsonpath_query_name": "SentinelOne_Instance_Upper_ActionID",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            }
+                                          ],
+                                          "skip_execution": false
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3S6VLP2W4vTMRcDim8sp8ht9iWUv",
+                                        "name": "HTTP Request",
+                                        "title": "Get Instance by Action ID to fetch HTTP Request Status",
+                                        "type": "web-service.http_request",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "allow_auto_redirect": true,
+                                          "allow_headers_redirect": false,
+                                          "continue_on_error_status_code": false,
+                                          "continue_on_failure": true,
+                                          "display_name": "Get Instance by Action ID to fetch HTTP Request Status",
+                                          "method": "GET",
+                                          "relative_url": "/api/v1/instances/$activity.definition_activity_027YV2N3S2DPH5cBWhHnC8ZyCSqrRpaArFh.output.jsonpath_queries.ImportedWF_InstanceID$/actions/$activity.definition_activity_027YV2N3S58VW0W87fMUATeoGxOZO1A6iaV.output.jsonpath_queries.SentinelOne_Instance_ActionID$",
+                                          "runtime_user": {
+                                            "target_default": true
+                                          },
+                                          "skip_execution": false,
+                                          "target": {
+                                            "use_workflow_target": true
+                                          }
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3S93F57JpTRcaJxUg6yaTQBItCQ2",
+                                        "name": "JSONPath Query",
+                                        "title": "Fetch the Action Status",
+                                        "type": "corejava.jsonpathquery",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "continue_on_failure": true,
+                                          "display_name": "Fetch the Action Status",
+                                          "input_json": "$activity.definition_activity_027YV2N3S6VLP2W4vTMRcDim8sp8ht9iWUv.output.response_body$",
+                                          "jsonpath_queries": [
+                                            {
+                                              "jsonpath_query": "$.output.activity_status",
+                                              "jsonpath_query_name": "SentinelOne_Action_Status",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            }
+                                          ],
+                                          "skip_execution": false
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3S9VXT3LiWDtvItZrD38poCZuv2O",
+                                        "name": "HTTP Request",
+                                        "title": "Get Instance by Action ID to fetch To Upper Status",
+                                        "type": "web-service.http_request",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "allow_auto_redirect": true,
+                                          "allow_headers_redirect": false,
+                                          "continue_on_error_status_code": false,
+                                          "continue_on_failure": true,
+                                          "display_name": "Get Instance by Action ID to fetch To Upper Status",
+                                          "method": "GET",
+                                          "relative_url": "/api/v1/instances/$activity.definition_activity_027YV2N3S2DPH5cBWhHnC8ZyCSqrRpaArFh.output.jsonpath_queries.ImportedWF_InstanceID$/actions/$activity.definition_activity_027YV2N3S58VW0W87fMUATeoGxOZO1A6iaV.output.jsonpath_queries.SentinelOne_Instance_Upper_ActionID$",
+                                          "runtime_user": {
+                                            "target_default": true
+                                          },
+                                          "skip_execution": false,
+                                          "target": {
+                                            "use_workflow_target": true
+                                          }
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3SBM037higaTlgVyY1ykQq6GQu1a",
+                                        "name": "JSONPath Query",
+                                        "title": "Fetch Action Status",
+                                        "type": "corejava.jsonpathquery",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "continue_on_failure": false,
+                                          "display_name": "Fetch Action Status",
+                                          "input_json": "$activity.definition_activity_027YV2N3S9VXT3LiWDtvItZrD38poCZuv2O.output.response_body$",
+                                          "jsonpath_queries": [
+                                            {
+                                              "jsonpath_query": "$.output.activity_status",
+                                              "jsonpath_query_name": "SentinelOne_Action_Status_UpperCase",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            },
+                                            {
+                                              "jsonpath_query": "$.properties.source",
+                                              "jsonpath_query_name": "source",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            }
+                                          ],
+                                          "skip_execution": false
+                                        },
+                                        "object_type": "definition_activity"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "unique_name": "definition_activity_027YV2N3SDK044HLDwD8Av7hhzh7PqQMGSk",
+                                "name": "Parallel Branch",
+                                "title": "Created WF",
+                                "type": "logic.parallel_block",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Created WF",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity",
+                                "actions": [
+                                  {
+                                    "unique_name": "definition_activity_027YV2N3SE4XH78MTqwOwXDfwsZ6sFFPDNN",
+                                    "name": "Group",
+                                    "title": "Run Created WF",
+                                    "type": "logic.group",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": false,
+                                      "display_name": "Run Created WF",
+                                      "skip_execution": false
+                                    },
+                                    "object_type": "definition_activity",
+                                    "actions": [
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3SIC2T22j9zTM4VFMEC2IjadGxH4",
+                                        "name": "HTTP Request",
+                                        "title": "Run the Created WF",
+                                        "type": "web-service.http_request",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "allow_auto_redirect": true,
+                                          "allow_headers_redirect": false,
+                                          "continue_on_error_status_code": false,
+                                          "continue_on_failure": true,
+                                          "display_name": "Run the Created WF",
+                                          "method": "POST",
+                                          "relative_url": "/api/v1.1/workflows/ui/start?workflow_id=$activity.definition_activity_027YV2N3RFOL63mPJuce21LdmxUMeuwiR7x.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                                          "runtime_user": {
+                                            "target_default": true
+                                          },
+                                          "skip_execution": false,
+                                          "target": {
+                                            "use_workflow_target": true
+                                          }
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3SJ5AV1wKgSocNSMusVsM3QG9L91",
+                                        "name": "Sleep",
+                                        "title": "Sleep for 60s",
+                                        "type": "core.sleep",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "continue_on_failure": true,
+                                          "display_name": "Sleep for 60s",
+                                          "skip_execution": false,
+                                          "sleep_interval": 60
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3SKIT06mwTKrQszW8nAONgU5vOp6",
+                                        "name": "JSONPath Query",
+                                        "title": "Fetch the InstanceID",
+                                        "type": "corejava.jsonpathquery",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "continue_on_failure": true,
+                                          "display_name": "Fetch the InstanceID",
+                                          "input_json": "$activity.definition_activity_027YV2N3SIC2T22j9zTM4VFMEC2IjadGxH4.output.response_body$",
+                                          "jsonpath_queries": [
+                                            {
+                                              "jsonpath_query": "$..id",
+                                              "jsonpath_query_name": "CreatedWF_InstanceID",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            }
+                                          ],
+                                          "skip_execution": false
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3SNFOZ4lgkdokbHaDBzsOn1x6FRn",
+                                        "name": "HTTP Request",
+                                        "title": "Get Instance by ID",
+                                        "type": "web-service.http_request",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "allow_auto_redirect": true,
+                                          "allow_headers_redirect": false,
+                                          "continue_on_error_status_code": false,
+                                          "continue_on_failure": true,
+                                          "display_name": "Get Instance by ID",
+                                          "method": "GET",
+                                          "relative_url": "/api/v1/instances/$activity.definition_activity_027YV2N3SKIT06mwTKrQszW8nAONgU5vOp6.output.jsonpath_queries.CreatedWF_InstanceID$?detailed=true",
+                                          "runtime_user": {
+                                            "target_default": true
+                                          },
+                                          "skip_execution": false,
+                                          "target": {
+                                            "use_workflow_target": true
+                                          }
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3SO2E67dcvoZK2vgvuoWrxWFHvhi",
+                                        "name": "JSONPath Query",
+                                        "title": "Fetch the Instances Actions ID",
+                                        "type": "corejava.jsonpathquery",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "continue_on_failure": true,
+                                          "display_name": "Fetch the Instances Actions ID",
+                                          "input_json": "$activity.definition_activity_027YV2N3SNFOZ4lgkdokbHaDBzsOn1x6FRn.output.response_body$",
+                                          "jsonpath_queries": [
+                                            {
+                                              "jsonpath_query": "$.actions[?(@.title=='HTTP Request-SentinelOne')].id",
+                                              "jsonpath_query_name": "SentinelOne_Instance_ActionID",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            }
+                                          ],
+                                          "skip_execution": false
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3SPGQW2FEd3mLzail2mYh4frKgrm",
+                                        "name": "HTTP Request",
+                                        "title": "Get Instance by Action ID",
+                                        "type": "web-service.http_request",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "allow_auto_redirect": true,
+                                          "allow_headers_redirect": false,
+                                          "continue_on_error_status_code": false,
+                                          "continue_on_failure": true,
+                                          "display_name": "Get Instance by Action ID",
+                                          "method": "GET",
+                                          "relative_url": "/api/v1/instances/$activity.definition_activity_027YV2N3SKIT06mwTKrQszW8nAONgU5vOp6.output.jsonpath_queries.CreatedWF_InstanceID$/actions/$activity.definition_activity_027YV2N3SO2E67dcvoZK2vgvuoWrxWFHvhi.output.jsonpath_queries.SentinelOne_Instance_ActionID$",
+                                          "runtime_user": {
+                                            "target_default": true
+                                          },
+                                          "skip_execution": false,
+                                          "target": {
+                                            "use_workflow_target": true
+                                          }
+                                        },
+                                        "object_type": "definition_activity"
+                                      },
+                                      {
+                                        "unique_name": "definition_activity_027YV2N3SSV6T5YHnZssOaMslSDzkqx34rG",
+                                        "name": "JSONPath Query",
+                                        "title": "Fetch the Action Status",
+                                        "type": "corejava.jsonpathquery",
+                                        "base_type": "activity",
+                                        "properties": {
+                                          "action_timeout": 180,
+                                          "continue_on_failure": true,
+                                          "display_name": "Fetch the Action Status",
+                                          "input_json": "$activity.definition_activity_027YV2N3SPGQW2FEd3mLzail2mYh4frKgrm.output.response_body$",
+                                          "jsonpath_queries": [
+                                            {
+                                              "jsonpath_query": "$.output.activity_status",
+                                              "jsonpath_query_name": "SentinelOne_Action_Status",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            }
+                                          ],
+                                          "skip_execution": false
+                                        },
+                                        "object_type": "definition_activity"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3STLCS1iK4dQd3caCGchJwyVKJ9a",
+                            "name": "Group",
+                            "title": "Cleanup",
+                            "type": "logic.group",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Cleanup",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_027YV2N3SXO4F4gcSAonGNwtFN4x4DZk4zd",
+                                "name": "Automation - Delete Workflow Instance (Imported WF)",
+                                "title": "Automation - Delete Workflow Instance (Imported WF)",
+                                "type": "workflow.atomic_workflow",
+                                "base_type": "subworkflow",
+                                "properties": {
+                                  "continue_on_failure": true,
+                                  "display_name": "Automation - Delete Workflow Instance (Imported WF)",
+                                  "input": {
+                                    "variable_workflow_026R3TL1018MG1XM4BFmdeusI37OyS2Q1Pe": "",
+                                    "variable_workflow_026R3TL101ITS0XwaMEZsvre6GPXZse1ioR": "$activity.definition_activity_027YV2N3S2DPH5cBWhHnC8ZyCSqrRpaArFh.output.jsonpath_queries.ImportedWF_InstanceID$",
+                                    "variable_workflow_026R3TL101S5R6yPYn8P1TP09uHPPkLdzgA": ""
+                                  },
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "target_type": "web-service.endpoint",
+                                    "use_workflow_target": true
+                                  },
+                                  "workflow_id": "definition_workflow_026R3TL0O0G7U2fYJ01SlXHJgbhJTl2XWcX",
+                                  "workflow_name": "Automation - Delete Workflow Instance"
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_027YV2N3SYSL14gOFDjlxyV1PhGtHWPx62t",
+                                "name": "Automation - Delete Workflow Instance (Created WF)",
+                                "title": "Automation - Delete Workflow Instance (Created WF)",
+                                "type": "workflow.atomic_workflow",
+                                "base_type": "subworkflow",
+                                "properties": {
+                                  "continue_on_failure": true,
+                                  "display_name": "Automation - Delete Workflow Instance (Created WF)",
+                                  "input": {
+                                    "variable_workflow_026R3TL1018MG1XM4BFmdeusI37OyS2Q1Pe": "",
+                                    "variable_workflow_026R3TL101ITS0XwaMEZsvre6GPXZse1ioR": "$activity.definition_activity_027YV2N3SKIT06mwTKrQszW8nAONgU5vOp6.output.jsonpath_queries.CreatedWF_InstanceID$",
+                                    "variable_workflow_026R3TL101S5R6yPYn8P1TP09uHPPkLdzgA": ""
+                                  },
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "target_type": "web-service.endpoint",
+                                    "use_workflow_target": true
+                                  },
+                                  "workflow_id": "definition_workflow_026R3TL0O0G7U2fYJ01SlXHJgbhJTl2XWcX",
+                                  "workflow_name": "Automation - Delete Workflow Instance"
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_027YV2N3T0P9B0BOc7qRVE5TPAAbRCQ1gZI",
+                                "name": "Automation - Delete a Imported Workflow",
+                                "title": "Automation - Delete a Imported Workflow",
+                                "type": "workflow.atomic_workflow",
+                                "base_type": "subworkflow",
+                                "properties": {
+                                  "continue_on_failure": true,
+                                  "display_name": "Automation - Delete a Imported Workflow",
+                                  "input": {
+                                    "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "",
+                                    "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                    "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": ""
+                                  },
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "target_type": "web-service.endpoint",
+                                    "use_workflow_target": true
+                                  },
+                                  "workflow_id": "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+                                  "workflow_name": "Automation - Delete a Workflow"
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_027YV2N3T48AG43hEdVn5KRSjCqblPwySML",
+                                "name": "Automation - Delete a Created Workflow",
+                                "title": "Automation - Delete a Created Workflow",
+                                "type": "workflow.atomic_workflow",
+                                "base_type": "subworkflow",
+                                "properties": {
+                                  "continue_on_failure": true,
+                                  "display_name": "Automation - Delete a Created Workflow",
+                                  "input": {
+                                    "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "",
+                                    "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_027YV2N3RFOL63mPJuce21LdmxUMeuwiR7x.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                                    "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": ""
+                                  },
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "target_type": "web-service.endpoint",
+                                    "use_workflow_target": true
+                                  },
+                                  "workflow_id": "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+                                  "workflow_name": "Automation - Delete a Workflow"
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_027YV2N3T5HOA3jlFV7tCnqTd5V9miQzELj",
+                                "name": "Automation- Delete Meraki Integrated Module",
+                                "title": "Automation- Delete Meraki Integrated Module",
+                                "type": "workflow.atomic_workflow",
+                                "base_type": "subworkflow",
+                                "properties": {
+                                  "continue_on_failure": true,
+                                  "display_name": "Automation- Delete Meraki Integrated Module",
+                                  "input": {
+                                    "variable_workflow_027V3DMJD62XO0jWohBuVIL8Q8cAYaUj6Th": "$activity.027YV2N3R4VLM5yteVgCZLNzaLelT9UI7QX.output.variable_workflow_027SK7DN29W9M4POpF5e3g9ATR9T5anDMfG$"
+                                  },
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "execute_on_this_target": true,
+                                    "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$",
+                                    "target_type": "web-service.endpoint"
+                                  },
+                                  "workflow_id": "definition_workflow_027V3DMIR0A5W69wCAWCeKHDvcLXshtlTFF",
+                                  "workflow_name": "Automation- Delete a Integrated Module"
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_027YV2N3T6WQE4cJ9CGBFrY6KQdL4LNdtYQ",
+                                "name": "Sleep",
+                                "title": "Sleep for 30s",
+                                "type": "core.sleep",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": true,
+                                  "display_name": "Sleep for 30s",
+                                  "skip_execution": false,
+                                  "sleep_interval": 30
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_027YV2N3TAK0L3J51e5jC4s578j8HJ3nFbn",
+                                "name": "Automation- Delete a Target",
+                                "title": "Automation- Delete a Target",
+                                "type": "workflow.atomic_workflow",
+                                "base_type": "subworkflow",
+                                "properties": {
+                                  "continue_on_failure": true,
+                                  "display_name": "Automation- Delete a Target",
+                                  "input": {
+                                    "variable_workflow_026YF6R0HEAJ05j6hHCPGpkz7rOU859Bdkw": "",
+                                    "variable_workflow_026YF6R0HEY2Q41Qj80t6JqBz9TMjlAg0mW": "",
+                                    "variable_workflow_026YF6R0HFH693GYUWv2rBpihQYUuh3ZgQi": "$activity.027YV2N3R4VLM5yteVgCZLNzaLelT9UI7QX.output.variable_workflow_027SK7K5AQX2G35YlwDmzHOjzJJeKaAFUhn$"
+                                  },
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "target_type": "web-service.endpoint",
+                                    "use_workflow_target": true
+                                  },
+                                  "workflow_id": "definition_workflow_026YF6QZUQI0T6eDsG5zEkDAXyCUD5bdqPI",
+                                  "workflow_name": "Automation- Delete a Target"
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          },
+                          {
+                            "unique_name": "definition_activity_027YV2N3TBHUB2Gu5IVVjJ8dp2W6waWDfyT",
+                            "name": "Condition Block",
+                            "title": "Verify Meraki Status",
+                            "type": "logic.if_else",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Verify Meraki Status",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "blocks": [
+                              {
+                                "unique_name": "definition_activity_027YV2N3TMLPH74ztvg7NB4hclXGCeUUsCz",
+                                "name": "Condition Branch",
+                                "title": "Pass Case",
+                                "type": "logic.condition_block",
+                                "base_type": "activity",
+                                "properties": {
+                                  "condition": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": {
+                                            "left_operand": {
+                                              "left_operand": {
+                                                "left_operand": {
+                                                  "left_operand": {
+                                                    "left_operand": {
+                                                      "left_operand": {
+                                                        "left_operand": {
+                                                          "left_operand": {
+                                                            "left_operand": {
+                                                              "left_operand": {
+                                                                "left_operand": {
+                                                                  "left_operand": {
+                                                                    "left_operand": {
+                                                                      "left_operand": {
+                                                                        "left_operand": {
+                                                                          "left_operand": {
+                                                                            "left_operand": {
+                                                                              "left_operand": {
+                                                                                "left_operand": {
+                                                                                  "left_operand": {
+                                                                                    "left_operand": {
+                                                                                      "left_operand": {
+                                                                                        "left_operand": {
+                                                                                          "left_operand": {
+                                                                                            "left_operand": {
+                                                                                              "left_operand": {
+                                                                                                "left_operand": "$activity.definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti.output.variable_workflow_026YHDBBBMOKL4PuJR5QoVaFm20O7FVC813$",
+                                                                                                "operator": "eq",
+                                                                                                "right_operand": "true"
+                                                                                              },
+                                                                                              "operator": "and",
+                                                                                              "right_operand": {
+                                                                                                "left_operand": "$activity.definition_activity_027YV2N3QW4YP6u03WXZyeqYWA2ezrtw2bW.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                                                                                "operator": "eq",
+                                                                                                "right_operand": "true"
+                                                                                              }
+                                                                                            },
+                                                                                            "operator": "and",
+                                                                                            "right_operand": {
+                                                                                              "left_operand": "$activity.definition_activity_027YV2N3QWTJ83Pa1FzOibbP6vaZ1jaTQdT.output.variable_workflow_02746ZS7KZZLE0htMY7uwRqLFJfxfZgbwy5$",
+                                                                                              "operator": "eq",
+                                                                                              "right_operand": "true"
+                                                                                            }
+                                                                                          },
+                                                                                          "operator": "and",
+                                                                                          "right_operand": {
+                                                                                            "left_operand": "$activity.definition_activity_027YV2N3R2M4D3jJz2hooSmTHg1An95gllM.output.error.code$",
+                                                                                            "operator": "eq",
+                                                                                            "right_operand": "200"
+                                                                                          }
+                                                                                        },
+                                                                                        "operator": "and",
+                                                                                        "right_operand": {
+                                                                                          "left_operand": "$activity.definition_activity_027YV2N3R3IAV1ApGjOsobCS2DRG8rtdwn6.output.jsonpath_queries.Meraki_Module_Target_Message$",
+                                                                                          "operator": "mw",
+                                                                                          "right_operand": "*Meraki*"
+                                                                                        }
+                                                                                      },
+                                                                                      "operator": "and",
+                                                                                      "right_operand": {
+                                                                                        "left_operand": "$activity.027YV2N3R4VLM5yteVgCZLNzaLelT9UI7QX.output.variable_workflow_027SK77H431ZF4WO4hF7ItUksy8etg8EqLv$",
+                                                                                        "operator": "eq",
+                                                                                        "right_operand": "Pass"
+                                                                                      }
+                                                                                    },
+                                                                                    "operator": "and",
+                                                                                    "right_operand": {
+                                                                                      "left_operand": "$activity.definition_activity_027YV2N3R7RCZ5qNl0mTbuHRuvJdHBB4ZMw.output.variable_workflow_01TNSB16AA1C73B6kdMJgwboLZXbBnU29bm$",
+                                                                                      "operator": "eq",
+                                                                                      "right_operand": "true"
+                                                                                    }
+                                                                                  },
+                                                                                  "operator": "and",
+                                                                                  "right_operand": {
+                                                                                    "left_operand": "$activity.definition_activity_027YV2N3RFOL63mPJuce21LdmxUMeuwiR7x.output.variable_workflow_026R3ITFC43F43oBn9BzrOKiM8NvxxcNOrN$",
+                                                                                    "operator": "eq",
+                                                                                    "right_operand": "true"
+                                                                                  }
+                                                                                },
+                                                                                "operator": "and",
+                                                                                "right_operand": {
+                                                                                  "left_operand": "$activity.definition_activity_027YV2N3RKICL5MVX9lAL1rA9rkrBCRpTSB.output.variable_workflow_01TNRGULATQQV6FYTr3qQGjSdO5JnudAeD5$",
+                                                                                  "operator": "eq",
+                                                                                  "right_operand": "true"
+                                                                                }
+                                                                              },
+                                                                              "operator": "and",
+                                                                              "right_operand": {
+                                                                                "left_operand": "$activity.definition_activity_027YV2N3RMKTP5X1RhslRtpk8JPOSMpGnCt.output.variable_workflow_01TNSB16AA1C73B6kdMJgwboLZXbBnU29bm$",
+                                                                                "operator": "eq",
+                                                                                "right_operand": "true"
+                                                                              }
+                                                                            },
+                                                                            "operator": "and",
+                                                                            "right_operand": {
+                                                                              "left_operand": "$activity.definition_activity_027YV2N3RYXH16Duesz0RF5L7Vwi5mD5G84.output.error.code$",
+                                                                              "operator": "eq",
+                                                                              "right_operand": "200"
+                                                                            }
+                                                                          },
+                                                                          "operator": "and",
+                                                                          "right_operand": {
+                                                                            "left_operand": "$activity.definition_activity_027YV2N3S4KFE5GQHSsXyvj2H2My0OgKjzi.output.error.code$",
+                                                                            "operator": "eq",
+                                                                            "right_operand": "200"
+                                                                          }
+                                                                        },
+                                                                        "operator": "and",
+                                                                        "right_operand": {
+                                                                          "left_operand": "$activity.definition_activity_027YV2N3S6VLP2W4vTMRcDim8sp8ht9iWUv.output.error.code$",
+                                                                          "operator": "eq",
+                                                                          "right_operand": "200"
+                                                                        }
+                                                                      },
+                                                                      "operator": "and",
+                                                                      "right_operand": {
+                                                                        "left_operand": "$activity.definition_activity_027YV2N3S93F57JpTRcaJxUg6yaTQBItCQ2.output.jsonpath_queries.Meraki_Action_Status$",
+                                                                        "operator": "eq",
+                                                                        "right_operand": "Success"
+                                                                      }
+                                                                    },
+                                                                    "operator": "and",
+                                                                    "right_operand": {
+                                                                      "left_operand": "$activity.definition_activity_027YV2N3SIC2T22j9zTM4VFMEC2IjadGxH4.output.error.code$",
+                                                                      "operator": "eq",
+                                                                      "right_operand": "200"
+                                                                    }
+                                                                  },
+                                                                  "operator": "and",
+                                                                  "right_operand": {
+                                                                    "left_operand": "$activity.definition_activity_027YV2N3SNFOZ4lgkdokbHaDBzsOn1x6FRn.output.error.code$",
+                                                                    "operator": "eq",
+                                                                    "right_operand": "200"
+                                                                  }
+                                                                },
+                                                                "operator": "and",
+                                                                "right_operand": {
+                                                                  "left_operand": "$activity.definition_activity_027YV2N3SPGQW2FEd3mLzail2mYh4frKgrm.output.error.code$",
+                                                                  "operator": "eq",
+                                                                  "right_operand": "200"
+                                                                }
+                                                              },
+                                                              "operator": "and",
+                                                              "right_operand": {
+                                                                "left_operand": "$activity.definition_activity_027YV2N3SSV6T5YHnZssOaMslSDzkqx34rG.output.jsonpath_queries.Meraki_Action_Status$",
+                                                                "operator": "eq",
+                                                                "right_operand": "Success"
+                                                              }
+                                                            },
+                                                            "operator": "and",
+                                                            "right_operand": {
+                                                              "left_operand": "$activity.definition_activity_027YV2N3RPPD805mkQ0sZS2GeqXcjX8jITq.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                                              "operator": "eq",
+                                                              "right_operand": "true"
+                                                            }
+                                                          },
+                                                          "operator": "and",
+                                                          "right_operand": {
+                                                            "left_operand": "$activity.definition_activity_027YV2N3RQJ7Y5GYLKcSdVSogRch6y7TWGj.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                                            "operator": "eq",
+                                                            "right_operand": "true"
+                                                          }
+                                                        },
+                                                        "operator": "and",
+                                                        "right_operand": {
+                                                          "left_operand": "$activity.definition_activity_027YV2N3SXO4F4gcSAonGNwtFN4x4DZk4zd.output.variable_workflow_026R3TL1021LC19oQNcSi3lpRjubtr8Sogy$",
+                                                          "operator": "eq",
+                                                          "right_operand": "true"
+                                                        }
+                                                      },
+                                                      "operator": "and",
+                                                      "right_operand": {
+                                                        "left_operand": "$activity.definition_activity_027YV2N3SYSL14gOFDjlxyV1PhGtHWPx62t.output.variable_workflow_026R3TL1021LC19oQNcSi3lpRjubtr8Sogy$",
+                                                        "operator": "eq",
+                                                        "right_operand": "true"
+                                                      }
+                                                    },
+                                                    "operator": "and",
+                                                    "right_operand": {
+                                                      "left_operand": "$activity.definition_activity_027YV2N3T0P9B0BOc7qRVE5TPAAbRCQ1gZI.output.variable_workflow_026R3PNDY9HWM1EAkKFEmXGbAori52GEZrE$",
+                                                      "operator": "eq",
+                                                      "right_operand": "true"
+                                                    }
+                                                  },
+                                                  "operator": "and",
+                                                  "right_operand": {
+                                                    "left_operand": "$activity.definition_activity_027YV2N3T48AG43hEdVn5KRSjCqblPwySML.output.variable_workflow_026R3PNDY9HWM1EAkKFEmXGbAori52GEZrE$",
+                                                    "operator": "eq",
+                                                    "right_operand": "true"
+                                                  }
+                                                },
+                                                "operator": "and",
+                                                "right_operand": {
+                                                  "left_operand": "$activity.definition_activity_027YV2N3T5HOA3jlFV7tCnqTd5V9miQzELj.output.variable_workflow_027V3DMJD6CNR5yYvRqqPpzQJm5bZpsBD9d$",
+                                                  "operator": "eq",
+                                                  "right_operand": "true"
+                                                }
+                                              },
+                                              "operator": "and",
+                                              "right_operand": {
+                                                "left_operand": "$activity.definition_activity_027YV2N3TAK0L3J51e5jC4s578j8HJ3nFbn.output.variable_workflow_026YF6R0HF7L15izuSprp9g5wMmczUhGWUw$",
+                                                "operator": "eq",
+                                                "right_operand": "true"
+                                              }
+                                            },
+                                            "operator": "and",
+                                            "right_operand": {
+                                              "left_operand": "$activity.definition_activity_027YV2N3RE3BT0TjcH1V2FM3uF9zYNnKCeC.output.variable_workflow_01TNRGULATQQV6FYTr3qQGjSdO5JnudAeD5$",
+                                              "operator": "eq",
+                                              "right_operand": "true"
+                                            }
+                                          },
+                                          "operator": "and",
+                                          "right_operand": {
+                                            "left_operand": "$activity.definition_activity_027YV2N3S9VXT3LiWDtvItZrD38poCZuv2O.output.error.code$",
+                                            "operator": "eq",
+                                            "right_operand": "200"
+                                          }
+                                        },
+                                        "operator": "and",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_027YV2N3SBM037higaTlgVyY1ykQq6GQu1a.output.jsonpath_queries.Meraki_Action_Status_UpperCase$",
+                                          "operator": "eq",
+                                          "right_operand": "Success"
+                                        }
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_027YV2N3R8QRT0Jj7SFgTKSzUUDyBHYXLI6.output.error.code$",
+                                        "operator": "eq",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_027YV2N3SBM037higaTlgVyY1ykQq6GQu1a.output.jsonpath_queries.source$",
+                                      "operator": "mw",
+                                      "right_operand": "*meraki*"
+                                    }
+                                  },
+                                  "continue_on_failure": false,
+                                  "display_name": "Pass Case",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity",
+                                "actions": [
+                                  {
+                                    "unique_name": "definition_activity_027YV2N3TS7SB1KsVL53pEhMH0fPqHgykTE",
+                                    "name": "Set Variables",
+                                    "title": "Meraki Integration Test Passed",
+                                    "type": "core.set_multiple_variables",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": true,
+                                      "display_name": "Meraki Integration Test Passed",
+                                      "skip_execution": false,
+                                      "variables_to_update": [
+                                        {
+                                          "variable_to_update": "$workflow.definition_workflow_027V2LF7QZ4400MUMIHfBx2SJ4tsmiFTl7K.output.variable_workflow_027XSPABQLSCC1N0nWJBEGEWIsVb9ziXEwf$",
+                                          "variable_value_new": "Pass"
+                                        }
+                                      ]
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_027YV2N3TTOJE6i6H9vz3SOpXg7SqPnJ0sp",
+                                    "name": "Add Row to Table",
+                                    "title": "Store Results In Table",
+                                    "type": "core.addrowtotable",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "action_timeout": 180,
+                                      "continue_on_failure": false,
+                                      "display_name": "Store Results In Table",
+                                      "input_table": "$workflow.definition_workflow_027V2LF7QZ4400MUMIHfBx2SJ4tsmiFTl7K.output.variable_workflow_027Y1JFOKWDYI7GqVpo2hpZrUXZipt2B5D1$",
+                                      "row": [
+                                        {
+                                          "key": "TestResults",
+                                          "type": "string",
+                                          "value": "$workflow.definition_workflow_027V2LF7QZ4400MUMIHfBx2SJ4tsmiFTl7K.output.variable_workflow_027XSPABQLSCC1N0nWJBEGEWIsVb9ziXEwf$"
+                                        }
+                                      ],
+                                      "skip_execution": false
+                                    },
+                                    "object_type": "definition_activity"
+                                  }
+                                ]
+                              },
+                              {
+                                "unique_name": "definition_activity_027YV2N3U48HN6ljoIx65c7wehbirMSl4iv",
+                                "name": "Condition Branch",
+                                "title": "Fail Case",
+                                "type": "logic.condition_block",
+                                "base_type": "activity",
+                                "properties": {
+                                  "condition": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": {
+                                            "left_operand": {
+                                              "left_operand": {
+                                                "left_operand": {
+                                                  "left_operand": {
+                                                    "left_operand": {
+                                                      "left_operand": {
+                                                        "left_operand": {
+                                                          "left_operand": {
+                                                            "left_operand": {
+                                                              "left_operand": {
+                                                                "left_operand": {
+                                                                  "left_operand": {
+                                                                    "left_operand": {
+                                                                      "left_operand": {
+                                                                        "left_operand": {
+                                                                          "left_operand": {
+                                                                            "left_operand": {
+                                                                              "left_operand": {
+                                                                                "left_operand": {
+                                                                                  "left_operand": {
+                                                                                    "left_operand": {
+                                                                                      "left_operand": {
+                                                                                        "left_operand": {
+                                                                                          "left_operand": {
+                                                                                            "left_operand": {
+                                                                                              "left_operand": {
+                                                                                                "left_operand": "$activity.definition_activity_027YV2N3QR5LV6eM2htYQ54fExhe19m4zti.output.variable_workflow_026YHDBBBMOKL4PuJR5QoVaFm20O7FVC813$",
+                                                                                                "operator": "eq",
+                                                                                                "right_operand": "false"
+                                                                                              },
+                                                                                              "operator": "or",
+                                                                                              "right_operand": {
+                                                                                                "left_operand": "$activity.definition_activity_027YV2N3QW4YP6u03WXZyeqYWA2ezrtw2bW.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                                                                                "operator": "eq",
+                                                                                                "right_operand": "false"
+                                                                                              }
+                                                                                            },
+                                                                                            "operator": "or",
+                                                                                            "right_operand": {
+                                                                                              "left_operand": "$activity.definition_activity_027YV2N3QWTJ83Pa1FzOibbP6vaZ1jaTQdT.output.variable_workflow_02746ZS7KZZLE0htMY7uwRqLFJfxfZgbwy5$",
+                                                                                              "operator": "eq",
+                                                                                              "right_operand": "false"
+                                                                                            }
+                                                                                          },
+                                                                                          "operator": "or",
+                                                                                          "right_operand": {
+                                                                                            "left_operand": "$activity.definition_activity_027YV2N3R2M4D3jJz2hooSmTHg1An95gllM.output.error.code$",
+                                                                                            "operator": "ne",
+                                                                                            "right_operand": "200"
+                                                                                          }
+                                                                                        },
+                                                                                        "operator": "or",
+                                                                                        "right_operand": {
+                                                                                          "left_operand": "$activity.definition_activity_027YV2N3R3IAV1ApGjOsobCS2DRG8rtdwn6.output.jsonpath_queries.Meraki_Module_Target_Message$",
+                                                                                          "operator": "nmw",
+                                                                                          "right_operand": "*Meraki*"
+                                                                                        }
+                                                                                      },
+                                                                                      "operator": "or",
+                                                                                      "right_operand": {
+                                                                                        "left_operand": "$activity.027YV2N3R4VLM5yteVgCZLNzaLelT9UI7QX.output.variable_workflow_027SK77H431ZF4WO4hF7ItUksy8etg8EqLv$",
+                                                                                        "operator": "eq",
+                                                                                        "right_operand": "Fail"
+                                                                                      }
+                                                                                    },
+                                                                                    "operator": "or",
+                                                                                    "right_operand": {
+                                                                                      "left_operand": "$activity.definition_activity_027YV2N3R7RCZ5qNl0mTbuHRuvJdHBB4ZMw.output.variable_workflow_01TNSB16AA1C73B6kdMJgwboLZXbBnU29bm$",
+                                                                                      "operator": "eq",
+                                                                                      "right_operand": "false"
+                                                                                    }
+                                                                                  },
+                                                                                  "operator": "or",
+                                                                                  "right_operand": {
+                                                                                    "left_operand": "$activity.definition_activity_027YV2N3RFOL63mPJuce21LdmxUMeuwiR7x.output.variable_workflow_026R3ITFC43F43oBn9BzrOKiM8NvxxcNOrN$",
+                                                                                    "operator": "eq",
+                                                                                    "right_operand": "false"
+                                                                                  }
+                                                                                },
+                                                                                "operator": "or",
+                                                                                "right_operand": {
+                                                                                  "left_operand": "$activity.definition_activity_027YV2N3RKICL5MVX9lAL1rA9rkrBCRpTSB.output.variable_workflow_01TNRGULATQQV6FYTr3qQGjSdO5JnudAeD5$",
+                                                                                  "operator": "eq",
+                                                                                  "right_operand": "false"
+                                                                                }
+                                                                              },
+                                                                              "operator": "or",
+                                                                              "right_operand": {
+                                                                                "left_operand": "$activity.definition_activity_027YV2N3RMKTP5X1RhslRtpk8JPOSMpGnCt.output.variable_workflow_01TNSB16AA1C73B6kdMJgwboLZXbBnU29bm$",
+                                                                                "operator": "eq",
+                                                                                "right_operand": "false"
+                                                                              }
+                                                                            },
+                                                                            "operator": "or",
+                                                                            "right_operand": {
+                                                                              "left_operand": "$activity.definition_activity_027YV2N3RYXH16Duesz0RF5L7Vwi5mD5G84.output.error.code$",
+                                                                              "operator": "ne",
+                                                                              "right_operand": "200"
+                                                                            }
+                                                                          },
+                                                                          "operator": "or",
+                                                                          "right_operand": {
+                                                                            "left_operand": "$activity.definition_activity_027YV2N3S4KFE5GQHSsXyvj2H2My0OgKjzi.output.error.code$",
+                                                                            "operator": "ne",
+                                                                            "right_operand": "200"
+                                                                          }
+                                                                        },
+                                                                        "operator": "or",
+                                                                        "right_operand": {
+                                                                          "left_operand": "$activity.definition_activity_027YV2N3S6VLP2W4vTMRcDim8sp8ht9iWUv.output.error.code$",
+                                                                          "operator": "ne",
+                                                                          "right_operand": "200"
+                                                                        }
+                                                                      },
+                                                                      "operator": "or",
+                                                                      "right_operand": {
+                                                                        "left_operand": "$activity.definition_activity_027YV2N3S93F57JpTRcaJxUg6yaTQBItCQ2.output.jsonpath_queries.Meraki_Action_Status$",
+                                                                        "operator": "ne",
+                                                                        "right_operand": "Success"
+                                                                      }
+                                                                    },
+                                                                    "operator": "or",
+                                                                    "right_operand": {
+                                                                      "left_operand": "$activity.definition_activity_027YV2N3SIC2T22j9zTM4VFMEC2IjadGxH4.output.error.code$",
+                                                                      "operator": "ne",
+                                                                      "right_operand": "200"
+                                                                    }
+                                                                  },
+                                                                  "operator": "or",
+                                                                  "right_operand": {
+                                                                    "left_operand": "$activity.definition_activity_027YV2N3SNFOZ4lgkdokbHaDBzsOn1x6FRn.output.error.code$",
+                                                                    "operator": "ne",
+                                                                    "right_operand": "200"
+                                                                  }
+                                                                },
+                                                                "operator": "or",
+                                                                "right_operand": {
+                                                                  "left_operand": "$activity.definition_activity_027YV2N3SPGQW2FEd3mLzail2mYh4frKgrm.output.error.code$",
+                                                                  "operator": "ne",
+                                                                  "right_operand": "200"
+                                                                }
+                                                              },
+                                                              "operator": "or",
+                                                              "right_operand": {
+                                                                "left_operand": "$activity.definition_activity_027YV2N3SSV6T5YHnZssOaMslSDzkqx34rG.output.jsonpath_queries.Meraki_Action_Status$",
+                                                                "operator": "ne",
+                                                                "right_operand": "Success"
+                                                              }
+                                                            },
+                                                            "operator": "or",
+                                                            "right_operand": {
+                                                              "left_operand": "$activity.definition_activity_027YV2N3RPPD805mkQ0sZS2GeqXcjX8jITq.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                                              "operator": "eq",
+                                                              "right_operand": "false"
+                                                            }
+                                                          },
+                                                          "operator": "or",
+                                                          "right_operand": {
+                                                            "left_operand": "$activity.definition_activity_027YV2N3RQJ7Y5GYLKcSdVSogRch6y7TWGj.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                                            "operator": "eq",
+                                                            "right_operand": "false"
+                                                          }
+                                                        },
+                                                        "operator": "or",
+                                                        "right_operand": {
+                                                          "left_operand": "$activity.definition_activity_027YV2N3SXO4F4gcSAonGNwtFN4x4DZk4zd.output.variable_workflow_026R3TL1021LC19oQNcSi3lpRjubtr8Sogy$",
+                                                          "operator": "eq",
+                                                          "right_operand": "false"
+                                                        }
+                                                      },
+                                                      "operator": "or",
+                                                      "right_operand": {
+                                                        "left_operand": "$activity.definition_activity_027YV2N3SYSL14gOFDjlxyV1PhGtHWPx62t.output.variable_workflow_026R3TL1021LC19oQNcSi3lpRjubtr8Sogy$",
+                                                        "operator": "eq",
+                                                        "right_operand": "false"
+                                                      }
+                                                    },
+                                                    "operator": "or",
+                                                    "right_operand": {
+                                                      "left_operand": "$activity.definition_activity_027YV2N3T0P9B0BOc7qRVE5TPAAbRCQ1gZI.output.variable_workflow_026R3PNDY9HWM1EAkKFEmXGbAori52GEZrE$",
+                                                      "operator": "eq",
+                                                      "right_operand": "false"
+                                                    }
+                                                  },
+                                                  "operator": "or",
+                                                  "right_operand": {
+                                                    "left_operand": "$activity.definition_activity_027YV2N3T48AG43hEdVn5KRSjCqblPwySML.output.variable_workflow_026R3PNDY9HWM1EAkKFEmXGbAori52GEZrE$",
+                                                    "operator": "eq",
+                                                    "right_operand": "false"
+                                                  }
+                                                },
+                                                "operator": "or",
+                                                "right_operand": {
+                                                  "left_operand": "$activity.definition_activity_027YV2N3T5HOA3jlFV7tCnqTd5V9miQzELj.output.variable_workflow_027V3DMJD6CNR5yYvRqqPpzQJm5bZpsBD9d$",
+                                                  "operator": "eq",
+                                                  "right_operand": "false"
+                                                }
+                                              },
+                                              "operator": "or",
+                                              "right_operand": {
+                                                "left_operand": "$activity.definition_activity_027YV2N3TAK0L3J51e5jC4s578j8HJ3nFbn.output.variable_workflow_026YF6R0HF7L15izuSprp9g5wMmczUhGWUw$",
+                                                "operator": "eq",
+                                                "right_operand": "false"
+                                              }
+                                            },
+                                            "operator": "or",
+                                            "right_operand": {
+                                              "left_operand": "$activity.definition_activity_027YV2N3RE3BT0TjcH1V2FM3uF9zYNnKCeC.output.variable_workflow_01TNRGULATQQV6FYTr3qQGjSdO5JnudAeD5$",
+                                              "operator": "eq",
+                                              "right_operand": "false"
+                                            }
+                                          },
+                                          "operator": "or",
+                                          "right_operand": {
+                                            "left_operand": "$activity.definition_activity_027YV2N3S9VXT3LiWDtvItZrD38poCZuv2O.output.error.code$",
+                                            "operator": "ne",
+                                            "right_operand": "200"
+                                          }
+                                        },
+                                        "operator": "or",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_027YV2N3SBM037higaTlgVyY1ykQq6GQu1a.output.jsonpath_queries.Meraki_Action_Status_UpperCase$",
+                                          "operator": "ne",
+                                          "right_operand": "Success"
+                                        }
+                                      },
+                                      "operator": "or",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_027YV2N3SBM037higaTlgVyY1ykQq6GQu1a.output.jsonpath_queries.source$",
+                                        "operator": "nmw",
+                                        "right_operand": "*meraki*"
+                                      }
+                                    },
+                                    "operator": "or",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_027YV2N3R8QRT0Jj7SFgTKSzUUDyBHYXLI6.output.error.code$",
+                                      "operator": "ne",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "continue_on_failure": false,
+                                  "display_name": "Fail Case",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity",
+                                "actions": [
+                                  {
+                                    "unique_name": "definition_activity_027YV2N3U9X9P0soonORRatfy0lBYpnvPYV",
+                                    "name": "Set Variables",
+                                    "title": "Meraki Integration Test Passed",
+                                    "type": "core.set_multiple_variables",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": true,
+                                      "display_name": "Meraki Integration Test Passed",
+                                      "skip_execution": false,
+                                      "variables_to_update": [
+                                        {
+                                          "variable_to_update": "$workflow.definition_workflow_027V2LF7QZ4400MUMIHfBx2SJ4tsmiFTl7K.output.variable_workflow_027XSPABQLSCC1N0nWJBEGEWIsVb9ziXEwf$",
+                                          "variable_value_new": "Fail"
+                                        }
+                                      ]
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_027YV2N3UBGJG5ZzzQ1yfFZMhZeSJnIK134",
+                                    "name": "Add Row to Table",
+                                    "title": "Store Results In Table",
+                                    "type": "core.addrowtotable",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "action_timeout": 180,
+                                      "continue_on_failure": false,
+                                      "display_name": "Store Results In Table",
+                                      "input_table": "$workflow.definition_workflow_027V2LF7QZ4400MUMIHfBx2SJ4tsmiFTl7K.output.variable_workflow_027Y1JFOKWDYI7GqVpo2hpZrUXZipt2B5D1$",
+                                      "row": [
+                                        {
+                                          "key": "TestResults",
+                                          "type": "string",
+                                          "value": "$workflow.definition_workflow_027V2LF7QZ4400MUMIHfBx2SJ4tsmiFTl7K.output.variable_workflow_027XSPABQLSCC1N0nWJBEGEWIsVb9ziXEwf$"
+                                        }
+                                      ],
+                                      "skip_execution": false
+                                    },
+                                    "object_type": "definition_activity"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
@@ -4654,35 +6401,7 @@
                   "display_name": "SentinelOne Module Integration",
                   "skip_execution": false
                 },
-                "object_type": "definition_activity",
-                "actions": [
-                  {
-                    "unique_name": "definition_activity_027V2TAPKT1QF7jpvTq8ftdjWYcz6VK8zQJ",
-                    "name": "Automation -Enable the Module Integration For SentinelOne",
-                    "title": "Automation -Enable the Module Integration For SentinelOne",
-                    "type": "workflow.atomic_workflow",
-                    "base_type": "subworkflow",
-                    "properties": {
-                      "continue_on_failure": false,
-                      "display_name": "Automation -Enable the Module Integration For SentinelOne",
-                      "input": {
-                        "variable_workflow_027SQGVAXUEWK4W13M56EzPLMiNKSAJM0wJ": "usea1-partners.sentinelone.net",
-                        "variable_workflow_027V34QUSLJHG3SbfCwnA0J0sH8hDS2L4AD": "Bn38jgymePfaYIrSvJtB1MYxfkdvrSRxkPYq1ugeJmh0c9l7oSc0614bEOUUUGY8nNNfPfF2OhFQXtb8"
-                      },
-                      "runtime_user": {
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "target_type": "web-service.endpoint",
-                        "use_workflow_target": true
-                      },
-                      "workflow_id": "definition_workflow_027SQGVAB8RQP1u6rzdh2YplXAPmE3Lp2YE",
-                      "workflow_name": "Automation -Enable the Module Integration For SentinelOne"
-                    },
-                    "object_type": "definition_activity"
-                  }
-                ]
+                "object_type": "definition_activity"
               },
               {
                 "unique_name": "definition_activity_027V2Q9SL5ZGW15iSznG6PwkEoP15qrJfsE",
