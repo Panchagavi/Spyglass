@@ -1,0 +1,305 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u",
+    "name": "Automation - Uninstall Excahnge from Exchange Page",
+    "title": "Automation - Uninstall Excahnge from Exchange Page",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Xchange_ID_OF_XchangeTenant",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0282XDPKHGJ5M6CokLwuzXxZnMvjyK5Yikx",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0282XAQJ6YD793bUWNt3miEMo1HhnclS1YQ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Token",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0282XE0QWNEDN5fr9d7TC1yluUs77aL0DW2",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Uninstall Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0282XP11VZ26K1oin0iY4xrwbawvblBz6Nd",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "atomic_group": "Atomic",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Automation - Uninstall Excahnge from Exchange Page",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_0282X9735WREW7azvzviA6BuwCCYx9EA52C",
+        "name": "HTTP Request",
+        "title": "Uninstall Exchange",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u.input.variable_workflow_0282XAQJ6YD793bUWNt3miEMo1HhnclS1YQ$",
+              "value": "$workflow.definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u.input.variable_workflow_0282XE0QWNEDN5fr9d7TC1yluUs77aL0DW2$"
+            }
+          ],
+          "display_name": "Uninstall Exchange",
+          "method": "DELETE",
+          "relative_url": "/exchange/api/v1/xchanges/$workflow.definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u.input.variable_workflow_0282XDPKHGJ5M6CokLwuzXxZnMvjyK5Yikx$/uninstall?continue_uninstall=true",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0282XN3IT4JGB0lJjlmaYTgBA9xARRLB9nT",
+        "name": "Sleep",
+        "title": "wait for 10s",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "wait for 10s",
+          "skip_execution": false,
+          "sleep_interval": 10
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0282XN9F4KGXZ4kbJHpX0Q7Pqz4fD9UUQgq",
+        "name": "HTTP Request",
+        "title": "Verify Uninsatll Exchange (Expected to Fail)",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u.input.variable_workflow_0282XAQJ6YD793bUWNt3miEMo1HhnclS1YQ$",
+              "value": "$workflow.definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u.input.variable_workflow_0282XE0QWNEDN5fr9d7TC1yluUs77aL0DW2$"
+            }
+          ],
+          "display_name": "Verify Uninsatll Exchange (Expected to Fail)",
+          "method": "DELETE",
+          "relative_url": "/exchange/api/v1/xchanges/$workflow.definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u.input.variable_workflow_0282XDPKHGJ5M6CokLwuzXxZnMvjyK5Yikx$/uninstall?continue_uninstall=true",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0282XOAU8PCCS1kF4VYsyaZpz1har0fL34j",
+        "name": "Condition Block",
+        "title": "Verify Uninstall Status",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Verify Uninstall Status",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_0282XOAVHT5FG4V0HXPOtVme45hOd75vJkN",
+            "name": "Condition Branch",
+            "title": "Pass Case",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_0282X9735WREW7azvzviA6BuwCCYx9EA52C.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "200"
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_0282X9735WREW7azvzviA6BuwCCYx9EA52C.output.error.message$",
+                      "operator": "eq",
+                      "right_operand": "success"
+                    }
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_0282XN9F4KGXZ4kbJHpX0Q7Pqz4fD9UUQgq.output.error.code$",
+                    "operator": "eq",
+                    "right_operand": "400"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_0282XN9F4KGXZ4kbJHpX0Q7Pqz4fD9UUQgq.output.error.message$",
+                  "operator": "mw",
+                  "right_operand": "*Workflow not found for xchange: $workflow.definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u.input.variable_workflow_0282XDPKHGJ5M6CokLwuzXxZnMvjyK5Yikx$*"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Pass Case",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0282XQ96U3Z9A0EiW2gOpfNTFeokAypa7NH",
+                "name": "Set Variables",
+                "title": "Set Pass Status",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Pass Status",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u.output.variable_workflow_0282XP11VZ26K1oin0iY4xrwbawvblBz6Nd$",
+                      "variable_value_new": "true"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_0282XQI7AOFJ90ioLDH3W4Yc5d1wda9iJfs",
+            "name": "Condition Branch",
+            "title": "Fail Case",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_0282X9735WREW7azvzviA6BuwCCYx9EA52C.output.error.code$",
+                      "operator": "ne",
+                      "right_operand": "200"
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_0282X9735WREW7azvzviA6BuwCCYx9EA52C.output.error.message$",
+                      "operator": "ne",
+                      "right_operand": "success"
+                    }
+                  },
+                  "operator": "or",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_0282XN9F4KGXZ4kbJHpX0Q7Pqz4fD9UUQgq.output.error.code$",
+                    "operator": "ne",
+                    "right_operand": "400"
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_0282XN9F4KGXZ4kbJHpX0Q7Pqz4fD9UUQgq.output.error.message$",
+                  "operator": "ne",
+                  "right_operand": "*Workflow not found for xchange: $workflow.definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u.input.variable_workflow_0282XDPKHGJ5M6CokLwuzXxZnMvjyK5Yikx$*"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Fail Case",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0282XQI7GXDHC1CN6SougISdclyTBSpL38w",
+                "name": "Set Variables",
+                "title": "Set Fail Status",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Fail Status",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_0282X94CLH9J72KXu7e6nVFfYSPmnudqg6u.output.variable_workflow_0282XP11VZ26K1oin0iY4xrwbawvblBz6Nd$",
+                      "variable_value_new": "false"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
