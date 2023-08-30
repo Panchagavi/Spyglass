@@ -1,8 +1,8 @@
 {
   "workflow": {
     "unique_name": "definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs",
-    "name": "XDR - Automation - 25089",
-    "title": "XDR - Automation - 25089",
+    "name": "XDR - Automation - 25456",
+    "title": "XDR - Automation - 25456",
     "type": "generic.workflow",
     "base_type": "workflow",
     "variables": [
@@ -37,15 +37,16 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "{\"conditions\":{\"left_operand\":\"[$output.status.state$]\",\"operator\":\"eq\",\"right_operand\":\"completed\"},",
-          "scope": "local",
-          "name": "Approval-Rule-Condition",
+          "value": "",
+          "scope": "input",
+          "name": "Provide Logged  User ID Email ",
           "type": "datatype.string",
-          "is_required": false,
+          "description": "This Email User will be User to create approval task and approve the task",
+          "is_required": true,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_0288VIVHVO4FC0cO0WYem4jvGtD6yFRUfE0",
+        "unique_name": "variable_workflow_0288VBOUYBU814kyBp4lId8NZuI2Namv2Bp",
         "object_type": "variable_workflow"
       },
       {
@@ -65,16 +66,15 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Provide Logged  User ID Email ",
+          "value": "\"conditions\": {\n      \"left_operand\": \"$output.status.state$\",\n      \"operator\": \"eq\",\n      \"right_operand\": \"completed\"\n    },",
+          "scope": "local",
+          "name": "Approval-Rule-Condition",
           "type": "datatype.string",
-          "description": "This Email User will be User to create approval task and approve the task",
-          "is_required": true,
+          "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_0288VBOUYBU814kyBp4lId8NZuI2Namv2Bp",
+        "unique_name": "variable_workflow_0288VIVHVO4FC0cO0WYem4jvGtD6yFRUfE0",
         "object_type": "variable_workflow"
       }
     ],
@@ -83,7 +83,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "display_name": "XDR - Automation - 25089",
+      "display_name": "XDR - Automation - 25456",
       "runtime_user": {
         "target_default": true
       },
@@ -105,7 +105,7 @@
           "display_name": "Automation - Import a Workflow (Workflow to Map Var in Rule)",
           "input": {
             "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
-            "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
+            "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
             "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.local.variable_workflow_0288UKF729TJ95Fxj4QFhuVFxtSxAqwzuyT$",
             "variable_workflow_026Z2CUSXYZUP7CfGKMtqXdZf1PoKpCnqTQ": true,
             "variable_workflow_026Z2D4W3D6B73HR94LIqetofp263GiaCxF": false,
@@ -135,7 +135,7 @@
           "display_name": "Automation - Validate Workflow",
           "input": {
             "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
-            "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
+            "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
             "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_0288T9I00YBKX48LiHicoackPgE4llkann2.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
           },
           "runtime_user": {
@@ -215,6 +215,12 @@
             {
               "jsonpath_query": "$.variables.[?(@.unique_name=='variable_workflow_0288TB69HC92E5MYbhezhWxu0H6JL5l8snl')].id",
               "jsonpath_query_name": "Decimal_Input",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$.title",
+              "jsonpath_query_name": "wf_title",
               "jsonpath_query_type": "string"
             }
           ],
@@ -233,7 +239,7 @@
           "display_name": "Automation - Import a Workflow (Create Approval Task)",
           "input": {
             "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
-            "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
+            "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
             "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "{\n\"workflow\": {\n\"unique_name\": \"definition_workflow_0288V039KBU7P26OwuKwvqy3QZ2fg5W8GmS\",\n\"name\": \"Approval-Request-$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.output.instance_id$\",\n\"title\": \"Approval-Request-$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.output.instance_id$\",\n\"type\": \"generic.workflow\",\n\"base_type\": \"workflow\",\n\"variables\": null,\n\"properties\": {\n\"atomic\": {\n\"is_atomic\": false\n},\n\"delete_workflow_instance\": false,\n\"display_name\": \"Approval-Request-$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.output.instance_id$\",\n\"runtime_user\": {\n\"target_default\": true\n},\n\"target\": {\n\"no_target\": true\n}\n},\n\"object_type\": \"definition_workflow\",\n\"actions\": [\n{\n\"unique_name\": \"definition_activity_0288V07IIVXXM6v1oqp4c5ABHz9rGKo3XrK\",\n\"name\": \"Create Approval Request\",\n\"title\": \"Create Approval Request\",\n\"type\": \"task.approval_request\",\n\"base_type\": \"activity\",\n\"properties\": {\n\"approval_choices\": [\n\"Approve\",\n\"Reject\"\n],\n\"assignees\": [\n\"$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288VBOUYBU814kyBp4lId8NZuI2Namv2Bp$\"\n],\n\"continue_on_failure\": false,\n\"display_name\": \"Create Approval Request\",\n\"due_date\": {\n\"is_relative_time\": true,\n\"relative_time\": {\n\"duration\": 15,\n\"time_units\": \"days\"\n},\n\"set_due_date\": true\n},\n\"expiration_date\": {\n\"is_relative_time\": true,\n\"relative_time\": {\n\"duration\": 15,\n\"time_units\": \"days\"\n}\n},\n\"expiration_status\": \"Expired\",\n\"minimum_approvals\": 1,\n\"priority\": \"high\",\n\"skip_execution\": false,\n\"subject_line\": \"Approval Message\",\n\"task_message\": \"Approved\",\n\"task_owner\": \"$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288VBOUYBU814kyBp4lId8NZuI2Namv2Bp$\",\n\"task_requestor\": \"$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288VBOUYBU814kyBp4lId8NZuI2Namv2Bp$\"\n},\n\"object_type\": \"definition_activity\"\n}\n],\n\"categories\": [\n\"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n]\n}\n}",
             "variable_workflow_026Z2CUSXYZUP7CfGKMtqXdZf1PoKpCnqTQ": true,
             "variable_workflow_026Z2D4W3D6B73HR94LIqetofp263GiaCxF": false,
@@ -263,7 +269,7 @@
           "display_name": "Automation - Validate Workflow",
           "input": {
             "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
-            "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
+            "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
             "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_0288V8FVWO4N83i3V1jhtRwLnSVcvvduHO2.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
           },
           "runtime_user": {
@@ -276,36 +282,6 @@
           },
           "workflow_id": "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
           "workflow_name": "Automation - Validate Workflow"
-        },
-        "object_type": "definition_activity"
-      },
-      {
-        "unique_name": "definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K",
-        "name": "Automation - Create a Approval Task Rule",
-        "title": "Automation - Create a Approval Task Rule",
-        "type": "workflow.atomic_workflow",
-        "base_type": "subworkflow",
-        "properties": {
-          "continue_on_failure": true,
-          "display_name": "Automation - Create a Approval Task Rule",
-          "input": {
-            "variable_workflow_027MU5DP2Y0QV373c6xrE9AaxdSboy2UkdP": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
-            "variable_workflow_027MU5DP2YOOP2E2lqg74QpeLxjYfPFLd1E": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
-            "variable_workflow_027MU5DP2YWPX7hppM5wy7ucaUEpzSiIPXs": "$activity.definition_activity_0288T9I00YBKX48LiHicoackPgE4llkann2.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
-            "variable_workflow_027MU5DP2ZG4M2M5RGKKfinZ7fnyMegq2Jh": false,
-            "variable_workflow_027MU5DP2ZUUI2h5Puh47MrWHYptwjKKgzn": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.local.variable_workflow_0288VIVHVO4FC0cO0WYem4jvGtD6yFRUfE0$",
-            "variable_workflow_027MU5DP3026X6pquZ6e4iNBoMxOBGKJYGE": "Apr-Rule-$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.output.instance_id$"
-          },
-          "runtime_user": {
-            "target_default": true
-          },
-          "skip_execution": false,
-          "target": {
-            "target_type": "web-service.endpoint",
-            "use_workflow_target": true
-          },
-          "workflow_id": "definition_workflow_027MU5DO6KIE40ogRJMxIUt6V5nik849pFP",
-          "workflow_name": "Automation - Create a Approval Task Rule"
         },
         "object_type": "definition_activity"
       },
@@ -363,6 +339,37 @@
         "object_type": "definition_activity"
       },
       {
+        "unique_name": "definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K",
+        "name": "Automation - Create a Approval Task Rule",
+        "title": "Automation - Create a Approval Task Rule",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Automation - Create a Approval Task Rule",
+          "input": {
+            "variable_workflow_027MU5DP2Y0QV373c6xrE9AaxdSboy2UkdP": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
+            "variable_workflow_027MU5DP2YOOP2E2lqg74QpeLxjYfPFLd1E": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
+            "variable_workflow_027MU5DP2YWPX7hppM5wy7ucaUEpzSiIPXs": "$activity.definition_activity_0288T9I00YBKX48LiHicoackPgE4llkann2.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+            "variable_workflow_027MU5DP2ZG4M2M5RGKKfinZ7fnyMegq2Jh": false,
+            "variable_workflow_027MU5DP2ZUUI2h5Puh47MrWHYptwjKKgzn": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.local.variable_workflow_0288VIVHVO4FC0cO0WYem4jvGtD6yFRUfE0$",
+            "variable_workflow_027MU5DP3026X6pquZ6e4iNBoMxOBGKJYGE": "Apr-Rule-$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.output.instance_id$",
+            "variable_workflow_02890TSOC3JQX0Ju9xWorvP0lcjMFEsf0SU": "\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.String_Input$\":\"$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.approval_choices[0]$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignee_responses[0].assignee$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignee_responses[0].message$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignee_responses[0].response$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignees[0]$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.due_date$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.expiration_date$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.expiration_status$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.name$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.priority$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.response$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.status.state$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.subject_line$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.task_id$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.task_message$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.task_owner$\",\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.Integer_Input$\":\"$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.minimum_approvals$\",\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.Boolean_Input$\":true,\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.Decimal_Input$\":2.1"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "target_type": "web-service.endpoint",
+            "use_workflow_target": true
+          },
+          "workflow_id": "definition_workflow_027MU5DO6KIE40ogRJMxIUt6V5nik849pFP",
+          "workflow_name": "Automation - Create a Approval Task Rule"
+        },
+        "object_type": "definition_activity"
+      },
+      {
         "unique_name": "definition_activity_0288VEWUW6SHC2Td65ZOReEErDMLR5GxzI3",
         "name": "HTTP Request",
         "title": "Update Rule (Mapping the Inputs from reference Variables)",
@@ -372,9 +379,15 @@
           "action_timeout": 180,
           "allow_auto_redirect": true,
           "allow_headers_redirect": false,
-          "body": "{\n\"description\": \"Created By Automation Reusable Workflow to test the Creation of Rule Using New Rule API\",\n\"title\": \"$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Y9CC0kHSi4JCQmkVWCC3WoRUzW$\",\n\"name\": \"$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Y9CC0kHSi4JCQmkVWCC3WoRUzW$\",\n\"type\": \"approval_task.rule_event\",\n\"rule_type\": \"rule_event\",\n\"properties\": {\n$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.local.variable_workflow_0288VIVHVO4FC0cO0WYem4jvGtD6yFRUfE0$\n\"disabled\": false,\n\"display_name\": \"$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Y9CC0kHSi4JCQmkVWCC3WoRUzW$\",\n\"rule_type\": \"rule_event\",\n\"title\": \"$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Y9CC0kHSi4JCQmkVWCC3WoRUzW$\",\n\"workflows_config\": [\n{\n\"disabled\": false,\n\"workflow_id\": \"$activity.definition_activity_0288T9I00YBKX48LiHicoackPgE4llkann2.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$\",\n\"wf_input_variables\": {\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.String_Input$\":\"$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$  .output.approval_choices[0]$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignee_responses[0].assignee$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignee_responses[0].message$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignee_responses[0].response$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignees[0]$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.due_date$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.expiration_date$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.expiration_status$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.name$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.priority$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.response$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.status.state$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.subject_line$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.task_id$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.task_message$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.task_owner$\",\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.Integer_Input$\":2345,\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.Boolean_Input$\":true,\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.Decimal_Input$\":2.1\n}\n}  \n]\n},\n\"id\": \"$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Z8BL0GzeMlE7T4Qq4dVcYkmu7o$\"\n}",
+          "body": "{\n\"description\": \"Created By Automation Reusable Workflow to test the Creation of Rule Using New Rule API\",\n\"title\": \"$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Y9CC0kHSi4JCQmkVWCC3WoRUzW$\",\n\"name\": \"$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Y9CC0kHSi4JCQmkVWCC3WoRUzW$\",\n\"type\": \"approval_task.rule_event\",\n\"rule_type\": \"rule_event\",\n\"properties\": {\n$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.local.variable_workflow_0288VIVHVO4FC0cO0WYem4jvGtD6yFRUfE0$\n\"disabled\": false,\n\"display_name\": \"$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Y9CC0kHSi4JCQmkVWCC3WoRUzW$\",\n\"rule_type\": \"rule_event\",\n\"title\": \"$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Y9CC0kHSi4JCQmkVWCC3WoRUzW$\",\n\"workflows_config\": [\n{\n\"disabled\": false,\n\"workflow_id\": \"$activity.definition_activity_0288T9I00YBKX48LiHicoackPgE4llkann2.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$\",\n\"wf_input_variables\": {\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.String_Input$\":\"$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.approval_choices[0]$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignee_responses[0].assignee$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignee_responses[0].message$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignee_responses[0].response$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.assignees[0]$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.due_date$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.expiration_date$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.expiration_status$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.name$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.priority$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.response$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.status.state$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.subject_line$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.task_id$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.task_message$\\n$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.task_owner$\",\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.Integer_Input$\":\"$rule.$activity.definition_activity_0288W12GHX1LF03tEx0zjSRVSv3JUd1i6nr.output.jsonpath_queries.SchemaID_ApprovalTask$.output.minimum_approvals$\",\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.Boolean_Input$\":true,\n\"$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.Decimal_Input$\":2.1\n}\n}  \n]\n},\n\"id\": \"$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Z8BL0GzeMlE7T4Qq4dVcYkmu7o$\"\n}",
           "continue_on_error_status_code": false,
           "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
+              "value": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$"
+            }
+          ],
           "display_name": "Update Rule (Mapping the Inputs from reference Variables)",
           "method": "PUT",
           "relative_url": "/api/v1/rules/$activity.definition_activity_0288T8760499V0xpqDZzDpXcFbSMHDyNZ8K.output.variable_workflow_027MU5DP2Z8BL0GzeMlE7T4Qq4dVcYkmu7o$",
@@ -387,6 +400,297 @@
           }
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02892UFKDW3I65CfFoCfJDSBWK26SutsWkD",
+        "name": "HTTP Request",
+        "title": "Run Approval Request WF to Trigger the WF",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
+              "value": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$"
+            }
+          ],
+          "display_name": "Run Approval Request WF to Trigger the WF",
+          "method": "POST",
+          "relative_url": "/api/v1.1/workflows/ui/start?workflow_id=$activity.definition_activity_0288V8FVWO4N83i3V1jhtRwLnSVcvvduHO2.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02892XMF8LDTB7EOaz6NL3Snq4JJKDpDwaf",
+        "name": "JSONPath Query",
+        "title": "Fetch the Instance ID for Approval Task",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Fetch the Instance ID for Approval Task",
+          "input_json": "$activity.definition_activity_02892UFKDW3I65CfFoCfJDSBWK26SutsWkD.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "Approval_WF_Instance_ID",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_028937MFLBA2K0lcbVg4FiozrIo3lVpbWBL",
+        "name": "HTTP Request",
+        "title": "GET By Instance ID",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
+              "value": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$"
+            }
+          ],
+          "display_name": "GET By Instance ID",
+          "method": "GET",
+          "relative_url": "/api/v1/instances/$activity.definition_activity_02892XMF8LDTB7EOaz6NL3Snq4JJKDpDwaf.output.jsonpath_queries.Approval_WF_Instance_ID$?detailed=true",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0289391JD1U1N5WTY4jEsocHZNISWIg7sTo",
+        "name": "JSONPath Query",
+        "title": "Fetch Task ID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Fetch Task ID",
+          "input_json": "$activity.definition_activity_028937MFLBA2K0lcbVg4FiozrIo3lVpbWBL.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..response.task_id",
+              "jsonpath_query_name": "task_ID",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_028931MPWVA1J6CR6pSzGXTgNyyKU9sBZuk",
+        "name": "HTTP Request",
+        "title": "Approve the Task",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "body": "{\n  \"message\": \"Task Appoved by Automation\",\n  \"response\": \"Approve\"\n}",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
+              "value": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$"
+            }
+          ],
+          "display_name": "Approve the Task",
+          "method": "POST",
+          "relative_url": "be-console/api/v1/tasks/$activity.definition_activity_0289391JD1U1N5WTY4jEsocHZNISWIg7sTo.output.jsonpath_queries.task_ID$/action",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02892YS065NO92PIE43Bt9sbHiQyVuPeya3",
+        "name": "Calculate Date",
+        "title": "Construct Date to Fetch the Instance",
+        "type": "core.calculate_date",
+        "base_type": "activity",
+        "properties": {
+          "adjustment": -86400,
+          "continue_on_failure": true,
+          "display_name": "Construct Date to Fetch the Instance",
+          "original_date": "$activity.definition_activity_02892UFKDW3I65CfFoCfJDSBWK26SutsWkD.output.start_time$",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02892X4EVMPGN3xBExA6nImuI7tpZvylCrx",
+        "name": "Automation - Get Workflow Instances Uisng WF_Id",
+        "title": "Automation - Get Workflow Instances Uisng WF_Id",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Automation - Get Workflow Instances Uisng WF_Id",
+          "input": {
+            "variable_workflow_01UZ7Z9O42IC64072ReaAUSsOMTTcDGHFEl": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
+            "variable_workflow_01UZ7Z9O42QOF01FZkghXJmxKnHgZrgNnjr": "$activity.definition_activity_0288T9I00YBKX48LiHicoackPgE4llkann2.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+            "variable_workflow_01UZ7Z9O42YAH2Hl0ZVRRo3ceK0aBG0h6rm": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$",
+            "variable_workflow_026R492UXOJOU7RuY7opvtWkUnZEUerdAe6": "$activity.definition_activity_02892YS065NO92PIE43Bt9sbHiQyVuPeya3.output.result$",
+            "variable_workflow_026R49A7K6J800OiPmdt7xChHP88FjK8SxH": "$activity.definition_activity_02892UFKDW3I65CfFoCfJDSBWK26SutsWkD.output.start_time$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "target_type": "web-service.endpoint",
+            "use_workflow_target": true
+          },
+          "workflow_id": "definition_workflow_01UZ7Z9MHSR8Y20t7PSJjT63cEZ65Y47hrV",
+          "workflow_name": "Automation - Get Workflow Instances Uisng WF_Id"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02893AQAUGLY043z4nL9d36zigcp4mJuH2A",
+        "name": "HTTP Request",
+        "title": "GET By Instance ID for Triggered WF",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
+              "value": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$"
+            }
+          ],
+          "display_name": "GET By Instance ID for Triggered WF",
+          "method": "GET",
+          "relative_url": "/api/v1/instances/$activity.definition_activity_02892X4EVMPGN3xBExA6nImuI7tpZvylCrx.output.variable_workflow_01UZ7Z9O435WJ6f1OCgpgZT26KRljbbYkGB$?detailed=true",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02893BDNUI1ET3Dz3t5oB7q19SELq3VsGsm",
+        "name": "JSONPath Query",
+        "title": "Fetch Action ID and StartedBy",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Fetch Action ID and StartedBy",
+          "input_json": "$activity.definition_activity_02893AQAUGLY043z4nL9d36zigcp4mJuH2A.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.actions[?(@.title=='$activity.definition_activity_0288VRII0A1GJ4l50gN8Bsxb8z5R09GLUBs.output.jsonpath_queries.wf_title$')].id",
+              "jsonpath_query_name": "Action_ID",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02893I5832BKM2n2eqIGmUubLmtTIJKgJLj",
+        "name": "HTTP Request",
+        "title": "GET By Action ID to Fetch the Action status",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULKN7DROU3yeF2VSKLWd91MXNX5JeXI$",
+              "value": "Bearer $workflow.definition_workflow_0288T7Y7QMTDS5iPkwcRtQYFnMgc2jbltcs.input.variable_workflow_0288ULEH6BCU62ymrmzucsSuLeW9gzKnr1X$"
+            }
+          ],
+          "display_name": "GET By Action ID to Fetch the Action status",
+          "method": "GET",
+          "relative_url": "/api/v1/instances/$activity.definition_activity_02892X4EVMPGN3xBExA6nImuI7tpZvylCrx.output.variable_workflow_01UZ7Z9O435WJ6f1OCgpgZT26KRljbbYkGB$/actions/$activity.definition_activity_02893BDNUI1ET3Dz3t5oB7q19SELq3VsGsm.output.jsonpath_queries.Action_ID$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02893IOU60AC72aVesnVxC4k0attCv5tQDR",
+        "name": "JSONPath Query",
+        "title": "Fetch Action Status and Output",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Fetch Action Status and Output",
+          "input_json": "$activity.definition_activity_02893I5832BKM2n2eqIGmUubLmtTIJKgJLj.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.status.state",
+              "jsonpath_query_name": "Action_Status",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
       }
     ],
     "categories": [
@@ -396,11 +700,13 @@
   "atomic_workflows": [
     "definition_workflow_026YHAFYUYJSI57lobBfWruQIXVfnumQPnC",
     "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
-    "definition_workflow_027MU5DO6KIE40ogRJMxIUt6V5nik849pFP"
+    "definition_workflow_027MU5DO6KIE40ogRJMxIUt6V5nik849pFP",
+    "definition_workflow_01UZ7Z9MHSR8Y20t7PSJjT63cEZ65Y47hrV"
   ],
   "dependent_workflows": [
     "definition_workflow_026YHAFYUYJSI57lobBfWruQIXVfnumQPnC",
     "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
-    "definition_workflow_027MU5DO6KIE40ogRJMxIUt6V5nik849pFP"
+    "definition_workflow_027MU5DO6KIE40ogRJMxIUt6V5nik849pFP",
+    "definition_workflow_01UZ7Z9MHSR8Y20t7PSJjT63cEZ65Y47hrV"
   ]
 }
