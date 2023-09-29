@@ -1,31 +1,108 @@
 {
   "workflow": {
     "unique_name": "definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2",
-    "name": "XDR-Automation-25456-Incident(ST And PR) Rule",
-    "title": "XDR-Automation-25456-Incident(ST And PR) Rule",
+    "name": "XDR-Automation-25456-Incident(ST and PR) Rule ",
+    "title": "XDR-Automation-25456-Incident(ST and PR) Rule ",
     "type": "generic.workflow",
     "base_type": "workflow",
-    "variables": null,
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_028WN2G2EM9Y04vd91zUIR9NWzX7Aj4B4ya\",\n    \"name\": \"WF_Input_Mapping-25456-For-ST-Rule-Atomic\",\n    \"title\": \"WF_Input_Mapping-25456-For-ST-Rule-Atomic\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"String\",\n          \"type\": \"datatype.string\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN2G31OLLG1yIgKHrbsMfb99vi5Q9WwY\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.boolean\",\n        \"properties\": {\n          \"value\": false,\n          \"scope\": \"input\",\n          \"name\": \"Boolean\",\n          \"type\": \"datatype.boolean\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN2G31P5WT1L0ahs0R6fXlIDowXcC6Kz\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"input\",\n          \"name\": \"Int\",\n          \"type\": \"datatype.integer\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN2G31OVXG5QbSZs4w27DN9eFWILLVTe\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"input\",\n          \"name\": \"Decimal\",\n          \"type\": \"datatype.number\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN2G31PDMM7g3ZbwrGi8jQTzdYdQb9YE\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"atomic_group\": \"Atomic\",\n        \"is_atomic\": true\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"WF_Input_Mapping-25456-For-ST-Rule-Atomic\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_028WN2G5K0FSA01coP9VgVCPEABrtdVm1Ov\",\n        \"name\": \"To Upper\",\n        \"title\": \"To Upper\",\n        \"type\": \"core.string2upper\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"To Upper\",\n          \"skip_execution\": false,\n          \"source\": \"$workflow.definition_workflow_028WN2G2EM9Y04vd91zUIR9NWzX7Aj4B4ya.input.variable_workflow_028WN2G31P5WT1L0ahs0R6fXlIDowXcC6Kz$\\n$workflow.definition_workflow_028WN2G2EM9Y04vd91zUIR9NWzX7Aj4B4ya.input.variable_workflow_028WN2G31PDMM7g3ZbwrGi8jQTzdYdQb9YE$\\n$workflow.definition_workflow_028WN2G2EM9Y04vd91zUIR9NWzX7Aj4B4ya.input.variable_workflow_028WN2G31OVXG5QbSZs4w27DN9eFWILLVTe$\\n$workflow.definition_workflow_028WN2G2EM9Y04vd91zUIR9NWzX7Aj4B4ya.input.variable_workflow_028WN2G31OLLG1yIgKHrbsMfb99vi5Q9WwY$\"\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
+          "scope": "local",
+          "name": "WF_Payload_For_Input_Mapping(Atomic)",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_028XFBT4B0J2B6TbLoxSU82NhObjCgg6v5B",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_028WN2UE1WN3W6Sv5JBiOuy6ZWdlQLdCTN8\",\n    \"name\": \"WF_Input_Mapping-25456-For-ST-Rule-Parent\",\n    \"title\": \"WF_Input_Mapping-25456-For-ST-Rule-Parent\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"String\",\n          \"type\": \"datatype.string\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN3EWSJ7JL5iDjHlLyE0fRbMWEHORVa8\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.boolean\",\n        \"properties\": {\n          \"value\": false,\n          \"scope\": \"input\",\n          \"name\": \"Boolean\",\n          \"type\": \"datatype.boolean\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN3LSONNA46mBUQInd4JjoUKv9hPhNgI\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"input\",\n          \"name\": \"Decimal\",\n          \"type\": \"datatype.number\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN3XL091D038uSwE4PF4Df39LKAUMPpd\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"input\",\n          \"name\": \"Int\",\n          \"type\": \"datatype.integer\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN3R8SJO8G6xdXlaGKKSgMNZ9UYmeh2A\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"WF_Input_Mapping-25456-For-ST-Rule-Parent\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_028WN2YEPAJ176cpI8fZlq2VeeDaHvosGGJ\",\n        \"name\": \"WF_Input_Mapping-25456-For-ST-Rule-Atomic\",\n        \"title\": \"WF_Input_Mapping-25456-For-ST-Rule-Atomic\",\n        \"type\": \"workflow.atomic_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"WF_Input_Mapping-25456-For-ST-Rule-Atomic\",\n          \"input\": {\n            \"variable_workflow_028WN2G31OLLG1yIgKHrbsMfb99vi5Q9WwY\": \"$workflow.definition_workflow_028WN2UE1WN3W6Sv5JBiOuy6ZWdlQLdCTN8.input.variable_workflow_028WN3EWSJ7JL5iDjHlLyE0fRbMWEHORVa8$\",\n            \"variable_workflow_028WN2G31OVXG5QbSZs4w27DN9eFWILLVTe\": \"$workflow.definition_workflow_028WN2UE1WN3W6Sv5JBiOuy6ZWdlQLdCTN8.input.variable_workflow_028WN3R8SJO8G6xdXlaGKKSgMNZ9UYmeh2A$\",\n            \"variable_workflow_028WN2G31P5WT1L0ahs0R6fXlIDowXcC6Kz\": \"$workflow.definition_workflow_028WN2UE1WN3W6Sv5JBiOuy6ZWdlQLdCTN8.input.variable_workflow_028WN3LSONNA46mBUQInd4JjoUKv9hPhNgI$\",\n            \"variable_workflow_028WN2G31PDMM7g3ZbwrGi8jQTzdYdQb9YE\": \"$workflow.definition_workflow_028WN2UE1WN3W6Sv5JBiOuy6ZWdlQLdCTN8.input.variable_workflow_028WN3XL091D038uSwE4PF4Df39LKAUMPpd$\"\n          },\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_028WN2G2EM9Y04vd91zUIR9NWzX7Aj4B4ya\",\n          \"workflow_name\": \"WF_Input_Mapping-25456-For-ST-Rule-Atomic\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_028WN2ZGE5CKG4eY3YidyhKK58U5w7w9Mrp\",\n        \"name\": \"WF_Input_Mapping-25456-For-ST-Rule\",\n        \"title\": \"WF_Input_Mapping-25456-For-ST-Rule\",\n        \"type\": \"workflow.sub_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"WF_Input_Mapping-25456-For-ST-Rule\",\n          \"input\": {\n            \"variable_workflow_028WN1BG36A4S6n7CSdjw1A3UkO04t4GFHH\": \"$workflow.definition_workflow_028WN2UE1WN3W6Sv5JBiOuy6ZWdlQLdCTN8.input.variable_workflow_028WN3EWSJ7JL5iDjHlLyE0fRbMWEHORVa8$\",\n            \"variable_workflow_028WN1J3IN3J77d05g6rT66ZAeWaWA8YNXy\": \"$workflow.definition_workflow_028WN2UE1WN3W6Sv5JBiOuy6ZWdlQLdCTN8.input.variable_workflow_028WN3R8SJO8G6xdXlaGKKSgMNZ9UYmeh2A$\",\n            \"variable_workflow_028WN1SLPV6NG4pY7r61En7Q2AyuDwxBLCX\": \"$workflow.definition_workflow_028WN2UE1WN3W6Sv5JBiOuy6ZWdlQLdCTN8.input.variable_workflow_028WN3XL091D038uSwE4PF4Df39LKAUMPpd$\",\n            \"variable_workflow_028WN1ZC82IXB52Icp3Ziar0et1vVkwMpFA\": \"$workflow.definition_workflow_028WN2UE1WN3W6Sv5JBiOuy6ZWdlQLdCTN8.input.variable_workflow_028WN3LSONNA46mBUQInd4JjoUKv9hPhNgI$\"\n          },\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm\",\n          \"workflow_name\": \"WF_Input_Mapping-25456-For-ST-Rule\"\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"subworkflows\": [\n    {\n      \"workflow\": {\n        \"unique_name\": \"definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm\",\n        \"name\": \"WF_Input_Mapping-25456-For-ST-Rule\",\n        \"title\": \"WF_Input_Mapping-25456-For-ST-Rule\",\n        \"type\": \"generic.workflow\",\n        \"base_type\": \"workflow\",\n        \"variables\": [\n          {\n            \"schema_id\": \"datatype.string\",\n            \"properties\": {\n              \"value\": \"\",\n              \"scope\": \"input\",\n              \"name\": \"String\",\n              \"type\": \"datatype.string\",\n              \"is_required\": false,\n              \"display_on_wizard\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_028WN1BG36A4S6n7CSdjw1A3UkO04t4GFHH\",\n            \"object_type\": \"variable_workflow\"\n          },\n          {\n            \"schema_id\": \"datatype.boolean\",\n            \"properties\": {\n              \"value\": false,\n              \"scope\": \"input\",\n              \"name\": \"Boolean\",\n              \"type\": \"datatype.boolean\",\n              \"is_required\": false,\n              \"display_on_wizard\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_028WN1ZC82IXB52Icp3Ziar0et1vVkwMpFA\",\n            \"object_type\": \"variable_workflow\"\n          },\n          {\n            \"schema_id\": \"datatype.integer\",\n            \"properties\": {\n              \"value\": 0,\n              \"scope\": \"input\",\n              \"name\": \"Int\",\n              \"type\": \"datatype.integer\",\n              \"is_required\": false,\n              \"display_on_wizard\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_028WN1J3IN3J77d05g6rT66ZAeWaWA8YNXy\",\n            \"object_type\": \"variable_workflow\"\n          },\n          {\n            \"schema_id\": \"datatype.number\",\n            \"properties\": {\n              \"value\": 0,\n              \"scope\": \"input\",\n              \"name\": \"Decimal\",\n              \"type\": \"datatype.number\",\n              \"is_required\": false,\n              \"display_on_wizard\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_028WN1SLPV6NG4pY7r61En7Q2AyuDwxBLCX\",\n            \"object_type\": \"variable_workflow\"\n          }\n        ],\n        \"properties\": {\n          \"atomic\": {\n            \"is_atomic\": false\n          },\n          \"delete_workflow_instance\": false,\n          \"display_name\": \"WF_Input_Mapping-25456-For-ST-Rule\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          }\n        },\n        \"object_type\": \"definition_workflow\",\n        \"actions\": [\n          {\n            \"unique_name\": \"definition_activity_028WMUK0FYX8P2RiY2v3Y1zK9f2Smli7ZEj\",\n            \"name\": \"To Upper\",\n            \"title\": \"To Upper\",\n            \"type\": \"core.string2upper\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"continue_on_failure\": false,\n              \"display_name\": \"To Upper\",\n              \"skip_execution\": false,\n              \"source\": \"$workflow.definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm.input.variable_workflow_028WN1ZC82IXB52Icp3Ziar0et1vVkwMpFA$\\n$workflow.definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm.input.variable_workflow_028WN1SLPV6NG4pY7r61En7Q2AyuDwxBLCX$\\n$workflow.definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm.input.variable_workflow_028WN1J3IN3J77d05g6rT66ZAeWaWA8YNXy$\\n$workflow.definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm.input.variable_workflow_028WN1BG36A4S6n7CSdjw1A3UkO04t4GFHH$\"\n            },\n            \"object_type\": \"definition_activity\"\n          }\n        ],\n        \"categories\": [\n          \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n        ]\n      }\n    }\n  ],\n  \"atomic_workflows\": [\n    \"definition_workflow_028WN2G2EM9Y04vd91zUIR9NWzX7Aj4B4ya\"\n  ],\n  \"dependent_workflows\": [\n    \"definition_workflow_028WN2G2EM9Y04vd91zUIR9NWzX7Aj4B4ya\",\n    \"definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm\"\n  ]\n}",
+          "scope": "local",
+          "name": "WF_Payload_For_Input_Mapping(Parent)",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_028XFBFYK545Q27s0aZMduU5ZFhe7scsfyW",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm\",\n    \"name\": \"WF_Input_Mapping-25456-For-ST-Rule\",\n    \"title\": \"WF_Input_Mapping-25456-For-ST-Rule\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.boolean\",\n        \"properties\": {\n          \"value\": false,\n          \"scope\": \"input\",\n          \"name\": \"Boolean\",\n          \"type\": \"datatype.boolean\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN1ZC82IXB52Icp3Ziar0et1vVkwMpFA\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"String\",\n          \"type\": \"datatype.string\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN1BG36A4S6n7CSdjw1A3UkO04t4GFHH\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"input\",\n          \"name\": \"Decimal\",\n          \"type\": \"datatype.number\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN1SLPV6NG4pY7r61En7Q2AyuDwxBLCX\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"input\",\n          \"name\": \"Int\",\n          \"type\": \"datatype.integer\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_028WN1J3IN3J77d05g6rT66ZAeWaWA8YNXy\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"WF_Input_Mapping-25456-For-ST-Rule\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_028WMUK0FYX8P2RiY2v3Y1zK9f2Smli7ZEj\",\n        \"name\": \"To Upper\",\n        \"title\": \"To Upper\",\n        \"type\": \"core.string2upper\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"To Upper\",\n          \"skip_execution\": false,\n          \"source\": \"$workflow.definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm.input.variable_workflow_028WN1ZC82IXB52Icp3Ziar0et1vVkwMpFA$\\n$workflow.definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm.input.variable_workflow_028WN1SLPV6NG4pY7r61En7Q2AyuDwxBLCX$\\n$workflow.definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm.input.variable_workflow_028WN1J3IN3J77d05g6rT66ZAeWaWA8YNXy$\\n$workflow.definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm.input.variable_workflow_028WN1BG36A4S6n7CSdjw1A3UkO04t4GFHH$\"\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
+          "scope": "local",
+          "name": "WF_Payload_For_Input_Mapping(Child)",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_028XFAY57FWGW33vwaPLMgDPu55hO64bWEq",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Bearer ",
+          "scope": "input",
+          "name": "Token",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": {\n                                        \"left_operand\": \"$output.incident.description$\",\n                                        \"operator\": \"mw\",\n                                        \"right_operand\": \"*incident*\"\n                                      },\n                                      \"right_operand\": {\n                                        \"left_operand\": \"$output.incident.status$\",\n                                        \"operator\": \"eq\",\n                                        \"right_operand\": \"New\"\n                                      },\n                                      \"operator\": \"and\"\n                                    },\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.source$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"Umbrella\"\n                                    },\n                                    \"operator\": \"and\"\n                                  },\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.tlp$\",\n                                    \"operator\": \"eq\",\n                                    \"right_operand\": \"amber\"\n                                  },\n                                  \"operator\": \"and\"\n                                },\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.incident.id$\",\n                                  \"operator\": \"mw\",\n                                  \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                                },\n                                \"operator\": \"and\"\n                              },\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.source.totalCount$\",\n                                \"operator\": \"gte\",\n                                \"right_operand\": 0\n                              },\n                              \"operator\": \"and\"\n                            },\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.targets.totalCount$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            },\n                            \"operator\": \"and\"\n                          },\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.incident.scores.asset$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          },\n                          \"operator\": \"and\"\n                        },\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.global$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        },\n                        \"operator\": \"and\"\n                      },\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.incident.scores.ttp$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      },\n                      \"operator\": \"and\"\n                    },\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.eventsCount$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": 0\n                    },\n                    \"operator\": \"and\"\n                  },\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.incident.confidence$\",\n                    \"operator\": \"eq\",\n                    \"right_operand\": \"High\"\n                  },\n                  \"operator\": \"and\"\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.firstEventDate$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"2023-01-01\"\n                },\n                \"operator\": \"or\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.indicators.totalCount$\",\n                \"operator\": \"gte\",\n                \"right_operand\": 0\n              },\n              \"operator\": \"or\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.mitreData.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            },\n            \"operator\": \"or\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.observables.totalCount$\",\n            \"operator\": \"gte\",\n            \"right_operand\": 0\n          },\n          \"operator\": \"or\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.observables.data[*].type$\",\n          \"operator\": \"eq\",\n          \"right_operand\": \"domain\"\n        },\n        \"operator\": \"or\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.title$\",\n        \"right_operand\": \"Automation Rule Testing*\",\n        \"operator\": \"mw\"\n      },\n      \"operator\": \"and\"\n    },",
+          "scope": "local",
+          "name": "Rule_Condition",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_028XIUJ5Q9OWY5Z66Vv1hAPD8eff2kf5zmZ",
+        "object_type": "variable_workflow"
+      }
+    ],
     "properties": {
-      "action_timeout": 180,
-      "allow_auto_redirect": true,
-      "allow_headers_redirect": false,
       "atomic": {
         "is_atomic": false
       },
-      "body": "{\n  \"description\": \"Created by Automation reusable workflow\",\n  \"title\": \"$activity.028Y8N1TIZF0D5FPevPQ4rg1jN8yaQXGsHT.output.028Y6QXBYG7XU6hpixMr82a4VRRB9CgvOR3$\",\n  \"name\": \"$activity.028Y8N1TIZF0D5FPevPQ4rg1jN8yaQXGsHT.output.028Y6QXBYG7XU6hpixMr82a4VRRB9CgvOR3$\",\n  \"rule_type\": \"rule_event\",\n  \"properties\": {\n    $workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.028Y6PYRN3B4G14SVkDpyMmsB47PdK1qwnf$\n    \"description\": \"Created by Automation reusable workflow\",\n    \"disabled\": false,\n    \"display_name\": \"$activity.028Y8N1TIZF0D5FPevPQ4rg1jN8yaQXGsHT.output.028Y6QXBYG7XU6hpixMr82a4VRRB9CgvOR3$\",\n    \"group_by\": true,\n    \"rule_type\": \"rule_event\",\n    \"title\": \"$activity.028Y8N1TIZF0D5FPevPQ4rg1jN8yaQXGsHT.output.028Y6QXBYG7XU6hpixMr82a4VRRB9CgvOR3$\",\n    \"workflows_config\": [\n      {\n        \"disabled\": false,\n        \"workflow_id\": \"028Y8Y4J9V4F023wAc3hIubQaSZTA4dTjnV\",\n        \"wf_input_variables\": {\n          \"$activity.028Y8N1PZ5ZXP3DGTBv06gWktOacPoNa0Rl.output.jsonpath_queries.parent_String_Var$\": \"$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.confidence$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.description$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.id$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.incident_time.opened$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.asset$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.global$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.ttp$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.severity$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.short_description$]\\n[$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.source$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.status$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tactics[0]$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tactics[-1]$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.techniques[0]$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.techniques[-1]$]\\n[$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.timestamp$]\\n[$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.title$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tlp$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.firstEventDate$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.lastEventDate$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.data[0].type$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.data[0].value$]\\n[$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.totalCount$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.data[0].count$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.data[0].value$]\\n[$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.totalCount$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.data[0].count$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.data[0].value$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.totalCount$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].count$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].observableType$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].type$\\n$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].value$\",\n          \"$activity.028Y8N1PZ5ZXP3DGTBv06gWktOacPoNa0Rl.output.jsonpath_queries.parent_INT_Var$\": \"$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.eventsCount$\",\n          \"$activity.028Y8N1PZ5ZXP3DGTBv06gWktOacPoNa0Rl.output.jsonpath_queries.parent_Decimal_Var$\": \"$rule.$activity.028Y8N1RQ0NM73KGxEidTRMndbIGAUskzEq.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.global$\",\n          \"$activity.028Y8N1PZ5ZXP3DGTBv06gWktOacPoNa0Rl.output.jsonpath_queries.parent_Bool_Var$\": true\n        }\n      }\n    ],\n    \"stop_subsequent_rules\": true\n  },\n  \"id\": \"$activity.028Y8N1TIZF0D5FPevPQ4rg1jN8yaQXGsHT.output.028Y6QXBYDXDE1ow6bCcB206shvskZc8tds$\"\n}",
-      "continue_on_error_status_code": false,
-      "continue_on_failure": false,
       "delete_workflow_instance": false,
-      "display_name": "XDR-Automation-25456-Incident(ST And PR) Rule",
-      "method": "PUT",
-      "relative_url": "/api/v1/rules/$activity.028Y8N1TIZF0D5FPevPQ4rg1jN8yaQXGsHT.output.028Y6QXBYDXDE1ow6bCcB206shvskZc8tds$",
+      "display_name": "XDR-Automation-25456-Incident(ST and PR) Rule ",
       "runtime_user": {
         "target_default": true
       },
-      "skip_execution": false,
       "target": {
-        "use_workflow_target": true
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
       }
     },
     "object_type": "definition_workflow",
@@ -40,9 +117,9 @@
           "continue_on_failure": true,
           "display_name": "Automation - Import a Workflow (Child WF)",
           "input": {
-            "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-            "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$",
-            "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.028Y6PYRN34HY4yjYq0h0XrsiHgelIUWwWq$",
+            "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+            "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$",
+            "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.variable_workflow_028XFAY57FWGW33vwaPLMgDPu55hO64bWEq$",
             "variable_workflow_026Z2CUSXYZUP7CfGKMtqXdZf1PoKpCnqTQ": true,
             "variable_workflow_026Z2D4W3D6B73HR94LIqetofp263GiaCxF": false,
             "variable_workflow_026Z2DJMCM2QS65COEebrKJrHjYuVcFqUyW": "definition_workflow_028WMUGP637LH0eG18BmcIpwchY2YF2zNUm"
@@ -70,8 +147,8 @@
           "continue_on_failure": true,
           "display_name": "Automation - Validate Workflow",
           "input": {
-            "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-            "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$",
+            "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+            "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$",
             "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_028XFA7OMKZCV51s2rioOUHeS8PompqASs8.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
           },
           "runtime_user": {
@@ -101,8 +178,8 @@
           "continue_on_failure": true,
           "custom_headers": [
             {
-              "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-              "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+              "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+              "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
             }
           ],
           "display_name": "GET Workflow by ID",
@@ -175,9 +252,9 @@
           "continue_on_failure": true,
           "display_name": "Automation - Import a Workflow (Atomic WF)",
           "input": {
-            "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-            "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$",
-            "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.028Y6PYRN3QHC0WyEqTLWaYs7hMz0ha0XEk$",
+            "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+            "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$",
+            "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.variable_workflow_028XFBT4B0J2B6TbLoxSU82NhObjCgg6v5B$",
             "variable_workflow_026Z2CUSXYZUP7CfGKMtqXdZf1PoKpCnqTQ": true,
             "variable_workflow_026Z2D4W3D6B73HR94LIqetofp263GiaCxF": false,
             "variable_workflow_026Z2DJMCM2QS65COEebrKJrHjYuVcFqUyW": "definition_workflow_028WN2G2EM9Y04vd91zUIR9NWzX7Aj4B4ya"
@@ -205,8 +282,8 @@
           "continue_on_failure": true,
           "display_name": "Automation - Validate Workflow",
           "input": {
-            "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-            "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$",
+            "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+            "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$",
             "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_028XFF7RHCLVZ5FVSNY1lp2GnpRjzGeCOOh.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
           },
           "runtime_user": {
@@ -236,8 +313,8 @@
           "continue_on_failure": true,
           "custom_headers": [
             {
-              "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-              "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+              "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+              "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
             }
           ],
           "display_name": "GET Workflow by ID",
@@ -310,9 +387,9 @@
           "continue_on_failure": true,
           "display_name": "Automation - Import a Workflow (Parent WF)",
           "input": {
-            "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-            "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$",
-            "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.028Y6PYRN2ODA223DwRO8dUMZhPeBKTCn9C$",
+            "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+            "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$",
+            "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.variable_workflow_028XFBFYK545Q27s0aZMduU5ZFhe7scsfyW$",
             "variable_workflow_026Z2CUSXYZUP7CfGKMtqXdZf1PoKpCnqTQ": true,
             "variable_workflow_026Z2D4W3D6B73HR94LIqetofp263GiaCxF": false,
             "variable_workflow_026Z2DJMCM2QS65COEebrKJrHjYuVcFqUyW": "definition_workflow_028WN2UE1WN3W6Sv5JBiOuy6ZWdlQLdCTN8"
@@ -340,8 +417,8 @@
           "continue_on_failure": true,
           "display_name": "Automation - Validate Workflow",
           "input": {
-            "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-            "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$",
+            "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+            "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$",
             "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_028XFG1AOOLOO5Kt4Ls6tat3d49gO7ngrZy.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
           },
           "runtime_user": {
@@ -371,8 +448,8 @@
           "continue_on_failure": true,
           "custom_headers": [
             {
-              "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-              "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+              "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+              "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
             }
           ],
           "display_name": "GET Workflow by ID",
@@ -449,8 +526,8 @@
           "continue_on_failure": true,
           "custom_headers": [
             {
-              "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-              "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+              "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+              "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
             }
           ],
           "display_name": "GET Rule Schema ID",
@@ -500,11 +577,11 @@
           "display_name": "Automation - Create a Standalone Incident Rule",
           "input": {
             "variable_workflow_027MPV5U2DIIF0zubA1M33SbdTCt6ZCzfq4": "$activity.definition_activity_028XFG1AOOLOO5Kt4Ls6tat3d49gO7ngrZy.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
-            "variable_workflow_027MPV5U2EFCD2dIXOMcCJfC8zTYKWhgvL0": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$",
-            "variable_workflow_027MPV5U2ETAA17CVQcWakhMZzhJv72iREN": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
+            "variable_workflow_027MPV5U2EFCD2dIXOMcCJfC8zTYKWhgvL0": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$",
+            "variable_workflow_027MPV5U2ETAA17CVQcWakhMZzhJv72iREN": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
             "variable_workflow_027MQ2YZNQUVF083B0R4hBHunurAKbOgtJK": "INC-Rule-$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.output.instance_id$",
             "variable_workflow_027MQ6J9U6SFN6iWZGzhPRXoQSwKfKnmVwO": false,
-            "variable_workflow_027MTIDA440DM0hV6hVS0HKzyKm21K1dvp9": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.028Y6PYRN3B4G14SVkDpyMmsB47PdK1qwnf$",
+            "variable_workflow_027MTIDA440DM0hV6hVS0HKzyKm21K1dvp9": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.variable_workflow_028XIUJ5Q9OWY5Z66Vv1hAPD8eff2kf5zmZ$",
             "variable_workflow_028XFL5OHWNXK5o11JcxV0kSReACzV9dk57": "\"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_String_Var$\": \"$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.confidence$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.description$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.id$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.incident_time.opened$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.asset$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.global$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.ttp$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.severity$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.short_description$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.source$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.status$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tactics[0]$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tactics[-1]$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.techniques[0]$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.techniques[-1]$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.timestamp$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.title$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tlp$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.firstEventDate$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.lastEventDate$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.data[0].type$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.data[0].value$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.totalCount$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.data[0].count$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.data[0].value$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.totalCount$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.data[0].count$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.data[0].value$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.totalCount$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].count$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].observableType$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].type$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].value$\",\n\"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_INT_Var$\":\"$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.eventsCount$\",\n\"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_Decimal_Var$\":\"$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.global$\",\n\"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_Bool_Var$\":true"
           },
           "runtime_user": {
@@ -517,20 +594,6 @@
           },
           "workflow_id": "definition_workflow_027MPV5T5BDE60Q3n3jgLoLENPtPsMnHoah",
           "workflow_name": "Automation - Create a Standalone Incident Rule"
-        },
-        "object_type": "definition_activity"
-      },
-      {
-        "unique_name": "definition_activity_028Y8XVT35DNK6l69BxdrIaoh0lNbOsTkBK",
-        "name": "Completed",
-        "title": "Completed",
-        "type": "logic.completed",
-        "base_type": "activity",
-        "properties": {
-          "completion_type": "succeeded",
-          "continue_on_failure": false,
-          "display_name": "Completed",
-          "skip_execution": false
         },
         "object_type": "definition_activity"
       },
@@ -669,8 +732,8 @@
                       "continue_on_failure": true,
                       "custom_headers": [
                         {
-                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                         }
                       ],
                       "display_name": "Fetch Instance by WF ID (ParentWF)",
@@ -722,8 +785,8 @@
                       "continue_on_failure": true,
                       "custom_headers": [
                         {
-                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                         }
                       ],
                       "display_name": "Get by Workflow instance ID (Parent WF)",
@@ -788,8 +851,8 @@
                       "continue_on_failure": true,
                       "custom_headers": [
                         {
-                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                         }
                       ],
                       "display_name": "GET By Action ID To Fetch The Action Status (Child WF)",
@@ -848,8 +911,8 @@
                       "continue_on_failure": true,
                       "custom_headers": [
                         {
-                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                         }
                       ],
                       "display_name": "GET By Action ID To Fetch The Action Status (Atomic WF)",
@@ -939,8 +1002,8 @@
                       "continue_on_failure": true,
                       "custom_headers": [
                         {
-                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                         }
                       ],
                       "display_name": "Fetch Instance by WF ID (Child WF)",
@@ -993,8 +1056,8 @@
                       "continue_on_failure": true,
                       "custom_headers": [
                         {
-                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                         }
                       ],
                       "display_name": "Get by Workflow instance ID (Child WF)",
@@ -1047,8 +1110,8 @@
                       "continue_on_failure": true,
                       "custom_headers": [
                         {
-                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                         }
                       ],
                       "display_name": "GET By Action ID To Fetch The Action Status (Child WF)",
@@ -1138,8 +1201,8 @@
                       "continue_on_failure": true,
                       "custom_headers": [
                         {
-                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                         }
                       ],
                       "display_name": "Fetch Instance by WF ID (Atomic WF)",
@@ -1192,8 +1255,8 @@
                       "continue_on_failure": true,
                       "custom_headers": [
                         {
-                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                         }
                       ],
                       "display_name": "Get by Workflow instance ID (Atomic WF)",
@@ -1246,8 +1309,8 @@
                       "continue_on_failure": true,
                       "custom_headers": [
                         {
-                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
-                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                          "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                          "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                         }
                       ],
                       "display_name": "GET By Action ID To Fetch The Action Status (Atomic WF)",
@@ -1308,9 +1371,9 @@
           "continue_on_failure": true,
           "display_name": "Automation - Delete Workflow Instance (Created from ST Rule)",
           "input": {
-            "variable_workflow_026R3TL1018MG1XM4BFmdeusI37OyS2Q1Pe": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
+            "variable_workflow_026R3TL1018MG1XM4BFmdeusI37OyS2Q1Pe": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
             "variable_workflow_026R3TL101ITS0XwaMEZsvre6GPXZse1ioR": "$activity.definition_activity_028XLMA59UCUM00yddFJCQk64DhRiGLYiiV.output.jsonpath_queries.parent_wf_instance_id$",
-            "variable_workflow_026R3TL101S5R6yPYn8P1TP09uHPPkLdzgA": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+            "variable_workflow_026R3TL101S5R6yPYn8P1TP09uHPPkLdzgA": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
           },
           "runtime_user": {
             "target_default": true
@@ -1335,7 +1398,7 @@
           "continue_on_failure": false,
           "display_name": "XDR-RuleLimitCheck-ReusableWF",
           "input": {
-            "variable_workflow_027D8E5Q321204bdGUFqcYuA6IJlFnHrHyf": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+            "variable_workflow_027D8E5Q321204bdGUFqcYuA6IJlFnHrHyf": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
           },
           "runtime_user": {
             "target_default": true
@@ -1391,38 +1454,17 @@
                   "action_timeout": 180,
                   "allow_auto_redirect": true,
                   "allow_headers_redirect": false,
-                  "body": "{\n  \"description\": \"Created by Automation reusable workflow\",\n  \"title\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n  \"name\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n  \"rule_type\": \"rule_event\",\n  \"properties\": {\n    $workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.028Y6PYRN3B4G14SVkDpyMmsB47PdK1qwnf$\n    \"description\": \"Created by Automation reusable workflow\",\n    \"disabled\": false,\n    \"display_name\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n    \"group_by\": true,\n    \"rule_type\": \"rule_event\",\n    \"title\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n    \"workflows_config\": [\n      {\n        \"disabled\": false,\n        \"workflow_id\": \"028Y8Y4J9V4F023wAc3hIubQaSZTA4dTjnV\",\n        \"wf_input_variables\": {\n          \"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_String_Var$\": \"$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.confidence$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.description$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.id$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.incident_time.opened$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.asset$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.global$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.ttp$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.severity$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.short_description$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.source$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.status$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tactics[0]$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tactics[-1]$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.techniques[0]$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.techniques[-1]$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.timestamp$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.title$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tlp$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.firstEventDate$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.lastEventDate$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.data[0].type$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.data[0].value$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.totalCount$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.data[0].count$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.data[0].value$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.totalCount$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.data[0].count$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.data[0].value$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.totalCount$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].count$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].observableType$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].type$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].value$\",\n          \"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_INT_Var$\": \"$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.eventsCount$\",\n          \"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_Decimal_Var$\": \"\",\n          \"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_Bool_Var$\": true\n        }\n      }\n    ],\n    \"stop_subsequent_rules\": true\n  },\n  \"id\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$\"\n}",
+                  "body": "{\n  \"description\": \"Created by Automation reusable workflow\",\n  \"title\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n  \"name\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n  \"rule_type\": \"rule_event\",\n  \"properties\": {\n    $workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.local.variable_workflow_028XIUJ5Q9OWY5Z66Vv1hAPD8eff2kf5zmZ$\n    \"description\": \"Created by Automation reusable workflow\",\n    \"disabled\": false,\n    \"display_name\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n    \"group_by\": true,\n    \"rule_type\": \"rule_event\",\n    \"title\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n    \"workflows_config\": [\n      {\n        \"disabled\": false,\n        \"workflow_id\": \"$activity.definition_activity_028XFG1AOOLOO5Kt4Ls6tat3d49gO7ngrZy.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$\",\n        \"wf_input_variables\": {\n          \"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_String_Var$\": \"$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.confidence$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.description$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.id$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.incident_time.opened$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.asset$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.global$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.ttp$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.severity$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.short_description$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.source$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.status$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tactics[0]$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tactics[-1]$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.techniques[0]$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.techniques[-1]$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.timestamp$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.title$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.tlp$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.firstEventDate$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.lastEventDate$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.data[0].type$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.data[0].value$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.observables.totalCount$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.data[0].count$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.data[0].value$]\\n[$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.severity.totalCount$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.data[0].count$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.data[0].value$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.source.totalCount$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].count$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].observableType$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].type$\\n$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.targets.data[-1].value$\",\n          \"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_INT_Var$\": \"$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.eventsCount$\",\n          \"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_Decimal_Var$\": \"$rule.$activity.definition_activity_028XIQ6GI8LZF5VoHZgWSOlFyNbJZnIGs5V.output.jsonpath_queries.Schema_ID_Inc_Rule$.output.incident.scores.global$\",\n          \"$activity.definition_activity_028XFTN4F6X027ACa8ySAGt6lslKJvMs0VJ.output.jsonpath_queries.parent_Bool_Var$\": true\n        }\n      }\n    ],\n    \"stop_subsequent_rules\": true\n  },\n  \"id\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$\"\n}",
                   "continue_on_error_status_code": false,
                   "continue_on_failure": false,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
+                      "value": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
+                    }
+                  ],
                   "display_name": "Upgrade Rule (Change ST to PR)",
-                  "method": "PUT",
-                  "relative_url": "/api/v1/rules/$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$",
-                  "runtime_user": {
-                    "target_default": true
-                  },
-                  "skip_execution": false,
-                  "target": {
-                    "use_workflow_target": true
-                  }
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_028Y978PKOD885DMz64ZRD7Xj5o9guJAZMn",
-                "name": "HTTP Request",
-                "title": "Set Rank Order to 1",
-                "type": "web-service.http_request",
-                "base_type": "activity",
-                "properties": {
-                  "action_timeout": 180,
-                  "allow_auto_redirect": true,
-                  "allow_headers_redirect": false,
-                  "body": "{\n  \"type\": \"incident.rule_event\",\n  \"rule\": {\n    \"id\": \"$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$\"\n  },\n  \"previous_rule\": {}\n}",
-                  "continue_on_error_status_code": false,
-                  "continue_on_failure": true,
-                  "display_name": "Set Rank Order to 1",
-                  "method": "PATCH",
-                  "relative_url": "/api/v1/rules/priority",
+                  "method": "GET",
                   "runtime_user": {
                     "target_default": true
                   },
@@ -1463,9 +1505,9 @@
                   "continue_on_failure": true,
                   "display_name": "Automation - Delete a Workflow (ParentWF)",
                   "input": {
-                    "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
+                    "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
                     "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_028XFG1AOOLOO5Kt4Ls6tat3d49gO7ngrZy.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
-                    "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                    "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                   },
                   "runtime_user": {
                     "target_default": true
@@ -1490,9 +1532,9 @@
                   "continue_on_failure": true,
                   "display_name": "Automation - Delete a Workflow (Child WF)",
                   "input": {
-                    "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
+                    "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
                     "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_028XFA7OMKZCV51s2rioOUHeS8PompqASs8.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
-                    "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                    "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                   },
                   "runtime_user": {
                     "target_default": true
@@ -1517,9 +1559,9 @@
                   "continue_on_failure": true,
                   "display_name": "Automation - Delete a Workflow (Atomic WF)",
                   "input": {
-                    "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
+                    "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
                     "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_028XFF7RHCLVZ5FVSNY1lp2GnpRjzGeCOOh.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
-                    "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                    "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                   },
                   "runtime_user": {
                     "target_default": true
@@ -1544,9 +1586,9 @@
                   "continue_on_failure": true,
                   "display_name": "Automation - Delete a Rule",
                   "input": {
-                    "variable_workflow_027GQAZSMGF5L06O3QUxfsLAW38RATuUDJO": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN3WH87bcuzELdGCqLU9IELI4qIp$",
+                    "variable_workflow_027GQAZSMGF5L06O3QUxfsLAW38RATuUDJO": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFC5G0E4YK17SmAKtyrovH6cOqvgGiya$",
                     "variable_workflow_027GQAZSMGTCV5TpSmr0bkH3It5zQYLtUu3": "$activity.definition_activity_028XITD8YKVKA007gvWYXDsTUpX82CKquF3.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$",
-                    "variable_workflow_027GQAZSMH1OJ5BK4wbuH9JasDboqqfjR7Z": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.028Y6PYRN2X6601S2aLmA3MG4ObcuvoxRX5$"
+                    "variable_workflow_027GQAZSMH1OJ5BK4wbuH9JasDboqqfjR7Z": "$workflow.definition_workflow_028XF9K6AETHA6VC2WkWv7lZryz7Zs0AUx2.input.variable_workflow_028XFCDY0H3SZ4gtCuli93cPxqRFgdADWQr$"
                   },
                   "runtime_user": {
                     "target_default": true
@@ -1622,20 +1664,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-$ID\",\n              \"title\": \"SG-PR-Sep11-2-Automation Rule Testing - IncidentWF_$ID\",\n              \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"Critical\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Command and Control activities detected by DNS protection.\",\n        \"title\": \"Command and Control DNS activities\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1071\"\n            ],\n            \"short_description\": \"Application Layer Protocol\",\n            \"title\": \"Application Layer Protocol\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1071\",\n                    \"external_id\": \"T1071\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1071\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"command-and-control\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"command-and-control\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1071\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1071\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }\n",
-              "scope": "input",
-              "name": "Incident Payload",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "",
               "scope": "output",
               "name": "Incident ID",
@@ -1645,6 +1673,20 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_025XVBQ4XDOXO4WQY9An03Am9kg3LLcX3Z1",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-$ID\",\n              \"title\": \"SG-PR-Sep11-2-Automation Rule Testing - IncidentWF_$ID\",\n              \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"Critical\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Command and Control activities detected by DNS protection.\",\n        \"title\": \"Command and Control DNS activities\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1071\"\n            ],\n            \"short_description\": \"Application Layer Protocol\",\n            \"title\": \"Application Layer Protocol\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1071\",\n                    \"external_id\": \"T1071\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1071\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"command-and-control\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"command-and-control\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1071\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1071\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }\n",
+              "scope": "input",
+              "name": "Incident Payload",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT",
             "object_type": "variable_workflow"
           }
         ],
@@ -2000,20 +2042,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Pass or Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01TCGS3K396CD08yP5vcVLSkAGOND1NfHAK",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "input",
               "name": "Incident_ID",
               "type": "datatype.string",
@@ -2022,6 +2050,20 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_025XW2OB9YEYM7VZfH0H10A1cILFCZvIEmS",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TCGS3K396CD08yP5vcVLSkAGOND1NfHAK",
             "object_type": "variable_workflow"
           }
         ],
@@ -2353,6 +2395,20 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "input",
+              "name": "Token (Without Bearer)",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027D8E5Q321204bdGUFqcYuA6IJlFnHrHyf",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
               "scope": "output",
               "name": "Rule_Limit_Reached",
               "type": "datatype.string",
@@ -2362,20 +2418,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_0272D0AJJ9G2U5Jz0du1zMMfwLnRoLLrsul",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Token (Without Bearer)",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027D8E5Q321204bdGUFqcYuA6IJlFnHrHyf",
             "object_type": "variable_workflow"
           }
         ],
@@ -2459,8 +2501,7 @@
                     {
                       "jsonpath_query": "$..total_count",
                       "jsonpath_query_name": "rules_count",
-                      "jsonpath_query_type": "integer",
-                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                      "jsonpath_query_type": "integer"
                     }
                   ],
                   "skip_execution": false
@@ -2593,15 +2634,71 @@
               {
                 "schema_id": "datatype.string",
                 "properties": {
-                  "value": "",
+                  "value": "Authorization",
                   "scope": "local",
-                  "name": "Provide object_name (ex: targets, runtime_users, calendars)",
+                  "name": "Authorization",
                   "type": "datatype.string",
-                  "is_required": true,
+                  "is_required": false,
                   "display_on_wizard": false,
                   "is_invisible": false
                 },
-                "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
+                "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "x-cisco-tenant-id",
+                  "scope": "input",
+                  "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "output",
+                  "name": "Action Id",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_020FOLLJP0WDO7B8ep2v5S17F9drfRIk5eb",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "output",
+                  "name": "Response Body",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "input",
+                  "name": "Value (Only For Tenant creation) Provide Tenant id",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
                 "object_type": "variable_workflow"
               },
               {
@@ -2636,29 +2733,30 @@
               {
                 "schema_id": "datatype.string",
                 "properties": {
-                  "value": "Authorization",
-                  "scope": "local",
-                  "name": "Authorization",
+                  "value": "be-console/api/v1/",
+                  "scope": "input",
+                  "name": "Relative URL",
                   "type": "datatype.string",
-                  "is_required": false,
+                  "is_required": true,
                   "display_on_wizard": false,
                   "is_invisible": false
                 },
-                "unique_name": "variable_workflow_01V58VFTTAZK52AEhej8oyY5nGWl133XdAO",
+                "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
                 "object_type": "variable_workflow"
               },
               {
                 "schema_id": "datatype.string",
                 "properties": {
                   "value": "",
-                  "scope": "output",
-                  "name": "Response Body",
+                  "scope": "input",
+                  "name": "Headers Cookie (Not Mandatory)",
                   "type": "datatype.string",
+                  "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
                   "is_required": false,
                   "display_on_wizard": false,
                   "is_invisible": false
                 },
-                "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
+                "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
                 "object_type": "variable_workflow"
               },
               {
@@ -2680,34 +2778,6 @@
                 "schema_id": "datatype.string",
                 "properties": {
                   "value": "",
-                  "scope": "output",
-                  "name": "Pass or Fail",
-                  "type": "datatype.string",
-                  "is_required": false,
-                  "display_on_wizard": false,
-                  "is_invisible": false
-                },
-                "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "be-console/api/v1/",
-                  "scope": "input",
-                  "name": "Relative URL",
-                  "type": "datatype.string",
-                  "is_required": true,
-                  "display_on_wizard": false,
-                  "is_invisible": false
-                },
-                "unique_name": "variable_workflow_01V5AC5ACVVEJ6pLgCT1MNn5xMPOgrBTcHq",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "",
                   "scope": "input",
                   "name": "Header Accept (Optional)",
                   "type": "datatype.string",
@@ -2717,6 +2787,20 @@
                   "is_invisible": false
                 },
                 "unique_name": "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "local",
+                  "name": "Provide object_name (ex: targets, runtime_users, calendars)",
+                  "type": "datatype.string",
+                  "is_required": true,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
                 "object_type": "variable_workflow"
               },
               {
@@ -2737,29 +2821,14 @@
                 "schema_id": "datatype.string",
                 "properties": {
                   "value": "",
-                  "scope": "input",
-                  "name": "Select Method (EX: GET, PUT, POST, DELETE)",
-                  "type": "datatype.string",
-                  "description": "The primary or most commonly-used HTTP methods are POST, GET, PUT, PATCH, and DELETE. These methods correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other methods, too, but they are utilized less frequently.",
-                  "is_required": true,
-                  "display_on_wizard": false,
-                  "is_invisible": false
-                },
-                "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "",
                   "scope": "output",
-                  "name": "Action Id",
+                  "name": "Pass or Fail",
                   "type": "datatype.string",
                   "is_required": false,
                   "display_on_wizard": false,
                   "is_invisible": false
                 },
-                "unique_name": "variable_workflow_020FOLLJP0WDO7B8ep2v5S17F9drfRIk5eb",
+                "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
                 "object_type": "variable_workflow"
               },
               {
@@ -2774,20 +2843,6 @@
                   "is_invisible": false
                 },
                 "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "",
-                  "scope": "input",
-                  "name": "Value (Only For Tenant creation) Provide Tenant id",
-                  "type": "datatype.string",
-                  "is_required": false,
-                  "display_on_wizard": false,
-                  "is_invisible": false
-                },
-                "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
                 "object_type": "variable_workflow"
               },
               {
@@ -2810,28 +2865,14 @@
                 "properties": {
                   "value": "",
                   "scope": "input",
-                  "name": "Headers Cookie (Not Mandatory)",
+                  "name": "Select Method (EX: GET, PUT, POST, DELETE)",
                   "type": "datatype.string",
-                  "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
-                  "is_required": false,
+                  "description": "The primary or most commonly-used HTTP methods are POST, GET, PUT, PATCH, and DELETE. These methods correspond to create, read, update, and delete (or CRUD) operations, respectively. There are a number of other methods, too, but they are utilized less frequently.",
+                  "is_required": true,
                   "display_on_wizard": false,
                   "is_invisible": false
                 },
-                "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "x-cisco-tenant-id",
-                  "scope": "input",
-                  "name": "Header (Only For Tenant creation) x-cisco-tenant-id ",
-                  "type": "datatype.string",
-                  "is_required": false,
-                  "display_on_wizard": false,
-                  "is_invisible": false
-                },
-                "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
+                "unique_name": "variable_workflow_01V58X7X9KDFC6ILLHinBjhfG7bYZu7wntr",
                 "object_type": "variable_workflow"
               }
             ],
