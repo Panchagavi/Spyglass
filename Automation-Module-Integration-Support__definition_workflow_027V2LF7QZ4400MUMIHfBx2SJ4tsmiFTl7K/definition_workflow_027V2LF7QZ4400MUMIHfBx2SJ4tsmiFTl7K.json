@@ -25,13 +25,13 @@
         "properties": {
           "value": "Fail",
           "scope": "output",
-          "name": "Cybereason Integration Test status",
+          "name": "MSDefender Integration Test status",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_02816XY529JJJ6FBnMGCJISuo41wA4aNTkj",
+        "unique_name": "variable_workflow_02816XQSRBLW16YG9fAq0hG01EHYdfaVbpc",
         "object_type": "variable_workflow"
       },
       {
@@ -51,35 +51,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "meraki,crowdstrike,sentilneone,trendmicro,msdefender,cybereason,cortex",
-          "scope": "input",
-          "name": "Integration type",
-          "type": "datatype.string",
-          "description": "Enter the Module integration types for test. supported types are - meraki,crowdstrike,sentilneone,trendmicro,msdefender,cybereason\nNote : Remove type which you don't want to test. ",
-          "is_required": true,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027XPDYCQG00P5yF2bSZgJpF5iStc5VYUlr",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "SentinelOne Integration Test status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_02816X5UZ4A454MFErJOBt6W1QLJKRrYi8F",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "Fail",
           "scope": "output",
           "name": "TrendMicro Integration Test status",
@@ -94,15 +65,16 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "MSDefender Integration Test status",
+          "value": "meraki,crowdstrike,sentilneone,trendmicro,msdefender,cybereason,cortex",
+          "scope": "input",
+          "name": "Integration type",
           "type": "datatype.string",
-          "is_required": false,
+          "description": "Enter the Module integration types for test. supported types are - meraki,crowdstrike,sentilneone,trendmicro,msdefender,cybereason\nNote : Remove type which you don't want to test. ",
+          "is_required": true,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_02816XQSRBLW16YG9fAq0hG01EHYdfaVbpc",
+        "unique_name": "variable_workflow_027XPDYCQG00P5yF2bSZgJpF5iStc5VYUlr",
         "object_type": "variable_workflow"
       },
       {
@@ -116,6 +88,20 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_027Y1JFOKWDYI7GqVpo2hpZrUXZipt2B5D1",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Pass",
+          "scope": "output",
+          "name": "Overall Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027VK5XNFGE0N1CWfxfMWpK8de0GPlcc71o",
         "object_type": "variable_workflow"
       },
       {
@@ -149,15 +135,29 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Pass",
+          "value": "Fail",
           "scope": "output",
-          "name": "Overall Test Status",
+          "name": "Cybereason Integration Test status",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_027VK5XNFGE0N1CWfxfMWpK8de0GPlcc71o",
+        "unique_name": "variable_workflow_02816XY529JJJ6FBnMGCJISuo41wA4aNTkj",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "SentinelOne Integration Test status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02816X5UZ4A454MFErJOBt6W1QLJKRrYi8F",
         "object_type": "variable_workflow"
       }
     ],
@@ -12033,17 +12033,17 @@
                           {
                             "unique_name": "definition_activity_029489IRTC7562ZAieJFDtP9vYZtCILZoTj",
                             "name": "JSONPath Query",
-                            "title": "Fetch the Error Message for a Action",
+                            "title": "Fetch the Error Message for a target missing",
                             "type": "corejava.jsonpathquery",
                             "base_type": "activity",
                             "properties": {
                               "action_timeout": 180,
                               "continue_on_failure": true,
-                              "display_name": "Fetch the Error Message for a Action",
+                              "display_name": "Fetch the Error Message for a target missing",
                               "input_json": "$activity.definition_activity_029489IRT6PS74FN11f7trGIt7pPW8FYRXK.output.variable_workflow_027471O0HJ0865WhDEt4CpOimDoESUI4jdf$",
                               "jsonpath_queries": [
                                 {
-                                  "jsonpath_query": "$.invalid_properties",
+                                  "jsonpath_query": "$.invalid_properties['target.target_id']",
                                   "jsonpath_query_name": "PAN-Cortex_Module_Target_Message",
                                   "jsonpath_query_type": "string",
                                   "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -12262,13 +12262,40 @@
                               "runtime_user": {
                                 "target_default": true
                               },
-                              "skip_execution": false,
+                              "skip_execution": true,
                               "target": {
                                 "target_type": "web-service.endpoint",
                                 "use_workflow_target": true
                               },
                               "workflow_id": "definition_workflow_01TNSB14MMYZG37RQ4OVToolSWbOg9TOgW2",
                               "workflow_name": "Automation - Update An Action"
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_0294JCX2ZKTYS0NH4ms5ZDn0oa05eIE6ZvH",
+                            "name": "SXO- Update Workflow",
+                            "title": "SXO- Update Workflow",
+                            "type": "workflow.sub_workflow",
+                            "base_type": "subworkflow",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "SXO- Update Workflow",
+                              "input": {
+                                "variable_workflow_01TNQRVAXT04A7ihlljF8vudsWhZ9i0rEqP": "Bearer ",
+                                "variable_workflow_01TNQRVAXUAER6Egd2fEcyhcWpHoE896o0t": "$activity.definition_activity_029489IRT385H488gCEEum6WUrI67KZbnfE.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                "variable_workflow_01TNQRVAXVOGL5KijYChvPZ3FkDr6ih1w3y": "{\n  \"id\": \"$activity.definition_activity_029489IRT385H488gCEEum6WUrI67KZbnfE.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"Copy(1)-PAN-CortexWF\",\n  \"title\": \"Copy(1)-PAN-CortexWF\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"execute_on_workflow_target\": true,\n      \"target_id\": \"$activity.definition_activity_0294A28DD5U8M7Nu4wV9N41aUxNv5RVBg3W.output.variable_workflow_0293JQWL9O5FO4To7FrHPFratRY329NHRwT$\"\n    },\n    \"display_name\": \"Copy(1)-PAN-CortexWF\"\n  },\n  \"categories\": [],\n  \"variables\": null,\n  \"metadata\": {\n    \"git_info\": {\n      \"target_id\": \"\",\n      \"commit_hash\": \"\",\n      \"file_name\": \"\"\n    },\n    \"coa\": {\n      \"observable_types\": null\n    }\n  }\n}"
+                              },
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "target_type": "web-service.endpoint",
+                                "use_workflow_target": true
+                              },
+                              "workflow_id": "definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko",
+                              "workflow_name": "SXO- Update Workflow"
                             },
                             "object_type": "definition_activity"
                           },
@@ -14039,6 +14066,17 @@
       "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
     ]
   },
+  "categories": {
+    "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A": {
+      "unique_name": "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A",
+      "name": "CA Web Services",
+      "title": "CA Web Services",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
   "table_types": {
     "tabletype_027Y1I73MPJ065OuN8rH4KtkAQHgc1OJ48b": {
       "unique_name": "tabletype_027Y1I73MPJ065OuN8rH4KtkAQHgc1OJ48b",
@@ -14056,6 +14094,455 @@
       "object_type": "tabletype"
     }
   },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko",
+        "name": "SXO- Update Workflow",
+        "title": "SXO- Update Workflow",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Authorization",
+              "scope": "local",
+              "name": "Authorization",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TNQRVAXTCU34fMbIw4sSLw6j4wCmLoMs4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass Value",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TNQRVAXUMMR6Zq1IiznlmNAYgOBHSWYah",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Workflow Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TNQRVAXSJ2Q4j29bFFO8S54B0usxAVQ06",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Token",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TNQRVAXT04A7ihlljF8vudsWhZ9i0rEqP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Request Payload to update the worklfow",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TNQRVAXVOGL5KijYChvPZ3FkDr6ih1w3y",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide Workflow ID",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TNQRVAXUAER6Egd2fEcyhcWpHoE896o0t",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Workflow Updated Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TNRDRT70XP23fYBK8wajx9ArQEM52Tixt",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "SXO- Update Workflow",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "specify_on_workflow_start": false,
+            "target_default": true
+          },
+          "target": {
+            "target_type": "web-service.endpoint",
+            "specify_on_workflow_start": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01TNQRVM38NTI3mDdHjCDBO7dpC8iZLRQSu",
+            "name": "Group",
+            "title": "Update workflow",
+            "type": "logic.group",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Update workflow",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj",
+                "name": "HTTP Request",
+                "title": "Update worklfow",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "body": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.input.variable_workflow_01TNQRVAXVOGL5KijYChvPZ3FkDr6ih1w3y$",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.local.variable_workflow_01TNQRVAXTCU34fMbIw4sSLw6j4wCmLoMs4$",
+                      "value": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.input.variable_workflow_01TNQRVAXT04A7ihlljF8vudsWhZ9i0rEqP$"
+                    }
+                  ],
+                  "display_name": "Update worklfow",
+                  "method": "PUT",
+                  "relative_url": "be-console/api/v1/workflows/$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.input.variable_workflow_01TNQRVAXUAER6Egd2fEcyhcWpHoE896o0t$",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": false,
+                    "override_workflow_target_group_criteria": false,
+                    "use_workflow_target": true,
+                    "use_workflow_target_group": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01TNQRVRSZZWF230TbMmz2zWF3gsuYR2LDT",
+                "name": "JSONPath Query",
+                "title": "Extract WF Updated statsu",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Extract WF Updated statsu",
+                  "input_json": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$..status.state",
+                      "jsonpath_query_name": "WF Updated status",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01TNQRVXUR3PE6TkKfeup3TLNTInae9zu7D",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_01TNQRW1QYHUT2s6ONzYV1fJ29WN3vc4MXa",
+                    "name": "Condition Branch",
+                    "title": "Pass 200",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.message$",
+                            "operator": "eq",
+                            "right_operand": "success"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.succeeded$",
+                          "operator": "eq",
+                          "right_operand": true
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Pass 200",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01TNQRW4T0IXN2jFnoIFAJA8meLHNnR56CP",
+                        "name": "Set Variables",
+                        "title": "Set Variables",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Set Variables",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNQRVAXSJ2Q4j29bFFO8S54B0usxAVQ06$",
+                              "variable_value_new": "true"
+                            },
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNQRVAXUMMR6Zq1IiznlmNAYgOBHSWYah$",
+                              "variable_value_new": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.message$"
+                            },
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNRDRT70XP23fYBK8wajx9ArQEM52Tixt$",
+                              "variable_value_new": "$activity.definition_activity_01TNQRVRSZZWF230TbMmz2zWF3gsuYR2LDT.output.jsonpath_queries.WF Updated status$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01TNQRW8EAMMY1xA36Y9OHeezw6k14TLP8I",
+                    "name": "Condition Branch",
+                    "title": "Error 400-  ObjectID is not in expected format",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.code$",
+                          "operator": "eq",
+                          "right_operand": "400"
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.message$",
+                          "operator": "mregex",
+                          "right_operand": ".*ObjectID is not in expected format"
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Error 400-  ObjectID is not in expected format",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01TNQRWBSZ9IC5TuQ0MdBEQOlqc6L4cFFon",
+                        "name": "Set Variables",
+                        "title": "Set Variables",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Set Variables",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNQRVAXSJ2Q4j29bFFO8S54B0usxAVQ06$",
+                              "variable_value_new": "false"
+                            },
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNQRVAXUMMR6Zq1IiznlmNAYgOBHSWYah$",
+                              "variable_value_new": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.message$"
+                            },
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNRDRT70XP23fYBK8wajx9ArQEM52Tixt$",
+                              "variable_value_new": "$activity.definition_activity_01TNQRVRSZZWF230TbMmz2zWF3gsuYR2LDT.output.jsonpath_queries.WF Updated status$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01TNR8D566MN23jj2xrHB9kDwjwXV2lhsRj",
+                    "name": "Condition Branch",
+                    "title": "Error - Internal Server (if missing payload)",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.code$",
+                          "operator": "eq",
+                          "right_operand": "InternalServerError"
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.message$",
+                          "operator": "mregex",
+                          "right_operand": ".*Dependent host/target not reachable"
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Error - Internal Server (if missing payload)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01TNR8D567GBI5sshuhvcpMeh4IJbRX6j8u",
+                        "name": "Set Variables",
+                        "title": "Set Variables",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Set Variables",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNQRVAXSJ2Q4j29bFFO8S54B0usxAVQ06$",
+                              "variable_value_new": "false"
+                            },
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNQRVAXUMMR6Zq1IiznlmNAYgOBHSWYah$",
+                              "variable_value_new": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.message$"
+                            },
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNRDRT70XP23fYBK8wajx9ArQEM52Tixt$",
+                              "variable_value_new": "$activity.definition_activity_01TNQRVRSZZWF230TbMmz2zWF3gsuYR2LDT.output.jsonpath_queries.WF Updated status$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_01TNRA6GP4Z873wppE1SAfD7nikz6ORfJ7Y",
+                    "name": "Condition Branch",
+                    "title": "Error 404- Resource not found",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.code$",
+                          "operator": "eq",
+                          "right_operand": "404"
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.message$",
+                          "operator": "mregex",
+                          "right_operand": ".*Resource not found"
+                        }
+                      },
+                      "continue_on_failure": true,
+                      "display_name": "Error 404- Resource not found",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01TNRA6GP5T9H2otCzT0R6GeGkwEvGZeziL",
+                        "name": "Set Variables",
+                        "title": "Set Variables",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Set Variables",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNQRVAXSJ2Q4j29bFFO8S54B0usxAVQ06$",
+                              "variable_value_new": "false"
+                            },
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNQRVAXUMMR6Zq1IiznlmNAYgOBHSWYah$",
+                              "variable_value_new": "$activity.definition_activity_01TNQRVPH226X1z3aYwStlUYJmg8J21autj.output.error.message$"
+                            },
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko.output.variable_workflow_01TNRDRT70XP23fYBK8wajx9ArQEM52Tixt$",
+                              "variable_value_new": "$activity.definition_activity_01TNQRVRSZZWF230TbMmz2zWF3gsuYR2LDT.output.jsonpath_queries.WF Updated status$"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A"
+        ]
+      }
+    }
+  ],
   "atomic_workflows": [
     "definition_workflow_026YHAFYUYJSI57lobBfWruQIXVfnumQPnC",
     "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
@@ -14092,7 +14579,8 @@
     "definition_workflow_027SU9PPQUCJN5dDDezbEIsQ5NtsgunV8BO",
     "definition_workflow_027SU0FH3B5LL5D3CQrt1D5SwpDmkiYX43D",
     "definition_workflow_027SRAQG6XKPJ0p8LhWyxrO5NxBP9IRxMCp",
-    "definition_workflow_0293JQWKR74I951sCTl8Znp8nsIad7g2u7t"
+    "definition_workflow_0293JQWKR74I951sCTl8Znp8nsIad7g2u7t",
+    "definition_workflow_01TNQRV9DPS941IUYsmLLQfwZVNML39Ouko"
   ],
   "module_targets": [
     {
