@@ -50,20 +50,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "ExtraHop Integration Test Status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_0296Q6QZVEHCC37ZarsAornQfGEpe6PZPz5",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "extrahop,umbrella_old,darktrace",
           "scope": "input",
           "name": "Integration type",
@@ -74,6 +60,20 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_0296Q6QZVDKHX1xRbBNvnaCYtyEG1FERtpO",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "ExtraHop Integration Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0296Q6QZVEHCC37ZarsAornQfGEpe6PZPz5",
         "object_type": "variable_workflow"
       }
     ],
@@ -2853,13 +2853,13 @@
                               },
                               {
                                 "unique_name": "definition_activity_029A5WDVIRHW41t4RhMUhMbbT1jS9gEXCtv",
-                                "name": "Automation - Update An Action (Adding ExtraHop Target)",
-                                "title": "Automation - Update An Action (Adding ExtraHop Target)",
+                                "name": "Automation - Update An Action (Adding Umbrella Target)",
+                                "title": "Automation - Update An Action (Adding Umbrella Target)",
                                 "type": "workflow.atomic_workflow",
                                 "base_type": "subworkflow",
                                 "properties": {
                                   "continue_on_failure": true,
-                                  "display_name": "Automation - Update An Action (Adding ExtraHop Target)",
+                                  "display_name": "Automation - Update An Action (Adding Umbrella Target)",
                                   "input": {
                                     "variable_workflow_01TNSB16AB8YM76W6y0JseGQUNpmojs5mLh": "",
                                     "variable_workflow_01TNSB16ABL2M4cqRV03TQYzhQlYvg3NUcw": "$activity.definition_activity_029A5WDVIIK1C7Ibr5owK0yz7RMZpBRXweT.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
@@ -3157,180 +3157,66 @@
                                       {
                                         "unique_name": "definition_activity_029A5WDVJJMEJ1U0p7kvyXBSSBTJlILKNby",
                                         "name": "JSONPath Query",
-                                        "title": "Fetch the Instances Actions ID",
+                                        "title": "Fetch the Instances Actions ID and Action Status",
                                         "type": "corejava.jsonpathquery",
                                         "base_type": "activity",
                                         "properties": {
                                           "action_timeout": 180,
                                           "continue_on_failure": true,
-                                          "display_name": "Fetch the Instances Actions ID",
+                                          "display_name": "Fetch the Instances Actions ID and Action Status",
                                           "input_json": "$activity.definition_activity_029A5WDVJIKG926b9oQsLYysegkgK0y54qJ.output.response_body$",
                                           "jsonpath_queries": [
                                             {
-                                              "jsonpath_query": "$.actions[?(@.title=='HTTP Request - GET API keys')].id",
-                                              "jsonpath_query_name": "ExtraHop_Instance_ActionID1",
+                                              "jsonpath_query": "$.actions[?(@.title==\"HTTP Request (Create Destination List)\")].id",
+                                              "jsonpath_query_name": "Umbrella_Instance_ActionID1",
                                               "jsonpath_query_type": "string",
                                               "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                                             },
                                             {
-                                              "jsonpath_query": "$.actions[?(@.title=='To Upper-ExtraHop')].id",
-                                              "jsonpath_query_name": "ExtraHop_Instance_Upper_ActionID",
+                                              "jsonpath_query": "$.actions[?(@.title==\"HTTP Request (GET Destination List by ID)\")].id",
+                                              "jsonpath_query_name": "Umbrella_Instance_ActionID2",
                                               "jsonpath_query_type": "string",
                                               "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                                             },
                                             {
-                                              "jsonpath_query": "$.actions[?(@.title=='HTTP Request - GET appliances')].id",
-                                              "jsonpath_query_name": "ExtraHop_Instance_ActionID2",
+                                              "jsonpath_query": "$.actions[?(@.title==\"HTTP Request (GET Destination Lists)\")].id",
+                                              "jsonpath_query_name": "Umbrella_Instance_ActionID3",
                                               "jsonpath_query_type": "string",
                                               "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                                             },
                                             {
-                                              "jsonpath_query": "$.actions[?(@.title=='HTTP Request - GET Extrahop details')].id",
-                                              "jsonpath_query_name": "ExtraHop_Instance_ActionID3",
+                                              "jsonpath_query": "$.actions[?(@.title==\"HTTP Request (Delete Destination List by ID)\")].id",
+                                              "jsonpath_query_name": "Umbrella_Instance_ActionID4",
                                               "jsonpath_query_type": "string",
                                               "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                                            }
-                                          ],
-                                          "skip_execution": false
-                                        },
-                                        "object_type": "definition_activity"
-                                      },
-                                      {
-                                        "unique_name": "definition_activity_029A5WDVJLMKU7ZM2OxWA70MrgkqOdKqtax",
-                                        "name": "HTTP Request",
-                                        "title": "Get Instance by Action ID1 to fetch HTTP Request Status",
-                                        "type": "web-service.http_request",
-                                        "base_type": "activity",
-                                        "properties": {
-                                          "action_timeout": 180,
-                                          "allow_auto_redirect": true,
-                                          "allow_headers_redirect": false,
-                                          "continue_on_error_status_code": false,
-                                          "continue_on_failure": true,
-                                          "display_name": "Get Instance by Action ID1 to fetch HTTP Request Status",
-                                          "method": "GET",
-                                          "relative_url": "/api/v1/instances/$activity.definition_activity_029A5WDVJDFIO61m9CaZL7mtgUNmOZ8sE3n.output.jsonpath_queries.ImportedWF_InstanceID$/actions/$activity.definition_activity_029A5WDVJJMEJ1U0p7kvyXBSSBTJlILKNby.output.jsonpath_queries.ExtraHop_Instance_ActionID1$",
-                                          "runtime_user": {
-                                            "target_default": true
-                                          },
-                                          "skip_execution": false,
-                                          "target": {
-                                            "use_workflow_target": true
-                                          }
-                                        },
-                                        "object_type": "definition_activity"
-                                      },
-                                      {
-                                        "unique_name": "definition_activity_029A5WDVJR4SI5OOEx4SxwRlCYEXJfVA4ab",
-                                        "name": "JSONPath Query",
-                                        "title": "Fetch the Action Status for First Action",
-                                        "type": "corejava.jsonpathquery",
-                                        "base_type": "activity",
-                                        "properties": {
-                                          "action_timeout": 180,
-                                          "continue_on_failure": true,
-                                          "display_name": "Fetch the Action Status for First Action",
-                                          "input_json": "$activity.definition_activity_029A5WDVJLMKU7ZM2OxWA70MrgkqOdKqtax.output.response_body$",
-                                          "jsonpath_queries": [
+                                            },
                                             {
-                                              "jsonpath_query": "$.status.state",
-                                              "jsonpath_query_name": "ExtraHop_Action_Status1",
+                                              "jsonpath_query": "$.actions[?(@.title==\"To Upper-Umbrella\")].id",
+                                              "jsonpath_query_name": "Umbrella_Instance_ToUpperAction_ID",
                                               "jsonpath_query_type": "string",
                                               "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                                            }
-                                          ],
-                                          "skip_execution": false
-                                        },
-                                        "object_type": "definition_activity"
-                                      },
-                                      {
-                                        "unique_name": "definition_activity_029A5WDVJRUG93RsSqQnlnuP8EUDKLR3pve",
-                                        "name": "HTTP Request",
-                                        "title": "Get Instance by Action ID2 to fetch HTTP Request Status",
-                                        "type": "web-service.http_request",
-                                        "base_type": "activity",
-                                        "properties": {
-                                          "action_timeout": 180,
-                                          "allow_auto_redirect": true,
-                                          "allow_headers_redirect": false,
-                                          "continue_on_error_status_code": false,
-                                          "continue_on_failure": true,
-                                          "display_name": "Get Instance by Action ID2 to fetch HTTP Request Status",
-                                          "method": "GET",
-                                          "relative_url": "/api/v1/instances/$activity.definition_activity_029A5WDVJDFIO61m9CaZL7mtgUNmOZ8sE3n.output.jsonpath_queries.ImportedWF_InstanceID$/actions/$activity.definition_activity_029A5WDVJJMEJ1U0p7kvyXBSSBTJlILKNby.output.jsonpath_queries.ExtraHop_Instance_ActionID2$",
-                                          "runtime_user": {
-                                            "target_default": true
-                                          },
-                                          "skip_execution": false,
-                                          "target": {
-                                            "use_workflow_target": true
-                                          }
-                                        },
-                                        "object_type": "definition_activity"
-                                      },
-                                      {
-                                        "unique_name": "definition_activity_029A5WDVJT4BC2QscJ2va5pltIpfPk5dbdg",
-                                        "name": "JSONPath Query",
-                                        "title": "Fetch the Action Status for Second Action",
-                                        "type": "corejava.jsonpathquery",
-                                        "base_type": "activity",
-                                        "properties": {
-                                          "action_timeout": 180,
-                                          "continue_on_failure": true,
-                                          "display_name": "Fetch the Action Status for Second Action",
-                                          "input_json": "$activity.definition_activity_029A5WDVJRUG93RsSqQnlnuP8EUDKLR3pve.output.response_body$",
-                                          "jsonpath_queries": [
+                                            },
                                             {
-                                              "jsonpath_query": "$.status.state",
-                                              "jsonpath_query_name": "ExtraHop_Action1_Status2",
+                                              "jsonpath_query": "$.actions[?(@.title==\"HTTP Request (Create Destination List)\")].status.state",
+                                              "jsonpath_query_name": "Umbrella_Instance_ActionID1_Status",
                                               "jsonpath_query_type": "string",
                                               "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                                            }
-                                          ],
-                                          "skip_execution": false
-                                        },
-                                        "object_type": "definition_activity"
-                                      },
-                                      {
-                                        "unique_name": "definition_activity_029A5WDVJWGG74Kibue4mEyqZgCO1K2N5WP",
-                                        "name": "HTTP Request",
-                                        "title": "Get Instance by Action ID3 to fetch HTTP Request Status",
-                                        "type": "web-service.http_request",
-                                        "base_type": "activity",
-                                        "properties": {
-                                          "action_timeout": 180,
-                                          "allow_auto_redirect": true,
-                                          "allow_headers_redirect": false,
-                                          "continue_on_error_status_code": false,
-                                          "continue_on_failure": true,
-                                          "display_name": "Get Instance by Action ID3 to fetch HTTP Request Status",
-                                          "method": "GET",
-                                          "relative_url": "/api/v1/instances/$activity.definition_activity_029A5WDVJDFIO61m9CaZL7mtgUNmOZ8sE3n.output.jsonpath_queries.ImportedWF_InstanceID$/actions/$activity.definition_activity_029A5WDVJJMEJ1U0p7kvyXBSSBTJlILKNby.output.jsonpath_queries.ExtraHop_Instance_ActionID3$",
-                                          "runtime_user": {
-                                            "target_default": true
-                                          },
-                                          "skip_execution": false,
-                                          "target": {
-                                            "use_workflow_target": true
-                                          }
-                                        },
-                                        "object_type": "definition_activity"
-                                      },
-                                      {
-                                        "unique_name": "definition_activity_029A5WDVJX39Q16mYGQGvf4opR8IOmq8RmB",
-                                        "name": "JSONPath Query",
-                                        "title": "Fetch the Action Status for Second Action",
-                                        "type": "corejava.jsonpathquery",
-                                        "base_type": "activity",
-                                        "properties": {
-                                          "action_timeout": 180,
-                                          "continue_on_failure": true,
-                                          "display_name": "Fetch the Action Status for Second Action",
-                                          "input_json": "$activity.definition_activity_029A5WDVJWGG74Kibue4mEyqZgCO1K2N5WP.output.response_body$",
-                                          "jsonpath_queries": [
+                                            },
                                             {
-                                              "jsonpath_query": "$.status.state",
-                                              "jsonpath_query_name": "ExtraHop_Action_Status3",
+                                              "jsonpath_query": "$.actions[?(@.title==\"HTTP Request (GET Destination List by ID)\")].status.state",
+                                              "jsonpath_query_name": "Umbrella_Instance_ActionID2_Status",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            },
+                                            {
+                                              "jsonpath_query": "$.actions[?(@.title==\"HTTP Request (GET Destination Lists)\")].status.state",
+                                              "jsonpath_query_name": "Umbrella_Instance_ActionID3_Status",
+                                              "jsonpath_query_type": "string",
+                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                            },
+                                            {
+                                              "jsonpath_query": "$.actions[?(@.title==\"HTTP Request (Delete Destination List by ID)\")].status.state",
+                                              "jsonpath_query_name": "Umbrella_Instance_ActionID4_Status",
                                               "jsonpath_query_type": "string",
                                               "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                                             }
@@ -3353,7 +3239,7 @@
                                           "continue_on_failure": true,
                                           "display_name": "Get Instance by Action ID to fetch To UpperCase Action Status",
                                           "method": "GET",
-                                          "relative_url": "/api/v1/instances/$activity.definition_activity_029A5WDVJDFIO61m9CaZL7mtgUNmOZ8sE3n.output.jsonpath_queries.ImportedWF_InstanceID$/actions/$activity.definition_activity_029A5WDVJJMEJ1U0p7kvyXBSSBTJlILKNby.output.jsonpath_queries.ExtraHop_Instance_Upper_ActionID$",
+                                          "relative_url": "/api/v1/instances/$activity.definition_activity_029A5WDVJDFIO61m9CaZL7mtgUNmOZ8sE3n.output.jsonpath_queries.ImportedWF_InstanceID$/actions/$activity.definition_activity_029A5WDVJJMEJ1U0p7kvyXBSSBTJlILKNby.output.jsonpath_queries.Umbrella_Instance_ToUpperAction_ID$",
                                           "runtime_user": {
                                             "target_default": true
                                           },
@@ -3377,14 +3263,8 @@
                                           "input_json": "$activity.definition_activity_029A5WDVJYBLK00QTcY9tYszFHep0GI4Ep3.output.response_body$",
                                           "jsonpath_queries": [
                                             {
-                                              "jsonpath_query": "$.status.state",
-                                              "jsonpath_query_name": "ExtraHop_Action_Status",
-                                              "jsonpath_query_type": "string",
-                                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                                            },
-                                            {
                                               "jsonpath_query": "$.properties.source",
-                                              "jsonpath_query_name": "ExtraHop-Source",
+                                              "jsonpath_query_name": "Umbrella-Source",
                                               "jsonpath_query_type": "string",
                                               "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                                             }
@@ -3922,7 +3802,7 @@
                                                                                   },
                                                                                   "operator": "and",
                                                                                   "right_operand": {
-                                                                                    "left_operand": "$activity.definition_activity_029A5WDVJLMKU7ZM2OxWA70MrgkqOdKqtax.output.error.code$",
+                                                                                    "left_operand": "$activity.definition_activity_029A5WDVJYBLK00QTcY9tYszFHep0GI4Ep3.output.error.code$",
                                                                                     "operator": "eq",
                                                                                     "right_operand": "200"
                                                                                   }
@@ -4020,7 +3900,7 @@
                                                       },
                                                       "operator": "and",
                                                       "right_operand": {
-                                                        "left_operand": "$activity.definition_activity_029A5WDVJRUG93RsSqQnlnuP8EUDKLR3pve.output.error.code$",
+                                                        "left_operand": "$activity.029A5WDVJRT693FpJos9eRBf8oweigjgpMX.output.error.code$",
                                                         "operator": "eq",
                                                         "right_operand": "200"
                                                       }
@@ -4034,21 +3914,21 @@
                                                   },
                                                   "operator": "and",
                                                   "right_operand": {
-                                                    "left_operand": "$activity.definition_activity_029A5WDVJR4SI5OOEx4SxwRlCYEXJfVA4ab.output.jsonpath_queries.ExtraHop_Action_Status1$",
+                                                    "left_operand": "$activity.029A5WDVJR1VQ0VYVz8gkTK53UOkcQWAjRO.output.jsonpath_queries.ExtraHop_Action_Status1$",
                                                     "operator": "eq",
                                                     "right_operand": "success"
                                                   }
                                                 },
                                                 "operator": "and",
                                                 "right_operand": {
-                                                  "left_operand": "$activity.definition_activity_029A5WDVJT4BC2QscJ2va5pltIpfPk5dbdg.output.jsonpath_queries.ExtraHop_Action1_Status2$",
+                                                  "left_operand": "$activity.029A5WDVJT34G0ziVuBUlxQxGIVEzc2xp5V.output.jsonpath_queries.ExtraHop_Action1_Status2$",
                                                   "operator": "eq",
                                                   "right_operand": "success"
                                                 }
                                               },
                                               "operator": "and",
                                               "right_operand": {
-                                                "left_operand": "$activity.definition_activity_029A5WDVJX39Q16mYGQGvf4opR8IOmq8RmB.output.jsonpath_queries.ExtraHop_Action_Status3$",
+                                                "left_operand": "$activity.029A5WDVJX23A1pLRJMxh5e0IbJmBbfPWgd.output.jsonpath_queries.ExtraHop_Action_Status3$",
                                                 "operator": "eq",
                                                 "right_operand": "success"
                                               }
@@ -4076,7 +3956,7 @@
                                       },
                                       "operator": "and",
                                       "right_operand": {
-                                        "left_operand": "$activity.definition_activity_029A5WDVJWGG74Kibue4mEyqZgCO1K2N5WP.output.error.code$",
+                                        "left_operand": "$activity.029A5WDVJWF6V2jDZUmsr9TNcy3DTaADbnx.output.error.code$",
                                         "operator": "eq",
                                         "right_operand": "200"
                                       }
@@ -4255,7 +4135,7 @@
                                                                                   },
                                                                                   "operator": "or",
                                                                                   "right_operand": {
-                                                                                    "left_operand": "$activity.definition_activity_029A5WDVJLMKU7ZM2OxWA70MrgkqOdKqtax.output.error.code$",
+                                                                                    "left_operand": "$activity.029A5WDVJLKUT6atd59zWfggOC6aC99RXrn.output.error.code$",
                                                                                     "operator": "ne",
                                                                                     "right_operand": "200"
                                                                                   }
@@ -4353,7 +4233,7 @@
                                                       },
                                                       "operator": "or",
                                                       "right_operand": {
-                                                        "left_operand": "$activity.definition_activity_029A5WDVJRUG93RsSqQnlnuP8EUDKLR3pve.output.error.code$",
+                                                        "left_operand": "$activity.029A5WDVJRT693FpJos9eRBf8oweigjgpMX.output.error.code$",
                                                         "operator": "ne",
                                                         "right_operand": "200"
                                                       }
@@ -4367,21 +4247,21 @@
                                                   },
                                                   "operator": "or",
                                                   "right_operand": {
-                                                    "left_operand": "$activity.definition_activity_029A5WDVJR4SI5OOEx4SxwRlCYEXJfVA4ab.output.jsonpath_queries.ExtraHop_Action_Status1$",
+                                                    "left_operand": "$activity.029A5WDVJR1VQ0VYVz8gkTK53UOkcQWAjRO.output.jsonpath_queries.ExtraHop_Action_Status1$",
                                                     "operator": "ne",
                                                     "right_operand": "success"
                                                   }
                                                 },
                                                 "operator": "or",
                                                 "right_operand": {
-                                                  "left_operand": "$activity.definition_activity_029A5WDVJT4BC2QscJ2va5pltIpfPk5dbdg.output.jsonpath_queries.ExtraHop_Action1_Status2$",
+                                                  "left_operand": "$activity.029A5WDVJT34G0ziVuBUlxQxGIVEzc2xp5V.output.jsonpath_queries.ExtraHop_Action1_Status2$",
                                                   "operator": "ne",
                                                   "right_operand": "success"
                                                 }
                                               },
                                               "operator": "or",
                                               "right_operand": {
-                                                "left_operand": "$activity.definition_activity_029A5WDVJX39Q16mYGQGvf4opR8IOmq8RmB.output.jsonpath_queries.ExtraHop_Action_Status3$",
+                                                "left_operand": "$activity.029A5WDVJX23A1pLRJMxh5e0IbJmBbfPWgd.output.jsonpath_queries.ExtraHop_Action_Status3$",
                                                 "operator": "ne",
                                                 "right_operand": "success"
                                               }
@@ -4409,7 +4289,7 @@
                                       },
                                       "operator": "or",
                                       "right_operand": {
-                                        "left_operand": "$activity.definition_activity_029A5WDVJWGG74Kibue4mEyqZgCO1K2N5WP.output.error.code$",
+                                        "left_operand": "$activity.029A5WDVJWF6V2jDZUmsr9TNcy3DTaADbnx.output.error.code$",
                                         "operator": "ne",
                                         "right_operand": "200"
                                       }
@@ -4740,14 +4620,28 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Request Payload to update the worklfow",
+              "scope": "output",
+              "name": "Pass Value",
               "type": "datatype.string",
-              "is_required": true,
+              "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01TNQRVAXVOGL5KijYChvPZ3FkDr6ih1w3y",
+            "unique_name": "variable_workflow_01TNQRVAXUMMR6Zq1IiznlmNAYgOBHSWYah",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Workflow Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TNQRVAXSJ2Q4j29bFFO8S54B0usxAVQ06",
             "object_type": "variable_workflow"
           },
           {
@@ -4782,28 +4676,14 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Pass Value",
+              "scope": "input",
+              "name": "Request Payload to update the worklfow",
               "type": "datatype.string",
-              "is_required": false,
+              "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01TNQRVAXUMMR6Zq1IiznlmNAYgOBHSWYah",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Workflow Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01TNQRVAXSJ2Q4j29bFFO8S54B0usxAVQ06",
+            "unique_name": "variable_workflow_01TNQRVAXVOGL5KijYChvPZ3FkDr6ih1w3y",
             "object_type": "variable_workflow"
           }
         ],
