@@ -1,0 +1,873 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io",
+    "name": "CA- Test Ratelimit Per Hour",
+    "title": "CA- Test Ratelimit Per Hour",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Authorization",
+          "scope": "local",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029DISTEM3SEG3w9ZTYBTzjBuO0hrzk3ytx",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "Provide Token",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029DISY37YDUG4oU1qaksMumMi6qMDfysRD",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "10",
+          "scope": "local",
+          "name": "Value 2",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "api/v1/categories?type=basic.category",
+          "scope": "local",
+          "name": "API call to BE",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "10",
+          "scope": "local",
+          "name": "Value 1",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "CA- Test Ratelimit Per Hour",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "$module_target;Cisco XDR;securex:ao:sxo$",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_029DIUWP0PQK06Kx2rvWqgq6hO1WW0lAEfU",
+        "name": "Parallel Block",
+        "title": "Parallel Block",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Parallel Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_029DIUWP8OYP55TavZT1cEW3UmKxLyW1RDS",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029DIQ4MWSPNQ06BLpijvxyhIjVj5ogzx6z",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029DIQ4N6MXX23NE7oRprSQzETLrhDcizPV",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP$",
+                        "operator": "eq",
+                        "right_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029DIT0I71W6Y2YEP4ljyt3ZKNOKmpYbvTm",
+                        "name": "HTTP Request",
+                        "title": "HTTP Request to Backend",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "display_name": "HTTP Request to Backend",
+                          "method": "GET",
+                          "relative_url": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029DIUYNARY1K5oz0L3ZBUAXdz0fyr5VJ8g",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029DIUYNASLAL5rhWYwIbe2WfGhfDIB6WBA",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029DIUYNAVXJZ2kPEQh8uN3sATSxs5buWF2",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP$",
+                        "operator": "eq",
+                        "right_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029DIUYNAWNZJ3uiNlp5qJDJFTwoAD7OoQT",
+                        "name": "HTTP Request",
+                        "title": "HTTP Request to Backend",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "display_name": "HTTP Request to Backend",
+                          "method": "GET",
+                          "relative_url": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029DIUZKFDLXQ4SSeRLd2YvZuyEgonmK43C",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029DIUZKFERFF1VhB7PMJEWzkJB2GPvrT9U",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029DIUZKFGMPU6z0fAkbanQoqrFc5SQzStp",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP$",
+                        "operator": "eq",
+                        "right_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029DIUZKFJGON4gN7Vz7xB6GY18WI8H3E7q",
+                        "name": "HTTP Request",
+                        "title": "HTTP Request to Backend",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "display_name": "HTTP Request to Backend",
+                          "method": "GET",
+                          "relative_url": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029DIV0HBYC5K5sfJNqCzHjKcX2YSXrrWvj",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029DIV0HBYWE661SUy4jWdGkxyPz5ahsVYE",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029DIV0HC0HXF4BoXtDDevvp7V4SC9Tdn0E",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP$",
+                        "operator": "eq",
+                        "right_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029DIV0HC3DMV0Rzc6VjA9oYW3HZIsmK5fk",
+                        "name": "HTTP Request",
+                        "title": "HTTP Request to Backend",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "display_name": "HTTP Request to Backend",
+                          "method": "GET",
+                          "relative_url": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029DIV1GNB6LL5XFvTVNZgQiTQXLwMyqhyJ",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029DIV1GNBZCG2ZoMXflCzC9BohmGS6gF4m",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029DIV1GNDA5K4UL6SXXJRlxFcN3c7Li2ve",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP$",
+                        "operator": "eq",
+                        "right_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029DIV1GNGHUH0ISMIT7bjISNCaNnzPXItw",
+                        "name": "HTTP Request",
+                        "title": "HTTP Request to Backend",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "display_name": "HTTP Request to Backend",
+                          "method": "GET",
+                          "relative_url": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029DIV2H6UNI66ZJgUo7qQPiJ9Ewn9vJrbn",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029DIV2H6VH372e6QOCVtmr2Cw4VlK3YVhF",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029DIV2H6XTH17DMo4yerFJFL7cfJlrMUkh",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP$",
+                        "operator": "eq",
+                        "right_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029DIV2H71DIY5WjUm78GxYN5dVjFNiw7fx",
+                        "name": "HTTP Request",
+                        "title": "HTTP Request to Backend",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "display_name": "HTTP Request to Backend",
+                          "method": "GET",
+                          "relative_url": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029DIV3EJ34507eD6MwCnLVLjE6FE9vD20j",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029DIV3EJ3NHP6ytlP2YVjqq1OIqK5sPGCX",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029DIV3EJ5A065IOcsBsZFlvlCoQ4pYPlrX",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP$",
+                        "operator": "eq",
+                        "right_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029DIV3EJ7JE56D6PnRL2JLMJiW1KEzFXmc",
+                        "name": "HTTP Request",
+                        "title": "HTTP Request to Backend",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "display_name": "HTTP Request to Backend",
+                          "method": "GET",
+                          "relative_url": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029DIVBJKZJAQ2ntXAoeSrZEvSvzxpBrYf2",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029DIVBJL0CMW5HAfjHYyADr1fF8fysAhh1",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029DIVBJL1PAZ6k9Ly8VRWAiGG6UX3y3u0e",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP$",
+                        "operator": "eq",
+                        "right_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029DIVBJL4GZG5euSxZ5WfM8i9PSrgWWyKZ",
+                        "name": "HTTP Request",
+                        "title": "HTTP Request to Backend",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "display_name": "HTTP Request to Backend",
+                          "method": "GET",
+                          "relative_url": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029DIVCP4CEQG48Na1czKZUq2cUfqqGBV78",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029DIVCP4D0XP0t1o2TnsrNrQnz9JqzdXiQ",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029DIVCP4EN8I3BjoYvsY8bqzQEQesfSZZQ",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP$",
+                        "operator": "eq",
+                        "right_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029DIVCP4GWSY521iu5h2LqwOWkC7h0HY1D",
+                        "name": "HTTP Request",
+                        "title": "HTTP Request to Backend",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "display_name": "HTTP Request to Backend",
+                          "method": "GET",
+                          "relative_url": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_029DIVDRYN3I25AF7ygatajRMCua42YHN7y",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_029DIVDRYNS2K27nBMpWhubpeArfkOdopKP",
+                "name": "While Loop",
+                "title": "While Loop",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "While Loop",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_029DIVDRYPA1A1iQpQnbwZ7CQibdHLsMTWg",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIU8LJV1HD05VQLcEItFOPlPMGpCCNDP$",
+                        "operator": "eq",
+                        "right_operand": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DIUEWJV0F81ByaBm2LcRACtM1cX5MAgp$"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_029DIVDRYRX715LB4GoOztrsP2v99u2ttuX",
+                        "name": "HTTP Request",
+                        "title": "HTTP Request to Backend",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": false,
+                          "display_name": "HTTP Request to Backend",
+                          "method": "GET",
+                          "relative_url": "$workflow.definition_workflow_029DINH29FLE40DbmPlQfS0wNYLWbAoD4io.local.variable_workflow_029DITOPQYFSO7mVCwm8CIHjFsWOnMRNgto$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "use_workflow_target": true
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "module_targets": [
+    {
+      "module_type": "Cisco XDR",
+      "external_id": "securex:ao:sxo"
+    }
+  ]
+}
