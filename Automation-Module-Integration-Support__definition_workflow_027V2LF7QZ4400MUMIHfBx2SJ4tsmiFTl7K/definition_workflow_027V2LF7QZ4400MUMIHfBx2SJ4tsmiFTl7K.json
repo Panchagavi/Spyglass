@@ -7,6 +7,48 @@
     "base_type": "workflow",
     "variables": [
       {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "TrendMicro Integration Test status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02816XFP1I7AG0hz9YsX2HXBr3yitkO8ick",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "EmailTable",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027WNV827A9Z32BiDz90po5RLdhiyHaApTA",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Pass",
+          "scope": "output",
+          "name": "Overall Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027VK5XNFGE0N1CWfxfMWpK8de0GPlcc71o",
+        "object_type": "variable_workflow"
+      },
+      {
         "schema_id": "tabletype_027Y1I73MPJ065OuN8rH4KtkAQHgc1OJ48b",
         "properties": {
           "scope": "output",
@@ -22,16 +64,15 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "meraki,crowdstrike,sentinelone,trendmicro,msdefender,cybereason,cortex",
-          "scope": "input",
-          "name": "Integration type",
+          "value": "Fail",
+          "scope": "output",
+          "name": "SentinelOne Integration Test status",
           "type": "datatype.string",
-          "description": "Enter the Module integration types for test. supported types are - meraki,crowdstrike,sentinelone,trendmicro,msdefender,cybereason\nNote : Remove type which you don't want to test. ",
-          "is_required": true,
+          "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_027XPDYCQG00P5yF2bSZgJpF5iStc5VYUlr",
+        "unique_name": "variable_workflow_02816X5UZ4A454MFErJOBt6W1QLJKRrYi8F",
         "object_type": "variable_workflow"
       },
       {
@@ -79,57 +120,16 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "EmailTable",
+          "value": "meraki,crowdstrike,sentinelone,trendmicro,msdefender,cybereason,cortex",
+          "scope": "input",
+          "name": "Integration type",
           "type": "datatype.string",
-          "is_required": false,
+          "description": "Enter the Module integration types for test. supported types are - meraki,crowdstrike,sentinelone,trendmicro,msdefender,cybereason\nNote : Remove type which you don't want to test. ",
+          "is_required": true,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_027WNV827A9Z32BiDz90po5RLdhiyHaApTA",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "SentinelOne Integration Test status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_02816X5UZ4A454MFErJOBt6W1QLJKRrYi8F",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Pass",
-          "scope": "output",
-          "name": "Overall Test Status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027VK5XNFGE0N1CWfxfMWpK8de0GPlcc71o",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "TrendMicro Integration Test status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_02816XFP1I7AG0hz9YsX2HXBr3yitkO8ick",
+        "unique_name": "variable_workflow_027XPDYCQG00P5yF2bSZgJpF5iStc5VYUlr",
         "object_type": "variable_workflow"
       },
       {
@@ -803,6 +803,60 @@
                                   "workflow_name": "Automation - Update An Action"
                                 },
                                 "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_029ERIGQQ5LK277zDhV9FOCzEbRSf0Wnsl6",
+                                "name": "Group",
+                                "title": "Export WF having Module target ",
+                                "type": "logic.group",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Export WF having Module target ",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity",
+                                "actions": [
+                                  {
+                                    "unique_name": "definition_activity_029ERIGQQA7BJ6iVGP8MenJEa53cE06dTUR",
+                                    "name": "HTTP Request",
+                                    "title": "Export WF having module integration target(Imported)",
+                                    "type": "web-service.http_request",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "action_timeout": 180,
+                                      "allow_auto_redirect": true,
+                                      "allow_headers_redirect": false,
+                                      "continue_on_error_status_code": false,
+                                      "continue_on_failure": true,
+                                      "display_name": "Export WF having module integration target(Imported)",
+                                      "method": "GET",
+                                      "relative_url": "/exchange/api/v1/workflows/export?workflow_id=$activity.029DZBZCHOKR341u7wvojTgES3CpkfPguyk.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                      "runtime_user": {
+                                        "target_default": true
+                                      },
+                                      "skip_execution": false,
+                                      "target": {
+                                        "use_workflow_target": true
+                                      }
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_029ERIGQQAYCH7CKCTo59qTXLgI0u0keCxV",
+                                    "name": "Sleep",
+                                    "title": "Sleep for 5s",
+                                    "type": "core.sleep",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": false,
+                                      "display_name": "Sleep for 5s",
+                                      "skip_execution": false,
+                                      "sleep_interval": 5
+                                    },
+                                    "object_type": "definition_activity"
+                                  }
+                                ]
                               }
                             ]
                           },
@@ -2745,6 +2799,60 @@
                                   "workflow_name": "Automation - Update An Action"
                                 },
                                 "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_029ERID4BIZ9W56AzfuONuloi9eBDe6JvQX",
+                                "name": "Group",
+                                "title": "Export WF having Module target ",
+                                "type": "logic.group",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Export WF having Module target ",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity",
+                                "actions": [
+                                  {
+                                    "unique_name": "definition_activity_029ERID4BLB920OkS2i7JPtrXaArVe7oKqB",
+                                    "name": "HTTP Request",
+                                    "title": "Export WF having module integration target(Imported)",
+                                    "type": "web-service.http_request",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "action_timeout": 180,
+                                      "allow_auto_redirect": true,
+                                      "allow_headers_redirect": false,
+                                      "continue_on_error_status_code": false,
+                                      "continue_on_failure": true,
+                                      "display_name": "Export WF having module integration target(Imported)",
+                                      "method": "GET",
+                                      "relative_url": "/exchange/api/v1/workflows/export?workflow_id=$activity.029DZBZCHOKR341u7wvojTgES3CpkfPguyk.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                      "runtime_user": {
+                                        "target_default": true
+                                      },
+                                      "skip_execution": false,
+                                      "target": {
+                                        "use_workflow_target": true
+                                      }
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_029ERID4BNVHN2A4TtOFJZPHNm4wmjfKzG2",
+                                    "name": "Sleep",
+                                    "title": "Sleep for 5s",
+                                    "type": "core.sleep",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": false,
+                                      "display_name": "Sleep for 5s",
+                                      "skip_execution": false,
+                                      "sleep_interval": 5
+                                    },
+                                    "object_type": "definition_activity"
+                                  }
+                                ]
                               }
                             ]
                           },
@@ -4670,6 +4778,60 @@
                                   "workflow_name": "Automation - Update An Action"
                                 },
                                 "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_029ERIA5EGCJX13X1OH2tgkF87xw27mTM5K",
+                                "name": "Group",
+                                "title": "Export WF having Module target ",
+                                "type": "logic.group",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Export WF having Module target ",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity",
+                                "actions": [
+                                  {
+                                    "unique_name": "definition_activity_029ERIA5EIXHJ3wDMiGBpNxVBZAibnKOZMv",
+                                    "name": "HTTP Request",
+                                    "title": "Export WF having module integration target(Imported)",
+                                    "type": "web-service.http_request",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "action_timeout": 180,
+                                      "allow_auto_redirect": true,
+                                      "allow_headers_redirect": false,
+                                      "continue_on_error_status_code": false,
+                                      "continue_on_failure": true,
+                                      "display_name": "Export WF having module integration target(Imported)",
+                                      "method": "GET",
+                                      "relative_url": "/exchange/api/v1/workflows/export?workflow_id=$activity.029DZBZCHOKR341u7wvojTgES3CpkfPguyk.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                      "runtime_user": {
+                                        "target_default": true
+                                      },
+                                      "skip_execution": false,
+                                      "target": {
+                                        "use_workflow_target": true
+                                      }
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_029ERIA5EL6ZW2MMAmZviOWtaWPaXtfpnMn",
+                                    "name": "Sleep",
+                                    "title": "Sleep for 5s",
+                                    "type": "core.sleep",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": false,
+                                      "display_name": "Sleep for 5s",
+                                      "skip_execution": false,
+                                      "sleep_interval": 5
+                                    },
+                                    "object_type": "definition_activity"
+                                  }
+                                ]
                               }
                             ]
                           },
@@ -6611,6 +6773,60 @@
                                   "workflow_name": "Automation - Update An Action"
                                 },
                                 "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_029ERFN8L6TVM3v5DOBRd6BpX4cs9wKn2xH",
+                                "name": "Group",
+                                "title": "Export WF having Module target ",
+                                "type": "logic.group",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Export WF having Module target ",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity",
+                                "actions": [
+                                  {
+                                    "unique_name": "definition_activity_029ER46N5JUVM4CKYQ0t8iGhO1JE7kzyRZJ",
+                                    "name": "HTTP Request",
+                                    "title": "Export WF having module integration target(Imported)",
+                                    "type": "web-service.http_request",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "action_timeout": 180,
+                                      "allow_auto_redirect": true,
+                                      "allow_headers_redirect": false,
+                                      "continue_on_error_status_code": false,
+                                      "continue_on_failure": true,
+                                      "display_name": "Export WF having module integration target(Imported)",
+                                      "method": "GET",
+                                      "relative_url": "/exchange/api/v1/workflows/export?workflow_id=$activity.029DZBZCHOKR341u7wvojTgES3CpkfPguyk.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                      "runtime_user": {
+                                        "target_default": true
+                                      },
+                                      "skip_execution": false,
+                                      "target": {
+                                        "use_workflow_target": true
+                                      }
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_029ER5UH4LNA56XvY2WsoSoXMGRmxv4uYxj",
+                                    "name": "Sleep",
+                                    "title": "Sleep for 5s",
+                                    "type": "core.sleep",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": false,
+                                      "display_name": "Sleep for 5s",
+                                      "skip_execution": false,
+                                      "sleep_interval": 5
+                                    },
+                                    "object_type": "definition_activity"
+                                  }
+                                ]
                               }
                             ]
                           },
@@ -8553,6 +8769,60 @@
                                   "workflow_name": "Automation - Update An Action"
                                 },
                                 "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_029ERI439U3Z029tjeKT2sRWzxqqjKW1O0K",
+                                "name": "Group",
+                                "title": "Export WF having Module target ",
+                                "type": "logic.group",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Export WF having Module target ",
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity",
+                                "actions": [
+                                  {
+                                    "unique_name": "definition_activity_029ERI439WTED64MTgQQtM2sO48FXfZ4YBA",
+                                    "name": "HTTP Request",
+                                    "title": "Export WF having module integration target(Imported)",
+                                    "type": "web-service.http_request",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "action_timeout": 180,
+                                      "allow_auto_redirect": true,
+                                      "allow_headers_redirect": false,
+                                      "continue_on_error_status_code": false,
+                                      "continue_on_failure": true,
+                                      "display_name": "Export WF having module integration target(Imported)",
+                                      "method": "GET",
+                                      "relative_url": "/exchange/api/v1/workflows/export?workflow_id=$activity.029DZBZCHOKR341u7wvojTgES3CpkfPguyk.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                                      "runtime_user": {
+                                        "target_default": true
+                                      },
+                                      "skip_execution": false,
+                                      "target": {
+                                        "use_workflow_target": true
+                                      }
+                                    },
+                                    "object_type": "definition_activity"
+                                  },
+                                  {
+                                    "unique_name": "definition_activity_029ERI439Z5PI6UFhh2rBGzPlotNxDxB2tm",
+                                    "name": "Sleep",
+                                    "title": "Sleep for 5s",
+                                    "type": "core.sleep",
+                                    "base_type": "activity",
+                                    "properties": {
+                                      "continue_on_failure": false,
+                                      "display_name": "Sleep for 5s",
+                                      "skip_execution": false,
+                                      "sleep_interval": 5
+                                    },
+                                    "object_type": "definition_activity"
+                                  }
+                                ]
                               }
                             ]
                           },
@@ -10511,114 +10781,6 @@
                                 "object_type": "definition_activity"
                               },
                               {
-                                "unique_name": "definition_activity_029ERFN8L6TVM3v5DOBRd6BpX4cs9wKn2xH",
-                                "name": "Group",
-                                "title": "Export WF having Module target ",
-                                "type": "logic.group",
-                                "base_type": "activity",
-                                "properties": {
-                                  "continue_on_failure": false,
-                                  "display_name": "Export WF having Module target ",
-                                  "skip_execution": false
-                                },
-                                "object_type": "definition_activity",
-                                "actions": [
-                                  {
-                                    "unique_name": "definition_activity_029ER46N5JUVM4CKYQ0t8iGhO1JE7kzyRZJ",
-                                    "name": "HTTP Request",
-                                    "title": "Export WF having module integration target(Imported)",
-                                    "type": "web-service.http_request",
-                                    "base_type": "activity",
-                                    "properties": {
-                                      "action_timeout": 180,
-                                      "allow_auto_redirect": true,
-                                      "allow_headers_redirect": false,
-                                      "continue_on_error_status_code": false,
-                                      "continue_on_failure": true,
-                                      "display_name": "Export WF having module integration target(Imported)",
-                                      "method": "GET",
-                                      "relative_url": "/exchange/api/v1/workflows/export?workflow_id=$activity.definition_activity_0281E3XBRY0LQ5sSvmjVSyirSPoSulMQ55o.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
-                                      "runtime_user": {
-                                        "target_default": true
-                                      },
-                                      "skip_execution": false,
-                                      "target": {
-                                        "use_workflow_target": true
-                                      }
-                                    },
-                                    "object_type": "definition_activity"
-                                  },
-                                  {
-                                    "unique_name": "definition_activity_029ER5UH4LNA56XvY2WsoSoXMGRmxv4uYxj",
-                                    "name": "Sleep",
-                                    "title": "Sleep for 5s",
-                                    "type": "core.sleep",
-                                    "base_type": "activity",
-                                    "properties": {
-                                      "continue_on_failure": false,
-                                      "display_name": "Sleep for 5s",
-                                      "skip_execution": false,
-                                      "sleep_interval": 5
-                                    },
-                                    "object_type": "definition_activity"
-                                  }
-                                ]
-                              },
-                              {
-                                "unique_name": "definition_activity_029ERI439U3Z029tjeKT2sRWzxqqjKW1O0K",
-                                "name": "Group",
-                                "title": "Export WF having Module target ",
-                                "type": "logic.group",
-                                "base_type": "activity",
-                                "properties": {
-                                  "continue_on_failure": false,
-                                  "display_name": "Export WF having Module target ",
-                                  "skip_execution": false
-                                },
-                                "object_type": "definition_activity",
-                                "actions": [
-                                  {
-                                    "unique_name": "definition_activity_029ERI439WTED64MTgQQtM2sO48FXfZ4YBA",
-                                    "name": "HTTP Request",
-                                    "title": "Export WF having module integration target(Imported)",
-                                    "type": "web-service.http_request",
-                                    "base_type": "activity",
-                                    "properties": {
-                                      "action_timeout": 180,
-                                      "allow_auto_redirect": true,
-                                      "allow_headers_redirect": false,
-                                      "continue_on_error_status_code": false,
-                                      "continue_on_failure": true,
-                                      "display_name": "Export WF having module integration target(Imported)",
-                                      "method": "GET",
-                                      "relative_url": "/exchange/api/v1/workflows/export?workflow_id=$activity.definition_activity_0281E3XBRY0LQ5sSvmjVSyirSPoSulMQ55o.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
-                                      "runtime_user": {
-                                        "target_default": true
-                                      },
-                                      "skip_execution": false,
-                                      "target": {
-                                        "use_workflow_target": true
-                                      }
-                                    },
-                                    "object_type": "definition_activity"
-                                  },
-                                  {
-                                    "unique_name": "definition_activity_029ERI439Z5PI6UFhh2rBGzPlotNxDxB2tm",
-                                    "name": "Sleep",
-                                    "title": "Sleep for 5s",
-                                    "type": "core.sleep",
-                                    "base_type": "activity",
-                                    "properties": {
-                                      "continue_on_failure": false,
-                                      "display_name": "Sleep for 5s",
-                                      "skip_execution": false,
-                                      "sleep_interval": 5
-                                    },
-                                    "object_type": "definition_activity"
-                                  }
-                                ]
-                              },
-                              {
                                 "unique_name": "definition_activity_029ERIKEYPQ4K0PTuqhjWsCAM02GDZ5uTgX",
                                 "name": "Group",
                                 "title": "Export WF having Module target ",
@@ -10658,168 +10820,6 @@
                                   },
                                   {
                                     "unique_name": "definition_activity_029ERIKEZ0R186VNdFwzjYMaXeQtEewCDYb",
-                                    "name": "Sleep",
-                                    "title": "Sleep for 5s",
-                                    "type": "core.sleep",
-                                    "base_type": "activity",
-                                    "properties": {
-                                      "continue_on_failure": false,
-                                      "display_name": "Sleep for 5s",
-                                      "skip_execution": false,
-                                      "sleep_interval": 5
-                                    },
-                                    "object_type": "definition_activity"
-                                  }
-                                ]
-                              },
-                              {
-                                "unique_name": "definition_activity_029ERIGQQ5LK277zDhV9FOCzEbRSf0Wnsl6",
-                                "name": "Group",
-                                "title": "Export WF having Module target ",
-                                "type": "logic.group",
-                                "base_type": "activity",
-                                "properties": {
-                                  "continue_on_failure": false,
-                                  "display_name": "Export WF having Module target ",
-                                  "skip_execution": false
-                                },
-                                "object_type": "definition_activity",
-                                "actions": [
-                                  {
-                                    "unique_name": "definition_activity_029ERIGQQA7BJ6iVGP8MenJEa53cE06dTUR",
-                                    "name": "HTTP Request",
-                                    "title": "Export WF having module integration target(Imported)",
-                                    "type": "web-service.http_request",
-                                    "base_type": "activity",
-                                    "properties": {
-                                      "action_timeout": 180,
-                                      "allow_auto_redirect": true,
-                                      "allow_headers_redirect": false,
-                                      "continue_on_error_status_code": false,
-                                      "continue_on_failure": true,
-                                      "display_name": "Export WF having module integration target(Imported)",
-                                      "method": "GET",
-                                      "relative_url": "/exchange/api/v1/workflows/export?workflow_id=$activity.definition_activity_0281E3XBRY0LQ5sSvmjVSyirSPoSulMQ55o.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
-                                      "runtime_user": {
-                                        "target_default": true
-                                      },
-                                      "skip_execution": false,
-                                      "target": {
-                                        "use_workflow_target": true
-                                      }
-                                    },
-                                    "object_type": "definition_activity"
-                                  },
-                                  {
-                                    "unique_name": "definition_activity_029ERIGQQAYCH7CKCTo59qTXLgI0u0keCxV",
-                                    "name": "Sleep",
-                                    "title": "Sleep for 5s",
-                                    "type": "core.sleep",
-                                    "base_type": "activity",
-                                    "properties": {
-                                      "continue_on_failure": false,
-                                      "display_name": "Sleep for 5s",
-                                      "skip_execution": false,
-                                      "sleep_interval": 5
-                                    },
-                                    "object_type": "definition_activity"
-                                  }
-                                ]
-                              },
-                              {
-                                "unique_name": "definition_activity_029ERID4BIZ9W56AzfuONuloi9eBDe6JvQX",
-                                "name": "Group",
-                                "title": "Export WF having Module target ",
-                                "type": "logic.group",
-                                "base_type": "activity",
-                                "properties": {
-                                  "continue_on_failure": false,
-                                  "display_name": "Export WF having Module target ",
-                                  "skip_execution": false
-                                },
-                                "object_type": "definition_activity",
-                                "actions": [
-                                  {
-                                    "unique_name": "definition_activity_029ERID4BLB920OkS2i7JPtrXaArVe7oKqB",
-                                    "name": "HTTP Request",
-                                    "title": "Export WF having module integration target(Imported)",
-                                    "type": "web-service.http_request",
-                                    "base_type": "activity",
-                                    "properties": {
-                                      "action_timeout": 180,
-                                      "allow_auto_redirect": true,
-                                      "allow_headers_redirect": false,
-                                      "continue_on_error_status_code": false,
-                                      "continue_on_failure": true,
-                                      "display_name": "Export WF having module integration target(Imported)",
-                                      "method": "GET",
-                                      "relative_url": "/exchange/api/v1/workflows/export?workflow_id=$activity.definition_activity_0281E3XBRY0LQ5sSvmjVSyirSPoSulMQ55o.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
-                                      "runtime_user": {
-                                        "target_default": true
-                                      },
-                                      "skip_execution": false,
-                                      "target": {
-                                        "use_workflow_target": true
-                                      }
-                                    },
-                                    "object_type": "definition_activity"
-                                  },
-                                  {
-                                    "unique_name": "definition_activity_029ERID4BNVHN2A4TtOFJZPHNm4wmjfKzG2",
-                                    "name": "Sleep",
-                                    "title": "Sleep for 5s",
-                                    "type": "core.sleep",
-                                    "base_type": "activity",
-                                    "properties": {
-                                      "continue_on_failure": false,
-                                      "display_name": "Sleep for 5s",
-                                      "skip_execution": false,
-                                      "sleep_interval": 5
-                                    },
-                                    "object_type": "definition_activity"
-                                  }
-                                ]
-                              },
-                              {
-                                "unique_name": "definition_activity_029ERIA5EGCJX13X1OH2tgkF87xw27mTM5K",
-                                "name": "Group",
-                                "title": "Export WF having Module target ",
-                                "type": "logic.group",
-                                "base_type": "activity",
-                                "properties": {
-                                  "continue_on_failure": false,
-                                  "display_name": "Export WF having Module target ",
-                                  "skip_execution": false
-                                },
-                                "object_type": "definition_activity",
-                                "actions": [
-                                  {
-                                    "unique_name": "definition_activity_029ERIA5EIXHJ3wDMiGBpNxVBZAibnKOZMv",
-                                    "name": "HTTP Request",
-                                    "title": "Export WF having module integration target(Imported)",
-                                    "type": "web-service.http_request",
-                                    "base_type": "activity",
-                                    "properties": {
-                                      "action_timeout": 180,
-                                      "allow_auto_redirect": true,
-                                      "allow_headers_redirect": false,
-                                      "continue_on_error_status_code": false,
-                                      "continue_on_failure": true,
-                                      "display_name": "Export WF having module integration target(Imported)",
-                                      "method": "GET",
-                                      "relative_url": "/exchange/api/v1/workflows/export?workflow_id=$activity.definition_activity_0281E3XBRY0LQ5sSvmjVSyirSPoSulMQ55o.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
-                                      "runtime_user": {
-                                        "target_default": true
-                                      },
-                                      "skip_execution": false,
-                                      "target": {
-                                        "use_workflow_target": true
-                                      }
-                                    },
-                                    "object_type": "definition_activity"
-                                  },
-                                  {
-                                    "unique_name": "definition_activity_029ERIA5EL6ZW2MMAmZviOWtaWPaXtfpnMn",
                                     "name": "Sleep",
                                     "title": "Sleep for 5s",
                                     "type": "core.sleep",
@@ -14527,6 +14527,34 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Request Payload to update the worklfow",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TNQRVAXVOGL5KijYChvPZ3FkDr6ih1w3y",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Token",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TNQRVAXT04A7ihlljF8vudsWhZ9i0rEqP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "Authorization",
               "scope": "local",
               "name": "Authorization",
@@ -14542,14 +14570,14 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Provide Workflow ID",
+              "scope": "output",
+              "name": "Workflow Status",
               "type": "datatype.string",
-              "is_required": true,
+              "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01TNQRVAXUAER6Egd2fEcyhcWpHoE896o0t",
+            "unique_name": "variable_workflow_01TNQRVAXSJ2Q4j29bFFO8S54B0usxAVQ06",
             "object_type": "variable_workflow"
           },
           {
@@ -14570,20 +14598,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Request Payload to update the worklfow",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01TNQRVAXVOGL5KijYChvPZ3FkDr6ih1w3y",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "output",
               "name": "Pass Value",
               "type": "datatype.string",
@@ -14598,28 +14612,14 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Workflow Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01TNQRVAXSJ2Q4j29bFFO8S54B0usxAVQ06",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
               "scope": "input",
-              "name": "Token",
+              "name": "Provide Workflow ID",
               "type": "datatype.string",
-              "is_required": false,
+              "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01TNQRVAXT04A7ihlljF8vudsWhZ9i0rEqP",
+            "unique_name": "variable_workflow_01TNQRVAXUAER6Egd2fEcyhcWpHoE896o0t",
             "object_type": "variable_workflow"
           }
         ],
