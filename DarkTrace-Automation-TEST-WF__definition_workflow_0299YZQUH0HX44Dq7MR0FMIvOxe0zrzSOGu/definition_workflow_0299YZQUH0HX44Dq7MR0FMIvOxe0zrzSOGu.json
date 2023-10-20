@@ -1,0 +1,161 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_0299YZQUH0HX44Dq7MR0FMIvOxe0zrzSOGu",
+    "name": "DarkTrace-Automation TEST WF",
+    "title": "DarkTrace-Automation TEST WF",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "DarkTrace-Automation TEST WF",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "$module_target;Darktrace RESPOND \u0026 DETECT;securex:ao:darktrace$",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_0299Z7JDOFHUC3BXs5OrwbHTu7EpjqPbNtr",
+        "name": "HTTP Request",
+        "title": "HTTP Request (Create Tag)",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "body": "{\n  \"name\": \"test-tag-$workflow.definition_workflow_0299YZQUH0HX44Dq7MR0FMIvOxe0zrzSOGu.output.start_time$\",\n  \"data\": {}\n}",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "HTTP Request (Create Tag)",
+          "method": "POST",
+          "relative_url": "/tags",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0299Z8FMBJ7067XIxPwKQpMpVBMa7EENmA8",
+        "name": "JSONPath Query",
+        "title": "Fetch TagID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Fetch TagID",
+          "input_json": "$activity.definition_activity_0299Z7JDOFHUC3BXs5OrwbHTu7EpjqPbNtr.output.response_body$      ",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.tid",
+              "jsonpath_query_name": "tag_ID",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0299YZTXDXG5C1no7xIQF1pI1s5NPxsjXlD",
+        "name": "HTTP Request",
+        "title": "HTTP Request (GET ALL Tags)",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "HTTP Request (GET ALL Tags)",
+          "method": "GET",
+          "relative_url": "/tags",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0299Z88L3ULU42CEeZ85kGM9ZwN2E5V8Pib",
+        "name": "HTTP Request",
+        "title": "HTTP Request (GET Tag by ID)",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "HTTP Request (GET Tag by ID)",
+          "method": "GET",
+          "relative_url": "/tags/$activity.definition_activity_0299Z8FMBJ7067XIxPwKQpMpVBMa7EENmA8.output.jsonpath_queries.tag_ID$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0299Z9EL6CQEX3YBd3K7EpkgCksf9b0feTV",
+        "name": "HTTP Request",
+        "title": "HTTP Request (Delete Tag by ID)",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "HTTP Request (Delete Tag by ID)",
+          "method": "DELETE",
+          "relative_url": "/tags/$activity.definition_activity_0299Z8FMBJ7067XIxPwKQpMpVBMa7EENmA8.output.jsonpath_queries.tag_ID$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "module_targets": [
+    {
+      "module_type": "Darktrace RESPOND \u0026 DETECT",
+      "external_id": "securex:ao:darktrace"
+    }
+  ]
+}
