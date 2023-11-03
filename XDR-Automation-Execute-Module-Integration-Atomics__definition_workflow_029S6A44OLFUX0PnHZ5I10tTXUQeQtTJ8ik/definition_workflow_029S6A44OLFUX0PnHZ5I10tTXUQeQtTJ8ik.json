@@ -7,33 +7,6 @@
     "base_type": "workflow",
     "variables": [
       {
-        "schema_id": "tabletype_029SF57BJ0S800vW2982cL4uQ1l9axrkroH",
-        "properties": {
-          "scope": "output",
-          "name": "Meraki_Atomics_WF_ID",
-          "type": "datatype.table",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_029SF5XE7K17U23MTaVPfLJHCMUlZWrk2xw",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Authorization",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_029SEZLBYN9RI4Qu5gGs6lpb4MrMdXVlfuJ",
-        "object_type": "variable_workflow"
-      },
-      {
         "schema_id": "tabletype_029SD1QKENXHH36SHfdM0dHGoGWpM33Pqdl",
         "properties": {
           "value": [
@@ -66,6 +39,33 @@
         },
         "unique_name": "variable_workflow_029SEZEOHSDBN2YexrVDGkehNlijgAz182n",
         "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029SEZLBYN9RI4Qu5gGs6lpb4MrMdXVlfuJ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_029SF57BJ0S800vW2982cL4uQ1l9axrkroH",
+        "properties": {
+          "scope": "output",
+          "name": "Meraki_Atomics_WF_ID",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_029SF5XE7K17U23MTaVPfLJHCMUlZWrk2xw",
+        "object_type": "variable_workflow"
       }
     ],
     "properties": {
@@ -79,6 +79,7 @@
       "continue_on_error_status_code": false,
       "continue_on_failure": true,
       "delete_workflow_instance": false,
+      "description": "XDR-Automation - Execute Module Integration Atomics",
       "display_name": "XDR-Automation - Execute Module Integration Atomics",
       "method": "POST",
       "relative_url": "/api/v1/workflows/start?workflow_id=$activity.029S70CU0JDR73IdjAVSII67T8B72uKP8Qf.output.jsonpath_queries.WF_ID$",
@@ -87,7 +88,8 @@
       },
       "skip_execution": false,
       "target": {
-        "use_workflow_target": true
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
       }
     },
     "object_type": "definition_workflow",
@@ -99,7 +101,7 @@
         "type": "logic.group",
         "base_type": "activity",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "Meraki",
           "skip_execution": false
         },
@@ -180,7 +182,7 @@
                 "base_type": "activity",
                 "properties": {
                   "action_timeout": 180,
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Add Row to Table",
                   "input_table": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.output.variable_workflow_029SF5XE7K17U23MTaVPfLJHCMUlZWrk2xw$",
                   "row": [
@@ -210,7 +212,7 @@
                   "column_type": "string"
                 }
               ],
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Select from Table",
               "input_table": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.output.variable_workflow_029SF5XE7K17U23MTaVPfLJHCMUlZWrk2xw$",
               "number_of_rows": {
@@ -225,6 +227,28 @@
             "object_type": "definition_activity"
           },
           {
+            "unique_name": "definition_activity_029SFHIUL0L6I54YrlInFIhOXo3AlvhepTS",
+            "name": "JSONPath Query",
+            "title": "Fetch WFID",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Fetch WFID",
+              "input_json": "$activity.definition_activity_029SF8Z6KZEQS4jtkU9Avm4nhj5HglxH0Fj.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$..Atomic_WF_ID_Meraki_ModuleIntegration_Type",
+                  "jsonpath_query_name": "WF_ID",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
             "unique_name": "definition_activity_029S728JZVFGS5YnLBqAWbXDK41iwr1GG28",
             "name": "Automation - Fetch Workflow Information using wf_id",
             "title": "Automation - Fetch Workflow Information using wf_id",
@@ -234,7 +258,7 @@
               "continue_on_failure": true,
               "display_name": "Automation - Fetch Workflow Information using wf_id",
               "input": {
-                "variable_workflow_01TNJ51BNBS833v3kjcQAgolKqAjBSTlkKK": "$activity.definition_activity_029SF8Z6KZEQS4jtkU9Avm4nhj5HglxH0Fj.output.response_body$",
+                "variable_workflow_01TNJ51BNBS833v3kjcQAgolKqAjBSTlkKK": "$activity.definition_activity_029SFHIUL0L6I54YrlInFIhOXo3AlvhepTS.output.jsonpath_queries.WF_ID$",
                 "variable_workflow_01TNJ51BNCA2E1oRBxWHjPf5zZmQmMSEXBU": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.input.variable_workflow_029SEZEOHSDBN2YexrVDGkehNlijgAz182n$",
                 "variable_workflow_01TNJ51BNED5W1dXP9IfhXD234YZCS4Fs6P": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.input.variable_workflow_029SEZLBYN9RI4Qu5gGs6lpb4MrMdXVlfuJ$"
               },
@@ -330,7 +354,7 @@
               "continue_on_failure": true,
               "display_name": "Execute Atomic Using V1 ",
               "method": "POST",
-              "relative_url": "/api/v1/workflows/ui/start?workflow_id=$activity.definition_activity_029SF8Z6KZEQS4jtkU9Avm4nhj5HglxH0Fj.output.response_body$",
+              "relative_url": "/api/v1/workflows/ui/start?workflow_id=$activity.definition_activity_029SFHIUL0L6I54YrlInFIhOXo3AlvhepTS.output.jsonpath_queries.WF_ID$",
               "runtime_user": {
                 "target_default": true
               },
@@ -349,14 +373,15 @@
             "base_type": "activity",
             "properties": {
               "action_timeout": 180,
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Fetch Instance ID",
               "input_json": "$activity.definition_activity_029SDR1WOX97H0QCllWOiat1xL2CxQ5hXBL.output.response_body$",
               "jsonpath_queries": [
                 {
                   "jsonpath_query": "$.id",
                   "jsonpath_query_name": "Wf_Instance_ID",
-                  "jsonpath_query_type": "string"
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                 }
               ],
               "skip_execution": false
@@ -388,11 +413,11 @@
               "allow_auto_redirect": true,
               "allow_headers_redirect": false,
               "continue_on_error_status_code": false,
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "custom_headers": [
                 {
-                  "name": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.input.029S6YOBB8RW31auLTndaDggTFgDFsO3dgJ$",
-                  "value": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.input.029S6YJCUMB3R0kXhVAmH9I0CuciVHyh3Rn$"
+                  "name": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.input.variable_workflow_029SEZLBYN9RI4Qu5gGs6lpb4MrMdXVlfuJ$",
+                  "value": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.input.variable_workflow_029SEZEOHSDBN2YexrVDGkehNlijgAz182n$"
                 }
               ],
               "display_name": "Get Instances",
@@ -416,14 +441,15 @@
             "base_type": "activity",
             "properties": {
               "action_timeout": 180,
-              "continue_on_failure": false,
+              "continue_on_failure": true,
               "display_name": "Fetch Status",
               "input_json": "$activity.definition_activity_029SEIK2BRVAC0DyFyRxFMRFxpjmW7jBbGz.output.response_body$",
               "jsonpath_queries": [
                 {
                   "jsonpath_query": "$.status.state",
                   "jsonpath_query_name": "Action_Status",
-                  "jsonpath_query_type": "string"
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                 }
               ],
               "skip_execution": false
@@ -482,8 +508,8 @@
           "continue_on_failure": true,
           "display_name": "Automation- Delete a Target",
           "input": {
-            "variable_workflow_026YF6R0HEAJ05j6hHCPGpkz7rOU859Bdkw": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.input.029S6YJCUMB3R0kXhVAmH9I0CuciVHyh3Rn$",
-            "variable_workflow_026YF6R0HEY2Q41Qj80t6JqBz9TMjlAg0mW": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.input.029S6YOBB8RW31auLTndaDggTFgDFsO3dgJ$",
+            "variable_workflow_026YF6R0HEAJ05j6hHCPGpkz7rOU859Bdkw": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.input.variable_workflow_029SEZEOHSDBN2YexrVDGkehNlijgAz182n$",
+            "variable_workflow_026YF6R0HEY2Q41Qj80t6JqBz9TMjlAg0mW": "$workflow.definition_workflow_029S6A44OLFUX0PnHZ5I10tTXUQeQtTJ8ik.input.variable_workflow_029SEZLBYN9RI4Qu5gGs6lpb4MrMdXVlfuJ$",
             "variable_workflow_026YF6R0HFH693GYUWv2rBpihQYUuh3ZgQi": "$activity.definition_activity_029S6AR5K2XC56wg2hzLoIlvX9PpFI0Oy6z.output.variable_workflow_027SK7K5AQX2G35YlwDmzHOjzJJeKaAFUhn$"
           },
           "runtime_user": {
