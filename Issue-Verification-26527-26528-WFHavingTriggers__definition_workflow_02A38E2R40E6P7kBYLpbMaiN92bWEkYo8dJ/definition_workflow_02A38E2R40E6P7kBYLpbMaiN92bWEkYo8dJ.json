@@ -1,0 +1,1034 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+    "name": "WF_All_Automation_Rules-Nov16",
+    "title": "WF_All_Automation_Rules-Nov16",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Input",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "automation_rules": {
+        "type": [
+          "approval_task.rule_event",
+          "email.rule_event",
+          "incident.rule_event",
+          "schedule.rule_schedule",
+          "webhook.rule_event"
+        ]
+      },
+      "delete_workflow_instance": false,
+      "display_name": "WF_All_Automation_Rules-Nov16",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02A38E63FXD235qHh4hZZMmWRKonQCzPhj1",
+        "name": "To Upper",
+        "title": "To Upper-INCPR",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "To Upper-INCPR",
+          "skip_execution": false,
+          "source": "$workflow.definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ.input.variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z$\n\nVar - Reference --\n$rule.incident rule_event.output.incident.scores.global$\n$rule.incident rule_event.output.incident.scores.ttp$\n$rule.incident rule_event.output.incident.confidence$\n$rule.incident rule_event.output.incident.description$\n$rule.incident rule_event.output.incident.id$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02A38M8SQ1OBL6GWYS1ksLWWlC0iQ7ReA1c",
+        "name": "To Upper",
+        "title": "To Upper-AprRule",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "To Upper-AprRule",
+          "skip_execution": false,
+          "source": "$workflow.definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ.input.variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z$\n\nVar Ref\n$rule.approval_task rule_event.output.minimum_approvals$\n$rule.approval_task rule_event.output.name$\n$rule.approval_task rule_event.output.priority$\n$rule.approval_task rule_event.output.subject_line$\n$rule.approval_task rule_event.output.task_message$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02A38MHJXDPIV25dVqBB8OofyIUxAQxDgTB",
+        "name": "To Upper",
+        "title": "To Upper-Email",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "To Upper-Email",
+          "skip_execution": false,
+          "source": "$workflow.definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ.input.variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z$\n\nVar Ref\n$rule.email rule_event.output.cc$\n$rule.email rule_event.output.message$\n$rule.email rule_event.output.sender$\n$rule.email rule_event.output.subject$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02A38MEHRG6HK2mNWtI7xFU5TVb9ch1Sc0z",
+        "name": "To Upper",
+        "title": "To Upper-Schdeule",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "To Upper-Schdeule",
+          "skip_execution": false,
+          "source": "$workflow.definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ.input.variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z$\n\nvar Refer -- \n$rule.schedule rule_schedule.input.display_name$\n$rule.schedule rule_schedule.input.description$\n$rule.schedule rule_schedule.input.type$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02A38MCRLTRR447yRkiQShC9bl3YEoHpO4a",
+        "name": "To Upper",
+        "title": "To Upper-Webhook",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "To Upper-Webhook",
+          "skip_execution": false,
+          "source": "$workflow.definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ.input.variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z$\n\nVar Ref\n\n$rule.webhook rule_event.output.request_body$\n$rule.webhook rule_event.output.request_headers[0].header_key$\n$rule.webhook rule_event.output.request_headers[0].header_value$\n\n\n$rule.webhook rule_event.output.request_headers[-1].header_key$\n$rule.webhook rule_event.output.request_headers[-1].header_value$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02A85O6B13WTR7AtPpIpiFtRIKWDACOfJTS",
+        "name": "Condition Block",
+        "title": "Refer Values from Array (Rule Types)",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Refer Values from Array (Rule Types)",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02A85O6BKS94L2YHONjRkI7Jf7l3sipYUL7",
+            "name": "Condition Branch",
+            "title": "Incident-Rule",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_02A38E63FXD235qHh4hZZMmWRKonQCzPhj1.output.error.code$",
+                "operator": "eq",
+                "right_operand": "200"
+              },
+              "continue_on_failure": false,
+              "display_name": "Incident-Rule",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02A85LA98KI5S5uyqjwWkKVt27gQnbPlHBG",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.incident rule_event.output.targets.data$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A85NFA0KPY92WaL5QBNcfIOqDqeWGDf67",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A85LA98KI5S5uyqjwWkKVt27gQnbPlHBG.input.source_array[@].count$\n$activity.definition_activity_02A85LA98KI5S5uyqjwWkKVt27gQnbPlHBG.input.source_array[@].observableType$\n$activity.definition_activity_02A85LA98KI5S5uyqjwWkKVt27gQnbPlHBG.input.source_array[@].type$\n$activity.definition_activity_02A85LA98KI5S5uyqjwWkKVt27gQnbPlHBG.input.source_array[@].value$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A86IX72U0PQ5wWe9Z24UzMWK4hpYW1qm7",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.incident rule_event.output.incident.assignees$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A86IX72W0ZC6icRBCLGo74VfSrEB6cVJ3",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A86IX72U0PQ5wWe9Z24UzMWK4hpYW1qm7.input.source_array[@]$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A86JGGTV9KD0CpIscKUWhN5TVBLYveTE7",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.incident rule_event.output.incident.tactics$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A86JGGTWT2R5C4SQW1XEhkrhuQaOXajAD",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A86JGGTV9KD0CpIscKUWhN5TVBLYveTE7.input.source_array[@]$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A86KN08VB1J4OV6plosyFDG3KSq231E0o",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.incident rule_event.output.incident.techniques$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A86KN08XGHX7XPKhARddOmId6jRG790rf",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A86KN08VB1J4OV6plosyFDG3KSq231E0o.input.source_array[@]$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A86MMKL499L4jiQIJpBS8hzEbhtvCcaTv",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.incident rule_event.output.indicators.data$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A86MMKL6IEG4OkWpBAe6I9h7tsz1i8JkE",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A86MMKL499L4jiQIJpBS8hzEbhtvCcaTv.input.source_array[@].count$\n$activity.definition_activity_02A86MMKL499L4jiQIJpBS8hzEbhtvCcaTv.input.source_array[@].value$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A86O70MMT3H6gdsNyT6s1mo7G2dGsW5AM",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.incident rule_event.output.mitreData.data$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A86O70MQ2267DEKYBZrsP7O44eICLUTdo",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A86O70MMT3H6gdsNyT6s1mo7G2dGsW5AM.input.source_array[@].count$\n$activity.definition_activity_02A86O70MMT3H6gdsNyT6s1mo7G2dGsW5AM.input.source_array[@].phase_name$\n$activity.definition_activity_02A86O70MMT3H6gdsNyT6s1mo7G2dGsW5AM.input.source_array[@].title$\n$activity.definition_activity_02A86O70MMT3H6gdsNyT6s1mo7G2dGsW5AM.input.source_array[@].value$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A86OTG0QJ6X55nh8kYC8ZygoEC9Axbesv",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.incident rule_event.output.observables.data$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A86OTG0SK207RciOEvT7CWWFua8u5uCGz",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A86OTG0QJ6X55nh8kYC8ZygoEC9Axbesv.input.source_array[@].type$\n$activity.definition_activity_02A86OTG0QJ6X55nh8kYC8ZygoEC9Axbesv.input.source_array[@].value$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A86P9P5Y1IK45HOpVOElbB7nkWMnQqFJu",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.incident rule_event.output.severity.data$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A86P9P600SI5181vcyP8f1m3SpKR40j0W",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A86P9P5Y1IK45HOpVOElbB7nkWMnQqFJu.input.source_array[@].count$\n$activity.definition_activity_02A86P9P5Y1IK45HOpVOElbB7nkWMnQqFJu.input.source_array[@].value$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A86Q0G8GVXB6aq7xhKqmGYn8UxKtta5pG",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.incident rule_event.output.source.data$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A86Q0G8IMBI0NqmR7nwRNrf1rKD45aG4C",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A86Q0G8GVXB6aq7xhKqmGYn8UxKtta5pG.input.source_array[@].count$\n$activity.definition_activity_02A86Q0G8GVXB6aq7xhKqmGYn8UxKtta5pG.input.source_array[@].value$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02A85O6C3PAB10PnzHQQD6EPCIKYWEe9hOk",
+            "name": "Condition Branch",
+            "title": "Approval-Rule",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_02A38M8SQ1OBL6GWYS1ksLWWlC0iQ7ReA1c.output.error.code$",
+                "operator": "eq",
+                "right_operand": "200"
+              },
+              "continue_on_failure": false,
+              "display_name": "Approval-Rule",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02A85LN9ZOX5L0M7p5ImthCKWqHUFoHXUGI",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.approval_task rule_event.output.approval_choices$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A85NGRP2H9Y6PDV3U5aCIBa3WK37Smyy4",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A85LN9ZOX5L0M7p5ImthCKWqHUFoHXUGI.input.source_array[@]$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A8624VU6XDB1rCmUlOZHnocCMwpJhUwUj",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.approval_task rule_event.output.assignee_responses$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A8624VU8GPF6bQUMNXf2y13U2fiAMGHBb",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A8624VU6XDB1rCmUlOZHnocCMwpJhUwUj.input.source_array[@].assignee$\n$activity.definition_activity_02A8624VU6XDB1rCmUlOZHnocCMwpJhUwUj.input.source_array[@].message$\n$activity.definition_activity_02A8624VU6XDB1rCmUlOZHnocCMwpJhUwUj.input.source_array[@].response$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A8629WT6I1L2q8vZPdcl5VMEjRX0i8hi2",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.approval_task rule_event.output.assignees$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A8629WT9Y372STHk0dvJHeol83UzXVe1i",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A8629WT6I1L2q8vZPdcl5VMEjRX0i8hi2.input.source_array[@]$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02A85OZ9YTT1W3UofVmiaGKcmFkkWXPnMzW",
+            "name": "Condition Branch",
+            "title": "Email-Rule",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_02A38MHJXDPIV25dVqBB8OofyIUxAQxDgTB.output.error.code$",
+                "operator": "eq",
+                "right_operand": "200"
+              },
+              "continue_on_failure": false,
+              "display_name": "Email-Rule",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02A85M300TVFT6ZKoMR8qOqaydEKM6VZCZ7",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.email rule_event.output.message_headers$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A85NLNHMCMV4a9XnoDVIJMJsNd3Qojsaa",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A85M300TVFT6ZKoMR8qOqaydEKM6VZCZ7.input.source_array[@].header_name$\n$activity.definition_activity_02A85M300TVFT6ZKoMR8qOqaydEKM6VZCZ7.input.source_array[@].header_value$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02A86C1AKSKRE5b6vX18dq7YWXQHCswlYwy",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.email rule_event.output.attachments$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A86C1AKV3VB4eZsP2QrPzSDXLHkX3amQU",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A86C1AKSKRE5b6vX18dq7YWXQHCswlYwy.input.source_array[@].attachment_body$\n$activity.definition_activity_02A86C1AKSKRE5b6vX18dq7YWXQHCswlYwy.input.source_array[@].attachment_headers$\n$activity.definition_activity_02A86C1AKSKRE5b6vX18dq7YWXQHCswlYwy.input.source_array[@].attachment_raw_body$\n$activity.definition_activity_02A86C1AKSKRE5b6vX18dq7YWXQHCswlYwy.input.source_array[@].file_hash$\n$activity.definition_activity_02A86C1AKSKRE5b6vX18dq7YWXQHCswlYwy.input.source_array[@].file_name$\n$activity.definition_activity_02A86C1AKSKRE5b6vX18dq7YWXQHCswlYwy.input.source_array[@].is_email_type$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02A85OY4TYXUJ5cN7Nb3ouGq3fLeqQgCPRe",
+            "name": "Condition Branch",
+            "title": "Webhook-Rule",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_02A38MCRLTRR447yRkiQShC9bl3YEoHpO4a.output.error.code$",
+                "operator": "eq",
+                "right_operand": "200"
+              },
+              "continue_on_failure": false,
+              "display_name": "Webhook-Rule",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02A85M6TZK10G6XDneZQ77oIWpYE4Wws7F4",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$rule.webhook rule_event.output.request_headers$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02A85NNTDIOV062UpfmEnVshakB4EL5EDp5",
+                    "name": "To Upper",
+                    "title": "To Upper",
+                    "type": "core.string2upper",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "To Upper",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_02A85M6TZK10G6XDneZQ77oIWpYE4Wws7F4.input.source_array[@].header_key$\n$activity.definition_activity_02A85M6TZK10G6XDneZQ77oIWpYE4Wws7F4.input.source_array[@].header_value$"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ],
+    "template_type": "template_workflow.workflow_with_automation_rule"
+  },
+  "rules": {
+    "ruleevent_02A38FJGPOJ507mLvckyavYNJXYU64VWI3y": {
+      "name": "INC-ST",
+      "title": "INC-ST",
+      "type": "incident.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": "$output.incident.title$",
+          "operator": "mw",
+          "right_operand": "*Nov16*"
+        },
+        "description": "",
+        "disabled": false,
+        "display_name": "INC-ST",
+        "group_by": false,
+        "rule_type": "rule_event",
+        "title": "INC-ST",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+            "wf_input_variables": {
+              "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z": "$rule.incident rule_event.output.incident.title$"
+            },
+            "status": {
+              "state": "started-polling",
+              "prev_state": "disabled",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_02A38FJGPOJ507mLvckyavYNJXYU64VWI3y"
+    },
+    "ruleevent_02A38G3PGKGZ00JI4Xgdc6nvrsghzj1qgDn": {
+      "name": "Apr-Nov16",
+      "title": "Apr-Nov16",
+      "type": "approval_task.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": {
+            "left_operand": "$output.subject_line$",
+            "operator": "mw",
+            "right_operand": "*Nov16*"
+          },
+          "operator": "and",
+          "right_operand": {
+            "left_operand": "$output.status.state$",
+            "operator": "eq",
+            "right_operand": "completed"
+          }
+        },
+        "description": "",
+        "disabled": false,
+        "display_name": "Apr-Nov16",
+        "group_by": false,
+        "rule_type": "rule_event",
+        "title": "Apr-Nov16",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+            "wf_input_variables": {
+              "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z": "$rule.approval_task rule_event.output.subject_line$"
+            },
+            "status": {
+              "state": "started-polling",
+              "prev_state": "started-polling",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_02A38G3PGKGZ00JI4Xgdc6nvrsghzj1qgDn"
+    },
+    "ruleevent_02A38IJWWOANC6HeYIpqg0fpGRAVmjr58D0": {
+      "name": "Emal-Graph",
+      "title": "Emal-Graph",
+      "type": "email.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "action": "read",
+        "conditions": {
+          "left_operand": "$output.subject$",
+          "operator": "mw",
+          "right_operand": "*Nov16-Graph*"
+        },
+        "description": "",
+        "disabled": false,
+        "display_name": "Emal-Graph",
+        "download_attachments": true,
+        "folder": "INBOX",
+        "group_by": false,
+        "rule_type": "rule_event",
+        "target_id": "definition_target_02A38I2KM8JBE5PShbRGyOAbxskLGFx8VYD",
+        "title": "Emal-Graph",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+            "wf_input_variables": {
+              "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z": "$rule.email rule_event.output.subject$"
+            },
+            "status": {
+              "state": "started-polling",
+              "prev_state": "created",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_02A38IJWWOANC6HeYIpqg0fpGRAVmjr58D0"
+    },
+    "ruleevent_02A38K63ZA60T3gEg56ZraLUICVX5siRD1L": {
+      "name": "Email-SMTP-Nov16",
+      "title": "Email-SMTP-Nov16",
+      "type": "email.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "action": "read",
+        "conditions": {
+          "left_operand": "$output.subject$",
+          "operator": "mw",
+          "right_operand": "*Nov16-SMTP*"
+        },
+        "description": "",
+        "disabled": false,
+        "display_name": "Email-SMTP-Nov16",
+        "download_attachments": true,
+        "folder": "INBOX",
+        "rule_type": "rule_event",
+        "target_id": "definition_target_02A38JPMY4O1C6jHL1e3xroJddnDVxTK69I",
+        "title": "Email-SMTP-Nov16",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+            "wf_input_variables": {
+              "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z": "$rule.email rule_event.output.subject$"
+            },
+            "status": {
+              "state": "started-polling",
+              "prev_state": "created",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_02A38K63ZA60T3gEg56ZraLUICVX5siRD1L"
+    },
+    "ruleevent_02A38LQW69MG10fkgxdCVXIpGt8TYdiAZpx": {
+      "name": "Webhook-Json-Nov16",
+      "title": "Webhook-Json-Nov16",
+      "type": "webhook.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": "$output.request_body$",
+          "operator": "eq",
+          "right_operand": "{\n  \"name\": \"test_nov16\"\n}"
+        },
+        "description": "",
+        "disabled": false,
+        "display_name": "Webhook-Json-Nov16",
+        "rule_type": "rule_event",
+        "title": "Webhook-Json-Nov16",
+        "webhook_id": "webhook_02A38LFOOR6Y56lo1IUpGX2m3hZ7ZoeeoEk",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+            "wf_input_variables": {
+              "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z": "$rule.webhook rule_event.output.request_body$"
+            },
+            "status": {
+              "state": "started-polling",
+              "prev_state": "created",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_02A38LQW69MG10fkgxdCVXIpGt8TYdiAZpx"
+    },
+    "ruleevent_02A39MTDTH0W9754oI6Ccwuu4OAGW3ukqgu": {
+      "name": "INC-PR",
+      "title": "INC-PR",
+      "description": "INC-PR",
+      "type": "incident.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": "$output.incident.title$",
+          "operator": "mw",
+          "right_operand": "*Nov16-PR*"
+        },
+        "description": "INC-PR",
+        "disabled": false,
+        "display_name": "INC-PR",
+        "group_by": true,
+        "rule_type": "rule_event",
+        "stop_subsequent_rules": true,
+        "title": "INC-PR",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+            "wf_input_variables": {
+              "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z": "$rule.incident rule_event.output.incident.title$"
+            },
+            "status": {
+              "state": "started-polling",
+              "prev_state": "created",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_02A39MTDTH0W9754oI6Ccwuu4OAGW3ukqgu"
+    },
+    "ruleschedule_02A38L0Y4XI007QPhvlAc1f4LwBBkFY2wzy": {
+      "name": "Sh-Rule-Nov16",
+      "title": "Sh-Rule-Nov16",
+      "description": "test-Description -updated",
+      "type": "schedule.rule_schedule",
+      "rule_type": "rule_schedule",
+      "base_type": "rule",
+      "object_type": "ruleschedule",
+      "version": "1.0.0",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "description": "test-Description -updated",
+        "display_name": "Sh-Rule-Nov16",
+        "group_by": false,
+        "interval_hours": 0,
+        "interval_minutes": 2,
+        "number_of_times": 5,
+        "rule_type": "rule_schedule",
+        "starttime": "17:03",
+        "timezone": "Asia/Kolkata",
+        "title": "Sh-Rule-Nov16",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+            "wf_input_variables": {
+              "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z": "From Schedule Rule"
+            },
+            "status": {
+              "state": "started-polling",
+              "prev_state": "created",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleschedule_02A38L0Y4XI007QPhvlAc1f4LwBBkFY2wzy"
+    }
+  },
+  "targets": {
+    "definition_target_02A38I2KM8JBE5PShbRGyOAbxskLGFx8VYD": {
+      "unique_name": "definition_target_02A38I2KM8JBE5PShbRGyOAbxskLGFx8VYD",
+      "name": "Graph-Nov16",
+      "title": "Graph-Nov16",
+      "type": "email.azure_graph_endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_02A38HZX4B63E7LXDG3GcuIX2JVM05FAgNA",
+        "display_name": "Graph-Nov16",
+        "host": "https://graph.microsoft.com/v1.0"
+      }
+    },
+    "definition_target_02A38JPMY4O1C6jHL1e3xroJddnDVxTK69I": {
+      "unique_name": "definition_target_02A38JPMY4O1C6jHL1e3xroJddnDVxTK69I",
+      "name": "IMAP-Nov16",
+      "title": "IMAP-Nov16",
+      "type": "email.imap_endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_02A38JHUR3MOJ4r9RqcbCuhac6rwzgTgCvv",
+        "display_name": "IMAP-Nov16",
+        "ignore_certificate_errors": true,
+        "polling_interval": 30,
+        "port": 993,
+        "protocol": "IMAP",
+        "server": "imap.gmail.com",
+        "tls_enabled": true
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_02A38HZX4B63E7LXDG3GcuIX2JVM05FAgNA": {
+      "unique_name": "definition_runtime_user_02A38HZX4B63E7LXDG3GcuIX2JVM05FAgNA",
+      "name": "Graph-Nov16",
+      "title": "Graph-Nov16",
+      "type": "runtime_user.oauth2_azure_graph_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "client_id": "e9e0864a-35ad-45e4-a919-8ef03faf817e",
+        "display_name": "Graph-Nov16",
+        "grant_type": "authorization_code",
+        "scope": "openid offline_access mail.readwrite mail.send user.read",
+        "tenant_id": "f131e32e-2532-4e5f-80fc-f9cd8fcaea27"
+      }
+    },
+    "definition_runtime_user_02A38JHUR3MOJ4r9RqcbCuhac6rwzgTgCvv": {
+      "unique_name": "definition_runtime_user_02A38JHUR3MOJ4r9RqcbCuhac6rwzgTgCvv",
+      "name": "Mail-Cred-Nov16",
+      "title": "Mail-Cred-Nov16",
+      "type": "runtime_user.email_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "Mail-Cred-Nov16",
+        "password": "*****",
+        "sender": "xdrautomation@gmail.com"
+      }
+    }
+  },
+  "webhooks": {
+    "webhook_02A38LFOOR6Y56lo1IUpGX2m3hZ7ZoeeoEk": {
+      "name": "WH-Json-Nov16",
+      "title": "WH-Json-Nov16",
+      "type": "generic.webhook",
+      "base_type": "webhook",
+      "object_type": "webhook",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "WH-Json-Nov16",
+        "request_content_type": "application/json"
+      },
+      "unique_name": "webhook_02A38LFOOR6Y56lo1IUpGX2m3hZ7ZoeeoEk"
+    }
+  }
+}
