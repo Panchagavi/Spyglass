@@ -105,12 +105,54 @@
       {
         "unique_name": "definition_activity_02A38MCRLTRR447yRkiQShC9bl3YEoHpO4a",
         "name": "To Upper",
-        "title": "To Upper-Webhook",
+        "title": "To Upper-Webhook-Json",
         "type": "core.string2upper",
         "base_type": "activity",
         "properties": {
           "continue_on_failure": true,
-          "display_name": "To Upper-Webhook",
+          "display_name": "To Upper-Webhook-Json",
+          "skip_execution": false,
+          "source": "$workflow.definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ.input.variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z$\n\nVar Ref\n\n$rule.webhook rule_event.output.request_body$\n$rule.webhook rule_event.output.request_headers[0].header_key$\n$rule.webhook rule_event.output.request_headers[0].header_value$\n\n\n$rule.webhook rule_event.output.request_headers[-1].header_key$\n$rule.webhook rule_event.output.request_headers[-1].header_value$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02A87NAFJSNBU6qj06CL12sy4UGlmjEQvP8",
+        "name": "To Upper",
+        "title": "To Upper-Webhook-XML",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "To Upper-Webhook-XML",
+          "skip_execution": false,
+          "source": "$workflow.definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ.input.variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z$\n\nVar Ref\n\n$rule.webhook rule_event.output.request_body$\n$rule.webhook rule_event.output.request_headers[0].header_key$\n$rule.webhook rule_event.output.request_headers[0].header_value$\n\n\n$rule.webhook rule_event.output.request_headers[-1].header_key$\n$rule.webhook rule_event.output.request_headers[-1].header_value$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02A87NDV3XW0C7HyrZYl2KAMm8Y8MMThQM6",
+        "name": "To Upper",
+        "title": "To Upper-Webhook-Encoded",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "To Upper-Webhook-Encoded",
+          "skip_execution": false,
+          "source": "$workflow.definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ.input.variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z$\n\nVar Ref\n\n$rule.webhook rule_event.output.request_body$\n$rule.webhook rule_event.output.request_headers[0].header_key$\n$rule.webhook rule_event.output.request_headers[0].header_value$\n\n\n$rule.webhook rule_event.output.request_headers[-1].header_key$\n$rule.webhook rule_event.output.request_headers[-1].header_value$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02A87NJY97T562SMgXnzUzBdppeCPwkUoAG",
+        "name": "To Upper",
+        "title": "To Upper-Webhook-UTF8",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "To Upper-Webhook-UTF8",
           "skip_execution": false,
           "source": "$workflow.definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ.input.variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z$\n\nVar Ref\n\n$rule.webhook rule_event.output.request_body$\n$rule.webhook rule_event.output.request_headers[0].header_key$\n$rule.webhook rule_event.output.request_headers[0].header_value$\n\n\n$rule.webhook rule_event.output.request_headers[-1].header_key$\n$rule.webhook rule_event.output.request_headers[-1].header_value$"
         },
@@ -847,11 +889,12 @@
         "conditions": {
           "left_operand": "$output.request_body$",
           "operator": "eq",
-          "right_operand": "{\n  \"name\": \"test_nov16\"\n}"
+          "right_operand": "{\n  \"name\": \"test_json_nov16\"\n}"
         },
         "description": "",
         "disabled": false,
         "display_name": "Webhook-Json-Nov16",
+        "group_by": false,
         "rule_type": "rule_event",
         "title": "Webhook-Json-Nov16",
         "webhook_id": "webhook_02A38LFOOR6Y56lo1IUpGX2m3hZ7ZoeeoEk",
@@ -864,7 +907,7 @@
             },
             "status": {
               "state": "started-polling",
-              "prev_state": "created",
+              "prev_state": "started-polling",
               "error_msg": ""
             }
           }
@@ -912,6 +955,124 @@
       },
       "disabled": false,
       "unique_name": "ruleevent_02A39MTDTH0W9754oI6Ccwuu4OAGW3ukqgu"
+    },
+    "ruleevent_02A87QD66I5SM6ppsr41rKW9LHCBbxNIX6C": {
+      "name": "WH-XML-Nov16",
+      "title": "WH-XML-Nov16",
+      "type": "webhook.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": "$output.request_body$",
+          "operator": "eq",
+          "right_operand": "\u003cnote\u003e\n\u003cto\u003eTove_xml_nov16\u003c/to\u003e\n\u003cfrom\u003eJani\u003c/from\u003e\n\u003cheading\u003eReminder\u003c/heading\u003e\n\u003cbody\u003eDon't forget me this weekend!\u003c/body\u003e\n\u003c/note\u003e"
+        },
+        "description": "",
+        "disabled": false,
+        "display_name": "WH-XML-Nov16",
+        "group_by": false,
+        "rule_type": "rule_event",
+        "title": "WH-XML-Nov16",
+        "webhook_id": "webhook_02A87O9KP443T1wYvB3fmNZpoMfMrqlXi3W",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+            "wf_input_variables": {
+              "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z": "$rule.webhook rule_event.output.request_body$"
+            },
+            "status": {
+              "state": "started-polling",
+              "prev_state": "started-polling",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_02A87QD66I5SM6ppsr41rKW9LHCBbxNIX6C"
+    },
+    "ruleevent_02A87R4WKJ6QB1DneRULTLLRdOQp348kvXL": {
+      "name": "WH-UTF8-Nov16",
+      "title": "WH-UTF8-Nov16",
+      "description": "WH-UTF8-Nov16",
+      "type": "webhook.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": "$output.request_body$",
+          "operator": "eq",
+          "right_operand": "{\n  \"name\": \"test_utf8_nov16\"\n}"
+        },
+        "description": "WH-UTF8-Nov16",
+        "disabled": false,
+        "display_name": "WH-UTF8-Nov16",
+        "group_by": false,
+        "rule_type": "rule_event",
+        "title": "WH-UTF8-Nov16",
+        "webhook_id": "webhook_02A87OGB6FTO41Fy0Rm95ZGsfg4aVMenALQ",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+            "wf_input_variables": {
+              "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z": "$rule.webhook rule_event.output.request_body$"
+            },
+            "status": {
+              "state": "started-polling",
+              "prev_state": "started-polling",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_02A87R4WKJ6QB1DneRULTLLRdOQp348kvXL"
+    },
+    "ruleevent_02A87RKVJNQ1H2mPcEPf6LtML0eSYMt7Yyz": {
+      "name": "WH-Encoded-Nov16",
+      "title": "WH-Encoded-Nov16",
+      "type": "webhook.rule_event",
+      "rule_type": "rule_event",
+      "base_type": "rule",
+      "object_type": "ruleevent",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": "$output.request_body$",
+          "operator": "eq",
+          "right_operand": "name=test_urlencoded_nov16"
+        },
+        "description": "",
+        "disabled": false,
+        "display_name": "WH-Encoded-Nov16",
+        "group_by": false,
+        "rule_type": "rule_event",
+        "title": "WH-Encoded-Nov16",
+        "webhook_id": "webhook_02A87OMDJ8PA43fIpQfj3p1crDQ6Lpi6PAp",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "workflow_id": "definition_workflow_02A38E2R40E6P7kBYLpbMaiN92bWEkYo8dJ",
+            "wf_input_variables": {
+              "variable_workflow_02A38EC5PLUNC2fjTH40OyTmsQdAywyZW9z": "$rule.webhook rule_event.output.request_body$"
+            },
+            "status": {
+              "state": "started-polling",
+              "prev_state": "started-polling",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleevent_02A87RKVJNQ1H2mPcEPf6LtML0eSYMt7Yyz"
     },
     "ruleschedule_02A38L0Y4XI007QPhvlAc1f4LwBBkFY2wzy": {
       "name": "Sh-Rule-Nov16",
@@ -1029,6 +1190,45 @@
         "request_content_type": "application/json"
       },
       "unique_name": "webhook_02A38LFOOR6Y56lo1IUpGX2m3hZ7ZoeeoEk"
+    },
+    "webhook_02A87O9KP443T1wYvB3fmNZpoMfMrqlXi3W": {
+      "name": "WH-XML-Nov16",
+      "title": "WH-XML-Nov16",
+      "type": "generic.webhook",
+      "base_type": "webhook",
+      "object_type": "webhook",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "WH-XML-Nov16",
+        "request_content_type": "application/xml"
+      },
+      "unique_name": "webhook_02A87O9KP443T1wYvB3fmNZpoMfMrqlXi3W"
+    },
+    "webhook_02A87OGB6FTO41Fy0Rm95ZGsfg4aVMenALQ": {
+      "name": "WH-UTF8-Nov16",
+      "title": "WH-UTF8-Nov16",
+      "type": "generic.webhook",
+      "base_type": "webhook",
+      "object_type": "webhook",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "WH-UTF8-Nov16",
+        "request_content_type": "application/json; charset=utf-8"
+      },
+      "unique_name": "webhook_02A87OGB6FTO41Fy0Rm95ZGsfg4aVMenALQ"
+    },
+    "webhook_02A87OMDJ8PA43fIpQfj3p1crDQ6Lpi6PAp": {
+      "name": "WH-UrlEncoded-Nov16",
+      "title": "WH-UrlEncoded-Nov16",
+      "type": "generic.webhook",
+      "base_type": "webhook",
+      "object_type": "webhook",
+      "version": "1.0.0",
+      "properties": {
+        "display_name": "WH-UrlEncoded-Nov16",
+        "request_content_type": "application/x-www-form-urlencoded"
+      },
+      "unique_name": "webhook_02A87OMDJ8PA43fIpQfj3p1crDQ6Lpi6PAp"
     }
   }
 }
