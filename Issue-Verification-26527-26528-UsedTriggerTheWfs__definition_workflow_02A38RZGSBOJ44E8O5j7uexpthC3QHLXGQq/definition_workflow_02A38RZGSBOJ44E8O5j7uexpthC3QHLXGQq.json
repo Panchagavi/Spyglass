@@ -1,15 +1,15 @@
 {
   "workflow": {
     "unique_name": "definition_workflow_02A38RZGSBOJ44E8O5j7uexpthC3QHLXGQq",
-    "name": "WF-Approval-Email-Nov16",
-    "title": "WF-Approval-Email-Nov16",
+    "name": "WF-Approval-Email-Webhook-Nov16",
+    "title": "WF-Approval-Email-Webhook-Nov16",
     "type": "generic.workflow",
     "base_type": "workflow",
     "variables": [
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "approval,email-smtp,email-graph",
+          "value": "approval,email-smtp,email-graph,wh-json,wh-xml,wh-utf8,wh-urlencoded",
           "scope": "input",
           "name": "Input- Send all if need , or else remove which user dont want",
           "type": "datatype.string",
@@ -26,7 +26,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "display_name": "WF-Approval-Email-Nov16",
+      "display_name": "WF-Approval-Email-Webhook-Nov16",
       "runtime_user": {
         "target_default": true
       },
@@ -52,12 +52,12 @@
           {
             "unique_name": "definition_activity_02A38S5CAO2WX5drd6n6p3ltLStthmiI6e6",
             "name": "Parallel Branch",
-            "title": "Parallel Branch",
+            "title": "Approval",
             "type": "logic.parallel_block",
             "base_type": "activity",
             "properties": {
               "continue_on_failure": false,
-              "display_name": "Parallel Branch",
+              "display_name": "Approval",
               "skip_execution": false
             },
             "object_type": "definition_activity",
@@ -105,7 +105,8 @@
                             "Reject"
                           ],
                           "assignees": [
-                            "vspancha@cisco.com"
+                            "vspancha@cisco.com",
+                            "sanjms@cisco.com"
                           ],
                           "continue_on_failure": false,
                           "display_name": "Create Approval Request",
@@ -125,7 +126,7 @@
                             }
                           },
                           "expiration_status": "Expired",
-                          "minimum_approvals": 1,
+                          "minimum_approvals": 2,
                           "priority": "high",
                           "skip_execution": false,
                           "subject_line": "Approval Nov16 Test",
@@ -144,12 +145,12 @@
           {
             "unique_name": "definition_activity_02A38S5CJMY0F2A7uDSeW5rNCZKPDrqoFyy",
             "name": "Parallel Branch",
-            "title": "Parallel Branch",
+            "title": "Email-SMTP",
             "type": "logic.parallel_block",
             "base_type": "activity",
             "properties": {
               "continue_on_failure": false,
-              "display_name": "Parallel Branch",
+              "display_name": "Email-SMTP",
               "skip_execution": false
             },
             "object_type": "definition_activity",
@@ -252,12 +253,12 @@
           {
             "unique_name": "definition_activity_02A38UQ34DORG5hKowXPZRLk8UjIEIhv8L1",
             "name": "Parallel Branch",
-            "title": "Parallel Branch",
+            "title": "Email-Graph",
             "type": "logic.parallel_block",
             "base_type": "activity",
             "properties": {
               "continue_on_failure": false,
-              "display_name": "Parallel Branch",
+              "display_name": "Email-Graph",
               "skip_execution": false
             },
             "object_type": "definition_activity",
@@ -348,6 +349,266 @@
                             "target_id": "definition_target_02A38I2KM8JBE5PShbRGyOAbxskLGFx8VYD"
                           },
                           "to": "secops1@securitydemo.net"
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02A87SQV64YER4QrPly23huHBoVfhUYJb9G",
+            "name": "Parallel Branch",
+            "title": "Webhook-Json",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Webhook-Json",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02A87SQV65SA42koEGobUOFBtWMVe0LaFRW",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02A87SQV67D6A4bTxt9zsWmhbwYxbMMc7CE",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_02A38RZGSBOJ44E8O5j7uexpthC3QHLXGQq.input.variable_workflow_02A8663YSV7PS3LdBLR1eF19a6On7STuWt5$",
+                        "operator": "mregex",
+                        "right_operand": "(?:wh-json)"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02A87TJV9ONIE4UQNSgvCMpsn8OzsGMrDov",
+                        "name": "Execute Python Script",
+                        "title": "Execute Json WH Request",
+                        "type": "python3.script",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": false,
+                          "display_name": "Execute Json WH Request",
+                          "script": "import requests\n\nurl = \"https://automate.sxo-qa1.ao-local.com/webhooks/02A85IPEAZM6P0YqPqTlscUEBn4WLk8J5TL\"\n\nquerystring = {\"api_key\":\"4guEbisY/32oaqnFHzOaHTYPQbcGCRe1h3xyRMcscmgvuI1elbu3wH/yaDENSVBqR4F+Knt/TDcPbxG56ZlFpgpvV7xQqtfzbk1G3lixbe7P+lhOiKygR/TZiXJ4mvXg\"}\n\npayload = {\"name\": \"test_json_nov16\"}\nheaders = {\"Content-Type\": \"application/json\"}\n\nresponse = requests.request(\"POST\", url, json=payload, headers=headers, params=querystring)\n\nprint(response.text)",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02A87UQ6PH43E6FFy5l2zk26Cfh9nRoxcaB",
+            "name": "Parallel Branch",
+            "title": "Webhook-XML",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Webhook-XML",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02A87UQ6PI48P7SCjhQd8mai0CuiYUQK2DK",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02A87UQ6PLA137RhqY6Trdxn0Rv1kYxDBeS",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_02A38RZGSBOJ44E8O5j7uexpthC3QHLXGQq.input.variable_workflow_02A8663YSV7PS3LdBLR1eF19a6On7STuWt5$",
+                        "operator": "mregex",
+                        "right_operand": "(?:wh-xml)"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02A87UQ6PNN7S34bvMnDRbamuRK05rKC9e6",
+                        "name": "Execute Python Script",
+                        "title": "Execute XML WH Request",
+                        "type": "python3.script",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": false,
+                          "display_name": "Execute XML WH Request",
+                          "script": "import requests\n\nurl = \"https://automate.sxo-qa1.ao-local.com/webhooks/02A87O9KMGXV47N8GCez6TnPL0ZIZOLIQ2V\"\n\nquerystring = {\"api_key\":\"1gUjtdp46VLeMLWpmED2KNdVPcR3ejDuB9/d1+gLulq5OKRJQgph0wpOlthfSQDfLXUkYeT5nfEMFYxH5bEPHusdd5nbI7iK/5qUNiXMDdq8f4O63IrW7Jow+3HRZigD\"}\n\npayload = \"\u003cnote\u003e\\n\u003cto\u003eTove_xml_nov16\u003c/to\u003e\\n\u003cfrom\u003eJani\u003c/from\u003e\\n\u003cheading\u003eReminder\u003c/heading\u003e\\n\u003cbody\u003eDon't forget me this weekend!\u003c/body\u003e\\n\u003c/note\u003e\"\nheaders = {\n    \"Content-Type\": \"application/xml\",\n    \"Sxo\": \"Vinay\"\n}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02A87URS24UP403mWnejRs4pSooGb4RgsmP",
+            "name": "Parallel Branch",
+            "title": "Webhook-utf8",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Webhook-utf8",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02A87URS25TH82jaCSBQp2DMv1TV00JXkV0",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02A87URS27R5A6U5xGUqjnqiZJgZrC8ecjC",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_02A38RZGSBOJ44E8O5j7uexpthC3QHLXGQq.input.variable_workflow_02A8663YSV7PS3LdBLR1eF19a6On7STuWt5$",
+                        "operator": "mregex",
+                        "right_operand": "(?:wh-utf8)"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02A87URS2ADJW6XZtBbdqYC6sryZ9h0OheF",
+                        "name": "Execute Python Script",
+                        "title": "Execute utf8 WH Request",
+                        "type": "python3.script",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": false,
+                          "display_name": "Execute utf8 WH Request",
+                          "script": "import requests\n\nurl = \"https://automate.sxo-qa1.ao-local.com/webhooks/02A87OGAVIY8W64fwZ9MFbYiMeGuMgmrg2N\"\n\nquerystring = {\"api_key\":\"aBbZCFV8h8CGZCBQlYTIXpq9GvFL2KVknCMFPSRQnfb5Wg9JHUAI+x/peuRCk55sbtNLa38rDL17Gi7qzkUYquMZOmydtgxgE0G6bUoca+r0nTrIF87+QoAkepFn0jwC\"}\n\npayload = \"{\\n  \\\"name\\\": \\\"test_utf8_nov16\\\"\\n}\"\nheaders = {\n    \"Content-Type\": \"application/json; charset=utf-8\",\n    \"Type\": \"Utf8\"\n}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02A87UT5FAKXX1VLL71vAcoIEhCBG8D6IjZ",
+            "name": "Parallel Branch",
+            "title": "Webhook-urlencoded",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Webhook-urlencoded",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02A87UT5FBAEH1nYZiZSRzMQUOwZSqqymQ5",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02A87UT5FD04V2ZMiZRqhunu4plLBVMPZ8L",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_02A38RZGSBOJ44E8O5j7uexpthC3QHLXGQq.input.variable_workflow_02A8663YSV7PS3LdBLR1eF19a6On7STuWt5$",
+                        "operator": "mregex",
+                        "right_operand": "(?:wh-urlencoded)"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02A87UT5FFI0Q64eBxclYAEye5YdlNMjKLh",
+                        "name": "Execute Python Script",
+                        "title": "Execute UrlEncoded WH Request",
+                        "type": "python3.script",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": false,
+                          "display_name": "Execute UrlEncoded WH Request",
+                          "script": "import requests\n\nurl = \"https://automate.sxo-qa1.ao-local.com/webhooks/02A87OMDGMNFR4DpkJKWjiNgABX0yTmOrLJ\"\n\nquerystring = {\"api_key\":\"CTok3/M+gNEmqOEJBp9z0gdn4XpUpAgZh6e6ciwSE+fzl/mprgQXh2vlKrl1wjslBvE349RrVBzCGKh55r22phPBFiAH/f72CNpH9r9+XkNrLJPdh3TcBGCWWWG8vUxX\"}\n\npayload = \"name=test_urlencoded_nov16\"\nheaders = {\n    \"Sxo\": \"Vinay\",\n    \"Content-Type\": \"application/x-www-form-urlencoded\"\n}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers, params=querystring)\n\nprint(response.text)",
+                          "skip_execution": false
                         },
                         "object_type": "definition_activity"
                       }
