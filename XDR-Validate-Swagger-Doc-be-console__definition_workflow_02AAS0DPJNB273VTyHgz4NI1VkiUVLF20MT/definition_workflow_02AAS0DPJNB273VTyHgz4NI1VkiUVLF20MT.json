@@ -40,7 +40,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "description": "Below steps to be done in Atomic \n--------------------------------------------------------------------------------------\nValidate the Swagger Json\nScan the Swagger Json Received from DevRepo and URL (https://sxo.sxo-qa1.ao-local.com/orch-ui/dist/be-console.swagger.json)\nStore the results in Variable \nCompare both results \nFetch the RequestBody Parameter for POST,PUT and Patch Methods and Compare with Empty Value \n--------------------------------------------------------------------------------------\nParent Atomic will Receive results and Check the results status pass or Fail based on that Set Overall Test as Pass or Fail\nPrint the results in SendEmail Table Variable",
+      "description": "Below steps to be done in Atomic \n--------------------------------------------------------------------------------------\nValidate the Swagger Json\nScan the Swagger Json Received from DevRepo and URL (https://sxo.sxo-qa1.ao-local.com/orch-ui/dist/be-console.swagger.json)\nStore the results in Variable \nCompare both results \nFetch the RequestBody Parameter for POST,PUT and Patch Methods and Compare with Empty Value \n--------------------------------------------------------------------------------------\nParent Atomic \n--------------------------------------------------------------------------------------\nwill Receive results and Check the results status pass or Fail based on that Set \nOverall Test as Pass or Fail\nPrint the results in SendEmail Table Variable",
       "display_name": "XDR-Validate Swagger Doc - be-console",
       "runtime_user": {
         "target_default": true
@@ -373,7 +373,7 @@
             ]
           },
           {
-            "unique_name": "definition_activity_02ACC001KILBP0YHFsj2FziN1vvMhJQi1FW",
+            "unique_name": "definition_activity_02ACECRMC7UAX1YzD79nNQGqOsmSK9TNyeK",
             "name": "Parallel Branch",
             "title": "Category APIs",
             "type": "logic.parallel_block",
@@ -386,7 +386,7 @@
             "object_type": "definition_activity",
             "actions": [
               {
-                "unique_name": "definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ",
+                "unique_name": "definition_activity_02ACECRMC8PX50RktNVVSaRvENcHeSIX095",
                 "name": "XDR Automation - Swagger Json",
                 "title": "XDR Automation - Swagger Json",
                 "type": "workflow.atomic_workflow",
@@ -444,6 +444,53 @@
                 "object_type": "definition_activity"
               }
             ]
+          },
+          {
+            "unique_name": "definition_activity_02ACC001KILBP0YHFsj2FziN1vvMhJQi1FW",
+            "name": "Parallel Branch",
+            "title": "Change Owner APIs",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Change Owner APIs",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ",
+                "name": "XDR Automation - Swagger Json",
+                "title": "XDR Automation - Swagger Json",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "XDR Automation - Swagger Json",
+                  "input": {
+                    "variable_workflow_02AA03D5N5AGA0WaVR4xXX3Ku7QkB1Thva8": "$workflow.definition_workflow_02AAS0DPJNB273VTyHgz4NI1VkiUVLF20MT.input.variable_workflow_02ACD7Q4D56XK1yURjJyFPmUThaSC0MkqEi$",
+                    "variable_workflow_02AA0WQS3QSXF68jRjbjoJ5me1stbqKqG4x": [
+                      {
+                        "column_data": {
+                          "API_Method": "put",
+                          "API_Path": "/v1/change_owner/{entity_id}"
+                        }
+                      }
+                    ]
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "no_target": true
+                  },
+                  "workflow_id": "definition_workflow_02AA01RZPNM373VjUTolLdbQb1OEAPI8Ukj",
+                  "workflow_name": "XDR Automation - Swagger Json"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
           }
         ]
       },
@@ -460,7 +507,7 @@
           "variables_to_update": [
             {
               "variable_to_update": "$workflow.definition_workflow_02AAS0DPJNB273VTyHgz4NI1VkiUVLF20MT.output.variable_workflow_02ACBHBRW61LF6Ngf9zfFgY8Y5OsQkk989R$",
-              "variable_value_new": "\u003ch2\u003eValidate the Swagger Json\u003c/h2\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003cth\u003eValidated API Name\u003c/th\u003e\n\u003cth\u003eAPI Test Result\u003c/th\u003e\n\u003cth\u003eScanned Response Received\u003c/th\u003e\n\u003cth\u003eError Message\u003c/th\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eWorkflow and Workflows Instance APIs\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$\u003c/td\u003e\n\u003ctd\u003eDev Repo Post,PUT and Patch Resposne -- $activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAQESB70NKS4m2Sn29ce6uAzoYTXUP4xp$\nDev Repo GET and Delete Resposne -- $activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAQF7ZGYZ226yohc3pA9l8ikweEbS0fQA$ \nURL  Post,PUT and Patch Resposne -- $activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAQEYSOK1S45Ln8vdHd0IkupcfngbO8dz$\nURL  GET and Delete Resposne -- $activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAQFE0UR3BB24xW6X0oqQ9nf18YUIPnBu$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eCalenders APIs\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$\u003c/td\u003e\n\u003ctd\u003eDev Repo Post,PUT and Patch Resposne -- $activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAQESB70NKS4m2Sn29ce6uAzoYTXUP4xp$\nDev Repo GET and Delete Resposne -- $activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAQF7ZGYZ226yohc3pA9l8ikweEbS0fQA$\nURL  Post,PUT and Patch Resposne -- $activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAQEYSOK1S45Ln8vdHd0IkupcfngbO8dz$\nURL  GET and Delete Resposne -- $activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAQFE0UR3BB24xW6X0oqQ9nf18YUIPnBu$\u003c/td\u003e\n\u003c/tr\u003e\n\n\n\u003ctr\u003e\n\u003ctd\u003eCategories APIs\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$\u003c/td\u003e\n\u003ctd\u003eDev Repo Post,PUT and Patch Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQESB70NKS4m2Sn29ce6uAzoYTXUP4xp$\nDev Repo GET and Delete Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQF7ZGYZ226yohc3pA9l8ikweEbS0fQA$\nURL  Post,PUT and Patch Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQEYSOK1S45Ln8vdHd0IkupcfngbO8dz$\nURL  GET and Delete Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQFE0UR3BB24xW6X0oqQ9nf18YUIPnBu$\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e"
+              "variable_value_new": "\u003ch2\u003eValidate the Swagger Json\u003c/h2\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003cth\u003eValidated API Name\u003c/th\u003e\n\u003cth\u003eAPI Test Result\u003c/th\u003e\n\u003cth\u003eScanned Response Received\u003c/th\u003e\n\u003cth\u003eError Message\u003c/th\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eWorkflow and Workflows Instance APIs\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$\u003c/td\u003e\n\u003ctd\u003eDev Repo Post,PUT and Patch Resposne -- $activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAQESB70NKS4m2Sn29ce6uAzoYTXUP4xp$\nDev Repo GET and Delete Resposne -- $activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAQF7ZGYZ226yohc3pA9l8ikweEbS0fQA$ \nURL  Post,PUT and Patch Resposne -- $activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAQEYSOK1S45Ln8vdHd0IkupcfngbO8dz$\nURL  GET and Delete Resposne -- $activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAQFE0UR3BB24xW6X0oqQ9nf18YUIPnBu$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eCalenders APIs\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$\u003c/td\u003e\n\u003ctd\u003eDev Repo Post,PUT and Patch Resposne -- $activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAQESB70NKS4m2Sn29ce6uAzoYTXUP4xp$\nDev Repo GET and Delete Resposne -- $activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAQF7ZGYZ226yohc3pA9l8ikweEbS0fQA$\nURL  Post,PUT and Patch Resposne -- $activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAQEYSOK1S45Ln8vdHd0IkupcfngbO8dz$\nURL  GET and Delete Resposne -- $activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAQFE0UR3BB24xW6X0oqQ9nf18YUIPnBu$\u003c/td\u003e\n\u003c/tr\u003e\n\n\n\u003ctr\u003e\n\u003ctd\u003eCategories APIs\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$\u003c/td\u003e\n\u003ctd\u003eDev Repo Post,PUT and Patch Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQESB70NKS4m2Sn29ce6uAzoYTXUP4xp$\nDev Repo GET and Delete Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQF7ZGYZ226yohc3pA9l8ikweEbS0fQA$\nURL  Post,PUT and Patch Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQEYSOK1S45Ln8vdHd0IkupcfngbO8dz$\nURL  GET and Delete Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQFE0UR3BB24xW6X0oqQ9nf18YUIPnBu$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eChange Owner API\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003eDev Repo Post,PUT and Patch Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQESB70NKS4m2Sn29ce6uAzoYTXUP4xp$\nDev Repo GET and Delete Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQF7ZGYZ226yohc3pA9l8ikweEbS0fQA$\nURL  Post,PUT and Patch Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQEYSOK1S45Ln8vdHd0IkupcfngbO8dz$\nURL  GET and Delete Resposne -- $activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAQFE0UR3BB24xW6X0oqQ9nf18YUIPnBu$\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e"
             }
           ]
         },
@@ -489,13 +536,21 @@
               "condition": {
                 "left_operand": {
                   "left_operand": {
-                    "left_operand": "$activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$",
-                    "operator": "eq",
-                    "right_operand": "Pass"
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$",
+                      "operator": "eq",
+                      "right_operand": "Pass"
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$",
+                      "operator": "eq",
+                      "right_operand": "Pass"
+                    }
                   },
                   "operator": "and",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$",
+                    "left_operand": "$activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$",
                     "operator": "eq",
                     "right_operand": "Pass"
                   }
@@ -539,13 +594,21 @@
               "condition": {
                 "left_operand": {
                   "left_operand": {
-                    "left_operand": "$activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$",
-                    "operator": "eq",
-                    "right_operand": "Fail"
+                    "left_operand": {
+                      "left_operand": "$activity.definition_activity_02AAS0HSH86O83jcCsHFdkCIAFy1RnVv3Q4.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$",
+                      "operator": "eq",
+                      "right_operand": "Fail"
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$",
+                      "operator": "eq",
+                      "right_operand": "Fail"
+                    }
                   },
                   "operator": "or",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_02ACBENJUN68R6z5LM2jzBgu2ovOwXkvzUk.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$",
+                    "left_operand": "$activity.definition_activity_02ACC001KNVDA37vwcvsRHMJPXtpI13TmeQ.output.variable_workflow_02AAPH3TEAO775BGTzCqiljn33F0Fw8HRXw$",
                     "operator": "eq",
                     "right_operand": "Fail"
                   }
