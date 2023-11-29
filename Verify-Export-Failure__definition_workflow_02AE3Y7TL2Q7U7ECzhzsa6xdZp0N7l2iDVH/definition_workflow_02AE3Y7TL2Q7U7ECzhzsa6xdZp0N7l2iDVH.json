@@ -1,0 +1,143 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02AE3Y7TL2Q7U7ECzhzsa6xdZp0N7l2iDVH",
+    "name": "Verify Export Failure",
+    "title": "Verify Export Failure",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Variable",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02AE3YQJJ11OL1M1VW4a5cfpqh9Fk412dwm",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Verify Export Failure",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02AE3YG3TH0L91nUZCYNArAkuH1cVJaGpyW",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02AE3YG4DTS655jehn2aLxVXivTxcAWMTsZ",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$workflow.definition_workflow_02AE3Y7TL2Q7U7ECzhzsa6xdZp0N7l2iDVH.output.variable_workflow_02AE3YQJJ11OL1M1VW4a5cfpqh9Fk412dwm$",
+                  "operator": "nmw",
+                  "right_operand": "*400 message*false*"
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_02AE3Y7TL2Q7U7ECzhzsa6xdZp0N7l2iDVH.output.variable_workflow_02AE3YQJJ11OL1M1VW4a5cfpqh9Fk412dwm$",
+                  "operator": "ne",
+                  "right_operand": ""
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02AE409X1UWOZ5ESETTvGUQgsV35bNHcM80",
+                "name": "Completed",
+                "title": "Completed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "succeeded",
+                  "continue_on_failure": false,
+                  "display_name": "Completed",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02AE3ZKIK55N41ZHiEvHFEEzUroeCmh06Lt",
+            "name": "Condition Branch",
+            "title": "Condition Branch",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$workflow.definition_workflow_02AE3Y7TL2Q7U7ECzhzsa6xdZp0N7l2iDVH.output.variable_workflow_02AE3YQJJ11OL1M1VW4a5cfpqh9Fk412dwm$",
+                  "operator": "mw",
+                  "right_operand": "*400 message*false*"
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_02AE3Y7TL2Q7U7ECzhzsa6xdZp0N7l2iDVH.output.variable_workflow_02AE3YQJJ11OL1M1VW4a5cfpqh9Fk412dwm$",
+                  "operator": "eq",
+                  "right_operand": ""
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Condition Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02AE40B1R3B570bkmOAmec2P9PGTV7IuQ46",
+                "name": "Completed",
+                "title": "Completed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "succeeded",
+                  "continue_on_failure": false,
+                  "display_name": "Completed",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
