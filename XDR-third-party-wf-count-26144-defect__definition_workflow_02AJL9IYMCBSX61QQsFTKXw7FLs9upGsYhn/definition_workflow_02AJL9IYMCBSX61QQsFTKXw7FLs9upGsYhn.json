@@ -1,0 +1,152 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02AJL9IYMCBSX61QQsFTKXw7FLs9upGsYhn",
+    "name": "XDR- Verify the ThirdParty and Cisco System Atomic Counts",
+    "title": "XDR- Verify the ThirdParty and Cisco System Atomic Counts",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Flags_Count",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02AJOZMJ7WK6Y0pBryg44yAR0I4ccJ3TJVp",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "Defect 26144",
+      "display_name": "XDR- Verify the ThirdParty and Cisco System Atomic Counts",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02AJLADGQX3S61mm5InQqcr8jS7vr1xN4SF",
+        "name": "HTTP Request",
+        "title": "GET Call to Fetch the Atomics in the system",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "GET Call to Fetch the Atomics in the system",
+          "method": "POST",
+          "relative_url": "/api/v1.1/workflows?start=0\u0026limit=100000\u0026sort_by=updated_on\u0026is_atomic=true",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02AJM174GNHFJ6SkyOCfrOnqvP8xSgRlBPS",
+        "name": "JSONPath Query",
+        "title": "Fetch the Atomics Created by System",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Fetch the Atomics Created by System",
+          "input_json": "$activity.definition_activity_02AJLADGQX3S61mm5InQqcr8jS7vr1xN4SF.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.results[?(@.owner=='system')]",
+              "jsonpath_query_name": "WF_Having_System_Owner",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02AJOS6THXAG32kU2W6DGarkPmuEUmidhxc",
+        "name": "JSONPath Query",
+        "title": "Fetch Flags",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Fetch Flags",
+          "input_json": "$activity.definition_activity_02AJM174GNHFJ6SkyOCfrOnqvP8xSgRlBPS.output.jsonpath_queries.WF_Having_System_Owner$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..metadata.flags",
+              "jsonpath_query_name": "Flags",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02AJP4BUUZWLL3lH7NGRp6SnCR88Z8Hg2fA",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Execute Python Script",
+          "script": "data = $activity.definition_activity_02AJOS6THXAG32kU2W6DGarkPmuEUmidhxc.output.jsonpath_queries.Flags$\n\ncount_of_third_party_and_XDR = sum(item == [\"third-party\",\"xdr\"] for item in data)\n\n# Count of arrays that contain only \"xdr\"\ncount_of_only_xdr = sum(item == [\"xdr\"] for item in data)\n\n# Total \nTotal = count_of_third_party_and_XDR + count_of_only_xdr\n\nprint(\"Count of 'third-party and XDR':\", count_of_third_party_and_XDR)\nprint(\"Count of arrays with only 'xdr':\", count_of_only_xdr)\nprint(\"Count of Total arrays :\", Total)",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02AJOYYRL784K3BcVzzJTsh3sBsx6t0WThk",
+        "name": "Set Variables",
+        "title": "Store the Count having third-party and XDR flag",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Store the Count having third-party and XDR flag",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_02AJL9IYMCBSX61QQsFTKXw7FLs9upGsYhn.output.variable_workflow_02AJOZMJ7WK6Y0pBryg44yAR0I4ccJ3TJVp$",
+              "variable_value_new": "$activity.definition_activity_02AJP4BUUZWLL3lH7NGRp6SnCR88Z8Hg2fA.output.response_body$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
