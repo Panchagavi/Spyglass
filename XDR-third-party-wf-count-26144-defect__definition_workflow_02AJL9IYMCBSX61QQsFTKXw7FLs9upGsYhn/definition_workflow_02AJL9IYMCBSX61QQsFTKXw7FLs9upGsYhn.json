@@ -158,6 +158,39 @@
           ]
         },
         "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02AKCH2DNDVS26tIw6OOXF4EP2rTncvVqJO",
+        "name": "Condition Block",
+        "title": "Verify the Count",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Verify the Count",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02AKCH2DUNHND4Y3yvg71jxxMwnzKRfiAfR",
+            "name": "Condition Branch",
+            "title": "Matched , then Mark Test as Passed",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_02AJL9IYMCBSX61QQsFTKXw7FLs9upGsYhn.output.variable_workflow_02AJOZMJ7WK6Y0pBryg44yAR0I4ccJ3TJVp$",
+                "operator": "mregex",
+                "right_operand": "Count of 'third-party and XDR':\\s*$workflow.definition_workflow_02AJL9IYMCBSX61QQsFTKXw7FLs9upGsYhn.input.variable_workflow_02AKCGJL36JLS6lO8HUybdhLyYb2yXwabJM$"
+              },
+              "continue_on_failure": false,
+              "display_name": "Matched , then Mark Test as Passed",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ]
       }
     ],
     "categories": [
