@@ -11,27 +11,27 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "InValid_WF_ID(Atomic)",
+          "name": "InValid_WF_ID(Non Atomic)",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_028RHYGRW72VG2YvWkUioHiIL8louzy95kS",
+        "unique_name": "variable_workflow_0291ITDPYMIFY2XiEgPNSvEP1I5Vw9zbZqf",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Wf_ID_Having_Status_Other_Than_Valid (Non-Atomic)",
+          "value": "Bearer",
+          "scope": "input",
+          "name": "Token",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_02AKXNTTPZGY07Nyl7Lwoygtjp3mx3YL6B4",
+        "unique_name": "variable_workflow_028RG606L6ET92nCnl4e7721nYF5zifHjzS",
         "object_type": "variable_workflow"
       },
       {
@@ -66,14 +66,14 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "output",
-          "name": "InValid_WF_ID(Non Atomic)",
+          "scope": "input",
+          "name": "Authorization",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_0291ITDPYMIFY2XiEgPNSvEP1I5Vw9zbZqf",
+        "unique_name": "variable_workflow_028RG5UBJHYZ40BdALw7fswiWVhadR7t0hq",
         "object_type": "variable_workflow"
       },
       {
@@ -108,28 +108,28 @@
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "input",
-          "name": "Authorization",
+          "scope": "output",
+          "name": "Wf_ID_Having_Status_Other_Than_Valid (Non-Atomic)",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_028RG5UBJHYZ40BdALw7fswiWVhadR7t0hq",
+        "unique_name": "variable_workflow_02AKXNTTPZGY07Nyl7Lwoygtjp3mx3YL6B4",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Bearer",
-          "scope": "input",
-          "name": "Token",
+          "value": "",
+          "scope": "output",
+          "name": "InValid_WF_ID(Atomic)",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_028RG606L6ET92nCnl4e7721nYF5zifHjzS",
+        "unique_name": "variable_workflow_028RHYGRW72VG2YvWkUioHiIL8louzy95kS",
         "object_type": "variable_workflow"
       }
     ],
@@ -228,25 +228,9 @@
                     {
                       "jsonpath_query": "$.results[?(@.owner=='system' \u0026\u0026  @.status.state == 'created' || @.status.state == 'updated' || @.status.state == 'invalid' || @.status.state == 'export_in_progress' || @.status.state == 'export_failed' || @.status.state == 'export_completed' || @.status.state == 'import_in_progress' || @.status.state == 'import_failed' || @.status.state == 'import_completed' || @.status.state == 'incomplete' || @.status.state == 'deleted' || @.status.state == 'deleted_failed' || @.status.state == 'delete_in_progress' || @.status.state == 'obsolete' || @.status.state == 'export_cancelled' || @.status.state == 'import_cancelled' || @.status.state == 'export_cancel_in_progress' || @.status.state == 'import_cancel_in_progress' || @.status.state == 'import_cancel_in_progress' || @.status.state == 'validation_in_progress' || @.status.state == 'validation_failed' || @.status.state == 'validation_timed_out' || @.status.state == 'duplicate_completed' || @.status.state == 'duplicate_in_progress' || @.status.state == 'duplicate_failed' || @.status.state == 'uninstall_in_progress' || @.status.state == 'uninstall_failed')].status.state",
                       "jsonpath_query_name": "wf_status_other_than_valid",
-                      "jsonpath_query_type": "string"
-                    }
-                  ],
-                  "skip_execution": false
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_028RG8G1WLZCD7WbA5nqtOKkcy82HMyhxAm",
-                "name": "JSONPath Query",
-                "title": "Fetch ALL Atomic Which are Created by System",
-                "type": "corejava.jsonpathquery",
-                "base_type": "activity",
-                "properties": {
-                  "action_timeout": 180,
-                  "continue_on_failure": false,
-                  "display_name": "Fetch ALL Atomic Which are Created by System",
-                  "input_json": "$activity.definition_activity_028RG55YQ1XPT6uKumaNPHRuoot3rfiYDWf.output.response_body$",
-                  "jsonpath_queries": [
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
                     {
                       "jsonpath_query": "$.results[?(@.owner=='system')]",
                       "jsonpath_query_name": "Atomic_WF_Response_Created_by_System",
@@ -268,7 +252,7 @@
                   "action_timeout": 180,
                   "continue_on_failure": true,
                   "display_name": "Fetch WF ID Which has Invalid (Wf_Valid Flag and Status-Check)",
-                  "input_json": "$activity.definition_activity_028RG8G1WLZCD7WbA5nqtOKkcy82HMyhxAm.output.jsonpath_queries.Atomic_WF_Response_Created_by_System$",
+                  "input_json": "$activity.definition_activity_028RGUWVAGPK03na3Ckz3wjgkuopePIjYTz.output.jsonpath_queries.Atomic_WF_Response_Created_by_System$",
                   "jsonpath_queries": [
                     {
                       "jsonpath_query": "$[?(@.workflow_valid==false)].id",
@@ -320,7 +304,7 @@
                   "action_timeout": 180,
                   "continue_on_failure": true,
                   "display_name": "Fetch WF ID Which has valid State ",
-                  "input_json": "$activity.definition_activity_028RG8G1WLZCD7WbA5nqtOKkcy82HMyhxAm.output.jsonpath_queries.Atomic_WF_Response_Created_by_System$",
+                  "input_json": "$activity.definition_activity_028RGUWVAGPK03na3Ckz3wjgkuopePIjYTz.output.jsonpath_queries.Atomic_WF_Response_Created_by_System$",
                   "jsonpath_queries": [
                     {
                       "jsonpath_query": "$[?(@.workflow_valid==true)].id",
@@ -419,25 +403,9 @@
                     {
                       "jsonpath_query": "$.results[?(@.owner=='system' \u0026\u0026  @.status.state == 'created' || @.status.state == 'updated' || @.status.state == 'invalid' || @.status.state == 'export_in_progress' || @.status.state == 'export_failed' || @.status.state == 'export_completed' || @.status.state == 'import_in_progress' || @.status.state == 'import_failed' || @.status.state == 'import_completed' || @.status.state == 'incomplete' || @.status.state == 'deleted' || @.status.state == 'deleted_failed' || @.status.state == 'delete_in_progress' || @.status.state == 'obsolete' || @.status.state == 'export_cancelled' || @.status.state == 'import_cancelled' || @.status.state == 'export_cancel_in_progress' || @.status.state == 'import_cancel_in_progress' || @.status.state == 'import_cancel_in_progress' || @.status.state == 'validation_in_progress' || @.status.state == 'validation_failed' || @.status.state == 'validation_timed_out' || @.status.state == 'duplicate_completed' || @.status.state == 'duplicate_in_progress' || @.status.state == 'duplicate_failed' || @.status.state == 'uninstall_in_progress' || @.status.state == 'uninstall_failed')].status.state",
                       "jsonpath_query_name": "wf_status_other_than_valid_non_Atomic",
-                      "jsonpath_query_type": "string"
-                    }
-                  ],
-                  "skip_execution": false
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_0291ITQYZ47ZD6I1jLpexn0xlpD1DCQaNgR",
-                "name": "JSONPath Query",
-                "title": "Fetch Non Atomic Which are Created by System",
-                "type": "corejava.jsonpathquery",
-                "base_type": "activity",
-                "properties": {
-                  "action_timeout": 180,
-                  "continue_on_failure": false,
-                  "display_name": "Fetch Non Atomic Which are Created by System",
-                  "input_json": "$activity.definition_activity_028RQ9I9I3SNY1YMSYJTM9KrLRSIl6Pe3SV.output.response_body$",
-                  "jsonpath_queries": [
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
                     {
                       "jsonpath_query": "$.results[?(@.owner=='system')]",
                       "jsonpath_query_name": "Non_Atomic_WF_Response_Created_by_System",
@@ -459,7 +427,7 @@
                   "action_timeout": 180,
                   "continue_on_failure": true,
                   "display_name": "Fetch WF ID Which has Invalid(WF_Valid Flag And Status-Check)",
-                  "input_json": "$activity.definition_activity_0291ITQYZ47ZD6I1jLpexn0xlpD1DCQaNgR.output.jsonpath_queries.Non_Atomic_WF_Response_Created_by_System$",
+                  "input_json": "$activity.definition_activity_028RQAHDNKU9Q4Dj16PkKQrlEB1LgqxTouj.output.jsonpath_queries.Non_Atomic_WF_Response_Created_by_System$",
                   "jsonpath_queries": [
                     {
                       "jsonpath_query": "$[?(@.workflow_valid==false)].id",
@@ -511,7 +479,7 @@
                   "action_timeout": 180,
                   "continue_on_failure": true,
                   "display_name": "Fetch WF ID Which has valid State ",
-                  "input_json": "$activity.definition_activity_0291ITQYZ47ZD6I1jLpexn0xlpD1DCQaNgR.output.jsonpath_queries.Non_Atomic_WF_Response_Created_by_System$",
+                  "input_json": "$activity.definition_activity_028RQAHDNKU9Q4Dj16PkKQrlEB1LgqxTouj.output.jsonpath_queries.Non_Atomic_WF_Response_Created_by_System$",
                   "jsonpath_queries": [
                     {
                       "jsonpath_query": "$[?(@.workflow_valid==true)].id",
