@@ -7,6 +7,129 @@
     "base_type": "workflow",
     "variables": [
       {
+        "schema_id": "tabletype_027JA8QY331RG6AVPyoLBcCIDrCG6hDtRC5",
+        "properties": {
+          "scope": "output",
+          "name": "INC Rule Modification Results",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027JA9BNDCNQE7PscR0RPnlMLbngCZrMuTT",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_027J6I6HL4GVR6IjP34I79MvOUwD7ibw8Ly",
+        "properties": {
+          "scope": "output",
+          "name": "Incident Results Table",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027J6IJ2EAOVR2Xc5O00Gbxvnna2BwOAnmP",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "Loop Counter",
+          "type": "datatype.integer",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0279FQ41RIR5V0WUYUBekv4sQHgyVR6izgV",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Pass",
+          "scope": "output",
+          "name": "Verify Test Status for Post Case",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027S42A7EZ7K23Uo2DR5XvRv7tKguMpysgh",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_027RURQZYXWR40eoWPrQImqDk9n3kBMVHLD",
+        "properties": {
+          "scope": "output",
+          "name": "Results in Table On Create-POST",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027RUTW4IP3BI6pN8wr2R6pVIjnV8Um2NW6",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_027RZZUL1U62H1eAXCSEeDCb3T19Qqfu473",
+        "properties": {
+          "scope": "output",
+          "name": "Results in Table On Update-PUT",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027S07TQ1F0OF2un5hXcQIcht2e2JbwKQSD",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Results for Priority and ST Rule Creation",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027J694MU587P0QQyB0fJ3hFGiDI1YY9Jxu",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": \"$output.incident.description$\",\n                                      \"operator\": \"mw\",\n                                      \"right_operand\": \"*incident*\"\n                                    },\n                                    \"operator\": \"and\",\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.status$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"New\"\n                                    }\n                                  },\n                                  \"operator\": \"and\",\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.source$\",\n                                    \"operator\": \"eq\",\n                                    \"right_operand\": \"Umbrella\"\n                                  }\n                                },\n                                \"operator\": \"and\",\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.incident.tlp$\",\n                                  \"operator\": \"eq\",\n                                  \"right_operand\": \"amber\"\n                                }\n                              },\n                              \"operator\": \"and\",\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.incident.id$\",\n                                \"operator\": \"mw\",\n                                \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                              }\n                            },\n                            \"operator\": \"and\",\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.source.totalCount$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            }\n                          },\n                          \"operator\": \"and\",\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.targets.totalCount$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          }\n                        },\n                        \"operator\": \"and\",\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.asset$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        }\n                      },\n                      \"operator\": \"and\",\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.incident.scores.global$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      }\n                    },\n                    \"operator\": \"and\",\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.incident.scores.ttp$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": 0\n                    }\n                  },\n                  \"operator\": \"and\",\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.eventsCount$\",\n                    \"operator\": \"gte\",\n                    \"right_operand\": 0\n                  }\n                },\n                \"operator\": \"and\",\n                \"right_operand\": {\n                  \"left_operand\": \"$output.incident.confidence$\",\n                  \"operator\": \"eq\",\n                  \"right_operand\": \"High\"\n                }\n              },\n              \"operator\": \"or\",\n              \"right_operand\": {\n                \"left_operand\": \"$output.firstEventDate$\",\n                \"operator\": \"ne\",\n                \"right_operand\": \"2023-01-01\"\n              }\n            },\n            \"operator\": \"or\",\n            \"right_operand\": {\n              \"left_operand\": \"$output.indicators.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            }\n          },\n          \"operator\": \"or\",\n          \"right_operand\": {\n            \"left_operand\": \"$output.mitreData.totalCount$\",\n            \"operator\": \"gte\",\n            \"right_operand\": 0\n          }\n        },\n        \"operator\": \"or\",\n        \"right_operand\": {\n          \"left_operand\": \"$output.observables.totalCount$\",\n          \"operator\": \"gte\",\n          \"right_operand\": 0\n        }\n      },\n      \"operator\": \"or\",\n      \"right_operand\": {\n        \"left_operand\": \"$output.observables.data[*].type$\",\n        \"operator\": \"eq\",\n        \"right_operand\": \"domain\"\n      }\n    },",
+          "scope": "local",
+          "name": "Rule_Conditions",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_027JAUKYN3AKU4BVA55JFRv5ZjuRxbSInoX",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "input",
+          "name": "Number of Runs",
+          "type": "datatype.integer",
+          "description": "0 - for single Run \n\nMore than 0 - For More runs ",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_0279FSXMMT9ZO6hzSR6BpCfE14bMryOc6UI",
+        "object_type": "variable_workflow"
+      },
+      {
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
@@ -35,62 +158,6 @@
         "object_type": "variable_workflow"
       },
       {
-        "schema_id": "tabletype_027JA8QY331RG6AVPyoLBcCIDrCG6hDtRC5",
-        "properties": {
-          "scope": "output",
-          "name": "INC Rule Modification Results",
-          "type": "datatype.table",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027JA9BNDCNQE7PscR0RPnlMLbngCZrMuTT",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.integer",
-        "properties": {
-          "value": 0,
-          "scope": "input",
-          "name": "Number of Runs",
-          "type": "datatype.integer",
-          "description": "0 - for single Run \n\nMore than 0 - For More runs ",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_0279FSXMMT9ZO6hzSR6BpCfE14bMryOc6UI",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": \"$output.incident.description$\",\n                                      \"operator\": \"mw\",\n                                      \"right_operand\": \"*incident*\"\n                                    },\n                                    \"operator\": \"and\",\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.status$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"New\"\n                                    }\n                                  },\n                                  \"operator\": \"and\",\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.source$\",\n                                    \"operator\": \"eq\",\n                                    \"right_operand\": \"Umbrella\"\n                                  }\n                                },\n                                \"operator\": \"and\",\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.incident.tlp$\",\n                                  \"operator\": \"eq\",\n                                  \"right_operand\": \"amber\"\n                                }\n                              },\n                              \"operator\": \"and\",\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.incident.id$\",\n                                \"operator\": \"mw\",\n                                \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                              }\n                            },\n                            \"operator\": \"and\",\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.source.totalCount$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            }\n                          },\n                          \"operator\": \"and\",\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.targets.totalCount$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          }\n                        },\n                        \"operator\": \"and\",\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.asset$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        }\n                      },\n                      \"operator\": \"and\",\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.incident.scores.global$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      }\n                    },\n                    \"operator\": \"and\",\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.incident.scores.ttp$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": 0\n                    }\n                  },\n                  \"operator\": \"and\",\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.eventsCount$\",\n                    \"operator\": \"gte\",\n                    \"right_operand\": 0\n                  }\n                },\n                \"operator\": \"and\",\n                \"right_operand\": {\n                  \"left_operand\": \"$output.incident.confidence$\",\n                  \"operator\": \"eq\",\n                  \"right_operand\": \"High\"\n                }\n              },\n              \"operator\": \"or\",\n              \"right_operand\": {\n                \"left_operand\": \"$output.firstEventDate$\",\n                \"operator\": \"ne\",\n                \"right_operand\": \"2023-01-01\"\n              }\n            },\n            \"operator\": \"or\",\n            \"right_operand\": {\n              \"left_operand\": \"$output.indicators.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            }\n          },\n          \"operator\": \"or\",\n          \"right_operand\": {\n            \"left_operand\": \"$output.mitreData.totalCount$\",\n            \"operator\": \"gte\",\n            \"right_operand\": 0\n          }\n        },\n        \"operator\": \"or\",\n        \"right_operand\": {\n          \"left_operand\": \"$output.observables.totalCount$\",\n          \"operator\": \"gte\",\n          \"right_operand\": 0\n        }\n      },\n      \"operator\": \"or\",\n      \"right_operand\": {\n        \"left_operand\": \"$output.observables.data[*].type$\",\n        \"operator\": \"eq\",\n        \"right_operand\": \"domain\"\n      }\n    },",
-          "scope": "local",
-          "name": "Rule_Conditions",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027JAUKYN3AKU4BVA55JFRv5ZjuRxbSInoX",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.integer",
-        "properties": {
-          "value": 0,
-          "scope": "local",
-          "name": "Loop Counter",
-          "type": "datatype.integer",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_0279FQ41RIR5V0WUYUBekv4sQHgyVR6izgV",
-        "object_type": "variable_workflow"
-      },
-      {
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
@@ -102,73 +169,6 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_0279F14T4QUPD09HsdRNHNmY1k5HA1vDQzC",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "tabletype_027RURQZYXWR40eoWPrQImqDk9n3kBMVHLD",
-        "properties": {
-          "scope": "output",
-          "name": "Results in Table On Create-POST",
-          "type": "datatype.table",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027RUTW4IP3BI6pN8wr2R6pVIjnV8Um2NW6",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Results for Priority and ST Rule Creation",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027J694MU587P0QQyB0fJ3hFGiDI1YY9Jxu",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "tabletype_027J6I6HL4GVR6IjP34I79MvOUwD7ibw8Ly",
-        "properties": {
-          "scope": "output",
-          "name": "Incident Results Table",
-          "type": "datatype.table",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027J6IJ2EAOVR2Xc5O00Gbxvnna2BwOAnmP",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Pass",
-          "scope": "output",
-          "name": "Verify Test Status for Post Case",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027S42A7EZ7K23Uo2DR5XvRv7tKguMpysgh",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "tabletype_027RZZUL1U62H1eAXCSEeDCb3T19Qqfu473",
-        "properties": {
-          "scope": "output",
-          "name": "Results in Table On Update-PUT",
-          "type": "datatype.table",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_027S07TQ1F0OF2un5hXcQIcht2e2JbwKQSD",
         "object_type": "variable_workflow"
       }
     ],
@@ -2097,21 +2097,6 @@
       "display_name": "Incident Results-Creation of ST and PR Rules",
       "columns": [
         {
-          "name": "StandaloneIncidentStatusWhenDisabled",
-          "title": "Standalone Incident Status When Disabled",
-          "type": "string"
-        },
-        {
-          "name": "StandaloneIncidentStatusCreatedfromTempmenu",
-          "title": "Standalone Incident Status Created from Temp menu",
-          "type": "string"
-        },
-        {
-          "name": "PriorityIncidentStatusCreatedfromTempmenu",
-          "title": "Priority Incident Status Created from Temp menu",
-          "type": "string"
-        },
-        {
           "name": "TestResult",
           "title": "Test Result",
           "type": "string"
@@ -2130,6 +2115,21 @@
           "name": "StandaloneIncidentStatus",
           "title": "Standalone Incident Status",
           "type": "string"
+        },
+        {
+          "name": "StandaloneIncidentStatusWhenDisabled",
+          "title": "Standalone Incident Status When Disabled",
+          "type": "string"
+        },
+        {
+          "name": "StandaloneIncidentStatusCreatedfromTempmenu",
+          "title": "Standalone Incident Status Created from Temp menu",
+          "type": "string"
+        },
+        {
+          "name": "PriorityIncidentStatusCreatedfromTempmenu",
+          "title": "Priority Incident Status Created from Temp menu",
+          "type": "string"
         }
       ],
       "base_type": "datatype",
@@ -2140,6 +2140,11 @@
       "data_type": "datatype.tabletype",
       "display_name": "Incident Results-Update of ST and PR Rules",
       "columns": [
+        {
+          "name": "UpdateCaseResults",
+          "title": "Update Case Results",
+          "type": "string"
+        },
         {
           "name": "TriggerStatus-SwitchSTtoPR",
           "title": "Trigger Status - Switch ST to PR",
@@ -2159,11 +2164,6 @@
           "name": "PRStatusWhenEnabled-DisabledBefore",
           "title": "PR Status When Enabled (Disabled Before)",
           "type": "string"
-        },
-        {
-          "name": "UpdateCaseResults",
-          "title": "Update Case Results",
-          "type": "string"
         }
       ],
       "base_type": "datatype",
@@ -2179,49 +2179,6 @@
         "type": "generic.workflow",
         "base_type": "workflow",
         "variables": [
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "rule_event",
-              "scope": "local",
-              "name": "rule_type",
-              "type": "datatype.string",
-              "description": "Enter the rule_type as rule_event\n",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027J8C1Q154WK6d1tRC06HigVSASbyZ7L9P",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "PR_TriggerStatus_CreatedFromTempMenu",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027JD4EYUSZAK1xTI12SqHRXqoW352Had7C",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "PR_WFID_CreatedFromTempMenu",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027JCHW3RSWCH1YOIadYn1So95rucNbWFSg",
-            "object_type": "variable_workflow"
-          },
           {
             "schema_id": "datatype.string",
             "properties": {
@@ -2241,13 +2198,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Priority_TriggerStatus",
+              "name": "PR_RuleID_whenDisabled",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J8C1Q14GK30M3V3cRn51lyOhY6g4Sa5I",
+            "unique_name": "variable_workflow_027J8C1Q17L1N5ZFkLdrMdANnnxZ34ZAGAN",
             "object_type": "variable_workflow"
           },
           {
@@ -2255,27 +2212,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "TriggerEvent_UniqueName",
+              "name": "Priority_TriggerID",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J8C1Q1206P3yfolYFGQAqZQqVzq46I6Y",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA",
-              "scope": "local",
-              "name": "wf_uniqueName",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027J8C1Q17W2T7gL3unHpaNhA1T3RUdwkAd",
+            "unique_name": "variable_workflow_027J8C1Q16SO47XGvonCB2VoARQj8EFdEDr",
             "object_type": "variable_workflow"
           },
           {
@@ -2283,13 +2226,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "PR_RuleName_OP",
+              "name": "ST_Rule_Status_whenDisabled",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J9COYA4LFR4yu1gyUZ1wsrRRtWo0kx7S",
+            "unique_name": "variable_workflow_027J8C1Q13P4F5NA3IEcMOTC0fvl0tWiQ8W",
             "object_type": "variable_workflow"
           },
           {
@@ -2309,6 +2252,49 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "PR_RuleName_OP_WhenDisabled",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027J9CUB08UTR1yUEdHRDdEYhlxIcxoA6GG",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "ST_RuleName_OP_WhenDisabled",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027J9BLBW1NLL1wN8MFdpoGVzBOq9qJwq3G",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Token (without bearer)",
+              "type": "datatype.string",
+              "description": "Provide the Token for Env where you want to execute the wf (without bearer)",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027J8C1Q15BVR1UevCeiJKFz6iYyT724CaQ",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA\",\n    \"name\": \"WF_For_Automation_ST_Incident-Rule_mapping\",\n    \"title\": \"WF_For_Automation_ST_Incident-Rule_mapping\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"String_Input_Req_with_Default_value\",\n          \"scope\": \"input\",\n          \"name\": \"String_Input_Req_with_Default_value\",\n          \"type\": \"datatype.string\",\n          \"description\": \"String_Input_Req_with_Default_value\",\n          \"is_required\": true,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTQW5N6OVPDFJ9w3qtwbQJG5QqEQ\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"String_Local\",\n          \"scope\": \"local\",\n          \"name\": \"String_Local\",\n          \"type\": \"datatype.string\",\n          \"description\": \"String_Local\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTQ7806i71ygI2tz8LoD6TGiYlO3\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.boolean\",\n        \"properties\": {\n          \"value\": false,\n          \"scope\": \"input\",\n          \"name\": \"Bool_INput\",\n          \"type\": \"datatype.boolean\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTQNSK4mV7XAjqtJHeGnQYGluvzw\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 5.8,\n          \"scope\": \"local\",\n          \"name\": \"Decimal_Local\",\n          \"type\": \"datatype.number\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTP9OV1KfO3MrPo18qM9dEcPvzpG\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 100,\n          \"scope\": \"input\",\n          \"name\": \"Integer_Default_Value\",\n          \"type\": \"datatype.integer\",\n          \"description\": \"Integer_Default_Value\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTRJ3U5rQRTL3REYjtiTd4SuAzpH\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"input\",\n          \"name\": \"String_Input_NotReq_with_NODefault_value\",\n          \"type\": \"datatype.string\",\n          \"description\": \"String_Input_NotReq_with_NODefault_value\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTOQ4Z3qwWrCO7ulnfSbNoONFryw\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 8.6,\n          \"scope\": \"input\",\n          \"name\": \"Decimal_Value\",\n          \"type\": \"datatype.number\",\n          \"description\": \"Decimal_Value\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTQGBY3q9dZLmfMRSJrkXaUPbWqs\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"output\",\n          \"name\": \"String_Output\",\n          \"type\": \"datatype.string\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTRBNK19wEULGJ1J268mflocfUtX\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"output\",\n          \"name\": \"Integer_Output\",\n          \"type\": \"datatype.integer\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTPX350QoegRZvxcOA1SUlAR45QZ\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 29,\n          \"scope\": \"local\",\n          \"name\": \"Integer_Local\",\n          \"type\": \"datatype.integer\",\n          \"description\": \"Integer_Local\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTP0HY1srqoppnt7Ex9CW2Fdlc3r\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.number\",\n        \"properties\": {\n          \"value\": 0,\n          \"scope\": \"output\",\n          \"name\": \"Decimal_Output\",\n          \"type\": \"datatype.number\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTPP3W3hpbYrcSKETOIXUFNTUxWn\",\n        \"object_type\": \"variable_workflow\"\n      },\n      {\n        \"schema_id\": \"datatype.boolean\",\n        \"properties\": {\n          \"value\": true,\n          \"scope\": \"output\",\n          \"name\": \"Bool_Output\",\n          \"type\": \"datatype.boolean\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0253NTHKTPGVP5VTF1IuuHMbD6uGb0E3PYO\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"description\": \"WF_For_Automation_Rule_mapping\",\n      \"display_name\": \"WF_For_Automation_ST_Incident-Rule_mapping\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_0253NTHO6G5OE0uifDOjrAyVr46tRcTCths\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Condition Block\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Condition Block\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_0253NTHP67OGL4RWg1Wzyy5raH6NDuUDWbe\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTQNSK4mV7XAjqtJHeGnQYGluvzw$\",\n                \"operator\": \"eq\",\n                \"right_operand\": true\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_0253NTHRGSZRN4VGkoAjciFOkCka20SL6aC\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Set Variables\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Set Variables\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.output.variable_workflow_0253NTHKTRBNK19wEULGJ1J268mflocfUtX$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTOQ4Z3qwWrCO7ulnfSbNoONFryw$+$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTQW5N6OVPDFJ9w3qtwbQJG5QqEQ$+$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.local.variable_workflow_0253NTHKTQ7806i71ygI2tz8LoD6TGiYlO3$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.output.variable_workflow_0253NTHKTPP3W3hpbYrcSKETOIXUFNTUxWn$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTQGBY3q9dZLmfMRSJrkXaUPbWqs$+$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.local.variable_workflow_0253NTHKTP9OV1KfO3MrPo18qM9dEcPvzpG$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.output.variable_workflow_0253NTHKTPX350QoegRZvxcOA1SUlAR45QZ$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.local.variable_workflow_0253NTHKTP0HY1srqoppnt7Ex9CW2Fdlc3r$+$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTRJ3U5rQRTL3REYjtiTd4SuAzpH$\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              },\n              {\n                \"unique_name\": \"definition_activity_0253NTHSBWLWX75iyrQspecHmuNyHIC3Kin\",\n                \"name\": \"To Upper\",\n                \"title\": \"To Upper\",\n                \"type\": \"core.string2upper\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"To Upper\",\n                  \"skip_execution\": false,\n                  \"source\": \"Input\\n\\n$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTOQ4Z3qwWrCO7ulnfSbNoONFryw$ \\n\\n$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTQW5N6OVPDFJ9w3qtwbQJG5QqEQ$\\n\\nLocal \\n\\n$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.local.variable_workflow_0253NTHKTQ7806i71ygI2tz8LoD6TGiYlO3$\\n\"\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          },\n          {\n            \"unique_name\": \"definition_activity_0253NTHT75SPX3ZHGYwsDUct4LQwzESCTIy\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTQNSK4mV7XAjqtJHeGnQYGluvzw$\",\n                \"operator\": \"eq\",\n                \"right_operand\": false\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_0253NTHVAT3QU1mtcmbMcp6pZT4iww8sHsb\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Set Variables\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Set Variables\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.output.variable_workflow_0253NTHKTRBNK19wEULGJ1J268mflocfUtX$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTOQ4Z3qwWrCO7ulnfSbNoONFryw$+$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTQW5N6OVPDFJ9w3qtwbQJG5QqEQ$+$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.local.variable_workflow_0253NTHKTQ7806i71ygI2tz8LoD6TGiYlO3$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.output.variable_workflow_0253NTHKTPP3W3hpbYrcSKETOIXUFNTUxWn$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTQGBY3q9dZLmfMRSJrkXaUPbWqs$+$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.local.variable_workflow_0253NTHKTP9OV1KfO3MrPo18qM9dEcPvzpG$\"\n                    },\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.output.variable_workflow_0253NTHKTPX350QoegRZvxcOA1SUlAR45QZ$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.local.variable_workflow_0253NTHKTP0HY1srqoppnt7Ex9CW2Fdlc3r$+$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTRJ3U5rQRTL3REYjtiTd4SuAzpH$\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              },\n              {\n                \"unique_name\": \"definition_activity_0253NTHW5KAKX0NZTsG6nwnfzPGOSjJA4Sc\",\n                \"name\": \"To Upper\",\n                \"title\": \"To Upper\",\n                \"type\": \"core.string2upper\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"To Upper\",\n                  \"skip_execution\": false,\n                  \"source\": \"Input\\n\\n$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTOQ4Z3qwWrCO7ulnfSbNoONFryw$ \\n\\n$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.input.variable_workflow_0253NTHKTQW5N6OVPDFJ9w3qtwbQJG5QqEQ$\\n\\nLocal \\n\\n$workflow.definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA.local.variable_workflow_0253NTHKTQ7806i71ygI2tz8LoD6TGiYlO3$\\n\"\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
               "scope": "local",
               "name": "Payload_for_WF_Import",
@@ -2321,17 +2307,88 @@
             "object_type": "variable_workflow"
           },
           {
+            "schema_id": "datatype.boolean",
+            "properties": {
+              "value": false,
+              "scope": "input",
+              "name": "Workflow_Config_Disabled",
+              "type": "datatype.boolean",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027J8C1Q15WW27bbDziKLcTUs0JckKCVzkd",
+            "object_type": "variable_workflow"
+          },
+          {
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "PR_Rule_Status_whenDisabled",
+              "name": "Task- Reusable_WF_Test_status",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J8C1Q182T56rBxqULJF11LFi2KZ2JXEv",
+            "unique_name": "variable_workflow_027J8C1Q13XAR4m7ukp45vOS1zUlMAmxfa2",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": \"$output.incident.description$\",\n                                      \"operator\": \"mw\",\n                                      \"right_operand\": \"*incident*\"\n                                    },\n                                    \"operator\": \"and\",\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.status$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"New\"\n                                    }\n                                  },\n                                  \"operator\": \"and\",\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.source$\",\n                                    \"operator\": \"eq\",\n                                    \"right_operand\": \"Umbrella\"\n                                  }\n                                },\n                                \"operator\": \"and\",\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.incident.tlp$\",\n                                  \"operator\": \"eq\",\n                                  \"right_operand\": \"amber\"\n                                }\n                              },\n                              \"operator\": \"and\",\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.incident.id$\",\n                                \"operator\": \"mw\",\n                                \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                              }\n                            },\n                            \"operator\": \"and\",\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.source.totalCount$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            }\n                          },\n                          \"operator\": \"and\",\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.targets.totalCount$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          }\n                        },\n                        \"operator\": \"and\",\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.asset$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        }\n                      },\n                      \"operator\": \"and\",\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.incident.scores.global$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      }\n                    },\n                    \"operator\": \"and\",\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.incident.scores.ttp$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": 0\n                    }\n                  },\n                  \"operator\": \"and\",\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.eventsCount$\",\n                    \"operator\": \"gte\",\n                    \"right_operand\": 0\n                  }\n                },\n                \"operator\": \"and\",\n                \"right_operand\": {\n                  \"left_operand\": \"$output.incident.confidence$\",\n                  \"operator\": \"eq\",\n                  \"right_operand\": \"High\"\n                }\n              },\n              \"operator\": \"or\",\n              \"right_operand\": {\n                \"left_operand\": \"$output.firstEventDate$\",\n                \"operator\": \"ne\",\n                \"right_operand\": \"2023-01-01\"\n              }\n            },\n            \"operator\": \"or\",\n            \"right_operand\": {\n              \"left_operand\": \"$output.indicators.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            }\n          },\n          \"operator\": \"or\",\n          \"right_operand\": {\n            \"left_operand\": \"$output.mitreData.totalCount$\",\n            \"operator\": \"gte\",\n            \"right_operand\": 0\n          }\n        },\n        \"operator\": \"or\",\n        \"right_operand\": {\n          \"left_operand\": \"$output.observables.totalCount$\",\n          \"operator\": \"gte\",\n          \"right_operand\": 0\n        }\n      },\n      \"operator\": \"or\",\n      \"right_operand\": {\n        \"left_operand\": \"$output.observables.data[*].type$\",\n        \"operator\": \"eq\",\n        \"right_operand\": \"domain\"\n      }\n    },",
+              "scope": "input",
+              "name": "Rule_Conditions",
+              "type": "datatype.string",
+              "description": "Provide the Rule Condition if User wants to create with condition , leave blank for a Rule with Empty condition ",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027J8C1Q16DDQ2VsUi1n1eW67LHtkLKb17m",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Priority_RuleID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027J8C1Q14NB81HGeaRBG7tUwfNvn6DCR6q",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "ST_RuleName_OP",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027J8C1Q14WH213BZbAUQtPp6tLIvzRCqOw",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "definition_workflow_0253NTHKIXXWU2cyUOQWjI172reRh3YDLGA",
+              "scope": "local",
+              "name": "wf_uniqueName",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027J8C1Q17W2T7gL3unHpaNhA1T3RUdwkAd",
             "object_type": "variable_workflow"
           },
           {
@@ -2354,6 +2411,20 @@
             "properties": {
               "value": "",
               "scope": "output",
+              "name": "PR_TriggerStatus_CreatedFromTempMenu",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027JD4EYUSZAK1xTI12SqHRXqoW352Had7C",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
               "name": "Trigger_Status",
               "type": "datatype.string",
               "is_required": false,
@@ -2368,13 +2439,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "ST_RuleName_OP",
+              "name": "Event_ID",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J8C1Q14WH213BZbAUQtPp6tLIvzRCqOw",
+            "unique_name": "variable_workflow_027J8C1Q15MKW4LI7q1SoWxvq0FKKeLzLhE",
             "object_type": "variable_workflow"
           },
           {
@@ -2382,13 +2453,27 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "ST_TriggerStatus_CreatedFromTempMenu",
+              "name": "ST_Rule_TriggerID_whenDisabled",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027JD4A0KP20602cSajCbklESR9PSAqZEUE",
+            "unique_name": "variable_workflow_027J8C1Q129Y77AnKgRwjGkN078fZqwtH18",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "ST_WFID_CreatedFromTempMenu",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027JCHQZ85QIK5Ym9HYK3ge4tadr6ewKYcd",
             "object_type": "variable_workflow"
           },
           {
@@ -2422,115 +2507,15 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": \"$output.incident.description$\",\n                                      \"operator\": \"mw\",\n                                      \"right_operand\": \"*incident*\"\n                                    },\n                                    \"operator\": \"and\",\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.status$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"New\"\n                                    }\n                                  },\n                                  \"operator\": \"and\",\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.source$\",\n                                    \"operator\": \"eq\",\n                                    \"right_operand\": \"Umbrella\"\n                                  }\n                                },\n                                \"operator\": \"and\",\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.incident.tlp$\",\n                                  \"operator\": \"eq\",\n                                  \"right_operand\": \"amber\"\n                                }\n                              },\n                              \"operator\": \"and\",\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.incident.id$\",\n                                \"operator\": \"mw\",\n                                \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                              }\n                            },\n                            \"operator\": \"and\",\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.source.totalCount$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            }\n                          },\n                          \"operator\": \"and\",\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.targets.totalCount$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          }\n                        },\n                        \"operator\": \"and\",\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.asset$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        }\n                      },\n                      \"operator\": \"and\",\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.incident.scores.global$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      }\n                    },\n                    \"operator\": \"and\",\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.incident.scores.ttp$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": 0\n                    }\n                  },\n                  \"operator\": \"and\",\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.eventsCount$\",\n                    \"operator\": \"gte\",\n                    \"right_operand\": 0\n                  }\n                },\n                \"operator\": \"and\",\n                \"right_operand\": {\n                  \"left_operand\": \"$output.incident.confidence$\",\n                  \"operator\": \"eq\",\n                  \"right_operand\": \"High\"\n                }\n              },\n              \"operator\": \"or\",\n              \"right_operand\": {\n                \"left_operand\": \"$output.firstEventDate$\",\n                \"operator\": \"ne\",\n                \"right_operand\": \"2023-01-01\"\n              }\n            },\n            \"operator\": \"or\",\n            \"right_operand\": {\n              \"left_operand\": \"$output.indicators.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            }\n          },\n          \"operator\": \"or\",\n          \"right_operand\": {\n            \"left_operand\": \"$output.mitreData.totalCount$\",\n            \"operator\": \"gte\",\n            \"right_operand\": 0\n          }\n        },\n        \"operator\": \"or\",\n        \"right_operand\": {\n          \"left_operand\": \"$output.observables.totalCount$\",\n          \"operator\": \"gte\",\n          \"right_operand\": 0\n        }\n      },\n      \"operator\": \"or\",\n      \"right_operand\": {\n        \"left_operand\": \"$output.observables.data[*].type$\",\n        \"operator\": \"eq\",\n        \"right_operand\": \"domain\"\n      }\n    },",
-              "scope": "input",
-              "name": "Rule_Conditions",
-              "type": "datatype.string",
-              "description": "Provide the Rule Condition if User wants to create with condition , leave blank for a Rule with Empty condition ",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027J8C1Q16DDQ2VsUi1n1eW67LHtkLKb17m",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "",
               "scope": "output",
-              "name": "PR_RuleID_whenDisabled",
+              "name": "WF_ID",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J8C1Q17L1N5ZFkLdrMdANnnxZ34ZAGAN",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.boolean",
-            "properties": {
-              "value": false,
-              "scope": "input",
-              "name": "Workflow_Config_Disabled",
-              "type": "datatype.boolean",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027J8C1Q15WW27bbDziKLcTUs0JckKCVzkd",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Token (without bearer)",
-              "type": "datatype.string",
-              "description": "Provide the Token for Env where you want to execute the wf (without bearer)",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027J8C1Q15BVR1UevCeiJKFz6iYyT724CaQ",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "ST_RuleID_CreatedFromTempMenu",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027JCI6M096V42gXd2JiZeyFK2GQksgkklX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Priority_RuleID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027J8C1Q14NB81HGeaRBG7tUwfNvn6DCR6q",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Task- Reusable_WF_Test_status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027J8C1Q13XAR4m7ukp45vOS1zUlMAmxfa2",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "ST_WFID_CreatedFromTempMenu",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027JCHQZ85QIK5Ym9HYK3ge4tadr6ewKYcd",
+            "unique_name": "variable_workflow_027J8C1Q1327O34dYily4R9HKuTRLajp02X",
             "object_type": "variable_workflow"
           },
           {
@@ -2553,13 +2538,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "ST_Rule_TriggerID_whenDisabled",
+              "name": "ST_TriggerStatus_CreatedFromTempMenu",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J8C1Q129Y77AnKgRwjGkN078fZqwtH18",
+            "unique_name": "variable_workflow_027JD4A0KP20602cSajCbklESR9PSAqZEUE",
             "object_type": "variable_workflow"
           },
           {
@@ -2567,13 +2552,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "PR_RuleName_OP_WhenDisabled",
+              "name": "PR_WFID_CreatedFromTempMenu",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J9CUB08UTR1yUEdHRDdEYhlxIcxoA6GG",
+            "unique_name": "variable_workflow_027JCHW3RSWCH1YOIadYn1So95rucNbWFSg",
             "object_type": "variable_workflow"
           },
           {
@@ -2581,13 +2566,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Event_ID",
+              "name": "PR_Rule_Status_whenDisabled",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J8C1Q15MKW4LI7q1SoWxvq0FKKeLzLhE",
+            "unique_name": "variable_workflow_027J8C1Q182T56rBxqULJF11LFi2KZ2JXEv",
             "object_type": "variable_workflow"
           },
           {
@@ -2595,13 +2580,41 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "ST_Rule_Status_whenDisabled",
+              "name": "ST_RuleID_CreatedFromTempMenu",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J8C1Q13P4F5NA3IEcMOTC0fvl0tWiQ8W",
+            "unique_name": "variable_workflow_027JCI6M096V42gXd2JiZeyFK2GQksgkklX",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Priority_TriggerStatus",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027J8C1Q14GK30M3V3cRn51lyOhY6g4Sa5I",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "PR_RuleName_OP",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_027J9COYA4LFR4yu1gyUZ1wsrRRtWo0kx7S",
             "object_type": "variable_workflow"
           },
           {
@@ -2621,57 +2634,16 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Priority_TriggerID",
+              "value": "rule_event",
+              "scope": "local",
+              "name": "rule_type",
               "type": "datatype.string",
+              "description": "Enter the rule_type as rule_event\n",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_027J8C1Q16SO47XGvonCB2VoARQj8EFdEDr",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "ST_RuleName_OP_WhenDisabled",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027J9BLBW1NLL1wN8MFdpoGVzBOq9qJwq3G",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "WF_ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027J8C1Q1327O34dYily4R9HKuTRLajp02X",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Priority_EventID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_027J8C1Q12PXO6b9Er5vCTifjqWHYPXWtnF",
+            "unique_name": "variable_workflow_027J8C1Q154WK6d1tRC06HigVSASbyZ7L9P",
             "object_type": "variable_workflow"
           },
           {
@@ -2976,26 +2948,14 @@
                       "input_json": "$activity.definition_activity_027J8C2WSZA8N7OUsmTpniri5nu1qztqN03.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
                       "jsonpath_queries": [
                         {
-                          "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C2U16SUR4eRoP8AQ5lLPxTmoWTtZ7O.output.jsonpath_queries.Standalone_Rule_Name$')].status.state",
+                          "jsonpath_query": "$..[?(@.name=='$activity.definition_activity_027J8C2U16SUR4eRoP8AQ5lLPxTmoWTtZ7O.output.jsonpath_queries.Standalone_Rule_Name$')].status.state",
                           "jsonpath_query_name": "Standalone_Rule_Trigger_status_state",
                           "jsonpath_query_type": "string",
                           "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                         },
                         {
-                          "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C2U16SUR4eRoP8AQ5lLPxTmoWTtZ7O.output.jsonpath_queries.Standalone_Rule_Name$')].id",
+                          "jsonpath_query": "$..[?(@.name=='$activity.definition_activity_027J8C2U16SUR4eRoP8AQ5lLPxTmoWTtZ7O.output.jsonpath_queries.Standalone_Rule_Name$')].id",
                           "jsonpath_query_name": "Standalone_Rule_trigger_id",
-                          "jsonpath_query_type": "string",
-                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                        },
-                        {
-                          "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C2U16SUR4eRoP8AQ5lLPxTmoWTtZ7O.output.jsonpath_queries.Standalone_Rule_Name$')].ref_id",
-                          "jsonpath_query_name": "Standalone_Rule_event_id",
-                          "jsonpath_query_type": "string",
-                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                        },
-                        {
-                          "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C2U16SUR4eRoP8AQ5lLPxTmoWTtZ7O.output.jsonpath_queries.Standalone_Rule_Name$')].unique_name",
-                          "jsonpath_query_name": "Standalone_Rule_unique_name",
                           "jsonpath_query_type": "string",
                           "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                         }
@@ -3016,20 +2976,12 @@
                       "skip_execution": false,
                       "variables_to_update": [
                         {
-                          "variable_to_update": "$workflow.definition_workflow_027J8C1PB0WNJ49jPSMd3yMbyU1nc71XAFO.output.variable_workflow_027J8C1Q15MKW4LI7q1SoWxvq0FKKeLzLhE$",
-                          "variable_value_new": "$activity.definition_activity_027J8C2Z6Q8B01KKiigI45EiLOHy1VunRB5.output.jsonpath_queries.Standalone_Rule_event_id$"
-                        },
-                        {
                           "variable_to_update": "$workflow.definition_workflow_027J8C1PB0WNJ49jPSMd3yMbyU1nc71XAFO.output.variable_workflow_027J8C1Q13I8B5lmr1eG8ejKIZKgIFwUKyP$",
                           "variable_value_new": "$activity.definition_activity_027J8C2PTFKR924ok4MBSbhrOnlPupvw2TX.output.variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s$"
                         },
                         {
                           "variable_to_update": "$workflow.definition_workflow_027J8C1PB0WNJ49jPSMd3yMbyU1nc71XAFO.output.variable_workflow_027J8C1Q171SW07LP9YAvEPB8oSwINcyUZg$",
                           "variable_value_new": "$activity.definition_activity_027J8C2Z6Q8B01KKiigI45EiLOHy1VunRB5.output.jsonpath_queries.Standalone_Rule_trigger_id$"
-                        },
-                        {
-                          "variable_to_update": "$workflow.definition_workflow_027J8C1PB0WNJ49jPSMd3yMbyU1nc71XAFO.output.variable_workflow_027J8C1Q1206P3yfolYFGQAqZQqVzq46I6Y$",
-                          "variable_value_new": "$activity.definition_activity_027J8C2Z6Q8B01KKiigI45EiLOHy1VunRB5.output.jsonpath_queries.Standalone_Rule_unique_name$"
                         },
                         {
                           "variable_to_update": "$workflow.definition_workflow_027J8C1PB0WNJ49jPSMd3yMbyU1nc71XAFO.output.variable_workflow_027J8C1Q12J0T5KY07P0S4qTbif7YOjRkU0$",
@@ -3192,13 +3144,13 @@
                       "input_json": "$activity.definition_activity_027J8C4DWPNH36QtxyJZOllSRXQ328N47fX.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
                       "jsonpath_queries": [
                         {
-                          "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C4AOHXZ66q8y1DiQK2d17flgCg0AFQ.output.jsonpath_queries.Standalone_Rule_Name_whenDisabled$')].status.state",
+                          "jsonpath_query": "$..[?(@.name=='$activity.definition_activity_027J8C4AOHXZ66q8y1DiQK2d17flgCg0AFQ.output.jsonpath_queries.Standalone_Rule_Name_whenDisabled$')].status.state",
                           "jsonpath_query_name": "Standalone_Rule_Trigger_status_state_whenDisabled",
                           "jsonpath_query_type": "string",
                           "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                         },
                         {
-                          "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C4AOHXZ66q8y1DiQK2d17flgCg0AFQ.output.jsonpath_queries.Standalone_Rule_Name_whenDisabled$')].id",
+                          "jsonpath_query": "$..[?(@.name=='$activity.definition_activity_027J8C4AOHXZ66q8y1DiQK2d17flgCg0AFQ.output.jsonpath_queries.Standalone_Rule_Name_whenDisabled$')].id",
                           "jsonpath_query_name": "Standalone_Rule_trigger_id_whenDisabled",
                           "jsonpath_query_type": "string",
                           "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -3406,26 +3358,14 @@
                   "input_json": "$activity.definition_activity_027J8C3P99KLL6nHptRwgFbpMFxCRtqmwMB.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
                   "jsonpath_queries": [
                     {
-                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C3J62PWR2OWrUQTGFT3JGeKzqMBBie.output.jsonpath_queries.Priority_Rule_Name$')].status.state",
+                      "jsonpath_query": "$..[?(@.name=='$activity.definition_activity_027J8C3J62PWR2OWrUQTGFT3JGeKzqMBBie.output.jsonpath_queries.Priority_Rule_Name$')].status.state",
                       "jsonpath_query_name": "Priority_Rule_Trigger_status_state",
                       "jsonpath_query_type": "string",
                       "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                     },
                     {
-                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C3J62PWR2OWrUQTGFT3JGeKzqMBBie.output.jsonpath_queries.Priority_Rule_Name$')].id",
+                      "jsonpath_query": "$..[?(@.name=='$activity.definition_activity_027J8C3J62PWR2OWrUQTGFT3JGeKzqMBBie.output.jsonpath_queries.Priority_Rule_Name$')].id",
                       "jsonpath_query_name": "Priority_Rule_trigger_id",
-                      "jsonpath_query_type": "string",
-                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                    },
-                    {
-                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C3J62PWR2OWrUQTGFT3JGeKzqMBBie.output.jsonpath_queries.Priority_Rule_Name$')].ref_id",
-                      "jsonpath_query_name": "Priority_Rule_event_id",
-                      "jsonpath_query_type": "string",
-                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                    },
-                    {
-                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C3J62PWR2OWrUQTGFT3JGeKzqMBBie.output.jsonpath_queries.Priority_Rule_Name$')].unique_name",
-                      "jsonpath_query_name": "Priority_Rule_unique_name",
                       "jsonpath_query_type": "string",
                       "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                     }
@@ -3441,7 +3381,7 @@
                 "type": "core.set_multiple_variables",
                 "base_type": "activity",
                 "properties": {
-                  "continue_on_failure": false,
+                  "continue_on_failure": true,
                   "display_name": "Stote Output Variables for PriorityRule",
                   "skip_execution": false,
                   "variables_to_update": [
@@ -3456,10 +3396,6 @@
                     {
                       "variable_to_update": "$workflow.definition_workflow_027J8C1PB0WNJ49jPSMd3yMbyU1nc71XAFO.output.variable_workflow_027J8C1Q14GK30M3V3cRn51lyOhY6g4Sa5I$",
                       "variable_value_new": "$activity.definition_activity_027J8C3SDPOTK2TPbX9GGcGATbI2O6RX7XK.output.jsonpath_queries.Priority_Rule_Trigger_status_state$"
-                    },
-                    {
-                      "variable_to_update": "$workflow.definition_workflow_027J8C1PB0WNJ49jPSMd3yMbyU1nc71XAFO.output.variable_workflow_027J8C1Q12PXO6b9Er5vCTifjqWHYPXWtnF$",
-                      "variable_value_new": "$activity.definition_activity_027J8C3SDPOTK2TPbX9GGcGATbI2O6RX7XK.output.jsonpath_queries.Priority_Rule_event_id$"
                     },
                     {
                       "variable_to_update": "$workflow.definition_workflow_027J8C1PB0WNJ49jPSMd3yMbyU1nc71XAFO.output.variable_workflow_027J9COYA4LFR4yu1gyUZ1wsrRRtWo0kx7S$",
@@ -3628,13 +3564,13 @@
                   "input_json": "$activity.definition_activity_027J8C4Z6DOLA4eFIpKi88lH3W98Mf3z5kN.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
                   "jsonpath_queries": [
                     {
-                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C4USP98D0fV4VFlK5kCMe5dsfYP4aq.output.jsonpath_queries.Priority_Rule_Name_whenDisabled$')].status.state",
+                      "jsonpath_query": "$..[?(@.name=='$activity.definition_activity_027J8C4USP98D0fV4VFlK5kCMe5dsfYP4aq.output.jsonpath_queries.Priority_Rule_Name_whenDisabled$')].status.state",
                       "jsonpath_query_name": "Priority_Rule_Trigger_status_state_whenDisabled",
                       "jsonpath_query_type": "string",
                       "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                     },
                     {
-                      "jsonpath_query": "$.[?(@.name=='$activity.definition_activity_027J8C4USP98D0fV4VFlK5kCMe5dsfYP4aq.output.jsonpath_queries.Priority_Rule_Name_whenDisabled$')].id",
+                      "jsonpath_query": "$..[?(@.name=='$activity.definition_activity_027J8C4USP98D0fV4VFlK5kCMe5dsfYP4aq.output.jsonpath_queries.Priority_Rule_Name_whenDisabled$')].id",
                       "jsonpath_query_name": "Priority_Rule_trigger_id_whenDisabled",
                       "jsonpath_query_type": "string",
                       "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -3795,6 +3731,29 @@
               {
                 "unique_name": "definition_activity_027JBVQH68CP50Yd2UC7he9eoI8qYZDfLm7",
                 "name": "JSONPath Query",
+                "title": "Fetch Trigger Name",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch Trigger Name",
+                  "input_json": "$activity.definition_activity_027JBW3G6N2380b0XOdO3PJVySo3xWd3Lrd.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$..name",
+                      "jsonpath_query_name": "PR_Triggers_RuleName_WF_CreatedFrom_Incident_Temp_Menu",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02BFQP0WFGDTI2QlPmkQwa3LGnGVF5DJ0k3",
+                "name": "JSONPath Query",
                 "title": "Fetch Trigger Status",
                 "type": "corejava.jsonpathquery",
                 "base_type": "activity",
@@ -3805,14 +3764,8 @@
                   "input_json": "$activity.definition_activity_027JBW3G6N2380b0XOdO3PJVySo3xWd3Lrd.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
                   "jsonpath_queries": [
                     {
-                      "jsonpath_query": "$..status.state",
+                      "jsonpath_query": "$..[?(@.name=='$activity.definition_activity_027JBVQH68CP50Yd2UC7he9eoI8qYZDfLm7.output.jsonpath_queries.PR_Triggers_RuleName_WF_CreatedFrom_Incident_Temp_Menu$')].status.state",
                       "jsonpath_query_name": "PR_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu",
-                      "jsonpath_query_type": "string",
-                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                    },
-                    {
-                      "jsonpath_query": "$..name",
-                      "jsonpath_query_name": "PR_Triggers_RuleName_WF_CreatedFrom_Incident_Temp_Menu",
                       "jsonpath_query_type": "string",
                       "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                     }
@@ -3927,6 +3880,29 @@
               {
                 "unique_name": "definition_activity_027JBZR8A7NCD5w7PAcx3gm0inxQnwMGrS9",
                 "name": "JSONPath Query",
+                "title": "Fetch Trigger Name",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch Trigger Name",
+                  "input_json": "$activity.definition_activity_027JBZMHFH8V80Qfj6Us3ZZCTBAm6waFAQ6.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$..name",
+                      "jsonpath_query_name": "ST_Triggers_RuleName_WF_CreatedFrom_Incident_Temp_Menu",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02BFQH0WNQKEC7E0JjUkdEVVjNfcai4gYUz",
+                "name": "JSONPath Query",
                 "title": "Fetch Trigger Status",
                 "type": "corejava.jsonpathquery",
                 "base_type": "activity",
@@ -3937,14 +3913,8 @@
                   "input_json": "$activity.definition_activity_027JBZMHFH8V80Qfj6Us3ZZCTBAm6waFAQ6.output.variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F$",
                   "jsonpath_queries": [
                     {
-                      "jsonpath_query": "$..status.state",
+                      "jsonpath_query": "$..[?(@.name=='$activity.definition_activity_027JBZR8A7NCD5w7PAcx3gm0inxQnwMGrS9.output.jsonpath_queries.ST_Triggers_RuleName_WF_CreatedFrom_Incident_Temp_Menu$')].status.state",
                       "jsonpath_query_name": "ST_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu",
-                      "jsonpath_query_type": "string",
-                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                    },
-                    {
-                      "jsonpath_query": "$..name",
-                      "jsonpath_query_name": "ST_Triggers_RuleName_WF_CreatedFrom_Incident_Temp_Menu",
                       "jsonpath_query_type": "string",
                       "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                     }
@@ -4094,11 +4064,11 @@
                     },
                     {
                       "variable_to_update": "$workflow.definition_workflow_027J8C1PB0WNJ49jPSMd3yMbyU1nc71XAFO.output.variable_workflow_027JD4A0KP20602cSajCbklESR9PSAqZEUE$",
-                      "variable_value_new": "$activity.definition_activity_027JBZR8A7NCD5w7PAcx3gm0inxQnwMGrS9.output.jsonpath_queries.ST_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$"
+                      "variable_value_new": "$activity.definition_activity_02BFQH0WNQKEC7E0JjUkdEVVjNfcai4gYUz.output.jsonpath_queries.ST_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$"
                     },
                     {
                       "variable_to_update": "$workflow.definition_workflow_027J8C1PB0WNJ49jPSMd3yMbyU1nc71XAFO.output.variable_workflow_027JD4EYUSZAK1xTI12SqHRXqoW352Had7C$",
-                      "variable_value_new": "$activity.definition_activity_027JBVQH68CP50Yd2UC7he9eoI8qYZDfLm7.output.jsonpath_queries.PR_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$"
+                      "variable_value_new": "$activity.definition_activity_02BFQP0WFGDTI2QlPmkQwa3LGnGVF5DJ0k3.output.jsonpath_queries.PR_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$"
                     }
                   ]
                 },
@@ -4147,7 +4117,7 @@
                               },
                               "operator": "and",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_027JBVQH68CP50Yd2UC7he9eoI8qYZDfLm7.output.jsonpath_queries.PR_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$",
+                                "left_operand": "$activity.definition_activity_02BFQP0WFGDTI2QlPmkQwa3LGnGVF5DJ0k3.output.jsonpath_queries.PR_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$",
                                 "operator": "eq",
                                 "right_operand": "started-polling"
                               }
@@ -4168,7 +4138,7 @@
                         },
                         "operator": "and",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_027JBZR8A7NCD5w7PAcx3gm0inxQnwMGrS9.output.jsonpath_queries.ST_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$",
+                          "left_operand": "$activity.definition_activity_02BFQH0WNQKEC7E0JjUkdEVVjNfcai4gYUz.output.jsonpath_queries.ST_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$",
                           "operator": "eq",
                           "right_operand": "started-polling"
                         }
@@ -4242,7 +4212,7 @@
                               },
                               "operator": "or",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_027JBVQH68CP50Yd2UC7he9eoI8qYZDfLm7.output.jsonpath_queries.PR_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$",
+                                "left_operand": "$activity.definition_activity_02BFQP0WFGDTI2QlPmkQwa3LGnGVF5DJ0k3.output.jsonpath_queries.PR_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$",
                                 "operator": "ne",
                                 "right_operand": "started-polling"
                               }
@@ -4263,7 +4233,7 @@
                         },
                         "operator": "or",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_027JBZR8A7NCD5w7PAcx3gm0inxQnwMGrS9.output.jsonpath_queries.ST_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$",
+                          "left_operand": "$activity.definition_activity_02BFQH0WNQKEC7E0JjUkdEVVjNfcai4gYUz.output.jsonpath_queries.ST_Triggers_Status_WF_CreatedFrom_Incident_Temp_Menu$",
                           "operator": "ne",
                           "right_operand": "started-polling"
                         }
@@ -4688,43 +4658,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Pass or Fail",
+              "name": "Created Object ID",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Headers Cookie (Not Mandatory)",
-              "type": "datatype.string",
-              "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Header Accept (Optional)",
-              "type": "datatype.string",
-              "description": "The Accept request HTTP header indicates which content types, expressed as MIME types, the client is able to understand. The server uses content negotiation to select one of the proposals and informs the client of the choice with the Content-Type response header.",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29",
+            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
             "object_type": "variable_workflow"
           },
           {
@@ -4732,13 +4672,14 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Error Code",
+              "name": "Error Message",
               "type": "datatype.string",
+              "description": "Created Object Error Message",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
+            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
             "object_type": "variable_workflow"
           },
           {
@@ -4759,14 +4700,42 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Response Body",
+              "scope": "input",
+              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
+            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Value (Only For Tenant creation) Provide Tenant id",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Schema ID's",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
             "object_type": "variable_workflow"
           },
           {
@@ -4781,21 +4750,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01V58VFTTA8A76pVH98JZMArr5WrNWiqoNq",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Header User-Agent (optional)",
-              "type": "datatype.string",
-              "description": "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX",
             "object_type": "variable_workflow"
           },
           {
@@ -4817,13 +4771,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Schema ID's",
+              "name": "Error Code",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTBB5300oWWe5Esrp0ZDMy55WkuL",
+            "unique_name": "variable_workflow_01V58VFTTC2EJ4FyHAIm0I1UyEnFTUuQmTJ",
             "object_type": "variable_workflow"
           },
           {
@@ -4831,13 +4785,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Created Object ID",
+              "name": "Response Body",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTCEXI0YgYUDgBLCYEP4YxkuZm5s",
+            "unique_name": "variable_workflow_01V5BF4SC81MB320KLQJM2QmSM9ebgGmI4F",
             "object_type": "variable_workflow"
           },
           {
@@ -4860,13 +4814,14 @@
             "properties": {
               "value": "",
               "scope": "input",
-              "name": "Value (Only For Tenant creation) Provide Tenant id",
+              "name": "Header Accept (Optional)",
               "type": "datatype.string",
+              "description": "The Accept request HTTP header indicates which content types, expressed as MIME types, the client is able to understand. The server uses content negotiation to select one of the proposals and informs the client of the choice with the Content-Type response header.",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01WVS6CP8E7NQ5e3JnnCNGDBGGShm0fXdXt",
+            "unique_name": "variable_workflow_020IVZHUUV2IJ2mQOVC0HncuIVLUYK7wC29",
             "object_type": "variable_workflow"
           },
           {
@@ -4886,45 +4841,16 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Token to run a workflow",
-              "type": "datatype.string",
-              "description": "Provide a Token to Execute the workflow",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "",
               "scope": "input",
-              "name": "Provide Request Body if needed (Ex: Create targets, wf's)",
+              "name": "Header User-Agent (optional)",
               "type": "datatype.string",
+              "description": "The User-Agent request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01V58VFTTANW54h7paSHSp8Dg1U9MFzjO2m",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Error Message",
-              "type": "datatype.string",
-              "description": "Created Object Error Message",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01V58VFTTCNA34UcuutVkSJPQwTZH3ajndv",
+            "unique_name": "variable_workflow_020IW8YFPBJZ34v9ILZQxKF8uzML8TBuusX",
             "object_type": "variable_workflow"
           },
           {
@@ -4939,6 +4865,50 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_01WVS6X4JB6457kduWemhegeAN9ZfxTpQM0",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Headers Cookie (Not Mandatory)",
+              "type": "datatype.string",
+              "description": "An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example. It remembers stateful information for the stateless HTTP protocol.\n\nCookies are mainly used for three purposes:\n\nSession management\nLogins, shopping carts, game scores, or anything else the server should remember\n\nPersonalization\nUser preferences, themes, and other settings\n\nTracking\nRecording and analyzing user behavior",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_020IY2UTT2PZ44GroVSaEkdR0wjitYsKD3P",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBKIF0SHZzUd2PbzGZcGviJc48U",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Token to run a workflow",
+              "type": "datatype.string",
+              "description": "Provide a Token to Execute the workflow",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01V58VFTTBU8F3VAComxvwqztAOOQX5pEKe",
             "object_type": "variable_workflow"
           }
         ],
