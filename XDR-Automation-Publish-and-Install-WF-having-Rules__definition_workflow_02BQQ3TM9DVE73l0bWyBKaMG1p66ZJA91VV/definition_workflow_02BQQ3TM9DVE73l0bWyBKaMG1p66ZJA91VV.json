@@ -136,65 +136,6 @@
                 ]
               },
               {
-                "unique_name": "definition_activity_02BQRT26G2ZSP7HDoJnmcp1aaCqApzJDH0s",
-                "name": "Parallel Branch",
-                "title": "WF Using Incident Rule Template",
-                "type": "logic.parallel_block",
-                "base_type": "activity",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "WF Using Incident Rule Template",
-                  "skip_execution": false
-                },
-                "object_type": "definition_activity",
-                "actions": [
-                  {
-                    "unique_name": "definition_activity_02BQQRJ8PIZJ53zvaaTV6BknWkcM7kURdPs",
-                    "name": "Sleep",
-                    "title": "Sleep for 5s",
-                    "type": "core.sleep",
-                    "base_type": "activity",
-                    "properties": {
-                      "continue_on_failure": false,
-                      "display_name": "Sleep for 5s",
-                      "skip_execution": false,
-                      "sleep_interval": 5
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_02BQRQG1R81V05foftRezIkXnDFWEwG2OWs",
-                    "name": "Atomic-Creating WF Using Template (Incident Rule Template)",
-                    "title": "Atomic-Creating WF Using Template (Incident Rule Template)",
-                    "type": "workflow.atomic_workflow",
-                    "base_type": "subworkflow",
-                    "properties": {
-                      "continue_on_failure": true,
-                      "display_name": "Atomic-Creating WF Using Template (Incident Rule Template)",
-                      "input": {
-                        "variable_workflow_02AOGHGZ8XXJF6VakCwn6dN4seKUIJrF8f0": "Authorization",
-                        "variable_workflow_02AOGHQKS7LN56QFlKiV2wbkRZSd0GFgDQH": "Bearer $activity.definition_activity_02BQQ6HK7KNPW15WsvRyXJLe31TAVddkuPs.output.variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm$",
-                        "variable_workflow_02AOGO15MTXWY7gRFaKV67BXJbsg2gqhlEG": "WF_Inc",
-                        "variable_workflow_02AOGV0KB4F0Y45c4CJjE27IPMfBC8D2abG": "\"domain\",\"email\",\"hostname\",\"ip\",\"ipv6\",\"md5\",\"sha1\",\"sha256\",\"url\",\"user\",\"amp_computer_guid\",\"certificate_common_name\",\"certificate_issuer\",\"certificate_serial\",\"cisco_cm_id\",\"cisco_mid\",\"cisco_uc_id\",\"cortex_agent_id\",\"crowdstrike_id\",\"cybereason_id\",\"darktrace_id\",\"device\",\"email_messageid\",\"email_subject\",\"file_name\",\"file_path\",\"imei\",\"imsi\",\"mac_address\",\"ms_machine_id\",\"mutex\",\"ngfw_id\",\"ngfw_name\",\"odns_identity\",\"odns_identity_label\",\"orbital_node_id\",\"pki_serial\",\"process_args\",\"process_hash\",\"process_name\",\"process_path\",\"process_username\",\"processor_id\",\"registry_key\",\"registry_name\",\"registry_path\",\"s1_agent_id\",\"serial_number\",\"swc_device_id\",\"trend_micro_id\",\"user_agent\"",
-                        "variable_workflow_02AOHIPFZHWUH27Q7VhueHiNVHsXRQ4p18H": "",
-                        "variable_workflow_02AOHOFCO0W784sXKcSgMEXqzBeSKbjdUQp": "\"approval_task.rule_event\",\"email.rule_event\",\"incident.rule_event\",\"schedule.rule_schedule\",\"webhook.rule_event\""
-                      },
-                      "runtime_user": {
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "target_type": "web-service.endpoint",
-                        "use_workflow_target": true
-                      },
-                      "workflow_id": "definition_workflow_02AOGESRPNY2Q0jJfksWj2Cwha9MaNmtv3k",
-                      "workflow_name": "XDR-Automation-Atomic-Creating WF Using Template"
-                    },
-                    "object_type": "definition_activity"
-                  }
-                ]
-              },
-              {
                 "unique_name": "definition_activity_02BQRT479VLM60CkeDx7gUKT0TtWedUecvO",
                 "name": "Parallel Branch",
                 "title": "Creation of WF Using PivotMenu Template ",
@@ -323,7 +264,7 @@
                   "continue_on_failure": true,
                   "display_name": "Automation - Create a Standalone Incident Rule",
                   "input": {
-                    "variable_workflow_027MPV5U2DIIF0zubA1M33SbdTCt6ZCzfq4": "$activity.definition_activity_02BQRQG1R81V05foftRezIkXnDFWEwG2OWs.output.variable_workflow_02AOGVGEQA83R0St7xjCFlLOloAHVVTwiO9$",
+                    "variable_workflow_027MPV5U2DIIF0zubA1M33SbdTCt6ZCzfq4": "$activity.definition_activity_02BQQ4D9X95XH40brgurigud5Cuyj7RVVPb.output.variable_workflow_02AOGVGEQA83R0St7xjCFlLOloAHVVTwiO9$",
                     "variable_workflow_027MPV5U2EFCD2dIXOMcCJfC8zTYKWhgvL0": "Bearer $activity.definition_activity_02BQQ6HK7KNPW15WsvRyXJLe31TAVddkuPs.output.variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm$",
                     "variable_workflow_027MPV5U2ETAA17CVQcWakhMZzhJv72iREN": "Authorization",
                     "variable_workflow_027MQ2YZNQUVF083B0R4hBHunurAKbOgtJK": "ST-rule-$workflow.definition_workflow_02BQQ3TM9DVE73l0bWyBKaMG1p66ZJA91VV.output.instance_id$",
@@ -369,7 +310,7 @@
                   "display_name": "Automation - Create a Priority Incident Rule",
                   "input": {
                     "variable_workflow_027MR8CHBC18861hO5QjA8naySKiwdu2gyN": "INC-PR-$workflow.definition_workflow_02BQQ3TM9DVE73l0bWyBKaMG1p66ZJA91VV.output.instance_id$",
-                    "variable_workflow_027MR8CHBC96A1GWgiQyknzFoBdYsa57Emh": "$activity.definition_activity_02BQRQG1R81V05foftRezIkXnDFWEwG2OWs.output.variable_workflow_02AOGVGEQA83R0St7xjCFlLOloAHVVTwiO9$",
+                    "variable_workflow_027MR8CHBC96A1GWgiQyknzFoBdYsa57Emh": "$activity.definition_activity_02BQQ4D9X95XH40brgurigud5Cuyj7RVVPb.output.variable_workflow_02AOGVGEQA83R0St7xjCFlLOloAHVVTwiO9$",
                     "variable_workflow_027MR8CHBDRYU5sk9Lg2youqkRPg6xC0nRk": "Bearer $activity.definition_activity_02BQQ6HK7KNPW15WsvRyXJLe31TAVddkuPs.output.variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm$",
                     "variable_workflow_027MR8CHBDYW87eMO6SYumhX8GZuks1Avqv": false,
                     "variable_workflow_027MR8CHBE5O23vojTUmq4Vl8h35vfIluId": "Authorization",
@@ -400,6 +341,39 @@
                   "display_name": "Sleep for 5s",
                   "skip_execution": false,
                   "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02BQSVLJTI36Z2w0lo0J2EC0ZiO0kWJSgHb",
+                "name": "HTTP Request",
+                "title": "Set Order 1 for Priority Rule",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"type\": \"incident.rule_event\",\n  \"rule\": {\n    \"id\": \"$activity.definition_activity_02BQQXXPPP00Z3eIP8d9K0YIeMiGerqXSxI.output.variable_workflow_027MR8CHBDD633pQPGnXsZVl1TYdOrt5209$\"\n  },\n  \"previous_rule\": {}\n}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $activity.definition_activity_02BQQ6HK7KNPW15WsvRyXJLe31TAVddkuPs.output.variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm$"
+                    }
+                  ],
+                  "display_name": "Set Order 1 for Priority Rule",
+                  "method": "PATCH",
+                  "relative_url": "/api/v1/rules/priority",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
                 },
                 "object_type": "definition_activity"
               },
@@ -500,13 +474,13 @@
             "properties": {
               "value": "",
               "scope": "input",
-              "name": "client-secret",
+              "name": "client_id",
               "type": "datatype.string",
               "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02BC8GA3DL7UT2XvjCn2jMUeOtCfsmMDZy4",
+            "unique_name": "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7",
             "object_type": "variable_workflow"
           },
           {
@@ -528,13 +502,13 @@
             "properties": {
               "value": "",
               "scope": "input",
-              "name": "client_id",
+              "name": "client-secret",
               "type": "datatype.string",
               "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7",
+            "unique_name": "variable_workflow_02BC8GA3DL7UT2XvjCn2jMUeOtCfsmMDZy4",
             "object_type": "variable_workflow"
           }
         ],
