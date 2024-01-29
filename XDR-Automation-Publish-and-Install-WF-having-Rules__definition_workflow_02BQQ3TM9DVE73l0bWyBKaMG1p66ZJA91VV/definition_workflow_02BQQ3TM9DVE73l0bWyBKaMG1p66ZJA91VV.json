@@ -33,6 +33,20 @@
         },
         "unique_name": "variable_workflow_02BQTB3UYY2OX4tlZMiV2NHbNdQ5FAeSuXW",
         "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Installed_PivotMenu_Exchange_Test_Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02BU3CPAS87U04ml1U1nAjUrdAHhyGreRjr",
+        "object_type": "variable_workflow"
       }
     ],
     "properties": {
@@ -1683,6 +1697,131 @@
                   "skip_execution": false
                 },
                 "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02BU3D835Z8ID3YrtEFSX8drLYIlxIdveZO",
+                "name": "Condition Block",
+                "title": "Verify Installed WF Created from PivotMenu",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Verify Installed WF Created from PivotMenu",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02BU3D83IFNE45MwOmMcqNNVRZTFR76qGNK",
+                    "name": "Condition Branch",
+                    "title": "Pass",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": "$activity.definition_activity_02BQXOWE1QN9D1NiGpDLMqRjTr3fuj4NoQD.output.variable_workflow_021CABGY82WJQ2TFYsP3XgrXNYNo89uMgYd$",
+                            "operator": "eq",
+                            "right_operand": "Pass"
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02BR03L4F5KCN2WjT7xFhEHEbJpbjf8axlz.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02BR03L4F8CL21VhXhScvq01oR7hfkY6pgk.output.jsonpath_queries.Xchange_Installed_Status$",
+                          "operator": "eq",
+                          "right_operand": "installed"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Pass",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02BU3FFCQYG8D1BNuRAwoCzQwV1mzxoWfiY",
+                        "name": "Set Variables",
+                        "title": "PassCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "PassCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02BQQ3TM9DVE73l0bWyBKaMG1p66ZJA91VV.output.variable_workflow_02BU3CPAS87U04ml1U1nAjUrdAHhyGreRjr$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_02BU3FY7T2KNF3tDclucs5ApFqedcmHO97U",
+                    "name": "Condition Branch",
+                    "title": "Fail",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": "$activity.definition_activity_02BQXOWE1QN9D1NiGpDLMqRjTr3fuj4NoQD.output.variable_workflow_021CABGY82WJQ2TFYsP3XgrXNYNo89uMgYd$",
+                            "operator": "ne",
+                            "right_operand": "Pass"
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02BR03L4F5KCN2WjT7xFhEHEbJpbjf8axlz.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02BR03L4F8CL21VhXhScvq01oR7hfkY6pgk.output.jsonpath_queries.Xchange_Installed_Status$",
+                          "operator": "eq",
+                          "right_operand": "installed"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Fail",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02BU3FY7T38L41ALzH4565OF1iOt62XTl3M",
+                        "name": "Set Variables",
+                        "title": "FailCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "FailCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02BQQ3TM9DVE73l0bWyBKaMG1p66ZJA91VV.output.variable_workflow_02BU3CPAS87U04ml1U1nAjUrdAHhyGreRjr$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
@@ -1724,20 +1863,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "client_id",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "output",
               "name": "token",
               "type": "datatype.string",
@@ -1746,6 +1871,20 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "client_id",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7",
             "object_type": "variable_workflow"
           },
           {
@@ -1872,155 +2011,28 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Published_Author",
+              "scope": "output",
+              "name": "Xchange Category Name",
               "type": "datatype.string",
-              "description": "Published Author - Enter Email ID for Author ",
-              "is_required": true,
+              "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02BLKJOHFT6Y16xSQ2ou5t0Ezm8HGWWjEhu",
+            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
             "object_type": "variable_workflow"
           },
           {
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Xchange_Description",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Random_String",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01YD2XVZJVVOF4aeLs2JYrA4kM8KM6js8oK",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.boolean",
-            "properties": {
-              "value": true,
               "scope": "input",
-              "name": "Submit_Flag",
-              "type": "datatype.boolean",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_022OAOJHDPS9C5rvs7bTaGunnXB5zsNyg1S",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_XchnageTenantID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01YCNIL3PHIL51LcRbut4AZjbktw4xOe10M",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "3qlGn1CxbTCOJD5CcSeOz7V0dBatAogi6lP87rXexOh2qNbs3ocpS3KovddOFhfx",
-              "scope": "input",
-              "name": "MangoDB_API_Key",
+              "name": "Workflow_ID",
               "type": "datatype.string",
               "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_021HJM82VV60H0U0rBwV0UQVjqFtyE0go6r",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Author",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_0242A62JN3LRL5HiQSyTBwDJ4LZoxhprByI",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "published_status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_023WBU8MVDXMV3pPoTHkhtEjDVhPKM77JfR",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_UniqueName",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Input Token",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange_UserTenantID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
+            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
             "object_type": "variable_workflow"
           },
           {
@@ -2028,13 +2040,14 @@
             "properties": {
               "value": "",
               "scope": "input",
-              "name": "Description",
+              "name": "type_of_submission",
               "type": "datatype.string",
+              "description": "type_of_submission is cisco or community",
               "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF",
+            "unique_name": "variable_workflow_02BLKQ2V1VJBK20qYEGT4TY6leCweZBW5ri",
             "object_type": "variable_workflow"
           },
           {
@@ -2055,15 +2068,42 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Exyernal_Links",
+              "scope": "output",
+              "name": "xchange_metadata_details",
               "type": "datatype.string",
-              "description": "Leave Blank if External Links not required. if required enter in below syntax and if required multiple the enter in comma separated data. \nSyntax -- \n\"external_links\": [\n    {\n      \"key\": \"AO\",\n      \"value\": \"WWW.cisco.com\"\n    }\n  ],",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02BLKIU4SNDC33X3HCR832sUvaFJ9eBPC52",
+            "unique_name": "variable_workflow_023W3VFOMJJSN58SCc5lB7pONJl9WN5AbFD",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_UserTenantID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAPE1I6PS55e4CCZm50IsBRe1SWY3CDw",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Published_Xchnage_WF_UniqueName",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02BLRAFI1UXP46tmCv8uogg3BgoML81oB1n",
             "object_type": "variable_workflow"
           },
           {
@@ -2071,14 +2111,13 @@
             "properties": {
               "value": "",
               "scope": "input",
-              "name": "Contact_Email",
+              "name": "Display_Name",
               "type": "datatype.string",
-              "description": "Contact Email for Published Xchange",
               "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02BLKJ7HFFAXB5c8wCUOsthLQ9AjU44GHXx",
+            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
             "object_type": "variable_workflow"
           },
           {
@@ -2086,13 +2125,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Published_Xchnage_WF_Name",
+              "name": "Xchange_XchnageTenantID",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02BLRAQ75K9JU1RsHsTMe6ERfpBFoaRo2wp",
+            "unique_name": "variable_workflow_01YCNIL3PHIL51LcRbut4AZjbktw4xOe10M",
             "object_type": "variable_workflow"
           },
           {
@@ -2100,27 +2139,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Xchange_Category_ID",
+              "name": "Xchnage_Publish_DisplayName",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchange Category Name",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVB9NUCEO0X5wS7UobBNQLmIqXAmoh1Xn",
+            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
             "object_type": "variable_workflow"
           },
           {
@@ -2157,28 +2182,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Published_Xchnage_WF_UniqueName",
+              "name": "published_status",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02BLRAFI1UXP46tmCv8uogg3BgoML81oB1n",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "type_of_submission",
-              "type": "datatype.string",
-              "description": "type_of_submission is cisco or community",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02BLKQ2V1VJBK20qYEGT4TY6leCweZBW5ri",
+            "unique_name": "variable_workflow_023WBU8MVDXMV3pPoTHkhtEjDVhPKM77JfR",
             "object_type": "variable_workflow"
           },
           {
@@ -2200,41 +2210,13 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "xchange_metadata_details",
+              "name": "Xchange_Category_ID",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_023W3VFOMJJSN58SCc5lB7pONJl9WN5AbFD",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Workflow_ID",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVACSOXC79X0pv0g0m938GQDoH9hTICl4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Xchnage_Publish_DisplayName",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01XVAPT4P0Y0K5bcqHtvAiEXKtmE4DkYVhO",
+            "unique_name": "variable_workflow_01XVAOUJCQP561OTTZZbfNZQgjLteq3taa4",
             "object_type": "variable_workflow"
           },
           {
@@ -2255,14 +2237,141 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "output",
+              "name": "Published_Xchnage_WF_Name",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02BLRAQ75K9JU1RsHsTMe6ERfpBFoaRo2wp",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Reusable PublishAPI TestCase Pass/Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_Description",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAQB6YBDJX2Pe5jvZVUrpe63bk4pwIuP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "3qlGn1CxbTCOJD5CcSeOz7V0dBatAogi6lP87rXexOh2qNbs3ocpS3KovddOFhfx",
               "scope": "input",
-              "name": "Display_Name",
+              "name": "MangoDB_API_Key",
               "type": "datatype.string",
               "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVACGENDRWK2ZKTxHOGspr66dSMBvLgiz",
+            "unique_name": "variable_workflow_021HJM82VV60H0U0rBwV0UQVjqFtyE0go6r",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Random_String",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01YD2XVZJVVOF4aeLs2JYrA4kM8KM6js8oK",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Author",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_0242A62JN3LRL5HiQSyTBwDJ4LZoxhprByI",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Xchange_UniqueName",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAP54L9ZQK5QNiJa6hEdCGwwEnOrwalb",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Description",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01XVAD2RSW56S67nlwdOR0qb2LcAnzRSXRF",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.boolean",
+            "properties": {
+              "value": true,
+              "scope": "input",
+              "name": "Submit_Flag",
+              "type": "datatype.boolean",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_022OAOJHDPS9C5rvs7bTaGunnXB5zsNyg1S",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Published_Author",
+              "type": "datatype.string",
+              "description": "Published Author - Enter Email ID for Author ",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02BLKJOHFT6Y16xSQ2ou5t0Ezm8HGWWjEhu",
             "object_type": "variable_workflow"
           },
           {
@@ -2282,15 +2391,45 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Reusable PublishAPI TestCase Pass/Fail",
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Input Token",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01XVEIZ7SWFNZ6oQye9vtZXdRtKo6AH3XEX",
+            "unique_name": "variable_workflow_01XVAJWVMUAU56NxDQ01VD4ZblfBCvmxbkT",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Contact_Email",
+              "type": "datatype.string",
+              "description": "Contact Email for Published Xchange",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02BLKJ7HFFAXB5c8wCUOsthLQ9AjU44GHXx",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Exyernal_Links",
+              "type": "datatype.string",
+              "description": "Leave Blank if External Links not required. if required enter in below syntax and if required multiple the enter in comma separated data. \nSyntax -- \n\"external_links\": [\n    {\n      \"key\": \"AO\",\n      \"value\": \"WWW.cisco.com\"\n    }\n  ],",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02BLKIU4SNDC33X3HCR832sUvaFJ9eBPC52",
             "object_type": "variable_workflow"
           }
         ],
@@ -4070,13 +4209,27 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Installed_Xchange_Unique_Name",
+              "name": "Installed_Mian_Workflow_name",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_021CDSUCDVOBW2NGAttvQ7EnX3tpmCmzDkJ",
+            "unique_name": "variable_workflow_022Z0PKZFQSQY5rXY55lBYxNnqHTeb5Hgkz",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Token",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_021CAA2V0JPM632AITjHxQFhghOeGMXLAj1",
             "object_type": "variable_workflow"
           },
           {
@@ -4111,14 +4264,14 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Installed_Mian_Workflow_name",
+              "scope": "input",
+              "name": "Install_Payload",
               "type": "datatype.string",
-              "is_required": false,
+              "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_022Z0PKZFQSQY5rXY55lBYxNnqHTeb5Hgkz",
+            "unique_name": "variable_workflow_021CA9RS90VFT1DwQOADskqduGPb6NkyrLv",
             "object_type": "variable_workflow"
           },
           {
@@ -4139,28 +4292,14 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Token",
+              "scope": "output",
+              "name": "Installed_Xchange_Unique_Name",
               "type": "datatype.string",
-              "is_required": true,
+              "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_021CAA2V0JPM632AITjHxQFhghOeGMXLAj1",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Install_Payload",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_021CA9RS90VFT1DwQOADskqduGPb6NkyrLv",
+            "unique_name": "variable_workflow_021CDSUCDVOBW2NGAttvQ7EnX3tpmCmzDkJ",
             "object_type": "variable_workflow"
           },
           {
