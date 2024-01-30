@@ -1,0 +1,84 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02BR1CCIBTRKN0HrxrKetpRyTw2P3xeInlb",
+    "name": "WF-Having-Schedule-Monitor-ScheduleRule-ProdIssue",
+    "title": "WF-Having-Schedule-Monitor-ScheduleRule-ProdIssue",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "automation_rules": {
+        "type": [
+          "schedule.rule_schedule"
+        ]
+      },
+      "delete_workflow_instance": false,
+      "display_name": "WF-Having-Schedule-Monitor-ScheduleRule-ProdIssue",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02BR1CF98W8HB7mLw93zwHjxwSP6wKXfVib",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 1
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "rules": {
+    "ruleschedule_02BR1ER29757X3vJ6Byb9ZrxBVqNDll9E1O": {
+      "name": "Schedule-Rule",
+      "title": "Schedule-Rule",
+      "type": "schedule.rule_schedule",
+      "rule_type": "rule_schedule",
+      "base_type": "rule",
+      "object_type": "ruleschedule",
+      "version": "1.0.0",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ",
+        "description": "",
+        "display_name": "Schedule-Rule",
+        "interval_hours": 0,
+        "interval_minutes": 3,
+        "number_of_times": 480,
+        "rule_type": "rule_schedule",
+        "starttime": "00:00",
+        "timezone": "Asia/Kolkata",
+        "title": "Schedule-Rule",
+        "workflows_config": [
+          {
+            "disabled": false,
+            "ref_id": "definition_workflow_02BR1CCIBTRKN0HrxrKetpRyTw2P3xeInlb",
+            "status": {
+              "state": "started-polling",
+              "prev_state": "stopped-polling",
+              "error_msg": ""
+            }
+          }
+        ]
+      },
+      "disabled": false,
+      "unique_name": "ruleschedule_02BR1ER29757X3vJ6Byb9ZrxBVqNDll9E1O"
+    }
+  }
+}
