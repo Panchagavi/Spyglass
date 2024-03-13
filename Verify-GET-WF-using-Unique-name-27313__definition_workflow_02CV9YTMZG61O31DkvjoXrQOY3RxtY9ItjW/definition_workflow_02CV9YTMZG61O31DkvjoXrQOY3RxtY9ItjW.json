@@ -1,0 +1,192 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02CV9YTMZG61O31DkvjoXrQOY3RxtY9ItjW",
+    "name": "Verify GET WF using Unique_name -- 27313",
+    "title": "Verify GET WF using Unique_name -- 27313",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.table",
+        "properties": {
+          "scope": "local",
+          "name": "Wf_uniqueName",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02CVFIUHBON504AhSbDAaAeeSSXxrSLftoF",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "Verify GET WF using Unique_name -- 27313",
+      "display_name": "Verify GET WF using Unique_name -- 27313",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "$module_target;Cisco XDR;securex:ao:sxo$",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02CVA09ZI5SDA2n06YZY2dDUYwslscDsL11",
+        "name": "HTTP Request",
+        "title": "Fetch Atomics Workflows",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "display_name": "Fetch Atomics Workflows",
+          "method": "POST",
+          "relative_url": "/api/v1.1/workflows?start=0\u0026limit=100000\u0026sort_by=updated_on\u0026is_atomic=true",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02CVA2BDE0C2523RB9ydMGDFfARb3EsJV6s",
+        "name": "JSONPath Query",
+        "title": "Filter System based Atomcs WF Unique Names",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Filter System based Atomcs WF Unique Names",
+          "input_json": "$activity.definition_activity_02CVA09ZI5SDA2n06YZY2dDUYwslscDsL11.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.results[?(@.owner=='system')].unique_name",
+              "jsonpath_query_name": "System_Atomic_Wf_Uniquename",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02CVFXCCCKQTC1enNUZZFpYJICGmvPlBCqN",
+        "name": "Split String",
+        "title": "Split String",
+        "type": "core.splitstring",
+        "base_type": "activity",
+        "properties": {
+          "boundaries": [
+            {
+              "boundary": ","
+            }
+          ],
+          "continue_on_failure": false,
+          "display_name": "Split String",
+          "input_string": "$activity.definition_activity_02CVA2BDE0C2523RB9ydMGDFfARb3EsJV6s.output.jsonpath_queries.System_Atomic_Wf_Uniquename$",
+          "skip_execution": true
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02CVABL2G6SKD2t17ZqzFS1ELv7GkNo4XWU",
+        "name": "For Each",
+        "title": "For Each",
+        "type": "logic.for_each",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "For Each",
+          "skip_execution": true,
+          "source_array": "$activity.definition_activity_02CVFXCCCKQTC1enNUZZFpYJICGmvPlBCqN.output.parts$"
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02CVAILMAWQ5G51hd0jTna2ICBPXuUBmGyX",
+            "name": "HTTP Request",
+            "title": "GET WF by Unique_Name",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "GET WF by Unique_Name",
+              "method": "GET",
+              "relative_url": "api/v1/workflows/$activity.definition_activity_02CVABL2G6SKD2t17ZqzFS1ELv7GkNo4XWU.input.source_array[@]$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02CVFYIW0L3PU4xdmE9tODY0vg6MLgY1isw",
+        "name": "Completed",
+        "title": "Completed",
+        "type": "logic.completed",
+        "base_type": "activity",
+        "properties": {
+          "completion_type": "succeeded",
+          "continue_on_failure": false,
+          "display_name": "Completed",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02CVAGKVD93FT5RxAk9rSomKUJ9DAw1Wwm7",
+        "name": "Read Table from JSON",
+        "title": "Filter System based Atomics WF Unique Names",
+        "type": "corejava.read_table_from_json",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Filter System based Atomics WF Unique Names",
+          "input_json": "$activity.definition_activity_02CVA09ZI5SDA2n06YZY2dDUYwslscDsL11.output.response_body$",
+          "jsonpath_query": "$.results[?(@.owner=='system')].unique_name",
+          "persist_output": false,
+          "populate_columns": true,
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "module_targets": [
+    {
+      "module_type": "Cisco XDR",
+      "external_id": "securex:ao:sxo"
+    }
+  ]
+}
