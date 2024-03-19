@@ -9,6 +9,34 @@
       {
         "schema_id": "datatype.string",
         "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "UseCase1 Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02D0QUTQIDU203yFwOW6T919fnc6Jx6bGEy",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "UseCase2 Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02D0QUZHG26IU7Gd5uMzujtoY7vaBTgHhBw",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
           "value": "Bearer ",
           "scope": "input",
           "name": "Provide Token",
@@ -18,6 +46,48 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "UseCase3 Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02D0QV4PDKKD64iGNGrL0S7L150gZWTgGZA",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "UseCase4 Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02D0QV9RGX5K32FyIaow7N5qMrGxulLdAqw",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "ImportExport TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02D0QVHPRBTMH2k3RmsLwEhREesW0nlMVGG",
         "object_type": "variable_workflow"
       }
     ],
@@ -54,13 +124,13 @@
           {
             "unique_name": "definition_activity_02D0433FYJPWB5jscKIW78l7J9xlIMIKmO5",
             "name": "Parallel Branch",
-            "title": "Create a Workflow ",
+            "title": "Create a Workflow and Lock and Unlock Cases",
             "type": "logic.parallel_block",
             "base_type": "activity",
             "properties": {
               "continue_on_failure": false,
-              "description": "Create a Workflow then Lock and try to Update a workflow \nUnlock it and then Update workflow Lock it again\n\nCreate a Workflow and Make it Atomic \n\nCreate a Parent Workflow and above created atomic and Child workflow and check the locked status of the child and Atomic\n\nAdd Rule from wf desginer and Check the Locked status\n\nCreate Rule and wf from triggers Page and Verify the WF locked Status\n\nPublish WF and Verify the Status of the Locked Status \nInstall WF and Verify the Status of the Locked Status",
-              "display_name": "Create a Workflow ",
+              "description": "Create a Workflow then Lock and try to Update a workflow \nUnlock it and then Update workflow Lock it again\n\nCreate a Workflow and Make it Atomic \n\nCreate a Parent Workflow and above created atomic and Child workflow and check the locked status of the child and Atomic\n\nAdd Rule from wf desginer and Check the Locked status\n\nCreate Rule and wf from triggers Page and Verify the WF locked Status",
+              "display_name": "Create a Workflow and Lock and Unlock Cases",
               "skip_execution": false
             },
             "object_type": "definition_activity",
@@ -68,12 +138,12 @@
               {
                 "unique_name": "definition_activity_02D04YHM34YET0Lx3lq3QtEqtZGGRbSGFZA",
                 "name": "Group",
-                "title": "Create A WF and Verify Lock and Unlock",
+                "title": "UseCase1-Create A WF and Verify Lock and Unlock",
                 "type": "logic.group",
                 "base_type": "activity",
                 "properties": {
                   "continue_on_failure": false,
-                  "display_name": "Create A WF and Verify Lock and Unlock",
+                  "display_name": "UseCase1-Create A WF and Verify Lock and Unlock",
                   "skip_execution": false
                 },
                 "object_type": "definition_activity",
@@ -272,14 +342,132 @@
                 ]
               },
               {
+                "unique_name": "definition_activity_02D0QVYCCSOMA4DqV6wZX6lpX1aoQO1pIqd",
+                "name": "Condition Block",
+                "title": "Enter the Block if all Cases Pass else Skip and Mark as Fail",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Enter the Block if all Cases Pass else Skip and Mark as Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02D0QVYCMKUDX4sgqR8nsAaq3ZqVTqApiRQ",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC43F43oBn9BzrOKiM8NvxxcNOrN$",
+                                        "operator": "eq",
+                                        "right_operand": "true"
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02D048SRVHJYN5lHvfgtPPZo4B4NGTSQzyP.output.variable_workflow_01TNRGULATQQV6FYTr3qQGjSdO5JnudAeD5$",
+                                        "operator": "eq",
+                                        "right_operand": "true"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02D048Y0R8X1Z0WWUQFw1juIE5SctVPiQlt.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                      "operator": "eq",
+                                      "right_operand": "true"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02D04UXD981NK6NXDHgdBuACvx0QfGyLNNE.output.variable_workflow_02CZU99RIQV5B1mbvkT2jauVieYRgRwsco3$",
+                                    "operator": "eq",
+                                    "right_operand": "Pass"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02D04UXD981NK6NXDHgdBuACvx0QfGyLNNE.output.variable_workflow_02CZUCU1OZJ2Q5Jz0dOyB3HudqFWzOOJhJL$",
+                                  "operator": "eq",
+                                  "right_operand": "true"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02D04W2NLDSR04kxjtpHQD849tuWrfihp7u.output.variable_workflow_01TNRGULATQQV6FYTr3qQGjSdO5JnudAeD5$",
+                                "operator": "eq",
+                                "right_operand": "false"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02D04X24GC0FX4RYjJzVBNCkNfuaw9xz7ry.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                              "operator": "eq",
+                              "right_operand": "Pass"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02D04X24GC0FX4RYjJzVBNCkNfuaw9xz7ry.output.variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd$",
+                            "operator": "eq",
+                            "right_operand": "false"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02D04XEYLLQYA2wdsWs7bm3jpwpSc1nYSwn.output.variable_workflow_01TNRGULATQQV6FYTr3qQGjSdO5JnudAeD5$",
+                          "operator": "eq",
+                          "right_operand": "true"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02D0QWL4VNXH071Y5NZivMuJ6wqW3xH1xQv",
+                        "name": "Set Variables",
+                        "title": "Mark as Pass",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Mark as Pass",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.variable_workflow_02D0QUTQIDU203yFwOW6T919fnc6Jx6bGEy$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
                 "unique_name": "definition_activity_02D050DYVQYF973112XdHtht5SPKbOydtR5",
                 "name": "Group",
-                "title": "Use Case - Childs Getting Locked when Added to Parent WF",
+                "title": "UseCase2 - Childs Getting Locked when Added to Parent WF",
                 "type": "logic.group",
                 "base_type": "activity",
                 "properties": {
                   "continue_on_failure": false,
-                  "display_name": "Use Case - Childs Getting Locked when Added to Parent WF",
+                  "display_name": "UseCase2 - Childs Getting Locked when Added to Parent WF",
                   "skip_execution": false
                 },
                 "object_type": "definition_activity",
@@ -768,7 +956,8 @@
                         {
                           "jsonpath_query": "$.metadata.lock.locked_by",
                           "jsonpath_query_name": "locked_by_for_locked_Child_wf",
-                          "jsonpath_query_type": "string"
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
                         }
                       ],
                       "skip_execution": false
@@ -873,14 +1062,220 @@
                 "object_type": "definition_activity"
               },
               {
+                "unique_name": "definition_activity_02D0QWVG0CJWS4eHwl4E17ct5XNzPBqSEHb",
+                "name": "Condition Block",
+                "title": "Enter the Block if all Cases Pass else Skip and Mark as Fail",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Enter the Block if all Cases Pass else Skip and Mark as Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02D0QWVG0DOO04Zf9JUqWwyA8fVxPoC2JWz",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": {
+                                            "left_operand": {
+                                              "left_operand": {
+                                                "left_operand": {
+                                                  "left_operand": {
+                                                    "left_operand": {
+                                                      "left_operand": {
+                                                        "left_operand": {
+                                                          "left_operand": {
+                                                            "left_operand": {
+                                                              "left_operand": "$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC43F43oBn9BzrOKiM8NvxxcNOrN$",
+                                                              "operator": "eq",
+                                                              "right_operand": "true"
+                                                            },
+                                                            "operator": "and",
+                                                            "right_operand": {
+                                                              "left_operand": "$activity.definition_activity_02D050DYVXPYT2gHKtl9waYXba44HjB5Y8A.output.variable_workflow_01TNRGULATQQV6FYTr3qQGjSdO5JnudAeD5$",
+                                                              "operator": "eq",
+                                                              "right_operand": "true"
+                                                            }
+                                                          },
+                                                          "operator": "and",
+                                                          "right_operand": {
+                                                            "left_operand": "$activity.definition_activity_02D050DYVY9A53Pr23hjtNntukXRsofBbSI.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                                            "operator": "eq",
+                                                            "right_operand": "true"
+                                                          }
+                                                        },
+                                                        "operator": "and",
+                                                        "right_operand": {
+                                                          "left_operand": "$activity.definition_activity_02D050DYVZGH92HNX6Uvw3P7Q6ebXkvEa2o.output.variable_workflow_02CZUCU1OZJ2Q5Jz0dOyB3HudqFWzOOJhJL$",
+                                                          "operator": "eq",
+                                                          "right_operand": "true"
+                                                        }
+                                                      },
+                                                      "operator": "and",
+                                                      "right_operand": {
+                                                        "left_operand": "$activity.definition_activity_02D050DYVZGH92HNX6Uvw3P7Q6ebXkvEa2o.output.variable_workflow_02CZU99RIQV5B1mbvkT2jauVieYRgRwsco3$",
+                                                        "operator": "eq",
+                                                        "right_operand": "Pass"
+                                                      }
+                                                    },
+                                                    "operator": "and",
+                                                    "right_operand": {
+                                                      "left_operand": "$activity.definition_activity_02D0537HO28L32g71c8Qyr4AhsRKfevdQnn.output.error.code$",
+                                                      "operator": "ne",
+                                                      "right_operand": "200"
+                                                    }
+                                                  },
+                                                  "operator": "and",
+                                                  "right_operand": {
+                                                    "left_operand": "$activity.definition_activity_02D050DYW3XZK5N7xvnEk1uHnE1fv0dydaI.output.variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd$",
+                                                    "operator": "eq",
+                                                    "right_operand": "false"
+                                                  }
+                                                },
+                                                "operator": "and",
+                                                "right_operand": {
+                                                  "left_operand": "$activity.definition_activity_02D050DYW3XZK5N7xvnEk1uHnE1fv0dydaI.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                                                  "operator": "eq",
+                                                  "right_operand": "Pass"
+                                                }
+                                              },
+                                              "operator": "and",
+                                              "right_operand": {
+                                                "left_operand": "$activity.definition_activity_02D055GACMC7C65yCblXmRhVyuTc53srV6i.output.error.code$",
+                                                "operator": "eq",
+                                                "right_operand": "200"
+                                              }
+                                            },
+                                            "operator": "and",
+                                            "right_operand": {
+                                              "left_operand": "$activity.definition_activity_02D05DJVBFZ4T2bRanVOSbBeeaKGtpWM6Jf.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                              "operator": "eq",
+                                              "right_operand": "true"
+                                            }
+                                          },
+                                          "operator": "and",
+                                          "right_operand": {
+                                            "left_operand": "$activity.definition_activity_02D05EQ4LH4MC7AaJvXl192QmN7hjSblWcp.output.variable_workflow_026R3ITFC43F43oBn9BzrOKiM8NvxxcNOrN$",
+                                            "operator": "eq",
+                                            "right_operand": "true"
+                                          }
+                                        },
+                                        "operator": "and",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_02D05FRSBAURI3xPETJ857ZGyvHl6MWCcIi.output.variable_workflow_01TNRGULATQQV6FYTr3qQGjSdO5JnudAeD5$",
+                                          "operator": "eq",
+                                          "right_operand": "true"
+                                        }
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02D05JAT5F9997ctnR8Qa0mjPYww1L9VWMe.output.variable_workflow_01TNRGULATQQV6FYTr3qQGjSdO5JnudAeD5$",
+                                        "operator": "eq",
+                                        "right_operand": "true"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02D0GSLUV0UIX0KTADCmv2gy32GNTDJpBkC.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                      "operator": "eq",
+                                      "right_operand": "true"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02D0LDAVTPQ5I5NrKhbCyqe0yFbBg9e7M7T.output.variable_workflow_01TNJ51BNCZI25XdWqsAZpp6zobrFVdU6ug$",
+                                    "operator": "eq",
+                                    "right_operand": "true"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02D0LELOV4DG07Olr8N8h5nK2wl8VZLYlns.output.jsonpath_queries.locked_by_for_locked_Child_wf$",
+                                  "operator": "eq",
+                                  "right_operand": "true"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02D0LELOV4DG07Olr8N8h5nK2wl8VZLYlns.output.jsonpath_queries.locked_status_for_locked_Child_wf$",
+                                "operator": "eq",
+                                "right_operand": "system"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02D0LDYMLUMTN0G1lRseIINXKVHZjiZ3GuJ.output.variable_workflow_01TNJ51BNCZI25XdWqsAZpp6zobrFVdU6ug$",
+                              "operator": "eq",
+                              "right_operand": "true"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02D0LIBLIKRQ20qz7X2yQDtO5iDDd8fc1cr.output.jsonpath_queries.locked_by_for_locked_Atomic_wf$",
+                            "operator": "eq",
+                            "right_operand": "true"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02D0LIBLIKRQ20qz7X2yQDtO5iDDd8fc1cr.output.jsonpath_queries.locked_status_for_locked_Atomic_wf$",
+                          "operator": "eq",
+                          "right_operand": "system"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02D0QWVG0H8DR3vxTVqcRid6wpIyIIBYFvE",
+                        "name": "Set Variables",
+                        "title": "Mark as Pass",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Mark as Pass",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.variable_workflow_02D0QUZHG26IU7Gd5uMzujtoY7vaBTgHhBw$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
                 "unique_name": "definition_activity_02D04Z6BOPP4L270UDzQLt3OJCI89mv3Sbc",
                 "name": "Group",
-                "title": "Use Case - Adding Rules to Child and ParentWF",
+                "title": "UseCase3 - Adding Rules to Child and ParentWF",
                 "type": "logic.group",
                 "base_type": "activity",
                 "properties": {
                   "continue_on_failure": false,
-                  "display_name": "Use Case - Adding Rules to Child and ParentWF",
+                  "display_name": "UseCase3 - Adding Rules to Child and ParentWF",
                   "skip_execution": false
                 },
                 "object_type": "definition_activity",
@@ -1003,14 +1398,108 @@
                 ]
               },
               {
+                "unique_name": "definition_activity_02D0QX65J5GUD4J0JxN0uBXZHI9hYI5FrDC",
+                "name": "Condition Block",
+                "title": "Enter the Block if all Cases Pass else Skip and Mark as Fail",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Enter the Block if all Cases Pass else Skip and Mark as Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02D0QX65J6QL23COcvZK9AN94aQRDR9egNb",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02D0LNUKL93QZ72DzZ6TdfSkctgQUc17MKO.output.variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd$",
+                                  "operator": "eq",
+                                  "right_operand": "false"
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02D0LNUKL93QZ72DzZ6TdfSkctgQUc17MKO.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                                  "operator": "eq",
+                                  "right_operand": "Pass"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02D0LUVGE389S6Oh1gp0CLfNa6JwvbPfpBX.output.variable_workflow_027MPV5U2E0AP2iC7VW29dyXnt1pH5TTUYm$",
+                                "operator": "eq",
+                                "right_operand": "true"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02D0M1GY0NF800rLqiZpH6InIlK6ulRqy8H.output.variable_workflow_01TNJ51BNCZI25XdWqsAZpp6zobrFVdU6ug$",
+                              "operator": "eq",
+                              "right_operand": "true"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02D0M1QMUKA6D01en2dBELFjhqNvqZIeR35.output.jsonpath_queries.locked_by_for_locked_Child_wf_after_adding_rule$",
+                            "operator": "eq",
+                            "right_operand": "true"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02D0M1QMUKA6D01en2dBELFjhqNvqZIeR35.output.jsonpath_queries.locked_status_childwf_after_adding_rule$",
+                          "operator": "eq",
+                          "right_operand": "system"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02D0QX65JB0BK2oTcU4nRZWGcRpY6Z1xH7w",
+                        "name": "Set Variables",
+                        "title": "Mark as Pass",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Mark as Pass",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.variable_workflow_02D0QUTQIDU203yFwOW6T919fnc6Jx6bGEy$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
                 "unique_name": "definition_activity_02D0MKW08OEE67g1o3ZoWWKt9JOxr98WE6S",
                 "name": "Group",
-                "title": "Create a WF using Temp and Add Rule from WF Designer",
+                "title": "UseCase4-Create a WF using Temp and Add Rule from WF Designer",
                 "type": "logic.group",
                 "base_type": "activity",
                 "properties": {
                   "continue_on_failure": false,
-                  "display_name": "Create a WF using Temp and Add Rule from WF Designer",
+                  "display_name": "UseCase4-Create a WF using Temp and Add Rule from WF Designer",
                   "skip_execution": false
                 },
                 "object_type": "definition_activity",
@@ -1171,6 +1660,357 @@
                     "object_type": "definition_activity"
                   }
                 ]
+              },
+              {
+                "unique_name": "definition_activity_02D0QKUDBSUPL5KtkDIWbzdJsYBC14Aw78i",
+                "name": "Group",
+                "title": "Unlock Wfs Before Cleanup",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Unlock Wfs Before Cleanup",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02D0QL5A8RM5Z6BCdmU43fyQxlHjit0tdRY",
+                    "name": "XDR -- UnLock LockedWorkflow Reusable",
+                    "title": "XDR -- UnLock LockedWorkflow Reusable",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "XDR -- UnLock LockedWorkflow Reusable",
+                      "input": {
+                        "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+                      "workflow_name": "XDR -- UnLock LockedWorkflow Reusable"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0QLPLENC8W3qaTzTq8meMxH0qRlhaC4M",
+                    "name": "XDR -- UnLock LockedWorkflow Reusable",
+                    "title": "XDR -- UnLock LockedWorkflow Reusable",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "XDR -- UnLock LockedWorkflow Reusable",
+                      "input": {
+                        "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69": "$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+                      "workflow_name": "XDR -- UnLock LockedWorkflow Reusable"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0QME8W5K0E3RdV3CX1x4LWZEOn32kJnF",
+                    "name": "XDR -- UnLock LockedWorkflow Reusable",
+                    "title": "XDR -- UnLock LockedWorkflow Reusable",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "XDR -- UnLock LockedWorkflow Reusable",
+                      "input": {
+                        "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69": "$activity.definition_activity_02D0LY4JQQTYL7aovHKtJ8PrWmfZY1kOesc.output.variable_workflow_02AOGVGEQA83R0St7xjCFlLOloAHVVTwiO9$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+                      "workflow_name": "XDR -- UnLock LockedWorkflow Reusable"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02D0QXGXUSHAL6asaVJpfDsw8Ljee1Bij4t",
+                "name": "Condition Block",
+                "title": "Enter the Block if all Cases Pass else Skip and Mark as Fail",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Enter the Block if all Cases Pass else Skip and Mark as Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02D0QXGXUT7DS325iFJbQnn2jY8TCBsdbX3",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": "$activity.definition_activity_02D0LY4JQQTYL7aovHKtJ8PrWmfZY1kOesc.output.variable_workflow_02AOGXA7XQSF64NtRUgXzsjtkh9e76Bsarj$",
+                                      "operator": "eq",
+                                      "right_operand": "Pass"
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02D0MV4KDEULT2kfRAVHzNdfxM2bhtH5FkS.output.error.code$",
+                                      "operator": "eq",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02D0M3ID3PNXK2QXsQrCjm58O5FRJXJ4bbf.output.variable_workflow_01TNJ51BNCZI25XdWqsAZpp6zobrFVdU6ug$",
+                                    "operator": "eq",
+                                    "right_operand": "true"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02D0M3Y9HCUIQ6PzCn5lGeaYkJgFRjvQEdO.output.jsonpath_queries.locked_by_for_locked_wf_after_adding_rule_from_wfdesginerPage$",
+                                  "operator": "eq",
+                                  "right_operand": "system"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02D0M3Y9HCUIQ6PzCn5lGeaYkJgFRjvQEdO.output.jsonpath_queries.locked_status_wf_after_adding_rule_from_wfdesginerPage$",
+                                "operator": "eq",
+                                "right_operand": "true"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02D0QL5A8RM5Z6BCdmU43fyQxlHjit0tdRY.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                              "operator": "eq",
+                              "right_operand": "Pass"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02D0QLPLENC8W3qaTzTq8meMxH0qRlhaC4M.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                            "operator": "eq",
+                            "right_operand": "Pass"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02D0QME8W5K0E3RdV3CX1x4LWZEOn32kJnF.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                          "operator": "eq",
+                          "right_operand": "Pass"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02D0QXGXUVGVB5RsnKC1fHytOpFMIkFsG6G",
+                        "name": "Set Variables",
+                        "title": "Mark as Pass",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Mark as Pass",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.variable_workflow_02D0QUTQIDU203yFwOW6T919fnc6Jx6bGEy$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02D0RIYWPXSEH4bc0CcuHwELM6SCzCPVxfg",
+                "name": "Group",
+                "title": "CleanUp",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "CleanUp",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02D0RKPMWKUZN0upjMBPWDPxuhHjqT01Jmw",
+                    "name": "Automation - Delete a Workflow (parent)",
+                    "title": "Automation - Delete a Workflow (parent)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - Delete a Workflow (parent)",
+                      "input": {
+                        "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "Authorization",
+                        "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_02D05EQ4LH4MC7AaJvXl192QmN7hjSblWcp.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+                      "workflow_name": "Automation - Delete a Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0RJOSTUWW516JOMLaQpS9T0efeUdHdVa",
+                    "name": "Automation - Delete a Workflow (Child)",
+                    "title": "Automation - Delete a Workflow (Child)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - Delete a Workflow (Child)",
+                      "input": {
+                        "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "Authorization",
+                        "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+                      "workflow_name": "Automation - Delete a Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0RK94CGL2B1ScMDF32zFs43u0PvgF7DG",
+                    "name": "Automation - Delete a Workflow (Atomic)",
+                    "title": "Automation - Delete a Workflow (Atomic)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - Delete a Workflow (Atomic)",
+                      "input": {
+                        "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "Authorization",
+                        "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+                      "workflow_name": "Automation - Delete a Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0RL573BPDN2NhnsEdjjuApJ818EWYQqW",
+                    "name": "Automation - Delete a Workflow (WF from Template)",
+                    "title": "Automation - Delete a Workflow (WF from Template)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - Delete a Workflow (WF from Template)",
+                      "input": {
+                        "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "Authorization",
+                        "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_02D0LY4JQQTYL7aovHKtJ8PrWmfZY1kOesc.output.variable_workflow_02AOGVGEQA83R0St7xjCFlLOloAHVVTwiO9$",
+                        "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+                      "workflow_name": "Automation - Delete a Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0RMZ3GAM5M4seu0zu60YAzx6DlHxzCzy",
+                    "name": "HTTP Request",
+                    "title": "Delete Standalone Rule",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "display_name": "Delete Standalone Rule",
+                      "method": "DELETE",
+                      "relative_url": "api/v1/rules/$activity.definition_activity_02D0LUVGE389S6Oh1gp0CLfNa6JwvbPfpBX.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
               }
             ]
           },
@@ -1182,10 +2022,1000 @@
             "base_type": "activity",
             "properties": {
               "continue_on_failure": false,
+              "description": "Import Parent WF having Child \nVerify Childs gets locked or not \nImport the same wf which is locked and should fail to import with error\nImport the wf having rule and verify wf should get locked",
               "display_name": "Import wf having Atomic and Subwf",
-              "skip_execution": true
+              "skip_execution": false
             },
-            "object_type": "definition_activity"
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02D0ORVTYHMW14IoBvUJuORRWlJ7rIyCtrL",
+                "name": "Import Atomic WF",
+                "title": "Import Atomic WF",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Import Atomic WF",
+                  "input": {
+                    "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "Authorization",
+                    "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                    "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_02D0OGS3UPWM62OmcDT2nzRh6zwMuGyGJYY\",\n    \"name\": \"atomic\",\n    \"title\": \"atomic\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"atomic_group\": \"Atomic\",\n        \"is_atomic\": true\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"atomic\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_02D0OGS59GS792aZ2MjM9ExYK55YDU3FFZc\",\n        \"name\": \"Sleep\",\n        \"title\": \"Sleep\",\n        \"type\": \"core.sleep\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Sleep\",\n          \"skip_execution\": false,\n          \"sleep_interval\": 1\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
+                    "variable_workflow_026Z2CUSXYZUP7CfGKMtqXdZf1PoKpCnqTQ": false,
+                    "variable_workflow_026Z2D4W3D6B73HR94LIqetofp263GiaCxF": false,
+                    "variable_workflow_026Z2DJMCM2QS65COEebrKJrHjYuVcFqUyW": "definition_workflow_02D0OGS3UPWM62OmcDT2nzRh6zwMuGyGJYY"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_026YHAFYUYJSI57lobBfWruQIXVfnumQPnC",
+                  "workflow_name": "Automation - Import a Workflow"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0OT5B1L7G15z2OHoY43TeMQkaxzdLkAU",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0OTCN8UD6Y71jfu4P0KMWJebIgQzfQKZ",
+                "name": "Import Parent having Child and Atomic WF",
+                "title": "Import Parent having Child and Atomic WF",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Import Parent having Child and Atomic WF",
+                  "input": {
+                    "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "Authorization",
+                    "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                    "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_02D0OEOC7IZ6K42VSgEC7g2jp2eyY5igoEC\",\n    \"name\": \"parent\",\n    \"title\": \"parent\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"parent\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_02D0OEQOAHZ7S2s341PHNSXLZYGXQSoODJk\",\n        \"name\": \"child\",\n        \"title\": \"child\",\n        \"type\": \"workflow.sub_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"child\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_02D0OEF6EQ4BK1fgPCni74KS5Ub5iUcCIHl\",\n          \"workflow_name\": \"child\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02D0OHIN7KQVM6OQOrKGqZyFf6QlyqWzovB\",\n        \"name\": \"atomic\",\n        \"title\": \"atomic\",\n        \"type\": \"workflow.atomic_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"display_name\": \"atomic\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_02D0OGS3UPWM62OmcDT2nzRh6zwMuGyGJYY\",\n          \"workflow_name\": \"atomic\"\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"subworkflows\": [\n    {\n      \"workflow\": {\n        \"unique_name\": \"definition_workflow_02D0OEF6EQ4BK1fgPCni74KS5Ub5iUcCIHl\",\n        \"name\": \"child\",\n        \"title\": \"child\",\n        \"type\": \"generic.workflow\",\n        \"base_type\": \"workflow\",\n        \"variables\": null,\n        \"properties\": {\n          \"atomic\": {\n            \"is_atomic\": false\n          },\n          \"delete_workflow_instance\": false,\n          \"display_name\": \"child\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          }\n        },\n        \"object_type\": \"definition_workflow\",\n        \"actions\": [\n          {\n            \"unique_name\": \"definition_activity_02D0OEJJ9JJ7X5Sq2b04HzxHrEs4xZpcZX5\",\n            \"name\": \"Sleep\",\n            \"title\": \"Sleep\",\n            \"type\": \"core.sleep\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"continue_on_failure\": false,\n              \"display_name\": \"Sleep\",\n              \"skip_execution\": false,\n              \"sleep_interval\": 1\n            },\n            \"object_type\": \"definition_activity\"\n          }\n        ],\n        \"categories\": [\n          \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n        ]\n      }\n    }\n  ],\n  \"atomic_workflows\": [\n    \"definition_workflow_02D0OGS3UPWM62OmcDT2nzRh6zwMuGyGJYY\"\n  ],\n  \"dependent_workflows\": [\n    \"definition_workflow_02D0OEF6EQ4BK1fgPCni74KS5Ub5iUcCIHl\",\n    \"definition_workflow_02D0OGS3UPWM62OmcDT2nzRh6zwMuGyGJYY\"\n  ]\n}",
+                    "variable_workflow_026Z2CUSXYZUP7CfGKMtqXdZf1PoKpCnqTQ": false,
+                    "variable_workflow_026Z2D4W3D6B73HR94LIqetofp263GiaCxF": false,
+                    "variable_workflow_026Z2DJMCM2QS65COEebrKJrHjYuVcFqUyW": "definition_workflow_02D0OEOC7IZ6K42VSgEC7g2jp2eyY5igoEC"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_026YHAFYUYJSI57lobBfWruQIXVfnumQPnC",
+                  "workflow_name": "Automation - Import a Workflow"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0OTWTRXDL70G2hoYXDgZ0FsDFpQ66Euv",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PGGV3LT770LQ9jrDitgKtF4ESsRlIn5",
+                "name": "Automation - Validate Workflow",
+                "title": "Automation - Validate Workflow",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Automation - Validate Workflow",
+                  "input": {
+                    "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "Authorization",
+                    "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                    "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_02D0OTCN8UD6Y71jfu4P0KMWJebIgQzfQKZ.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+                  "workflow_name": "Automation - Validate Workflow"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PK31Y20XW4A2vib5C4omOUT99RLy815",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0OVU5RECZ80V6obDAdNBOUGZCgPBZbkE",
+                "name": "Automation - Fetch Workflow Information using wf_id",
+                "title": "Automation - Fetch Workflow Information using wf_id",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Automation - Fetch Workflow Information using wf_id",
+                  "input": {
+                    "variable_workflow_01TNJ51BNBS833v3kjcQAgolKqAjBSTlkKK": "$activity.definition_activity_02D0OTCN8UD6Y71jfu4P0KMWJebIgQzfQKZ.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                    "variable_workflow_01TNJ51BNCA2E1oRBxWHjPf5zZmQmMSEXBU": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                    "variable_workflow_01TNJ51BNED5W1dXP9IfhXD234YZCS4Fs6P": "Authorization"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
+                  "workflow_name": "Automation - Fetch Workflow Information using wf_id"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0OW6FL75I42Kt8vf3epFVGuTGyrOHvVm",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0OWBDMV8BQ3DLb42h6tFn5Eqf230Y8H4",
+                "name": "JSONPath Query",
+                "title": "Fetch SubWF ID",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch SubWF ID",
+                  "input_json": "$activity.definition_activity_02D0OVU5RECZ80V6obDAdNBOUGZCgPBZbkE.output.variable_workflow_01TNJ51BNE0R264uBjaU1jQhlEmYefrl3DA$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.actions[?(@.name=='child')].properties.workflow_id",
+                      "jsonpath_query_name": "subwf_ID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PC8KVXKJX5LBRQVDraI9k6wSVCqjsha",
+                "name": "GET Child WF to Fetch the Locked Status",
+                "title": "GET Child WF to Fetch the Locked Status",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "GET Child WF to Fetch the Locked Status",
+                  "input": {
+                    "variable_workflow_01TNJ51BNBS833v3kjcQAgolKqAjBSTlkKK": "$activity.definition_activity_02D0OWBDMV8BQ3DLb42h6tFn5Eqf230Y8H4.output.jsonpath_queries.subwf_ID$",
+                    "variable_workflow_01TNJ51BNCA2E1oRBxWHjPf5zZmQmMSEXBU": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                    "variable_workflow_01TNJ51BNED5W1dXP9IfhXD234YZCS4Fs6P": "Authorization"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
+                  "workflow_name": "Automation - Fetch Workflow Information using wf_id"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PJWDHQ0IX0GDEbFavfO9vmGUePPROR6",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PCYGU3ZZS529rD72KjFz1EAgHeueqoU",
+                "name": "JSONPath Query",
+                "title": "Fetch Locked Status Child",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch Locked Status Child",
+                  "input_json": "$activity.definition_activity_02D0PC8KVXKJX5LBRQVDraI9k6wSVCqjsha.output.variable_workflow_01TNJ51BNE0R264uBjaU1jQhlEmYefrl3DA$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.metadata.lock.locked",
+                      "jsonpath_query_name": "Lock_status_for_Child_WF_ImportCase",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PDRXDR3SF3vkhPQGRSTOvQMd1VAtWg8",
+                "name": "GET Atomic WF to Fetch the Locked Statuc",
+                "title": "GET Atomic WF to Fetch the Locked Statuc",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "GET Atomic WF to Fetch the Locked Statuc",
+                  "input": {
+                    "variable_workflow_01TNJ51BNBS833v3kjcQAgolKqAjBSTlkKK": "$activity.definition_activity_02D0ORVTYHMW14IoBvUJuORRWlJ7rIyCtrL.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                    "variable_workflow_01TNJ51BNCA2E1oRBxWHjPf5zZmQmMSEXBU": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                    "variable_workflow_01TNJ51BNED5W1dXP9IfhXD234YZCS4Fs6P": "Authorization"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
+                  "workflow_name": "Automation - Fetch Workflow Information using wf_id"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PJT88IIO416arGO4he72Vwg4Ljjk48O",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PE08HXB6F2E6tF7FEzYYxxjSYZfxylX",
+                "name": "JSONPath Query",
+                "title": "Fetch Locked Status for Atomic",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch Locked Status for Atomic",
+                  "input_json": "$activity.definition_activity_02D0PDRXDR3SF3vkhPQGRSTOvQMd1VAtWg8.output.variable_workflow_01TNJ51BNE0R264uBjaU1jQhlEmYefrl3DA$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.metadata.lock.locked",
+                      "jsonpath_query_name": "Lock_status_for_atomic_WF_ImportCase",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0QG2PFQK1C0Z7cckBjrwgBu2ozfWlGrT",
+                "name": "HTTP Request",
+                "title": "Import WF to Overwrite which locked",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_02D0OGS3UPWM62OmcDT2nzRh6zwMuGyGJYY\",\n    \"name\": \"atomic\",\n    \"title\": \"atomic\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"atomic_group\": \"Atomic\",\n        \"is_atomic\": true\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"atomic\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_02D0OGS59GS792aZ2MjM9ExYK55YDU3FFZc\",\n        \"name\": \"Sleep\",\n        \"title\": \"Sleep\",\n        \"type\": \"core.sleep\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Sleep\",\n          \"skip_execution\": false,\n          \"sleep_interval\": 1\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$"
+                    }
+                  ],
+                  "display_name": "Import WF to Overwrite which locked",
+                  "method": "POST",
+                  "relative_url": "exchange/api/v1/workflows/import?create_new=false\u0026overwrite=true\u0026workflow_unique_name=definition_workflow_02D0OGS3UPWM62OmcDT2nzRh6zwMuGyGJYY",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PERSUH2I45VSBXBLNYu5wJcZjM1JEGv",
+                "name": "Import WF having Automation Rule",
+                "title": "Import WF having Automation Rule",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Import WF having Automation Rule",
+                  "input": {
+                    "variable_workflow_026YHB9OQ3HWP4aN0vx8H1V1rJIPbsEahC6": "Authorization",
+                    "variable_workflow_026YHBEI8ZSWW19gG1iJKan8o6QXER4fAwr": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                    "variable_workflow_026YHBVWX7WMF6AcYrN4Mo5s2BnACgClrNf": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_02D0OADRDXREE7lxqpvmtZGMhcCKNLgNWDt\",\n    \"name\": \"WF having ST INC rule \",\n    \"title\": \"WF having ST INC rule \",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"automation_rules\": {\n        \"type\": [\n          \"incident.rule_event\"\n        ]\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"WF having ST INC rule \",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_02D0OAE1QWOAD3sq9S49E0UagXP4kb5BBWM\",\n        \"name\": \"Sleep\",\n        \"title\": \"Sleep\",\n        \"type\": \"core.sleep\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Sleep\",\n          \"skip_execution\": false,\n          \"sleep_interval\": 1\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"rules\": {\n    \"ruleevent_02D0N8QD5ZCD01ZwVLeQMPomVh8712sCyqG\": {\n      \"name\": \"ST-Lock-02D0N78HS48SU6neuh6y7NZD0z5VtCgFzsd\",\n      \"title\": \"ST-Lock-02D0N78HS48SU6neuh6y7NZD0z5VtCgFzsd\",\n      \"description\": \"Created by Automation reusable workflow\",\n      \"type\": \"incident.rule_event\",\n      \"rule_type\": \"rule_event\",\n      \"base_type\": \"rule\",\n      \"object_type\": \"ruleevent\",\n      \"version\": \"1.0.0\",\n      \"properties\": {\n        \"description\": \"Created by Automation reusable workflow\",\n        \"disabled\": false,\n        \"display_name\": \"ST-Lock-02D0N78HS48SU6neuh6y7NZD0z5VtCgFzsd\",\n        \"group_by\": false,\n        \"rule_type\": \"rule_event\",\n        \"title\": \"ST-Lock-02D0N78HS48SU6neuh6y7NZD0z5VtCgFzsd\",\n        \"workflows_config\": [\n          {\n            \"disabled\": false,\n            \"ref_id\": \"definition_workflow_02D0OADRDXREE7lxqpvmtZGMhcCKNLgNWDt\",\n            \"status\": {\n              \"state\": \"started-polling\",\n              \"prev_state\": \"started-polling\",\n              \"error_msg\": \"\"\n            }\n          }\n        ]\n      },\n      \"disabled\": false,\n      \"unique_name\": \"ruleevent_02D0N8QD5ZCD01ZwVLeQMPomVh8712sCyqG\"\n    }\n  },\n  \"triggers\": {\n    \"triggerevent_02D0OADWZXW3W6A5eImKaDin9S8cENycwEa\": {\n      \"workflow_id\": \"definition_workflow_02D0OADRDXREE7lxqpvmtZGMhcCKNLgNWDt\",\n      \"name\": \"email\",\n      \"title\": \"\",\n      \"lowercase_name\": \"event.email\",\n      \"type\": \"event\",\n      \"base_type\": \"trigger\",\n      \"ref_id\": \"event_01UYYT4CRE8A271CK30NXKPqKbs5ow3TPXt\",\n      \"version\": \"1.0.0\",\n      \"disabled\": false,\n      \"unique_name\": \"triggerevent_02D0OADWZXW3W6A5eImKaDin9S8cENycwEa\",\n      \"object_type\": \"triggerevent\"\n    },\n    \"triggerevent_02D0OADYPXWEX6jGYWAvRZCjqUvU1QPBG3B\": {\n      \"workflow_id\": \"definition_workflow_02D0OADRDXREE7lxqpvmtZGMhcCKNLgNWDt\",\n      \"name\": \"task event trigger\",\n      \"title\": \"\",\n      \"lowercase_name\": \"event.task_event_trigger\",\n      \"type\": \"event\",\n      \"base_type\": \"trigger\",\n      \"ref_id\": \"event_01U72DQQ07JEI5ZMYVCEkMt6oSiKRSPO4Yt\",\n      \"version\": \"1.0.0\",\n      \"disabled\": false,\n      \"unique_name\": \"triggerevent_02D0OADYPXWEX6jGYWAvRZCjqUvU1QPBG3B\",\n      \"object_type\": \"triggerevent\"\n    },\n    \"triggerevent_02D0OAE0HTX9E64VKHWk24xVREDOQfO5Cix\": {\n      \"workflow_id\": \"definition_workflow_02D0OADRDXREE7lxqpvmtZGMhcCKNLgNWDt\",\n      \"name\": \"Even Webhook\",\n      \"title\": \"\",\n      \"lowercase_name\": \"event.even_webhook\",\n      \"type\": \"event\",\n      \"base_type\": \"trigger\",\n      \"ref_id\": \"event_webhook_01RPM9SAHB31I5ZBdYrUidRPzdRNnfR7rue\",\n      \"version\": \"1.0.0\",\n      \"disabled\": false,\n      \"unique_name\": \"triggerevent_02D0OAE0HTX9E64VKHWk24xVREDOQfO5Cix\",\n      \"object_type\": \"triggerevent\"\n    },\n    \"triggerschedule_02D0OADVLIP6E1JJ6OwBohmzEKQuBvTt2pY\": {\n      \"workflow_id\": \"definition_workflow_02D0OADRDXREE7lxqpvmtZGMhcCKNLgNWDt\",\n      \"name\": \"Sheduler\",\n      \"title\": \"\",\n      \"lowercase_name\": \"schedule.sheduler\",\n      \"type\": \"schedule\",\n      \"base_type\": \"trigger\",\n      \"ref_id\": \"schedule_01U64B5ZJLI5P0p3LtxEmVAGOq5Xr8FTklF\",\n      \"version\": \"1.0.0\",\n      \"disabled\": false,\n      \"unique_name\": \"triggerschedule_02D0OADVLIP6E1JJ6OwBohmzEKQuBvTt2pY\",\n      \"object_type\": \"triggerschedule\"\n    }\n  },\n  \"events\": {\n    \"event_01U72DQQ07JEI5ZMYVCEkMt6oSiKRSPO4Yt\": {\n      \"name\": \"BG Task Event\",\n      \"title\": \"BG Task Event\",\n      \"type\": \"approval_task.event\",\n      \"base_type\": \"event\",\n      \"object_type\": \"event\",\n      \"rule_id\": \"\",\n      \"target_id\": \"\",\n      \"webhook_id\": \"\",\n      \"version\": \"1.0.0\",\n      \"properties\": {\n        \"conditions\": {\n          \"left_operand\": \"$output.subject_line$\",\n          \"operator\": \"eqi\",\n          \"right_operand\": \"BG Test\"\n        },\n        \"title\": \"BG Task Event\"\n      },\n      \"unique_name\": \"event_01U72DQQ07JEI5ZMYVCEkMt6oSiKRSPO4Yt\"\n    },\n    \"event_01UYYT4CRE8A271CK30NXKPqKbs5ow3TPXt\": {\n      \"name\": \"CA EMAIL Automation Event Acount\",\n      \"title\": \"CA EMAIL Automation Event Acount\",\n      \"type\": \"email.event\",\n      \"base_type\": \"event\",\n      \"object_type\": \"event\",\n      \"rule_id\": \"\",\n      \"target_id\": \"definition_target_01UYYT47010Q62hXdyy0W9SBxwrbCu54rQ6\",\n      \"webhook_id\": \"\",\n      \"version\": \"1.0.0\",\n      \"properties\": {\n        \"action\": \"read\",\n        \"conditions\": {\n          \"left_operand\": \"$output.subject$\",\n          \"operator\": \"eqi\",\n          \"right_operand\": \"CA EMAIL Automation Event Account, executing through Workflow and Instance ID: 01UYYRI14ZHQP1mycc0nVWV6uFUEDzp932p\"\n        },\n        \"download_attachments\": true,\n        \"folder\": \"INBOX\",\n        \"target_id\": \"definition_target_01UYYT47010Q62hXdyy0W9SBxwrbCu54rQ6\",\n        \"title\": \"CA EMAIL Automation Event Acount\"\n      },\n      \"unique_name\": \"event_01UYYT4CRE8A271CK30NXKPqKbs5ow3TPXt\"\n    },\n    \"event_webhook_01RPM9SAHB31I5ZBdYrUidRPzdRNnfR7rue\": {\n      \"name\": \"CA Webhook\",\n      \"title\": \"CA Webhook\",\n      \"type\": \"webhook.event\",\n      \"base_type\": \"event\",\n      \"object_type\": \"event_webhook\",\n      \"rule_id\": \"\",\n      \"target_id\": \"\",\n      \"webhook_id\": \"webhook_01RPM8A89D2RQ5sleD0Xu4vbBtWvtH819vO\",\n      \"version\": \"1.0.0\",\n      \"properties\": {\n        \"title\": \"CA Webhook\",\n        \"webhook_id\": \"webhook_01RPM8A89D2RQ5sleD0Xu4vbBtWvtH819vO\"\n      },\n      \"unique_name\": \"event_webhook_01RPM9SAHB31I5ZBdYrUidRPzdRNnfR7rue\"\n    }\n  },\n  \"schedules\": {\n    \"schedule_01U64B5ZJLI5P0p3LtxEmVAGOq5Xr8FTklF\": {\n      \"unique_name\": \"schedule_01U64B5ZJLI5P0p3LtxEmVAGOq5Xr8FTklF\",\n      \"name\": \"BG Daily\",\n      \"type\": \"basic.schedule\",\n      \"base_type\": \"schedule\",\n      \"object_type\": \"schedule\",\n      \"rule_id\": \"\",\n      \"properties\": {\n        \"calendar\": \"calendar_recurring_1BMfMWvgiDhSjBQ7hTSyvz3NyVZ\",\n        \"timezone\": \"US/Pacific\",\n        \"starttime\": \"11:15\",\n        \"interval_hours\": 0,\n        \"interval_minutes\": 5,\n        \"number_of_times\": 50,\n        \"display_name\": \"BG Daily\",\n        \"description\": \"\"\n      },\n      \"version\": \"1.0.0\"\n    }\n  },\n  \"targets\": {\n    \"definition_target_01UYYT47010Q62hXdyy0W9SBxwrbCu54rQ6\": {\n      \"unique_name\": \"definition_target_01UYYT47010Q62hXdyy0W9SBxwrbCu54rQ6\",\n      \"name\": \"CA IMAP Automation Account\",\n      \"title\": \"CA IMAP Automation Account\",\n      \"type\": \"email.imap_endpoint\",\n      \"base_type\": \"target\",\n      \"object_type\": \"definition_target\",\n      \"properties\": {\n        \"default_runtime_user_id\": \"definition_runtime_user_01UYYT2YEMBN65KsIi0hKRzGyjL8y4NNaLS\",\n        \"display_name\": \"CA IMAP Automation Account\",\n        \"ignore_certificate_errors\": true,\n        \"polling_interval\": 30,\n        \"port\": 993,\n        \"protocol\": \"IMAP\",\n        \"server\": \"imap.gmail.com\",\n        \"tls_enabled\": true\n      }\n    }\n  },\n  \"runtime_users\": {\n    \"definition_runtime_user_01UYYT2YEMBN65KsIi0hKRzGyjL8y4NNaLS\": {\n      \"unique_name\": \"definition_runtime_user_01UYYT2YEMBN65KsIi0hKRzGyjL8y4NNaLS\",\n      \"name\": \"CA Email Automation Account1\",\n      \"title\": \"CA Email Automation Account1\",\n      \"type\": \"runtime_user.email_credentials\",\n      \"base_type\": \"runtime_user\",\n      \"object_type\": \"definition_runtime_user\",\n      \"properties\": {\n        \"display_name\": \"CA Email Automation Account1\",\n        \"password\": \"*****\",\n        \"sender\": \"longhornproj2@gmail.com\"\n      }\n    }\n  },\n  \"webhooks\": {\n    \"webhook_01RPM8A89D2RQ5sleD0Xu4vbBtWvtH819vO\": {\n      \"name\": \"CA Webhook\",\n      \"title\": \"CA Webhook\",\n      \"type\": \"generic.webhook\",\n      \"base_type\": \"webhook\",\n      \"object_type\": \"webhook\",\n      \"version\": \"1.0.0\",\n      \"properties\": {\n        \"display_name\": \"CA Webhook\",\n        \"request_content_type\": \"application/json\"\n      },\n      \"unique_name\": \"webhook_01RPM8A89D2RQ5sleD0Xu4vbBtWvtH819vO\"\n    }\n  }\n}",
+                    "variable_workflow_026Z2CUSXYZUP7CfGKMtqXdZf1PoKpCnqTQ": false,
+                    "variable_workflow_026Z2D4W3D6B73HR94LIqetofp263GiaCxF": false,
+                    "variable_workflow_026Z2DJMCM2QS65COEebrKJrHjYuVcFqUyW": "definition_workflow_02D0OADRDXREE7lxqpvmtZGMhcCKNLgNWDt"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_026YHAFYUYJSI57lobBfWruQIXVfnumQPnC",
+                  "workflow_name": "Automation - Import a Workflow"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PJPP4UYSM4QnjZc7RwYt8dxJbHKzPXk",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PG7DM1TGD4pyGKxAoYuGyM6B50283jo",
+                "name": "Automation - Validate Workflow",
+                "title": "Automation - Validate Workflow",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Automation - Validate Workflow",
+                  "input": {
+                    "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "Authorization",
+                    "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                    "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_02D0PERSUH2I45VSBXBLNYu5wJcZjM1JEGv.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+                  "workflow_name": "Automation - Validate Workflow"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PJN0X3SWD1RAwyxZFocpxGZ5BwK0RF2",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PGZ23ZTZ32vZGzl6bOWNKaVMLA8AY9a",
+                "name": "GET WF having Rule to Fetch the Locked Status",
+                "title": "GET WF having Rule to Fetch the Locked Status",
+                "type": "workflow.atomic_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "GET WF having Rule to Fetch the Locked Status",
+                  "input": {
+                    "variable_workflow_01TNJ51BNBS833v3kjcQAgolKqAjBSTlkKK": "$activity.definition_activity_02D0PERSUH2I45VSBXBLNYu5wJcZjM1JEGv.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                    "variable_workflow_01TNJ51BNCA2E1oRBxWHjPf5zZmQmMSEXBU": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                    "variable_workflow_01TNJ51BNED5W1dXP9IfhXD234YZCS4Fs6P": "Authorization"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
+                  "workflow_name": "Automation - Fetch Workflow Information using wf_id"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PJJPVXE9M2JcSDHReXK0DxsuKIDOuaL",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PHEP021UO6HahTv9ecvq5Yfb2yPxzSo",
+                "name": "JSONPath Query",
+                "title": "Fetch Locked Status for Wf having rules",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch Locked Status for Wf having rules",
+                  "input_json": "$activity.definition_activity_02D0PGZ23ZTZ32vZGzl6bOWNKaVMLA8AY9a.output.variable_workflow_01TNJ51BNE0R264uBjaU1jQhlEmYefrl3DA$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.metadata.lock.locked",
+                      "jsonpath_query_name": "Lock_status_for_atomic_WF_having_rule",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PI7GTCL195muE23o50JzHes3VjPmVmV",
+                "name": "HTTP Request",
+                "title": "GET Rule ID ",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "display_name": "GET Rule ID ",
+                  "method": "GET",
+                  "relative_url": "/api/v1/workflows/$activity.definition_activity_02D0PERSUH2I45VSBXBLNYu5wJcZjM1JEGv.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$/rules",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PJEQA7QKK53ZZB2iZ1yTGXFLsUFfRqH",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0PIY4HKI0E2NQVZp61sOdsCpv54BA0W0",
+                "name": "JSONPath Query",
+                "title": "Fetch Rule ID",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Rule ID",
+                  "input_json": "$activity.definition_activity_02D0PI7GTCL195muE23o50JzHes3VjPmVmV.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$..id",
+                      "jsonpath_query_name": "Rule_ID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D0QO0NCBKFP7glUJPVOadICMWY0Fu8X7w",
+                "name": "Group",
+                "title": "UnLock Before Cleanup",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "UnLock Before Cleanup",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02D0QNWTL1URC4m9i1JdcpUBWBYop2SzYXm",
+                    "name": "XDR -- UnLock LockedWorkflow Reusable",
+                    "title": "XDR -- UnLock LockedWorkflow Reusable",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "XDR -- UnLock LockedWorkflow Reusable",
+                      "input": {
+                        "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69": "$activity.definition_activity_02D0ORVTYHMW14IoBvUJuORRWlJ7rIyCtrL.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+                      "workflow_name": "XDR -- UnLock LockedWorkflow Reusable"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0QOK0DS1I72QxwgnBGsymr7zaXoJKtZf",
+                    "name": "XDR -- UnLock LockedWorkflow Reusable",
+                    "title": "XDR -- UnLock LockedWorkflow Reusable",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "XDR -- UnLock LockedWorkflow Reusable",
+                      "input": {
+                        "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69": "$activity.definition_activity_02D0OWBDMV8BQ3DLb42h6tFn5Eqf230Y8H4.output.jsonpath_queries.subwf_ID$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+                      "workflow_name": "XDR -- UnLock LockedWorkflow Reusable"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0QOS4O8E5J79HaaXFcqYxIYfUxn7YQCY",
+                    "name": "XDR -- UnLock LockedWorkflow Reusable",
+                    "title": "XDR -- UnLock LockedWorkflow Reusable",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "XDR -- UnLock LockedWorkflow Reusable",
+                      "input": {
+                        "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69": "$activity.definition_activity_02D0PERSUH2I45VSBXBLNYu5wJcZjM1JEGv.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+                      "workflow_name": "XDR -- UnLock LockedWorkflow Reusable"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02D0QXYSXFDFK21EO8jsrDJpRizLrab1NNh",
+                "name": "Condition Block",
+                "title": "Enter the Block if all Cases Pass else Skip and Mark as Fail",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Enter the Block if all Cases Pass else Skip and Mark as Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02D0QXYSXG7LZ7IUAJROX8I8xcMTJfMT3O4",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": {
+                                            "left_operand": {
+                                              "left_operand": {
+                                                "left_operand": {
+                                                  "left_operand": {
+                                                    "left_operand": {
+                                                      "left_operand": {
+                                                        "left_operand": "$activity.definition_activity_02D0ORVTYHMW14IoBvUJuORRWlJ7rIyCtrL.output.variable_workflow_026YHDBBBMOKL4PuJR5QoVaFm20O7FVC813$",
+                                                        "operator": "eq",
+                                                        "right_operand": "true"
+                                                      },
+                                                      "operator": "and",
+                                                      "right_operand": {
+                                                        "left_operand": "$activity.definition_activity_02D0OTCN8UD6Y71jfu4P0KMWJebIgQzfQKZ.output.variable_workflow_026YHDBBBMOKL4PuJR5QoVaFm20O7FVC813$",
+                                                        "operator": "eq",
+                                                        "right_operand": "true"
+                                                      }
+                                                    },
+                                                    "operator": "and",
+                                                    "right_operand": {
+                                                      "left_operand": "$activity.definition_activity_02D0PGGV3LT770LQ9jrDitgKtF4ESsRlIn5.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                                      "operator": "eq",
+                                                      "right_operand": "true"
+                                                    }
+                                                  },
+                                                  "operator": "and",
+                                                  "right_operand": {
+                                                    "left_operand": "$activity.definition_activity_02D0OVU5RECZ80V6obDAdNBOUGZCgPBZbkE.output.variable_workflow_01TNJ51BNCZI25XdWqsAZpp6zobrFVdU6ug$",
+                                                    "operator": "eq",
+                                                    "right_operand": "true"
+                                                  }
+                                                },
+                                                "operator": "and",
+                                                "right_operand": {
+                                                  "left_operand": "$activity.definition_activity_02D0PC8KVXKJX5LBRQVDraI9k6wSVCqjsha.output.variable_workflow_01TNJ51BNCZI25XdWqsAZpp6zobrFVdU6ug$",
+                                                  "operator": "eq",
+                                                  "right_operand": "true"
+                                                }
+                                              },
+                                              "operator": "and",
+                                              "right_operand": {
+                                                "left_operand": "$activity.definition_activity_02D0PCYGU3ZZS529rD72KjFz1EAgHeueqoU.output.jsonpath_queries.Lock_status_for_Child_WF_ImportCase$",
+                                                "operator": "eq",
+                                                "right_operand": "true"
+                                              }
+                                            },
+                                            "operator": "and",
+                                            "right_operand": {
+                                              "left_operand": "$activity.definition_activity_02D0PDRXDR3SF3vkhPQGRSTOvQMd1VAtWg8.output.variable_workflow_01TNJ51BNCZI25XdWqsAZpp6zobrFVdU6ug$",
+                                              "operator": "eq",
+                                              "right_operand": "true"
+                                            }
+                                          },
+                                          "operator": "and",
+                                          "right_operand": {
+                                            "left_operand": "$activity.definition_activity_02D0PE08HXB6F2E6tF7FEzYYxxjSYZfxylX.output.jsonpath_queries.Lock_status_for_atomic_WF_ImportCase$",
+                                            "operator": "eq",
+                                            "right_operand": "true"
+                                          }
+                                        },
+                                        "operator": "and",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_02D0QG2PFQK1C0Z7cckBjrwgBu2ozfWlGrT.output.error.code$",
+                                          "operator": "eq",
+                                          "right_operand": "423"
+                                        }
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02D0PERSUH2I45VSBXBLNYu5wJcZjM1JEGv.output.variable_workflow_026YHDBBBMOKL4PuJR5QoVaFm20O7FVC813$",
+                                        "operator": "eq",
+                                        "right_operand": "true"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02D0PG7DM1TGD4pyGKxAoYuGyM6B50283jo.output.variable_workflow_026R3MTZOTY3X2eRCIpAVCPmZQ3fzHbYr3R$",
+                                      "operator": "eq",
+                                      "right_operand": "true"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02D0PGZ23ZTZ32vZGzl6bOWNKaVMLA8AY9a.output.variable_workflow_01TNJ51BNCZI25XdWqsAZpp6zobrFVdU6ug$",
+                                    "operator": "eq",
+                                    "right_operand": "true"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02D0PHEP021UO6HahTv9ecvq5Yfb2yPxzSo.output.jsonpath_queries.Lock_status_for_atomic_WF_having_rule$",
+                                  "operator": "eq",
+                                  "right_operand": "true"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02D0PI7GTCL195muE23o50JzHes3VjPmVmV.output.error.code$",
+                                "operator": "eq",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02D0QNWTL1URC4m9i1JdcpUBWBYop2SzYXm.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                              "operator": "eq",
+                              "right_operand": "Pass"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02D0QOK0DS1I72QxwgnBGsymr7zaXoJKtZf.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                            "operator": "eq",
+                            "right_operand": "Pass"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02D0QOS4O8E5J79HaaXFcqYxIYfUxn7YQCY.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                          "operator": "eq",
+                          "right_operand": "Pass"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02D0QXYSXIJJ43mDzQRMhFAq6khSQtv8G8H",
+                        "name": "Set Variables",
+                        "title": "Mark as Pass",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Mark as Pass",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.variable_workflow_02D0QVHPRBTMH2k3RmsLwEhREesW0nlMVGG$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02D0ROE0PMLML1DAQiLHLOrB4oGJztehE1s",
+                "name": "Group",
+                "title": "Cleanup",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Cleanup",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02D0ROT2FZN3L0iaTCLx4CnDreE3ArIKHWF",
+                    "name": "Automation - Delete a Workflow (Parent)",
+                    "title": "Automation - Delete a Workflow (Parent)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Automation - Delete a Workflow (Parent)",
+                      "input": {
+                        "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "Authorization",
+                        "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_02D0OTCN8UD6Y71jfu4P0KMWJebIgQzfQKZ.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                        "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+                      "workflow_name": "Automation - Delete a Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0RPF8F91HR0q0s7pqI1EZsxT8xLyNYA4",
+                    "name": "Automation - Delete a Workflow (Atomic)",
+                    "title": "Automation - Delete a Workflow (Atomic)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Automation - Delete a Workflow (Atomic)",
+                      "input": {
+                        "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "Authorization",
+                        "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_02D0ORVTYHMW14IoBvUJuORRWlJ7rIyCtrL.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                        "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+                      "workflow_name": "Automation - Delete a Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0RPPOMDVVV4yfl1yDroItsknNIiz6qcw",
+                    "name": "Automation - Delete a Workflow (Child)",
+                    "title": "Automation - Delete a Workflow (Child)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Automation - Delete a Workflow (Child)",
+                      "input": {
+                        "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "Authorization",
+                        "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_02D0OWBDMV8BQ3DLb42h6tFn5Eqf230Y8H4.output.jsonpath_queries.subwf_ID$",
+                        "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+                      "workflow_name": "Automation - Delete a Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0RQ75GEFER1DKOnxZQFb5g4qVCthIWTH",
+                    "name": "Automation - Delete a Workflow (Having Rule)",
+                    "title": "Automation - Delete a Workflow (Having Rule)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Automation - Delete a Workflow (Having Rule)",
+                      "input": {
+                        "variable_workflow_026R3PNDY8RA95VaRgAjXzUEj3wGr6HPAdD": "Authorization",
+                        "variable_workflow_026R3PNDY92910xa97iBzDFhQpIJHMWlqMC": "$activity.definition_activity_02D0PERSUH2I45VSBXBLNYu5wJcZjM1JEGv.output.variable_workflow_026YHD0WACZ1F1xGmmAahjuT0jcvHs0UQav$",
+                        "variable_workflow_026R3PNDY9ASP1QCJH3aMfMJWdd40fPA4eY": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+                      "workflow_name": "Automation - Delete a Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0RQOSO23VS7CYuMHNIgvGlq6tVmfctXF",
+                    "name": "HTTP Request",
+                    "title": "Delete Standalone Rule",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "display_name": "Delete Standalone Rule",
+                      "method": "DELETE",
+                      "relative_url": "api/v1/rules/$activity.definition_activity_02D0PIY4HKI0E2NQVZp61sOdsCpv54BA0W0.output.jsonpath_queries.Rule_ID$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -1206,15 +3036,16 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Fail",
-              "scope": "output",
-              "name": "Lock Test Status",
+              "value": "",
+              "scope": "input",
+              "name": "Provide WF_ID to Lock",
               "type": "datatype.string",
-              "is_required": false,
+              "description": "Provide WF_ID to Lock",
+              "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02CZU99RIQV5B1mbvkT2jauVieYRgRwsco3",
+            "unique_name": "variable_workflow_02CZU9323XCK83htg9PvM9982YhH5Ng2ZZp",
             "object_type": "variable_workflow"
           },
           {
@@ -1249,16 +3080,15 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Provide WF_ID to Lock",
+              "value": "Fail",
+              "scope": "output",
+              "name": "Lock Test Status",
               "type": "datatype.string",
-              "description": "Provide WF_ID to Lock",
-              "is_required": true,
+              "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02CZU9323XCK83htg9PvM9982YhH5Ng2ZZp",
+            "unique_name": "variable_workflow_02CZU99RIQV5B1mbvkT2jauVieYRgRwsco3",
             "object_type": "variable_workflow"
           },
           {
@@ -1534,15 +3364,15 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "WF_UnLocked_Status",
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide the Token",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd",
+            "unique_name": "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck",
             "object_type": "variable_workflow"
           },
           {
@@ -1562,20 +3392,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide the Token",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "",
               "scope": "input",
               "name": "Provide WF_ID to UnLock",
@@ -1586,6 +3402,20 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "WF_UnLocked_Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd",
             "object_type": "variable_workflow"
           }
         ],
@@ -1841,7 +3671,9 @@
     "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
     "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
     "definition_workflow_027MPV5T5BDE60Q3n3jgLoLENPtPsMnHoah",
-    "definition_workflow_02AOGESRPNY2Q0jJfksWj2Cwha9MaNmtv3k"
+    "definition_workflow_02AOGESRPNY2Q0jJfksWj2Cwha9MaNmtv3k",
+    "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+    "definition_workflow_026YHAFYUYJSI57lobBfWruQIXVfnumQPnC"
   ],
   "dependent_workflows": [
     "definition_workflow_026R3ITF54S7O4wvqSwgTIkJRUX5qYemcV6",
@@ -1851,6 +3683,8 @@
     "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
     "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
     "definition_workflow_027MPV5T5BDE60Q3n3jgLoLENPtPsMnHoah",
-    "definition_workflow_02AOGESRPNY2Q0jJfksWj2Cwha9MaNmtv3k"
+    "definition_workflow_02AOGESRPNY2Q0jJfksWj2Cwha9MaNmtv3k",
+    "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
+    "definition_workflow_026YHAFYUYJSI57lobBfWruQIXVfnumQPnC"
   ]
 }
