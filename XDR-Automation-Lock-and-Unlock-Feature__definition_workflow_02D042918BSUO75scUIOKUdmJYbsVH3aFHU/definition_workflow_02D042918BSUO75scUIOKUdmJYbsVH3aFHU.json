@@ -1,0 +1,1856 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU",
+    "name": "XDR - Automation -- Lock and Unlock Feature",
+    "title": "XDR - Automation -- Lock and Unlock Feature",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Bearer ",
+          "scope": "input",
+          "name": "Provide Token",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "XDR - Automation -- Lock and Unlock Feature\n\nUse Case to Verify Lock and Unlock \n\n\t1.\tAdd sub-workflow action lock\n\t2.\tSubmitted for review/publish lock\n\t3.\tInstall workflow lock\n\t4.\tAdd/update automation rule wf lock from triggers page",
+      "display_name": "XDR - Automation -- Lock and Unlock Feature",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02D0433FIIRIH3fuUZlVpgrnepht14TctH9",
+        "name": "Parallel Block",
+        "title": "Lock and Unlock",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Lock and Unlock",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02D0433FYJPWB5jscKIW78l7J9xlIMIKmO5",
+            "name": "Parallel Branch",
+            "title": "Create a Workflow ",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "description": "Create a Workflow then Lock and try to Update a workflow \nUnlock it and then Update workflow Lock it again\n\nCreate a Workflow and Make it Atomic \n\nCreate a Parent Workflow and above created atomic and Child workflow and check the locked status of the child and Atomic\n\nAdd Rule from wf desginer and Check the Locked status\n\nCreate Rule and wf from triggers Page and Verify the WF locked Status\n\nPublish WF and Verify the Status of the Locked Status \nInstall WF and Verify the Status of the Locked Status",
+              "display_name": "Create a Workflow ",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02D04YHM34YET0Lx3lq3QtEqtZGGRbSGFZA",
+                "name": "Group",
+                "title": "Create A WF and Verify Lock and Unlock",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Create A WF and Verify Lock and Unlock",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq",
+                    "name": "Automatation - Create Generic Workflow (Child)",
+                    "title": "Automatation - Create Generic Workflow (Child)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automatation - Create Generic Workflow (Child)",
+                      "input": {
+                        "variable_workflow_026R3ITFC2SYD5IwFCCSGoDOyqkGJgCEwsd": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_026R3ITFC37UO0GCPYutjproHMzvdvq1KRV": "Authorization",
+                        "variable_workflow_026R3ITFC3WLQ0CQIbKxaAf0PetE6SpXHSj": "ChildWF-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3ITF54S7O4wvqSwgTIkJRUX5qYemcV6",
+                      "workflow_name": "Automatation - Create Generic Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D048SRVHJYN5lHvfgtPPZo4B4NGTSQzyP",
+                    "name": "Automation - AddIng an Action to the Workflow",
+                    "title": "Automation - AddIng an Action to the Workflow",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - AddIng an Action to the Workflow",
+                      "input": {
+                        "variable_workflow_01TNRGULATIS12xwBtFh5vlzkvz7165Gb4O": "{\n\"previous_action\": {\n    \"id\": \"$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"type\": \"core.sleep\",\n    \"base_type\": \"activity\",\n    \"name\": \"Sleep\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n\"sleep_interval\":1,\n      \"display_name\": \"Sleep\"\n    },\n    \"title\": \"Sleep\"\n  }\n}",
+                        "variable_workflow_01TNRGULATYCS3YZOCTsAzqIqmW6pJXPjXH": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_01TNRGULAU5VJ5MZJeczlceLJVuSNTUGx9Y": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_01TNRGULAUKSY47ElJvhRkMLUfZ28jBg6Hb": "Authorization"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+                      "workflow_name": "Automation - AddIng an Action to the Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D048Y0R8X1Z0WWUQFw1juIE5SctVPiQlt",
+                    "name": "Automation - Validate Workflow",
+                    "title": "Automation - Validate Workflow",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - Validate Workflow",
+                      "input": {
+                        "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "Authorization",
+                        "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+                      "workflow_name": "Automation - Validate Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D04UXD981NK6NXDHgdBuACvx0QfGyLNNE",
+                    "name": "XDR -- Lock Workflow Reusable",
+                    "title": "XDR -- Lock Workflow Reusable",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "XDR -- Lock Workflow Reusable",
+                      "input": {
+                        "variable_workflow_02CZU8I3U5QEL49XoiVplq2p74VrUybldxB": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02CZU8UDQO2UY6EPK00zmkd1GahDeE4G0FV": "locked by automation -- 1st Lock",
+                        "variable_workflow_02CZU9323XCK83htg9PvM9982YhH5Ng2ZZp": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20",
+                      "workflow_name": "XDR -- Lock Workflow Reusable"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D04W2NLDSR04kxjtpHQD849tuWrfihp7u",
+                    "name": "Automation - AddIng an Action to the Workflow (Expect to Fail)",
+                    "title": "Automation - AddIng an Action to the Workflow (Expect to Fail)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - AddIng an Action to the Workflow (Expect to Fail)",
+                      "input": {
+                        "variable_workflow_01TNRGULATIS12xwBtFh5vlzkvz7165Gb4O": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_02D048SRVHJYN5lHvfgtPPZo4B4NGTSQzyP.output.variable_workflow_01TNRGULAUDA61uGNUSw76hWwqAB8cdpZsQ$\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"type\": \"core.string2upper\",\n    \"base_type\": \"activity\",\n    \"name\": \"To Upper\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n      \"source\": \"abc\",\n      \"display_name\": \"To Upper\"\n    },\n    \"title\": \"To Upper\"\n  }\n}",
+                        "variable_workflow_01TNRGULATYCS3YZOCTsAzqIqmW6pJXPjXH": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_01TNRGULAU5VJ5MZJeczlceLJVuSNTUGx9Y": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_01TNRGULAUKSY47ElJvhRkMLUfZ28jBg6Hb": "Authorization"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+                      "workflow_name": "Automation - AddIng an Action to the Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D04X24GC0FX4RYjJzVBNCkNfuaw9xz7ry",
+                    "name": "XDR -- UnLock LockedWorkflow Reusable",
+                    "title": "XDR -- UnLock LockedWorkflow Reusable",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "XDR -- UnLock LockedWorkflow Reusable",
+                      "input": {
+                        "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+                      "workflow_name": "XDR -- UnLock LockedWorkflow Reusable"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D04XEYLLQYA2wdsWs7bm3jpwpSc1nYSwn",
+                    "name": "Automation - AddIng an Action to the Workflow",
+                    "title": "Automation - AddIng an Action to the Workflow",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - AddIng an Action to the Workflow",
+                      "input": {
+                        "variable_workflow_01TNRGULATIS12xwBtFh5vlzkvz7165Gb4O": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_02D048SRVHJYN5lHvfgtPPZo4B4NGTSQzyP.output.variable_workflow_01TNRGULAUDA61uGNUSw76hWwqAB8cdpZsQ$\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"type\": \"core.string2upper\",\n    \"base_type\": \"activity\",\n    \"name\": \"To Upper\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n      \"source\": \"abc\",\n      \"display_name\": \"To Upper\"\n    },\n    \"title\": \"To Upper\"\n  }\n}",
+                        "variable_workflow_01TNRGULATYCS3YZOCTsAzqIqmW6pJXPjXH": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_01TNRGULAU5VJ5MZJeczlceLJVuSNTUGx9Y": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_01TNRGULAUKSY47ElJvhRkMLUfZ28jBg6Hb": "Authorization"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+                      "workflow_name": "Automation - AddIng an Action to the Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02D050DYVQYF973112XdHtht5SPKbOydtR5",
+                "name": "Group",
+                "title": "Use Case - Childs Getting Locked when Added to Parent WF",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Use Case - Childs Getting Locked when Added to Parent WF",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3",
+                    "name": "Automatation - Create Generic Workflow (Atomic)",
+                    "title": "Automatation - Create Generic Workflow (Atomic)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automatation - Create Generic Workflow (Atomic)",
+                      "input": {
+                        "variable_workflow_026R3ITFC2SYD5IwFCCSGoDOyqkGJgCEwsd": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_026R3ITFC37UO0GCPYutjproHMzvdvq1KRV": "Authorization",
+                        "variable_workflow_026R3ITFC3WLQ0CQIbKxaAf0PetE6SpXHSj": "Atomic-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3ITF54S7O4wvqSwgTIkJRUX5qYemcV6",
+                      "workflow_name": "Automatation - Create Generic Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D050DYVXPYT2gHKtl9waYXba44HjB5Y8A",
+                    "name": "Automation - AddIng an Action to the Workflow",
+                    "title": "Automation - AddIng an Action to the Workflow",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - AddIng an Action to the Workflow",
+                      "input": {
+                        "variable_workflow_01TNRGULATIS12xwBtFh5vlzkvz7165Gb4O": "{\n\"previous_action\": {\n    \"id\": \"$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"type\": \"core.sleep\",\n    \"base_type\": \"activity\",\n    \"name\": \"Sleep\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n\"sleep_interval\":1,\n      \"display_name\": \"Sleep\"\n    },\n    \"title\": \"Sleep\"\n  }\n}",
+                        "variable_workflow_01TNRGULATYCS3YZOCTsAzqIqmW6pJXPjXH": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_01TNRGULAU5VJ5MZJeczlceLJVuSNTUGx9Y": "$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_01TNRGULAUKSY47ElJvhRkMLUfZ28jBg6Hb": "Authorization"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+                      "workflow_name": "Automation - AddIng an Action to the Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D050DYVY9A53Pr23hjtNntukXRsofBbSI",
+                    "name": "Automation - Validate Workflow",
+                    "title": "Automation - Validate Workflow",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - Validate Workflow",
+                      "input": {
+                        "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "Authorization",
+                        "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+                      "workflow_name": "Automation - Validate Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D050DYVZGH92HNX6Uvw3P7Q6ebXkvEa2o",
+                    "name": "XDR -- Lock Workflow Reusable",
+                    "title": "XDR -- Lock Workflow Reusable",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "XDR -- Lock Workflow Reusable",
+                      "input": {
+                        "variable_workflow_02CZU8I3U5QEL49XoiVplq2p74VrUybldxB": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02CZU8UDQO2UY6EPK00zmkd1GahDeE4G0FV": "locked by automation -- 1st Lock",
+                        "variable_workflow_02CZU9323XCK83htg9PvM9982YhH5Ng2ZZp": "$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20",
+                      "workflow_name": "XDR -- Lock Workflow Reusable"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0537HO28L32g71c8Qyr4AhsRKfevdQnn",
+                    "name": "HTTP Request",
+                    "title": "Update is_Atomic Flag when WF is Locked (Expected to Fail)",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n  \"id\": \"$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"Atomic-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\",\n  \"title\": \"Atomic-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": true,\n      \"atomic_group\": \"Atomic\"\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"Atomic-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\"\n  },\n  \"categories\": [],\n  \"variables\": null\n}",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "display_name": "Update is_Atomic Flag when WF is Locked (Expected to Fail)",
+                      "method": "PUT",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D050DYW3XZK5N7xvnEk1uHnE1fv0dydaI",
+                    "name": "XDR -- UnLock LockedWorkflow Reusable",
+                    "title": "XDR -- UnLock LockedWorkflow Reusable",
+                    "type": "workflow.sub_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "XDR -- UnLock LockedWorkflow Reusable",
+                      "input": {
+                        "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69": "$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+                      "workflow_name": "XDR -- UnLock LockedWorkflow Reusable"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D05SKYOZX201pETZNJT8OjHMXt7WJjStd",
+                    "name": "Sleep",
+                    "title": "Sleep for 10s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 10s",
+                      "skip_execution": false,
+                      "sleep_interval": 10
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D055GACMC7C65yCblXmRhVyuTc53srV6i",
+                    "name": "HTTP Request",
+                    "title": "Update is_Atomic Flag when WF is UnLocked",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n  \"id\": \"$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"Atomic-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\",\n  \"title\": \"Atomic-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": true,\n      \"atomic_group\": \"Atomic\"\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"Atomic-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\"\n  },\n  \"categories\": [],\n  \"variables\": null,\n  \"metadata\": {}\n}",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "display_name": "Update is_Atomic Flag when WF is UnLocked",
+                      "method": "PUT",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0H9ITTDKPL0Yb83PhEa5JJGmb9rCytgT",
+                    "name": "Sleep",
+                    "title": "Sleep for 10s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 10s",
+                      "skip_execution": false,
+                      "sleep_interval": 10
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D05DJVBFZ4T2bRanVOSbBeeaKGtpWM6Jf",
+                    "name": "Automation - Validate Workflow",
+                    "title": "Automation - Validate Workflow",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - Validate Workflow",
+                      "input": {
+                        "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "Authorization",
+                        "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+                      "workflow_name": "Automation - Validate Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D05T5H9SWAX7INrfifj4VxwCIPPqlOrbt",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D05EQ4LH4MC7AaJvXl192QmN7hjSblWcp",
+                    "name": "Create Generic Parent Workflow (Add atomic and SubWF)",
+                    "title": "Create Generic Parent Workflow (Add atomic and SubWF)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Create Generic Parent Workflow (Add atomic and SubWF)",
+                      "input": {
+                        "variable_workflow_026R3ITFC2SYD5IwFCCSGoDOyqkGJgCEwsd": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_026R3ITFC37UO0GCPYutjproHMzvdvq1KRV": "Authorization",
+                        "variable_workflow_026R3ITFC3WLQ0CQIbKxaAf0PetE6SpXHSj": "ParentWF-Lock-Unlock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3ITF54S7O4wvqSwgTIkJRUX5qYemcV6",
+                      "workflow_name": "Automatation - Create Generic Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D05T7MXYPQB2w382xW0qNzg2rC7uwWngr",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D05FRSBAURI3xPETJ857ZGyvHl6MWCcIi",
+                    "name": "Automation - AddIng an Action to the Workflow (Adding Child)",
+                    "title": "Automation - AddIng an Action to the Workflow (Adding Child)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - AddIng an Action to the Workflow (Adding Child)",
+                      "input": {
+                        "variable_workflow_01TNRGULATIS12xwBtFh5vlzkvz7165Gb4O": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_02D05EQ4LH4MC7AaJvXl192QmN7hjSblWcp.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"type\": \"workflow.sub_workflow\",\n    \"base_type\": \"subworkflow\",\n    \"name\": \"ChildWF-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\",\n    \"properties\": {\n      \"display_name\": \"ChildWF-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\",\n      \"workflow_id\": \"$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\"\n    },\n    \"title\": \"ChildWF-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\"\n  }\n}",
+                        "variable_workflow_01TNRGULATYCS3YZOCTsAzqIqmW6pJXPjXH": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_01TNRGULAU5VJ5MZJeczlceLJVuSNTUGx9Y": "$activity.definition_activity_02D05EQ4LH4MC7AaJvXl192QmN7hjSblWcp.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_01TNRGULAUKSY47ElJvhRkMLUfZ28jBg6Hb": "Authorization"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+                      "workflow_name": "Automation - AddIng an Action to the Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D05TA69GJRZ6R4E7Z5QFnfKFbRnWTNLqf",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D05JAT5F9997ctnR8Qa0mjPYww1L9VWMe",
+                    "name": "Automation - AddIng an Action to the Workflow (Adding Atomic)",
+                    "title": "Automation - AddIng an Action to the Workflow (Adding Atomic)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Automation - AddIng an Action to the Workflow (Adding Atomic)",
+                      "input": {
+                        "variable_workflow_01TNRGULATIS12xwBtFh5vlzkvz7165Gb4O": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_02D05FRSBAURI3xPETJ857ZGyvHl6MWCcIi.output.variable_workflow_01TNRGULAUDA61uGNUSw76hWwqAB8cdpZsQ$\",\n    \"type\": \"workflow.sub_workflow\",\n    \"base_type\": \"subworkflow\"\n  },\n  \"action\": {\n    \"type\": \"workflow.atomic_workflow\",\n    \"base_type\": \"subworkflow\",\n    \"name\": \"Atomic-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\",\n    \"properties\": {\n      \"display_name\": \"Atomic-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\",\n      \"workflow_id\": \"$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\"\n    },\n    \"title\": \"Atomic-Lock-UnLock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$\"\n  }\n}",
+                        "variable_workflow_01TNRGULATYCS3YZOCTsAzqIqmW6pJXPjXH": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_01TNRGULAU5VJ5MZJeczlceLJVuSNTUGx9Y": "$activity.definition_activity_02D05EQ4LH4MC7AaJvXl192QmN7hjSblWcp.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_01TNRGULAUKSY47ElJvhRkMLUfZ28jBg6Hb": "Authorization"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+                      "workflow_name": "Automation - AddIng an Action to the Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D05TC881G4S5YvDKBgJkBkvpiduqooONP",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0GSLUV0UIX0KTADCmv2gy32GNTDJpBkC",
+                    "name": "Automation - Validate Workflow (Parent)",
+                    "title": "Automation - Validate Workflow (Parent)",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Automation - Validate Workflow (Parent)",
+                      "input": {
+                        "variable_workflow_026R3MTZOT2EW1USQRiDliyt5aa93GWmfiK": "Authorization",
+                        "variable_workflow_026R3MTZOTILC1W3cvTmVhLsJWBnHC3vcH4": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_026R3MTZOTPNC64XRWBcpmPc5VhBJBNaxj0": "$activity.definition_activity_02D05EQ4LH4MC7AaJvXl192QmN7hjSblWcp.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+                      "workflow_name": "Automation - Validate Workflow"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0GT5WRFNCN2rIj0gndxhInbZHOKsT52m",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0LDAVTPQ5I5NrKhbCyqe0yFbBg9e7M7T",
+                    "name": "Fetch Child Workflow Information using wf_id",
+                    "title": "Fetch Child Workflow Information using wf_id",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Fetch Child Workflow Information using wf_id",
+                      "input": {
+                        "variable_workflow_01TNJ51BNBS833v3kjcQAgolKqAjBSTlkKK": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_01TNJ51BNCA2E1oRBxWHjPf5zZmQmMSEXBU": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_01TNJ51BNED5W1dXP9IfhXD234YZCS4Fs6P": "Authorization"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
+                      "workflow_name": "Automation - Fetch Workflow Information using wf_id"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D05TEZ34EA17XKifaxQ8UOtuI6o2OB6ul",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0LELOV4DG07Olr8N8h5nK2wl8VZLYlns",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Child WF Locked Status",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Fetch Child WF Locked Status",
+                      "input_json": "$activity.definition_activity_02D0LDAVTPQ5I5NrKhbCyqe0yFbBg9e7M7T.output.variable_workflow_01TNJ51BNE0R264uBjaU1jQhlEmYefrl3DA$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.metadata.lock.locked",
+                          "jsonpath_query_name": "locked_status_for_locked_Child_wf",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.metadata.lock.locked_by",
+                          "jsonpath_query_name": "locked_by_for_locked_Child_wf",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0LDYMLUMTN0G1lRseIINXKVHZjiZ3GuJ",
+                    "name": "Fetch Atomic Workflow Information using wf_id",
+                    "title": "Fetch Atomic Workflow Information using wf_id",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Atomic Workflow Information using wf_id",
+                      "input": {
+                        "variable_workflow_01TNJ51BNBS833v3kjcQAgolKqAjBSTlkKK": "$activity.definition_activity_02D050DYVT6174RbYup4IEsnOx7KXrf5kO3.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_01TNJ51BNCA2E1oRBxWHjPf5zZmQmMSEXBU": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_01TNJ51BNED5W1dXP9IfhXD234YZCS4Fs6P": "Authorization"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
+                      "workflow_name": "Automation - Fetch Workflow Information using wf_id"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0LIYRIZNQI7iO4SXYm5tX3SUuAhCtDds",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0LIBLIKRQ20qz7X2yQDtO5iDDd8fc1cr",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Atomic WF Locked Status",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Fetch Atomic WF Locked Status",
+                      "input_json": "$activity.definition_activity_02D0LDYMLUMTN0G1lRseIINXKVHZjiZ3GuJ.output.variable_workflow_01TNJ51BNE0R264uBjaU1jQhlEmYefrl3DA$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.metadata.lock.locked",
+                          "jsonpath_query_name": "locked_status_for_locked_Atomic_wf",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.metadata.lock.locked_by",
+                          "jsonpath_query_name": "locked_by_for_locked_Atomic_wf",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02D0LNUKL93QZ72DzZ6TdfSkctgQUc17MKO",
+                "name": "XDR -- UnLock LockedWorkflow Reusable (Child)",
+                "title": "XDR -- UnLock LockedWorkflow Reusable (Child)",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "XDR -- UnLock LockedWorkflow Reusable (Child)",
+                  "input": {
+                    "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                    "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "target_type": "web-service.endpoint",
+                    "use_workflow_target": true
+                  },
+                  "workflow_id": "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+                  "workflow_name": "XDR -- UnLock LockedWorkflow Reusable"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02D04Z6BOPP4L270UDzQLt3OJCI89mv3Sbc",
+                "name": "Group",
+                "title": "Use Case - Adding Rules to Child and ParentWF",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Use Case - Adding Rules to Child and ParentWF",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02D0LUVGE389S6Oh1gp0CLfNa6JwvbPfpBX",
+                    "name": "Create a Standalone Incident Rule and attach wf in triggers Page",
+                    "title": "Create a Standalone Incident Rule and attach wf in triggers Page",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Create a Standalone Incident Rule and attach wf in triggers Page",
+                      "input": {
+                        "variable_workflow_027MPV5U2DIIF0zubA1M33SbdTCt6ZCzfq4": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_027MPV5U2EFCD2dIXOMcCJfC8zTYKWhgvL0": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_027MPV5U2ETAA17CVQcWakhMZzhJv72iREN": "Authorization",
+                        "variable_workflow_027MQ2YZNQUVF083B0R4hBHunurAKbOgtJK": "ST-Lock-$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.output.instance_id$",
+                        "variable_workflow_027MQ6J9U6SFN6iWZGzhPRXoQSwKfKnmVwO": false,
+                        "variable_workflow_027MTIDA440DM0hV6hVS0HKzyKm21K1dvp9": "",
+                        "variable_workflow_028XFL5OHWNXK5o11JcxV0kSReACzV9dk57": ""
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_027MPV5T5BDE60Q3n3jgLoLENPtPsMnHoah",
+                      "workflow_name": "Automation - Create a Standalone Incident Rule"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0LZJ4QWKY04ZkpH2kxfhM0U2Tn5jatkE",
+                    "name": "Sleep",
+                    "title": "Sleep for 10s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 10s",
+                      "skip_execution": false,
+                      "sleep_interval": 10
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0M1GY0NF800rLqiZpH6InIlK6ulRqy8H",
+                    "name": "Fetch Child Workflow Information using wf_id",
+                    "title": "Fetch Child Workflow Information using wf_id",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Child Workflow Information using wf_id",
+                      "input": {
+                        "variable_workflow_01TNJ51BNBS833v3kjcQAgolKqAjBSTlkKK": "$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$",
+                        "variable_workflow_01TNJ51BNCA2E1oRBxWHjPf5zZmQmMSEXBU": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_01TNJ51BNED5W1dXP9IfhXD234YZCS4Fs6P": "Authorization"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
+                      "workflow_name": "Automation - Fetch Workflow Information using wf_id"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0M0TX3TVRS5Oqg7nK8yD7noIxXhISFnO",
+                    "name": "Sleep",
+                    "title": "Sleep for 10s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 10s",
+                      "skip_execution": false,
+                      "sleep_interval": 10
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0M1QMUKA6D01en2dBELFjhqNvqZIeR35",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Child WF Locked Status after adding a rule from triggers",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Child WF Locked Status after adding a rule from triggers",
+                      "input_json": "$activity.definition_activity_02D0M1GY0NF800rLqiZpH6InIlK6ulRqy8H.output.variable_workflow_01TNJ51BNE0R264uBjaU1jQhlEmYefrl3DA$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.metadata.lock.locked",
+                          "jsonpath_query_name": "locked_status_childwf_after_adding_rule",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.metadata.lock.locked_by",
+                          "jsonpath_query_name": "locked_by_for_locked_Child_wf_after_adding_rule",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02D0MKW08OEE67g1o3ZoWWKt9JOxr98WE6S",
+                "name": "Group",
+                "title": "Create a WF using Temp and Add Rule from WF Designer",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Create a WF using Temp and Add Rule from WF Designer",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02D0LY4JQQTYL7aovHKtJ8PrWmfZY1kOesc",
+                    "name": "Create a WF from Template and attach rule in wf designer page",
+                    "title": "Create a WF from Template and attach rule in wf designer page",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Create a WF from Template and attach rule in wf designer page",
+                      "input": {
+                        "variable_workflow_02AOGHGZ8XXJF6VakCwn6dN4seKUIJrF8f0": "Authorization",
+                        "variable_workflow_02AOGHQKS7LN56QFlKiV2wbkRZSd0GFgDQH": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_02AOGO15MTXWY7gRFaKV67BXJbsg2gqhlEG": "WF_Aut_Rule",
+                        "variable_workflow_02AOGV0KB4F0Y45c4CJjE27IPMfBC8D2abG": "",
+                        "variable_workflow_02AOHIPFZHWUH27Q7VhueHiNVHsXRQ4p18H": "$activity.definition_activity_02D0LUVGE389S6Oh1gp0CLfNa6JwvbPfpBX.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$",
+                        "variable_workflow_02AOHOFCO0W784sXKcSgMEXqzBeSKbjdUQp": "\"incident.rule_event\"",
+                        "variable_workflow_02CFFIYZV06IZ3wdWvM06g4g5F3hnIlkAyR": ""
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_02AOGESRPNY2Q0jJfksWj2Cwha9MaNmtv3k",
+                      "workflow_name": "XDR-Automation-Atomic-Creating WF Using Template"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0M3EN3IEOB6PWkYUaLvOYPwuHvvQU8UV",
+                    "name": "Sleep",
+                    "title": "Sleep for 10s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 10s",
+                      "skip_execution": false,
+                      "sleep_interval": 10
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0MV4KDEULT2kfRAVHzNdfxM2bhtH5FkS",
+                    "name": "HTTP Request",
+                    "title": "Add Rule to a Workflow",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n  \"description\": \"Created by Automation reusable workflow\",\n  \"title\": \"$activity.definition_activity_02D0LUVGE389S6Oh1gp0CLfNa6JwvbPfpBX.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n  \"name\": \"$activity.definition_activity_02D0LUVGE389S6Oh1gp0CLfNa6JwvbPfpBX.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n  \"rule_type\": \"rule_event\",\n  \"properties\": {\n    \"description\": \"Created by Automation reusable workflow\",\n    \"disabled\": false,\n    \"display_name\": \"$activity.definition_activity_02D0LUVGE389S6Oh1gp0CLfNa6JwvbPfpBX.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n    \"group_by\": false,\n    \"rule_type\": \"rule_event\",\n    \"title\": \"$activity.definition_activity_02D0LUVGE389S6Oh1gp0CLfNa6JwvbPfpBX.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n    \"workflows_config\": [\n      {\n        \"disabled\": false,\n        \"ref_id\": \"$activity.definition_activity_02D0LY4JQQTYL7aovHKtJ8PrWmfZY1kOesc.output.variable_workflow_02AOGVGEQA83R0St7xjCFlLOloAHVVTwiO9$\"\n      },\n      {\n        \"disabled\": false,\n        \"ref_id\": \"$activity.definition_activity_02D048NEGYU4Y0SqCIII7QrbT8lmNulA3Bq.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\"\n      }\n    ]\n  },\n  \"id\": \"$activity.definition_activity_02D0LUVGE389S6Oh1gp0CLfNa6JwvbPfpBX.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$\"\n}",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "display_name": "Add Rule to a Workflow",
+                      "method": "PUT",
+                      "relative_url": "/api/v1/rules/$activity.definition_activity_02D0LUVGE389S6Oh1gp0CLfNa6JwvbPfpBX.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0N6V0MMD652wtCUMkPuhpeaAhhAHY7Go",
+                    "name": "Sleep",
+                    "title": "Sleep for 10s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 10s",
+                      "skip_execution": false,
+                      "sleep_interval": 10
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0M3ID3PNXK2QXsQrCjm58O5FRJXJ4bbf",
+                    "name": "Fetch new Workflow Information using wf_id",
+                    "title": "Fetch new Workflow Information using wf_id",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Fetch new Workflow Information using wf_id",
+                      "input": {
+                        "variable_workflow_01TNJ51BNBS833v3kjcQAgolKqAjBSTlkKK": "$activity.definition_activity_02D0LY4JQQTYL7aovHKtJ8PrWmfZY1kOesc.output.variable_workflow_02AOGVGEQA83R0St7xjCFlLOloAHVVTwiO9$",
+                        "variable_workflow_01TNJ51BNCA2E1oRBxWHjPf5zZmQmMSEXBU": "$workflow.definition_workflow_02D042918BSUO75scUIOKUdmJYbsVH3aFHU.input.variable_workflow_02D049FAUN22Z5cwFv9qCWgnAqZVA1dc8hT$",
+                        "variable_workflow_01TNJ51BNED5W1dXP9IfhXD234YZCS4Fs6P": "Authorization"
+                      },
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "target_type": "web-service.endpoint",
+                        "use_workflow_target": true
+                      },
+                      "workflow_id": "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
+                      "workflow_name": "Automation - Fetch Workflow Information using wf_id"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0M4YRIIZ4B1nw6QYxfezEfBmRNufqcBc",
+                    "name": "Sleep",
+                    "title": "Sleep for 10s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 10s",
+                      "skip_execution": false,
+                      "sleep_interval": 10
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02D0M3Y9HCUIQ6PzCn5lGeaYkJgFRjvQEdO",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Child WF Locked Status after adding a rule from triggers",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Child WF Locked Status after adding a rule from triggers",
+                      "input_json": "$activity.definition_activity_02D0M3ID3PNXK2QXsQrCjm58O5FRJXJ4bbf.output.variable_workflow_01TNJ51BNE0R264uBjaU1jQhlEmYefrl3DA$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.metadata.lock.locked",
+                          "jsonpath_query_name": "locked_status_wf_after_adding_rule_from_wfdesginerPage",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.metadata.lock.locked_by",
+                          "jsonpath_query_name": "locked_by_for_locked_wf_after_adding_rule_from_wfdesginerPage",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02D0433G80YBV4X83bZ0ZJs8FSXTlCS5zP5",
+            "name": "Parallel Branch",
+            "title": "Import wf having Atomic and Subwf",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Import wf having Atomic and Subwf",
+              "skip_execution": true
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20",
+        "name": "XDR -- Lock Workflow Reusable",
+        "title": "XDR -- Lock Workflow Reusable",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "Lock Test Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CZU99RIQV5B1mbvkT2jauVieYRgRwsco3",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Lock Message",
+              "type": "datatype.string",
+              "description": "Provide Message to Lock Resource. ",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CZU8UDQO2UY6EPK00zmkd1GahDeE4G0FV",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide the Token",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CZU8I3U5QEL49XoiVplq2p74VrUybldxB",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide WF_ID to Lock",
+              "type": "datatype.string",
+              "description": "Provide WF_ID to Lock",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CZU9323XCK83htg9PvM9982YhH5Ng2ZZp",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "WF_Locked_Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CZUCU1OZJ2Q5Jz0dOyB3HudqFWzOOJhJL",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "XDR -- Lock Workflow Reusable",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "target_type": "web-service.endpoint",
+            "specify_on_workflow_start": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02CZU7EMZLXAS33qFv3h5o7SAlyLZUlRlVG",
+            "name": "HTTP Request",
+            "title": "Lock the WF",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "body": "{\n    \"message\": \"$workflow.definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20.input.variable_workflow_02CZU8UDQO2UY6EPK00zmkd1GahDeE4G0FV$\"\n}",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "custom_headers": [
+                {
+                  "name": "Authorization",
+                  "value": "$workflow.definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20.input.variable_workflow_02CZU8I3U5QEL49XoiVplq2p74VrUybldxB$"
+                }
+              ],
+              "display_name": "Lock the WF",
+              "method": "PUT",
+              "relative_url": "/api/v1/workflows/$workflow.definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20.input.variable_workflow_02CZU9323XCK83htg9PvM9982YhH5Ng2ZZp$/lock",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02CZUAIGEEYCI0s6eN2St7m4snlBPzYmbaz",
+            "name": "Sleep",
+            "title": "Sleep for 10s",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep for 10s",
+              "skip_execution": false,
+              "sleep_interval": 10
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02CZUC87SJC2G1HrzeWAWzPGGalf53uUoca",
+            "name": "JSONPath Query",
+            "title": "Fetch Locked Status",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch Locked Status",
+              "input_json": "$activity.definition_activity_02CZU7EMZLXAS33qFv3h5o7SAlyLZUlRlVG.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.locked",
+                  "jsonpath_query_name": "locked_status",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02CZUAMYWGB1K57vJgL5ymQDyRNswucnlhz",
+            "name": "HTTP Request",
+            "title": "Lock the WF (again-- Expected to fail)",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "body": "{\n    \"message\": \"$workflow.definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20.input.variable_workflow_02CZU8UDQO2UY6EPK00zmkd1GahDeE4G0FV$\"\n}",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "custom_headers": [
+                {
+                  "name": "Authorization",
+                  "value": "$workflow.definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20.input.variable_workflow_02CZU8I3U5QEL49XoiVplq2p74VrUybldxB$"
+                }
+              ],
+              "display_name": "Lock the WF (again-- Expected to fail)",
+              "method": "PUT",
+              "relative_url": "/api/v1/workflows/$workflow.definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20.input.variable_workflow_02CZU9323XCK83htg9PvM9982YhH5Ng2ZZp$/lock",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02CZUB0Q71MBV2l4cdssQZBCVyXzr6QRTt7",
+            "name": "Condition Block",
+            "title": "Verify Lock Status",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Verify Lock Status",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_02CZUB0QG4DWI28kLSfhXe6OAoXV85xbQ8Z",
+                "name": "Condition Branch",
+                "title": "WF is Locked",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_02CZU7EMZLXAS33qFv3h5o7SAlyLZUlRlVG.output.error.code$",
+                        "operator": "eq",
+                        "right_operand": "200"
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_02CZUC87SJC2G1HrzeWAWzPGGalf53uUoca.output.jsonpath_queries.locked_status$",
+                        "operator": "eq",
+                        "right_operand": "true"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_02CZUAMYWGB1K57vJgL5ymQDyRNswucnlhz.output.error.code$",
+                      "operator": "ne",
+                      "right_operand": "200"
+                    }
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "WF is Locked",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02CZUDNGVUDN11tdcXl4W0aNbLlkuRrujuu",
+                    "name": "Set Variables",
+                    "title": "Store Locked and TestStatus",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Store Locked and TestStatus",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20.output.variable_workflow_02CZU99RIQV5B1mbvkT2jauVieYRgRwsco3$",
+                          "variable_value_new": "Pass"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20.output.variable_workflow_02CZUCU1OZJ2Q5Jz0dOyB3HudqFWzOOJhJL$",
+                          "variable_value_new": "$activity.definition_activity_02CZUC87SJC2G1HrzeWAWzPGGalf53uUoca.output.jsonpath_queries.locked_status$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02CZUERRRAEE75fLqxqUUJOrxfmBNCndrhK",
+                "name": "Condition Branch",
+                "title": "WF is Not Locked",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_02CZU7EMZLXAS33qFv3h5o7SAlyLZUlRlVG.output.error.code$",
+                        "operator": "ne",
+                        "right_operand": "200"
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_02CZUC87SJC2G1HrzeWAWzPGGalf53uUoca.output.jsonpath_queries.locked_status$",
+                        "operator": "ne",
+                        "right_operand": "true"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_02CZUAMYWGB1K57vJgL5ymQDyRNswucnlhz.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "200"
+                    }
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "WF is Not Locked",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02CZUFEC0V9RZ0qJkBtYWmZZtlayelwRsqK",
+                    "name": "Completed",
+                    "title": "Mark As Failed",
+                    "type": "logic.completed",
+                    "base_type": "activity",
+                    "properties": {
+                      "completion_type": "failed-completed",
+                      "continue_on_failure": false,
+                      "display_name": "Mark As Failed",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    },
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+        "name": "XDR -- UnLock LockedWorkflow Reusable",
+        "title": "XDR -- UnLock LockedWorkflow Reusable",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "WF_UnLocked_Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "UnLock Test Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide the Token",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide WF_ID to UnLock",
+              "type": "datatype.string",
+              "description": "Provide WF_ID to Lock",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "XDR -- UnLock LockedWorkflow Reusable",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "target_type": "web-service.endpoint",
+            "specify_on_workflow_start": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02CZUIKVYIT896xOUJPPZOaID36FdFEZQfC",
+            "name": "HTTP Request",
+            "title": "UnLock the WF",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "custom_headers": [
+                {
+                  "name": "Authorization",
+                  "value": "$workflow.definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh.input.variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck$"
+                }
+              ],
+              "display_name": "UnLock the WF",
+              "method": "PUT",
+              "relative_url": "/api/v1/workflows/$workflow.definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh.input.variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69$/unlock",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02CZUIKWOJ0ML0DY6Rk2gDVnApSyhBiIEXC",
+            "name": "Sleep",
+            "title": "Sleep for 10s",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep for 10s",
+              "skip_execution": false,
+              "sleep_interval": 10
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02CZUIKXA7K8S5UMQplxA9hWP0B4zBwSvwt",
+            "name": "JSONPath Query",
+            "title": "Fetch UnLocked Status",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch UnLocked Status",
+              "input_json": "$activity.definition_activity_02CZUIKVYIT896xOUJPPZOaID36FdFEZQfC.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.locked",
+                  "jsonpath_query_name": "locked_status_after_Unlocking",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02CZUIKY8VVJK2tWkFjARQoCmsN1z2EwsxA",
+            "name": "HTTP Request",
+            "title": "UnLock the WF (again-- Expected to fail)",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "custom_headers": [
+                {
+                  "name": "Authorization",
+                  "value": "$workflow.definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh.input.variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck$"
+                }
+              ],
+              "display_name": "UnLock the WF (again-- Expected to fail)",
+              "method": "PUT",
+              "relative_url": "/api/v1/workflows/$workflow.definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh.input.variable_workflow_02CZUIKT16K8H5Wp7je5UCel7MZ8PINlo69$/unlock",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02CZUIKYX7PSM6PX1OfNGMGxCTddihZhhNQ",
+            "name": "Condition Block",
+            "title": "Verify UnLock Status",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Verify UnLock Status",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_02CZUIKZRXCH9759d6Fol388ieNGGEl8GaX",
+                "name": "Condition Branch",
+                "title": "WF is UnLocked",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_02CZUIKVYIT896xOUJPPZOaID36FdFEZQfC.output.error.code$",
+                        "operator": "eq",
+                        "right_operand": "200"
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_02CZUIKXA7K8S5UMQplxA9hWP0B4zBwSvwt.output.jsonpath_queries.locked_status_after_Unlocking$",
+                        "operator": "eq",
+                        "right_operand": "false"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_02CZUIKY8VVJK2tWkFjARQoCmsN1z2EwsxA.output.error.code$",
+                      "operator": "ne",
+                      "right_operand": "200"
+                    }
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "WF is UnLocked",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02CZUIL1S1MT44IzcG3HjvEAyR6ZgRDjLFZ",
+                    "name": "Set Variables",
+                    "title": "Store Locked and TestStatus",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Store Locked and TestStatus",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                          "variable_value_new": "Pass"
+                        },
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh.output.variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd$",
+                          "variable_value_new": "$activity.definition_activity_02CZUIKXA7K8S5UMQplxA9hWP0B4zBwSvwt.output.jsonpath_queries.locked_status_after_Unlocking$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02CZUIL303S1W4UnmWHY77WfjiaLLddoLf9",
+                "name": "Condition Branch",
+                "title": "WF is Not UnLocked",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$activity.definition_activity_02CZUIKVYIT896xOUJPPZOaID36FdFEZQfC.output.error.code$",
+                        "operator": "ne",
+                        "right_operand": "200"
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_02CZUIKXA7K8S5UMQplxA9hWP0B4zBwSvwt.output.jsonpath_queries.locked_status_after_Unlocking$",
+                        "operator": "ne",
+                        "right_operand": "false"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_02CZUIKY8VVJK2tWkFjARQoCmsN1z2EwsxA.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "200"
+                    }
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "WF is Not UnLocked",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02CZUIL4ARKM42dn3P6XUuFJvzeTxDXsqWV",
+                    "name": "Completed",
+                    "title": "Mark As Failed",
+                    "type": "logic.completed",
+                    "base_type": "activity",
+                    "properties": {
+                      "completion_type": "failed-completed",
+                      "continue_on_failure": false,
+                      "display_name": "Mark As Failed",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ],
+  "atomic_workflows": [
+    "definition_workflow_026R3ITF54S7O4wvqSwgTIkJRUX5qYemcV6",
+    "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+    "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+    "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
+    "definition_workflow_027MPV5T5BDE60Q3n3jgLoLENPtPsMnHoah",
+    "definition_workflow_02AOGESRPNY2Q0jJfksWj2Cwha9MaNmtv3k"
+  ],
+  "dependent_workflows": [
+    "definition_workflow_026R3ITF54S7O4wvqSwgTIkJRUX5qYemcV6",
+    "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+    "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
+    "definition_workflow_02CZU7B5CL3894gatyd8qBJzqLwDgruir20",
+    "definition_workflow_02CZUIKSHTSJP14v9sKhPiI05zAP6K4Iboh",
+    "definition_workflow_01TNJ519USKCD2z3CWPSEmJy4irWZyUDPrc",
+    "definition_workflow_027MPV5T5BDE60Q3n3jgLoLENPtPsMnHoah",
+    "definition_workflow_02AOGESRPNY2Q0jJfksWj2Cwha9MaNmtv3k"
+  ]
+}
