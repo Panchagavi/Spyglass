@@ -9,15 +9,15 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "Token Generation Status",
+          "value": "",
+          "scope": "input",
+          "name": "client_id",
           "type": "datatype.string",
-          "is_required": false,
+          "is_required": true,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_02DJBM55OAE734oLfvIKzE4MxFyiXIrVcYR",
+        "unique_name": "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7",
         "object_type": "variable_workflow"
       },
       {
@@ -37,15 +37,15 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "client_id",
+          "value": "Fail",
+          "scope": "output",
+          "name": "Token Generation Status",
           "type": "datatype.string",
-          "is_required": true,
+          "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7",
+        "unique_name": "variable_workflow_02DJBM55OAE734oLfvIKzE4MxFyiXIrVcYR",
         "object_type": "variable_workflow"
       },
       {
@@ -394,16 +394,21 @@
             "object_type": "definition_activity",
             "actions": [
               {
-                "unique_name": "definition_activity_02DJBOOSC8SD603YFw8o3Vt6rAHsfAI47GZ",
-                "name": "Completed",
-                "title": "Failed",
-                "type": "logic.completed",
+                "unique_name": "definition_activity_02DJIJCICZ9QL04quvFettltxlsuOISSfAE",
+                "name": "Set Variables",
+                "title": "FailCase",
+                "type": "core.set_multiple_variables",
                 "base_type": "activity",
                 "properties": {
-                  "completion_type": "failed-completed",
                   "continue_on_failure": false,
-                  "display_name": "Failed",
-                  "skip_execution": false
+                  "display_name": "FailCase",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02BC75FXY8V6Q7fCnqF2hIiteIL3tPcTIMX.output.variable_workflow_02DJBM55OAE734oLfvIKzE4MxFyiXIrVcYR$",
+                      "variable_value_new": "Fail"
+                    }
+                  ]
                 },
                 "object_type": "definition_activity"
               }
