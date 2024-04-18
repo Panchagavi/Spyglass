@@ -1,0 +1,724 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc",
+    "name": "Automation -Enable The Module Integration For xMatters",
+    "title": "Automation -Enable The Module Integration For xMatters",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "xMatters_Module_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02DQ2HFJQXXOR0rC88bPxXSYKiuhws3RXDY",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "xMatters__Module_target_ID",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02DQ2HFJQXQCT1tvpkRWm48IeXkGNbtToHa",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "https://kyrylos.xmatters.com",
+          "scope": "input",
+          "name": "xMatters_URL",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02DQ2HFJQYVXJ4ypVBSH9hUztpsTjG9cXKR",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "x-api-key-a5e4a07f-a801-4a0c-98ee-5bd366abc332",
+          "scope": "input",
+          "name": "xMatters_Password/API_KEY",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02DQ2HFJQXGAL59ts4ajQ7dDHwhqrswn2SL",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "x-api-key-a5e4a07f-a801-4a0c-98ee-5bd366abc332",
+          "scope": "input",
+          "name": "xMatters_UserName/API-Key",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02DQ2HFJQZ2MH1Ek5x7cJGwAdayFau714hI",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "xMatters_Module_name",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02DQ2HFJQYNLD44FpZS9P746h9WOvpoFj55",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "xMatters__Module_target_UniqueName",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02DQ2HFJQYG696KoH21XSbJec8j87g46ckJ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "xMatters_Module_Enable_Integration_Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02DQ2HFJQY8HG1ZzRd3n7UCs9XJBJYL9PXn",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "atomic_group": "SXO- Automation Worklfows",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "description": "Automation -Enable The Module Integration For xMatters",
+      "display_name": "Automation -Enable The Module Integration For xMatters",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02DQ2HFN0QT5Q0QE00P1X2mUhQTuJBUmzxm",
+        "name": "Format Date",
+        "title": "Format Date",
+        "type": "core.format_date",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Format Date",
+          "format_string": "2006-01-02T15:04:05Z07:00",
+          "original_date": "$workflow.definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc.output.start_time$",
+          "skip_execution": false,
+          "use_custom_format": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02DQ2HFO3FDKJ0jY2XzulogzLvBCg4joY6B",
+        "name": "Group",
+        "title": "Enable Integration for xMatters Cloud",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Enable Integration for xMatters Cloud",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02DQ2HFPYMNFH2IFvCBZuBJHfcTYioCB0Hi",
+            "name": "HTTP Request",
+            "title": "GET Module Type ID",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "GET Module Type ID",
+              "method": "GET",
+              "relative_url": "/iroh-int/module-type?query=xMatters",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HFRFRGP74DNKV5HX5Lhz9ROGPxiZIS",
+            "name": "JSONPath Query",
+            "title": "Fetch Module Type ID",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch Module Type ID",
+              "input_json": "$activity.definition_activity_02DQ2HFPYMNFH2IFvCBZuBJHfcTYioCB0Hi.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$[?(@.default_name=='xMatters')].id",
+                  "jsonpath_query_name": "Module_Type_ID",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HFT1BVOW3ifD8ay438g5mqu07DiM4y",
+            "name": "HTTP Request",
+            "title": "Enable Module Integration",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "body": "{\n  \"name\": \"xMatters-$activity.definition_activity_02DQ2HFN0QT5Q0QE00P1X2mUhQTuJBUmzxm.output.result$\",\n  \"module_type_id\": \"$activity.definition_activity_02DQ2HFRFRGP74DNKV5HX5Lhz9ROGPxiZIS.output.jsonpath_queries.Module_Type_ID$\",\n  \"visibility\": \"org\",\n  \"settings\": {\n    \"product-api-url\": \"$workflow.definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc.input.variable_workflow_02DQ2HFJQYVXJ4ypVBSH9hUztpsTjG9cXKR$\",\n    \"basic-auth-user\": \"$workflow.definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc.input.variable_workflow_02DQ2HFJQZ2MH1Ek5x7cJGwAdayFau714hI$\",\n    \"basic-auth-password\": \"$workflow.definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc.input.variable_workflow_02DQ2HFJQXGAL59ts4ajQ7dDHwhqrswn2SL$\"\n  }\n}",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "Enable Module Integration",
+              "method": "POST",
+              "relative_url": "/iroh-int/module-instance",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HFV5VPV21PlBdYkH6c9potwTYomkZn",
+            "name": "Sleep",
+            "title": "wait for 15s",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "wait for 15s",
+              "skip_execution": false,
+              "sleep_interval": 15
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HFVX0EHR79d5heJ1V1cRcdphQHNTlY",
+            "name": "JSONPath Query",
+            "title": "Fetch Module ID",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch Module ID",
+              "input_json": "$activity.definition_activity_02DQ2HFT1BVOW3ifD8ay438g5mqu07DiM4y.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.id",
+                  "jsonpath_query_name": "Module_ID",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                },
+                {
+                  "jsonpath_query": "$.org_id",
+                  "jsonpath_query_name": "Module_Created_Org_ID",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                },
+                {
+                  "jsonpath_query": "$.name",
+                  "jsonpath_query_name": "Module_Name",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HFXHOM5Q5r2NlmZDE8NyerL6VAUcVL",
+            "name": "HTTP Request",
+            "title": "Health Check for Module",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "Health Check for Module",
+              "method": "POST",
+              "relative_url": "/iroh-enrich/health/$activity.definition_activity_02DQ2HFVX0EHR79d5heJ1V1cRcdphQHNTlY.output.jsonpath_queries.Module_ID$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": true,
+                "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$"
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HFZ2CAUH2lyNhPpYz1nRIgKh2Jpbqw",
+            "name": "JSONPath Query",
+            "title": "Fetch the Module Status",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch the Module Status",
+              "input_json": "$activity.definition_activity_02DQ2HFXHOM5Q5r2NlmZDE8NyerL6VAUcVL.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.data.data.status",
+                  "jsonpath_query_name": "Module_Status",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02DQ2HG093G99074kXMRanO5KWhweO07DBf",
+        "name": "Sleep",
+        "title": "Sleep for 15s",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep for 15s",
+          "skip_execution": false,
+          "sleep_interval": 15
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02DQ2HG0XQ9NT2uf2FXVxeJKShK09FMnfvO",
+        "name": "Group",
+        "title": "Verify the Target in Orchestrator",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Verify the Target in Orchestrator",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02DQ2HG31L5OS74NfwscvbvrxetHo26019w",
+            "name": "HTTP Request",
+            "title": "Search the targets in Orchestrator",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "Search the targets in Orchestrator",
+              "method": "GET",
+              "relative_url": "/api/v1/targets?is_internal=false",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HG42KOUK2mvEMNMBx1FdBV6jIzGep0",
+            "name": "JSONPath Query",
+            "title": "Fetch the Module Target ID",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch the Module Target ID",
+              "input_json": "$activity.definition_activity_02DQ2HG31L5OS74NfwscvbvrxetHo26019w.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$[?(@.name=='$activity.definition_activity_02DQ2HFVX0EHR79d5heJ1V1cRcdphQHNTlY.output.jsonpath_queries.Module_Name$')].id",
+                  "jsonpath_query_name": "Module_target_ID",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                },
+                {
+                  "jsonpath_query": "$[?(@.name=='$activity.definition_activity_02DQ2HFVX0EHR79d5heJ1V1cRcdphQHNTlY.output.jsonpath_queries.Module_Name$')].unique_name",
+                  "jsonpath_query_name": "Module_target_Unique_Name",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HG6E5CL45021yeOkO84LikAv1Xe9fM",
+            "name": "HTTP Request",
+            "title": "GET Target by ID",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "GET Target by ID",
+              "method": "GET",
+              "relative_url": "/api/v1/targets/$activity.definition_activity_02DQ2HG42KOUK2mvEMNMBx1FdBV6jIzGep0.output.jsonpath_queries.Module_target_ID$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HG7WRS0X1C8CoJWDZrnb2r61PWxLgn",
+            "name": "JSONPath Query",
+            "title": "Fetch target Status",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch target Status",
+              "input_json": "$activity.definition_activity_02DQ2HG6E5CL45021yeOkO84LikAv1Xe9fM.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.status.state",
+                  "jsonpath_query_name": "target_Status",
+                  "jsonpath_query_type": "string",
+                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HG9WIY5N2FkmSYLi1UMvXViRAEtujH",
+            "name": "Set Variables",
+            "title": "Store Outputs (All Ids)",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Store Outputs (All Ids)",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc.output.variable_workflow_02DQ2HFJQXXOR0rC88bPxXSYKiuhws3RXDY$",
+                  "variable_value_new": "$activity.definition_activity_02DQ2HFVX0EHR79d5heJ1V1cRcdphQHNTlY.output.jsonpath_queries.Module_ID$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc.output.variable_workflow_02DQ2HFJQYNLD44FpZS9P746h9WOvpoFj55$",
+                  "variable_value_new": "$activity.definition_activity_02DQ2HFVX0EHR79d5heJ1V1cRcdphQHNTlY.output.jsonpath_queries.Module_Name$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc.output.variable_workflow_02DQ2HFJQXQCT1tvpkRWm48IeXkGNbtToHa$",
+                  "variable_value_new": "$activity.definition_activity_02DQ2HG42KOUK2mvEMNMBx1FdBV6jIzGep0.output.jsonpath_queries.Module_target_ID$"
+                },
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc.output.variable_workflow_02DQ2HFJQYG696KoH21XSbJec8j87g46ckJ$",
+                  "variable_value_new": "$activity.definition_activity_02DQ2HG42KOUK2mvEMNMBx1FdBV6jIzGep0.output.jsonpath_queries.Module_target_Unique_Name$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02DQ2HGBB24280O8boXeZyVxE0OWchl8qHk",
+        "name": "Condition Block",
+        "title": "Verify the Test Status for xMatters_ Enable Integration",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Verify the Test Status for xMatters_ Enable Integration",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02DQ2HGCXSV384nyEkex6iDAc0ubAEhjjJA",
+            "name": "Condition Branch",
+            "title": "Pass",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": "$activity.definition_activity_02DQ2HFPYMNFH2IFvCBZuBJHfcTYioCB0Hi.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02DQ2HFT1BVOW3ifD8ay438g5mqu07DiM4y.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02DQ2HG31L5OS74NfwscvbvrxetHo26019w.output.error.code$",
+                          "operator": "eq",
+                          "right_operand": "200"
+                        }
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_02DQ2HG6E5CL45021yeOkO84LikAv1Xe9fM.output.error.code$",
+                        "operator": "eq",
+                        "right_operand": "200"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_02DQ2HG7WRS0X1C8CoJWDZrnb2r61PWxLgn.output.jsonpath_queries.target_Status$",
+                      "operator": "eq",
+                      "right_operand": "valid"
+                    }
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_02DQ2HFXHOM5Q5r2NlmZDE8NyerL6VAUcVL.output.error.code$",
+                    "operator": "eq",
+                    "right_operand": "200"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_02DQ2HFZ2CAUH2lyNhPpYz1nRIgKh2Jpbqw.output.jsonpath_queries.Module_Status$",
+                  "operator": "eq",
+                  "right_operand": "ok"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Pass",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02DQ2HGF67DTL6jjerJothwOZWAdYHLX3jl",
+                "name": "Set Variables",
+                "title": "xMatters Integration is Passed",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "xMatters Integration is Passed",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc.output.variable_workflow_02DQ2HFJQY8HG1ZzRd3n7UCs9XJBJYL9PXn$",
+                      "variable_value_new": "Pass"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02DQ2HGGV26F469RlW0J0GMyGfB1gkZN87A",
+            "name": "Condition Branch",
+            "title": "Fail",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": "$activity.definition_activity_02DQ2HFPYMNFH2IFvCBZuBJHfcTYioCB0Hi.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02DQ2HFT1BVOW3ifD8ay438g5mqu07DiM4y.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02DQ2HG31L5OS74NfwscvbvrxetHo26019w.output.error.code$",
+                          "operator": "ne",
+                          "right_operand": "200"
+                        }
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_02DQ2HG6E5CL45021yeOkO84LikAv1Xe9fM.output.error.code$",
+                        "operator": "ne",
+                        "right_operand": "200"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_02DQ2HG7WRS0X1C8CoJWDZrnb2r61PWxLgn.output.jsonpath_queries.target_Status$",
+                      "operator": "eq",
+                      "right_operand": "valid"
+                    }
+                  },
+                  "operator": "or",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_02DQ2HFXHOM5Q5r2NlmZDE8NyerL6VAUcVL.output.error.code$",
+                    "operator": "ne",
+                    "right_operand": "200"
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_02DQ2HFZ2CAUH2lyNhPpYz1nRIgKh2Jpbqw.output.jsonpath_queries.Module_Status$",
+                  "operator": "ne",
+                  "right_operand": "ok"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Fail",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02DQ2HGJRMJD41W0MFyf7KiKSfnzChFyU8d",
+                "name": "Set Variables",
+                "title": "xMatters Integration is Failed",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "xMatters Integration is Failed",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02DQ2HFIY9LCJ7gSmzx4qxa8GS47u0KpFTc.output.variable_workflow_02DQ2HFJQY8HG1ZzRd3n7UCs9XJBJYL9PXn$",
+                      "variable_value_new": "Fail"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02DQ2HGKOEC0P6JBCxlrH0hRYR3YVRLWG2y",
+                "name": "Completed",
+                "title": "Failed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "failed-completed",
+                  "continue_on_failure": false,
+                  "display_name": "Failed",
+                  "result_message": "Fail",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "module_targets": [
+    {
+      "module_type": "Cisco XDR",
+      "external_id": "securex:ao:iroh_api"
+    }
+  ]
+}
