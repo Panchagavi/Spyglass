@@ -7,31 +7,31 @@
     "base_type": "workflow",
     "variables": [
       {
-        "schema_id": "datatype.large_string",
+        "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Large_String_op",
-          "type": "datatype.large_string",
+          "value": "Bearer ",
+          "scope": "input",
+          "name": "Token",
+          "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_028VST4K4JS3N5uiR3ErxBd3Jy2NNKV1LR2",
+        "unique_name": "variable_workflow_028WJ6AFY0FOC5C5yg2gp5nVGt3wrIJXW4p",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
           "value": "",
-          "scope": "input",
-          "name": "Authorization",
+          "scope": "output",
+          "name": "NegativeTestStatus",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_028YD41BZUDND4IREdqu75WLUvx5JiGYVxZ",
+        "unique_name": "variable_workflow_029DQ8M5JHBTV3ZEYEA5lakuC8KKK3RKVP1",
         "object_type": "variable_workflow"
       },
       {
@@ -51,29 +51,15 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Test_Status_For_ParallelBlock3",
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_0298H2Q44BK4Y1AJ5BmUbEnuRJDvnc5ci9Q\",\n    \"name\": \"Large_String-Automation-TEST-WF(Parent)\",\n    \"title\": \"Large_String-Automation-TEST-WF(Parent)\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.large_string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"local\",\n          \"name\": \"LS_local\",\n          \"type\": \"datatype.large_string\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0298H7QPJ9POA3PbdMOYZvbyhQ6dz54bjEN\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"Large_String-Automation-TEST-WF(Parent)\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"target_type\": \"web-service.endpoint\",\n        \"target_id\": \"definition_target_028YDXDLTWZZE2Gs5slNCaEDHovnDMzPWbK\",\n        \"execute_on_workflow_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_0298H2ZPSSGK31qUxOJwCA0LuGlnBFakSL7\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request\",\n          \"method\": \"GET\",\n          \"relative_url\": \"5MB.json\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_0298HNX3QKVXQ0kgUsxc3ErWj1A4wS8SLTS\",\n        \"name\": \"Set Variables\",\n        \"title\": \"Set Variables\",\n        \"type\": \"core.set_multiple_variables\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": true,\n          \"display_name\": \"Set Variables\",\n          \"skip_execution\": false,\n          \"variables_to_update\": [\n            {\n              \"variable_to_update\": \"$workflow.definition_workflow_0298H2Q44BK4Y1AJ5BmUbEnuRJDvnc5ci9Q.local.variable_workflow_0298H7QPJ9POA3PbdMOYZvbyhQ6dz54bjEN$\",\n              \"variable_value_new\": \"$activity.definition_activity_0298H2ZPSSGK31qUxOJwCA0LuGlnBFakSL7.output.response_body$\"\n            }\n          ]\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_0298HRY3UP4DB5QxoamaWTsdnzhtn42qxKn\",\n        \"name\": \"Large_String_Atomic\",\n        \"title\": \"Large_String_Atomic\",\n        \"type\": \"workflow.atomic_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"continue_on_failure\": true,\n          \"display_name\": \"Large_String_Atomic\",\n          \"input\": {\n            \"variable_workflow_0298HU18C552J1GDuQn4pdIur8QNgYWtLVB\": \"$workflow.definition_workflow_0298H2Q44BK4Y1AJ5BmUbEnuRJDvnc5ci9Q.local.variable_workflow_0298H7QPJ9POA3PbdMOYZvbyhQ6dz54bjEN$\"\n          },\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_0298HQE7IQ61W6rpizAL1XKAJo1uMltGTYh\",\n          \"workflow_name\": \"Large_String-Automation-TEST-WF(Atomic)\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_0298HZ7XG7DFE3WxjIvOAeLIjVDbaTGnaUC\",\n        \"name\": \"Escape Regex Metacharacters\",\n        \"title\": \"Escape Regex Metacharacters (from Atomic WF Output)\",\n        \"type\": \"core.escape_regex\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": true,\n          \"display_name\": \"Escape Regex Metacharacters (from Atomic WF Output)\",\n          \"skip_execution\": false,\n          \"source\": \"$activity.definition_activity_0298HRY3UP4DB5QxoamaWTsdnzhtn42qxKn.output.variable_workflow_0298HZZNBRIQ00Hg9HrFPihb4N6Rbj0pldm$\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_0298HUQTMN1JC3QC1wJ9WH4CckW1MuAcy63\",\n        \"name\": \"Large_String-Automation-TEST-WF(Child)\",\n        \"title\": \"Large_String-Automation-TEST-WF(Child)\",\n        \"type\": \"workflow.sub_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"continue_on_failure\": true,\n          \"display_name\": \"Large_String-Automation-TEST-WF(Child)\",\n          \"input\": {\n            \"variable_workflow_0298HT6D5K4QG27VUf6knb5hlzNX5TjxlEy\": \"$workflow.definition_workflow_0298H2Q44BK4Y1AJ5BmUbEnuRJDvnc5ci9Q.local.variable_workflow_0298H7QPJ9POA3PbdMOYZvbyhQ6dz54bjEN$\"\n          },\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_0298HSNG8SHOK38lqYxvmI5vca9aQQpSFiH\",\n          \"workflow_name\": \"Large_String-Automation-TEST-WF(Child)\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_0298IC3G7HMYE6OKAK2R79NlxTtshWRZUU9\",\n        \"name\": \"Find String\",\n        \"title\": \"Find String from Child WF Output \",\n        \"type\": \"core.find_string\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Find String from Child WF Output \",\n          \"searched_string\": \"\\\"workflow_valid\\\":true\",\n          \"skip_execution\": false,\n          \"source\": \"$activity.definition_activity_0298HUQTMN1JC3QC1wJ9WH4CckW1MuAcy63.output.variable_workflow_0298I1V0TIKIF5yNPua7DxtDHecxehrD0u8$\"\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"targets\": {\n    \"definition_target_028YDXDLTWZZE2Gs5slNCaEDHovnDMzPWbK\": {\n      \"unique_name\": \"definition_target_028YDXDLTWZZE2Gs5slNCaEDHovnDMzPWbK\",\n      \"name\": \"MS_Edge_To_Generate_Json_Data\",\n      \"title\": \"MS_Edge_To_Generate_Json_Data\",\n      \"type\": \"web-service.endpoint\",\n      \"base_type\": \"target\",\n      \"object_type\": \"definition_target\",\n      \"properties\": {\n        \"disable_certificate_validation\": true,\n        \"display_name\": \"MS_Edge_To_Generate_Json_Data\",\n        \"host\": \"microsoftedge.github.io\",\n        \"ignore_proxy\": true,\n        \"no_runtime_user\": true,\n        \"path\": \"/Demos/json-dummy-data\",\n        \"protocol\": \"https\"\n      }\n    }\n  },\n  \"subworkflows\": [\n    {\n      \"workflow\": {\n        \"unique_name\": \"definition_workflow_0298HSNG8SHOK38lqYxvmI5vca9aQQpSFiH\",\n        \"name\": \"Large_String-Automation-TEST-WF(Child)\",\n        \"title\": \"Large_String-Automation-TEST-WF(Child)\",\n        \"type\": \"generic.workflow\",\n        \"base_type\": \"workflow\",\n        \"variables\": [\n          {\n            \"schema_id\": \"datatype.large_string\",\n            \"properties\": {\n              \"value\": \"\",\n              \"scope\": \"output\",\n              \"name\": \"LS-OP-from-Child\",\n              \"type\": \"datatype.large_string\",\n              \"is_required\": false,\n              \"display_on_wizard\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_0298I1V0TIKIF5yNPua7DxtDHecxehrD0u8\",\n            \"object_type\": \"variable_workflow\"\n          },\n          {\n            \"schema_id\": \"datatype.large_string\",\n            \"properties\": {\n              \"value\": \"\",\n              \"scope\": \"input\",\n              \"name\": \"LS-Input\",\n              \"type\": \"datatype.large_string\",\n              \"is_required\": true,\n              \"display_on_wizard\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_0298HT6D5K4QG27VUf6knb5hlzNX5TjxlEy\",\n            \"object_type\": \"variable_workflow\"\n          }\n        ],\n        \"properties\": {\n          \"atomic\": {\n            \"is_atomic\": false\n          },\n          \"delete_workflow_instance\": false,\n          \"display_name\": \"Large_String-Automation-TEST-WF(Child)\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          }\n        },\n        \"object_type\": \"definition_workflow\",\n        \"actions\": [\n          {\n            \"unique_name\": \"definition_activity_0298HSU1JXGYX00mxPUkAsTthnu7gZpANjv\",\n            \"name\": \"Read Table from JSON\",\n            \"title\": \"Read Table from JSON\",\n            \"type\": \"corejava.read_table_from_json\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"action_timeout\": 180,\n              \"continue_on_failure\": false,\n              \"display_name\": \"Read Table from JSON\",\n              \"input_json\": \"$workflow.definition_workflow_0298HSNG8SHOK38lqYxvmI5vca9aQQpSFiH.input.variable_workflow_0298HT6D5K4QG27VUf6knb5hlzNX5TjxlEy$\",\n              \"jsonpath_query\": \"$\",\n              \"persist_output\": false,\n              \"populate_columns\": true,\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\"\n          },\n          {\n            \"unique_name\": \"definition_activity_0298I1XJTOBIZ3HIWjU9nPXf5POGqVvoOid\",\n            \"name\": \"Set Variables\",\n            \"title\": \"Set Variables\",\n            \"type\": \"core.set_multiple_variables\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"continue_on_failure\": false,\n              \"display_name\": \"Set Variables\",\n              \"skip_execution\": false,\n              \"variables_to_update\": [\n                {\n                  \"variable_to_update\": \"$workflow.definition_workflow_0298HSNG8SHOK38lqYxvmI5vca9aQQpSFiH.output.variable_workflow_0298I1V0TIKIF5yNPua7DxtDHecxehrD0u8$\",\n                  \"variable_value_new\": \"$activity.definition_activity_0298HSU1JXGYX00mxPUkAsTthnu7gZpANjv.output.response_body$\"\n                }\n              ]\n            },\n            \"object_type\": \"definition_activity\"\n          }\n        ],\n        \"categories\": [\n          \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n        ]\n      }\n    }\n  ],\n  \"atomic_workflows\": [\n    \"definition_workflow_0298HQE7IQ61W6rpizAL1XKAJo1uMltGTYh\"\n  ],\n  \"dependent_workflows\": [\n    \"definition_workflow_0298HQE7IQ61W6rpizAL1XKAJo1uMltGTYh\",\n    \"definition_workflow_0298HSNG8SHOK38lqYxvmI5vca9aQQpSFiH\"\n  ]\n}",
+          "scope": "local",
+          "name": "Import_Payload_for_Parent_WF",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_0298MOKCU836Y4TeXwbJRDmw1wwSXxWNX3C",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "EmailTable",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_029DRCVQGTG557Zby09EYZ9VLXnJVgY4cLZ",
+        "unique_name": "variable_workflow_0298IXPKI128P7BlbfbqQ0FzFVDEdXpFUKI",
         "object_type": "variable_workflow"
       },
       {
@@ -107,15 +93,29 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Bearer ",
-          "scope": "input",
-          "name": "Token",
+          "value": "",
+          "scope": "output",
+          "name": "EmailTable",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_028WJ6AFY0FOC5C5yg2gp5nVGt3wrIJXW4p",
+        "unique_name": "variable_workflow_029DRCVQGTG557Zby09EYZ9VLXnJVgY4cLZ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_028YD41BZUDND4IREdqu75WLUvx5JiGYVxZ",
         "object_type": "variable_workflow"
       },
       {
@@ -123,27 +123,27 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "NegativeTestStatus",
+          "name": "Test_Status_For_ParallelBlock3",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_029DQ8M5JHBTV3ZEYEA5lakuC8KKK3RKVP1",
+        "unique_name": "variable_workflow_0298MOKCU836Y4TeXwbJRDmw1wwSXxWNX3C",
         "object_type": "variable_workflow"
       },
       {
-        "schema_id": "datatype.string",
+        "schema_id": "datatype.large_string",
         "properties": {
-          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_0298H2Q44BK4Y1AJ5BmUbEnuRJDvnc5ci9Q\",\n    \"name\": \"Large_String-Automation-TEST-WF(Parent)\",\n    \"title\": \"Large_String-Automation-TEST-WF(Parent)\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.large_string\",\n        \"properties\": {\n          \"value\": \"\",\n          \"scope\": \"local\",\n          \"name\": \"LS_local\",\n          \"type\": \"datatype.large_string\",\n          \"is_required\": false,\n          \"display_on_wizard\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_0298H7QPJ9POA3PbdMOYZvbyhQ6dz54bjEN\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"Large_String-Automation-TEST-WF(Parent)\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"target_type\": \"web-service.endpoint\",\n        \"target_id\": \"definition_target_028YDXDLTWZZE2Gs5slNCaEDHovnDMzPWbK\",\n        \"execute_on_workflow_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_0298H2ZPSSGK31qUxOJwCA0LuGlnBFakSL7\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request\",\n          \"method\": \"GET\",\n          \"relative_url\": \"5MB.json\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_0298HNX3QKVXQ0kgUsxc3ErWj1A4wS8SLTS\",\n        \"name\": \"Set Variables\",\n        \"title\": \"Set Variables\",\n        \"type\": \"core.set_multiple_variables\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": true,\n          \"display_name\": \"Set Variables\",\n          \"skip_execution\": false,\n          \"variables_to_update\": [\n            {\n              \"variable_to_update\": \"$workflow.definition_workflow_0298H2Q44BK4Y1AJ5BmUbEnuRJDvnc5ci9Q.local.variable_workflow_0298H7QPJ9POA3PbdMOYZvbyhQ6dz54bjEN$\",\n              \"variable_value_new\": \"$activity.definition_activity_0298H2ZPSSGK31qUxOJwCA0LuGlnBFakSL7.output.response_body$\"\n            }\n          ]\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_0298HRY3UP4DB5QxoamaWTsdnzhtn42qxKn\",\n        \"name\": \"Large_String_Atomic\",\n        \"title\": \"Large_String_Atomic\",\n        \"type\": \"workflow.atomic_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"continue_on_failure\": true,\n          \"display_name\": \"Large_String_Atomic\",\n          \"input\": {\n            \"variable_workflow_0298HU18C552J1GDuQn4pdIur8QNgYWtLVB\": \"$workflow.definition_workflow_0298H2Q44BK4Y1AJ5BmUbEnuRJDvnc5ci9Q.local.variable_workflow_0298H7QPJ9POA3PbdMOYZvbyhQ6dz54bjEN$\"\n          },\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_0298HQE7IQ61W6rpizAL1XKAJo1uMltGTYh\",\n          \"workflow_name\": \"Large_String-Automation-TEST-WF(Atomic)\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_0298HZ7XG7DFE3WxjIvOAeLIjVDbaTGnaUC\",\n        \"name\": \"Escape Regex Metacharacters\",\n        \"title\": \"Escape Regex Metacharacters (from Atomic WF Output)\",\n        \"type\": \"core.escape_regex\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": true,\n          \"display_name\": \"Escape Regex Metacharacters (from Atomic WF Output)\",\n          \"skip_execution\": false,\n          \"source\": \"$activity.definition_activity_0298HRY3UP4DB5QxoamaWTsdnzhtn42qxKn.output.variable_workflow_0298HZZNBRIQ00Hg9HrFPihb4N6Rbj0pldm$\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_0298HUQTMN1JC3QC1wJ9WH4CckW1MuAcy63\",\n        \"name\": \"Large_String-Automation-TEST-WF(Child)\",\n        \"title\": \"Large_String-Automation-TEST-WF(Child)\",\n        \"type\": \"workflow.sub_workflow\",\n        \"base_type\": \"subworkflow\",\n        \"properties\": {\n          \"continue_on_failure\": true,\n          \"display_name\": \"Large_String-Automation-TEST-WF(Child)\",\n          \"input\": {\n            \"variable_workflow_0298HT6D5K4QG27VUf6knb5hlzNX5TjxlEy\": \"$workflow.definition_workflow_0298H2Q44BK4Y1AJ5BmUbEnuRJDvnc5ci9Q.local.variable_workflow_0298H7QPJ9POA3PbdMOYZvbyhQ6dz54bjEN$\"\n          },\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"no_target\": true\n          },\n          \"workflow_id\": \"definition_workflow_0298HSNG8SHOK38lqYxvmI5vca9aQQpSFiH\",\n          \"workflow_name\": \"Large_String-Automation-TEST-WF(Child)\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_0298IC3G7HMYE6OKAK2R79NlxTtshWRZUU9\",\n        \"name\": \"Find String\",\n        \"title\": \"Find String from Child WF Output \",\n        \"type\": \"core.find_string\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Find String from Child WF Output \",\n          \"searched_string\": \"\\\"workflow_valid\\\":true\",\n          \"skip_execution\": false,\n          \"source\": \"$activity.definition_activity_0298HUQTMN1JC3QC1wJ9WH4CckW1MuAcy63.output.variable_workflow_0298I1V0TIKIF5yNPua7DxtDHecxehrD0u8$\"\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"targets\": {\n    \"definition_target_028YDXDLTWZZE2Gs5slNCaEDHovnDMzPWbK\": {\n      \"unique_name\": \"definition_target_028YDXDLTWZZE2Gs5slNCaEDHovnDMzPWbK\",\n      \"name\": \"MS_Edge_To_Generate_Json_Data\",\n      \"title\": \"MS_Edge_To_Generate_Json_Data\",\n      \"type\": \"web-service.endpoint\",\n      \"base_type\": \"target\",\n      \"object_type\": \"definition_target\",\n      \"properties\": {\n        \"disable_certificate_validation\": true,\n        \"display_name\": \"MS_Edge_To_Generate_Json_Data\",\n        \"host\": \"microsoftedge.github.io\",\n        \"ignore_proxy\": true,\n        \"no_runtime_user\": true,\n        \"path\": \"/Demos/json-dummy-data\",\n        \"protocol\": \"https\"\n      }\n    }\n  },\n  \"subworkflows\": [\n    {\n      \"workflow\": {\n        \"unique_name\": \"definition_workflow_0298HSNG8SHOK38lqYxvmI5vca9aQQpSFiH\",\n        \"name\": \"Large_String-Automation-TEST-WF(Child)\",\n        \"title\": \"Large_String-Automation-TEST-WF(Child)\",\n        \"type\": \"generic.workflow\",\n        \"base_type\": \"workflow\",\n        \"variables\": [\n          {\n            \"schema_id\": \"datatype.large_string\",\n            \"properties\": {\n              \"value\": \"\",\n              \"scope\": \"output\",\n              \"name\": \"LS-OP-from-Child\",\n              \"type\": \"datatype.large_string\",\n              \"is_required\": false,\n              \"display_on_wizard\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_0298I1V0TIKIF5yNPua7DxtDHecxehrD0u8\",\n            \"object_type\": \"variable_workflow\"\n          },\n          {\n            \"schema_id\": \"datatype.large_string\",\n            \"properties\": {\n              \"value\": \"\",\n              \"scope\": \"input\",\n              \"name\": \"LS-Input\",\n              \"type\": \"datatype.large_string\",\n              \"is_required\": true,\n              \"display_on_wizard\": false,\n              \"is_invisible\": false\n            },\n            \"unique_name\": \"variable_workflow_0298HT6D5K4QG27VUf6knb5hlzNX5TjxlEy\",\n            \"object_type\": \"variable_workflow\"\n          }\n        ],\n        \"properties\": {\n          \"atomic\": {\n            \"is_atomic\": false\n          },\n          \"delete_workflow_instance\": false,\n          \"display_name\": \"Large_String-Automation-TEST-WF(Child)\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"target\": {\n            \"no_target\": true\n          }\n        },\n        \"object_type\": \"definition_workflow\",\n        \"actions\": [\n          {\n            \"unique_name\": \"definition_activity_0298HSU1JXGYX00mxPUkAsTthnu7gZpANjv\",\n            \"name\": \"Read Table from JSON\",\n            \"title\": \"Read Table from JSON\",\n            \"type\": \"corejava.read_table_from_json\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"action_timeout\": 180,\n              \"continue_on_failure\": false,\n              \"display_name\": \"Read Table from JSON\",\n              \"input_json\": \"$workflow.definition_workflow_0298HSNG8SHOK38lqYxvmI5vca9aQQpSFiH.input.variable_workflow_0298HT6D5K4QG27VUf6knb5hlzNX5TjxlEy$\",\n              \"jsonpath_query\": \"$\",\n              \"persist_output\": false,\n              \"populate_columns\": true,\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\"\n          },\n          {\n            \"unique_name\": \"definition_activity_0298I1XJTOBIZ3HIWjU9nPXf5POGqVvoOid\",\n            \"name\": \"Set Variables\",\n            \"title\": \"Set Variables\",\n            \"type\": \"core.set_multiple_variables\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"continue_on_failure\": false,\n              \"display_name\": \"Set Variables\",\n              \"skip_execution\": false,\n              \"variables_to_update\": [\n                {\n                  \"variable_to_update\": \"$workflow.definition_workflow_0298HSNG8SHOK38lqYxvmI5vca9aQQpSFiH.output.variable_workflow_0298I1V0TIKIF5yNPua7DxtDHecxehrD0u8$\",\n                  \"variable_value_new\": \"$activity.definition_activity_0298HSU1JXGYX00mxPUkAsTthnu7gZpANjv.output.response_body$\"\n                }\n              ]\n            },\n            \"object_type\": \"definition_activity\"\n          }\n        ],\n        \"categories\": [\n          \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n        ]\n      }\n    }\n  ],\n  \"atomic_workflows\": [\n    \"definition_workflow_0298HQE7IQ61W6rpizAL1XKAJo1uMltGTYh\"\n  ],\n  \"dependent_workflows\": [\n    \"definition_workflow_0298HQE7IQ61W6rpizAL1XKAJo1uMltGTYh\",\n    \"definition_workflow_0298HSNG8SHOK38lqYxvmI5vca9aQQpSFiH\"\n  ]\n}",
-          "scope": "local",
-          "name": "Import_Payload_for_Parent_WF",
-          "type": "datatype.string",
+          "value": "",
+          "scope": "output",
+          "name": "Large_String_op",
+          "type": "datatype.large_string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_0298IXPKI128P7BlbfbqQ0FzFVDEdXpFUKI",
+        "unique_name": "variable_workflow_028VST4K4JS3N5uiR3ErxBd3Jy2NNKV1LR2",
         "object_type": "variable_workflow"
       }
     ],
@@ -1521,13 +1521,13 @@
           {
             "unique_name": "definition_activity_028YEAX11UT9M3LtJ5Z52qeKpmRwlOtdpBR",
             "name": "Convert Json to Xml",
-            "title": "Convert Json to Xml",
+            "title": "Convert Json to Xml (Expected to Fail)",
             "type": "core.json2xml",
             "base_type": "activity",
             "properties": {
               "action_timeout": 300,
               "continue_on_failure": true,
-              "display_name": "Convert Json to Xml",
+              "display_name": "Convert Json to Xml (Expected to Fail)",
               "input_json": "$workflow.definition_workflow_028VQW6T23UT53Yq258aBWAjVTYcFBn6znx.output.variable_workflow_028VST4K4JS3N5uiR3ErxBd3Jy2NNKV1LR2$",
               "skip_execution": false
             },
@@ -1675,7 +1675,7 @@
                 "use_workflow_target": true
               },
               "workflow_id": "definition_workflow_026R3ITF54S7O4wvqSwgTIkJRUX5qYemcV6",
-              "workflow_name": "Automation - Create Generic Workflow"
+              "workflow_name": "Automatation - Create Generic Workflow"
             },
             "object_type": "definition_activity"
           },
@@ -1852,7 +1852,7 @@
               "action_timeout": 180,
               "allow_auto_redirect": true,
               "allow_headers_redirect": false,
-              "body": "{\n  \"id\": \"$activity.definition_activity_029DOT5WBMYZ72HXxqAHKnaKtp4nphvn60k.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"WF to Create More than 2 Large String Var\",\n  \"title\": \"WF to Create More than 2 Large String Var\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"WF to Create More than 2 Large String Var\"\n  },\n  \"categories\": [\n    \"01FB46DG9TN8S3CU4Efwe0JfeYphwuuYnVU\"\n  ],\n  \"variables\": [\n  {\n      \"schema_id\": \"$activity.definition_activity_029DP6QIEQLH76yt7ZT2tqNzk1uAFDqZiv1.output.jsonpath_queries.Schema_ID_LargeString$\",\n      \"title\": \"test-local\",\n      \"properties\": {\n        \"scope\": \"local\",\n        \"is_required\": false,\n        \"name\": \"test-local\",\n        \"value\": \"\"\n      }\n    },\n    {\n      \"schema_id\": \"$activity.definition_activity_029DP6QIEQLH76yt7ZT2tqNzk1uAFDqZiv1.output.jsonpath_queries.Schema_ID_LargeString$\",\n      \"title\": \"test-op\",\n      \"properties\": {\n        \"scope\": \"output\",\n        \"is_required\": false,\n        \"name\": \"test-op\",\n        \"value\": \"\"\n      }\n    },\n    {\n      \"schema_id\": \"$activity.definition_activity_029DP6QIEQLH76yt7ZT2tqNzk1uAFDqZiv1.output.jsonpath_queries.Schema_ID_LargeString$\",\n      \"title\": \"test-in\",\n      \"properties\": {\n        \"scope\": \"input\",\n        \"is_required\": false,\n        \"name\": \"test-in\",\n        \"value\": \"\"\n      }\n    }\n  ]\n}",
+              "body": "{\n  \"id\": \"$activity.definition_activity_029DOT5WBMYZ72HXxqAHKnaKtp4nphvn60k.output.variable_workflow_026R3ITFC3HIF0D3EmshjkHgtAVGHYBZ99A$\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"WF to Create More than 2 Large String Var\",\n  \"title\": \"WF to Create More than 2 Large String Var\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"WF to Create More than 2 Large String Var\"\n  },\n  \"categories\": [\n    \"01FB46DG9TN8S3CU4Efwe0JfeYphwuuYnVU\"\n  ],\n  \"variables\": [\n  {\n      \"schema_id\": \"$activity.definition_activity_029DP6QIEQLH76yt7ZT2tqNzk1uAFDqZiv1.output.jsonpath_queries.Schema_ID_LargeString$\",\n      \"title\": \"test-local\",\n      \"properties\": {\n        \"scope\": \"local\",\n        \"is_required\": false,\n        \"name\": \"test-local\",\n        \"value\": \"\"\n      }\n    },\n    {\n      \"schema_id\": \"$activity.definition_activity_029DP6QIEQLH76yt7ZT2tqNzk1uAFDqZiv1.output.jsonpath_queries.Schema_ID_LargeString$\",\n      \"title\": \"test-op\",\n      \"properties\": {\n        \"scope\": \"output\",\n        \"is_required\": false,\n        \"name\": \"test-op\",\n        \"value\": \"\"\n      }\n    },\n{\n      \"schema_id\": \"$activity.definition_activity_029DP6QIEQLH76yt7ZT2tqNzk1uAFDqZiv1.output.jsonpath_queries.Schema_ID_LargeString$\",\n      \"title\": \"test-op1\",\n      \"properties\": {\n        \"scope\": \"output\",\n        \"is_required\": false,\n        \"name\": \"test-op1\",\n        \"value\": \"\"\n      }\n    },\n    {\n      \"schema_id\": \"$activity.definition_activity_029DP6QIEQLH76yt7ZT2tqNzk1uAFDqZiv1.output.jsonpath_queries.Schema_ID_LargeString$\",\n      \"title\": \"test-in\",\n      \"properties\": {\n        \"scope\": \"input\",\n        \"is_required\": false,\n        \"name\": \"test-in\",\n        \"value\": \"\"\n      }\n    }\n  ]\n}",
               "continue_on_error_status_code": false,
               "continue_on_failure": true,
               "display_name": "Add More than 2 Large String Variable to WF (Expected to Fail)",
@@ -2299,6 +2299,25 @@
         ]
       },
       {
+        "unique_name": "definition_activity_02DR20TGSN8Y92PKkZ2tx7MqIDqobRyjseR",
+        "name": "XDR-Automation -- Execute Python Using Large String",
+        "title": "XDR-Automation -- Execute Python Using Large String",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "XDR-Automation -- Execute Python Using Large String",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau",
+          "workflow_name": "XDR-Automation -- Execute Python Using Large String"
+        },
+        "object_type": "definition_activity"
+      },
+      {
         "unique_name": "definition_activity_029DRCZ2JXG2P5917wm1EhxVngyV8QxIUGr",
         "name": "Set Variables",
         "title": "EmailTable",
@@ -2361,167 +2380,175 @@
                                                         "left_operand": {
                                                           "left_operand": {
                                                             "left_operand": {
-                                                              "left_operand": "$activity.definition_activity_028YD4U9NTEK32agrnbYke045kSOj5STzIq.output.error.code$",
-                                                              "operator": "eq",
-                                                              "right_operand": "200"
+                                                              "left_operand": {
+                                                                "left_operand": "$activity.definition_activity_028YD4U9NTEK32agrnbYke045kSOj5STzIq.output.error.code$",
+                                                                "operator": "eq",
+                                                                "right_operand": "200"
+                                                              },
+                                                              "operator": "and",
+                                                              "right_operand": {
+                                                                "left_operand": "$activity.definition_activity_028VSS1X3900G5ZGuoNUMvf2kzxr7yy4CIR.output.error.code$",
+                                                                "operator": "eq",
+                                                                "right_operand": "200"
+                                                              }
                                                             },
                                                             "operator": "and",
                                                             "right_operand": {
-                                                              "left_operand": "$activity.definition_activity_028VSS1X3900G5ZGuoNUMvf2kzxr7yy4CIR.output.error.code$",
+                                                              "left_operand": "$activity.definition_activity_028WRR82GCP7H00I18DqvkFDaR9NE4XmKl5.output.error.code$",
                                                               "operator": "eq",
                                                               "right_operand": "200"
                                                             }
                                                           },
                                                           "operator": "and",
                                                           "right_operand": {
-                                                            "left_operand": "$activity.definition_activity_028WRR82GCP7H00I18DqvkFDaR9NE4XmKl5.output.error.code$",
+                                                            "left_operand": "$activity.definition_activity_028VQY1RB7HQH58lzj69hIPFxcbfEBUT94c.output.error.code$",
                                                             "operator": "eq",
                                                             "right_operand": "200"
                                                           }
                                                         },
                                                         "operator": "and",
                                                         "right_operand": {
-                                                          "left_operand": "$activity.definition_activity_028VQY1RB7HQH58lzj69hIPFxcbfEBUT94c.output.error.code$",
+                                                          "left_operand": "$activity.definition_activity_028WNL99RHH2I3bsnuzqpSU0OT6ibuwkMmB.output.error.code$",
                                                           "operator": "eq",
                                                           "right_operand": "200"
                                                         }
                                                       },
                                                       "operator": "and",
                                                       "right_operand": {
-                                                        "left_operand": "$activity.definition_activity_028WNL99RHH2I3bsnuzqpSU0OT6ibuwkMmB.output.error.code$",
+                                                        "left_operand": "$activity.definition_activity_028YDW0YVJDA42MOgLK9flzFb5pZeC7Oi6S.output.error.code$",
                                                         "operator": "eq",
                                                         "right_operand": "200"
                                                       }
                                                     },
                                                     "operator": "and",
                                                     "right_operand": {
-                                                      "left_operand": "$activity.definition_activity_028YDW0YVJDA42MOgLK9flzFb5pZeC7Oi6S.output.error.code$",
+                                                      "left_operand": "$activity.definition_activity_028YDW0YVM9VS2gQBHJeWT1bjd95CpFKUCL.output.error.code$",
                                                       "operator": "eq",
                                                       "right_operand": "200"
                                                     }
                                                   },
                                                   "operator": "and",
                                                   "right_operand": {
-                                                    "left_operand": "$activity.definition_activity_028YDW0YVM9VS2gQBHJeWT1bjd95CpFKUCL.output.error.code$",
+                                                    "left_operand": "$activity.definition_activity_028YDW0YVMZ3N3GHGQAkoRPFUtlQOtQUHxy.output.error.code$",
                                                     "operator": "eq",
                                                     "right_operand": "200"
                                                   }
                                                 },
                                                 "operator": "and",
                                                 "right_operand": {
-                                                  "left_operand": "$activity.definition_activity_028YDW0YVMZ3N3GHGQAkoRPFUtlQOtQUHxy.output.error.code$",
+                                                  "left_operand": "$activity.definition_activity_028YDW0YVPQPL7CxUG2vw22QgDAQlke8Thb.output.error.code$",
                                                   "operator": "eq",
                                                   "right_operand": "200"
                                                 }
                                               },
                                               "operator": "and",
                                               "right_operand": {
-                                                "left_operand": "$activity.definition_activity_028YDW0YVPQPL7CxUG2vw22QgDAQlke8Thb.output.error.code$",
+                                                "left_operand": "$activity.definition_activity_028YDW0YVQDLM4cWfl59PWJ8mztMHmSoaD6.output.error.code$",
                                                 "operator": "eq",
                                                 "right_operand": "200"
                                               }
                                             },
                                             "operator": "and",
                                             "right_operand": {
-                                              "left_operand": "$activity.definition_activity_028YDW0YVQDLM4cWfl59PWJ8mztMHmSoaD6.output.error.code$",
+                                              "left_operand": "$activity.definition_activity_028YE8RJX5FCD2W85awjEaZvYsf0UDVoPPf.output.error.code$",
                                               "operator": "eq",
                                               "right_operand": "200"
                                             }
                                           },
                                           "operator": "and",
                                           "right_operand": {
-                                            "left_operand": "$activity.definition_activity_028YE8RJX5FCD2W85awjEaZvYsf0UDVoPPf.output.error.code$",
+                                            "left_operand": "$activity.definition_activity_028YEA9JBM17D7EfoiPIPjbcDq2MEiPjOIQ.output.error.code$",
                                             "operator": "eq",
                                             "right_operand": "200"
                                           }
                                         },
                                         "operator": "and",
                                         "right_operand": {
-                                          "left_operand": "$activity.definition_activity_028YEA9JBM17D7EfoiPIPjbcDq2MEiPjOIQ.output.error.code$",
+                                          "left_operand": "$activity.definition_activity_028YEAX11UT9M3LtJ5Z52qeKpmRwlOtdpBR.output.error.code$",
                                           "operator": "eq",
-                                          "right_operand": "200"
+                                          "right_operand": "RequestTimeOut"
                                         }
                                       },
                                       "operator": "and",
                                       "right_operand": {
-                                        "left_operand": "$activity.definition_activity_028YEAX11UT9M3LtJ5Z52qeKpmRwlOtdpBR.output.error.code$",
+                                        "left_operand": "$activity.definition_activity_028YEB2WLAD7V1uc60QlAaIlHKN4O7Gkc4y.output.error.code$",
                                         "operator": "eq",
-                                        "right_operand": "200"
+                                        "right_operand": "400"
                                       }
                                     },
                                     "operator": "and",
                                     "right_operand": {
-                                      "left_operand": "$activity.definition_activity_028YEB2WLAD7V1uc60QlAaIlHKN4O7Gkc4y.output.error.code$",
+                                      "left_operand": "$workflow.definition_workflow_028VQW6T23UT53Yq258aBWAjVTYcFBn6znx.output.variable_workflow_0298MOKCU836Y4TeXwbJRDmw1wwSXxWNX3C$",
                                       "operator": "eq",
-                                      "right_operand": "200"
+                                      "right_operand": "Pass"
                                     }
                                   },
                                   "operator": "and",
                                   "right_operand": {
-                                    "left_operand": "$workflow.definition_workflow_028VQW6T23UT53Yq258aBWAjVTYcFBn6znx.output.variable_workflow_0298MOKCU836Y4TeXwbJRDmw1wwSXxWNX3C$",
+                                    "left_operand": "$activity.definition_activity_029CWF4KGFDSE1Bv0e2JKyZQUvVxsw1vNQy.output.error.code$",
                                     "operator": "eq",
-                                    "right_operand": "Pass"
+                                    "right_operand": "400"
                                   }
                                 },
                                 "operator": "and",
                                 "right_operand": {
-                                  "left_operand": "$activity.definition_activity_029CWF4KGFDSE1Bv0e2JKyZQUvVxsw1vNQy.output.error.code$",
+                                  "left_operand": "$activity.definition_activity_028YEB2WLAD7V1uc60QlAaIlHKN4O7Gkc4y.output.error.code$",
                                   "operator": "eq",
-                                  "right_operand": "200"
+                                  "right_operand": "400"
                                 }
                               },
                               "operator": "and",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_028YEB2WLAD7V1uc60QlAaIlHKN4O7Gkc4y.output.error.code$",
+                                "left_operand": "$activity.definition_activity_029CWCIMFHLKZ3oASAdNy7QX7K0hWgS7iOL.output.error.code$",
                                 "operator": "eq",
                                 "right_operand": "200"
                               }
                             },
                             "operator": "and",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_029CWCIMFHLKZ3oASAdNy7QX7K0hWgS7iOL.output.error.code$",
+                              "left_operand": "$activity.definition_activity_029CWDMX9JPXS0Fmor8x9xxAsv3QQznUYbU.output.error.code$",
                               "operator": "eq",
                               "right_operand": "200"
                             }
                           },
                           "operator": "and",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_029CWDMX9JPXS0Fmor8x9xxAsv3QQznUYbU.output.error.code$",
+                            "left_operand": "$activity.definition_activity_029CWDVC7Y56I7PknCa4u29wPcJwAqcOLmr.output.error.code$",
                             "operator": "eq",
                             "right_operand": "200"
                           }
                         },
                         "operator": "and",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_029CWDVC7Y56I7PknCa4u29wPcJwAqcOLmr.output.error.code$",
+                          "left_operand": "$activity.definition_activity_029CWE3WS5O063vNATIvpSwVIPhnTTmqpfn.output.error.code$",
                           "operator": "eq",
                           "right_operand": "200"
                         }
                       },
                       "operator": "and",
                       "right_operand": {
-                        "left_operand": "$activity.definition_activity_029CWE3WS5O063vNATIvpSwVIPhnTTmqpfn.output.error.code$",
+                        "left_operand": "$activity.definition_activity_029CWEAPCEC8U6OnQTN22ndSxvWqFirETht.output.error.code$",
                         "operator": "eq",
                         "right_operand": "200"
                       }
                     },
                     "operator": "and",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_029CWEAPCEC8U6OnQTN22ndSxvWqFirETht.output.error.code$",
+                      "left_operand": "$activity.definition_activity_029CWEG0INN0N1ApOzRk415AYStJ5jet0QI.output.error.code$",
                       "operator": "eq",
                       "right_operand": "200"
                     }
                   },
                   "operator": "and",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_029CWEG0INN0N1ApOzRk415AYStJ5jet0QI.output.error.code$",
+                    "left_operand": "$workflow.definition_workflow_028VQW6T23UT53Yq258aBWAjVTYcFBn6znx.output.variable_workflow_029DQ8M5JHBTV3ZEYEA5lakuC8KKK3RKVP1$",
                     "operator": "eq",
-                    "right_operand": "200"
+                    "right_operand": "Pass"
                   }
                 },
                 "operator": "and",
                 "right_operand": {
-                  "left_operand": "$workflow.definition_workflow_028VQW6T23UT53Yq258aBWAjVTYcFBn6znx.output.variable_workflow_029DQ8M5JHBTV3ZEYEA5lakuC8KKK3RKVP1$",
+                  "left_operand": "$activity.definition_activity_02DR20TGSN8Y92PKkZ2tx7MqIDqobRyjseR.output.variable_workflow_02DR23GAFLQOD6kdLExm2DwNSRCVGtAyaGF$",
                   "operator": "eq",
                   "right_operand": "Pass"
                 }
@@ -2579,167 +2606,175 @@
                                                         "left_operand": {
                                                           "left_operand": {
                                                             "left_operand": {
-                                                              "left_operand": "$activity.definition_activity_028YD4U9NTEK32agrnbYke045kSOj5STzIq.output.error.code$",
-                                                              "operator": "ne",
-                                                              "right_operand": "200"
+                                                              "left_operand": {
+                                                                "left_operand": "$activity.definition_activity_028YD4U9NTEK32agrnbYke045kSOj5STzIq.output.error.code$",
+                                                                "operator": "ne",
+                                                                "right_operand": "200"
+                                                              },
+                                                              "operator": "or",
+                                                              "right_operand": {
+                                                                "left_operand": "$activity.definition_activity_028VSS1X3900G5ZGuoNUMvf2kzxr7yy4CIR.output.error.code$",
+                                                                "operator": "ne",
+                                                                "right_operand": "200"
+                                                              }
                                                             },
                                                             "operator": "or",
                                                             "right_operand": {
-                                                              "left_operand": "$activity.definition_activity_028VSS1X3900G5ZGuoNUMvf2kzxr7yy4CIR.output.error.code$",
+                                                              "left_operand": "$activity.definition_activity_028WRR82GCP7H00I18DqvkFDaR9NE4XmKl5.output.error.code$",
                                                               "operator": "ne",
                                                               "right_operand": "200"
                                                             }
                                                           },
                                                           "operator": "or",
                                                           "right_operand": {
-                                                            "left_operand": "$activity.definition_activity_028WRR82GCP7H00I18DqvkFDaR9NE4XmKl5.output.error.code$",
+                                                            "left_operand": "$activity.definition_activity_028VQY1RB7HQH58lzj69hIPFxcbfEBUT94c.output.error.code$",
                                                             "operator": "ne",
                                                             "right_operand": "200"
                                                           }
                                                         },
                                                         "operator": "or",
                                                         "right_operand": {
-                                                          "left_operand": "$activity.definition_activity_028VQY1RB7HQH58lzj69hIPFxcbfEBUT94c.output.error.code$",
+                                                          "left_operand": "$activity.definition_activity_028WNL99RHH2I3bsnuzqpSU0OT6ibuwkMmB.output.error.code$",
                                                           "operator": "ne",
                                                           "right_operand": "200"
                                                         }
                                                       },
                                                       "operator": "or",
                                                       "right_operand": {
-                                                        "left_operand": "$activity.definition_activity_028WNL99RHH2I3bsnuzqpSU0OT6ibuwkMmB.output.error.code$",
+                                                        "left_operand": "$activity.definition_activity_028YDW0YVJDA42MOgLK9flzFb5pZeC7Oi6S.output.error.code$",
                                                         "operator": "ne",
                                                         "right_operand": "200"
                                                       }
                                                     },
                                                     "operator": "or",
                                                     "right_operand": {
-                                                      "left_operand": "$activity.definition_activity_028YDW0YVJDA42MOgLK9flzFb5pZeC7Oi6S.output.error.code$",
+                                                      "left_operand": "$activity.definition_activity_028YDW0YVM9VS2gQBHJeWT1bjd95CpFKUCL.output.error.code$",
                                                       "operator": "ne",
                                                       "right_operand": "200"
                                                     }
                                                   },
                                                   "operator": "or",
                                                   "right_operand": {
-                                                    "left_operand": "$activity.definition_activity_028YDW0YVM9VS2gQBHJeWT1bjd95CpFKUCL.output.error.code$",
+                                                    "left_operand": "$activity.definition_activity_028YDW0YVMZ3N3GHGQAkoRPFUtlQOtQUHxy.output.error.code$",
                                                     "operator": "ne",
                                                     "right_operand": "200"
                                                   }
                                                 },
                                                 "operator": "or",
                                                 "right_operand": {
-                                                  "left_operand": "$activity.definition_activity_028YDW0YVMZ3N3GHGQAkoRPFUtlQOtQUHxy.output.error.code$",
+                                                  "left_operand": "$activity.definition_activity_028YDW0YVPQPL7CxUG2vw22QgDAQlke8Thb.output.error.code$",
                                                   "operator": "ne",
                                                   "right_operand": "200"
                                                 }
                                               },
                                               "operator": "or",
                                               "right_operand": {
-                                                "left_operand": "$activity.definition_activity_028YDW0YVPQPL7CxUG2vw22QgDAQlke8Thb.output.error.code$",
+                                                "left_operand": "$activity.definition_activity_028YDW0YVQDLM4cWfl59PWJ8mztMHmSoaD6.output.error.code$",
                                                 "operator": "ne",
                                                 "right_operand": "200"
                                               }
                                             },
                                             "operator": "or",
                                             "right_operand": {
-                                              "left_operand": "$activity.definition_activity_028YDW0YVQDLM4cWfl59PWJ8mztMHmSoaD6.output.error.code$",
+                                              "left_operand": "$activity.definition_activity_028YE8RJX5FCD2W85awjEaZvYsf0UDVoPPf.output.error.code$",
                                               "operator": "ne",
                                               "right_operand": "200"
                                             }
                                           },
                                           "operator": "or",
                                           "right_operand": {
-                                            "left_operand": "$activity.definition_activity_028YE8RJX5FCD2W85awjEaZvYsf0UDVoPPf.output.error.code$",
+                                            "left_operand": "$activity.definition_activity_028YEA9JBM17D7EfoiPIPjbcDq2MEiPjOIQ.output.error.code$",
                                             "operator": "ne",
                                             "right_operand": "200"
                                           }
                                         },
                                         "operator": "or",
                                         "right_operand": {
-                                          "left_operand": "$activity.definition_activity_028YEA9JBM17D7EfoiPIPjbcDq2MEiPjOIQ.output.error.code$",
+                                          "left_operand": "$activity.definition_activity_028YEAX11UT9M3LtJ5Z52qeKpmRwlOtdpBR.output.error.code$",
                                           "operator": "ne",
                                           "right_operand": "200"
                                         }
                                       },
                                       "operator": "or",
                                       "right_operand": {
-                                        "left_operand": "$activity.definition_activity_028YEAX11UT9M3LtJ5Z52qeKpmRwlOtdpBR.output.error.code$",
+                                        "left_operand": "$activity.definition_activity_028YEB2WLAD7V1uc60QlAaIlHKN4O7Gkc4y.output.error.code$",
                                         "operator": "ne",
                                         "right_operand": "200"
                                       }
                                     },
                                     "operator": "or",
                                     "right_operand": {
-                                      "left_operand": "$activity.definition_activity_028YEB2WLAD7V1uc60QlAaIlHKN4O7Gkc4y.output.error.code$",
+                                      "left_operand": "$workflow.definition_workflow_028VQW6T23UT53Yq258aBWAjVTYcFBn6znx.output.variable_workflow_0298MOKCU836Y4TeXwbJRDmw1wwSXxWNX3C$",
                                       "operator": "ne",
-                                      "right_operand": "200"
+                                      "right_operand": "Pass"
                                     }
                                   },
                                   "operator": "or",
                                   "right_operand": {
-                                    "left_operand": "$workflow.definition_workflow_028VQW6T23UT53Yq258aBWAjVTYcFBn6znx.output.variable_workflow_0298MOKCU836Y4TeXwbJRDmw1wwSXxWNX3C$",
+                                    "left_operand": "$activity.definition_activity_029CWF4KGFDSE1Bv0e2JKyZQUvVxsw1vNQy.output.error.code$",
                                     "operator": "ne",
-                                    "right_operand": "Pass"
+                                    "right_operand": "200"
                                   }
                                 },
                                 "operator": "or",
                                 "right_operand": {
-                                  "left_operand": "$activity.definition_activity_029CWF4KGFDSE1Bv0e2JKyZQUvVxsw1vNQy.output.error.code$",
+                                  "left_operand": "$activity.definition_activity_028YEB2WLAD7V1uc60QlAaIlHKN4O7Gkc4y.output.error.code$",
                                   "operator": "ne",
                                   "right_operand": "200"
                                 }
                               },
                               "operator": "or",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_028YEB2WLAD7V1uc60QlAaIlHKN4O7Gkc4y.output.error.code$",
+                                "left_operand": "$activity.definition_activity_029CWCIMFHLKZ3oASAdNy7QX7K0hWgS7iOL.output.error.code$",
                                 "operator": "ne",
                                 "right_operand": "200"
                               }
                             },
                             "operator": "or",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_029CWCIMFHLKZ3oASAdNy7QX7K0hWgS7iOL.output.error.code$",
+                              "left_operand": "$activity.definition_activity_029CWDMX9JPXS0Fmor8x9xxAsv3QQznUYbU.output.error.code$",
                               "operator": "ne",
                               "right_operand": "200"
                             }
                           },
                           "operator": "or",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_029CWDMX9JPXS0Fmor8x9xxAsv3QQznUYbU.output.error.code$",
+                            "left_operand": "$activity.definition_activity_029CWDVC7Y56I7PknCa4u29wPcJwAqcOLmr.output.error.code$",
                             "operator": "ne",
                             "right_operand": "200"
                           }
                         },
                         "operator": "or",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_029CWDVC7Y56I7PknCa4u29wPcJwAqcOLmr.output.error.code$",
+                          "left_operand": "$activity.definition_activity_029CWE3WS5O063vNATIvpSwVIPhnTTmqpfn.output.error.code$",
                           "operator": "ne",
                           "right_operand": "200"
                         }
                       },
                       "operator": "or",
                       "right_operand": {
-                        "left_operand": "$activity.definition_activity_029CWE3WS5O063vNATIvpSwVIPhnTTmqpfn.output.error.code$",
+                        "left_operand": "$activity.definition_activity_029CWEAPCEC8U6OnQTN22ndSxvWqFirETht.output.error.code$",
                         "operator": "ne",
                         "right_operand": "200"
                       }
                     },
                     "operator": "or",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_029CWEAPCEC8U6OnQTN22ndSxvWqFirETht.output.error.code$",
+                      "left_operand": "$activity.definition_activity_029CWEG0INN0N1ApOzRk415AYStJ5jet0QI.output.error.code$",
                       "operator": "ne",
                       "right_operand": "200"
                     }
                   },
                   "operator": "or",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_029CWEG0INN0N1ApOzRk415AYStJ5jet0QI.output.error.code$",
-                    "operator": "ne",
-                    "right_operand": "200"
+                    "left_operand": "$workflow.definition_workflow_028VQW6T23UT53Yq258aBWAjVTYcFBn6znx.output.variable_workflow_029DQ8M5JHBTV3ZEYEA5lakuC8KKK3RKVP1$",
+                    "operator": "eq",
+                    "right_operand": "Fail"
                   }
                 },
                 "operator": "or",
                 "right_operand": {
-                  "left_operand": "$workflow.definition_workflow_028VQW6T23UT53Yq258aBWAjVTYcFBn6znx.output.variable_workflow_029DQ8M5JHBTV3ZEYEA5lakuC8KKK3RKVP1$",
+                  "left_operand": "$activity.definition_activity_02DR20TGSN8Y92PKkZ2tx7MqIDqobRyjseR.output.variable_workflow_02DR23GAFLQOD6kdLExm2DwNSRCVGtAyaGF$",
                   "operator": "eq",
                   "right_operand": "Fail"
                 }
@@ -2758,7 +2793,7 @@
                 "base_type": "activity",
                 "properties": {
                   "completion_type": "failed-completed",
-                  "continue_on_failure": true,
+                  "continue_on_failure": false,
                   "display_name": "Fail",
                   "skip_execution": false
                 },
@@ -2809,6 +2844,1140 @@
       }
     }
   },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau",
+        "name": "XDR-Automation -- Execute Python Using Large String",
+        "title": "XDR-Automation -- Execute Python Using Large String",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "Overall Status for Larget String Support on Python Adapter",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02DR23GAFLQOD6kdLExm2DwNSRCVGtAyaGF",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "Python Adapter Non Atomic Test Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02DQXGEXBKD3545bkXWGl2ItoEmhhyNsgIa",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.large_string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "LS1",
+              "type": "datatype.large_string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02DQVZN5XQHQ21TcuaFmAC1PY4mio6k6Ugw",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "String_S1",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02DQVZGUKGTXN7GSVtL7JIQ1YCmeKcztAju",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.large_string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Large_String_Output",
+              "type": "datatype.large_string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02DQES275JB1M03rB2b8twDoewrcoSixHGs",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "Provide the Tenant Token without bearer ",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02DQFY3BHH5ET3I46LxnEBkoDFLBXyqZmBx",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "Python Adapter Atomic Test Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02DQXG8YQOP6U6RtdaTbOnKqEjesPGoQigm",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.large_string",
+            "properties": {
+              "value": "",
+              "scope": "local",
+              "name": "LS2",
+              "type": "datatype.large_string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02DQIPQ2OUN6336uUoxDiDvFhPKWvejSJsv",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "XDR-Automation -- Execute Python Using Large String",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02DQVPT5I57TU43WPWfHQo13fWHSdibZNhc",
+            "name": "SXO- Create Token-Generate Token",
+            "title": "SXO- Create Token-Generate Token",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "SXO- Create Token-Generate Token",
+              "input": {
+                "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7": "client-a2272462-4222-44c4-9ac5-e17b1704192c",
+                "variable_workflow_02BC8GA3DL7UT2XvjCn2jMUeOtCfsmMDZy4": "I2lkb-qBc62NNjhdnubJK3BxjqYKz0LAxztFUPqOATAmZUXV-FhHQw"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "execute_on_this_target": true,
+                "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$",
+                "target_type": "web-service.endpoint"
+              },
+              "workflow_id": "definition_workflow_02BC75FXY8V6Q7fCnqF2hIiteIL3tPcTIMX",
+              "workflow_name": "SXO- Create Token-Generate Token"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQVTT6SFT003UscnjQm3Z91ONdgvcdae5",
+            "name": "Set Variables",
+            "title": "Store Token",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Store Token",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQFY3BHH5ET3I46LxnEBkoDFLBXyqZmBx$",
+                  "variable_value_new": "$activity.definition_activity_02DQVPT5I57TU43WPWfHQo13fWHSdibZNhc.output.variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQW4SAOT54R4nfYM7ZJtLDrwakMI92DF3",
+            "name": "Parallel Block",
+            "title": "LargeString Test on Python Adapters",
+            "type": "logic.parallel",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "LargeString Test on Python Adapters",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_02DQW4SAXBP9I3NqLcRowugjzLqf1BnRh9M",
+                "name": "Parallel Branch",
+                "title": "Fetch Data From NonAtomics GET WF API",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Data From NonAtomics GET WF API",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02DQEQXGAXM8F2GOPiTCGNoo5KWBtpqxDgD",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script-WF (Non Atomics)",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Python Script-WF (Non Atomics)",
+                      "script": "import requests\nimport json\n\nurl = \"https://automate.int.iroh.site/api/v1.1/workflows?is_atomic=false\u0026start=0\u0026limit=100000\u0026sort_by=updated_on\"\n\npayload = json.dumps({\n  \"categories\": [],\n  \"owner\": []\n})\nheaders = {\n  'authority': 'automate.int.iroh.site',\n  'accept': 'application/json, text/plain, */*',\n  'accept-language': 'en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7',\n  'authorization': 'Bearer $workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQFY3BHH5ET3I46LxnEBkoDFLBXyqZmBx$',\n  'cache-control': 'no-cache',\n  'content-type': 'application/json',\n  'origin': 'https://xdr.int.iroh.site',\n  'pragma': 'no-cache',\n  'sec-ch-ua': '\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"',\n  'sec-ch-ua-mobile': '?0',\n  'sec-ch-ua-platform': '\"macOS\"',\n  'sec-fetch-dest': 'empty',\n  'sec-fetch-mode': 'cors',\n  'sec-fetch-site': 'same-site',\n  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',\n  'x-csco-trxid': '75c2f07d'\n}\n\nresponse = requests.request(\"POST\", url, headers=headers, data=payload)\n\nprint(response.text)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQES5AUY2RR1yrinYiggZD0Tl4cVQhXHj",
+                    "name": "Set Variables",
+                    "title": "Store Non Atomics Response in LS1",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Store Non Atomics Response in LS1",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQVZN5XQHQ21TcuaFmAC1PY4mio6k6Ugw$",
+                          "variable_value_new": "$activity.definition_activity_02DQEQXGAXM8F2GOPiTCGNoo5KWBtpqxDgD.output.response_body$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQFSOQQEDU82X3RFrG3ZIsIlrMHqJF3VS",
+                    "name": "Replace String",
+                    "title": "Replace String",
+                    "type": "core.replacestring",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Replace String",
+                      "input_string": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQVZN5XQHQ21TcuaFmAC1PY4mio6k6Ugw$",
+                      "replace_list": [
+                        {
+                          "replaced_string": "false",
+                          "replacement_string": "False"
+                        },
+                        {
+                          "replaced_string": "true",
+                          "replacement_string": "True"
+                        },
+                        {
+                          "replaced_string": "null",
+                          "replacement_string": "None"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQY4PN4OJNT6qN1Qez0lYmAHvzOF9R1PE",
+                    "name": "Set Variables",
+                    "title": "Store Non Atomics Response in LS1 from Replace String",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Store Non Atomics Response in LS1 from Replace String",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQVZN5XQHQ21TcuaFmAC1PY4mio6k6Ugw$",
+                          "variable_value_new": "$activity.definition_activity_02DQFSOQQEDU82X3RFrG3ZIsIlrMHqJF3VS.output.result_string$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQW9WAWXLBE7TPWKpNCWL8S2TEeCsXmKh",
+                    "name": "Set Variables",
+                    "title": "Store Non Atomics Response in string (Expected to Fail)",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Store Non Atomics Response in string (Expected to Fail)",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQVZGUKGTXN7GSVtL7JIQ1YCmeKcztAju$",
+                          "variable_value_new": "$activity.definition_activity_02DQEQXGAXM8F2GOPiTCGNoo5KWBtpqxDgD.output.response_body$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQF7QDB0EIX1B6CCUnKtR8YFliCvDjraL",
+                    "name": "Execute Python Script",
+                    "title": "Print Response Body Using LS1",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Print Response Body Using LS1",
+                      "script": "print($workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQVZN5XQHQ21TcuaFmAC1PY4mio6k6Ugw$)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQWAL8LOYCJ0qJg70vf0c6aQutlkiwBNy",
+                    "name": "Condition Block",
+                    "title": "Verify Python Adapter Test Status (Non-Atomic)",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Verify Python Adapter Test Status (Non-Atomic)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02DQWAL8VFPVO5xBtzQn1vXWeE4c8qlKWXy",
+                        "name": "Condition Branch",
+                        "title": "PassCase or Skip if any condition didn't Matched",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": "$activity.definition_activity_02DQVPT5I57TU43WPWfHQo13fWHSdibZNhc.output.variable_workflow_02DJBM55OAE734oLfvIKzE4MxFyiXIrVcYR$",
+                                        "operator": "eq",
+                                        "right_operand": "Pass"
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02DQEQXGAXM8F2GOPiTCGNoo5KWBtpqxDgD.output.error.code$",
+                                        "operator": "eq",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02DQFSOQQEDU82X3RFrG3ZIsIlrMHqJF3VS.output.error.code$",
+                                      "operator": "eq",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02DQES5AUY2RR1yrinYiggZD0Tl4cVQhXHj.output.error.code$",
+                                    "operator": "eq",
+                                    "right_operand": "200"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02DQW9WAWXLBE7TPWKpNCWL8S2TEeCsXmKh.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "StatusRequestEntityTooLarge"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02DQF7QDB0EIX1B6CCUnKtR8YFliCvDjraL.output.error.code$",
+                                "operator": "eq",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02DQY4PN4OJNT6qN1Qez0lYmAHvzOF9R1PE.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            }
+                          },
+                          "continue_on_failure": true,
+                          "display_name": "PassCase or Skip if any condition didn't Matched",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02DQXGI4NXS4C007z2B4utDRLNKZbIaOQah",
+                            "name": "Set Variables",
+                            "title": "Pass",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Pass",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.output.variable_workflow_02DQXGEXBKD3545bkXWGl2ItoEmhhyNsgIa$",
+                                  "variable_value_new": "Pass"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02DQW4SB6PZ3N5ikCB8i41Wuu7Bl98vb9w5",
+                "name": "Parallel Branch",
+                "title": "Fetch Data From Atomics GET WF API",
+                "type": "logic.parallel_block",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Data From Atomics GET WF API",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02DQVY9XI3BFK0McUGxvauW36g0eXbIwPV1",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script-WF (Atomics)",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Python Script-WF (Atomics)",
+                      "script": "import requests\nimport json\n\nurl = \"https://automate.int.iroh.site/api/v1.1/workflows?is_atomic=true\u0026start=0\u0026limit=100000\u0026sort_by=updated_on\"\n\npayload = json.dumps({\n  \"categories\": [],\n  \"owner\": []\n})\nheaders = {\n  'authority': 'automate.int.iroh.site',\n  'accept': 'application/json, text/plain, */*',\n  'accept-language': 'en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7',\n  'authorization': 'Bearer $workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQFY3BHH5ET3I46LxnEBkoDFLBXyqZmBx$',\n  'cache-control': 'no-cache',\n  'content-type': 'application/json',\n  'origin': 'https://xdr.int.iroh.site',\n  'pragma': 'no-cache',\n  'sec-ch-ua': '\"Google Chrome\";v=\"113\", \"Chromium\";v=\"113\", \"Not-A.Brand\";v=\"24\"',\n  'sec-ch-ua-mobile': '?0',\n  'sec-ch-ua-platform': '\"macOS\"',\n  'sec-fetch-dest': 'empty',\n  'sec-fetch-mode': 'cors',\n  'sec-fetch-site': 'same-site',\n  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',\n  'x-csco-trxid': '75c2f07d'\n}\n\nresponse = requests.request(\"POST\", url, headers=headers, data=payload)\n\nprint(response.text)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQFT9LNEAAF2oe8AWSf067l2phElwBuCC",
+                    "name": "Set Variables",
+                    "title": "Store Atomics Response in LS2",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Store Atomics Response in LS2",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQIPQ2OUN6336uUoxDiDvFhPKWvejSJsv$",
+                          "variable_value_new": "$activity.definition_activity_02DQVY9XI3BFK0McUGxvauW36g0eXbIwPV1.output.response_body$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQW60MG8EZE3L8HbYzYrZbEdPXsTqPlwI",
+                    "name": "Replace String",
+                    "title": "Replace String",
+                    "type": "core.replacestring",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Replace String",
+                      "input_string": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQIPQ2OUN6336uUoxDiDvFhPKWvejSJsv$",
+                      "replace_list": [
+                        {
+                          "replaced_string": "false",
+                          "replacement_string": "False"
+                        },
+                        {
+                          "replaced_string": "true",
+                          "replacement_string": "True"
+                        },
+                        {
+                          "replaced_string": "null",
+                          "replacement_string": "None"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQY55PK6Z881qWNSmFMyMeSxE5wbrNgGC",
+                    "name": "Set Variables",
+                    "title": "Store Atomics Response in LS2 from Replace String",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Store Atomics Response in LS2 from Replace String",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQIPQ2OUN6336uUoxDiDvFhPKWvejSJsv$",
+                          "variable_value_new": "$activity.definition_activity_02DQW60MG8EZE3L8HbYzYrZbEdPXsTqPlwI.output.result_string$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQWA73UCGN64sTDMJgGolwInfFEn4bpsz",
+                    "name": "Set Variables",
+                    "title": "Store Atomics Response in String (Expected to Fail)",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Store Atomics Response in String (Expected to Fail)",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQVZGUKGTXN7GSVtL7JIQ1YCmeKcztAju$",
+                          "variable_value_new": "$activity.definition_activity_02DQVY9XI3BFK0McUGxvauW36g0eXbIwPV1.output.response_body$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQW6Z7G9TAZ5S7Isrb2189gzW36phOzuZ",
+                    "name": "Execute Python Script",
+                    "title": "Print Response Body Using LS2",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Print Response Body Using LS2",
+                      "script": "print($workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQIPQ2OUN6336uUoxDiDvFhPKWvejSJsv$)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02DQXKTFLF4VN2yOg0fNkbpfMBqcvLrJEJQ",
+                    "name": "Condition Block",
+                    "title": "Verify Python Adapter Test Status (Atomic)",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Verify Python Adapter Test Status (Atomic)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02DQXKTFLGT5N44YlGWJNVjKaIrJltiFNvq",
+                        "name": "Condition Branch",
+                        "title": "PassCase or Skip if any condition didn't Matched",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": "$activity.definition_activity_02DQVPT5I57TU43WPWfHQo13fWHSdibZNhc.output.variable_workflow_02DJBM55OAE734oLfvIKzE4MxFyiXIrVcYR$",
+                                        "operator": "eq",
+                                        "right_operand": "Pass"
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02DQVY9XI3BFK0McUGxvauW36g0eXbIwPV1.output.error.code$",
+                                        "operator": "eq",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02DQW60MG8EZE3L8HbYzYrZbEdPXsTqPlwI.output.error.code$",
+                                      "operator": "eq",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02DQFT9LNEAAF2oe8AWSf067l2phElwBuCC.output.error.code$",
+                                    "operator": "eq",
+                                    "right_operand": "200"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02DQWA73UCGN64sTDMJgGolwInfFEn4bpsz.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "StatusRequestEntityTooLarge"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02DQW6Z7G9TAZ5S7Isrb2189gzW36phOzuZ.output.error.code$",
+                                "operator": "eq",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02DQY55PK6Z881qWNSmFMyMeSxE5wbrNgGC.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            }
+                          },
+                          "continue_on_failure": true,
+                          "display_name": "PassCase or Skip if any condition didn't Matched",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02DQXKTFLIL836NHfA37tIybCjWzmXHKYUp",
+                            "name": "Set Variables",
+                            "title": "Pass",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Pass",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.output.variable_workflow_02DQXG8YQOP6U6RtdaTbOnKqEjesPGoQigm$",
+                                  "variable_value_new": "Pass"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02DQW8M5GPDF27HpRMnrJsnreLQsU9jFQaJ",
+            "name": "Execute Python Script",
+            "title": "Print LS3",
+            "type": "python3.script",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Print LS3",
+              "script": "print($workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQVZN5XQHQ21TcuaFmAC1PY4mio6k6Ugw$)\nprint($workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.local.variable_workflow_02DQIPQ2OUN6336uUoxDiDvFhPKWvejSJsv$)",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQW88KEHJ2Z4L67EEqubYFppMcxvpNeUC",
+            "name": "Set Variables",
+            "title": "Store in LS3",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Store in LS3",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.output.variable_workflow_02DQES275JB1M03rB2b8twDoewrcoSixHGs$",
+                  "variable_value_new": "$activity.definition_activity_02DQW8M5GPDF27HpRMnrJsnreLQsU9jFQaJ.output.response_body$"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02DQXT0BDG5JH4xtquFrfdrFGWbpseDK8Rb",
+            "name": "Condition Block",
+            "title": "Verify Overall TestStatus",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Verify Overall TestStatus",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_02DQXT0BOVZ7P4C7zROUF7y4Tkezq3dRdfO",
+                "name": "Condition Branch",
+                "title": "PassCase",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.output.variable_workflow_02DQXG8YQOP6U6RtdaTbOnKqEjesPGoQigm$",
+                          "operator": "eq",
+                          "right_operand": "Pass"
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.output.variable_workflow_02DQXGEXBKD3545bkXWGl2ItoEmhhyNsgIa$",
+                          "operator": "eq",
+                          "right_operand": "Pass"
+                        }
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_02DQW88KEHJ2Z4L67EEqubYFppMcxvpNeUC.output.error.code$",
+                        "operator": "eq",
+                        "right_operand": "200"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_02DQW8M5GPDF27HpRMnrJsnreLQsU9jFQaJ.output.error.code$",
+                      "operator": "eq",
+                      "right_operand": "200"
+                    }
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "PassCase",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02DQXV9V09JWK3QQL7SCkX7eni2Hu025qgM",
+                    "name": "Set Variables",
+                    "title": "PassCase",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.output.variable_workflow_02DR23GAFLQOD6kdLExm2DwNSRCVGtAyaGF$",
+                          "variable_value_new": "Pass"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02DQXVQ68JDRK6SFdJylGkz68UyMAVvGeCr",
+                "name": "Condition Branch",
+                "title": "FailCase",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.output.variable_workflow_02DQXG8YQOP6U6RtdaTbOnKqEjesPGoQigm$",
+                          "operator": "ne",
+                          "right_operand": "Pass"
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.output.variable_workflow_02DQXGEXBKD3545bkXWGl2ItoEmhhyNsgIa$",
+                          "operator": "ne",
+                          "right_operand": "Pass"
+                        }
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_02DQW88KEHJ2Z4L67EEqubYFppMcxvpNeUC.output.error.code$",
+                        "operator": "ne",
+                        "right_operand": "200"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_02DQW8M5GPDF27HpRMnrJsnreLQsU9jFQaJ.output.error.code$",
+                      "operator": "ne",
+                      "right_operand": "200"
+                    }
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "FailCase",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02DQXVQ68KBR652iKyTJX5rDVY5zELgm58d",
+                    "name": "Set Variables",
+                    "title": "FailCase",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "FailCase",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau.output.variable_workflow_02DR23GAFLQOD6kdLExm2DwNSRCVGtAyaGF$",
+                          "variable_value_new": "Fail"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      },
+      "subworkflows": [
+        {
+          "workflow": {
+            "unique_name": "definition_workflow_02BC75FXY8V6Q7fCnqF2hIiteIL3tPcTIMX",
+            "name": "SXO- Create Token-Generate Token",
+            "title": "SXO- Create Token-Generate Token",
+            "type": "generic.workflow",
+            "base_type": "workflow",
+            "variables": [
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "Fail",
+                  "scope": "output",
+                  "name": "Token Generation Status",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_02DJBM55OAE734oLfvIKzE4MxFyiXIrVcYR",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "input",
+                  "name": "client-secret",
+                  "type": "datatype.string",
+                  "is_required": true,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_02BC8GA3DL7UT2XvjCn2jMUeOtCfsmMDZy4",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "output",
+                  "name": "token",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "input",
+                  "name": "client_id",
+                  "type": "datatype.string",
+                  "is_required": true,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7",
+                "object_type": "variable_workflow"
+              }
+            ],
+            "properties": {
+              "atomic": {
+                "is_atomic": false
+              },
+              "delete_workflow_instance": false,
+              "description": "This WF Used Generate Token for Tenant Using Client ID and Client Secret",
+              "display_name": "SXO- Create Token-Generate Token",
+              "runtime_user": {
+                "target_default": true
+              },
+              "target": {
+                "target_type": "web-service.endpoint",
+                "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$",
+                "execute_on_workflow_target": true
+              }
+            },
+            "object_type": "definition_workflow",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02BC75G22FOUZ4EkPmUFkyaUDv7ufY6XoyD",
+                "name": "HTTP Request",
+                "title": "Create token",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "client_secret=$workflow.definition_workflow_02BC75FXY8V6Q7fCnqF2hIiteIL3tPcTIMX.input.variable_workflow_02BC8GA3DL7UT2XvjCn2jMUeOtCfsmMDZy4$\u0026grant_type=client_credentials\u0026client_id=$workflow.definition_workflow_02BC75FXY8V6Q7fCnqF2hIiteIL3tPcTIMX.input.variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7$",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/x-www-form-urlencoded"
+                    }
+                  ],
+                  "display_name": "Create token",
+                  "method": "POST",
+                  "relative_url": "/oauth2/token",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02BC75G34XD9J77fLUiyGdXiTwppF2BuwNV",
+                "name": "JSONPath Query",
+                "title": "Get Token",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Get Token",
+                  "input_json": "$activity.definition_activity_02BC75G22FOUZ4EkPmUFkyaUDv7ufY6XoyD.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.access_token",
+                      "jsonpath_query_name": "token",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02BC75G4HIDLS4gLpshXHmYqx7felpNEF3o",
+                "name": "Set Variables",
+                "title": "Set token output variable to generated token",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Set token output variable to generated token",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02BC75FXY8V6Q7fCnqF2hIiteIL3tPcTIMX.output.variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm$",
+                      "variable_value_new": "$activity.definition_activity_02BC75G34XD9J77fLUiyGdXiTwppF2BuwNV.output.jsonpath_queries.token$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02DJBMAELR6VK7CssqESkx4t4o9vPm3Zq6Q",
+                "name": "Condition Block",
+                "title": "Verify Token Generation",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Verify Token Generation",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02DJBMAESCT805PwD1svfBaW7TxxRzXFyzr",
+                    "name": "Condition Branch",
+                    "title": "Pass Case",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": "$activity.definition_activity_02BC75G22FOUZ4EkPmUFkyaUDv7ufY6XoyD.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02BC75G34XD9J77fLUiyGdXiTwppF2BuwNV.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02BC75G4HIDLS4gLpshXHmYqx7felpNEF3o.output.error.code$",
+                          "operator": "eq",
+                          "right_operand": "200"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Pass Case",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02DJBNQ2F3PNZ0AKjBx061Nt1mgaPTGY3IK",
+                        "name": "Set Variables",
+                        "title": "PassCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "PassCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02BC75FXY8V6Q7fCnqF2hIiteIL3tPcTIMX.output.variable_workflow_02DJBM55OAE734oLfvIKzE4MxFyiXIrVcYR$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_02DJBO37G1DKK2Wz94WUSToBiRzqwf6nJp4",
+                    "name": "Condition Branch",
+                    "title": "Fail Case",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": "$activity.definition_activity_02BC75G22FOUZ4EkPmUFkyaUDv7ufY6XoyD.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02BC75G34XD9J77fLUiyGdXiTwppF2BuwNV.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02BC75G4HIDLS4gLpshXHmYqx7felpNEF3o.output.error.code$",
+                          "operator": "ne",
+                          "right_operand": "200"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Fail Case",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02DJO4X2EUMJR6ZKxfWWb3fyUYJHxSkucwM",
+                        "name": "Completed",
+                        "title": "Failed",
+                        "type": "logic.completed",
+                        "base_type": "activity",
+                        "properties": {
+                          "completion_type": "failed-completed",
+                          "continue_on_failure": false,
+                          "display_name": "Failed",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "categories": [
+              "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+            ]
+          }
+        }
+      ],
+      "dependent_workflows": [
+        "definition_workflow_02BC75FXY8V6Q7fCnqF2hIiteIL3tPcTIMX"
+      ]
+    }
+  ],
   "atomic_workflows": [
     "definition_workflow_026YHAFYUYJSI57lobBfWruQIXVfnumQPnC",
     "definition_workflow_026R3MTZDNXS11nSJ26lq1HDCDh5bTUboMa",
@@ -2825,6 +3994,13 @@
     "definition_workflow_026R3TL0O0G7U2fYJ01SlXHJgbhJTl2XWcX",
     "definition_workflow_026R3PNDMKDIO0lhGr43dUx4CkVU7BTcx2i",
     "definition_workflow_026R3ITF54S7O4wvqSwgTIkJRUX5qYemcV6",
-    "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI"
+    "definition_workflow_01TNRGUJTQ00K5a18OTctGAj8Qtrns7cITI",
+    "definition_workflow_02DQEQTNBIC1A64DY8LDu7YwRKqyEbNZDau"
+  ],
+  "module_targets": [
+    {
+      "module_type": "Cisco XDR",
+      "external_id": "securex:ao:iroh_api"
+    }
   ]
 }
