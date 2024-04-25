@@ -1,0 +1,119 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02DVZTGWIFIF14oVMDABZok7htKs6MfoDjq",
+    "name": "Copy(1)-Parent-Mar22",
+    "title": "Copy(1)-Parent-Mar22",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Copy(1)-Parent-Mar22",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02DVZTGZQ2MO14T473wK1YWblfmXnlrTjbi",
+        "name": "Child WF - Mar18",
+        "title": "Child WF - Mar18",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "Child WF - Mar18",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_02DVZTGXSTQOV6xV7v3IRoNKZ0fMcXYOKHi",
+          "workflow_name": "Copy(1)-Child WF - Mar18"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02DVZTH0Z5ZVV2ST5vAsiUZ8kedM70oNtUe",
+        "name": "Atomic - Mar18",
+        "title": "Atomic - Mar18",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "Atomic - Mar18",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_02CZRH9QGPSD74Qw4jLhcLza7DCLU9focyf",
+          "workflow_name": "Atomic - Mar18"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_02DVZTGXSTQOV6xV7v3IRoNKZ0fMcXYOKHi",
+        "name": "Copy(1)-Child WF - Mar18",
+        "title": "Copy(1)-Child WF - Mar18",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": null,
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "Copy(1)-Child WF - Mar18",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02DVZTGZE8M6N4aoAlavak5tTE8g28NiRJB",
+            "name": "Sleep",
+            "title": "Sleep",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep",
+              "skip_execution": false,
+              "sleep_interval": 1
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ],
+  "atomic_workflows": [
+    "definition_workflow_02CZRH9QGPSD74Qw4jLhcLza7DCLU9focyf"
+  ],
+  "dependent_workflows": [
+    "definition_workflow_02DVZTGXSTQOV6xV7v3IRoNKZ0fMcXYOKHi",
+    "definition_workflow_02CZRH9QGPSD74Qw4jLhcLza7DCLU9focyf"
+  ]
+}
