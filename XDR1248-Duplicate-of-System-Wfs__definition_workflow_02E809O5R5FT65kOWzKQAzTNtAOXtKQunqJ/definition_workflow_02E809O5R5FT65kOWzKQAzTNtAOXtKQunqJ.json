@@ -1,0 +1,2876 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ",
+    "name": "XDR1248-Duplicate of System Wfs",
+    "title": "XDR1248-Duplicate of System Wfs",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Bearer ",
+          "scope": "input",
+          "name": "Provide the token for the org",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02E8205ICCMVR3vfjBoAwA3kgwlryEdFTeo",
+        "properties": {
+          "scope": "output",
+          "name": "System NonAtomic Duplicate TestStatus",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02E82GHKB3P0A1SJDnJXOh97Rck0cTGwo1Z",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02E8205ICCMVR3vfjBoAwA3kgwlryEdFTeo",
+        "properties": {
+          "scope": "output",
+          "name": "System Atomic Duplicate TestStatus",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02E84IH0C9LM16VS1C0TI0ABrDG5o4KRh3I",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Overall Test Status For XDR1248-Duplicate System Wfs",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02E85C60YYL3X2x2UwS7GV3bOR2rrQXmgiE",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "1. Duplicate All System Atomics:\n   - Duplicate all system atomic workflows.\n2. Verify Both Workflow Validation and Status:\n   - Confirm that the duplicated workflows are both validated and have a valid status.\n3. Verify Created_By Field:\n   - Ensure that the \"created_by\" field reflects a custom user email.\n4. Verify Invalid_Properties:\n   - Check that the \"invalid_properties\" field is null, indicating no validation errors.\n5. Verify Workflow Permissions:\n   - Confirm that the workflow permissions include [\"Manage\", \"run\"], indicating that users can edit and run the workflows.\n6. Final Step: Delete All Duplicated Workflows:\n   - Delete all duplicated workflows to clean up the system after verification.  ",
+      "display_name": "XDR1248-Duplicate of System Wfs",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02E80VMROKVHY2PiqYSgfGutQfVBt2J6Jrl",
+        "name": "Parallel Block",
+        "title": "XDR 1248 -- Duplicate System WFs",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "XDR 1248 -- Duplicate System WFs",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02E80W5AS75GB4xM8MFBrOmzEYOIx91cKPP",
+            "name": "Parallel Branch",
+            "title": "System Non-Atomics Duplicate Test Flow",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "System Non-Atomics Duplicate Test Flow",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02E80W5AS80TX6DjEvKbqMh2HvA6aOTTjVx",
+                "name": "HTTP Request",
+                "title": "GET Atomics from the System",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                    }
+                  ],
+                  "display_name": "GET Atomics from the System",
+                  "method": "POST",
+                  "relative_url": "/api/v1.1/workflows?is_atomic=false\u0026start=0\u0026limit=100\u0026sort_by=updated_on\u0026search=XDR",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E80W5AS9QFO3FqyIjjkIxQ4JtJOs7YFC4",
+                "name": "JSONPath Query",
+                "title": "Fetch the System atomics ID and Name",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch the System atomics ID and Name",
+                  "input_json": "$activity.definition_activity_02E80W5AS80TX6DjEvKbqMh2HvA6aOTTjVx.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.results[?(@.owner=='system')].name",
+                      "jsonpath_query_name": "wf_name",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.results[?(@.owner=='system')].id",
+                      "jsonpath_query_name": "wf_id",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E80W5ASCXEQ1yDQ3fZuSRA80yUP15geBS",
+                "name": "Replace String",
+                "title": "Format the WF IDS (Removing the \"[] from source)",
+                "type": "core.replacestring",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Format the WF IDS (Removing the \"[] from source)",
+                  "input_string": "$activity.definition_activity_02E80W5AS9QFO3FqyIjjkIxQ4JtJOs7YFC4.output.jsonpath_queries.wf_id$",
+                  "replace_list": [
+                    {
+                      "replaced_string": "\"",
+                      "replacement_string": ""
+                    },
+                    {
+                      "replaced_string": "[",
+                      "replacement_string": ""
+                    },
+                    {
+                      "replaced_string": "]",
+                      "replacement_string": ""
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E813V6NZ3Z46dKTX8OhK4FyTfwJaa1blQ",
+                "name": "Replace String",
+                "title": "Format the WF Names (Removing the \"[] from source)",
+                "type": "core.replacestring",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Format the WF Names (Removing the \"[] from source)",
+                  "input_string": "$activity.definition_activity_02E80W5AS9QFO3FqyIjjkIxQ4JtJOs7YFC4.output.jsonpath_queries.wf_name$",
+                  "replace_list": [
+                    {
+                      "replaced_string": "\"",
+                      "replacement_string": ""
+                    },
+                    {
+                      "replaced_string": "[",
+                      "replacement_string": ""
+                    },
+                    {
+                      "replaced_string": "]",
+                      "replacement_string": ""
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E80W5ASDOGE1P6E8hrwJvjNd6nO0EuELz",
+                "name": "Split String",
+                "title": "Split Source String Using Delimeter ,",
+                "type": "core.splitstring",
+                "base_type": "activity",
+                "properties": {
+                  "boundaries": [
+                    {
+                      "boundary": ","
+                    }
+                  ],
+                  "continue_on_failure": true,
+                  "display_name": "Split Source String Using Delimeter ,",
+                  "input_string": "$activity.definition_activity_02E80W5ASCXEQ1yDQ3fZuSRA80yUP15geBS.output.result_string$",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E80W5ASF9A14Cy963E7FMwAXRRWEjydSQ",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$activity.definition_activity_02E80W5ASDOGE1P6E8hrwJvjNd6nO0EuELz.output.parts$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02E80W5ASI3US2VSu1eJgu5dXxhwsMpsVrV",
+                    "name": "HTTP Request",
+                    "title": "GET Workflow by ID",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "GET Workflow by ID",
+                      "method": "GET",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02E80W5ASF9A14Cy963E7FMwAXRRWEjydSQ.input.source_array[@]$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Orginal WF Details",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Orginal WF Details",
+                      "input_json": "$activity.definition_activity_02E80W5ASI3US2VSu1eJgu5dXxhwsMpsVrV.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.properties.display_name",
+                          "jsonpath_query_name": "OrginalWF_DisplayName",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.status.state",
+                          "jsonpath_query_name": "Orginal_Workflow_Status",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.workflow_valid",
+                          "jsonpath_query_name": "Orginal_Workflow_Valid_State",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.created_by",
+                          "jsonpath_query_name": "Orginal_wf_created_by",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.owner",
+                          "jsonpath_query_name": "Orginal_wf_owner",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.invalid_properties",
+                          "jsonpath_query_name": "Orginal_wf_invalid_properties",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.permissions",
+                          "jsonpath_query_name": "Orginal_wf_permissions",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E844O1XDNLO2m3UWwvaHMPcpsxoiPdRw5",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script (Sort Permission List)",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Python Script (Sort Permission List)",
+                      "script": "original_list = $activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_wf_permissions$\nsorted_list = sorted(original_list)\nprint (sorted_list)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E81KL3FZ0HS2PNv7mfhZUpoltNy8ePj8f",
+                    "name": "HTTP Request",
+                    "title": "Duplicate the System WF",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "Duplicate the System WF",
+                      "method": "POST",
+                      "relative_url": "/exchange/api/v1/workflows/$activity.definition_activity_02E80W5ASF9A14Cy963E7FMwAXRRWEjydSQ.input.source_array[@]$/duplicate?skip_all_subworkflows=true",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E81LK0GDTJ85IHlHEyJQtOKw3SeFeBJPU",
+                    "name": "Sleep",
+                    "title": "Sleep for 10s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 10s",
+                      "skip_execution": false,
+                      "sleep_interval": 10
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E81Q7PWBKZ97G5cTMMrS4HVVAt7G1oBym",
+                    "name": "HTTP Request",
+                    "title": "Search the Duplicated WF",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "Search the Duplicated WF",
+                      "method": "POST",
+                      "relative_url": "/api/v1.1/workflows?is_atomic=false\u0026start=0\u0026limit=48\u0026sort_by=updated_on\u0026search=Copy(1)-$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.OrginalWF_DisplayName$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E831H60370J6HvLvMq3VKY3G0EMJzKUje",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E81TNO3L0O65H2eIa22JbuvHjMPFgXSFZ",
+                    "name": "JSONPath Query",
+                    "title": "Fetch ID from Search response",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Fetch ID from Search response",
+                      "input_json": "$activity.definition_activity_02E81Q7PWBKZ97G5cTMMrS4HVVAt7G1oBym.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.results..id",
+                          "jsonpath_query_name": "DuplicatedWF_ID",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E83CFAHYOQ61jxq5ueieifNw0GTNi38k6",
+                    "name": "HTTP Request",
+                    "title": "Validate Duplicated Workflow",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "Validate Duplicated Workflow",
+                      "method": "POST",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02E81TNO3L0O65H2eIa22JbuvHjMPFgXSFZ.output.jsonpath_queries.DuplicatedWF_ID$/validate",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E83CUOR9WBM2ASxhNwBHNACx6avbnNc9I",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E81U72AQHW722xjW2mvkdEKWK1uyHJywA",
+                    "name": "HTTP Request",
+                    "title": "GET Duplicated Details by ID",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "GET Duplicated Details by ID",
+                      "method": "GET",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02E81TNO3L0O65H2eIa22JbuvHjMPFgXSFZ.output.jsonpath_queries.DuplicatedWF_ID$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E831MTLPYZT4BjXoL0860rSt9og2VNY6f",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Duplicated WF Details",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Duplicated WF Details",
+                      "input_json": "$activity.definition_activity_02E81U72AQHW722xjW2mvkdEKWK1uyHJywA.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.properties.display_name",
+                          "jsonpath_query_name": "DuplicatedWF_DisplayName",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.status.state",
+                          "jsonpath_query_name": "Duplicated_Workflow_Status",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.workflow_valid",
+                          "jsonpath_query_name": "Duplicated_Workflow_Valid_State",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.created_by",
+                          "jsonpath_query_name": "Duplicated_wf_created_by",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.owner",
+                          "jsonpath_query_name": "Duplicated_wf_owner",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.invalid_properties",
+                          "jsonpath_query_name": "Duplicated_wf_invalid_properties",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.permissions",
+                          "jsonpath_query_name": "Duplicated_wf_permissions",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E846JHXX2974lmyRSEWx1RgcyjCwsbvcG",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script (Sort Permission List)",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Python Script (Sort Permission List)",
+                      "script": "original_list = $activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_wf_permissions$\nsorted_list = sorted(original_list)\nprint (sorted_list)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E81XLH4CTNA4ujhfoO9oKLrrWEumFJ5AE",
+                    "name": "HTTP Request",
+                    "title": "Delete Duplicated WF",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "Delete Duplicated WF",
+                      "method": "DELETE",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02E81TNO3L0O65H2eIa22JbuvHjMPFgXSFZ.output.jsonpath_queries.DuplicatedWF_ID$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E831QKJOCAO55r3sTNR98kL8PlIYUqj3W",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E82334K7M6D0XObUg70sasUzI9xr5ghbJ",
+                    "name": "HTTP Request",
+                    "title": "GET Orginal Workflow by ID after Duplicated",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "GET Orginal Workflow by ID after Duplicated",
+                      "method": "GET",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02E80W5ASF9A14Cy963E7FMwAXRRWEjydSQ.input.source_array[@]$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E831U7SALMY1PiP5caoKVs3DLCLMb86se",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Orginal WF Details after the Duplicated",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Orginal WF Details after the Duplicated",
+                      "input_json": "$activity.definition_activity_02E82334K7M6D0XObUg70sasUzI9xr5ghbJ.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.properties.display_name",
+                          "jsonpath_query_name": "OrginalWF_DisplayName",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.status.state",
+                          "jsonpath_query_name": "Orginal_Workflow_Status",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.workflow_valid",
+                          "jsonpath_query_name": "Orginal_Workflow_Valid_State",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.created_by",
+                          "jsonpath_query_name": "Orginal_wf_created_by",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.owner",
+                          "jsonpath_query_name": "Orginal_wf_owner",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.invalid_properties",
+                          "jsonpath_query_name": "Orginal_wf_invalid_properties",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.permissions",
+                          "jsonpath_query_name": "Orginal_wf_permissions",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E8466RQS4054OnOWxslVFQNJ62KmQuTWq",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script (Sort Permission List)",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Python Script (Sort Permission List)",
+                      "script": "original_list = $activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_wf_permissions$\nsorted_list = sorted(original_list)\nprint (sorted_list)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E820P9HDN6B4YIIiMbw5PlS23kr8avZWC",
+                    "name": "Condition Block",
+                    "title": "Verify System Non-Atomcis Duplicated WF Test Flow",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Verify System Non-Atomcis Duplicated WF Test Flow",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02E820P9QN3Z10HYygKeuY2ZdeqNAZlhhBd",
+                        "name": "Condition Branch",
+                        "title": "Pass",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": {
+                                            "left_operand": {
+                                              "left_operand": {
+                                                "left_operand": {
+                                                  "left_operand": {
+                                                    "left_operand": {
+                                                      "left_operand": {
+                                                        "left_operand": {
+                                                          "left_operand": {
+                                                            "left_operand": {
+                                                              "left_operand": {
+                                                                "left_operand": {
+                                                                  "left_operand": {
+                                                                    "left_operand": {
+                                                                      "left_operand": {
+                                                                        "left_operand": {
+                                                                          "left_operand": {
+                                                                            "left_operand": {
+                                                                              "left_operand": {
+                                                                                "left_operand": {
+                                                                                  "left_operand": {
+                                                                                    "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.OrginalWF_DisplayName$",
+                                                                                    "operator": "eq",
+                                                                                    "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.OrginalWF_DisplayName$"
+                                                                                  },
+                                                                                  "operator": "and",
+                                                                                  "right_operand": {
+                                                                                    "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_Workflow_Status$",
+                                                                                    "operator": "eq",
+                                                                                    "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_Workflow_Status$"
+                                                                                  }
+                                                                                },
+                                                                                "operator": "and",
+                                                                                "right_operand": {
+                                                                                  "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_Workflow_Valid_State$",
+                                                                                  "operator": "eq",
+                                                                                  "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_Workflow_Valid_State$"
+                                                                                }
+                                                                              },
+                                                                              "operator": "and",
+                                                                              "right_operand": {
+                                                                                "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_wf_created_by$",
+                                                                                "operator": "eq",
+                                                                                "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_wf_created_by$"
+                                                                              }
+                                                                            },
+                                                                            "operator": "and",
+                                                                            "right_operand": {
+                                                                              "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_wf_invalid_properties$",
+                                                                              "operator": "eq",
+                                                                              "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_wf_invalid_properties$"
+                                                                            }
+                                                                          },
+                                                                          "operator": "and",
+                                                                          "right_operand": {
+                                                                            "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_wf_owner$",
+                                                                            "operator": "eq",
+                                                                            "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_wf_owner$"
+                                                                          }
+                                                                        },
+                                                                        "operator": "and",
+                                                                        "right_operand": {
+                                                                          "left_operand": "$activity.definition_activity_02E844O1XDNLO2m3UWwvaHMPcpsxoiPdRw5.output.response_body$",
+                                                                          "operator": "eq",
+                                                                          "right_operand": "$activity.definition_activity_02E8466RQS4054OnOWxslVFQNJ62KmQuTWq.output.response_body$"
+                                                                        }
+                                                                      },
+                                                                      "operator": "and",
+                                                                      "right_operand": {
+                                                                        "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_Workflow_Status$",
+                                                                        "operator": "eq",
+                                                                        "right_operand": "valid"
+                                                                      }
+                                                                    },
+                                                                    "operator": "and",
+                                                                    "right_operand": {
+                                                                      "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_Workflow_Valid_State$",
+                                                                      "operator": "eq",
+                                                                      "right_operand": "true"
+                                                                    }
+                                                                  },
+                                                                  "operator": "and",
+                                                                  "right_operand": {
+                                                                    "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_wf_created_by$",
+                                                                    "operator": "ne",
+                                                                    "right_operand": "system"
+                                                                  }
+                                                                },
+                                                                "operator": "and",
+                                                                "right_operand": {
+                                                                  "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_wf_invalid_properties$",
+                                                                  "operator": "eq",
+                                                                  "right_operand": "null"
+                                                                }
+                                                              },
+                                                              "operator": "and",
+                                                              "right_operand": {
+                                                                "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_wf_owner$",
+                                                                "operator": "ne",
+                                                                "right_operand": "system"
+                                                              }
+                                                            },
+                                                            "operator": "and",
+                                                            "right_operand": {
+                                                              "left_operand": "$activity.definition_activity_02E846JHXX2974lmyRSEWx1RgcyjCwsbvcG.output.response_body$",
+                                                              "operator": "mw",
+                                                              "right_operand": "*manage*run*"
+                                                            }
+                                                          },
+                                                          "operator": "and",
+                                                          "right_operand": {
+                                                            "left_operand": "$activity.definition_activity_02E80W5AS80TX6DjEvKbqMh2HvA6aOTTjVx.output.error.code$",
+                                                            "operator": "eq",
+                                                            "right_operand": "200"
+                                                          }
+                                                        },
+                                                        "operator": "and",
+                                                        "right_operand": {
+                                                          "left_operand": "$activity.definition_activity_02E80W5AS9QFO3FqyIjjkIxQ4JtJOs7YFC4.output.error.code$",
+                                                          "operator": "eq",
+                                                          "right_operand": "200"
+                                                        }
+                                                      },
+                                                      "operator": "and",
+                                                      "right_operand": {
+                                                        "left_operand": "$activity.definition_activity_02E80W5ASCXEQ1yDQ3fZuSRA80yUP15geBS.output.error.code$",
+                                                        "operator": "eq",
+                                                        "right_operand": "200"
+                                                      }
+                                                    },
+                                                    "operator": "and",
+                                                    "right_operand": {
+                                                      "left_operand": "$activity.definition_activity_02E813V6NZ3Z46dKTX8OhK4FyTfwJaa1blQ.output.error.code$",
+                                                      "operator": "eq",
+                                                      "right_operand": "200"
+                                                    }
+                                                  },
+                                                  "operator": "and",
+                                                  "right_operand": {
+                                                    "left_operand": "$activity.definition_activity_02E80W5ASDOGE1P6E8hrwJvjNd6nO0EuELz.output.error.code$",
+                                                    "operator": "eq",
+                                                    "right_operand": "200"
+                                                  }
+                                                },
+                                                "operator": "and",
+                                                "right_operand": {
+                                                  "left_operand": "$activity.definition_activity_02E80W5ASI3US2VSu1eJgu5dXxhwsMpsVrV.output.error.code$",
+                                                  "operator": "eq",
+                                                  "right_operand": "200"
+                                                }
+                                              },
+                                              "operator": "and",
+                                              "right_operand": {
+                                                "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.error.code$",
+                                                "operator": "eq",
+                                                "right_operand": "200"
+                                              }
+                                            },
+                                            "operator": "and",
+                                            "right_operand": {
+                                              "left_operand": "$activity.definition_activity_02E81KL3FZ0HS2PNv7mfhZUpoltNy8ePj8f.output.error.code$",
+                                              "operator": "eq",
+                                              "right_operand": "200"
+                                            }
+                                          },
+                                          "operator": "and",
+                                          "right_operand": {
+                                            "left_operand": "$activity.definition_activity_02E81Q7PWBKZ97G5cTMMrS4HVVAt7G1oBym.output.error.code$",
+                                            "operator": "eq",
+                                            "right_operand": "200"
+                                          }
+                                        },
+                                        "operator": "and",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_02E81TNO3L0O65H2eIa22JbuvHjMPFgXSFZ.output.error.code$",
+                                          "operator": "eq",
+                                          "right_operand": "200"
+                                        }
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02E81U72AQHW722xjW2mvkdEKWK1uyHJywA.output.error.code$",
+                                        "operator": "eq",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.error.code$",
+                                      "operator": "eq",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02E81XLH4CTNA4ujhfoO9oKLrrWEumFJ5AE.output.error.code$",
+                                    "operator": "eq",
+                                    "right_operand": "200"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02E82334K7M6D0XObUg70sasUzI9xr5ghbJ.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "200"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.error.code$",
+                                "operator": "eq",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02E83CFAHYOQ61jxq5ueieifNw0GTNi38k6.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Pass",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02E821C4FTU903XswYeZfOlA04q1nYfER9j",
+                            "name": "Add Row to Table",
+                            "title": "Store TestResults in Table",
+                            "type": "core.addrowtotable",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": false,
+                              "display_name": "Store TestResults in Table",
+                              "input_table": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.output.variable_workflow_02E82GHKB3P0A1SJDnJXOh97Rck0cTGwo1Z$",
+                              "row": [
+                                {
+                                  "key": "TestResults",
+                                  "type": "string",
+                                  "value": "Pass"
+                                },
+                                {
+                                  "key": "DuplicatedWFName",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.DuplicatedWF_DisplayName$"
+                                },
+                                {
+                                  "key": "DuplicatedWFID",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E81TNO3L0O65H2eIa22JbuvHjMPFgXSFZ.output.jsonpath_queries.DuplicatedWF_ID$"
+                                },
+                                {
+                                  "key": "OrginalWFName",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.OrginalWF_DisplayName$"
+                                },
+                                {
+                                  "key": "OrginalWFID",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E80W5ASF9A14Cy963E7FMwAXRRWEjydSQ.input.source_array[@]$"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_02E82CLUB8QRX70b6jzugSgXKOInJOLVNCB",
+                        "name": "Condition Branch",
+                        "title": "Fail",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": {
+                                            "left_operand": {
+                                              "left_operand": {
+                                                "left_operand": {
+                                                  "left_operand": {
+                                                    "left_operand": {
+                                                      "left_operand": {
+                                                        "left_operand": {
+                                                          "left_operand": {
+                                                            "left_operand": {
+                                                              "left_operand": {
+                                                                "left_operand": {
+                                                                  "left_operand": {
+                                                                    "left_operand": {
+                                                                      "left_operand": {
+                                                                        "left_operand": {
+                                                                          "left_operand": {
+                                                                            "left_operand": {
+                                                                              "left_operand": {
+                                                                                "left_operand": {
+                                                                                  "left_operand": {
+                                                                                    "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.OrginalWF_DisplayName$",
+                                                                                    "operator": "ne",
+                                                                                    "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.OrginalWF_DisplayName$"
+                                                                                  },
+                                                                                  "operator": "or",
+                                                                                  "right_operand": {
+                                                                                    "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_Workflow_Status$",
+                                                                                    "operator": "ne",
+                                                                                    "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_Workflow_Status$"
+                                                                                  }
+                                                                                },
+                                                                                "operator": "or",
+                                                                                "right_operand": {
+                                                                                  "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_Workflow_Valid_State$",
+                                                                                  "operator": "ne",
+                                                                                  "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_Workflow_Valid_State$"
+                                                                                }
+                                                                              },
+                                                                              "operator": "or",
+                                                                              "right_operand": {
+                                                                                "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_wf_created_by$",
+                                                                                "operator": "ne",
+                                                                                "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_wf_created_by$"
+                                                                              }
+                                                                            },
+                                                                            "operator": "or",
+                                                                            "right_operand": {
+                                                                              "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_wf_invalid_properties$",
+                                                                              "operator": "ne",
+                                                                              "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_wf_invalid_properties$"
+                                                                            }
+                                                                          },
+                                                                          "operator": "or",
+                                                                          "right_operand": {
+                                                                            "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.Orginal_wf_owner$",
+                                                                            "operator": "ne",
+                                                                            "right_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.jsonpath_queries.Orginal_wf_owner$"
+                                                                          }
+                                                                        },
+                                                                        "operator": "or",
+                                                                        "right_operand": {
+                                                                          "left_operand": "$activity.definition_activity_02E844O1XDNLO2m3UWwvaHMPcpsxoiPdRw5.output.response_body$",
+                                                                          "operator": "ne",
+                                                                          "right_operand": "$activity.definition_activity_02E8466RQS4054OnOWxslVFQNJ62KmQuTWq.output.response_body$"
+                                                                        }
+                                                                      },
+                                                                      "operator": "or",
+                                                                      "right_operand": {
+                                                                        "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_Workflow_Status$",
+                                                                        "operator": "ne",
+                                                                        "right_operand": "valid"
+                                                                      }
+                                                                    },
+                                                                    "operator": "or",
+                                                                    "right_operand": {
+                                                                      "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_Workflow_Valid_State$",
+                                                                      "operator": "ne",
+                                                                      "right_operand": "true"
+                                                                    }
+                                                                  },
+                                                                  "operator": "or",
+                                                                  "right_operand": {
+                                                                    "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_wf_created_by$",
+                                                                    "operator": "eq",
+                                                                    "right_operand": "system"
+                                                                  }
+                                                                },
+                                                                "operator": "or",
+                                                                "right_operand": {
+                                                                  "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_wf_invalid_properties$",
+                                                                  "operator": "ne",
+                                                                  "right_operand": "null"
+                                                                }
+                                                              },
+                                                              "operator": "or",
+                                                              "right_operand": {
+                                                                "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.Duplicated_wf_owner$",
+                                                                "operator": "eq",
+                                                                "right_operand": "system"
+                                                              }
+                                                            },
+                                                            "operator": "or",
+                                                            "right_operand": {
+                                                              "left_operand": "$activity.definition_activity_02E846JHXX2974lmyRSEWx1RgcyjCwsbvcG.output.response_body$",
+                                                              "operator": "nmw",
+                                                              "right_operand": "*manage*run*"
+                                                            }
+                                                          },
+                                                          "operator": "or",
+                                                          "right_operand": {
+                                                            "left_operand": "$activity.definition_activity_02E80W5AS80TX6DjEvKbqMh2HvA6aOTTjVx.output.error.code$",
+                                                            "operator": "ne",
+                                                            "right_operand": "200"
+                                                          }
+                                                        },
+                                                        "operator": "or",
+                                                        "right_operand": {
+                                                          "left_operand": "$activity.definition_activity_02E80W5AS9QFO3FqyIjjkIxQ4JtJOs7YFC4.output.error.code$",
+                                                          "operator": "ne",
+                                                          "right_operand": "200"
+                                                        }
+                                                      },
+                                                      "operator": "or",
+                                                      "right_operand": {
+                                                        "left_operand": "$activity.definition_activity_02E80W5ASCXEQ1yDQ3fZuSRA80yUP15geBS.output.error.code$",
+                                                        "operator": "ne",
+                                                        "right_operand": "200"
+                                                      }
+                                                    },
+                                                    "operator": "or",
+                                                    "right_operand": {
+                                                      "left_operand": "$activity.definition_activity_02E813V6NZ3Z46dKTX8OhK4FyTfwJaa1blQ.output.error.code$",
+                                                      "operator": "ne",
+                                                      "right_operand": "200"
+                                                    }
+                                                  },
+                                                  "operator": "or",
+                                                  "right_operand": {
+                                                    "left_operand": "$activity.definition_activity_02E80W5ASDOGE1P6E8hrwJvjNd6nO0EuELz.output.error.code$",
+                                                    "operator": "ne",
+                                                    "right_operand": "200"
+                                                  }
+                                                },
+                                                "operator": "or",
+                                                "right_operand": {
+                                                  "left_operand": "$activity.definition_activity_02E80W5ASI3US2VSu1eJgu5dXxhwsMpsVrV.output.error.code$",
+                                                  "operator": "ne",
+                                                  "right_operand": "200"
+                                                }
+                                              },
+                                              "operator": "or",
+                                              "right_operand": {
+                                                "left_operand": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.error.code$",
+                                                "operator": "ne",
+                                                "right_operand": "200"
+                                              }
+                                            },
+                                            "operator": "or",
+                                            "right_operand": {
+                                              "left_operand": "$activity.definition_activity_02E81KL3FZ0HS2PNv7mfhZUpoltNy8ePj8f.output.error.code$",
+                                              "operator": "ne",
+                                              "right_operand": "200"
+                                            }
+                                          },
+                                          "operator": "or",
+                                          "right_operand": {
+                                            "left_operand": "$activity.definition_activity_02E81Q7PWBKZ97G5cTMMrS4HVVAt7G1oBym.output.error.code$",
+                                            "operator": "ne",
+                                            "right_operand": "200"
+                                          }
+                                        },
+                                        "operator": "or",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_02E81TNO3L0O65H2eIa22JbuvHjMPFgXSFZ.output.error.code$",
+                                          "operator": "ne",
+                                          "right_operand": "200"
+                                        }
+                                      },
+                                      "operator": "or",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02E81U72AQHW722xjW2mvkdEKWK1uyHJywA.output.error.code$",
+                                        "operator": "ne",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "or",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.error.code$",
+                                      "operator": "ne",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "or",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02E81XLH4CTNA4ujhfoO9oKLrrWEumFJ5AE.output.error.code$",
+                                    "operator": "ne",
+                                    "right_operand": "200"
+                                  }
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02E82334K7M6D0XObUg70sasUzI9xr5ghbJ.output.error.code$",
+                                  "operator": "ne",
+                                  "right_operand": "200"
+                                }
+                              },
+                              "operator": "or",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02E824VD9PGHJ0Oub6xAVADSRQAjcoYRYbT.output.error.code$",
+                                "operator": "ne",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02E83CFAHYOQ61jxq5ueieifNw0GTNi38k6.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "200"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Fail",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02E82HMLBG5YN2uMUQAgHLxH5M9wx2ZIG5U",
+                            "name": "Add Row to Table",
+                            "title": "Store TestResults in Table",
+                            "type": "core.addrowtotable",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": false,
+                              "display_name": "Store TestResults in Table",
+                              "input_table": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.output.variable_workflow_02E82GHKB3P0A1SJDnJXOh97Rck0cTGwo1Z$",
+                              "row": [
+                                {
+                                  "key": "TestResults",
+                                  "type": "string",
+                                  "value": "Fail"
+                                },
+                                {
+                                  "key": "DuplicatedWFName",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E81UL9SSCEG3R6KWhda0ywUuK2wv87QX8.output.jsonpath_queries.DuplicatedWF_DisplayName$"
+                                },
+                                {
+                                  "key": "DuplicatedWFID",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E81TNO3L0O65H2eIa22JbuvHjMPFgXSFZ.output.jsonpath_queries.DuplicatedWF_ID$"
+                                },
+                                {
+                                  "key": "OrginalWFName",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E81HOPMK5WU2PAkObFm1rXiFc1rm9bNzg.output.jsonpath_queries.OrginalWF_DisplayName$"
+                                },
+                                {
+                                  "key": "OrginalWFID",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E80W5ASF9A14Cy963E7FMwAXRRWEjydSQ.input.source_array[@]$"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02E84ILC7FFOK0OLPbWBo7JjHb4AmeuSD90",
+            "name": "Parallel Branch",
+            "title": "System Atomics Duplicate Test Flow",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "System Atomics Duplicate Test Flow",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02E84ILC7H5PY2TgDQfQJlQ3QA4c8QNlaeI",
+                "name": "HTTP Request",
+                "title": "GET Atomics from the System",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                    }
+                  ],
+                  "display_name": "GET Atomics from the System",
+                  "method": "POST",
+                  "relative_url": "/api/v1.1/workflows?is_atomic=true\u0026start=0\u0026limit=100000\u0026sort_by=updated_on\u0026search=XDR",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E84ILC7KNR85njXWhZYHmfMBXCvwnyCcD",
+                "name": "JSONPath Query",
+                "title": "Fetch the System atomics ID and Name",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch the System atomics ID and Name",
+                  "input_json": "$activity.definition_activity_02E84ILC7H5PY2TgDQfQJlQ3QA4c8QNlaeI.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.results[?(@.owner=='system')].name",
+                      "jsonpath_query_name": "wf_name",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.results[?(@.owner=='system')].id",
+                      "jsonpath_query_name": "wf_id",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E84ILC7LHWL7UDSObUKWRGt0W6rCeHEcE",
+                "name": "Replace String",
+                "title": "Format the WF IDS (Removing the \"[] from source)",
+                "type": "core.replacestring",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Format the WF IDS (Removing the \"[] from source)",
+                  "input_string": "$activity.definition_activity_02E84ILC7KNR85njXWhZYHmfMBXCvwnyCcD.output.jsonpath_queries.wf_id$",
+                  "replace_list": [
+                    {
+                      "replaced_string": "\"",
+                      "replacement_string": ""
+                    },
+                    {
+                      "replaced_string": "[",
+                      "replacement_string": ""
+                    },
+                    {
+                      "replaced_string": "]",
+                      "replacement_string": ""
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E84ILC7P0Z919SFlF4aO4ma8QLUTFRpGj",
+                "name": "Replace String",
+                "title": "Format the WF Names (Removing the \"[] from source)",
+                "type": "core.replacestring",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Format the WF Names (Removing the \"[] from source)",
+                  "input_string": "$activity.definition_activity_02E84ILC7KNR85njXWhZYHmfMBXCvwnyCcD.output.jsonpath_queries.wf_name$",
+                  "replace_list": [
+                    {
+                      "replaced_string": "\"",
+                      "replacement_string": ""
+                    },
+                    {
+                      "replaced_string": "[",
+                      "replacement_string": ""
+                    },
+                    {
+                      "replaced_string": "]",
+                      "replacement_string": ""
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E84ILC7PMJ65lCAexHC9AfUUu4TwnHdGI",
+                "name": "Split String",
+                "title": "Split Source String Using Delimeter ,",
+                "type": "core.splitstring",
+                "base_type": "activity",
+                "properties": {
+                  "boundaries": [
+                    {
+                      "boundary": ","
+                    }
+                  ],
+                  "continue_on_failure": true,
+                  "display_name": "Split Source String Using Delimeter ,",
+                  "input_string": "$activity.definition_activity_02E84ILC7LHWL7UDSObUKWRGt0W6rCeHEcE.output.result_string$",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E84ILC7QY6T5aM1l9GG7g57DtT7c8z1fT",
+                "name": "For Each",
+                "title": "For Each",
+                "type": "logic.for_each",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "For Each",
+                  "skip_execution": false,
+                  "source_array": "$activity.definition_activity_02E84ILC7PMJ65lCAexHC9AfUUu4TwnHdGI.output.parts$"
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02E84ILC7U8NF1HL5pTt05mV1xxGwZ5Fwwx",
+                    "name": "HTTP Request",
+                    "title": "GET Workflow by ID",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "GET Workflow by ID",
+                      "method": "GET",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02E84ILC7QY6T5aM1l9GG7g57DtT7c8z1fT.input.source_array[@]$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Orginal WF Details",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Orginal WF Details",
+                      "input_json": "$activity.definition_activity_02E84ILC7U8NF1HL5pTt05mV1xxGwZ5Fwwx.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.properties.display_name",
+                          "jsonpath_query_name": "OrginalWF_DisplayName",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.status.state",
+                          "jsonpath_query_name": "Orginal_Workflow_Status",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.workflow_valid",
+                          "jsonpath_query_name": "Orginal_Workflow_Valid_State",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.created_by",
+                          "jsonpath_query_name": "Orginal_wf_created_by",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.owner",
+                          "jsonpath_query_name": "Orginal_wf_owner",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.invalid_properties",
+                          "jsonpath_query_name": "Orginal_wf_invalid_properties",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.permissions",
+                          "jsonpath_query_name": "Orginal_wf_permissions",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC811W86mq0R8yfA3Y6E8UNNpAlqK",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script (Sort Permission List)",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Python Script (Sort Permission List)",
+                      "script": "original_list = $activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_wf_permissions$\nsorted_list = sorted(original_list)\nprint (sorted_list)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC82TFC4umG5yWRk1OPSZkW7K1Fow",
+                    "name": "HTTP Request",
+                    "title": "Duplicate the System WF",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "Duplicate the System WF",
+                      "method": "POST",
+                      "relative_url": "/exchange/api/v1/workflows/$activity.definition_activity_02E84ILC7QY6T5aM1l9GG7g57DtT7c8z1fT.input.source_array[@]$/duplicate?skip_all_subworkflows=true",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC85HKZ6AiduYOhneJlrZm4GRRxA1",
+                    "name": "Sleep",
+                    "title": "Sleep for 10s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 10s",
+                      "skip_execution": false,
+                      "sleep_interval": 10
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC865K3763RPwlgHhTxmBd3Kp7R8F",
+                    "name": "HTTP Request",
+                    "title": "Search the Duplicated WF",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "Search the Duplicated WF",
+                      "method": "POST",
+                      "relative_url": "/api/v1.1/workflows?is_atomic=true\u0026start=0\u0026limit=48\u0026sort_by=updated_on\u0026search=Copy(1)-$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.OrginalWF_DisplayName$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC894VA1K11bQxD3GIVcJxIXz0wV8",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC89SUA1VYiEiEnVm7TAVQD8JkRKb",
+                    "name": "JSONPath Query",
+                    "title": "Fetch ID from Search response",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": false,
+                      "display_name": "Fetch ID from Search response",
+                      "input_json": "$activity.definition_activity_02E84ILC865K3763RPwlgHhTxmBd3Kp7R8F.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.results..id",
+                          "jsonpath_query_name": "DuplicatedWF_ID",
+                          "jsonpath_query_type": "string"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8CYJU0sZ7TR7Z3Vx8M034hAMIyI",
+                    "name": "HTTP Request",
+                    "title": "Validate Duplicated Workflow",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "Validate Duplicated Workflow",
+                      "method": "POST",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02E84ILC89SUA1VYiEiEnVm7TAVQD8JkRKb.output.jsonpath_queries.DuplicatedWF_ID$/validate",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8DKPA0VagbdkbOxT5aneQViiKOt",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8G0KG0YwV4OYxsCNFGEn0zEyGLS",
+                    "name": "HTTP Request",
+                    "title": "GET Duplicated Details by ID",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "GET Duplicated Details by ID",
+                      "method": "GET",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02E84ILC89SUA1VYiEiEnVm7TAVQD8JkRKb.output.jsonpath_queries.DuplicatedWF_ID$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8IXYN6wpAnRlTW32nkHFLM1XFNW",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Duplicated WF Details",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Duplicated WF Details",
+                      "input_json": "$activity.definition_activity_02E84ILC8G0KG0YwV4OYxsCNFGEn0zEyGLS.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.properties.display_name",
+                          "jsonpath_query_name": "DuplicatedWF_DisplayName",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.status.state",
+                          "jsonpath_query_name": "Duplicated_Workflow_Status",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.workflow_valid",
+                          "jsonpath_query_name": "Duplicated_Workflow_Valid_State",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.created_by",
+                          "jsonpath_query_name": "Duplicated_wf_created_by",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.owner",
+                          "jsonpath_query_name": "Duplicated_wf_owner",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.invalid_properties",
+                          "jsonpath_query_name": "Duplicated_wf_invalid_properties",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.permissions",
+                          "jsonpath_query_name": "Duplicated_wf_permissions",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8MAUA6V9xn5AtzzqKOI79YuoRzl",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script (Sort Permission List)",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Python Script (Sort Permission List)",
+                      "script": "original_list = $activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_wf_permissions$\nsorted_list = sorted(original_list)\nprint (sorted_list)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8NLRZ69cFycOzbMBYPjQtsaaI4U",
+                    "name": "HTTP Request",
+                    "title": "Delete Duplicated WF",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "Delete Duplicated WF",
+                      "method": "DELETE",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02E84ILC89SUA1VYiEiEnVm7TAVQD8JkRKb.output.jsonpath_queries.DuplicatedWF_ID$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8R2IK06Aw7dRoYYPv1GdBzBR1lH",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8S6FW4aOP3uDJW0YROEVERpSNdO",
+                    "name": "HTTP Request",
+                    "title": "GET Orginal Workflow by ID after Duplicated",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.input.variable_workflow_02E80AQQJ16GA7OhqUBzY8EmpWakJ9XSTEr$"
+                        }
+                      ],
+                      "display_name": "GET Orginal Workflow by ID after Duplicated",
+                      "method": "GET",
+                      "relative_url": "/api/v1/workflows/$activity.definition_activity_02E84ILC7QY6T5aM1l9GG7g57DtT7c8z1fT.input.source_array[@]$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8UFEF7Jw7vFIN2Y7p9DAYrHXlLK",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Orginal WF Details after the Duplicated",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Orginal WF Details after the Duplicated",
+                      "input_json": "$activity.definition_activity_02E84ILC8S6FW4aOP3uDJW0YROEVERpSNdO.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.properties.display_name",
+                          "jsonpath_query_name": "OrginalWF_DisplayName",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.status.state",
+                          "jsonpath_query_name": "Orginal_Workflow_Status",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.workflow_valid",
+                          "jsonpath_query_name": "Orginal_Workflow_Valid_State",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.created_by",
+                          "jsonpath_query_name": "Orginal_wf_created_by",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.owner",
+                          "jsonpath_query_name": "Orginal_wf_owner",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.invalid_properties",
+                          "jsonpath_query_name": "Orginal_wf_invalid_properties",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        },
+                        {
+                          "jsonpath_query": "$.permissions",
+                          "jsonpath_query_name": "Orginal_wf_permissions",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8XZXG3AKl1BTEanp4Qbdnb3aArT",
+                    "name": "Execute Python Script",
+                    "title": "Execute Python Script (Sort Permission List)",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Execute Python Script (Sort Permission List)",
+                      "script": "original_list = $activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_wf_permissions$\nsorted_list = sorted(original_list)\nprint (sorted_list)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02E84ILC8YINL26O70UA9IErH2RlJQXk08n",
+                    "name": "Condition Block",
+                    "title": "Verify System Atomcis Duplicated WF Test Flow",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Verify System Atomcis Duplicated WF Test Flow",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02E84ILC9AR2T5IBJk2xyVMWkuR6AyuIYEU",
+                        "name": "Condition Branch",
+                        "title": "Pass",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": {
+                                            "left_operand": {
+                                              "left_operand": {
+                                                "left_operand": {
+                                                  "left_operand": {
+                                                    "left_operand": {
+                                                      "left_operand": {
+                                                        "left_operand": {
+                                                          "left_operand": {
+                                                            "left_operand": {
+                                                              "left_operand": {
+                                                                "left_operand": {
+                                                                  "left_operand": {
+                                                                    "left_operand": {
+                                                                      "left_operand": {
+                                                                        "left_operand": {
+                                                                          "left_operand": {
+                                                                            "left_operand": {
+                                                                              "left_operand": {
+                                                                                "left_operand": {
+                                                                                  "left_operand": {
+                                                                                    "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.OrginalWF_DisplayName$",
+                                                                                    "operator": "eq",
+                                                                                    "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.OrginalWF_DisplayName$"
+                                                                                  },
+                                                                                  "operator": "and",
+                                                                                  "right_operand": {
+                                                                                    "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_Workflow_Status$",
+                                                                                    "operator": "eq",
+                                                                                    "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_Workflow_Status$"
+                                                                                  }
+                                                                                },
+                                                                                "operator": "and",
+                                                                                "right_operand": {
+                                                                                  "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_Workflow_Valid_State$",
+                                                                                  "operator": "eq",
+                                                                                  "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_Workflow_Valid_State$"
+                                                                                }
+                                                                              },
+                                                                              "operator": "and",
+                                                                              "right_operand": {
+                                                                                "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_wf_created_by$",
+                                                                                "operator": "eq",
+                                                                                "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_wf_created_by$"
+                                                                              }
+                                                                            },
+                                                                            "operator": "and",
+                                                                            "right_operand": {
+                                                                              "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_wf_invalid_properties$",
+                                                                              "operator": "eq",
+                                                                              "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_wf_invalid_properties$"
+                                                                            }
+                                                                          },
+                                                                          "operator": "and",
+                                                                          "right_operand": {
+                                                                            "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_wf_owner$",
+                                                                            "operator": "eq",
+                                                                            "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_wf_owner$"
+                                                                          }
+                                                                        },
+                                                                        "operator": "and",
+                                                                        "right_operand": {
+                                                                          "left_operand": "$activity.definition_activity_02E84ILC811W86mq0R8yfA3Y6E8UNNpAlqK.output.response_body$",
+                                                                          "operator": "eq",
+                                                                          "right_operand": "$activity.definition_activity_02E84ILC8XZXG3AKl1BTEanp4Qbdnb3aArT.output.response_body$"
+                                                                        }
+                                                                      },
+                                                                      "operator": "and",
+                                                                      "right_operand": {
+                                                                        "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_Workflow_Status$",
+                                                                        "operator": "eq",
+                                                                        "right_operand": "valid"
+                                                                      }
+                                                                    },
+                                                                    "operator": "and",
+                                                                    "right_operand": {
+                                                                      "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_Workflow_Valid_State$",
+                                                                      "operator": "eq",
+                                                                      "right_operand": "true"
+                                                                    }
+                                                                  },
+                                                                  "operator": "and",
+                                                                  "right_operand": {
+                                                                    "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_wf_created_by$",
+                                                                    "operator": "ne",
+                                                                    "right_operand": "system"
+                                                                  }
+                                                                },
+                                                                "operator": "and",
+                                                                "right_operand": {
+                                                                  "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_wf_invalid_properties$",
+                                                                  "operator": "eq",
+                                                                  "right_operand": "null"
+                                                                }
+                                                              },
+                                                              "operator": "and",
+                                                              "right_operand": {
+                                                                "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_wf_owner$",
+                                                                "operator": "ne",
+                                                                "right_operand": "system"
+                                                              }
+                                                            },
+                                                            "operator": "and",
+                                                            "right_operand": {
+                                                              "left_operand": "$activity.definition_activity_02E84ILC8MAUA6V9xn5AtzzqKOI79YuoRzl.output.response_body$",
+                                                              "operator": "mw",
+                                                              "right_operand": "*manage*run*"
+                                                            }
+                                                          },
+                                                          "operator": "and",
+                                                          "right_operand": {
+                                                            "left_operand": "$activity.definition_activity_02E84ILC7H5PY2TgDQfQJlQ3QA4c8QNlaeI.output.error.code$",
+                                                            "operator": "eq",
+                                                            "right_operand": "200"
+                                                          }
+                                                        },
+                                                        "operator": "and",
+                                                        "right_operand": {
+                                                          "left_operand": "$activity.definition_activity_02E84ILC7KNR85njXWhZYHmfMBXCvwnyCcD.output.error.code$",
+                                                          "operator": "eq",
+                                                          "right_operand": "200"
+                                                        }
+                                                      },
+                                                      "operator": "and",
+                                                      "right_operand": {
+                                                        "left_operand": "$activity.definition_activity_02E84ILC7LHWL7UDSObUKWRGt0W6rCeHEcE.output.error.code$",
+                                                        "operator": "eq",
+                                                        "right_operand": "200"
+                                                      }
+                                                    },
+                                                    "operator": "and",
+                                                    "right_operand": {
+                                                      "left_operand": "$activity.definition_activity_02E84ILC7P0Z919SFlF4aO4ma8QLUTFRpGj.output.error.code$",
+                                                      "operator": "eq",
+                                                      "right_operand": "200"
+                                                    }
+                                                  },
+                                                  "operator": "and",
+                                                  "right_operand": {
+                                                    "left_operand": "$activity.definition_activity_02E84ILC7PMJ65lCAexHC9AfUUu4TwnHdGI.output.error.code$",
+                                                    "operator": "eq",
+                                                    "right_operand": "200"
+                                                  }
+                                                },
+                                                "operator": "and",
+                                                "right_operand": {
+                                                  "left_operand": "$activity.definition_activity_02E84ILC7U8NF1HL5pTt05mV1xxGwZ5Fwwx.output.error.code$",
+                                                  "operator": "eq",
+                                                  "right_operand": "200"
+                                                }
+                                              },
+                                              "operator": "and",
+                                              "right_operand": {
+                                                "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.error.code$",
+                                                "operator": "eq",
+                                                "right_operand": "200"
+                                              }
+                                            },
+                                            "operator": "and",
+                                            "right_operand": {
+                                              "left_operand": "$activity.definition_activity_02E84ILC82TFC4umG5yWRk1OPSZkW7K1Fow.output.error.code$",
+                                              "operator": "eq",
+                                              "right_operand": "200"
+                                            }
+                                          },
+                                          "operator": "and",
+                                          "right_operand": {
+                                            "left_operand": "$activity.definition_activity_02E84ILC865K3763RPwlgHhTxmBd3Kp7R8F.output.error.code$",
+                                            "operator": "eq",
+                                            "right_operand": "200"
+                                          }
+                                        },
+                                        "operator": "and",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_02E84ILC89SUA1VYiEiEnVm7TAVQD8JkRKb.output.error.code$",
+                                          "operator": "eq",
+                                          "right_operand": "200"
+                                        }
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02E84ILC8G0KG0YwV4OYxsCNFGEn0zEyGLS.output.error.code$",
+                                        "operator": "eq",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.error.code$",
+                                      "operator": "eq",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02E84ILC8NLRZ69cFycOzbMBYPjQtsaaI4U.output.error.code$",
+                                    "operator": "eq",
+                                    "right_operand": "200"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02E84ILC8S6FW4aOP3uDJW0YROEVERpSNdO.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "200"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.error.code$",
+                                "operator": "eq",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02E84ILC8CYJU0sZ7TR7Z3Vx8M034hAMIyI.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Pass",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02E84ILC9EHHM5G9gYIz0yql7XU9ky4qLPV",
+                            "name": "Add Row to Table",
+                            "title": "Store TestResults in Table",
+                            "type": "core.addrowtotable",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": false,
+                              "display_name": "Store TestResults in Table",
+                              "input_table": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.output.variable_workflow_02E84IH0C9LM16VS1C0TI0ABrDG5o4KRh3I$",
+                              "row": [
+                                {
+                                  "key": "TestResults",
+                                  "type": "string",
+                                  "value": "Pass"
+                                },
+                                {
+                                  "key": "DuplicatedWFName",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.DuplicatedWF_DisplayName$"
+                                },
+                                {
+                                  "key": "DuplicatedWFID",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E84ILC89SUA1VYiEiEnVm7TAVQD8JkRKb.output.jsonpath_queries.DuplicatedWF_ID$"
+                                },
+                                {
+                                  "key": "OrginalWFName",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.OrginalWF_DisplayName$"
+                                },
+                                {
+                                  "key": "OrginalWFID",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E84ILC7QY6T5aM1l9GG7g57DtT7c8z1fT.input.source_array[@]$"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_02E84ILC9M44K3jRBzdteY31IJhY3dFlUV4",
+                        "name": "Condition Branch",
+                        "title": "Fail",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": {
+                                          "left_operand": {
+                                            "left_operand": {
+                                              "left_operand": {
+                                                "left_operand": {
+                                                  "left_operand": {
+                                                    "left_operand": {
+                                                      "left_operand": {
+                                                        "left_operand": {
+                                                          "left_operand": {
+                                                            "left_operand": {
+                                                              "left_operand": {
+                                                                "left_operand": {
+                                                                  "left_operand": {
+                                                                    "left_operand": {
+                                                                      "left_operand": {
+                                                                        "left_operand": {
+                                                                          "left_operand": {
+                                                                            "left_operand": {
+                                                                              "left_operand": {
+                                                                                "left_operand": {
+                                                                                  "left_operand": {
+                                                                                    "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.OrginalWF_DisplayName$",
+                                                                                    "operator": "ne",
+                                                                                    "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.OrginalWF_DisplayName$"
+                                                                                  },
+                                                                                  "operator": "or",
+                                                                                  "right_operand": {
+                                                                                    "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_Workflow_Status$",
+                                                                                    "operator": "ne",
+                                                                                    "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_Workflow_Status$"
+                                                                                  }
+                                                                                },
+                                                                                "operator": "or",
+                                                                                "right_operand": {
+                                                                                  "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_Workflow_Valid_State$",
+                                                                                  "operator": "ne",
+                                                                                  "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_Workflow_Valid_State$"
+                                                                                }
+                                                                              },
+                                                                              "operator": "or",
+                                                                              "right_operand": {
+                                                                                "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_wf_created_by$",
+                                                                                "operator": "ne",
+                                                                                "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_wf_created_by$"
+                                                                              }
+                                                                            },
+                                                                            "operator": "or",
+                                                                            "right_operand": {
+                                                                              "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_wf_invalid_properties$",
+                                                                              "operator": "ne",
+                                                                              "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_wf_invalid_properties$"
+                                                                            }
+                                                                          },
+                                                                          "operator": "or",
+                                                                          "right_operand": {
+                                                                            "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.Orginal_wf_owner$",
+                                                                            "operator": "ne",
+                                                                            "right_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.jsonpath_queries.Orginal_wf_owner$"
+                                                                          }
+                                                                        },
+                                                                        "operator": "or",
+                                                                        "right_operand": {
+                                                                          "left_operand": "$activity.definition_activity_02E84ILC811W86mq0R8yfA3Y6E8UNNpAlqK.output.response_body$",
+                                                                          "operator": "ne",
+                                                                          "right_operand": "$activity.definition_activity_02E84ILC8XZXG3AKl1BTEanp4Qbdnb3aArT.output.response_body$"
+                                                                        }
+                                                                      },
+                                                                      "operator": "or",
+                                                                      "right_operand": {
+                                                                        "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_Workflow_Status$",
+                                                                        "operator": "ne",
+                                                                        "right_operand": "valid"
+                                                                      }
+                                                                    },
+                                                                    "operator": "or",
+                                                                    "right_operand": {
+                                                                      "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_Workflow_Valid_State$",
+                                                                      "operator": "ne",
+                                                                      "right_operand": "true"
+                                                                    }
+                                                                  },
+                                                                  "operator": "or",
+                                                                  "right_operand": {
+                                                                    "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_wf_created_by$",
+                                                                    "operator": "eq",
+                                                                    "right_operand": "system"
+                                                                  }
+                                                                },
+                                                                "operator": "or",
+                                                                "right_operand": {
+                                                                  "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_wf_invalid_properties$",
+                                                                  "operator": "ne",
+                                                                  "right_operand": "null"
+                                                                }
+                                                              },
+                                                              "operator": "or",
+                                                              "right_operand": {
+                                                                "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.Duplicated_wf_owner$",
+                                                                "operator": "eq",
+                                                                "right_operand": "system"
+                                                              }
+                                                            },
+                                                            "operator": "or",
+                                                            "right_operand": {
+                                                              "left_operand": "$activity.definition_activity_02E84ILC8MAUA6V9xn5AtzzqKOI79YuoRzl.output.response_body$",
+                                                              "operator": "nmw",
+                                                              "right_operand": "*manage*run*"
+                                                            }
+                                                          },
+                                                          "operator": "or",
+                                                          "right_operand": {
+                                                            "left_operand": "$activity.definition_activity_02E84ILC7H5PY2TgDQfQJlQ3QA4c8QNlaeI.output.error.code$",
+                                                            "operator": "ne",
+                                                            "right_operand": "200"
+                                                          }
+                                                        },
+                                                        "operator": "or",
+                                                        "right_operand": {
+                                                          "left_operand": "$activity.definition_activity_02E84ILC7KNR85njXWhZYHmfMBXCvwnyCcD.output.error.code$",
+                                                          "operator": "ne",
+                                                          "right_operand": "200"
+                                                        }
+                                                      },
+                                                      "operator": "or",
+                                                      "right_operand": {
+                                                        "left_operand": "$activity.definition_activity_02E84ILC7LHWL7UDSObUKWRGt0W6rCeHEcE.output.error.code$",
+                                                        "operator": "ne",
+                                                        "right_operand": "200"
+                                                      }
+                                                    },
+                                                    "operator": "or",
+                                                    "right_operand": {
+                                                      "left_operand": "$activity.definition_activity_02E84ILC7P0Z919SFlF4aO4ma8QLUTFRpGj.output.error.code$",
+                                                      "operator": "ne",
+                                                      "right_operand": "200"
+                                                    }
+                                                  },
+                                                  "operator": "or",
+                                                  "right_operand": {
+                                                    "left_operand": "$activity.definition_activity_02E84ILC7PMJ65lCAexHC9AfUUu4TwnHdGI.output.error.code$",
+                                                    "operator": "ne",
+                                                    "right_operand": "200"
+                                                  }
+                                                },
+                                                "operator": "or",
+                                                "right_operand": {
+                                                  "left_operand": "$activity.definition_activity_02E84ILC7U8NF1HL5pTt05mV1xxGwZ5Fwwx.output.error.code$",
+                                                  "operator": "ne",
+                                                  "right_operand": "200"
+                                                }
+                                              },
+                                              "operator": "or",
+                                              "right_operand": {
+                                                "left_operand": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.error.code$",
+                                                "operator": "ne",
+                                                "right_operand": "200"
+                                              }
+                                            },
+                                            "operator": "or",
+                                            "right_operand": {
+                                              "left_operand": "$activity.definition_activity_02E84ILC82TFC4umG5yWRk1OPSZkW7K1Fow.output.error.code$",
+                                              "operator": "ne",
+                                              "right_operand": "200"
+                                            }
+                                          },
+                                          "operator": "or",
+                                          "right_operand": {
+                                            "left_operand": "$activity.definition_activity_02E84ILC865K3763RPwlgHhTxmBd3Kp7R8F.output.error.code$",
+                                            "operator": "ne",
+                                            "right_operand": "200"
+                                          }
+                                        },
+                                        "operator": "or",
+                                        "right_operand": {
+                                          "left_operand": "$activity.definition_activity_02E84ILC89SUA1VYiEiEnVm7TAVQD8JkRKb.output.error.code$",
+                                          "operator": "ne",
+                                          "right_operand": "200"
+                                        }
+                                      },
+                                      "operator": "or",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02E84ILC8G0KG0YwV4OYxsCNFGEn0zEyGLS.output.error.code$",
+                                        "operator": "ne",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "or",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.error.code$",
+                                      "operator": "ne",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "or",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02E84ILC8NLRZ69cFycOzbMBYPjQtsaaI4U.output.error.code$",
+                                    "operator": "ne",
+                                    "right_operand": "200"
+                                  }
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02E84ILC8S6FW4aOP3uDJW0YROEVERpSNdO.output.error.code$",
+                                  "operator": "ne",
+                                  "right_operand": "200"
+                                }
+                              },
+                              "operator": "or",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02E84ILC8VD6220hCnr5VaY58tYTsaQFk7t.output.error.code$",
+                                "operator": "ne",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02E84ILC8CYJU0sZ7TR7Z3Vx8M034hAMIyI.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "200"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Fail",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02E84ILC9PYPK1maOqjIOjYoJ1qh3tQrpbz",
+                            "name": "Add Row to Table",
+                            "title": "Store TestResults in Table",
+                            "type": "core.addrowtotable",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": false,
+                              "display_name": "Store TestResults in Table",
+                              "input_table": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.output.variable_workflow_02E84IH0C9LM16VS1C0TI0ABrDG5o4KRh3I$",
+                              "row": [
+                                {
+                                  "key": "TestResults",
+                                  "type": "string",
+                                  "value": "Fail"
+                                },
+                                {
+                                  "key": "DuplicatedWFName",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E84ILC8KKMU0zLBgF7S4hfYNNGfRrXPJ9.output.jsonpath_queries.DuplicatedWF_DisplayName$"
+                                },
+                                {
+                                  "key": "DuplicatedWFID",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E84ILC89SUA1VYiEiEnVm7TAVQD8JkRKb.output.jsonpath_queries.DuplicatedWF_ID$"
+                                },
+                                {
+                                  "key": "OrginalWFName",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E84ILC7ZLW902HU3wppyliv2jIM17GN0u.output.jsonpath_queries.OrginalWF_DisplayName$"
+                                },
+                                {
+                                  "key": "OrginalWFID",
+                                  "type": "string",
+                                  "value": "$activity.definition_activity_02E84ILC7QY6T5aM1l9GG7g57DtT7c8z1fT.input.source_array[@]$"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02E83292IVZSQ44zyXZAcbX2GhV2eGbfWqs",
+        "name": "Select from Table",
+        "title": "Select from Table -- Non Atomics (System)",
+        "type": "core.selectfromtable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Select from Table -- Non Atomics (System)",
+          "input_table": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.output.variable_workflow_02E82GHKB3P0A1SJDnJXOh97Rck0cTGwo1Z$",
+          "number_of_rows": {
+            "all_rows": true
+          },
+          "persist_output": false,
+          "skip_execution": false,
+          "sorting": {
+            "no_sort": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02E84K1N2PYKN1vzmgzCgWescdWuMCmgGqY",
+        "name": "Select from Table",
+        "title": "Select from Table --Atomics (System)",
+        "type": "core.selectfromtable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Select from Table --Atomics (System)",
+          "input_table": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.output.variable_workflow_02E84IH0C9LM16VS1C0TI0ABrDG5o4KRh3I$",
+          "number_of_rows": {
+            "all_rows": true
+          },
+          "persist_output": false,
+          "skip_execution": false,
+          "sorting": {
+            "no_sort": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02E85C93USLZJ3InxtPj7rBPzuj3mFiRadv",
+        "name": "Condition Block",
+        "title": "Any Condition Matches to Fail , Then Fail the TestCase",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Any Condition Matches to Fail , Then Fail the TestCase",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02E85C943522U1RgtXFyqehqMc0LbKQkiKl",
+            "name": "Condition Branch",
+            "title": "Failed",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$activity.definition_activity_02E83292IVZSQ44zyXZAcbX2GhV2eGbfWqs.output.response_body$",
+                  "operator": "mregex",
+                  "right_operand": ".*Fail"
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_02E84K1N2PYKN1vzmgzCgWescdWuMCmgGqY.output.response_body$",
+                  "operator": "mregex",
+                  "right_operand": ".*Fail"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "Failed",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02E85DA5UPGLB0inHgNgi6Pug9RIAX4Lpy1",
+                "name": "Set Variables",
+                "title": "Failed",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Failed",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.output.variable_workflow_02E85C60YYL3X2x2UwS7GV3bOR2rrQXmgiE$",
+                      "variable_value_new": "Fail"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02E85DK71HH673x6rnpawyAH09xBAXLJWVa",
+                "name": "Completed",
+                "title": "Failed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "failed-completed",
+                  "continue_on_failure": false,
+                  "display_name": "Failed",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02E85DQ3QW2LV2bnlGio0QswHcOENtuuqX9",
+        "name": "Set Variables",
+        "title": "Mark as Pass if above block is skipped",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Mark as Pass if above block is skipped",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_02E809O5R5FT65kOWzKQAzTNtAOXtKQunqJ.output.variable_workflow_02E85C60YYL3X2x2UwS7GV3bOR2rrQXmgiE$",
+              "variable_value_new": "Pass"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "table_types": {
+    "tabletype_02E8205ICCMVR3vfjBoAwA3kgwlryEdFTeo": {
+      "unique_name": "tabletype_02E8205ICCMVR3vfjBoAwA3kgwlryEdFTeo",
+      "data_type": "datatype.tabletype",
+      "display_name": "XDR1248-DuplicateWFResults",
+      "columns": [
+        {
+          "name": "OrginalWFName",
+          "title": "OrginalWFName",
+          "type": "string"
+        },
+        {
+          "name": "OrginalWFID",
+          "title": "OrginalWFID",
+          "type": "string"
+        },
+        {
+          "name": "TestResults",
+          "title": "TestResults",
+          "type": "string"
+        },
+        {
+          "name": "DuplicatedWFName",
+          "title": "DuplicatedWFName",
+          "type": "string"
+        },
+        {
+          "name": "DuplicatedWFID",
+          "title": "DuplicatedWFID",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
