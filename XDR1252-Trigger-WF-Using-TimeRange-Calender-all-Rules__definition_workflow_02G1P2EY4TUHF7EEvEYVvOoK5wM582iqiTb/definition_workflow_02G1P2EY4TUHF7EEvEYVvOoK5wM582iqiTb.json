@@ -9,34 +9,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Provide Input Token (without Bearer)",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "Approval Rule with TimeRange Calendar testStatus",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_02G1T3GR3QF855Tnsw4Zu1Qu8lssAw7J7zO",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "Fail",
           "scope": "output",
           "name": "Standalone Rule with TimeRange Calendar testStatus",
@@ -51,6 +23,115 @@
       {
         "schema_id": "datatype.string",
         "properties": {
+          "value": "Pass",
+          "scope": "output",
+          "name": "TableResults for Standalone Rule",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02G2H538CZFHY7GL6AyUFelp9jbPvqhe9fl",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02G2G8CEXU16W2WYy6lAJDZrZV2FaUD3WFE",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "Payload": "{     \"source\": \"Umbrella\",     \"type\": \"bundle\",       \"incidents\":[           {               \"id\": \"transient:incident-2\",               \"title\": \"SG-PR-timerange-st-Automation Rule Testing - IncidentWF_$ID\",               \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",               \"type\": \"incident\",               \"source\": \"Umbrella\",               \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",               \"status\": \"New\",               \"promotion_method\": \"Automated\",               \"severity\": \"Critical\",               \"confidence\": \"High\",               \"incident_time\":{\"opened\": \"$Time\"}           }        ],       \"sightings\":[         {               \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",               \"id\": \"transient:sighting-1\",               \"observables\":               [                   {                       \"value\": \"examplebotnetdomain.com\",                       \"type\": \"domain\"                   }               ],               \"observed_time\":               {                   \"start_time\": \"2022-09-13T14:21:20.000Z\",                   \"end_time\": \"2022-09-13T14:21:20.000Z\"               },               \"severity\": \"Low\",               \"source\": \"Umbrella Reporting API\",               \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",               \"targets\":               [                   {                       \"type\": \"endpoint\",                       \"observables\":                       [                           {                               \"value\": \"41137871\",                               \"type\": \"odns_identity\"                           },                           {                               \"value\": \"ksimek-WS\",                               \"type\": \"odns_identity_label\"                           },                           {                               \"value\": \"35.169.125.172\",                               \"type\": \"ip\"                           },                           {                               \"value\": \"ksimek-WS\",                               \"type\": \"hostname\"                           }                       ],                       \"observed_time\":                       {                           \"start_time\": \"2022-09-13T14:21:20.000Z\",                           \"end_time\": \"2022-09-13T14:21:20.000Z\"                       }                   }               ],             \"type\": \"sighting\"         }       ],     \"indicators\": [       {         \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",         \"valid_time\": {           \"start_time\": \"2022-04-01T00:00:00.000Z\"         },         \"producer\": \"Umbrella\",         \"type\": \"indicator\",         \"source\": \"Umbrella\",         \"external_ids\": [           \"securex:umbrella-threat-hunt-c\u0026c\"         ],         \"short_description\": \"Command and Control activities detected by DNS protection.\",         \"title\": \"Command and Control DNS activities\",         \"id\": \"transient:indicator-umbrella-c\u0026c\",         \"tlp\": \"green\"       }     ],     \"attack_patterns\": [         {             \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",             \"type\": \"attack-pattern\",             \"source\": \"MITRE Enterprise ATT\u0026CK\",             \"external_ids\": [                 \"T1071\"             ],             \"short_description\": \"Application Layer Protocol\",             \"title\": \"Application Layer Protocol\",             \"external_references\": [                 {                     \"source_name\": \"mitre-attack\",                     \"url\": \"https://attack.mitre.org/techniques/T1071\",                     \"external_id\": \"T1071\"                 }             ],             \"source_uri\": \"https://attack.mitre.org\",             \"id\": \"transient:attack-pattern-T1071\",             \"kill_chain_phases\": [                 {                     \"kill_chain_name\": \"mitre-attack\",                     \"phase_name\": \"command-and-control\"                 },                 {                     \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",                     \"phase_name\": \"command-and-control\"                 }             ]         }     ],     \"relationships\": [       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-indicator-T1071\",         \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",         \"target_ref\": \"transient:attack-pattern-T1071\",         \"relationship_type\": \"indicates\"       },       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-sighting-indicator\",         \"source_ref\": \"transient:sighting-1\",         \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",         \"relationship_type\": \"sighting-of\"       },       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-sighting-incident\",         \"source_ref\": \"transient:sighting-1\",         \"target_ref\": \"transient:incident-2\",         \"relationship_type\": \"member-of\"       }     ]   }"
+              }
+            },
+            {
+              "column_data": {
+                "Payload": "{     \"source\": \"Umbrella\",     \"type\": \"bundle\",       \"incidents\":[           {               \"id\": \"transient:incident-$ID\",               \"title\": \"SG-PR-timerange-st-Automation Rule Testing - IncidentWF_$ID\",               \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",               \"type\": \"incident\",               \"source\": \"Umbrella\",               \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",               \"status\": \"New\",               \"promotion_method\": \"Automated\",               \"severity\": \"Critical\",               \"confidence\": \"High\",               \"incident_time\":{\"opened\": \"$Time\"}           }        ],       \"sightings\":[         {               \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",               \"id\": \"transient:sighting-1\",               \"observables\":               [                   {                       \"value\": \"examplebotnetdomain.com\",                       \"type\": \"domain\"                   }               ],               \"observed_time\":               {                   \"start_time\": \"2022-09-13T14:21:20.000Z\",                   \"end_time\": \"2022-09-13T14:21:20.000Z\"               },               \"severity\": \"Low\",               \"source\": \"Umbrella Reporting API\",               \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",               \"targets\":               [                   {                       \"type\": \"endpoint\",                       \"observables\":                       [                           {                               \"value\": \"41137871\",                               \"type\": \"odns_identity\"                           },                           {                               \"value\": \"ksimek-WS\",                               \"type\": \"odns_identity_label\"                           },                           {                               \"value\": \"35.169.125.172\",                               \"type\": \"ip\"                           },                           {                               \"value\": \"ksimek-WS\",                               \"type\": \"hostname\"                           }                       ],                       \"observed_time\":                       {                           \"start_time\": \"2022-09-13T14:21:20.000Z\",                           \"end_time\": \"2022-09-13T14:21:20.000Z\"                       }                   }               ],             \"type\": \"sighting\"         }       ],     \"indicators\": [       {         \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",         \"valid_time\": {           \"start_time\": \"2022-04-01T00:00:00.000Z\"         },         \"producer\": \"Umbrella\",         \"type\": \"indicator\",         \"source\": \"Umbrella\",         \"external_ids\": [           \"securex:umbrella-threat-hunt-c\u0026c\"         ],         \"short_description\": \"Command and Control activities detected by DNS protection.\",         \"title\": \"Command and Control DNS activities\",         \"id\": \"transient:indicator-umbrella-c\u0026c\",         \"tlp\": \"green\"       }     ],     \"attack_patterns\": [         {             \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",             \"type\": \"attack-pattern\",             \"source\": \"MITRE Enterprise ATT\u0026CK\",             \"external_ids\": [                 \"T1071\"             ],             \"short_description\": \"Application Layer Protocol\",             \"title\": \"Application Layer Protocol\",             \"external_references\": [                 {                     \"source_name\": \"mitre-attack\",                     \"url\": \"https://attack.mitre.org/techniques/T1071\",                     \"external_id\": \"T1071\"                 }             ],             \"source_uri\": \"https://attack.mitre.org\",             \"id\": \"transient:attack-pattern-T1071\",             \"kill_chain_phases\": [                 {                     \"kill_chain_name\": \"mitre-attack\",                     \"phase_name\": \"command-and-control\"                 },                 {                     \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",                     \"phase_name\": \"command-and-control\"                 }             ]         }     ],     \"relationships\": [       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-indicator-T1071\",         \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",         \"target_ref\": \"transient:attack-pattern-T1071\",         \"relationship_type\": \"indicates\"       },       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-sighting-indicator\",         \"source_ref\": \"transient:sighting-1\",         \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",         \"relationship_type\": \"sighting-of\"       },       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-sighting-incident\",         \"source_ref\": \"transient:sighting-1\",         \"target_ref\": \"transient:incident-2\",         \"relationship_type\": \"member-of\"       }     ]   }"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "Score Greater than 500 Payloads",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02G2GIJTZ0FG46IaI4eHYOZYtpdvdA5QRKE",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide Input Token (without Bearer)",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02G2GR45SSM604Ni2mNxrikwqqEjjLCgMvj",
+        "properties": {
+          "scope": "output",
+          "name": "1252 Results for Score Less than 500",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02G2GRL4FQQXO1qeIG4noAXqLUOgSZT0ck9",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02G2GR45SSM604Ni2mNxrikwqqEjjLCgMvj",
+        "properties": {
+          "scope": "output",
+          "name": "1252 Results for Score Greater Than 500",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02G2GRSKXLGZ53RA5tgtyegBnbuYE5yi5nT",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02G2G8CEXU16W2WYy6lAJDZrZV2FaUD3WFE",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "Payload": "{     \"source\": \"Umbrella\",     \"type\": \"bundle\",       \"incidents\":[           {               \"id\": \"transient:incident-2\",               \"title\": \"MITRE QA Neel: Incident timerange-st 1252 with technique T1586 but no tactic-$ID\",               \"description\": \"Adversaries may compromise accounts with services that can be used during targeting. For operations incorporating social engineering, the utilization of an online persona may be important. Rather than creating and cultivating accounts (i.e. Establish Accounts), adversaries may compromise existing accounts. Utilizing an existing persona may engender a level of trust in a potential victim if they have a relationship, or knowledge of, the compromised persona.\",               \"type\": \"incident\",               \"source\": \"Umbrella\",               \"short_description\": \"Adversaries may compromise accounts with services that can be used during targeting.\",               \"status\": \"New\",               \"promotion_method\": \"Automated\",               \"severity\": \"Low\",               \"confidence\": \"Low\",               \"incident_time\":{\"opened\": \"$Time\"}           }        ],       \"sightings\":[         {               \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",               \"id\": \"transient:sighting-1\",               \"observables\":               [                   {                       \"value\": \"examplebotnetdomain.com\",                       \"type\": \"domain\"                   }               ],               \"observed_time\":               {                   \"start_time\": \"2022-09-13T14:21:20.000Z\",                   \"end_time\": \"2022-09-13T14:21:20.000Z\"               },               \"severity\": \"Low\",               \"source\": \"Umbrella Reporting API\",               \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",               \"targets\":               [                   {                       \"type\": \"endpoint\",                       \"observables\":                       [                           {                               \"value\": \"41137871\",                               \"type\": \"odns_identity\"                           },                           {                               \"value\": \"ksimek-WS\",                               \"type\": \"odns_identity_label\"                           },                           {                               \"value\": \"35.169.125.172\",                               \"type\": \"ip\"                           },                           {                               \"value\": \"ksimek-WS\",                               \"type\": \"hostname\"                           }                       ],                       \"observed_time\":                       {                           \"start_time\": \"2022-09-13T14:21:20.000Z\",                           \"end_time\": \"2022-09-13T14:21:20.000Z\"                       }                   }               ],             \"type\": \"sighting\"         }       ],     \"indicators\": [       {         \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",         \"valid_time\": {           \"start_time\": \"2022-04-01T00:00:00.000Z\"         },         \"producer\": \"Umbrella\",         \"type\": \"indicator\",         \"source\": \"Umbrella\",         \"external_ids\": [           \"securex:umbrella-threat-hunt-c\u0026c\"         ],         \"short_description\": \"Compromise Accounts\",         \"title\": \"Compromise Accounts\",         \"id\": \"transient:indicator-umbrella-c\u0026c\",         \"tlp\": \"green\"       }     ],     \"attack_patterns\": [         {             \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",             \"type\": \"attack-pattern\",             \"source\": \"MITRE Enterprise ATT\u0026CK\",             \"external_ids\": [                 \"T1586\"             ],             \"short_description\": \"Compromise Accounts\",             \"title\": \"Compromise Accounts\",             \"external_references\": [                 {                     \"source_name\": \"mitre-attack\",                     \"url\": \"https://attack.mitre.org/techniques/T1586\",                     \"external_id\": \"T1586\"                 }             ],             \"source_uri\": \"https://attack.mitre.org\",             \"id\": \"transient:attack-pattern-T1586\",             \"kill_chain_phases\": [                 {                     \"kill_chain_name\": \"mitre-attack\",                     \"phase_name\": \"compromise-accounts\"                 },                 {                     \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",                     \"phase_name\": \"compromise-accounts\"                 }             ]         }     ],     \"relationships\": [       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-indicator-T1586\",         \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",         \"target_ref\": \"transient:attack-pattern-T1586\",         \"relationship_type\": \"indicates\"       },       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-sighting-indicator\",         \"source_ref\": \"transient:sighting-1\",         \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",         \"relationship_type\": \"sighting-of\"       },       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-sighting-incident\",         \"source_ref\": \"transient:sighting-1\",         \"target_ref\": \"transient:incident-2\",         \"relationship_type\": \"member-of\"       }     ]   }"
+              }
+            },
+            {
+              "column_data": {
+                "Payload": "{     \"source\": \"Umbrella\",     \"type\": \"bundle\",       \"incidents\":[           {               \"id\": \"transient:incident-2\",               \"title\": \"Automation Rule and timerange-st 1252-incidentRule-$ID\",               \"description\": \"Adversaries may incident compromise accounts with services that can be used during targeting. For operations incorporating social engineering, the utilization of an online persona may be important. Rather than creating and cultivating accounts (i.e. Establish Accounts), adversaries may compromise existing accounts. Utilizing an existing persona may engender a level of trust in a potential victim if they have a relationship, or knowledge of, the compromised persona.\",               \"type\": \"incident\",               \"source\": \"Umbrella\",               \"short_description\": \"Adversaries may compromise accounts with services that can be used during targeting.\",               \"status\": \"New\",               \"promotion_method\": \"Automated\",               \"severity\": \"High\",               \"confidence\": \"High\",               \"incident_time\":{\"opened\": \"$Time\"}           }        ],       \"sightings\":[         {               \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",               \"id\": \"transient:sighting-1\",               \"observables\":               [                   {                       \"value\": \"examplebotnetdomain.com\",                       \"type\": \"domain\"                   }               ],               \"observed_time\":               {                   \"start_time\": \"2022-09-13T14:21:20.000Z\",                   \"end_time\": \"2022-09-13T14:21:20.000Z\"               },               \"severity\": \"Low\",               \"source\": \"Umbrella Reporting API\",               \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",               \"targets\":               [                   {                       \"type\": \"endpoint\",                       \"observables\":                       [                           {                               \"value\": \"41137871\",                               \"type\": \"odns_identity\"                           },                           {                               \"value\": \"ksimek-WS\",                               \"type\": \"odns_identity_label\"                           },                           {                               \"value\": \"35.169.125.172\",                               \"type\": \"ip\"                           },                           {                               \"value\": \"ksimek-WS\",                               \"type\": \"hostname\"                           }                       ],                       \"observed_time\":                       {                           \"start_time\": \"2022-09-13T14:21:20.000Z\",                           \"end_time\": \"2022-09-13T14:21:20.000Z\"                       }                   }               ],             \"type\": \"sighting\"         }       ],     \"indicators\": [       {         \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",         \"valid_time\": {           \"start_time\": \"2022-04-01T00:00:00.000Z\"         },         \"producer\": \"Umbrella\",         \"type\": \"indicator\",         \"source\": \"Umbrella\",         \"external_ids\": [           \"securex:umbrella-threat-hunt-c\u0026c\"         ],         \"short_description\": \"Compromise Accounts\",         \"title\": \"Compromise Accounts\",         \"id\": \"transient:indicator-umbrella-c\u0026c\",         \"tlp\": \"green\"       }     ],     \"attack_patterns\": [         {             \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",             \"type\": \"attack-pattern\",             \"source\": \"MITRE Enterprise ATT\u0026CK\",             \"external_ids\": [                 \"T1586\"             ],             \"short_description\": \"Compromise Accounts\",             \"title\": \"Compromise Accounts\",             \"external_references\": [                 {                     \"source_name\": \"mitre-attack\",                     \"url\": \"https://attack.mitre.org/techniques/T1586\",                     \"external_id\": \"T1586\"                 }             ],             \"source_uri\": \"https://attack.mitre.org\",             \"id\": \"transient:attack-pattern-T1586\",             \"kill_chain_phases\": [                 {                     \"kill_chain_name\": \"mitre-attack\",                     \"phase_name\": \"compromise-accounts\"                 },                 {                     \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",                     \"phase_name\": \"compromise-accounts\"                 }             ]         }     ],     \"relationships\": [       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-indicator-T1586\",         \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",         \"target_ref\": \"transient:attack-pattern-T1586\",         \"relationship_type\": \"indicates\"       },       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-sighting-indicator\",         \"source_ref\": \"transient:sighting-1\",         \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",         \"relationship_type\": \"sighting-of\"       },       {         \"type\": \"relationship\",         \"id\": \"transient:relationship-sighting-incident\",         \"source_ref\": \"transient:sighting-1\",         \"target_ref\": \"transient:incident-2\",         \"relationship_type\": \"member-of\"       }     ]   }"
+              }
+            },
+            {
+              "column_data": {
+                "Payload": "{   \"source\": \"Umbrella\",   \"type\": \"bundle\",   \"incidents\": [     {       \"id\": \"transient:incident-02EOEZN1XJZ127QThi2PQCaZ82jjSWYUQ1x\",       \"title\": \"Testing timerange-st 1252 in INT\",       \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",       \"type\": \"incident\",       \"source\": \"Umbrella\",       \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",       \"status\": \"New\",       \"promotion_method\": \"Automated\",       \"severity\": \"Unknown\",       \"confidence\": \"Medium\",       \"incident_time\": {         \"opened\": \"$Time\"       }     }   ],   \"sightings\": [],   \"indicators\": [],   \"attack_patterns\": [],   \"relationships\": [] }"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "Score less than 500 Payloads",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02G2G92PS9NSQ3Ar1zJIJVeQpGU7Z1IlNBc",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
           "value": "Fail",
           "scope": "output",
           "name": "XDR 1252 Overall Test Status",
@@ -60,6 +141,20 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_02G1TEKQEZG91182wCGShrTPxp8rSIvwxfN",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Approval Rule with TimeRange Calendar testStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02G1T3GR3QF855Tnsw4Zu1Qu8lssAw7J7zO",
         "object_type": "variable_workflow"
       }
     ],
@@ -988,327 +1083,451 @@
             "object_type": "definition_activity",
             "actions": [
               {
-                "unique_name": "definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI",
-                "name": "Automation - Create a Standalone Incident Rule",
-                "title": "Automation - Create a Standalone Incident Rule",
-                "type": "workflow.atomic_workflow",
-                "base_type": "subworkflow",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "Automation - Create a Standalone Incident Rule",
-                  "input": {
-                    "variable_workflow_027MPV5U2DIIF0zubA1M33SbdTCt6ZCzfq4": "$activity.definition_activity_02G1PAUT5X7Q777HovigiIzERfclkFZeVxt.output.variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo$",
-                    "variable_workflow_027MPV5U2EFCD2dIXOMcCJfC8zTYKWhgvL0": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$",
-                    "variable_workflow_027MPV5U2ETAA17CVQcWakhMZzhJv72iREN": "Authorization",
-                    "variable_workflow_027MQ2YZNQUVF083B0R4hBHunurAKbOgtJK": "St-1252-$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.instance_id$",
-                    "variable_workflow_027MQ6J9U6SFN6iWZGzhPRXoQSwKfKnmVwO": false,
-                    "variable_workflow_027MTIDA440DM0hV6hVS0HKzyKm21K1dvp9": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": \"$output.incident.title$\",\n                  \"operator\": \"mw\",\n                  \"right_operand\": \"*timerange-st*\"\n                },\n                \"operator\": \"and\",\n                \"right_operand\": {\n                  \"left_operand\": \"$output.event_received_time$\",\n                  \"operator\": \"dr\",\n                  \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n                }\n              },\n              \"operator\": \"and\",\n              \"right_operand\": {\n                \"left_operand\": \"$output.incident.scores.global$\",\n                \"operator\": \"lte\",\n                \"right_operand\": \"500\"\n              }\n            },\n            \"operator\": \"and\",\n            \"right_operand\": {\n              \"left_operand\": \"$output.firstEventDate$\",\n              \"operator\": \"ndr\",\n              \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n            }\n          },\n          \"operator\": \"and\",\n          \"right_operand\": {\n            \"left_operand\": \"$output.lastEventDate$\",\n            \"operator\": \"ndr\",\n            \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n          }\n        },\n        \"operator\": \"and\",\n        \"right_operand\": {\n          \"left_operand\": \"$output.incident.timestamp$\",\n          \"operator\": \"dr\",\n          \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n        }\n      },\n      \"operator\": \"and\",\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.incident_time.opened$\",\n        \"operator\": \"dr\",\n        \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n      }\n    },",
-                    "variable_workflow_028XFL5OHWNXK5o11JcxV0kSReACzV9dk57": ""
-                  },
-                  "runtime_user": {
-                    "target_default": true
-                  },
-                  "skip_execution": false,
-                  "target": {
-                    "target_type": "web-service.endpoint",
-                    "use_workflow_target": true
-                  },
-                  "workflow_id": "definition_workflow_027MPV5T5BDE60Q3n3jgLoLENPtPsMnHoah",
-                  "workflow_name": "Automation - Create a Standalone Incident Rule"
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_02G2AIO0JC8HZ3OEIvwdpxDfdoji4nvOZ0M",
-                "name": "SX- Incident Creation (240 Score)",
-                "title": "SX- Incident Creation (240 Score)",
-                "type": "workflow.sub_workflow",
-                "base_type": "subworkflow",
-                "properties": {
-                  "continue_on_failure": true,
-                  "display_name": "SX- Incident Creation (240 Score)",
-                  "input": {
-                    "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-2\",\n              \"title\": \"Automation Rule and timerange-st-incidentRule-$ID\",\n              \"description\": \"Adversaries may incident compromise accounts with services that can be used during targeting. For operations incorporating social engineering, the utilization of an online persona may be important. Rather than creating and cultivating accounts (i.e. Establish Accounts), adversaries may compromise existing accounts. Utilizing an existing persona may engender a level of trust in a potential victim if they have a relationship, or knowledge of, the compromised persona.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"Adversaries may compromise accounts with services that can be used during targeting.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"High\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Compromise Accounts\",\n        \"title\": \"Compromise Accounts\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1586\"\n            ],\n            \"short_description\": \"Compromise Accounts\",\n            \"title\": \"Compromise Accounts\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1586\",\n                    \"external_id\": \"T1586\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1586\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"compromise-accounts\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"compromise-accounts\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1586\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1586\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }",
-                    "variable_workflow_02EDD9GCRBAX574rDgRmdygEP3enq7dzk6J": ""
-                  },
-                  "runtime_user": {
-                    "target_default": true
-                  },
-                  "skip_execution": false,
-                  "target": {
-                    "execute_on_this_target": true,
-                    "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$",
-                    "target_type": "web-service.endpoint"
-                  },
-                  "workflow_id": "definition_workflow_025XVBQ491IWE6dWB2g8NyL8Hu49gmEmV9o",
-                  "workflow_name": "SX- Incident Creation"
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_02G2AOZ15INM86fTOy86uyrOEwNtosKKy7e",
-                "name": "Sleep",
-                "title": "Sleep for 30s",
-                "type": "core.sleep",
-                "base_type": "activity",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "Sleep for 30s",
-                  "skip_execution": false,
-                  "sleep_interval": 30
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_02G2AQRRNQ4JQ4InrC5FaJ1OrZHdYd7VH3D",
+                "unique_name": "definition_activity_02G2H5J3M0ZC60pPWLJV5ESX4TUXUy3RVa8",
                 "name": "Group",
-                "title": "Fetch Instance and Action Details Triggered from the Rule",
+                "title": "Standalone-Rule-TimeRangeCases",
                 "type": "logic.group",
                 "base_type": "activity",
                 "properties": {
                   "continue_on_failure": false,
-                  "display_name": "Fetch Instance and Action Details Triggered from the Rule",
+                  "display_name": "Standalone-Rule-TimeRangeCases",
                   "skip_execution": false
                 },
                 "object_type": "definition_activity",
                 "actions": [
                   {
-                    "unique_name": "definition_activity_02G2AQRRNT47K3i13QucLECQ6KZVcGmc1PX",
-                    "name": "Calculate Date",
-                    "title": "Construct Date to Fetch Instance Triggered by Incident Rule",
-                    "type": "core.calculate_date",
-                    "base_type": "activity",
+                    "unique_name": "definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI",
+                    "name": "Automation - Create a Standalone Incident Rule",
+                    "title": "Automation - Create a Standalone Incident Rule",
+                    "type": "workflow.atomic_workflow",
+                    "base_type": "subworkflow",
                     "properties": {
-                      "adjustment": -86400,
                       "continue_on_failure": false,
-                      "display_name": "Construct Date to Fetch Instance Triggered by Incident Rule",
-                      "original_date": "$activity.definition_activity_02G2AIO0JC8HZ3OEIvwdpxDfdoji4nvOZ0M.output.start_time$",
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_02G2AQRRNYW2F58Sgvv3Gpp4jbdZeVx29Pg",
-                    "name": "HTTP Request",
-                    "title": "Get Workflow Instance Using WF_Id",
-                    "type": "web-service.http_request",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "allow_auto_redirect": true,
-                      "allow_headers_redirect": false,
-                      "body": "{\n  \"owner\": [],\n  \"workflow_ids\": [\n    \"$activity.definition_activity_02G1PAUT5X7Q777HovigiIzERfclkFZeVxt.output.variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo$\"\n  ]\n}",
-                      "continue_on_error_status_code": false,
-                      "continue_on_failure": true,
-                      "custom_headers": [
-                        {
-                          "name": "Authorization",
-                          "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
-                        }
-                      ],
-                      "display_name": "Get Workflow Instance Using WF_Id",
-                      "method": "POST",
-                      "relative_url": "/api/v1.1/instances?limit=100\u0026start=0\u0026date_from=$activity.definition_activity_02G2AQRRNT47K3i13QucLECQ6KZVcGmc1PX.output.result$",
+                      "display_name": "Automation - Create a Standalone Incident Rule",
+                      "input": {
+                        "variable_workflow_027MPV5U2DIIF0zubA1M33SbdTCt6ZCzfq4": "$activity.definition_activity_02G1PAUT5X7Q777HovigiIzERfclkFZeVxt.output.variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo$",
+                        "variable_workflow_027MPV5U2EFCD2dIXOMcCJfC8zTYKWhgvL0": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$",
+                        "variable_workflow_027MPV5U2ETAA17CVQcWakhMZzhJv72iREN": "Authorization",
+                        "variable_workflow_027MQ2YZNQUVF083B0R4hBHunurAKbOgtJK": "St-1252-$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.instance_id$",
+                        "variable_workflow_027MQ6J9U6SFN6iWZGzhPRXoQSwKfKnmVwO": false,
+                        "variable_workflow_027MTIDA440DM0hV6hVS0HKzyKm21K1dvp9": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": \"$output.incident.title$\",\n                  \"operator\": \"mw\",\n                  \"right_operand\": \"*timerange-st*\"\n                },\n                \"operator\": \"and\",\n                \"right_operand\": {\n                  \"left_operand\": \"$output.event_received_time$\",\n                  \"operator\": \"dr\",\n                  \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n                }\n              },\n              \"operator\": \"and\",\n              \"right_operand\": {\n                \"left_operand\": \"$output.incident.scores.global$\",\n                \"operator\": \"lte\",\n                \"right_operand\": \"500\"\n              }\n            },\n            \"operator\": \"and\",\n            \"right_operand\": {\n              \"left_operand\": \"$output.firstEventDate$\",\n              \"operator\": \"ndr\",\n              \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n            }\n          },\n          \"operator\": \"and\",\n          \"right_operand\": {\n            \"left_operand\": \"$output.lastEventDate$\",\n            \"operator\": \"ndr\",\n            \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n          }\n        },\n        \"operator\": \"and\",\n        \"right_operand\": {\n          \"left_operand\": \"$output.incident.timestamp$\",\n          \"operator\": \"dr\",\n          \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n        }\n      },\n      \"operator\": \"and\",\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.incident_time.opened$\",\n        \"operator\": \"dr\",\n        \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n      }\n    },",
+                        "variable_workflow_028XFL5OHWNXK5o11JcxV0kSReACzV9dk57": ""
+                      },
                       "runtime_user": {
                         "target_default": true
                       },
                       "skip_execution": false,
                       "target": {
+                        "target_type": "web-service.endpoint",
                         "use_workflow_target": true
-                      }
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_02G2AQRRO08BK167XX2zK374WTqvqNm7PR2",
-                    "name": "JSONPath Query",
-                    "title": "Fetch Instances ID",
-                    "type": "corejava.jsonpathquery",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "continue_on_failure": true,
-                      "display_name": "Fetch Instances ID",
-                      "input_json": "$activity.definition_activity_02G2AQRRNYW2F58Sgvv3Gpp4jbdZeVx29Pg.output.response_body$",
-                      "jsonpath_queries": [
-                        {
-                          "jsonpath_query": "$.results[?(@.started_by=='$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$')].id",
-                          "jsonpath_query_name": "instances_ID",
-                          "jsonpath_query_type": "string",
-                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                        }
-                      ],
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_02G2AQRRO2T0L4pN6rriYwbRPXQxiWwP4kA",
-                    "name": "HTTP Request",
-                    "title": "Get by Instance ID to Fetch Action Details",
-                    "type": "web-service.http_request",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "allow_auto_redirect": true,
-                      "allow_headers_redirect": false,
-                      "continue_on_error_status_code": false,
-                      "continue_on_failure": true,
-                      "custom_headers": [
-                        {
-                          "name": "Authorization",
-                          "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
-                        }
-                      ],
-                      "display_name": "Get by Instance ID to Fetch Action Details",
-                      "method": "GET",
-                      "relative_url": "/api/v1/instances/$activity.definition_activity_02G2AQRRO08BK167XX2zK374WTqvqNm7PR2.output.jsonpath_queries.instances_ID$?detailed=true",
-                      "runtime_user": {
-                        "target_default": true
                       },
-                      "skip_execution": false,
-                      "target": {
-                        "use_workflow_target": true
-                      }
+                      "workflow_id": "definition_workflow_027MPV5T5BDE60Q3n3jgLoLENPtPsMnHoah",
+                      "workflow_name": "Automation - Create a Standalone Incident Rule"
                     },
                     "object_type": "definition_activity"
                   },
                   {
-                    "unique_name": "definition_activity_02G2AQRRO4QNW2b3uDrVPHVr2RgVeZbB7QU",
-                    "name": "JSONPath Query",
-                    "title": "Fetch Started By from Instance Response",
-                    "type": "corejava.jsonpathquery",
+                    "unique_name": "definition_activity_02G2G9CHB89H64Tbxg2vtUCxAoevEh15tX5",
+                    "name": "For Each",
+                    "title": "For Each (Execution for Score Less than 500)",
+                    "type": "logic.for_each",
                     "base_type": "activity",
                     "properties": {
-                      "action_timeout": 180,
-                      "continue_on_failure": true,
-                      "display_name": "Fetch Started By from Instance Response",
-                      "input_json": "$activity.definition_activity_02G2AQRRO2T0L4pN6rriYwbRPXQxiWwP4kA.output.response_body$",
-                      "jsonpath_queries": [
-                        {
-                          "jsonpath_query": "$.started_by",
-                          "jsonpath_query_name": "WF_startedBy",
-                          "jsonpath_query_type": "string",
-                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                        }
-                      ],
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_02G2BJVLK0B9Q7IKd7dfdNHggD4zKbaXUBG",
-                    "name": "HTTP Request",
-                    "title": "Delete Instance",
-                    "type": "web-service.http_request",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "allow_auto_redirect": true,
-                      "allow_headers_redirect": false,
-                      "continue_on_error_status_code": false,
-                      "continue_on_failure": true,
-                      "custom_headers": [
-                        {
-                          "name": "Authorization",
-                          "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
-                        }
-                      ],
-                      "display_name": "Delete Instance",
-                      "method": "DELETE",
-                      "relative_url": "/api/v1/instances/$activity.definition_activity_02G2AQRRO08BK167XX2zK374WTqvqNm7PR2.output.jsonpath_queries.instances_ID$",
-                      "runtime_user": {
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "use_workflow_target": true
-                      }
-                    },
-                    "object_type": "definition_activity"
-                  }
-                ]
-              },
-              {
-                "unique_name": "definition_activity_02G2BQQOO62UD3dRPs7tG5XKWn9nfAHv3t5",
-                "name": "SX- Incident Creation (494)",
-                "title": "SX- Incident Creation (494)",
-                "type": "workflow.sub_workflow",
-                "base_type": "subworkflow",
-                "properties": {
-                  "continue_on_failure": true,
-                  "display_name": "SX- Incident Creation (494)",
-                  "input": {
-                    "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT": "{\n  \"source\": \"Umbrella\",\n  \"type\": \"bundle\",\n  \"incidents\": [\n    {\n      \"id\": \"transient:incident-02EOEZN1XJZ127QThi2PQCaZ82jjSWYUQ1x\",\n      \"title\": \"Testing timerange-st 1252 in INT\",\n      \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n      \"type\": \"incident\",\n      \"source\": \"Umbrella\",\n      \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n      \"status\": \"New\",\n      \"promotion_method\": \"Automated\",\n      \"severity\": \"Unknown\",\n      \"confidence\": \"Medium\",\n      \"incident_time\": {\n        \"opened\": \"$Time\"\n      }\n    }\n  ],\n  \"sightings\": [],\n  \"indicators\": [],\n  \"attack_patterns\": [],\n  \"relationships\": []\n}",
-                    "variable_workflow_02EDD9GCRBAX574rDgRmdygEP3enq7dzk6J": ""
-                  },
-                  "runtime_user": {
-                    "target_default": true
-                  },
-                  "skip_execution": false,
-                  "target": {
-                    "execute_on_this_target": true,
-                    "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$",
-                    "target_type": "web-service.endpoint"
-                  },
-                  "workflow_id": "definition_workflow_025XVBQ491IWE6dWB2g8NyL8Hu49gmEmV9o",
-                  "workflow_name": "SX- Incident Creation"
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_02G2C2FWET4Z356KCviYcTAYkmgTj5sxL6x",
-                "name": "Sleep",
-                "title": "Sleep for 30s",
-                "type": "core.sleep",
-                "base_type": "activity",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "Sleep for 30s",
-                  "skip_execution": false,
-                  "sleep_interval": 30
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_02G2C2T9KG68R3kBLyI37w1qBQGgLbV29j2",
-                "name": "Group",
-                "title": "Fetch Instance and Action Details Triggered from the Rule",
-                "type": "logic.group",
-                "base_type": "activity",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "Fetch Instance and Action Details Triggered from the Rule",
-                  "skip_execution": false
-                },
-                "object_type": "definition_activity",
-                "actions": [
-                  {
-                    "unique_name": "definition_activity_02G2C2T9KIEB70qXupOlRvpZrci2sYadsAM",
-                    "name": "Calculate Date",
-                    "title": "Construct Date to Fetch Instance Triggered by Incident Rule",
-                    "type": "core.calculate_date",
-                    "base_type": "activity",
-                    "properties": {
-                      "adjustment": -86400,
                       "continue_on_failure": false,
-                      "display_name": "Construct Date to Fetch Instance Triggered by Incident Rule",
-                      "original_date": "$activity.definition_activity_02G2BQQOO62UD3dRPs7tG5XKWn9nfAHv3t5.output.start_time$",
-                      "skip_execution": false
+                      "display_name": "For Each (Execution for Score Less than 500)",
+                      "skip_execution": false,
+                      "source_array": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.local.variable_workflow_02G2G92PS9NSQ3Ar1zJIJVeQpGU7Z1IlNBc$"
                     },
-                    "object_type": "definition_activity"
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02G2AIO0JC8HZ3OEIvwdpxDfdoji4nvOZ0M",
+                        "name": "SX- Incident Creation",
+                        "title": "SX- Incident Creation",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "SX- Incident Creation",
+                          "input": {
+                            "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT": "$activity.definition_activity_02G2G9CHB89H64Tbxg2vtUCxAoevEh15tX5.input.source_array[@].Payload$",
+                            "variable_workflow_02EDD9GCRBAX574rDgRmdygEP3enq7dzk6J": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "execute_on_this_target": true,
+                            "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$",
+                            "target_type": "web-service.endpoint"
+                          },
+                          "workflow_id": "definition_workflow_025XVBQ491IWE6dWB2g8NyL8Hu49gmEmV9o",
+                          "workflow_name": "SX- Incident Creation"
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02G2AOZ15INM86fTOy86uyrOEwNtosKKy7e",
+                        "name": "Sleep",
+                        "title": "Sleep for 30s",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep for 30s",
+                          "skip_execution": false,
+                          "sleep_interval": 30
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02G2AQRRNQ4JQ4InrC5FaJ1OrZHdYd7VH3D",
+                        "name": "Group",
+                        "title": "Fetch Instance and Action Details Triggered from the Rule",
+                        "type": "logic.group",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Fetch Instance and Action Details Triggered from the Rule",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02G2AQRRNT47K3i13QucLECQ6KZVcGmc1PX",
+                            "name": "Calculate Date",
+                            "title": "Construct Date to Fetch Instance Triggered by Incident Rule",
+                            "type": "core.calculate_date",
+                            "base_type": "activity",
+                            "properties": {
+                              "adjustment": -86400,
+                              "continue_on_failure": false,
+                              "display_name": "Construct Date to Fetch Instance Triggered by Incident Rule",
+                              "original_date": "$activity.definition_activity_02G2AIO0JC8HZ3OEIvwdpxDfdoji4nvOZ0M.output.start_time$",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2AQRRNYW2F58Sgvv3Gpp4jbdZeVx29Pg",
+                            "name": "HTTP Request",
+                            "title": "Get Workflow Instance Using WF_Id",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "allow_headers_redirect": false,
+                              "body": "{\n  \"owner\": [],\n  \"workflow_ids\": [\n    \"$activity.definition_activity_02G1PAUT5X7Q777HovigiIzERfclkFZeVxt.output.variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo$\"\n  ]\n}",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "Authorization",
+                                  "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
+                                }
+                              ],
+                              "display_name": "Get Workflow Instance Using WF_Id",
+                              "method": "POST",
+                              "relative_url": "/api/v1.1/instances?limit=100\u0026start=0\u0026date_from=$activity.definition_activity_02G2AQRRNT47K3i13QucLECQ6KZVcGmc1PX.output.result$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2AQRRO08BK167XX2zK374WTqvqNm7PR2",
+                            "name": "JSONPath Query",
+                            "title": "Fetch Instances ID",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Fetch Instances ID",
+                              "input_json": "$activity.definition_activity_02G2AQRRNYW2F58Sgvv3Gpp4jbdZeVx29Pg.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$.results[?(@.started_by=='$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$')].id",
+                                  "jsonpath_query_name": "instances_ID",
+                                  "jsonpath_query_type": "string",
+                                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2AQRRO2T0L4pN6rriYwbRPXQxiWwP4kA",
+                            "name": "HTTP Request",
+                            "title": "Get by Instance ID to Fetch Action Details",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "allow_headers_redirect": false,
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "Authorization",
+                                  "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
+                                }
+                              ],
+                              "display_name": "Get by Instance ID to Fetch Action Details",
+                              "method": "GET",
+                              "relative_url": "/api/v1/instances/$activity.definition_activity_02G2AQRRO08BK167XX2zK374WTqvqNm7PR2.output.jsonpath_queries.instances_ID$?detailed=true",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2AQRRO4QNW2b3uDrVPHVr2RgVeZbB7QU",
+                            "name": "JSONPath Query",
+                            "title": "Fetch Started By from Instance Response",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Fetch Started By from Instance Response",
+                              "input_json": "$activity.definition_activity_02G2AQRRO2T0L4pN6rriYwbRPXQxiWwP4kA.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$.started_by",
+                                  "jsonpath_query_name": "WF_startedBy",
+                                  "jsonpath_query_type": "string",
+                                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2BJVLK0B9Q7IKd7dfdNHggD4zKbaXUBG",
+                            "name": "HTTP Request",
+                            "title": "Delete Instance",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "allow_headers_redirect": false,
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "Authorization",
+                                  "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
+                                }
+                              ],
+                              "display_name": "Delete Instance",
+                              "method": "DELETE",
+                              "relative_url": "/api/v1/instances/$activity.definition_activity_02G2AQRRO08BK167XX2zK374WTqvqNm7PR2.output.jsonpath_queries.instances_ID$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_02G2GS580VNWV2fYekTODbMj2F8d51v726B",
+                        "name": "Condition Block",
+                        "title": "Verify For Each Block -- Less that 500 Cases",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "conditions": [],
+                          "continue_on_failure": false,
+                          "display_name": "Verify For Each Block -- Less that 500 Cases",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_02G2GS5896DTX1NMlypMSqQOQAVlj1ugVMK",
+                            "name": "Condition Branch",
+                            "title": "Pass Case and Update Results to a Table",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": "$activity.definition_activity_02G2AIO0JC8HZ3OEIvwdpxDfdoji4nvOZ0M.output.variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt$",
+                                        "operator": "eq",
+                                        "right_operand": "true"
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02G2AQRRNYW2F58Sgvv3Gpp4jbdZeVx29Pg.output.error.code$",
+                                        "operator": "eq",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02G2AQRRO2T0L4pN6rriYwbRPXQxiWwP4kA.output.error.code$",
+                                      "operator": "eq",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02G2AQRRO4QNW2b3uDrVPHVr2RgVeZbB7QU.output.jsonpath_queries.WF_startedBy$",
+                                    "operator": "eq",
+                                    "right_operand": "$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02G2BJVLK0B9Q7IKd7dfdNHggD4zKbaXUBG.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "200"
+                                }
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Pass Case and Update Results to a Table",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_02G2GSOQSX7ZJ3qlEal5mWLgL9gkkD7qKZH",
+                                "name": "Add Row to Table",
+                                "title": "Update Table Results as Pass",
+                                "type": "core.addrowtotable",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "Update Table Results as Pass",
+                                  "input_table": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G2GRL4FQQXO1qeIG4noAXqLUOgSZT0ck9$",
+                                  "row": [
+                                    {
+                                      "key": "TestResults",
+                                      "type": "string",
+                                      "value": "Pass"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2GVMKRG7XK21q0dL2KQZ5uKYZEXy0FD6",
+                            "name": "Condition Branch",
+                            "title": "Fail Case and Update Results to a Table",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": "$activity.definition_activity_02G2AIO0JC8HZ3OEIvwdpxDfdoji4nvOZ0M.output.variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt$",
+                                        "operator": "ne",
+                                        "right_operand": "true"
+                                      },
+                                      "operator": "or",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02G2AQRRNYW2F58Sgvv3Gpp4jbdZeVx29Pg.output.error.code$",
+                                        "operator": "ne",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "or",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02G2AQRRO2T0L4pN6rriYwbRPXQxiWwP4kA.output.error.code$",
+                                      "operator": "ne",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "or",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02G2AQRRO4QNW2b3uDrVPHVr2RgVeZbB7QU.output.jsonpath_queries.WF_startedBy$",
+                                    "operator": "ne",
+                                    "right_operand": "$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$"
+                                  }
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02G2BJVLK0B9Q7IKd7dfdNHggD4zKbaXUBG.output.error.code$",
+                                  "operator": "ne",
+                                  "right_operand": "200"
+                                }
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "Fail Case and Update Results to a Table",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_02G2GVMKRGYXH6WDNOU40BiiDmE6HlX9wI0",
+                                "name": "Add Row to Table",
+                                "title": "Update Table Results as Fail",
+                                "type": "core.addrowtotable",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "Update Table Results as Fail",
+                                  "input_table": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G2GRL4FQQXO1qeIG4noAXqLUOgSZT0ck9$",
+                                  "row": [
+                                    {
+                                      "key": "TestResults",
+                                      "type": "string",
+                                      "value": "Fail"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
                   },
                   {
-                    "unique_name": "definition_activity_02G2C2T9KM3CW1fbVTQd5oe2z41VXqgNJkD",
+                    "unique_name": "definition_activity_02G2C8CAOKXOW0TvCWDmvzS0S6zDdlLyIA7",
                     "name": "HTTP Request",
-                    "title": "Get Workflow Instance Using WF_Id",
+                    "title": "Update Rule with Score Greater than 500",
                     "type": "web-service.http_request",
                     "base_type": "activity",
                     "properties": {
                       "action_timeout": 180,
                       "allow_auto_redirect": true,
                       "allow_headers_redirect": false,
-                      "body": "{\n  \"owner\": [],\n  \"workflow_ids\": [\n    \"$activity.definition_activity_02G1PAUT5X7Q777HovigiIzERfclkFZeVxt.output.variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo$\"\n  ]\n}",
+                      "body": "{\n  \"description\": \"Updated Rule with Score having more than 500\",\n  \"title\": \"$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n  \"name\": \"$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n  \"rule_type\": \"rule_event\",\n  \"properties\": {\n    \"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": \"$output.incident.title$\",\n                  \"operator\": \"mw\",\n                  \"right_operand\": \"*timerange-st*\"\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.event_received_time$\",\n                  \"operator\": \"dr\",\n                  \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n                },\n                \"operator\": \"and\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.incident.scores.global$\",\n                \"operator\": \"gte\",\n                \"right_operand\": \"500\"\n              },\n              \"operator\": \"and\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.firstEventDate$\",\n              \"operator\": \"ndr\",\n              \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n            },\n            \"operator\": \"and\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.lastEventDate$\",\n            \"operator\": \"ndr\",\n            \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n          },\n          \"operator\": \"and\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.incident.timestamp$\",\n          \"operator\": \"dr\",\n          \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n        },\n        \"operator\": \"and\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.incident_time.opened$\",\n        \"operator\": \"dr\",\n        \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n      },\n      \"operator\": \"and\"\n    },\n    \"disabled\": false,\n    \"display_name\": \"$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n    \"group_by\": false,\n    \"rule_type\": \"rule_event\",\n    \"title\": \"$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n    \"workflows_config\": [\n      {\n        \"disabled\": false,\n        \"ref_id\": \"$activity.definition_activity_02G1PAUT5X7Q777HovigiIzERfclkFZeVxt.output.variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo$\"\n      }\n    ]\n  },\n  \"id\": \"$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$\"\n}",
                       "continue_on_error_status_code": false,
                       "continue_on_failure": true,
                       "custom_headers": [
@@ -1317,9 +1536,9 @@
                           "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
                         }
                       ],
-                      "display_name": "Get Workflow Instance Using WF_Id",
-                      "method": "POST",
-                      "relative_url": "/api/v1.1/instances?limit=100\u0026start=0\u0026date_from=$activity.definition_activity_02G2C2T9KIEB70qXupOlRvpZrci2sYadsAM.output.result$",
+                      "display_name": "Update Rule with Score Greater than 500",
+                      "method": "PUT",
+                      "relative_url": "/api/v1/rules/$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$",
                       "runtime_user": {
                         "target_default": true
                       },
@@ -1331,369 +1550,528 @@
                     "object_type": "definition_activity"
                   },
                   {
-                    "unique_name": "definition_activity_02G2C2T9KMRM254ujeze7sCLWxyyY7QdEdJ",
-                    "name": "JSONPath Query",
-                    "title": "Fetch Instances ID",
-                    "type": "corejava.jsonpathquery",
+                    "unique_name": "definition_activity_02G2GJQOSMHAR5Zd0JIDAZqYTtLdN9xYnHH",
+                    "name": "Sleep",
+                    "title": "Sleep for 10s",
+                    "type": "core.sleep",
                     "base_type": "activity",
                     "properties": {
-                      "action_timeout": 180,
-                      "continue_on_failure": true,
-                      "display_name": "Fetch Instances ID",
-                      "input_json": "$activity.definition_activity_02G2C2T9KM3CW1fbVTQd5oe2z41VXqgNJkD.output.response_body$",
-                      "jsonpath_queries": [
-                        {
-                          "jsonpath_query": "$.results[?(@.started_by=='$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$')].id",
-                          "jsonpath_query_name": "instances_ID",
-                          "jsonpath_query_type": "string",
-                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                        }
-                      ],
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_02G2C2T9KPQX06Zgyl1nMVZ9rXyAhP9Cl1f",
-                    "name": "HTTP Request",
-                    "title": "Get by Instance ID to Fetch Action Details",
-                    "type": "web-service.http_request",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "allow_auto_redirect": true,
-                      "allow_headers_redirect": false,
-                      "continue_on_error_status_code": false,
-                      "continue_on_failure": true,
-                      "custom_headers": [
-                        {
-                          "name": "Authorization",
-                          "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
-                        }
-                      ],
-                      "display_name": "Get by Instance ID to Fetch Action Details",
-                      "method": "GET",
-                      "relative_url": "/api/v1/instances/$activity.definition_activity_02G2C2T9KMRM254ujeze7sCLWxyyY7QdEdJ.output.jsonpath_queries.instances_ID$?detailed=true",
-                      "runtime_user": {
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "use_workflow_target": true
-                      }
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_02G2C2T9KQXUU6ctHKkr8zegN5KE0aTDe9m",
-                    "name": "JSONPath Query",
-                    "title": "Fetch Started By from Instance Response",
-                    "type": "corejava.jsonpathquery",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "continue_on_failure": true,
-                      "display_name": "Fetch Started By from Instance Response",
-                      "input_json": "$activity.definition_activity_02G2C2T9KPQX06Zgyl1nMVZ9rXyAhP9Cl1f.output.response_body$",
-                      "jsonpath_queries": [
-                        {
-                          "jsonpath_query": "$.started_by",
-                          "jsonpath_query_name": "WF_startedBy",
-                          "jsonpath_query_type": "string",
-                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                        }
-                      ],
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_02G2C2T9KSQA23bTO3PgedaivgylyJcsxsY",
-                    "name": "HTTP Request",
-                    "title": "Delete Instance",
-                    "type": "web-service.http_request",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "allow_auto_redirect": true,
-                      "allow_headers_redirect": false,
-                      "continue_on_error_status_code": false,
-                      "continue_on_failure": true,
-                      "custom_headers": [
-                        {
-                          "name": "Authorization",
-                          "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
-                        }
-                      ],
-                      "display_name": "Delete Instance",
-                      "method": "DELETE",
-                      "relative_url": "/api/v1/instances/$activity.definition_activity_02G2C2T9KMRM254ujeze7sCLWxyyY7QdEdJ.output.jsonpath_queries.instances_ID$",
-                      "runtime_user": {
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "use_workflow_target": true
-                      }
-                    },
-                    "object_type": "definition_activity"
-                  }
-                ]
-              },
-              {
-                "unique_name": "definition_activity_02G2C8CAOKXOW0TvCWDmvzS0S6zDdlLyIA7",
-                "name": "HTTP Request",
-                "title": "Update Rule with Score Greater than 500",
-                "type": "web-service.http_request",
-                "base_type": "activity",
-                "properties": {
-                  "action_timeout": 180,
-                  "allow_auto_redirect": true,
-                  "allow_headers_redirect": false,
-                  "body": "{\n  \"description\": \"Updated Rule with Score having more than 500\",\n  \"title\": \"$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n  \"name\": \"$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n  \"rule_type\": \"rule_event\",\n  \"properties\": {\n    \"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": \"$output.incident.title$\",\n                  \"operator\": \"mw\",\n                  \"right_operand\": \"*timerange-st*\"\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.event_received_time$\",\n                  \"operator\": \"dr\",\n                  \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n                },\n                \"operator\": \"and\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.incident.scores.global$\",\n                \"operator\": \"gte\",\n                \"right_operand\": \"500\"\n              },\n              \"operator\": \"and\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.firstEventDate$\",\n              \"operator\": \"ndr\",\n              \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n            },\n            \"operator\": \"and\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.lastEventDate$\",\n            \"operator\": \"ndr\",\n            \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n          },\n          \"operator\": \"and\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.incident.timestamp$\",\n          \"operator\": \"dr\",\n          \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n        },\n        \"operator\": \"and\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.incident_time.opened$\",\n        \"operator\": \"dr\",\n        \"right_operand\": \"$activity.definition_activity_02G1P57BZD6Y71egbNWAZdKwTgJJrvTC0PV.output.variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt$\"\n      },\n      \"operator\": \"and\"\n    },\n    \"disabled\": false,\n    \"display_name\": \"$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n    \"group_by\": false,\n    \"rule_type\": \"rule_event\",\n    \"title\": \"$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPY3J7N87V0Um28EpVEQYd7vQzDaaqJW$\",\n    \"workflows_config\": [\n      {\n        \"disabled\": false,\n        \"ref_id\": \"$activity.definition_activity_02G1PAUT5X7Q777HovigiIzERfclkFZeVxt.output.variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo$\"\n      }\n    ]\n  },\n  \"id\": \"$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$\"\n}",
-                  "continue_on_error_status_code": false,
-                  "continue_on_failure": true,
-                  "custom_headers": [
-                    {
-                      "name": "Authorization",
-                      "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
-                    }
-                  ],
-                  "display_name": "Update Rule with Score Greater than 500",
-                  "method": "PUT",
-                  "relative_url": "/api/v1/rules/$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$",
-                  "runtime_user": {
-                    "target_default": true
-                  },
-                  "skip_execution": false,
-                  "target": {
-                    "use_workflow_target": true
-                  }
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_02G2CCIAQOFUE4oq4OROSCVjbNgVk1TNG2b",
-                "name": "Sleep",
-                "title": "Sleep for 5s",
-                "type": "core.sleep",
-                "base_type": "activity",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "Sleep for 5s",
-                  "skip_execution": false,
-                  "sleep_interval": 5
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_02G2CCERQSO4Y2TBoaL5oXtwixh8RQRE9KD",
-                "name": "SX- Incident Creation (Score having 1000)",
-                "title": "SX- Incident Creation (Score having 1000)",
-                "type": "workflow.sub_workflow",
-                "base_type": "subworkflow",
-                "properties": {
-                  "continue_on_failure": true,
-                  "display_name": "SX- Incident Creation (Score having 1000)",
-                  "input": {
-                    "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-$ID\",\n              \"title\": \"SG-PR-timerange-st-Automation Rule Testing - IncidentWF_$ID\",\n              \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"Critical\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Command and Control activities detected by DNS protection.\",\n        \"title\": \"Command and Control DNS activities\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1071\"\n            ],\n            \"short_description\": \"Application Layer Protocol\",\n            \"title\": \"Application Layer Protocol\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1071\",\n                    \"external_id\": \"T1071\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1071\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"command-and-control\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"command-and-control\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1071\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1071\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }\n",
-                    "variable_workflow_02EDD9GCRBAX574rDgRmdygEP3enq7dzk6J": ""
-                  },
-                  "runtime_user": {
-                    "target_default": true
-                  },
-                  "skip_execution": false,
-                  "target": {
-                    "execute_on_this_target": true,
-                    "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$",
-                    "target_type": "web-service.endpoint"
-                  },
-                  "workflow_id": "definition_workflow_025XVBQ491IWE6dWB2g8NyL8Hu49gmEmV9o",
-                  "workflow_name": "SX- Incident Creation"
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_02G2CDD2UVRC52qinVfpIXcH3vuSANxNtcN",
-                "name": "Sleep",
-                "title": "Sleep for 30s",
-                "type": "core.sleep",
-                "base_type": "activity",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "Sleep for 30s",
-                  "skip_execution": false,
-                  "sleep_interval": 30
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_02G2CD53586GW5Ku2dyOfV0KCelEu0O197e",
-                "name": "Group",
-                "title": "Fetch Instance and Action Details Triggered from the Rule",
-                "type": "logic.group",
-                "base_type": "activity",
-                "properties": {
-                  "continue_on_failure": false,
-                  "display_name": "Fetch Instance and Action Details Triggered from the Rule",
-                  "skip_execution": false
-                },
-                "object_type": "definition_activity",
-                "actions": [
-                  {
-                    "unique_name": "definition_activity_02G2CD535AJLU5mE3mvIvNl3Jp0Hd81E1LH",
-                    "name": "Calculate Date",
-                    "title": "Construct Date to Fetch Instance Triggered by Incident Rule",
-                    "type": "core.calculate_date",
-                    "base_type": "activity",
-                    "properties": {
-                      "adjustment": -86400,
                       "continue_on_failure": false,
-                      "display_name": "Construct Date to Fetch Instance Triggered by Incident Rule",
-                      "original_date": "$activity.definition_activity_02G2AIO0JC8HZ3OEIvwdpxDfdoji4nvOZ0M.output.start_time$",
-                      "skip_execution": false
+                      "display_name": "Sleep for 10s",
+                      "skip_execution": false,
+                      "sleep_interval": 10
                     },
                     "object_type": "definition_activity"
                   },
                   {
-                    "unique_name": "definition_activity_02G2CD535FP4I3wMn4q0kpsElHnIBLTYOfQ",
-                    "name": "HTTP Request",
-                    "title": "Get Workflow Instance Using WF_Id",
-                    "type": "web-service.http_request",
+                    "unique_name": "definition_activity_02G2GH49121OC0GYA4z6ODQMsZsQXXaNeYb",
+                    "name": "For Each",
+                    "title": "For Each (Execution for Score Greater than 500)",
+                    "type": "logic.for_each",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "For Each (Execution for Score Greater than 500)",
+                      "skip_execution": false,
+                      "source_array": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.local.variable_workflow_02G2GIJTZ0FG46IaI4eHYOZYtpdvdA5QRKE$"
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02G2GH4914FBQ3mYTMFxp90AGVitnLguybI",
+                        "name": "SX- Incident Creation",
+                        "title": "SX- Incident Creation",
+                        "type": "workflow.sub_workflow",
+                        "base_type": "subworkflow",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "SX- Incident Creation",
+                          "input": {
+                            "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT": "$activity.definition_activity_02G2GH49121OC0GYA4z6ODQMsZsQXXaNeYb.input.source_array[@].Payload$",
+                            "variable_workflow_02EDD9GCRBAX574rDgRmdygEP3enq7dzk6J": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
+                          },
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "execute_on_this_target": true,
+                            "target_id": "$module_target;Cisco XDR;securex:ao:iroh_api$",
+                            "target_type": "web-service.endpoint"
+                          },
+                          "workflow_id": "definition_workflow_025XVBQ491IWE6dWB2g8NyL8Hu49gmEmV9o",
+                          "workflow_name": "SX- Incident Creation"
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02G2GH4917WXQ4MHqYwiFc9CUYWMnxUiV7J",
+                        "name": "Sleep",
+                        "title": "Sleep for 30s",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep for 30s",
+                          "skip_execution": false,
+                          "sleep_interval": 30
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02G2GH4918EEA00mWG1lUNaE96LRsAbBkzJ",
+                        "name": "Group",
+                        "title": "Fetch Instance and Action Details Triggered from the Rule",
+                        "type": "logic.group",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Fetch Instance and Action Details Triggered from the Rule",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02G2GH491C5FQ7mrFomrxRvqgWbUNtTji03",
+                            "name": "Calculate Date",
+                            "title": "Construct Date to Fetch Instance Triggered by Incident Rule",
+                            "type": "core.calculate_date",
+                            "base_type": "activity",
+                            "properties": {
+                              "adjustment": -86400,
+                              "continue_on_failure": false,
+                              "display_name": "Construct Date to Fetch Instance Triggered by Incident Rule",
+                              "original_date": "$activity.definition_activity_02G2GH4914FBQ3mYTMFxp90AGVitnLguybI.output.start_time$",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2GH491D2JR2LLpWNFagQrxT84Ki9YKPZ",
+                            "name": "HTTP Request",
+                            "title": "Get Workflow Instance Using WF_Id",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "allow_headers_redirect": false,
+                              "body": "{\n  \"owner\": [],\n  \"workflow_ids\": [\n    \"$activity.definition_activity_02G1PAUT5X7Q777HovigiIzERfclkFZeVxt.output.variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo$\"\n  ]\n}",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "Authorization",
+                                  "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
+                                }
+                              ],
+                              "display_name": "Get Workflow Instance Using WF_Id",
+                              "method": "POST",
+                              "relative_url": "/api/v1.1/instances?limit=100\u0026start=0\u0026date_from=$activity.definition_activity_02G2GH491C5FQ7mrFomrxRvqgWbUNtTji03.output.result$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2GH491FL1T5oBAMKZYBtn97LEQkE4nQV",
+                            "name": "JSONPath Query",
+                            "title": "Fetch Instances ID",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Fetch Instances ID",
+                              "input_json": "$activity.definition_activity_02G2GH491D2JR2LLpWNFagQrxT84Ki9YKPZ.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$.results[?(@.started_by=='$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$')].id",
+                                  "jsonpath_query_name": "instances_ID",
+                                  "jsonpath_query_type": "string",
+                                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2GH491G9R90tqpAho8cXzRv5hRP0anzU",
+                            "name": "HTTP Request",
+                            "title": "Get by Instance ID to Fetch Action Details",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "allow_headers_redirect": false,
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "Authorization",
+                                  "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
+                                }
+                              ],
+                              "display_name": "Get by Instance ID to Fetch Action Details",
+                              "method": "GET",
+                              "relative_url": "/api/v1/instances/$activity.definition_activity_02G2GH491FL1T5oBAMKZYBtn97LEQkE4nQV.output.jsonpath_queries.instances_ID$?detailed=true",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2GH491HFXQ5mLD2sFaVnsFlARYCVy0Yd",
+                            "name": "JSONPath Query",
+                            "title": "Fetch Started By from Instance Response",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Fetch Started By from Instance Response",
+                              "input_json": "$activity.definition_activity_02G2GH491G9R90tqpAho8cXzRv5hRP0anzU.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$.started_by",
+                                  "jsonpath_query_name": "WF_startedBy",
+                                  "jsonpath_query_type": "string",
+                                  "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2GH491JTZN3qd4DC1Xrgz5Ed48KKKjXD",
+                            "name": "HTTP Request",
+                            "title": "Delete Instance",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "allow_headers_redirect": false,
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "Authorization",
+                                  "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
+                                }
+                              ],
+                              "display_name": "Delete Instance",
+                              "method": "DELETE",
+                              "relative_url": "/api/v1/instances/$activity.definition_activity_02G2GH491FL1T5oBAMKZYBtn97LEQkE4nQV.output.jsonpath_queries.instances_ID$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_02G2GXN9UO1BM0JkxkNRdn6i3Sqf0Gh8jQG",
+                        "name": "Condition Block",
+                        "title": "Verify For Each Block -- Greter Than 500 Case",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "conditions": [],
+                          "continue_on_failure": false,
+                          "display_name": "Verify For Each Block -- Greter Than 500 Case",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_02G2GXNA3NRRB2tEjTuWGjeHmrMBubBU4gH",
+                            "name": "Condition Branch",
+                            "title": "PassCase",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": "$activity.definition_activity_02G2GH4914FBQ3mYTMFxp90AGVitnLguybI.output.variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt$",
+                                        "operator": "eq",
+                                        "right_operand": "true"
+                                      },
+                                      "operator": "and",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02G2GH491D2JR2LLpWNFagQrxT84Ki9YKPZ.output.error.code$",
+                                        "operator": "eq",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "and",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02G2GH491G9R90tqpAho8cXzRv5hRP0anzU.output.error.code$",
+                                      "operator": "eq",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02G2GH491HFXQ5mLD2sFaVnsFlARYCVy0Yd.output.jsonpath_queries.WF_startedBy$",
+                                    "operator": "eq",
+                                    "right_operand": "$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$"
+                                  }
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02G2GH491JTZN3qd4DC1Xrgz5Ed48KKKjXD.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "200"
+                                }
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "PassCase",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_02G2GZZ9OZKHZ09wI3FCT2XivfcS6cQRsfR",
+                                "name": "Add Row to Table",
+                                "title": "Update Table Results as Pass",
+                                "type": "core.addrowtotable",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "Update Table Results as Pass",
+                                  "input_table": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G2GRSKXLGZ53RA5tgtyegBnbuYE5yi5nT$",
+                                  "row": [
+                                    {
+                                      "key": "TestResults",
+                                      "type": "string",
+                                      "value": "Pass"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          },
+                          {
+                            "unique_name": "definition_activity_02G2H1XYCTPE30HbSiSxVCupa8P8VrsKM7I",
+                            "name": "Condition Branch",
+                            "title": "FailCase",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": {
+                                  "left_operand": {
+                                    "left_operand": {
+                                      "left_operand": {
+                                        "left_operand": "$activity.definition_activity_02G2GH4914FBQ3mYTMFxp90AGVitnLguybI.output.variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt$",
+                                        "operator": "ne",
+                                        "right_operand": "true"
+                                      },
+                                      "operator": "or",
+                                      "right_operand": {
+                                        "left_operand": "$activity.definition_activity_02G2GH491D2JR2LLpWNFagQrxT84Ki9YKPZ.output.error.code$",
+                                        "operator": "ne",
+                                        "right_operand": "200"
+                                      }
+                                    },
+                                    "operator": "or",
+                                    "right_operand": {
+                                      "left_operand": "$activity.definition_activity_02G2GH491G9R90tqpAho8cXzRv5hRP0anzU.output.error.code$",
+                                      "operator": "ne",
+                                      "right_operand": "200"
+                                    }
+                                  },
+                                  "operator": "or",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02G2GH491HFXQ5mLD2sFaVnsFlARYCVy0Yd.output.jsonpath_queries.WF_startedBy$",
+                                    "operator": "ne",
+                                    "right_operand": "$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$"
+                                  }
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02G2GH491JTZN3qd4DC1Xrgz5Ed48KKKjXD.output.error.code$",
+                                  "operator": "ne",
+                                  "right_operand": "200"
+                                }
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "FailCase",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_02G2H1XYCUEPQ3ZsJJgCxVBwSvyeOMelw7A",
+                                "name": "Add Row to Table",
+                                "title": "Update Table Results as Pass",
+                                "type": "core.addrowtotable",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": false,
+                                  "display_name": "Update Table Results as Pass",
+                                  "input_table": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G2GRSKXLGZ53RA5tgtyegBnbuYE5yi5nT$",
+                                  "row": [
+                                    {
+                                      "key": "TestResults",
+                                      "type": "string",
+                                      "value": "Fail"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_02G2H3C80CKEO4pLP3An2ahRPmDSciQV65s",
+                    "name": "Select from Table",
+                    "title": "Select from Table (Less than 500 Test Results)",
+                    "type": "core.selectfromtable",
                     "base_type": "activity",
                     "properties": {
                       "action_timeout": 180,
-                      "allow_auto_redirect": true,
-                      "allow_headers_redirect": false,
-                      "body": "{\n  \"owner\": [],\n  \"workflow_ids\": [\n    \"$activity.definition_activity_02G1PAUT5X7Q777HovigiIzERfclkFZeVxt.output.variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo$\"\n  ]\n}",
-                      "continue_on_error_status_code": false,
-                      "continue_on_failure": true,
-                      "custom_headers": [
+                      "columns": [
                         {
-                          "name": "Authorization",
-                          "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
+                          "column_name": "TestResults",
+                          "column_type": "string"
                         }
                       ],
-                      "display_name": "Get Workflow Instance Using WF_Id",
-                      "method": "POST",
-                      "relative_url": "/api/v1.1/instances?limit=100\u0026start=0\u0026date_from=$activity.definition_activity_02G2CD535AJLU5mE3mvIvNl3Jp0Hd81E1LH.output.result$",
-                      "runtime_user": {
-                        "target_default": true
+                      "continue_on_failure": true,
+                      "display_name": "Select from Table (Less than 500 Test Results)",
+                      "input_table": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G2GRL4FQQXO1qeIG4noAXqLUOgSZT0ck9$",
+                      "number_of_rows": {
+                        "all_rows": true
                       },
+                      "persist_output": false,
                       "skip_execution": false,
-                      "target": {
-                        "use_workflow_target": true
+                      "sorting": {
+                        "no_sort": true
                       }
                     },
                     "object_type": "definition_activity"
                   },
                   {
-                    "unique_name": "definition_activity_02G2CD535GYBK3hPR9qN6d5bMfzfKaYKZPz",
-                    "name": "JSONPath Query",
-                    "title": "Fetch Instances ID",
-                    "type": "corejava.jsonpathquery",
+                    "unique_name": "definition_activity_02G2H3ITE34X44hiOLtOrzPd74RPCffeGh9",
+                    "name": "Select from Table",
+                    "title": "Select from Table (Greater than 500 Test Results)",
+                    "type": "core.selectfromtable",
                     "base_type": "activity",
                     "properties": {
                       "action_timeout": 180,
-                      "continue_on_failure": true,
-                      "display_name": "Fetch Instances ID",
-                      "input_json": "$activity.definition_activity_02G2CD535FP4I3wMn4q0kpsElHnIBLTYOfQ.output.response_body$",
-                      "jsonpath_queries": [
+                      "columns": [
                         {
-                          "jsonpath_query": "$.results[?(@.started_by=='$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$')].id",
-                          "jsonpath_query_name": "instances_ID",
-                          "jsonpath_query_type": "string",
-                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                          "column_name": "TestResults",
+                          "column_type": "string"
                         }
                       ],
-                      "skip_execution": false
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_02G2CD535IWY16gW3Jfx6FkVntILjgtYwJu",
-                    "name": "HTTP Request",
-                    "title": "Get by Instance ID to Fetch Action Details",
-                    "type": "web-service.http_request",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "allow_auto_redirect": true,
-                      "allow_headers_redirect": false,
-                      "continue_on_error_status_code": false,
                       "continue_on_failure": true,
-                      "custom_headers": [
-                        {
-                          "name": "Authorization",
-                          "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
-                        }
-                      ],
-                      "display_name": "Get by Instance ID to Fetch Action Details",
-                      "method": "GET",
-                      "relative_url": "/api/v1/instances/$activity.definition_activity_02G2CD535GYBK3hPR9qN6d5bMfzfKaYKZPz.output.jsonpath_queries.instances_ID$?detailed=true",
-                      "runtime_user": {
-                        "target_default": true
+                      "display_name": "Select from Table (Greater than 500 Test Results)",
+                      "input_table": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G2GRSKXLGZ53RA5tgtyegBnbuYE5yi5nT$",
+                      "number_of_rows": {
+                        "all_rows": true
                       },
+                      "persist_output": false,
                       "skip_execution": false,
-                      "target": {
-                        "use_workflow_target": true
+                      "sorting": {
+                        "no_sort": true
                       }
                     },
                     "object_type": "definition_activity"
                   },
                   {
-                    "unique_name": "definition_activity_02G2CD535M9TT6RvkqMHakD7FRpca9gEz2d",
-                    "name": "JSONPath Query",
-                    "title": "Fetch Started By from Instance Response",
-                    "type": "corejava.jsonpathquery",
+                    "unique_name": "definition_activity_02G2H6OJEU9JK4xhpzVAqhrDGzIw3q6KpOe",
+                    "name": "Condition Block",
+                    "title": "Enter Block if Fail in Table and mark as Fail",
+                    "type": "logic.if_else",
                     "base_type": "activity",
                     "properties": {
-                      "action_timeout": 180,
-                      "continue_on_failure": true,
-                      "display_name": "Fetch Started By from Instance Response",
-                      "input_json": "$activity.definition_activity_02G2CD535IWY16gW3Jfx6FkVntILjgtYwJu.output.response_body$",
-                      "jsonpath_queries": [
-                        {
-                          "jsonpath_query": "$.started_by",
-                          "jsonpath_query_name": "WF_startedBy",
-                          "jsonpath_query_type": "string",
-                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
-                        }
-                      ],
+                      "conditions": [],
+                      "continue_on_failure": false,
+                      "display_name": "Enter Block if Fail in Table and mark as Fail",
                       "skip_execution": false
                     },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_02G2CD535NGWA2F0yJDJ5wGT8CinvQrvtv7",
-                    "name": "HTTP Request",
-                    "title": "Delete Instance",
-                    "type": "web-service.http_request",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "allow_auto_redirect": true,
-                      "allow_headers_redirect": false,
-                      "continue_on_error_status_code": false,
-                      "continue_on_failure": true,
-                      "custom_headers": [
-                        {
-                          "name": "Authorization",
-                          "value": "Bearer $workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.input.variable_workflow_02G1P338N46ZR1hjA1TJ5xnXUEFkflJZnWP$"
-                        }
-                      ],
-                      "display_name": "Delete Instance",
-                      "method": "DELETE",
-                      "relative_url": "/api/v1/instances/$activity.definition_activity_02G2CD535GYBK3hPR9qN6d5bMfzfKaYKZPz.output.jsonpath_queries.instances_ID$",
-                      "runtime_user": {
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "use_workflow_target": true
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02G2H6OJMLV0W2EhbS1gre2tRSVTUGC67rO",
+                        "name": "Condition Branch",
+                        "title": "FailCase",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02G2H3C80CKEO4pLP3An2ahRPmDSciQV65s.output.response_body$",
+                              "operator": "mregex",
+                              "right_operand": ".*Fail"
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02G2H3ITE34X44hiOLtOrzPd74RPCffeGh9.output.response_body$",
+                              "operator": "mregex",
+                              "right_operand": ".*Fail"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "FailCase",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02G2H8QMY95PW3ALkIaGDaNFcKaBAFwV9by",
+                            "name": "Set Variables",
+                            "title": "Failed in Table",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Failed in Table",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G2H538CZFHY7GL6AyUFelp9jbPvqhe9fl$",
+                                  "variable_value_new": "Fail"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
                       }
-                    },
-                    "object_type": "definition_activity"
+                    ]
                   }
                 ]
               },
@@ -1753,45 +2131,29 @@
                         "left_operand": {
                           "left_operand": {
                             "left_operand": {
-                              "left_operand": {
-                                "left_operand": {
-                                  "left_operand": "$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPV5U2E0AP2iC7VW29dyXnt1pH5TTUYm$",
-                                  "operator": "eq",
-                                  "right_operand": "true"
-                                },
-                                "operator": "and",
-                                "right_operand": {
-                                  "left_operand": "$activity.definition_activity_02G2AIO0JC8HZ3OEIvwdpxDfdoji4nvOZ0M.output.variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt$",
-                                  "operator": "eq",
-                                  "right_operand": "true"
-                                }
-                              },
-                              "operator": "and",
-                              "right_operand": {
-                                "left_operand": "$activity.definition_activity_02G2AQRRNYW2F58Sgvv3Gpp4jbdZeVx29Pg.output.error.code$",
-                                "operator": "eq",
-                                "right_operand": "200"
-                              }
+                              "left_operand": "$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPV5U2E0AP2iC7VW29dyXnt1pH5TTUYm$",
+                              "operator": "eq",
+                              "right_operand": "true"
                             },
                             "operator": "and",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_02G2AQRRO2T0L4pN6rriYwbRPXQxiWwP4kA.output.error.code$",
+                              "left_operand": "$activity.definition_activity_02G2C8CAOKXOW0TvCWDmvzS0S6zDdlLyIA7.output.error.code$",
                               "operator": "eq",
                               "right_operand": "200"
                             }
                           },
                           "operator": "and",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_02G2AQRRO4QNW2b3uDrVPHVr2RgVeZbB7QU.output.jsonpath_queries.WF_startedBy$",
+                            "left_operand": "$activity.definition_activity_02G2FYY96Y4AI6lvsbZCQ0ppGPNC0NtXwSH.output.error.code$",
                             "operator": "eq",
-                            "right_operand": "$activity.definition_activity_02G2A7QH322KY39KTZ4OyOZ7TOqk7aIJHFI.output.variable_workflow_027MPXU910JZU3Qf8DD47CpW5iirIAtYRT0$"
+                            "right_operand": "200"
                           }
                         },
                         "operator": "and",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_02G2BJVLK0B9Q7IKd7dfdNHggD4zKbaXUBG.output.error.code$",
+                          "left_operand": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G2H538CZFHY7GL6AyUFelp9jbPvqhe9fl$",
                           "operator": "eq",
-                          "right_operand": "200"
+                          "right_operand": "Pass"
                         }
                       },
                       "continue_on_failure": false,
@@ -1953,27 +2315,35 @@
                 "left_operand": {
                   "left_operand": {
                     "left_operand": {
-                      "left_operand": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G1T3GR3QF855Tnsw4Zu1Qu8lssAw7J7zO$",
-                      "operator": "eq",
-                      "right_operand": "Pass"
+                      "left_operand": {
+                        "left_operand": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G1T3GR3QF855Tnsw4Zu1Qu8lssAw7J7zO$",
+                        "operator": "eq",
+                        "right_operand": "Pass"
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_02G1SZAO47FRT1bEZrNWGRsKp4ZWpX3f7du.output.error.code$",
+                        "operator": "eq",
+                        "right_operand": "200"
+                      }
                     },
                     "operator": "and",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_02G1SZAO47FRT1bEZrNWGRsKp4ZWpX3f7du.output.error.code$",
+                      "left_operand": "$activity.definition_activity_02G1T1KHYKPCK3pFjML5ztyAazjGNRTJ1FL.output.error.code$",
                       "operator": "eq",
                       "right_operand": "200"
                     }
                   },
                   "operator": "and",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_02G1T1KHYKPCK3pFjML5ztyAazjGNRTJ1FL.output.error.code$",
+                    "left_operand": "$activity.definition_activity_02G1SY8WXW02508vKNNV0aJkvPYmCQSFSgE.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
                     "operator": "eq",
-                    "right_operand": "200"
+                    "right_operand": "Pass"
                   }
                 },
                 "operator": "and",
                 "right_operand": {
-                  "left_operand": "$activity.definition_activity_02G1SY8WXW02508vKNNV0aJkvPYmCQSFSgE.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
+                  "left_operand": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G2FYIIN1D4Z6Z47KKdTKUIPBgZY8RqcHE$",
                   "operator": "eq",
                   "right_operand": "Pass"
                 }
@@ -2016,29 +2386,37 @@
                 "left_operand": {
                   "left_operand": {
                     "left_operand": {
-                      "left_operand": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G1T3GR3QF855Tnsw4Zu1Qu8lssAw7J7zO$",
-                      "operator": "eq",
-                      "right_operand": "Fail"
+                      "left_operand": {
+                        "left_operand": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G1T3GR3QF855Tnsw4Zu1Qu8lssAw7J7zO$",
+                        "operator": "eq",
+                        "right_operand": "Fail"
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_02G1SZAO47FRT1bEZrNWGRsKp4ZWpX3f7du.output.error.code$",
+                        "operator": "ne",
+                        "right_operand": "200"
+                      }
                     },
                     "operator": "or",
                     "right_operand": {
-                      "left_operand": "$activity.definition_activity_02G1SZAO47FRT1bEZrNWGRsKp4ZWpX3f7du.output.error.code$",
+                      "left_operand": "$activity.definition_activity_02G1T1KHYKPCK3pFjML5ztyAazjGNRTJ1FL.output.error.code$",
                       "operator": "ne",
                       "right_operand": "200"
                     }
                   },
                   "operator": "or",
                   "right_operand": {
-                    "left_operand": "$activity.definition_activity_02G1T1KHYKPCK3pFjML5ztyAazjGNRTJ1FL.output.error.code$",
+                    "left_operand": "$activity.definition_activity_02G1SY8WXW02508vKNNV0aJkvPYmCQSFSgE.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
                     "operator": "ne",
-                    "right_operand": "200"
+                    "right_operand": "Pass"
                   }
                 },
                 "operator": "or",
                 "right_operand": {
-                  "left_operand": "$activity.definition_activity_02G1SY8WXW02508vKNNV0aJkvPYmCQSFSgE.output.variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5$",
-                  "operator": "ne",
-                  "right_operand": "Pass"
+                  "left_operand": "$workflow.definition_workflow_02G1P2EY4TUHF7EEvEYVvOoK5wM582iqiTb.output.variable_workflow_02G2FYIIN1D4Z6Z47KKdTKUIPBgZY8RqcHE$",
+                  "operator": "eq",
+                  "right_operand": "Fail"
                 }
               },
               "continue_on_failure": false,
@@ -2114,6 +2492,36 @@
       }
     }
   },
+  "table_types": {
+    "tabletype_02G2G8CEXU16W2WYy6lAJDZrZV2FaUD3WFE": {
+      "unique_name": "tabletype_02G2G8CEXU16W2WYy6lAJDZrZV2FaUD3WFE",
+      "data_type": "datatype.tabletype",
+      "display_name": "XDR-1252-LessThan500-Scores-Payload",
+      "columns": [
+        {
+          "name": "Payload",
+          "title": "Payload",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
+    "tabletype_02G2GR45SSM604Ni2mNxrikwqqEjjLCgMvj": {
+      "unique_name": "tabletype_02G2GR45SSM604Ni2mNxrikwqqEjjLCgMvj",
+      "data_type": "datatype.tabletype",
+      "display_name": "XDR-1252-Results",
+      "columns": [
+        {
+          "name": "TestResults",
+          "title": "TestResults",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  },
   "subworkflows": [
     {
       "workflow": {
@@ -2143,6 +2551,20 @@
             "properties": {
               "value": "",
               "scope": "output",
+              "name": "TimeRange_CalenderID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
               "name": "TimeRange_UniqueName",
               "type": "datatype.string",
               "is_required": false,
@@ -2150,21 +2572,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_02G1OKEKRTWO957mF1UeWTC6TL53AiLk9Ew",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "{\n          \"day\": \"sun\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"mon\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"tue\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"wed\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"thu\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"fri\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n       {\n          \"day\": \"sat\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        }",
-              "scope": "input",
-              "name": "Provide Recurring Repeats",
-              "type": "datatype.string",
-              "description": "Syntax should follow like below.  default value provided from sun to sat. User can go ahead  for all weeks from sun to sat with default values or can provide one day and time can be modified too. \n{\n          \"day\": \"sun\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"mon\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"tue\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"wed\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"thu\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"fri\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n       {\n          \"day\": \"sat\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        }",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02G1OAAZIUR5M3pzr3rR18I6NlZ4v137ioB",
             "object_type": "variable_workflow"
           },
           {
@@ -2185,20 +2592,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide token with Bearer",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02G1OUGLYO66Q696lImAmQ2YxngQYQmxwnd",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "Fail",
               "scope": "output",
               "name": "TestStatus For Creating TimeRangeCalender",
@@ -2213,15 +2606,30 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "TimeRange_CalenderID",
+              "value": "{\n          \"day\": \"sun\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"mon\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"tue\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"wed\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"thu\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"fri\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n       {\n          \"day\": \"sat\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        }",
+              "scope": "input",
+              "name": "Provide Recurring Repeats",
+              "type": "datatype.string",
+              "description": "Syntax should follow like below.  default value provided from sun to sat. User can go ahead  for all weeks from sun to sat with default values or can provide one day and time can be modified too. \n{\n          \"day\": \"sun\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"mon\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"tue\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"wed\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"thu\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"fri\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n       {\n          \"day\": \"sat\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        }",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02G1OAAZIUR5M3pzr3rR18I6NlZ4v137ioB",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide token with Bearer",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02G1OK9GBY9457kVw8HeSWqDxV3QIkRQQvt",
+            "unique_name": "variable_workflow_02G1OUGLYO66Q696lImAmQ2YxngQYQmxwnd",
             "object_type": "variable_workflow"
           }
         ],
@@ -2480,62 +2888,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Workflow Name",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02EW5715JOLOQ7VXda4Guag4ZmTxHbD7Ez4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Pass Value",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01TDNHLQDZK8X5TAv4TxB5f6P4cgUzYzxMg",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Token",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01TDNHLQE03O00CiG7txybBnguqEWZzoaGQ",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Generic WF- ",
-              "scope": "input",
-              "name": "Provide WF Name",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_01TDNKTV4E8ZL1grru2uqTjehv3g3ddlvOA",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "Authorization",
               "scope": "local",
               "name": "Authorization",
@@ -2566,6 +2918,34 @@
             "properties": {
               "value": "",
               "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TDNHLQDZVAG2pFLc7fFzzYBc3C4U9I5HB",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Generic WF- ",
+              "scope": "input",
+              "name": "Provide WF Name",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TDNKTV4E8ZL1grru2uqTjehv3g3ddlvOA",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
               "name": "Workflow ID",
               "type": "datatype.string",
               "is_required": false,
@@ -2580,13 +2960,41 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Pass or Fail",
+              "name": "Workflow Name",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_01TDNHLQDZVAG2pFLc7fFzzYBc3C4U9I5HB",
+            "unique_name": "variable_workflow_02EW5715JOLOQ7VXda4Guag4ZmTxHbD7Ez4",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Token",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TDNHLQE03O00CiG7txybBnguqEWZzoaGQ",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass Value",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01TDNHLQDZK8X5TAv4TxB5f6P4cgUzYzxMg",
             "object_type": "variable_workflow"
           }
         ],
@@ -2872,6 +3280,34 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
+              "scope": "input",
+              "name": "Authorization",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_026FLZ6Q5QS1G4bxG1Ay1FJh38kqQh72KuQ",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide Token to execute the workflow",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_026FLZU96KM3V22R5grfdr50Ej3unSRIIVD",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
               "scope": "output",
               "name": "Target URL",
               "type": "datatype.string",
@@ -2900,20 +3336,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "input",
-              "name": "Authorization",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_026FLZ6Q5QS1G4bxG1Ay1FJh38kqQh72KuQ",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "output",
               "name": "Workflow Success/Fail Status",
               "type": "datatype.string",
@@ -2922,20 +3344,6 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_026FMZZAKEB2S7DQ87FJa3KIYqQmkdJI1Yo",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Provide Token to execute the workflow",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_026FLZU96KM3V22R5grfdr50Ej3unSRIIVD",
             "object_type": "variable_workflow"
           }
         ],
@@ -3166,34 +3574,6 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Incident ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_025XVBQ4XDOXO4WQY9An03Am9kg3LLcX3Z1",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-$ID\",\n              \"title\": \"SG-PR-Sep11-2-Automation Rule Testing - IncidentWF_$ID\",\n              \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"Critical\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Command and Control activities detected by DNS protection.\",\n        \"title\": \"Command and Control DNS activities\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1071\"\n            ],\n            \"short_description\": \"Application Layer Protocol\",\n            \"title\": \"Application Layer Protocol\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1071\",\n                    \"external_id\": \"T1071\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1071\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"command-and-control\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"command-and-control\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1071\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1071\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }\n",
-              "scope": "input",
-              "name": "Incident Payload",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
               "name": "Pass or Fail",
               "type": "datatype.string",
               "is_required": false,
@@ -3215,6 +3595,34 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_02EDD9GCRBAX574rDgRmdygEP3enq7dzk6J",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-$ID\",\n              \"title\": \"SG-PR-Sep11-2-Automation Rule Testing - IncidentWF_$ID\",\n              \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"Critical\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Command and Control activities detected by DNS protection.\",\n        \"title\": \"Command and Control DNS activities\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1071\"\n            ],\n            \"short_description\": \"Application Layer Protocol\",\n            \"title\": \"Application Layer Protocol\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1071\",\n                    \"external_id\": \"T1071\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1071\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"command-and-control\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"command-and-control\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1071\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1071\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }\n",
+              "scope": "input",
+              "name": "Incident Payload",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Incident ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_025XVBQ4XDOXO4WQY9An03Am9kg3LLcX3Z1",
             "object_type": "variable_workflow"
           }
         ],
