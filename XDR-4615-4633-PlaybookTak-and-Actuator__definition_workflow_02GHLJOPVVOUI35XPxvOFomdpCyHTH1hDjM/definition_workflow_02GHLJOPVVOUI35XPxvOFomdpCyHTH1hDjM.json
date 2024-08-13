@@ -9,15 +9,15 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "EmailTable",
+          "value": "1UAVTJMeMZvP7kNBhHBm1x4CATKOf_ab81oXCXkhruCtLSSvspUiUA",
+          "scope": "local",
+          "name": "Client Secret",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_02GHQVYPLGZK85XC0dBt0T5TEyHng87Ir8m",
+        "unique_name": "variable_workflow_02GHMPE6ZWEB54tSbV5EegQobXKrARovJD7",
         "object_type": "variable_workflow"
       },
       {
@@ -37,20 +37,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "1UAVTJMeMZvP7kNBhHBm1x4CATKOf_ab81oXCXkhruCtLSSvspUiUA",
-          "scope": "local",
-          "name": "Client Secret",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false
-        },
-        "unique_name": "variable_workflow_02GHMPE6ZWEB54tSbV5EegQobXKrARovJD7",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "Fail",
           "scope": "output",
           "name": "Incident_Response_TestStatus",
@@ -65,15 +51,15 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Fail",
+          "value": "",
           "scope": "output",
-          "name": "Playbook_Response_TestStatus",
+          "name": "EmailTable",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false
         },
-        "unique_name": "variable_workflow_02GHQMV9F7JSD0e74qOUUProluHNkd6hKUy",
+        "unique_name": "variable_workflow_02GHQVYPLGZK85XC0dBt0T5TEyHng87Ir8m",
         "object_type": "variable_workflow"
       },
       {
@@ -88,6 +74,20 @@
           "is_invisible": false
         },
         "unique_name": "variable_workflow_02GHQN1QI2T0L0Ntrr1Ql6PGBMnw7FnIdAU",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Playbook_Response_TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GHQMV9F7JSD0e74qOUUProluHNkd6hKUy",
         "object_type": "variable_workflow"
       }
     ],
@@ -192,6 +192,74 @@
                   },
                   "workflow_id": "definition_workflow_02AOGESRPNY2Q0jJfksWj2Cwha9MaNmtv3k",
                   "workflow_name": "XDR-Automation-Atomic-Creating WF Using Template"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GHRX4V8J0183xfP3LibHN2oO3zG3slvuX",
+                "name": "HTTP Request",
+                "title": "Get Workflow by ID",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "display_name": "Get Workflow by ID",
+                  "method": "GET",
+                  "relative_url": "api/v1/workflows/$activity.definition_activity_02GHMBGYC0F7A1mSWX3GTSTCBcOQOxDEYUc.output.variable_workflow_02AOGVGEQA83R0St7xjCFlLOloAHVVTwiO9$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GHRZ74HB4VQ02ySId9df9vmJvUhZuwU7n",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GHRXPE7EXB05MeUJfCz3F50J1oPpWMhMB",
+                "name": "JSONPath Query",
+                "title": "Fetch Intent and Actuator",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch Intent and Actuator",
+                  "input_json": "$activity.definition_activity_02GHRX4V8J0183xfP3LibHN2oO3zG3slvuX.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.properties.wf_metadata.coa.actuator",
+                      "jsonpath_query_name": "WF_Actuator_Inc_Response",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.properties.wf_metadata.coa.intent",
+                      "jsonpath_query_name": "Wf_Intent_Inc_Response",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
                 },
                 "object_type": "definition_activity"
               },
@@ -687,99 +755,123 @@
                                             "left_operand": {
                                               "left_operand": {
                                                 "left_operand": {
-                                                  "left_operand": "$activity.definition_activity_02GHMBGYC0F7A1mSWX3GTSTCBcOQOxDEYUc.output.variable_workflow_02AOGXA7XQSF64NtRUgXzsjtkh9e76Bsarj$",
-                                                  "operator": "eq",
-                                                  "right_operand": "Pass"
+                                                  "left_operand": {
+                                                    "left_operand": {
+                                                      "left_operand": {
+                                                        "left_operand": "$activity.definition_activity_02GHMBGYC0F7A1mSWX3GTSTCBcOQOxDEYUc.output.variable_workflow_02AOGXA7XQSF64NtRUgXzsjtkh9e76Bsarj$",
+                                                        "operator": "eq",
+                                                        "right_operand": "Pass"
+                                                      },
+                                                      "operator": "and",
+                                                      "right_operand": {
+                                                        "left_operand": "$activity.definition_activity_02GHMD2WCN5C31Kd4WgY2Mf2PNfx9y1sWk3.output.variable_workflow_02CHZ0L5T65J16l6YsDSeW2hCHxu7cuNo3W$",
+                                                        "operator": "eq",
+                                                        "right_operand": "Pass"
+                                                      }
+                                                    },
+                                                    "operator": "and",
+                                                    "right_operand": {
+                                                      "left_operand": "$activity.definition_activity_02GHMD7E1UXJO3pWnKvRd5L32liG4U5GxQY.output.variable_workflow_02CI00LAKCWS118urvq5G6kwVDQSSqPVAI8$",
+                                                      "operator": "eq",
+                                                      "right_operand": "Pass"
+                                                    }
+                                                  },
+                                                  "operator": "and",
+                                                  "right_operand": {
+                                                    "left_operand": "$activity.definition_activity_02GHMH70Q13XK0z2rkiqM8VeVE7B9HbOqX3.output.variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt$",
+                                                    "operator": "eq",
+                                                    "right_operand": "true"
+                                                  }
                                                 },
                                                 "operator": "and",
                                                 "right_operand": {
-                                                  "left_operand": "$activity.definition_activity_02GHMD2WCN5C31Kd4WgY2Mf2PNfx9y1sWk3.output.variable_workflow_02CHZ0L5T65J16l6YsDSeW2hCHxu7cuNo3W$",
+                                                  "left_operand": "$activity.definition_activity_02GHMJKCET1AI1kLLDRbNCsqxBW7S3pA3UG.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
                                                   "operator": "eq",
                                                   "right_operand": "Pass"
                                                 }
                                               },
                                               "operator": "and",
                                               "right_operand": {
-                                                "left_operand": "$activity.definition_activity_02GHMD7E1UXJO3pWnKvRd5L32liG4U5GxQY.output.variable_workflow_02CI00LAKCWS118urvq5G6kwVDQSSqPVAI8$",
+                                                "left_operand": "$activity.definition_activity_02GHQI7Q9MOA50vQC7UG9jIBsbaNPk0Zi8l.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
                                                 "operator": "eq",
                                                 "right_operand": "Pass"
                                               }
                                             },
                                             "operator": "and",
                                             "right_operand": {
-                                              "left_operand": "$activity.definition_activity_02GHMH70Q13XK0z2rkiqM8VeVE7B9HbOqX3.output.variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt$",
+                                              "left_operand": "$activity.definition_activity_02GHQI8T92F9C3yC5ANNlLVgoItxrc6kuBd.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
                                               "operator": "eq",
-                                              "right_operand": "true"
+                                              "right_operand": "Pass"
                                             }
                                           },
                                           "operator": "and",
                                           "right_operand": {
-                                            "left_operand": "$activity.definition_activity_02GHMJKCET1AI1kLLDRbNCsqxBW7S3pA3UG.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
+                                            "left_operand": "$activity.definition_activity_02GHQI9W6V0NO2j1lPsxUsw92tfqf2fdDdN.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
                                             "operator": "eq",
                                             "right_operand": "Pass"
                                           }
                                         },
                                         "operator": "and",
                                         "right_operand": {
-                                          "left_operand": "$activity.definition_activity_02GHQI7Q9MOA50vQC7UG9jIBsbaNPk0Zi8l.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
+                                          "left_operand": "$activity.definition_activity_02GHMWIEEDQUE03Y0X4187pttIPBZ0hFCKZ.output.variable_workflow_02CKGPQSU10NP4JV9tyhmUDqf3HEchAo5Qh$",
                                           "operator": "eq",
                                           "right_operand": "Pass"
                                         }
                                       },
                                       "operator": "and",
                                       "right_operand": {
-                                        "left_operand": "$activity.definition_activity_02GHQI8T92F9C3yC5ANNlLVgoItxrc6kuBd.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
+                                        "left_operand": "$activity.definition_activity_02GHQIUOGAQNK38JKApHz0vhcPzHXFekfiE.output.error.code$",
                                         "operator": "eq",
-                                        "right_operand": "Pass"
+                                        "right_operand": "200"
                                       }
                                     },
                                     "operator": "and",
                                     "right_operand": {
-                                      "left_operand": "$activity.definition_activity_02GHQI9W6V0NO2j1lPsxUsw92tfqf2fdDdN.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
-                                      "operator": "eq",
-                                      "right_operand": "Pass"
+                                      "left_operand": "$activity.definition_activity_02GHQIUOGAQNK38JKApHz0vhcPzHXFekfiE.output.jsonpath_queries.Completed_Task_Logs_IncidentResponse$",
+                                      "operator": "ne",
+                                      "right_operand": ""
                                     }
                                   },
                                   "operator": "and",
                                   "right_operand": {
-                                    "left_operand": "$activity.definition_activity_02GHMWIEEDQUE03Y0X4187pttIPBZ0hFCKZ.output.variable_workflow_02CKGPQSU10NP4JV9tyhmUDqf3HEchAo5Qh$",
+                                    "left_operand": "$activity.definition_activity_02GHNWPBW16UP2YefsleUgZQiFy2DeuM9Sf.output.error.code$",
                                     "operator": "eq",
-                                    "right_operand": "Pass"
+                                    "right_operand": "200"
                                   }
                                 },
                                 "operator": "and",
                                 "right_operand": {
-                                  "left_operand": "$activity.definition_activity_02GHQIUOGAQNK38JKApHz0vhcPzHXFekfiE.output.error.code$",
+                                  "left_operand": "$activity.definition_activity_02GHNY91W556L2wRkpoTRKecYLVR9U3MsuC.output.error.code$",
                                   "operator": "eq",
                                   "right_operand": "200"
                                 }
                               },
                               "operator": "and",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_02GHQIUOGAQNK38JKApHz0vhcPzHXFekfiE.output.jsonpath_queries.Completed_Task_Logs_IncidentResponse$",
-                                "operator": "ne",
-                                "right_operand": ""
+                                "left_operand": "$activity.definition_activity_02GHNZX73IGLI1UWhqFLPLkRk2MfgjJ2VdY.output.error.code$",
+                                "operator": "eq",
+                                "right_operand": "200"
                               }
                             },
                             "operator": "and",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_02GHNWPBW16UP2YefsleUgZQiFy2DeuM9Sf.output.error.code$",
+                              "left_operand": "$activity.definition_activity_02GHRX4V8J0183xfP3LibHN2oO3zG3slvuX.output.error.code$",
                               "operator": "eq",
                               "right_operand": "200"
                             }
                           },
                           "operator": "and",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_02GHNY91W556L2wRkpoTRKecYLVR9U3MsuC.output.error.code$",
+                            "left_operand": "$activity.definition_activity_02GHRXPE7EXB05MeUJfCz3F50J1oPpWMhMB.output.jsonpath_queries.Wf_Intent_Inc_Response$",
                             "operator": "eq",
-                            "right_operand": "200"
+                            "right_operand": "incident_response"
                           }
                         },
                         "operator": "and",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_02GHNZX73IGLI1UWhqFLPLkRk2MfgjJ2VdY.output.error.code$",
+                          "left_operand": "$activity.definition_activity_02GHRXPE7EXB05MeUJfCz3F50J1oPpWMhMB.output.jsonpath_queries.WF_Actuator_Inc_Response$",
                           "operator": "eq",
-                          "right_operand": "200"
+                          "right_operand": "endpoint"
                         }
                       },
                       "continue_on_failure": false,
@@ -870,6 +962,74 @@
                   },
                   "workflow_id": "definition_workflow_02AOGESRPNY2Q0jJfksWj2Cwha9MaNmtv3k",
                   "workflow_name": "XDR-Automation-Atomic-Creating WF Using Template"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GHRZOWFI34Q6CAddvab8Zh7p8rkdXuvJy",
+                "name": "HTTP Request",
+                "title": "Get Workflow by ID",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "display_name": "Get Workflow by ID",
+                  "method": "GET",
+                  "relative_url": "api/v1/workflows/$activity.definition_activity_02GHO1FVMIOL006aPpPWClrWysMSAN18cLa.output.variable_workflow_02AOGVGEQA83R0St7xjCFlLOloAHVVTwiO9$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GHRZRU570CP0E7mk0xiS6jhcp1fLLwpKA",
+                "name": "Sleep",
+                "title": "Sleep for 5s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 5s",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GHRZUJMXK1034sl7grldQD2dtTpk3bLEy",
+                "name": "JSONPath Query",
+                "title": "Fetch Intent and Actuator",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Fetch Intent and Actuator",
+                  "input_json": "$activity.definition_activity_02GHRZOWFI34Q6CAddvab8Zh7p8rkdXuvJy.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.properties.wf_metadata.coa.actuator",
+                      "jsonpath_query_name": "WF_Actuator_Playbook_Task",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.properties.wf_metadata.coa.intent",
+                      "jsonpath_query_name": "Wf_Intent_Playbook_Task",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
                 },
                 "object_type": "definition_activity"
               },
@@ -1365,99 +1525,123 @@
                                             "left_operand": {
                                               "left_operand": {
                                                 "left_operand": {
-                                                  "left_operand": "$activity.definition_activity_02GHO1FVMIOL006aPpPWClrWysMSAN18cLa.output.variable_workflow_02AOGXA7XQSF64NtRUgXzsjtkh9e76Bsarj$",
-                                                  "operator": "eq",
-                                                  "right_operand": "Pass"
+                                                  "left_operand": {
+                                                    "left_operand": {
+                                                      "left_operand": {
+                                                        "left_operand": "$activity.definition_activity_02GHO1FVMIOL006aPpPWClrWysMSAN18cLa.output.variable_workflow_02AOGXA7XQSF64NtRUgXzsjtkh9e76Bsarj$",
+                                                        "operator": "eq",
+                                                        "right_operand": "Pass"
+                                                      },
+                                                      "operator": "and",
+                                                      "right_operand": {
+                                                        "left_operand": "$activity.definition_activity_02GHO1FVMLLWO0oZWW8HYNhVz0X8gZKT1aK.output.variable_workflow_02CHZ0L5T65J16l6YsDSeW2hCHxu7cuNo3W$",
+                                                        "operator": "eq",
+                                                        "right_operand": "Pass"
+                                                      }
+                                                    },
+                                                    "operator": "and",
+                                                    "right_operand": {
+                                                      "left_operand": "$activity.definition_activity_02GHO1FVMPOQI25gY0T9sK6UybNvnBJYKAe.output.variable_workflow_02CI00LAKCWS118urvq5G6kwVDQSSqPVAI8$",
+                                                      "operator": "eq",
+                                                      "right_operand": "Pass"
+                                                    }
+                                                  },
+                                                  "operator": "and",
+                                                  "right_operand": {
+                                                    "left_operand": "$activity.definition_activity_02GHO1FVMQMGC2DspGu2KvCUAZve1xMzwbM.output.variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt$",
+                                                    "operator": "eq",
+                                                    "right_operand": "true"
+                                                  }
                                                 },
                                                 "operator": "and",
                                                 "right_operand": {
-                                                  "left_operand": "$activity.definition_activity_02GHO1FVMLLWO0oZWW8HYNhVz0X8gZKT1aK.output.variable_workflow_02CHZ0L5T65J16l6YsDSeW2hCHxu7cuNo3W$",
+                                                  "left_operand": "$activity.definition_activity_02GHO1FVMTY7P5sTtO1GHDChaNbL6hEjvHt.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
                                                   "operator": "eq",
                                                   "right_operand": "Pass"
                                                 }
                                               },
                                               "operator": "and",
                                               "right_operand": {
-                                                "left_operand": "$activity.definition_activity_02GHO1FVMPOQI25gY0T9sK6UybNvnBJYKAe.output.variable_workflow_02CI00LAKCWS118urvq5G6kwVDQSSqPVAI8$",
+                                                "left_operand": "$activity.definition_activity_02GHO7HRPRU1S0NQOvCq3EcGv68dBR5A4mx.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
                                                 "operator": "eq",
                                                 "right_operand": "Pass"
                                               }
                                             },
                                             "operator": "and",
                                             "right_operand": {
-                                              "left_operand": "$activity.definition_activity_02GHO1FVMQMGC2DspGu2KvCUAZve1xMzwbM.output.variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt$",
+                                              "left_operand": "$activity.definition_activity_02GHO7N9A35784NSzhFNd3JZVAHFSVFIqkA.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
                                               "operator": "eq",
-                                              "right_operand": "true"
+                                              "right_operand": "Pass"
                                             }
                                           },
                                           "operator": "and",
                                           "right_operand": {
-                                            "left_operand": "$activity.definition_activity_02GHO1FVMTY7P5sTtO1GHDChaNbL6hEjvHt.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
+                                            "left_operand": "$activity.definition_activity_02GHO7T9JF9486aEbrftQch8ZYGiZrdkY87.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
                                             "operator": "eq",
                                             "right_operand": "Pass"
                                           }
                                         },
                                         "operator": "and",
                                         "right_operand": {
-                                          "left_operand": "$activity.definition_activity_02GHO7HRPRU1S0NQOvCq3EcGv68dBR5A4mx.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
+                                          "left_operand": "$activity.definition_activity_02GHO1FVMY8ZO6hWv93LNGwaFH6jZaFBVNm.output.variable_workflow_02CKGPQSU10NP4JV9tyhmUDqf3HEchAo5Qh$",
                                           "operator": "eq",
                                           "right_operand": "Pass"
                                         }
                                       },
                                       "operator": "and",
                                       "right_operand": {
-                                        "left_operand": "$activity.definition_activity_02GHO7N9A35784NSzhFNd3JZVAHFSVFIqkA.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
+                                        "left_operand": "$activity.definition_activity_02GHQL687O9FD44VenVsYZEr4HqSJBPIXva.output.error.code$",
                                         "operator": "eq",
-                                        "right_operand": "Pass"
+                                        "right_operand": "200"
                                       }
                                     },
                                     "operator": "and",
                                     "right_operand": {
-                                      "left_operand": "$activity.definition_activity_02GHO7T9JF9486aEbrftQch8ZYGiZrdkY87.output.variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q$",
-                                      "operator": "eq",
-                                      "right_operand": "Pass"
+                                      "left_operand": "$activity.definition_activity_02GHQL687O9FD44VenVsYZEr4HqSJBPIXva.output.jsonpath_queries.Completed_Task_Logs_PlaybookTask$",
+                                      "operator": "ne",
+                                      "right_operand": ""
                                     }
                                   },
                                   "operator": "and",
                                   "right_operand": {
-                                    "left_operand": "$activity.definition_activity_02GHO1FVMY8ZO6hWv93LNGwaFH6jZaFBVNm.output.variable_workflow_02CKGPQSU10NP4JV9tyhmUDqf3HEchAo5Qh$",
+                                    "left_operand": "$activity.definition_activity_02GHO1FVN3Q6637rhmOGMBqstiTj5TPXC2L.output.error.code$",
                                     "operator": "eq",
-                                    "right_operand": "Pass"
+                                    "right_operand": "200"
                                   }
                                 },
                                 "operator": "and",
                                 "right_operand": {
-                                  "left_operand": "$activity.definition_activity_02GHQL687O9FD44VenVsYZEr4HqSJBPIXva.output.error.code$",
+                                  "left_operand": "$activity.definition_activity_02GHO1FVN8FZW2sbGEgUCEGNKaymYGptzMQ.output.error.code$",
                                   "operator": "eq",
                                   "right_operand": "200"
                                 }
                               },
                               "operator": "and",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_02GHQL687O9FD44VenVsYZEr4HqSJBPIXva.output.jsonpath_queries.Completed_Task_Logs_PlaybookTask$",
-                                "operator": "ne",
-                                "right_operand": ""
+                                "left_operand": "$activity.definition_activity_02GHO1FVNBNAH0tGt3J6yqfaaD2uYXrJpGk.output.error.code$",
+                                "operator": "eq",
+                                "right_operand": "200"
                               }
                             },
                             "operator": "and",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_02GHO1FVN3Q6637rhmOGMBqstiTj5TPXC2L.output.error.code$",
+                              "left_operand": "$activity.definition_activity_02GHRZOWFI34Q6CAddvab8Zh7p8rkdXuvJy.output.error.code$",
                               "operator": "eq",
                               "right_operand": "200"
                             }
                           },
                           "operator": "and",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_02GHO1FVN8FZW2sbGEgUCEGNKaymYGptzMQ.output.error.code$",
+                            "left_operand": "$activity.definition_activity_02GHRZUJMXK1034sl7grldQD2dtTpk3bLEy.output.jsonpath_queries.Wf_Intent_Playbook_Task$",
                             "operator": "eq",
-                            "right_operand": "200"
+                            "right_operand": "playbook_task"
                           }
                         },
                         "operator": "and",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_02GHO1FVNBNAH0tGt3J6yqfaaD2uYXrJpGk.output.error.code$",
+                          "left_operand": "$activity.definition_activity_02GHRZUJMXK1034sl7grldQD2dtTpk3bLEy.output.jsonpath_queries.WF_Actuator_Playbook_Task$",
                           "operator": "eq",
-                          "right_operand": "200"
+                          "right_operand": "network"
                         }
                       },
                       "continue_on_failure": false,
@@ -1703,34 +1887,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "token",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "client_id",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "input",
               "name": "client-secret",
               "type": "datatype.string",
@@ -1753,6 +1909,34 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_02DJBM55OAE734oLfvIKzE4MxFyiXIrVcYR",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "client_id",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "token",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm",
             "object_type": "variable_workflow"
           }
         ],
@@ -1999,6 +2183,62 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Containment Task ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CI0PNBUIJ390iRttPbuBFFLx7KNGcCvRq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Recovery TaskID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CI0Q6QOAOSP0TnfwX4cV9s3AMmFn5nt2M",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Playbook_ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CHYY4GY92VF1xlgdyxXQ2kuqTnHhnMFyy",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Identification Task ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CI0PDCJFLNK40rtcDYBsmutiDHTFQgvKX",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "Authorization",
               "scope": "input",
               "name": "Authorization",
@@ -2027,34 +2267,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Identification Task ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CI0PDCJFLNK40rtcDYBsmutiDHTFQgvKX",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Fail",
-              "scope": "output",
-              "name": "Playbook Creation Test Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CHZ0L5T65J16l6YsDSeW2hCHxu7cuNo3W",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "null",
               "scope": "input",
               "name": "worklfow ID",
@@ -2070,43 +2282,15 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
+              "value": "Fail",
               "scope": "output",
-              "name": "Playbook_ID",
+              "name": "Playbook Creation Test Status",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02CHYY4GY92VF1xlgdyxXQ2kuqTnHhnMFyy",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Containment Task ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CI0PNBUIJ390iRttPbuBFFLx7KNGcCvRq",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Recovery TaskID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CI0Q6QOAOSP0TnfwX4cV9s3AMmFn5nt2M",
+            "unique_name": "variable_workflow_02CHZ0L5T65J16l6YsDSeW2hCHxu7cuNo3W",
             "object_type": "variable_workflow"
           }
         ],
@@ -2707,20 +2891,6 @@
               {
                 "schema_id": "datatype.string",
                 "properties": {
-                  "value": "Fail",
-                  "scope": "output",
-                  "name": "Task Creation",
-                  "type": "datatype.string",
-                  "is_required": false,
-                  "display_on_wizard": false,
-                  "is_invisible": false
-                },
-                "unique_name": "variable_workflow_02CFNQ4QD93HE7SFPb9kg6TzMCVp4VAPkHA",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
                   "value": "Authorization",
                   "scope": "input",
                   "name": "Authorization",
@@ -2730,6 +2900,62 @@
                   "is_invisible": false
                 },
                 "unique_name": "variable_workflow_02CFN1MP10HRH6IrcclzfRISlbFXwj6XeL8",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "output",
+                  "name": "Task_ID",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_02CFN69QVQA4L7bymvWnFoT1f1R3nxLnjMX",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "Bearer ",
+                  "scope": "input",
+                  "name": "Provide Token",
+                  "type": "datatype.string",
+                  "is_required": true,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_02CFN1V4449HT5oi0hQB4WwRq3zxw1MZzAF",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "output",
+                  "name": "Task_Title_OP",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_02CFPQQO3ZBH63X1dTkoJ72JSce1XFBLpbZ",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "Fail",
+                  "scope": "output",
+                  "name": "Task Creation",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false
+                },
+                "unique_name": "variable_workflow_02CFNQ4QD93HE7SFPb9kg6TzMCVp4VAPkHA",
                 "object_type": "variable_workflow"
               },
               {
@@ -2750,20 +2976,6 @@
               {
                 "schema_id": "datatype.string",
                 "properties": {
-                  "value": "Bearer ",
-                  "scope": "input",
-                  "name": "Provide Token",
-                  "type": "datatype.string",
-                  "is_required": true,
-                  "display_on_wizard": false,
-                  "is_invisible": false
-                },
-                "unique_name": "variable_workflow_02CFN1V4449HT5oi0hQB4WwRq3zxw1MZzAF",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
                   "value": "Placeholder Task Title",
                   "scope": "input",
                   "name": "Task_Title",
@@ -2778,20 +2990,6 @@
               {
                 "schema_id": "datatype.string",
                 "properties": {
-                  "value": "",
-                  "scope": "output",
-                  "name": "Task_ID",
-                  "type": "datatype.string",
-                  "is_required": false,
-                  "display_on_wizard": false,
-                  "is_invisible": false
-                },
-                "unique_name": "variable_workflow_02CFN69QVQA4L7bymvWnFoT1f1R3nxLnjMX",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
                   "value": "Placeholder task description.",
                   "scope": "input",
                   "name": "Task_Description",
@@ -2801,20 +2999,6 @@
                   "is_invisible": false
                 },
                 "unique_name": "variable_workflow_02CFN3IGON1KY42YOU5MTp38ikZIjm02rhO",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "",
-                  "scope": "output",
-                  "name": "Task_Title_OP",
-                  "type": "datatype.string",
-                  "is_required": false,
-                  "display_on_wizard": false,
-                  "is_invisible": false
-                },
-                "unique_name": "variable_workflow_02CFPQQO3ZBH63X1dTkoJ72JSce1XFBLpbZ",
                 "object_type": "variable_workflow"
               }
             ],
@@ -3030,76 +3214,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Rule_name",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02EVTZN0INLKY7NWn7eQ96rlugG02FmdqMh",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": {\n                                        \"left_operand\": \"$output.incident.description$\",\n                                        \"operator\": \"mw\",\n                                        \"right_operand\": \"*incident*\"\n                                      },\n                                      \"right_operand\": {\n                                        \"left_operand\": \"$output.incident.status$\",\n                                        \"operator\": \"eq\",\n                                        \"right_operand\": \"New\"\n                                      },\n                                      \"operator\": \"and\"\n                                    },\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.source$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"Umbrella\"\n                                    },\n                                    \"operator\": \"and\"\n                                  },\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.tlp$\",\n                                    \"operator\": \"eq\",\n                                    \"right_operand\": \"amber\"\n                                  },\n                                  \"operator\": \"and\"\n                                },\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.incident.id$\",\n                                  \"operator\": \"mw\",\n                                  \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                                },\n                                \"operator\": \"and\"\n                              },\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.source.totalCount$\",\n                                \"operator\": \"gte\",\n                                \"right_operand\": 0\n                              },\n                              \"operator\": \"and\"\n                            },\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.targets.totalCount$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            },\n                            \"operator\": \"and\"\n                          },\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.incident.scores.asset$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          },\n                          \"operator\": \"and\"\n                        },\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.global$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        },\n                        \"operator\": \"and\"\n                      },\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.incident.scores.ttp$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      },\n                      \"operator\": \"and\"\n                    },\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.eventsCount$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": 0\n                    },\n                    \"operator\": \"and\"\n                  },\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.incident.confidence$\",\n                    \"operator\": \"eq\",\n                    \"right_operand\": \"High\"\n                  },\n                  \"operator\": \"and\"\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.firstEventDate$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"2023-01-01\"\n                },\n                \"operator\": \"or\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.indicators.totalCount$\",\n                \"operator\": \"gte\",\n                \"right_operand\": 0\n              },\n              \"operator\": \"or\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.mitreData.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            },\n            \"operator\": \"or\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.observables.totalCount$\",\n            \"operator\": \"gte\",\n            \"right_operand\": 0\n          },\n          \"operator\": \"or\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.observables.data[*].type$\",\n          \"operator\": \"eq\",\n          \"right_operand\": \"domain\"\n        },\n        \"operator\": \"or\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.title$\",\n        \"right_operand\": \"*Automation Rule and Playbook Testing-25189*\",\n        \"operator\": \"mw\"\n      },\n      \"operator\": \"and\"\n    },",
-              "scope": "input",
-              "name": "Conditions_For_Assignment_Rule",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CHZW8683OFY40aC7O1gvgSgTCYuTVQubp",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Plabook_ID",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CHZYW0O09R90uaINBHRHbWmY00eSJeSDF",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Assignment Rule ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CI036PKZ9DV3rbNAs3xb1cihTJ5kqgxlk",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Token to Create a Rule",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CHZZD46895S5pCr050k95x91ktdU9LCYG",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "Fail",
               "scope": "output",
               "name": "Creation of Assignment Rule",
@@ -3123,6 +3237,76 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_02CHZZ30F8WSW0Klz4asuNPA4Hg7NqSphtO",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Token to Create a Rule",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CHZZD46895S5pCr050k95x91ktdU9LCYG",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": {\n                                        \"left_operand\": \"$output.incident.description$\",\n                                        \"operator\": \"mw\",\n                                        \"right_operand\": \"*incident*\"\n                                      },\n                                      \"right_operand\": {\n                                        \"left_operand\": \"$output.incident.status$\",\n                                        \"operator\": \"eq\",\n                                        \"right_operand\": \"New\"\n                                      },\n                                      \"operator\": \"and\"\n                                    },\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.source$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"Umbrella\"\n                                    },\n                                    \"operator\": \"and\"\n                                  },\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.tlp$\",\n                                    \"operator\": \"eq\",\n                                    \"right_operand\": \"amber\"\n                                  },\n                                  \"operator\": \"and\"\n                                },\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.incident.id$\",\n                                  \"operator\": \"mw\",\n                                  \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                                },\n                                \"operator\": \"and\"\n                              },\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.source.totalCount$\",\n                                \"operator\": \"gte\",\n                                \"right_operand\": 0\n                              },\n                              \"operator\": \"and\"\n                            },\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.targets.totalCount$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            },\n                            \"operator\": \"and\"\n                          },\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.incident.scores.asset$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          },\n                          \"operator\": \"and\"\n                        },\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.global$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        },\n                        \"operator\": \"and\"\n                      },\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.incident.scores.ttp$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      },\n                      \"operator\": \"and\"\n                    },\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.eventsCount$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": 0\n                    },\n                    \"operator\": \"and\"\n                  },\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.incident.confidence$\",\n                    \"operator\": \"eq\",\n                    \"right_operand\": \"High\"\n                  },\n                  \"operator\": \"and\"\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.firstEventDate$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"2023-01-01\"\n                },\n                \"operator\": \"or\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.indicators.totalCount$\",\n                \"operator\": \"gte\",\n                \"right_operand\": 0\n              },\n              \"operator\": \"or\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.mitreData.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            },\n            \"operator\": \"or\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.observables.totalCount$\",\n            \"operator\": \"gte\",\n            \"right_operand\": 0\n          },\n          \"operator\": \"or\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.observables.data[*].type$\",\n          \"operator\": \"eq\",\n          \"right_operand\": \"domain\"\n        },\n        \"operator\": \"or\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.title$\",\n        \"right_operand\": \"*Automation Rule and Playbook Testing-25189*\",\n        \"operator\": \"mw\"\n      },\n      \"operator\": \"and\"\n    },",
+              "scope": "input",
+              "name": "Conditions_For_Assignment_Rule",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CHZW8683OFY40aC7O1gvgSgTCYuTVQubp",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Assignment Rule ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CI036PKZ9DV3rbNAs3xb1cihTJ5kqgxlk",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Rule_name",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02EVTZN0INLKY7NWn7eQ96rlugG02FmdqMh",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Plabook_ID",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CHZYW0O09R90uaINBHRHbWmY00eSJeSDF",
             "object_type": "variable_workflow"
           }
         ],
@@ -3411,15 +3595,15 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-$ID\",\n              \"title\": \"SG-PR-Sep11-2-Automation Rule Testing - IncidentWF_$ID\",\n              \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"Critical\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Command and Control activities detected by DNS protection.\",\n        \"title\": \"Command and Control DNS activities\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1071\"\n            ],\n            \"short_description\": \"Application Layer Protocol\",\n            \"title\": \"Application Layer Protocol\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1071\",\n                    \"external_id\": \"T1071\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1071\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"command-and-control\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"command-and-control\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1071\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1071\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }\n",
-              "scope": "input",
-              "name": "Incident Payload",
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
               "type": "datatype.string",
-              "is_required": true,
+              "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT",
+            "unique_name": "variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt",
             "object_type": "variable_workflow"
           },
           {
@@ -3439,15 +3623,15 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Pass or Fail",
+              "value": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-$ID\",\n              \"title\": \"SG-PR-Sep11-2-Automation Rule Testing - IncidentWF_$ID\",\n              \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"Critical\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Command and Control activities detected by DNS protection.\",\n        \"title\": \"Command and Control DNS activities\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1071\"\n            ],\n            \"short_description\": \"Application Layer Protocol\",\n            \"title\": \"Application Layer Protocol\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1071\",\n                    \"external_id\": \"T1071\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1071\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"command-and-control\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"command-and-control\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1071\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1071\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }\n",
+              "scope": "input",
+              "name": "Incident Payload",
               "type": "datatype.string",
-              "is_required": false,
+              "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt",
+            "unique_name": "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT",
             "object_type": "variable_workflow"
           },
           {
@@ -3822,29 +4006,15 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
+              "value": "Bearer ",
               "scope": "input",
-              "name": "Incident_ID",
+              "name": "Token ID",
               "type": "datatype.string",
               "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02CI08XZ5N9U40UKC3SN9XPbAzfZR44Hrpk",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Task_ID",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CI092SPTSO73yGHBDYEYG1teFiwtDNH6C",
+            "unique_name": "variable_workflow_02CI0LDCSK87J7aSyTDwz3LybGqQRYmyssv",
             "object_type": "variable_workflow"
           },
           {
@@ -3864,29 +4034,15 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Token ID",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CI0LDCSK87J7aSyTDwz3LybGqQRYmyssv",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Fail",
+              "value": "",
               "scope": "output",
-              "name": "Execution of Playbook Test Status",
+              "name": "Execution ID",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q",
+            "unique_name": "variable_workflow_02CI1H9KOHHNZ6y2652eIwqkR6ZBvH1rzSE",
             "object_type": "variable_workflow"
           },
           {
@@ -3901,6 +4057,20 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_02CI0L7D8A74Q7buDA17oeVt4JfmGh9zez2",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "Execution of Playbook Test Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q",
             "object_type": "variable_workflow"
           },
           {
@@ -3921,14 +4091,28 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Execution ID",
+              "scope": "input",
+              "name": "Task_ID",
               "type": "datatype.string",
-              "is_required": false,
+              "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02CI1H9KOHHNZ6y2652eIwqkR6ZBvH1rzSE",
+            "unique_name": "variable_workflow_02CI092SPTSO73yGHBDYEYG1teFiwtDNH6C",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Incident_ID",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CI08XZ5N9U40UKC3SN9XPbAzfZR44Hrpk",
             "object_type": "variable_workflow"
           }
         ],
@@ -4181,21 +4365,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Incident ID",
-              "type": "datatype.string",
-              "description": "Enter the Incident ID to view the recent Workflow Logs",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CKGNIY82YVL024cAk8spv0F9mFs94J7LM",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "Bearer ",
               "scope": "input",
               "name": "Token",
@@ -4211,28 +4380,15 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Workflow_Logs",
+              "scope": "input",
+              "name": "Incident ID",
               "type": "datatype.string",
-              "is_required": false,
+              "description": "Enter the Incident ID to view the recent Workflow Logs",
+              "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false
             },
-            "unique_name": "variable_workflow_02CKGPI1DV27S3ESHXcCS7TPKDUytmtWIty",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "View Workflow Logs WF Test Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false
-            },
-            "unique_name": "variable_workflow_02CKGPQSU10NP4JV9tyhmUDqf3HEchAo5Qh",
+            "unique_name": "variable_workflow_02CKGNIY82YVL024cAk8spv0F9mFs94J7LM",
             "object_type": "variable_workflow"
           },
           {
@@ -4252,6 +4408,20 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Workflow_Logs",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CKGPI1DV27S3ESHXcCS7TPKDUytmtWIty",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "Authorization",
               "scope": "input",
               "name": "Authorization",
@@ -4261,6 +4431,20 @@
               "is_invisible": false
             },
             "unique_name": "variable_workflow_02CKGM5OFIJRH130qOCxITIoP9xNBLo5hvy",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "View Workflow Logs WF Test Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02CKGPQSU10NP4JV9tyhmUDqf3HEchAo5Qh",
             "object_type": "variable_workflow"
           }
         ],
