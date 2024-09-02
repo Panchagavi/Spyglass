@@ -1,0 +1,1918 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq",
+    "name": "XDR-1096-WF Limit and Notifications Automation",
+    "title": "XDR-1096-WF Limit and Notifications Automation",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw",
+        "properties": {
+          "scope": "local",
+          "name": "Calendar Ids - GroupCal",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYUFRCA7GR12RT9rUqXk4ljBJvA8xEvhc",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJscmNidExVeUI3aFRVQ0JGTVpvWU9VeTZTWThIeWJVNzBXVkk2ZzdaYmsifQ.eyJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvZW1haWwiOiJ2c3BhbmNoYSs2MW9yZ0BjaXNjby5jb20iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvaWRwL2lkIjoic3hzbyIsImVtYWlsIjoidnNwYW5jaGErNjFvcmdAY2lzY28uY29tIiwiYXVkIjpbImlyb2gtdWkiLCJsb2dpbiJdLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvcm9sZSI6ImFkbWluIiwic3ViIjoiZTk1ZDlkNGQtZDAxMi00ODA3LWFmODMtN2UxOTE5ZmRjNGRiIiwiaXNzIjoiSVJPSCBBdXRoIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9yZWZyZXNoLXRva2VuLWp0aSI6InJlZnJlc2gtOWQ0NmM3YzMtZTZjYS00ZDk2LTljOWMtMDcxYTA1YjBmZDBkIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9zY29wZXMiOlsiZXZlbnQ6cmVhZCIsImNpc2NvL2ZlYXR1cmUtZmxhZy94ZHIiLCJpbnNpZ2h0cyIsInZhdWx0L2NvbmZpZ3M6cmVhZCIsImludGVncmF0aW9uIiwicHJpdmF0ZS1pbnRlbCIsImFkbWluIiwicHJvZmlsZSIsImluc3BlY3QiLCJhc3NldCIsImZlZWRiYWNrIiwic3NlIiwicmVnaXN0cnkiLCJ1c2VycyIsImludmVzdGlnYXRpb24iLCJpbnZpdGUiLCJwbGF5Ym9vayIsImNhc2Vib29rIiwidmF1bHQvY29uZmlnL21ldGFkYXRhOnJlYWQiLCJvcmJpdGFsIiwiZW5yaWNoIiwib2F1dGgiLCJjb2xsZWN0IiwicmVzcG9uc2UiLCJ1aS1zZXR0aW5ncyIsInRlbGVtZXRyeTp3cml0ZSIsIm9wZW5pZCIsIm5vdGlmaWNhdGlvbiIsImdsb2JhbC1pbnRlbDpyZWFkIiwid2ViaG9vayIsInZhdWx0L2NvbmZpZy9wb3N0dXJlOnJlYWQiLCJhbyJdLCJleHAiOjQxMDI0MjMxNDAsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgvY2xpZW50L25hbWUiOiJUaHJlYXQgUmVzcG9uc2UiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL3VzZXIvaWQiOiJlOTVkOWQ0ZC1kMDEyLTQ4MDctYWY4My03ZTE5MTlmZGM0ZGIiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29yZy9pZCI6IjA2NjljY2QyLTMzMjYtNGNmYS1hN2Y3LTA5MzM1NmFlNTVjNiIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgvZ3JhbnQiOiJsb2dpbiIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb3JnL25hbWUiOiJWaW5heSIsImp0aSI6InRva2VuLTgzMjc1NGE4LTlhM2YtNDMwNi1iMGNmLThlYTNiNGJiNmI2YiIsIm5iZiI6MTcyNTAxNzA3MCwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL25hbWUiOiJWaW5heSBQIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL2lkIjoiZTk1ZDlkNGQtZDAxMi00ODA3LWFmODMtN2UxOTE5ZmRjNGRiIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9jbGllbnQvaWQiOiJpcm9oLXVpIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoidjIuMTAtYzZkOWNmYzg1NTc5ODY1MDViOTEiLCJpYXQiOjE3MjUwMTcxMzAsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgva2luZCI6InNlc3Npb24tdG9rZW4ifQ.aR0c5W225tiWt2ynv1ikMjj_DkFuo9rPSC_YALai7wxmnTa9G9y-hJ9ixaBLsVN-uben4nidlTO9--SRC9oz1C9IMpe4JXqQAUfzDT3ggyzvBKSP93FoQ-_IAy4nfpSYBe4uA8JJSjbCajorVeRBcEAlCasYQkPYv3yvkgO0v8sTBWXw5uq3E1SNNumsBfPsi9bqz3CkuY7Q0nBzymt3QZNVPRTyRKfEh9kXdUHBjhnmYB52MiDeqEF2dsme2xQ8avSQ_LT82hNpAd2yi7r8Ph-Uth7mdnzUG7C_3dpIN_7Au_Mo7akVgE9yM3C67_z3sKac_1dsx5j77UTOSctq_w",
+          "scope": "local",
+          "name": "Dev2 Token",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GWG20XKGAZ94V259ECgbR8mUeWv3fynYE",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Recurring Calendar TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYVSVXE1OWX3LNMCAjJDAr5AR7mJBvM2s",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\n          \"day\": \"sun\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"mon\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"tue\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"wed\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"thu\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n        {\n          \"day\": \"fri\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        },\n       {\n          \"day\": \"sat\",\n          \"end_time\": \"23:59\",\n          \"start_time\": \"00:00\"\n        }",
+          "scope": "local",
+          "name": "Provide Recurring Repeats",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYUNI39O5BE3OdaiVOC4TiagL4bQ29WOo",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw",
+        "properties": {
+          "scope": "local",
+          "name": "Calendar Ids- DL",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYR1CDK1NKZ0dhMWHAfw66JnsuClydnPh",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Group Calendar TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYVT24HA9557PFqEi2hmswvjEJRTJDnz6",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw",
+        "properties": {
+          "scope": "local",
+          "name": "Calendar Ids - Recurring",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYTH9ME9P7A6rlXHufi0jkx8rFjrDpsDt",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "Calendar-LoopCounter",
+          "type": "datatype.integer",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "DateList Calendar TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYVSOHYO7R32AnGDWM6uohJqDHclSPqrV",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Calendar Limit TestCase Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYWFPPE2IVU7VDvXdw9g6tiZqUHdUitn0",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw",
+        "properties": {
+          "scope": "local",
+          "name": "Calendar Ids - TimeRangeCal",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYUB98WLBVN1viI4G4p0UcaOrkcN4yIiW",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "TimeRange Calendar TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYVTBGBS03D6UECK7AirqyvPbFUpGhTxY",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Etc/GMT+0",
+          "scope": "local",
+          "name": "TimeZone for TimeRange Cal",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_02GYUMYP2G1IG411keoc0ckpiuuWRH7ZGfB",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "XDR-1096-WF Limit and Notifications Automation",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02GVFAYK6CKZO2M8AH2QySO2qmf9W4cmO6r",
+        "name": "Parallel Block",
+        "title": "XDR 1096- Rate Limts",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "XDR 1096- Rate Limts",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02GVFAYKAMXS62ZbpOOwWBWIdASinmqXqVP",
+            "name": "Parallel Branch",
+            "title": "Calendar Object",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Calendar Object",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02GYU2LA4MBG87HQjzHHtFH402hEkmVVllF",
+                "name": "HTTP Request",
+                "title": "GET  Calendar",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GWG20XKGAZ94V259ECgbR8mUeWv3fynYE$"
+                    }
+                  ],
+                  "display_name": "GET  Calendar",
+                  "method": "GET",
+                  "relative_url": "api/v1/calendars",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C"
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GYU30VGPUGA1xcJ6YV1tMVPIfSjhV6qIC",
+                "name": "JSONPath Query",
+                "title": "Fetch Calendars",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Calendars",
+                  "input_json": "$activity.definition_activity_02GYU2LA4MBG87HQjzHHtFH402hEkmVVllF.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.[?(@.name=='Daily')].id",
+                      "jsonpath_query_name": "Daily_CalendarID",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    },
+                    {
+                      "jsonpath_query": "$.[?(@.name=='Workdays')].id",
+                      "jsonpath_query_name": "Workday_CalendarID",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GVFAJOLL3H66GPmYPPmOCL1I2leKa1tIM",
+                "name": "XDR-1096-Update Calendar Limit for Value 3",
+                "title": "XDR-1096-Update Calendar Limit for Value 3",
+                "type": "workflow.sub_workflow",
+                "base_type": "subworkflow",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "XDR-1096-Update Calendar Limit for Value 3",
+                  "input": {
+                    "variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL": "0669ccd2-3326-4cfa-a7f7-093356ae55c6",
+                    "variable_workflow_02GVF9B27APFR3e0bgmq50mJubdV0CuOHWm": "{\n    \"object_limits\": {\n        \"calendar\": 3,\n        \"categories\": {\n            \"basic\": 100,\n            \"xchange\": 200\n        },\n        \"data_type\": 100,\n        \"remote_meta\": 20,\n        \"rules\": {\n            \"schedule_rule\": 100,\n            \"event_rule\": 200\n        },\n        \"runs\": {\n            \"schedule_rule\": 5,\n            \"event_rule\": {\n                \"per_day\": 5,\n                \"per_minute\": 5\n            },\n            \"loop_limit\": 500,\n            \"approval_task\": 50,\n            \"prompt_task\": 50,\n            \"max_run_time\": 30,\n            \"max_loops_in_run\": 50000\n        },\n        \"runtime_user\": 500,\n        \"target\": 50,\n        \"target_group\": 50,\n        \"variable\": 50,\n        \"workflow_limits\": {\n            \"workflow\": 500,\n            \"atomic\": 500,\n            \"activity\": {\n                \"total\": 500,\n                \"while\": 10,\n                \"for_loop\": 10,\n                \"parallel\": 10,\n                \"sub_workflow\": 10,\n                \"atomic_workflow\": 10\n            },\n            \"variable\": {\n                \"large_string\": 5,\n                \"total\": 100\n            }\n        },\n        \"xchange\": {\n            \"publish\": 50\n        }\n    }\n}"
+                  },
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "execute_on_this_target": true,
+                    "target_id": "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB",
+                    "target_type": "web-service.endpoint"
+                  },
+                  "workflow_id": "definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103",
+                  "workflow_name": "XDR-1096-Update Object Limits at Org Level"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GVFCEHM7X9H3xwL1469njhUSG76ISzovq",
+                "name": "Sleep",
+                "title": "Sleep for 10s",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Sleep for 10s",
+                  "skip_execution": false,
+                  "sleep_interval": 10
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GVFGXTZTYUX6BUCGHFddc4P6PrxiuMV40",
+                "name": "Format Date",
+                "title": "Format Date",
+                "type": "core.format_date",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Format Date",
+                  "format_string": "2006-01-02",
+                  "original_date": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.output.start_time$",
+                  "skip_execution": false,
+                  "use_custom_format": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GYQXHMG7P9B6W3E037MhlhN1vunWDSo4S",
+                "name": "While Loop",
+                "title": "Create Date List Calender for 3 times",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Create Date List Calender for 3 times",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02GYQXHMO4N3V4Tmexin3N2qO45IhVAiEhG",
+                    "name": "Condition Branch",
+                    "title": "Exit Loop when Loop Reached 3",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                        "operator": "lte",
+                        "right_operand": 3
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Exit Loop when Loop Reached 3",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02GYR57857G6040YTohun5XM9qZ9JqsHrUQ",
+                        "name": "Execute Python Script",
+                        "title": "Generate Random String",
+                        "type": "python3.script",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": false,
+                          "display_name": "Generate Random String",
+                          "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GVFC7DL5X6K6ZO6V2bjRQJVTS9oUbwyxC",
+                        "name": "HTTP Request",
+                        "title": "Create a DateList Calendar",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "body": "{\n  \"display_name\": \"DL-Cal-$activity.definition_activity_02GYR57857G6040YTohun5XM9qZ9JqsHrUQ.output.response_body$\",\n  \"name\": \"DL-Cal-$activity.definition_activity_02GYR57857G6040YTohun5XM9qZ9JqsHrUQ.output.response_body$\",\n  \"title\": \"DL-Cal-$activity.definition_activity_02GYR57857G6040YTohun5XM9qZ9JqsHrUQ.output.response_body$\",\n  \"base_type\": \"calendar\",\n  \"type\": \"calendar.datelist\",\n  \"properties\": {\n    \"date_list\": [\n      \"$activity.definition_activity_02GVFGXTZTYUX6BUCGHFddc4P6PrxiuMV40.output.result$\"\n    ]\n  }\n}",
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": true,
+                          "custom_headers": [
+                            {
+                              "name": "Authorization",
+                              "value": "Bearer $workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GWG20XKGAZ94V259ECgbR8mUeWv3fynYE$"
+                            }
+                          ],
+                          "display_name": "Create a DateList Calendar",
+                          "method": "POST",
+                          "relative_url": "api/v1/calendars",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "override_workflow_target": true,
+                            "target_id": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C"
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYR28KXZ1WQ6KJh80W46yhiSWATEPqets",
+                        "name": "Sleep",
+                        "title": "Sleep for 2s",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep for 2s",
+                          "skip_execution": false,
+                          "sleep_interval": 2
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYQZKHBWOH42nBFIeVj4LcqYVs4jlrfNz",
+                        "name": "JSONPath Query",
+                        "title": "Fetch Date List Calendar ID",
+                        "type": "corejava.jsonpathquery",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Fetch Date List Calendar ID",
+                          "input_json": "$activity.definition_activity_02GVFC7DL5X6K6ZO6V2bjRQJVTS9oUbwyxC.output.response_body$",
+                          "jsonpath_queries": [
+                            {
+                              "jsonpath_query": "$.id",
+                              "jsonpath_query_name": "calendar_id",
+                              "jsonpath_query_type": "string",
+                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYR1LJLETMK7IiSBf81Wp1VJilfEDbwWU",
+                        "name": "Add Row to Table",
+                        "title": "Store DateList Calendar Ids",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Store DateList Calendar Ids",
+                          "input_table": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYR1CDK1NKZ0dhMWHAfw66JnsuClydnPh$",
+                          "row": [
+                            {
+                              "key": "id",
+                              "type": "string",
+                              "value": "$activity.definition_activity_02GYQZKHBWOH42nBFIeVj4LcqYVs4jlrfNz.output.jsonpath_queries.calendar_id$"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYQZ0GOQLYD7VTxzBpQTSW1xBPHXQxhR6",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                              "variable_value_new": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYVTRP8QUQR0vY0zmvdLvLtpA3INgeNHb",
+                        "name": "Condition Block",
+                        "title": "Verify TestStatus for DateList Cal",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "conditions": [],
+                          "continue_on_failure": true,
+                          "display_name": "Verify TestStatus for DateList Cal",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_02GYVTRPIRYQO6wvATaHlHNG2UosohPHRRs",
+                            "name": "Condition Branch",
+                            "title": "PassCase",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02GVFC7DL5X6K6ZO6V2bjRQJVTS9oUbwyxC.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "403"
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02GVFC7DL5X6K6ZO6V2bjRQJVTS9oUbwyxC.output.error.message$",
+                                  "operator": "mw",
+                                  "right_operand": "You are at the 3 calendar limit"
+                                }
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "PassCase",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_02GYW2YXNXB8N5A9KDU4ym76d0mKqigUbly",
+                                "name": "Set Variables",
+                                "title": "Pass and Limit rate is catched",
+                                "type": "core.set_multiple_variables",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Pass and Limit rate is catched",
+                                  "skip_execution": false,
+                                  "variables_to_update": [
+                                    {
+                                      "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.output.variable_workflow_02GYVSOHYO7R32AnGDWM6uohJqDHclSPqrV$",
+                                      "variable_value_new": "Pass"
+                                    }
+                                  ]
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02GYSQIFNXS7057nQBZEeFEagwxgS5oUq39",
+                "name": "Group",
+                "title": "Cleanup Calendars",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Cleanup Calendars",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02GYTBPF0UMBH0w5sgm1cqRedyOfLBipAEn",
+                    "name": "For Each",
+                    "title": "For Each",
+                    "type": "logic.for_each",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "For Each",
+                      "skip_execution": false,
+                      "source_array": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYR1CDK1NKZ0dhMWHAfw66JnsuClydnPh$"
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02GYSQTD0CSXZ38OS2EDySIoY1OC2aoIGZU",
+                        "name": "HTTP Request",
+                        "title": "Delete a DateList Calendar",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": true,
+                          "custom_headers": [
+                            {
+                              "name": "Authorization",
+                              "value": "Bearer $workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GWG20XKGAZ94V259ECgbR8mUeWv3fynYE$"
+                            }
+                          ],
+                          "display_name": "Delete a DateList Calendar",
+                          "method": "DELETE",
+                          "relative_url": "api/v1/calendars/$activity.definition_activity_02GYTBPF0UMBH0w5sgm1cqRedyOfLBipAEn.input.source_array[@].id$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "override_workflow_target": true,
+                            "target_id": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C"
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02GYTKERCNRIE0JmkviLeokn225sxvhWJTu",
+                "name": "Set Variables",
+                "title": "Set Loop Count to 0",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Set Loop Count to 0",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                      "variable_value_new": 0
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GYTD29Z7JZV15YGZ89CCbTAMEYFkTTh2i",
+                "name": "While Loop",
+                "title": "Create Recurring a Calender for 3 times",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Create Recurring a Calender for 3 times",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02GYTD29Z8RKV7edWwYZJh4iXE44wYaMSbg",
+                    "name": "Condition Branch",
+                    "title": "Exit Loop when Loop Reached 3",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                        "operator": "lte",
+                        "right_operand": 3
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Exit Loop when Loop Reached 3",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02GYTD29ZA6P35dOMI4DZTUGW0T0BREY1xH",
+                        "name": "Execute Python Script",
+                        "title": "Generate Random String",
+                        "type": "python3.script",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": false,
+                          "display_name": "Generate Random String",
+                          "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYTD29ZEQKP4sHUEnn23ti3oyteq1YrIL",
+                        "name": "HTTP Request",
+                        "title": "Create a Recurring  Cal",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "body": "{\n  \"display_name\": \"Rec-Cal-$activity.definition_activity_02GYTD29ZA6P35dOMI4DZTUGW0T0BREY1xH.output.response_body$\",\n  \"name\": \"Rec-Cal-$activity.definition_activity_02GYTD29ZA6P35dOMI4DZTUGW0T0BREY1xH.output.response_body$\",\n  \"title\": \"Rec-Cal-$activity.definition_activity_02GYTD29ZA6P35dOMI4DZTUGW0T0BREY1xH.output.response_body$\",\n  \"type\": \"calendar.recurring\",\n  \"properties\": {\n    \"date_range\": {\n      \"start_date\": \"$activity.definition_activity_02GVFGXTZTYUX6BUCGHFddc4P6PrxiuMV40.output.result$\"\n    },\n    \"repeats\": {\n      \"period\": \"daily\",\n      \"every\": 1\n    }\n  }\n}",
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": true,
+                          "custom_headers": [
+                            {
+                              "name": "Authorization",
+                              "value": "Bearer $workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GWG20XKGAZ94V259ECgbR8mUeWv3fynYE$"
+                            }
+                          ],
+                          "display_name": "Create a Recurring  Cal",
+                          "method": "POST",
+                          "relative_url": "api/v1/calendars",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "override_workflow_target": true,
+                            "target_id": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C"
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYTD29ZFR5L1q2VP3koLqwRvBb0JVvBy9",
+                        "name": "Sleep",
+                        "title": "Sleep for 2s",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep for 2s",
+                          "skip_execution": false,
+                          "sleep_interval": 2
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYTD29ZIK3X1kW546BjAjGHlueurEV7nk",
+                        "name": "JSONPath Query",
+                        "title": "Fetch Recurring Calendar ID",
+                        "type": "corejava.jsonpathquery",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Fetch Recurring Calendar ID",
+                          "input_json": "$activity.definition_activity_02GYTD29ZEQKP4sHUEnn23ti3oyteq1YrIL.output.response_body$",
+                          "jsonpath_queries": [
+                            {
+                              "jsonpath_query": "$.id",
+                              "jsonpath_query_name": "calendar_id",
+                              "jsonpath_query_type": "string",
+                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYTD29ZM3V64HuCfwfgGxOJB4Wji2dYjV",
+                        "name": "Add Row to Table",
+                        "title": "Store Recurring Calendar Ids",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Store Recurring Calendar Ids",
+                          "input_table": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYTH9ME9P7A6rlXHufi0jkx8rFjrDpsDt$",
+                          "row": [
+                            {
+                              "key": "id",
+                              "type": "string",
+                              "value": "$activity.definition_activity_02GYTD29ZIK3X1kW546BjAjGHlueurEV7nk.output.jsonpath_queries.calendar_id$"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYTD29ZMQUH4uiyIPY7aF1yv8wjfcl5pK",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                              "variable_value_new": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYW54KZFPKL7MwKtqyfz6PHDhisNQMngA",
+                        "name": "Condition Block",
+                        "title": "Verify TestStatus for Recurring Cal",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "conditions": [],
+                          "continue_on_failure": true,
+                          "display_name": "Verify TestStatus for Recurring Cal",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_02GYW54KZGGSE50CT5ZJjJWr8381QAZKkNx",
+                            "name": "Condition Branch",
+                            "title": "PassCase",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02GYTD29ZEQKP4sHUEnn23ti3oyteq1YrIL.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "403"
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02GYTD29ZEQKP4sHUEnn23ti3oyteq1YrIL.output.error.message$",
+                                  "operator": "mw",
+                                  "right_operand": "You are at the 3 calendar limit"
+                                }
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "PassCase",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_02GYW54KZJGKK5MWRQR8HTElECLH3YMdFWI",
+                                "name": "Set Variables",
+                                "title": "Pass and Limit rate is catched",
+                                "type": "core.set_multiple_variables",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Pass and Limit rate is catched",
+                                  "skip_execution": false,
+                                  "variables_to_update": [
+                                    {
+                                      "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.output.variable_workflow_02GYVSVXE1OWX3LNMCAjJDAr5AR7mJBvM2s$",
+                                      "variable_value_new": "Pass"
+                                    }
+                                  ]
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02GYTHWBBZ0QT0m8qPrdxgITTRoz80cT3ox",
+                "name": "Group",
+                "title": "Cleanup Calendars",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Cleanup Calendars",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02GYTHWBC1DCQ3DOpB50JN6DNJADRs5MoMy",
+                    "name": "For Each",
+                    "title": "For Each",
+                    "type": "logic.for_each",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "For Each",
+                      "skip_execution": false,
+                      "source_array": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYTH9ME9P7A6rlXHufi0jkx8rFjrDpsDt$"
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02GYTHWBC6X702hBNNcqkApfRtVN1TgzhWZ",
+                        "name": "HTTP Request",
+                        "title": "Delete a Recurring Calendar",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": true,
+                          "custom_headers": [
+                            {
+                              "name": "Authorization",
+                              "value": "Bearer $workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GWG20XKGAZ94V259ECgbR8mUeWv3fynYE$"
+                            }
+                          ],
+                          "display_name": "Delete a Recurring Calendar",
+                          "method": "DELETE",
+                          "relative_url": "api/v1/calendars/$activity.definition_activity_02GYTHWBC1DCQ3DOpB50JN6DNJADRs5MoMy.input.source_array[@].id$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "override_workflow_target": true,
+                            "target_id": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C"
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02GYUBLRZX2CJ5PTgqX4LDdTRtIrId6Rb7p",
+                "name": "Set Variables",
+                "title": "Set Loop Count to 0",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Set Loop Count to 0",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                      "variable_value_new": 0
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GYUBQHNY8A53V0KxA7auaHAcLRTyPQ1XH",
+                "name": "While Loop",
+                "title": "Create Group a Calender for 3 times",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Create Group a Calender for 3 times",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02GYUBQHNYZC357LjcHLZla8YKIiKfnI5TQ",
+                    "name": "Condition Branch",
+                    "title": "Exit Loop when Loop Reached 3",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                        "operator": "lte",
+                        "right_operand": 3
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Exit Loop when Loop Reached 3",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02GYUBQHO0JA97O1TDngBW6OOqfh6e8lWGf",
+                        "name": "Execute Python Script",
+                        "title": "Generate Random String",
+                        "type": "python3.script",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": false,
+                          "display_name": "Generate Random String",
+                          "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYUBQHO5D4K4a27hy1x0MVg4550O9xFRv",
+                        "name": "HTTP Request",
+                        "title": "Create a Group  Cal",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "body": "{\n  \"display_name\": \"group-cal-$activity.definition_activity_02GYUBQHO0JA97O1TDngBW6OOqfh6e8lWGf.output.response_body$\",\n  \"name\": \"group-cal-$activity.definition_activity_02GYUBQHO0JA97O1TDngBW6OOqfh6e8lWGf.output.response_body$\",\n  \"title\": \"group-cal-$activity.definition_activity_02GYUBQHO0JA97O1TDngBW6OOqfh6e8lWGf.output.response_body$\",\n  \"type\": \"calendar.group\",\n  \"properties\": {\n    \"date_range\": {\n      \"start_date\": \"$activity.definition_activity_02GVFGXTZTYUX6BUCGHFddc4P6PrxiuMV40.output.result$\"\n    },\n    \"calendar_include\": [\n      \"$activity.definition_activity_02GYU30VGPUGA1xcJ6YV1tMVPIfSjhV6qIC.output.jsonpath_queries.Daily_CalendarID$\"\n    ],\n    \"calendar_exclude\": [\n      \"$activity.definition_activity_02GYU30VGPUGA1xcJ6YV1tMVPIfSjhV6qIC.output.jsonpath_queries.Workday_CalendarID$\"\n    ]\n  }\n}",
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": true,
+                          "custom_headers": [
+                            {
+                              "name": "Authorization",
+                              "value": "Bearer $workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GWG20XKGAZ94V259ECgbR8mUeWv3fynYE$"
+                            }
+                          ],
+                          "display_name": "Create a Group  Cal",
+                          "method": "POST",
+                          "relative_url": "api/v1/calendars",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "override_workflow_target": true,
+                            "target_id": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C"
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYUBQHO6GTE571EGW90F9WXNYOXcEdXsm",
+                        "name": "Sleep",
+                        "title": "Sleep for 2s",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep for 2s",
+                          "skip_execution": false,
+                          "sleep_interval": 2
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYUBQHO8DTV6FmsO0iXFKhlUI0Ruyh2KT",
+                        "name": "JSONPath Query",
+                        "title": "Fetch Group Calendar ID",
+                        "type": "corejava.jsonpathquery",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Fetch Group Calendar ID",
+                          "input_json": "$activity.definition_activity_02GYUBQHO5D4K4a27hy1x0MVg4550O9xFRv.output.response_body$",
+                          "jsonpath_queries": [
+                            {
+                              "jsonpath_query": "$.id",
+                              "jsonpath_query_name": "calendar_id",
+                              "jsonpath_query_type": "string",
+                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYUBQHOBPGX5RjiWdJ8Hy4txBoljQt7gg",
+                        "name": "Add Row to Table",
+                        "title": "Store Group Calendar Ids",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Store Group Calendar Ids",
+                          "input_table": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYUFRCA7GR12RT9rUqXk4ljBJvA8xEvhc$",
+                          "row": [
+                            {
+                              "key": "id",
+                              "type": "string",
+                              "value": "$activity.definition_activity_02GYUBQHO8DTV6FmsO0iXFKhlUI0Ruyh2KT.output.jsonpath_queries.calendar_id$"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYUBQHOCE1J6MNoDaqBMIIRpDDSlZDRYD",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                              "variable_value_new": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYW78TFQCGH1kQOaEJ0wrH20ZSDnBQi8v",
+                        "name": "Condition Block",
+                        "title": "Verify TestStatus for Group Cal",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "conditions": [],
+                          "continue_on_failure": true,
+                          "display_name": "Verify TestStatus for Group Cal",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_02GYW78TFR1ER6NZL2jpgFSvNJ1weFsN1Le",
+                            "name": "Condition Branch",
+                            "title": "PassCase",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02GYUBQHO5D4K4a27hy1x0MVg4550O9xFRv.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "403"
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02GYUBQHO5D4K4a27hy1x0MVg4550O9xFRv.output.error.message$",
+                                  "operator": "mw",
+                                  "right_operand": "You are at the 3 calendar limit"
+                                }
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "PassCase",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_02GYW78TFTRDB1pD5i5e4ILckesR7k4V6M0",
+                                "name": "Set Variables",
+                                "title": "Pass and Limit rate is catched",
+                                "type": "core.set_multiple_variables",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Pass and Limit rate is catched",
+                                  "skip_execution": false,
+                                  "variables_to_update": [
+                                    {
+                                      "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.output.variable_workflow_02GYVT24HA9557PFqEi2hmswvjEJRTJDnz6$",
+                                      "variable_value_new": "Pass"
+                                    }
+                                  ]
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02GYUBX854Q124aP6oNAYPzq8mofiOLK0DI",
+                "name": "Group",
+                "title": "Cleanup Calendars",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Cleanup Calendars",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02GYUBX856G6F6tueprkylO4nmnhLqAVrTq",
+                    "name": "For Each",
+                    "title": "For Each",
+                    "type": "logic.for_each",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "For Each",
+                      "skip_execution": false,
+                      "source_array": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYUFRCA7GR12RT9rUqXk4ljBJvA8xEvhc$"
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02GYUBX85AUHT6e3gfu2RjIoqT7wXO0eZjR",
+                        "name": "HTTP Request",
+                        "title": "Delete a Group Calendar",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": true,
+                          "custom_headers": [
+                            {
+                              "name": "Authorization",
+                              "value": "Bearer $workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GWG20XKGAZ94V259ECgbR8mUeWv3fynYE$"
+                            }
+                          ],
+                          "display_name": "Delete a Group Calendar",
+                          "method": "DELETE",
+                          "relative_url": "api/v1/calendars/$activity.definition_activity_02GYUBX856G6F6tueprkylO4nmnhLqAVrTq.input.source_array[@].id$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "override_workflow_target": true,
+                            "target_id": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C"
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02GYUC27FWH612HIgQwIUhYfkwn7b38R1FE",
+                "name": "Set Variables",
+                "title": "Set Loop Count to 0",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Set Loop Count to 0",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                      "variable_value_new": 0
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02GYUC62WUZRA5L4GHsNhFohbYz0yWFzyeV",
+                "name": "While Loop",
+                "title": "Create TimeRange a Calender for 3 times",
+                "type": "logic.while",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Create TimeRange a Calender for 3 times",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02GYUC62WW23Z0tl8TcIbsZBvW05pFpka9X",
+                    "name": "Condition Branch",
+                    "title": "Exit Loop when Loop Reached 3",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                        "operator": "lte",
+                        "right_operand": 3
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Exit Loop when Loop Reached 3",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02GYUC62WXNXS6u3ITDxft1maHF8R70n4h1",
+                        "name": "Execute Python Script",
+                        "title": "Generate Random String",
+                        "type": "python3.script",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": false,
+                          "display_name": "Generate Random String",
+                          "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYUC62X2X3L7MxaZ46mB4xiwoc80azFJd",
+                        "name": "HTTP Request",
+                        "title": "Create a TimeRange Cal",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "body": "{\n  \"display_name\": \"time-range-$activity.definition_activity_02GYUC62WXNXS6u3ITDxft1maHF8R70n4h1.output.response_body$\",\n  \"name\": \"time-range-$activity.definition_activity_02GYUC62WXNXS6u3ITDxft1maHF8R70n4h1.output.response_body$\",\n  \"title\": \"time-range-$activity.definition_activity_02GYUC62WXNXS6u3ITDxft1maHF8R70n4h1.output.response_body$\",\n  \"base_type\": \"calendar\",\n  \"type\": \"calendar.time_range\",\n  \"properties\": {\n    \"timezone\": \"$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYUMYP2G1IG411keoc0ckpiuuWRH7ZGfB$\",\n    \"repeats\": {\n      \"on\": [\n        $workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYUNI39O5BE3OdaiVOC4TiagL4bQ29WOo$\n      ],\n      \"every\": 1,\n      \"period\": \"weekly\"\n    },\n    \"date_range\": {\n      \"start_date\": \"$activity.definition_activity_02GVFGXTZTYUX6BUCGHFddc4P6PrxiuMV40.output.result$\"\n    }\n  }\n}",
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": true,
+                          "custom_headers": [
+                            {
+                              "name": "Authorization",
+                              "value": "Bearer $workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GWG20XKGAZ94V259ECgbR8mUeWv3fynYE$"
+                            }
+                          ],
+                          "display_name": "Create a TimeRange Cal",
+                          "method": "POST",
+                          "relative_url": "api/v1/calendars",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "override_workflow_target": true,
+                            "target_id": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C"
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYUC62X3JYO6Dj2lVB4xb9N7sTUsdbVVU",
+                        "name": "Sleep",
+                        "title": "Sleep for 2s",
+                        "type": "core.sleep",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Sleep for 2s",
+                          "skip_execution": false,
+                          "sleep_interval": 2
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYUC62X538P1cefPC55J6G6V2umjhExAv",
+                        "name": "JSONPath Query",
+                        "title": "Fetch Timerange Calendar ID",
+                        "type": "corejava.jsonpathquery",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Fetch Timerange Calendar ID",
+                          "input_json": "$activity.definition_activity_02GYUC62X2X3L7MxaZ46mB4xiwoc80azFJd.output.response_body$",
+                          "jsonpath_queries": [
+                            {
+                              "jsonpath_query": "$.id",
+                              "jsonpath_query_name": "calendar_id",
+                              "jsonpath_query_type": "string",
+                              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYUC62X8D2S1tcqFfkwl5zlmn54yQhrdi",
+                        "name": "Add Row to Table",
+                        "title": "Store TimeRange Calendar Ids",
+                        "type": "core.addrowtotable",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "continue_on_failure": true,
+                          "display_name": "Store TimeRange Calendar Ids",
+                          "input_table": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYUB98WLBVN1viI4G4p0UcaOrkcN4yIiW$",
+                          "row": [
+                            {
+                              "key": "id",
+                              "type": "string",
+                              "value": "$activity.definition_activity_02GYUC62X538P1cefPC55J6G6V2umjhExAv.output.jsonpath_queries.calendar_id$"
+                            }
+                          ],
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYUC62X8ZK949Y39D7OMbxyp7iLmlaqjm",
+                        "name": "Set Variables",
+                        "title": "Increment Loop",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Increment Loop",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$",
+                              "variable_value_new": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYQYA1WM5QR5JUSqpxtTLMM67jxfUysO9$+1"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02GYW8BA6DLLH5mH4ZoTFLuFkkd0MwrzsLm",
+                        "name": "Condition Block",
+                        "title": "Verify TestStatus for TimeRange Cal",
+                        "type": "logic.if_else",
+                        "base_type": "activity",
+                        "properties": {
+                          "conditions": [],
+                          "continue_on_failure": true,
+                          "display_name": "Verify TestStatus for TimeRange Cal",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "blocks": [
+                          {
+                            "unique_name": "definition_activity_02GYW8BA6E5XU65I9gie63kbjccS5DTte8n",
+                            "name": "Condition Branch",
+                            "title": "PassCase",
+                            "type": "logic.condition_block",
+                            "base_type": "activity",
+                            "properties": {
+                              "condition": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02GYUC62X2X3L7MxaZ46mB4xiwoc80azFJd.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "403"
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02GYUC62X2X3L7MxaZ46mB4xiwoc80azFJd.output.error.message$",
+                                  "operator": "mw",
+                                  "right_operand": "You are at the 3 calendar limit"
+                                }
+                              },
+                              "continue_on_failure": false,
+                              "display_name": "PassCase",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_02GYW8BA6FSWW0BOEoEkAiYjmjweG4m64BA",
+                                "name": "Set Variables",
+                                "title": "Pass and Limit rate is catched",
+                                "type": "core.set_multiple_variables",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": false,
+                                  "display_name": "Pass and Limit rate is catched",
+                                  "skip_execution": false,
+                                  "variables_to_update": [
+                                    {
+                                      "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.output.variable_workflow_02GYVTBGBS03D6UECK7AirqyvPbFUpGhTxY$",
+                                      "variable_value_new": "Pass"
+                                    }
+                                  ]
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02GYUCDCG5G433HnWBK5UhRQouv8cVUGnSv",
+                "name": "Group",
+                "title": "Cleanup Calendars",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Cleanup Calendars",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02GYUCDCG7HWT2mDSSQ6Y8vdiNuksMGwhn2",
+                    "name": "For Each",
+                    "title": "For Each",
+                    "type": "logic.for_each",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "For Each",
+                      "skip_execution": false,
+                      "source_array": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GYUB98WLBVN1viI4G4p0UcaOrkcN4yIiW$"
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02GYUCDCGC5XB7Tdxo8r7vzzGc9O597TVUU",
+                        "name": "HTTP Request",
+                        "title": "Delete a TimeRange Calendar",
+                        "type": "web-service.http_request",
+                        "base_type": "activity",
+                        "properties": {
+                          "action_timeout": 180,
+                          "allow_auto_redirect": true,
+                          "allow_headers_redirect": false,
+                          "continue_on_error_status_code": false,
+                          "continue_on_failure": true,
+                          "custom_headers": [
+                            {
+                              "name": "Authorization",
+                              "value": "Bearer $workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.local.variable_workflow_02GWG20XKGAZ94V259ECgbR8mUeWv3fynYE$"
+                            }
+                          ],
+                          "display_name": "Delete a TimeRange Calendar",
+                          "method": "DELETE",
+                          "relative_url": "api/v1/calendars/$activity.definition_activity_02GYUCDCG7HWT2mDSSQ6Y8vdiNuksMGwhn2.input.source_array[@].id$",
+                          "runtime_user": {
+                            "target_default": true
+                          },
+                          "skip_execution": false,
+                          "target": {
+                            "override_workflow_target": true,
+                            "target_id": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C"
+                          }
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02GYWEJ6GEXTX6zPRn9ZmD2DPwFlH4w1ceC",
+                "name": "Condition Block",
+                "title": "Verify Limit for Calendar Object",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "conditions": [],
+                  "continue_on_failure": false,
+                  "display_name": "Verify Limit for Calendar Object",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02GYWEJ6VJWOE2O2FoOJNXrtH7ekWmg5bwP",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.output.variable_workflow_02GYVSOHYO7R32AnGDWM6uohJqDHclSPqrV$",
+                                "operator": "eq",
+                                "right_operand": "Pass"
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.output.variable_workflow_02GYVSVXE1OWX3LNMCAjJDAr5AR7mJBvM2s$",
+                                "operator": "eq",
+                                "right_operand": "Pass"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.output.variable_workflow_02GYVT24HA9557PFqEi2hmswvjEJRTJDnz6$",
+                              "operator": "eq",
+                              "right_operand": "Pass"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.output.variable_workflow_02GYVTBGBS03D6UECK7AirqyvPbFUpGhTxY$",
+                            "operator": "eq",
+                            "right_operand": "Pass"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02GVFAJOLL3H66GPmYPPmOCL1I2leKa1tIM.output.variable_workflow_02GVEYSGPQ0460vAPuHM1ObosgimyKc8JHK$",
+                          "operator": "eq",
+                          "right_operand": "Pass"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02GYWFU85NY2P3VW9jk8i2ydBEPR8zYss7D",
+                        "name": "Set Variables",
+                        "title": "PassCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "PassCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02GVFAG6X4DEY2kfWHTEIDP2PXAD1Yj2ffq.output.variable_workflow_02GYWFPPE2IVU7VDvXdw9g6tiZqUHdUitn0$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02GVFAYKGGR7I6IemJIaldkhbH0oGSczTqY",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C": {
+      "unique_name": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C",
+      "name": "DEV2-AutomateAPI",
+      "title": "DEV2-AutomateAPI",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "DEV2-AutomateAPI",
+        "host": "automate.sxo-dev2.ao-local.com",
+        "ignore_proxy": true,
+        "no_runtime_user": true,
+        "protocol": "https"
+      }
+    },
+    "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB": {
+      "unique_name": "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB",
+      "name": "PrivateDNS Target Dev2",
+      "title": "PrivateDNS Target Dev2",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "",
+        "disable_certificate_validation": true,
+        "display_name": "PrivateDNS Target Dev2",
+        "host": "automate-private.sxo-dev2.ao-local.com",
+        "ignore_proxy": true,
+        "no_runtime_user": true,
+        "path": "/internal/v2/tenants/",
+        "protocol": "https"
+      }
+    }
+  },
+  "table_types": {
+    "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw": {
+      "unique_name": "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw",
+      "data_type": "datatype.tabletype",
+      "display_name": "Created_Object_Ids",
+      "columns": [
+        {
+          "name": "id",
+          "title": "id",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103",
+        "name": "XDR-1096-Update Object Limits at Org Level",
+        "title": "XDR-1096-Update Object Limits at Org Level",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "Update Limit Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02GVEYSGPQ0460vAPuHM1ObosgimyKc8JHK",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "{\n    \"object_limits\": {\n        \"calendar\": 50,\n        \"categories\": {\n            \"basic\": 100,\n            \"xchange\": 200\n        },\n        \"data_type\": 100,\n        \"remote_meta\": 20,\n        \"rules\": {\n            \"schedule_rule\": 100,\n            \"event_rule\": 200\n        },\n        \"runs\": {\n            \"schedule_rule\": 5,\n            \"event_rule\": {\n                \"per_day\": 5,\n                \"per_minute\": 5\n            },\n            \"loop_limit\": 500,\n            \"approval_task\": 50,\n            \"prompt_task\": 50,\n            \"max_run_time\": 30,\n            \"max_loops_in_run\": 50000\n        },\n        \"runtime_user\": 500,\n        \"target\": 50,\n        \"target_group\": 50,\n        \"variable\": 50,\n        \"workflow_limits\": {\n            \"workflow\": 500,\n            \"atomic\": 500,\n            \"activity\": {\n                \"total\": 500,\n                \"while\": 10,\n                \"for_loop\": 10,\n                \"parallel\": 10,\n                \"sub_workflow\": 10,\n                \"atomic_workflow\": 10\n            },\n            \"variable\": {\n                \"large_string\": 5,\n                \"total\": 100\n            }\n        },\n        \"xchange\": {\n            \"publish\": 50\n        }\n    }\n}",
+              "scope": "input",
+              "name": "Request Payload",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02GVF9B27APFR3e0bgmq50mJubdV0CuOHWm",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "9c48d69c-778e-583e-a1e4-11fc8bfbeea5",
+              "scope": "input",
+              "name": "Enter the Tenant ID Where you want to Set Limits",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "XDR-1096-Update Object Limits at Org Level",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "target_type": "web-service.endpoint",
+            "target_id": "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB",
+            "execute_on_workflow_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02GVEVECW114E3iJJfUiDkbzr7c343DUhJi",
+            "name": "HTTP Request",
+            "title": "Update Object Limits at Org level",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "body": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02GVF9B27APFR3e0bgmq50mJubdV0CuOHWm$",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "custom_headers": [
+                {
+                  "name": "x-cisco-tenant-id",
+                  "value": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL$"
+                }
+              ],
+              "display_name": "Update Object Limits at Org level",
+              "method": "PATCH",
+              "relative_url": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02GVEYV33U34Y15WxnMY7qd8itOKcrG97Cb",
+            "name": "Condition Block",
+            "title": "Verify Update Limits API",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "conditions": [],
+              "continue_on_failure": false,
+              "display_name": "Verify Update Limits API",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_02GVEYV38PLZC2w15N7yvSuX0EAObopyjPw",
+                "name": "Condition Branch",
+                "title": "PassCase",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_02GVEVECW114E3iJJfUiDkbzr7c343DUhJi.output.error.code$",
+                    "operator": "eq",
+                    "right_operand": "200"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "PassCase",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02GVF4VIKX52S6JMZiHOtoTL6JT6JdVXerP",
+                    "name": "Set Variables",
+                    "title": "PassCase",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.output.variable_workflow_02GVEYSGPQ0460vAPuHM1ObosgimyKc8JHK$",
+                          "variable_value_new": "Pass"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02GVF82I87HS97UDj5hKlnRuJetg1yxdzh6",
+                "name": "Condition Branch",
+                "title": "FailCase",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_02GVEVECW114E3iJJfUiDkbzr7c343DUhJi.output.error.code$",
+                    "operator": "ne",
+                    "right_operand": "200"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "FailCase",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02GVF82I882XA4Cu0gqzA0ple7mcBo0owyi",
+                    "name": "Set Variables",
+                    "title": "FailCase",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "FailCase",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.output.variable_workflow_02GVEYSGPQ0460vAPuHM1ObosgimyKc8JHK$",
+                          "variable_value_new": "Fail"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ],
+  "dependent_workflows": [
+    "definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103"
+  ]
+}
