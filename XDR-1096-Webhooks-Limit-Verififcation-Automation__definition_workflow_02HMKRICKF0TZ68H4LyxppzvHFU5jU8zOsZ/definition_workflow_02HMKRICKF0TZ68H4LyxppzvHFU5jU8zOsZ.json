@@ -1,0 +1,2493 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ",
+    "name": "XDR-1096-Webhooks-Limit-Verififcation-Automation",
+    "title": "XDR-1096-Webhooks-Limit-Verififcation-Automation",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "tier/tenant",
+          "scope": "input",
+          "name": "Limit Type",
+          "type": "datatype.string",
+          "description": "Limits Type are Supported Tenant Level or Tier Level. \n\nEnter tier if user want to have Limits at Tier Level \n\nEnter tenant if user want to have Limits at Tenant Level ",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HMKRIDCCTUO3FrfczxzimkDic8wEpYfqU",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "local",
+          "name": "Webhooks Limit Status1-UTF8",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HMKYI96EN6A4jhWiTdp41XwaCdqWNsyUT",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw",
+        "properties": {
+          "scope": "output",
+          "name": "Webhooks_Ids_XML",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02HMKRIDCEXNR4w086nXsu8HSiviG6uLESu",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 5,
+          "scope": "input",
+          "name": "Enter the Rate Limit Value for Webhooks",
+          "type": "datatype.integer",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "local",
+          "name": "Webhooks Limit Status1-URLEncoded",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HMKYRI667AF1lpGO6eDHb6n3xrgHPl2GO",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "local",
+          "name": "Webhooks Limit Status-Josn",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HMKRIDCE45V65dqwLygpt4OM28WuARijj",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw",
+        "properties": {
+          "scope": "output",
+          "name": "Webhooks_Ids-Json",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02HMKRIDCER1B6R8Rrb2Mh5KNYZMpf7XI5h",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw",
+        "properties": {
+          "scope": "output",
+          "name": "Webhooks_Ids_UTF8",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02HML4EJR83DI6R9jeCIqlfUrhO4LVstfpv",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Webhooks Limit Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HMKRIDCEK5F5Lq7w8g0NiGafN41Rgq3wa",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "0669ccd2-3326-4cfa-a7f7-093356ae55c6",
+          "scope": "input",
+          "name": "Enter the Tenant ID Where you want to Set Limits",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HMKRIDCDQ7L2KrXdXapBQD5RPS4BMI2TI",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "local",
+          "name": "Webhooks Limit Status1-XML",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HMKRIDCDX7F0yf7DwbbItK7TaNPRwbUMB",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 0,
+          "scope": "local",
+          "name": "Loop Counter",
+          "type": "datatype.integer",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjJscmNidExVeUI3aFRVQ0JGTVpvWU9VeTZTWThIeWJVNzBXVkk2ZzdaYmsifQ.eyJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvZW1haWwiOiJ2c3BhbmNoYSs2MW9yZ0BjaXNjby5jb20iLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvaWRwL2lkIjoic3hzbyIsImVtYWlsIjoidnNwYW5jaGErNjFvcmdAY2lzY28uY29tIiwiYXVkIjpbImlyb2gtdWkiLCJsb2dpbiJdLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL3VzZXIvcm9sZSI6ImFkbWluIiwic3ViIjoiZTk1ZDlkNGQtZDAxMi00ODA3LWFmODMtN2UxOTE5ZmRjNGRiIiwiaXNzIjoiSVJPSCBBdXRoIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9yZWZyZXNoLXRva2VuLWp0aSI6InJlZnJlc2gtOWQ0NmM3YzMtZTZjYS00ZDk2LTljOWMtMDcxYTA1YjBmZDBkIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9zY29wZXMiOlsiZXZlbnQ6cmVhZCIsImNpc2NvL2ZlYXR1cmUtZmxhZy94ZHIiLCJpbnNpZ2h0cyIsInZhdWx0L2NvbmZpZ3M6cmVhZCIsImludGVncmF0aW9uIiwicHJpdmF0ZS1pbnRlbCIsImFkbWluIiwicHJvZmlsZSIsImluc3BlY3QiLCJhc3NldCIsImZlZWRiYWNrIiwic3NlIiwicmVnaXN0cnkiLCJ1c2VycyIsImludmVzdGlnYXRpb24iLCJpbnZpdGUiLCJwbGF5Ym9vayIsImNhc2Vib29rIiwidmF1bHQvY29uZmlnL21ldGFkYXRhOnJlYWQiLCJvcmJpdGFsIiwiZW5yaWNoIiwib2F1dGgiLCJjb2xsZWN0IiwicmVzcG9uc2UiLCJ1aS1zZXR0aW5ncyIsInRlbGVtZXRyeTp3cml0ZSIsIm9wZW5pZCIsIm5vdGlmaWNhdGlvbiIsImdsb2JhbC1pbnRlbDpyZWFkIiwid2ViaG9vayIsInZhdWx0L2NvbmZpZy9wb3N0dXJlOnJlYWQiLCJhbyJdLCJleHAiOjQxMDI0MjMxNDAsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgvY2xpZW50L25hbWUiOiJUaHJlYXQgUmVzcG9uc2UiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29hdXRoL3VzZXIvaWQiOiJlOTVkOWQ0ZC1kMDEyLTQ4MDctYWY4My03ZTE5MTlmZGM0ZGIiLCJodHRwczovL3NjaGVtYXMuY2lzY28uY29tL2lyb2gvaWRlbnRpdHkvY2xhaW1zL29yZy9pZCI6IjA2NjljY2QyLTMzMjYtNGNmYS1hN2Y3LTA5MzM1NmFlNTVjNiIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgvZ3JhbnQiOiJsb2dpbiIsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb3JnL25hbWUiOiJWaW5heSIsImp0aSI6InRva2VuLTgzMjc1NGE4LTlhM2YtNDMwNi1iMGNmLThlYTNiNGJiNmI2YiIsIm5iZiI6MTcyNTAxNzA3MCwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL25hbWUiOiJWaW5heSBQIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy91c2VyL2lkIjoiZTk1ZDlkNGQtZDAxMi00ODA3LWFmODMtN2UxOTE5ZmRjNGRiIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy9vYXV0aC9jbGllbnQvaWQiOiJpcm9oLXVpIiwiaHR0cHM6Ly9zY2hlbWFzLmNpc2NvLmNvbS9pcm9oL2lkZW50aXR5L2NsYWltcy92ZXJzaW9uIjoidjIuMTAtYzZkOWNmYzg1NTc5ODY1MDViOTEiLCJpYXQiOjE3MjUwMTcxMzAsImh0dHBzOi8vc2NoZW1hcy5jaXNjby5jb20vaXJvaC9pZGVudGl0eS9jbGFpbXMvb2F1dGgva2luZCI6InNlc3Npb24tdG9rZW4ifQ.aR0c5W225tiWt2ynv1ikMjj_DkFuo9rPSC_YALai7wxmnTa9G9y-hJ9ixaBLsVN-uben4nidlTO9--SRC9oz1C9IMpe4JXqQAUfzDT3ggyzvBKSP93FoQ-_IAy4nfpSYBe4uA8JJSjbCajorVeRBcEAlCasYQkPYv3yvkgO0v8sTBWXw5uq3E1SNNumsBfPsi9bqz3CkuY7Q0nBzymt3QZNVPRTyRKfEh9kXdUHBjhnmYB52MiDeqEF2dsme2xQ8avSQ_LT82hNpAd2yi7r8Ph-Uth7mdnzUG7C_3dpIN_7Au_Mo7akVgE9yM3C67_z3sKac_1dsx5j77UTOSctq_w",
+          "scope": "input",
+          "name": "Provide Token without Bearer",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HMKRIDCDFZ77Ui67y0kGRrdxpxMXQBZl0",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw",
+        "properties": {
+          "scope": "output",
+          "name": "Webhooks_Ids_URLEncoded",
+          "type": "datatype.table",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02HML4KDB9PLE1GTL22nmV4piEC9hBOlZbL",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "XDR-1096-Webhooks-Limit-Verififcation-Automation",
+      "display_name": "XDR-1096-Webhooks-Limit-Verififcation-Automation",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02HMKRIJGH1256MtB2yTIozTrYkRXRl7NRH",
+        "name": "XDR-1096-Update Object Limits at Org Level",
+        "title": "XDR-1096-Update Object Limits at Org Level",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "XDR-1096-Update Object Limits at Org Level",
+          "input": {
+            "variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDQ7L2KrXdXapBQD5RPS4BMI2TI$",
+            "variable_workflow_02GVF9B27APFR3e0bgmq50mJubdV0CuOHWm": "{\n\"object_limits\": {\n\"calendar\": 50,\n\"categories\": {\n\"basic\": 100,\n\"xchange\": 200\n},\n\"data_type\": 100,\n\"remote_meta\": 20,\n\"rules\": {\n\"schedule_rule\": 100,\n\"event_rule\": 200\n},\n\"runs\": {\n\"schedule_rule\": 200,\n\"event_rule\": {\n\"per_day\": 5000,\n\"per_minute\": 5\n},\n\"loop_limit\": 500,\n\"approval_task\": 50,\n\"prompt_task\": 50,\n\"max_run_time\": 30,\n\"max_loops_in_run\": 50000\n},\n\"runtime_user\": $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$,\n\"target\": 50,\n\"target_group\": 50,\n\"variable\": 50,\n\"webhook\":10,\n\"workflow_limits\": {\n\"workflow\": 500,\n\"atomic\": 500,\n\"activity\": {\n\"total\": 500,\n\"while\": 50,\n\"for_loop\": 50,\n\"parallel\": 50,\n\"sub_workflow\": 100,\n\"atomic_workflow\": 100\n},\n\"variable\": {\n\"large_string\": 5,\n\"total\": 100\n}\n},\n\"xchange\": {\n\"publish\": 50\n}\n}\n}",
+            "variable_workflow_02HMF2UVJ077H2pxkZYnLUPlwOoBzGX2Sbg": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCCTUO3FrfczxzimkDic8wEpYfqU$",
+            "variable_workflow_02HMF3ZPV883N4yNFffCDEsLEEwjzaXd5qE": "{\n    \"is_tier_limits_enabled\": true\n}"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "execute_on_this_target": true,
+            "target_id": "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB",
+            "target_type": "web-service.endpoint"
+          },
+          "workflow_id": "definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103",
+          "workflow_name": "XDR-1096-Update Object Limits at Org Level"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02HML101XG8884OiUIVyGn4q3ZZSc6m2NRJ",
+        "name": "Group",
+        "title": "Josn",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Josn",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02HMKRILAQOQN6Cf9oE0qo4pBeVBWoK1426",
+            "name": "While Loop",
+            "title": "While Loop",
+            "type": "logic.while",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "While Loop",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_02HMKRIMXIKOY4YUUUgfTaS2qN8LyfYYRfW",
+                "name": "Condition Branch",
+                "title": "Exit when reach the Limit",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                    "operator": "lte",
+                    "right_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Exit when reach the Limit",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02HMKRIOTNE1T4Mj0nPtxrKeJbUn8c573GY",
+                    "name": "Execute Python Script",
+                    "title": "Generate Dynamic String",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Generate Dynamic String",
+                      "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMKRIQ0LARF5eIfbXysepSa3jGRioX7ET",
+                    "name": "HTTP Request",
+                    "title": "Create a Webhooks",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n  \"type\": \"generic.webhook\",\n  \"title\": \"josn-$activity.definition_activity_02HMKRIOTNE1T4Mj0nPtxrKeJbUn8c573GY.output.response_body$\",\n  \"properties\": {\n    \"request_content_type\": \"application/json\",\n    \"display_name\": \"josn-$activity.definition_activity_02HMKRIOTNE1T4Mj0nPtxrKeJbUn8c573GY.output.response_body$\"\n  }\n}",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDFZ77Ui67y0kGRrdxpxMXQBZl0$"
+                        }
+                      ],
+                      "display_name": "Create a Webhooks",
+                      "method": "POST",
+                      "relative_url": "api/v1/webhooks",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMKRIRVKSMR10bChjKwwpyId1ENoEG8aj",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Webhooks Ids",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Webhooks Ids",
+                      "input_json": "$activity.definition_activity_02HMKRIQ0LARF5eIfbXysepSa3jGRioX7ET.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.id",
+                          "jsonpath_query_name": "target_ids",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMKRITW3S6D1qgn2qRnENwlXjItppUW2K",
+                    "name": "Add Row to Table",
+                    "title": "Store Webhooks Ids",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Store Webhooks Ids",
+                      "input_table": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.output.variable_workflow_02HMKRIDCER1B6R8Rrb2Mh5KNYZMpf7XI5h$",
+                      "row": [
+                        {
+                          "key": "id",
+                          "type": "string",
+                          "value": "$activity.definition_activity_02HMKRIRVKSMR10bChjKwwpyId1ENoEG8aj.output.jsonpath_queries.target_ids$"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMKRIVR9PUJ0TAo1vJ5BDngwy2khLDpRG",
+                    "name": "Set Variables",
+                    "title": "Incremant Loop",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Incremant Loop",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                          "variable_value_new": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$+1"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMKRIX0HA9A7hPYFDWpTkp9rLIUCWdsZZ",
+                    "name": "Condition Block",
+                    "title": "Verify Loop for Remote Creation",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "conditions": [],
+                      "continue_on_failure": false,
+                      "display_name": "Verify Loop for Remote Creation",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02HMKRIYU66SL3TFpwAAEaJvHlZHLnuR7cf",
+                        "name": "Condition Branch",
+                        "title": "Limit is Reached and user cannot create Objects",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02HMKRIQ0LARF5eIfbXysepSa3jGRioX7ET.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "403"
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02HMKRIQ0LARF5eIfbXysepSa3jGRioX7ET.output.error.message$",
+                              "operator": "mw",
+                              "right_operand": "limit of $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$ account keys"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Limit is Reached and user cannot create Objects",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02HMKRJ114N3V5ulxhMfEIpTEVCrEC13fHs",
+                            "name": "Set Variables",
+                            "title": "Limit Reached",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Limit Reached",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCE45V65dqwLygpt4OM28WuARijj$",
+                                  "variable_value_new": "Pass"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02HMKRJ2BKAF57lkSLuijg1yTfJat9rOgNY",
+                            "name": "Break",
+                            "title": "Break loop if Limit is reached",
+                            "type": "logic.break",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Break loop if Limit is reached",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_02HMKRJ3T1XBZ2KAUsurYCgweqNXWJFggkI",
+                        "name": "Condition Branch",
+                        "title": "Limit is Not Reached and user Can create Objects",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02HMKRIQ0LARF5eIfbXysepSa3jGRioX7ET.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "403"
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02HMKRIQ0LARF5eIfbXysepSa3jGRioX7ET.output.error.message$",
+                              "operator": "nmw",
+                              "right_operand": "limit of $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$ account keys"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Limit is Not Reached and user Can create Objects",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02HMKRJ65ESZQ6YVo2EAWOOhYepefrV6X4o",
+                            "name": "Set Variables",
+                            "title": "Limit Not Reached and keep Creating",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Limit Not Reached and keep Creating",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCE45V65dqwLygpt4OM28WuARijj$",
+                                  "variable_value_new": "Fail"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02HMKRJ7MID0E63uYwAUZSUxguFSVHaZoiE",
+            "name": "For Each",
+            "title": "Cleanup Webhooks",
+            "type": "logic.for_each",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Cleanup Webhooks",
+              "skip_execution": false,
+              "source_array": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.output.variable_workflow_02HMKRIDCER1B6R8Rrb2Mh5KNYZMpf7XI5h$"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02HMKRJA1TAC44a1bDodlr1yiXYwvbIhcjB",
+                "name": "HTTP Request",
+                "title": "Delete a Webhooks",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDFZ77Ui67y0kGRrdxpxMXQBZl0$"
+                    }
+                  ],
+                  "display_name": "Delete a Webhooks",
+                  "method": "DELETE",
+                  "relative_url": "/api/v1/webhooks/$activity.definition_activity_02HMKRJ7MID0E63uYwAUZSUxguFSVHaZoiE.input.source_array[@].id$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02HML1V5IWHRS0O55B2jB7G1SRLHcvAXZrE",
+        "name": "Group",
+        "title": "Set Counter, Limit and Update RateLimit with New Value",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Counter, Limit and Update RateLimit with New Value",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02HMKRJBTNUHT09blig6pAKlbE5MTjagU9M",
+            "name": "Set Variables",
+            "title": "Set Loop Counter to 0",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set Loop Counter to 0",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                  "variable_value_new": 0
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02HMKRJGMV9W20xnYFHahFralJGSCUneYFA",
+            "name": "Set Variables",
+            "title": "Set New Targets Limit",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set New Targets Limit",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$",
+                  "variable_value_new": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$+1"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02HMKRJJNH3PL4bJuA2fIAOicmJGKBiu6pc",
+            "name": "XDR-1096-Update Object Limits at Org Level",
+            "title": "XDR-1096-Update Object Limits at Org Level",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "XDR-1096-Update Object Limits at Org Level",
+              "input": {
+                "variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDQ7L2KrXdXapBQD5RPS4BMI2TI$",
+                "variable_workflow_02GVF9B27APFR3e0bgmq50mJubdV0CuOHWm": "{\n\"object_limits\": {\n\"calendar\": 50,\n\"categories\": {\n\"basic\": 100,\n\"xchange\": 200\n},\n\"data_type\": 100,\n\"remote_meta\": 20,\n\"rules\": {\n\"schedule_rule\": 100,\n\"event_rule\": 200\n},\n\"runs\": {\n\"schedule_rule\": 200,\n\"event_rule\": {\n\"per_day\": 5000,\n\"per_minute\": 5\n},\n\"loop_limit\": 500,\n\"approval_task\": 50,\n\"prompt_task\": 50,\n\"max_run_time\": 30,\n\"max_loops_in_run\": 50000\n},\n\"runtime_user\": $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$,\n\"target\": 50,\n\"target_group\": 50,\n\"variable\": 50,\n\"webhook\":10,\n\"workflow_limits\": {\n\"workflow\": 500,\n\"atomic\": 500,\n\"activity\": {\n\"total\": 500,\n\"while\": 50,\n\"for_loop\": 50,\n\"parallel\": 50,\n\"sub_workflow\": 100,\n\"atomic_workflow\": 100\n},\n\"variable\": {\n\"large_string\": 5,\n\"total\": 100\n}\n},\n\"xchange\": {\n\"publish\": 50\n}\n}\n}",
+                "variable_workflow_02HMF2UVJ077H2pxkZYnLUPlwOoBzGX2Sbg": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCCTUO3FrfczxzimkDic8wEpYfqU$",
+                "variable_workflow_02HMF3ZPV883N4yNFffCDEsLEEwjzaXd5qE": "{\n    \"is_tier_limits_enabled\": true\n}"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "execute_on_this_target": true,
+                "target_id": "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB",
+                "target_type": "web-service.endpoint"
+              },
+              "workflow_id": "definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103",
+              "workflow_name": "XDR-1096-Update Object Limits at Org Level"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02HML2HBENMUB0tLfFQImdQc2KrLVcUgno8",
+        "name": "Group",
+        "title": "XML",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "XML",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02HMKRJM3HDEN1NXi2k5MG8rl2BI5Og3UN2",
+            "name": "While Loop",
+            "title": "While Loop",
+            "type": "logic.while",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "While Loop",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_02HMKRJNTQB354CfrlipIIlJ2CanDO3H7jA",
+                "name": "Condition Branch",
+                "title": "Exit when reach the Limit",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                    "operator": "lte",
+                    "right_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Exit when reach the Limit",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02HMKRJPVH4JK0MtktA0OQMAekaS3CMdIfe",
+                    "name": "Execute Python Script",
+                    "title": "Generate Dynamic String",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Generate Dynamic String",
+                      "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMKRJRAAVAA5bCDaF8G2OfbHcNOvw0hqV",
+                    "name": "HTTP Request",
+                    "title": "Create a Webhooks",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n  \"type\": \"generic.webhook\",\n  \"title\": \"xml-$activity.definition_activity_02HMKRJPVH4JK0MtktA0OQMAekaS3CMdIfe.output.response_body$\",\n  \"properties\": {\n    \"request_content_type\": \"application/xml\",\n    \"display_name\": \"xml-$activity.definition_activity_02HMKRJPVH4JK0MtktA0OQMAekaS3CMdIfe.output.response_body$\"\n  }\n}",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDFZ77Ui67y0kGRrdxpxMXQBZl0$"
+                        }
+                      ],
+                      "display_name": "Create a Webhooks",
+                      "method": "POST",
+                      "relative_url": "/api/v1/webhooks",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMKRJTN11LF36GwY4yNrgm7452swGxhKD",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Webhooks Ids",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Webhooks Ids",
+                      "input_json": "$activity.definition_activity_02HMKRJRAAVAA5bCDaF8G2OfbHcNOvw0hqV.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.id",
+                          "jsonpath_query_name": "target_ids",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMKRJVFIA472GzB24lNC0uhOT4v2RH51r",
+                    "name": "Add Row to Table",
+                    "title": "Store Webhooks Ids",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Store Webhooks Ids",
+                      "input_table": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.output.variable_workflow_02HMKRIDCEXNR4w086nXsu8HSiviG6uLESu$",
+                      "row": [
+                        {
+                          "key": "id",
+                          "type": "string",
+                          "value": "$activity.definition_activity_02HMKRJTN11LF36GwY4yNrgm7452swGxhKD.output.jsonpath_queries.target_ids$"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMKRJXZK4YH4gnsnyn52sHSg6i0YEpPOp",
+                    "name": "Set Variables",
+                    "title": "Incremant Loop",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Incremant Loop",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                          "variable_value_new": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$+1"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMKRJZAPZTN4pRzxm4M3nR3iUP4UnfBUc",
+                    "name": "Condition Block",
+                    "title": "Verify Loop for Remote Creation",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "conditions": [],
+                      "continue_on_failure": false,
+                      "display_name": "Verify Loop for Remote Creation",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02HMKRK0WGWEV0w8fWHP4LzfTpiIrOqCADW",
+                        "name": "Condition Branch",
+                        "title": "Limit is Reached and user cannot create Objects",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02HMKRJRAAVAA5bCDaF8G2OfbHcNOvw0hqV.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "403"
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02HMKRJRAAVAA5bCDaF8G2OfbHcNOvw0hqV.output.error.message$",
+                              "operator": "mw",
+                              "right_operand": "limit of $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$ account keys"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Limit is Reached and user cannot create Objects",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02HMKRK3HG0U16spEFTvnPq0wmFXh5o5cwa",
+                            "name": "Set Variables",
+                            "title": "Limit Reached",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Limit Reached",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCDX7F0yf7DwbbItK7TaNPRwbUMB$",
+                                  "variable_value_new": "Pass"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02HMKRK4UXV1578zIbuPupnPSAd78n4MrJB",
+                            "name": "Break",
+                            "title": "Break loop if Limit is reached",
+                            "type": "logic.break",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Break loop if Limit is reached",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_02HMKRK6JRZH41GBulxKAMXoCExLuzTvdmk",
+                        "name": "Condition Branch",
+                        "title": "Limit is Not Reached and user Can create Objects",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02HMKRJRAAVAA5bCDaF8G2OfbHcNOvw0hqV.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "403"
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02HMKRJRAAVAA5bCDaF8G2OfbHcNOvw0hqV.output.error.message$",
+                              "operator": "nmw",
+                              "right_operand": "limit of $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$ account keys"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Limit is Not Reached and user Can create Objects",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02HMKRK9CF6JU3ATFrKBE7vUmtSUE9X5bP8",
+                            "name": "Set Variables",
+                            "title": "Limit Not Reached and keep Creating",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Limit Not Reached and keep Creating",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCDX7F0yf7DwbbItK7TaNPRwbUMB$",
+                                  "variable_value_new": "Fail"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02HMKRKAT6VIN0DHL7hffUKfOylLIP4pg8T",
+            "name": "For Each",
+            "title": "Cleanup Webhooks",
+            "type": "logic.for_each",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Cleanup Webhooks",
+              "skip_execution": false,
+              "source_array": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.output.variable_workflow_02HMKRIDCEXNR4w086nXsu8HSiviG6uLESu$"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02HMKRKD80IVS1g1sZMEbNfiLuGcX47DQFk",
+                "name": "HTTP Request",
+                "title": "Delete a Webhooks",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDFZ77Ui67y0kGRrdxpxMXQBZl0$"
+                    }
+                  ],
+                  "display_name": "Delete a Webhooks",
+                  "method": "DELETE",
+                  "relative_url": "/api/v1/webhooks/$activity.definition_activity_02HMKRKAT6VIN0DHL7hffUKfOylLIP4pg8T.input.source_array[@].id$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02HML2P6VUGMW1oWi8SFcXHFXGBM94LrwPG",
+        "name": "Group",
+        "title": "Set Counter, Limit and Update RateLimit with New Value",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Counter, Limit and Update RateLimit with New Value",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02HML2P6VY4EO0SjSgqral0mniUnMGhb6hS",
+            "name": "Set Variables",
+            "title": "Set Loop Counter to 0",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set Loop Counter to 0",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                  "variable_value_new": 0
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02HML2P6W1U1B1xhkYaGzuKllk3dtWw9KH3",
+            "name": "Set Variables",
+            "title": "Set New Targets Limit",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set New Targets Limit",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$",
+                  "variable_value_new": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$+1"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02HML2P6W2YZM5hEDwEwvFPzAUgwZ13NO1m",
+            "name": "XDR-1096-Update Object Limits at Org Level",
+            "title": "XDR-1096-Update Object Limits at Org Level",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "XDR-1096-Update Object Limits at Org Level",
+              "input": {
+                "variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDQ7L2KrXdXapBQD5RPS4BMI2TI$",
+                "variable_workflow_02GVF9B27APFR3e0bgmq50mJubdV0CuOHWm": "{\n\"object_limits\": {\n\"calendar\": 50,\n\"categories\": {\n\"basic\": 100,\n\"xchange\": 200\n},\n\"data_type\": 100,\n\"remote_meta\": 20,\n\"rules\": {\n\"schedule_rule\": 100,\n\"event_rule\": 200\n},\n\"runs\": {\n\"schedule_rule\": 200,\n\"event_rule\": {\n\"per_day\": 5000,\n\"per_minute\": 5\n},\n\"loop_limit\": 500,\n\"approval_task\": 50,\n\"prompt_task\": 50,\n\"max_run_time\": 30,\n\"max_loops_in_run\": 50000\n},\n\"runtime_user\": $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$,\n\"target\": 50,\n\"target_group\": 50,\n\"variable\": 50,\n\"webhook\":10,\n\"workflow_limits\": {\n\"workflow\": 500,\n\"atomic\": 500,\n\"activity\": {\n\"total\": 500,\n\"while\": 50,\n\"for_loop\": 50,\n\"parallel\": 50,\n\"sub_workflow\": 100,\n\"atomic_workflow\": 100\n},\n\"variable\": {\n\"large_string\": 5,\n\"total\": 100\n}\n},\n\"xchange\": {\n\"publish\": 50\n}\n}\n}",
+                "variable_workflow_02HMF2UVJ077H2pxkZYnLUPlwOoBzGX2Sbg": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCCTUO3FrfczxzimkDic8wEpYfqU$",
+                "variable_workflow_02HMF3ZPV883N4yNFffCDEsLEEwjzaXd5qE": "{\n    \"is_tier_limits_enabled\": true\n}"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "execute_on_this_target": true,
+                "target_id": "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB",
+                "target_type": "web-service.endpoint"
+              },
+              "workflow_id": "definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103",
+              "workflow_name": "XDR-1096-Update Object Limits at Org Level"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02HML2TU9F32E05nQ1LkXIWI5VJ4UFIXrSY",
+        "name": "Group",
+        "title": "UTF8",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "UTF8",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02HML2TU9K1KP4LcH5j4VZMMHGUooRP8pOM",
+            "name": "While Loop",
+            "title": "While Loop",
+            "type": "logic.while",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "While Loop",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_02HML2TU9KLKK7eIvxHVgsQbasPWuCxETXu",
+                "name": "Condition Branch",
+                "title": "Exit when reach the Limit",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                    "operator": "lte",
+                    "right_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Exit when reach the Limit",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02HML2TU9M5L07RpdphPGgJNi2O5yWplJnW",
+                    "name": "Execute Python Script",
+                    "title": "Generate Dynamic String",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Generate Dynamic String",
+                      "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HML2TU9S4143fnJ4B5xze5QLql2psE7a0",
+                    "name": "HTTP Request",
+                    "title": "Create a Webhooks",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n  \"type\": \"generic.webhook\",\n  \"title\": \"utf8-$activity.definition_activity_02HML2TU9M5L07RpdphPGgJNi2O5yWplJnW.output.response_body$\",\n  \"properties\": {\n    \"request_content_type\": \"application/json; charset=utf-8\",\n    \"display_name\": \"utf8-$activity.definition_activity_02HML2TU9M5L07RpdphPGgJNi2O5yWplJnW.output.response_body$\"\n  }\n}",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDFZ77Ui67y0kGRrdxpxMXQBZl0$"
+                        }
+                      ],
+                      "display_name": "Create a Webhooks",
+                      "method": "POST",
+                      "relative_url": "/api/v1/webhooks",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HML2TU9ST6259oWMlzGJjD2AhHxJyI55k",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Webhooks Ids",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Webhooks Ids",
+                      "input_json": "$activity.definition_activity_02HML2TU9S4143fnJ4B5xze5QLql2psE7a0.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.id",
+                          "jsonpath_query_name": "target_ids",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HML2TU9U6FI2PZpCFd7NE72rTF9UUgcEN",
+                    "name": "Add Row to Table",
+                    "title": "Store Webhooks Ids",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Store Webhooks Ids",
+                      "input_table": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.output.variable_workflow_02HML4EJR83DI6R9jeCIqlfUrhO4LVstfpv$",
+                      "row": [
+                        {
+                          "key": "id",
+                          "type": "string",
+                          "value": "$activity.definition_activity_02HML2TU9ST6259oWMlzGJjD2AhHxJyI55k.output.jsonpath_queries.target_ids$"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HML2TU9XN4S0bCSe7Ac0nioLyJ1ythSnI",
+                    "name": "Set Variables",
+                    "title": "Incremant Loop",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Incremant Loop",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                          "variable_value_new": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$+1"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HML2TU9YFY174z33yGBWYeFFv1gxqaCvK",
+                    "name": "Condition Block",
+                    "title": "Verify Loop for Remote Creation",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "conditions": [],
+                      "continue_on_failure": false,
+                      "display_name": "Verify Loop for Remote Creation",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02HML2TUA02AJ2Ksb4zfuz3iM2dDurHlhWd",
+                        "name": "Condition Branch",
+                        "title": "Limit is Reached and user cannot create Objects",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02HML2TU9S4143fnJ4B5xze5QLql2psE7a0.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "403"
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02HML2TU9S4143fnJ4B5xze5QLql2psE7a0.output.error.message$",
+                              "operator": "mw",
+                              "right_operand": "limit of $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$ account keys"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Limit is Reached and user cannot create Objects",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02HML2TUA3F6X59Zfq0n3h21ZYaHUboNavI",
+                            "name": "Set Variables",
+                            "title": "Limit Reached",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Limit Reached",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKYI96EN6A4jhWiTdp41XwaCdqWNsyUT$",
+                                  "variable_value_new": "Pass"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02HML2TUA4AST4vmJW6XrhaIY4pezvRglsi",
+                            "name": "Break",
+                            "title": "Break loop if Limit is reached",
+                            "type": "logic.break",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Break loop if Limit is reached",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_02HML2TUA65HT045GbLrsFQEpvZnspRxIaF",
+                        "name": "Condition Branch",
+                        "title": "Limit is Not Reached and user Can create Objects",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02HML2TU9S4143fnJ4B5xze5QLql2psE7a0.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "403"
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02HML2TU9S4143fnJ4B5xze5QLql2psE7a0.output.error.message$",
+                              "operator": "nmw",
+                              "right_operand": "limit of $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$ account keys"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Limit is Not Reached and user Can create Objects",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02HML2TUA975Q3NTqb3S22YUTNcQvlNecMW",
+                            "name": "Set Variables",
+                            "title": "Limit Not Reached and keep Creating",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Limit Not Reached and keep Creating",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKYI96EN6A4jhWiTdp41XwaCdqWNsyUT$",
+                                  "variable_value_new": "Fail"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02HML2TUA9Y3V6dOtZaKcvDmbQWtW6ayG4t",
+            "name": "For Each",
+            "title": "Cleanup Webhooks",
+            "type": "logic.for_each",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Cleanup Webhooks",
+              "skip_execution": false,
+              "source_array": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.output.variable_workflow_02HML4EJR83DI6R9jeCIqlfUrhO4LVstfpv$"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02HML2TUAE57O2V1DdARv9ifuzjZHf8sZKw",
+                "name": "HTTP Request",
+                "title": "Delete a Webhooks",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDFZ77Ui67y0kGRrdxpxMXQBZl0$"
+                    }
+                  ],
+                  "display_name": "Delete a Webhooks",
+                  "method": "DELETE",
+                  "relative_url": "/api/v1/webhooks/$activity.definition_activity_02HML2TUA9Y3V6dOtZaKcvDmbQWtW6ayG4t.input.source_array[@].id$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02HML56DUUU6Z0KTjFrhZ8ZMDS3RrwLtTMm",
+        "name": "Group",
+        "title": "Set Counter, Limit and Update RateLimit with New Value",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Counter, Limit and Update RateLimit with New Value",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02HML56DUWUXD6tEebsMMNKF5I4W30Y5Zvu",
+            "name": "Set Variables",
+            "title": "Set Loop Counter to 0",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set Loop Counter to 0",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                  "variable_value_new": 0
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02HML56DV2X8D1lvS5YrdTXFOayIkXc3bRI",
+            "name": "Set Variables",
+            "title": "Set New Targets Limit",
+            "type": "core.set_multiple_variables",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Set New Targets Limit",
+              "skip_execution": false,
+              "variables_to_update": [
+                {
+                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$",
+                  "variable_value_new": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$+1"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02HML56DV3JH27VSEAuXPpxV9k83ynUX1gC",
+            "name": "XDR-1096-Update Object Limits at Org Level",
+            "title": "XDR-1096-Update Object Limits at Org Level",
+            "type": "workflow.sub_workflow",
+            "base_type": "subworkflow",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "XDR-1096-Update Object Limits at Org Level",
+              "input": {
+                "variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDQ7L2KrXdXapBQD5RPS4BMI2TI$",
+                "variable_workflow_02GVF9B27APFR3e0bgmq50mJubdV0CuOHWm": "{\n\"object_limits\": {\n\"calendar\": 50,\n\"categories\": {\n\"basic\": 100,\n\"xchange\": 200\n},\n\"data_type\": 100,\n\"remote_meta\": 20,\n\"rules\": {\n\"schedule_rule\": 100,\n\"event_rule\": 200\n},\n\"runs\": {\n\"schedule_rule\": 200,\n\"event_rule\": {\n\"per_day\": 5000,\n\"per_minute\": 5\n},\n\"loop_limit\": 500,\n\"approval_task\": 50,\n\"prompt_task\": 50,\n\"max_run_time\": 30,\n\"max_loops_in_run\": 50000\n},\n\"runtime_user\": $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$,\n\"target\": 50,\n\"target_group\": 50,\n\"variable\": 50,\n\"webhook\":10,\n\"workflow_limits\": {\n\"workflow\": 500,\n\"atomic\": 500,\n\"activity\": {\n\"total\": 500,\n\"while\": 50,\n\"for_loop\": 50,\n\"parallel\": 50,\n\"sub_workflow\": 100,\n\"atomic_workflow\": 100\n},\n\"variable\": {\n\"large_string\": 5,\n\"total\": 100\n}\n},\n\"xchange\": {\n\"publish\": 50\n}\n}\n}",
+                "variable_workflow_02HMF2UVJ077H2pxkZYnLUPlwOoBzGX2Sbg": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCCTUO3FrfczxzimkDic8wEpYfqU$",
+                "variable_workflow_02HMF3ZPV883N4yNFffCDEsLEEwjzaXd5qE": "{\n    \"is_tier_limits_enabled\": true\n}"
+              },
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "execute_on_this_target": true,
+                "target_id": "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB",
+                "target_type": "web-service.endpoint"
+              },
+              "workflow_id": "definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103",
+              "workflow_name": "XDR-1096-Update Object Limits at Org Level"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02HML5AGUJBMS5vJC4Ejrsrfb5PlyTqtvq0",
+        "name": "Group",
+        "title": "URL Encoded",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "URL Encoded",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02HML5AGUMKQ23OCfL9fXSggEWBiHgs9BKp",
+            "name": "While Loop",
+            "title": "While Loop",
+            "type": "logic.while",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "While Loop",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_02HML5AGUQM2Z1BZ9f7oFsdg6OYXsXkK1R7",
+                "name": "Condition Branch",
+                "title": "Exit when reach the Limit",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                    "operator": "lte",
+                    "right_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Exit when reach the Limit",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02HML5AGUR98Y6K04fiUMMQpfGaqDKa9fDE",
+                    "name": "Execute Python Script",
+                    "title": "Generate Dynamic String",
+                    "type": "python3.script",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Generate Dynamic String",
+                      "script": "import random\nimport string\n\ndef get_random_string(length):\n    # choose from all lowercase letter\n    letters = string.ascii_lowercase\n    result_str = ''.join(random.choice(letters) for i in range(length))\n    print(result_str)\n\nget_random_string(8)",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HML5AGUW89B2TxBFg5iofjn2shNOO1zgv",
+                    "name": "HTTP Request",
+                    "title": "Create a Webhooks",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n  \"type\": \"generic.webhook\",\n  \"title\": \"urlencoded-$activity.definition_activity_02HML5AGUR98Y6K04fiUMMQpfGaqDKa9fDE.output.response_body$\",\n  \"properties\": {\n    \"request_content_type\": \"application/x-www-form-urlencoded\",\n    \"display_name\": \"urlencoded-$activity.definition_activity_02HML5AGUR98Y6K04fiUMMQpfGaqDKa9fDE.output.response_body$\"\n  }\n}",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDFZ77Ui67y0kGRrdxpxMXQBZl0$"
+                        }
+                      ],
+                      "display_name": "Create a Webhooks",
+                      "method": "POST",
+                      "relative_url": "/api/v1/webhooks",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HML5AGUYYKV7mfSIauokEuKRqiQEYxY3t",
+                    "name": "JSONPath Query",
+                    "title": "Fetch Webhooks Ids",
+                    "type": "corejava.jsonpathquery",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Fetch Webhooks Ids",
+                      "input_json": "$activity.definition_activity_02HML5AGUW89B2TxBFg5iofjn2shNOO1zgv.output.response_body$",
+                      "jsonpath_queries": [
+                        {
+                          "jsonpath_query": "$.id",
+                          "jsonpath_query_name": "target_ids",
+                          "jsonpath_query_type": "string",
+                          "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HML5AGUZTQ8178wEXNxlf2DRuLsqxc2yx",
+                    "name": "Add Row to Table",
+                    "title": "Store Webhooks Ids",
+                    "type": "core.addrowtotable",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "continue_on_failure": true,
+                      "display_name": "Store Webhooks Ids",
+                      "input_table": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.output.variable_workflow_02HML4KDB9PLE1GTL22nmV4piEC9hBOlZbL$",
+                      "row": [
+                        {
+                          "key": "id",
+                          "type": "string",
+                          "value": "$activity.definition_activity_02HML5AGUYYKV7mfSIauokEuKRqiQEYxY3t.output.jsonpath_queries.target_ids$"
+                        }
+                      ],
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HML5AGV0ZKW1q6IC5IhLZpeGb0kx2aSqz",
+                    "name": "Set Variables",
+                    "title": "Incremant Loop",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Incremant Loop",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$",
+                          "variable_value_new": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCED1572WrrBuBaN8wsUXLyS6tso$+1"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HML5AGV61T51xoDtB19zd4F81ct4rWdI8",
+                    "name": "Condition Block",
+                    "title": "Verify Loop for Remote Creation",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "conditions": [],
+                      "continue_on_failure": false,
+                      "display_name": "Verify Loop for Remote Creation",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02HML5AGV6QSU2YYInueV63RVWYp6Mn12TH",
+                        "name": "Condition Branch",
+                        "title": "Limit is Reached and user cannot create Objects",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02HML5AGUW89B2TxBFg5iofjn2shNOO1zgv.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "403"
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02HML5AGUW89B2TxBFg5iofjn2shNOO1zgv.output.error.message$",
+                              "operator": "mw",
+                              "right_operand": "limit of $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$ account keys"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Limit is Reached and user cannot create Objects",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02HML5AGV9OZC2wKpUCXCztccVzMWWobFTs",
+                            "name": "Set Variables",
+                            "title": "Limit Reached",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Limit Reached",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKYRI667AF1lpGO6eDHb6n3xrgHPl2GO$",
+                                  "variable_value_new": "Pass"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_02HML5AGVAK1J49g6YuJQpXMuxpvFq3Ktud",
+                            "name": "Break",
+                            "title": "Break loop if Limit is reached",
+                            "type": "logic.break",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Break loop if Limit is reached",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_02HML5AGVCB2G0br47buBnAaG6O1RGLl0k4",
+                        "name": "Condition Branch",
+                        "title": "Limit is Not Reached and user Can create Objects",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02HML5AGUW89B2TxBFg5iofjn2shNOO1zgv.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "403"
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02HML5AGUW89B2TxBFg5iofjn2shNOO1zgv.output.error.message$",
+                              "operator": "nmw",
+                              "right_operand": "limit of $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCD6YL34xI27Ab8s5ACGdJKj7FNg$ account keys"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Limit is Not Reached and user Can create Objects",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02HML5AGVFKDM4ur3pPmFZwRnWXsgcDYvtP",
+                            "name": "Set Variables",
+                            "title": "Limit Not Reached and keep Creating",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Limit Not Reached and keep Creating",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKYRI667AF1lpGO6eDHb6n3xrgHPl2GO$",
+                                  "variable_value_new": "Fail"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02HML5AGVG4GK1PM7JW0OQ8DacgM4c26jC2",
+            "name": "For Each",
+            "title": "Cleanup Webhooks",
+            "type": "logic.for_each",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Cleanup Webhooks",
+              "skip_execution": false,
+              "source_array": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.output.variable_workflow_02HML4KDB9PLE1GTL22nmV4piEC9hBOlZbL$"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02HML5AGVL8ZG3AJHr3tNp3DkPam8inYoZ2",
+                "name": "HTTP Request",
+                "title": "Delete a Webhooks",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer $workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.input.variable_workflow_02HMKRIDCDFZ77Ui67y0kGRrdxpxMXQBZl0$"
+                    }
+                  ],
+                  "display_name": "Delete a Webhooks",
+                  "method": "DELETE",
+                  "relative_url": "/api/v1/webhooks/$activity.definition_activity_02HML5AGVG4GK1PM7JW0OQ8DacgM4c26jC2.input.source_array[@].id$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02HMKRKEZDDY26dhwE7eWPqD1tlHiE9P3yl",
+        "name": "Condition Block",
+        "title": "Verify Overall Status for targets",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "conditions": [],
+          "continue_on_failure": false,
+          "display_name": "Verify Overall Status for targets",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02HMKRKGBZF162SIbgQweq7dQgNe15FgSsI",
+            "name": "Condition Branch",
+            "title": "PassCase",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCE45V65dqwLygpt4OM28WuARijj$",
+                  "operator": "eq",
+                  "right_operand": "Pass"
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCDX7F0yf7DwbbItK7TaNPRwbUMB$",
+                  "operator": "eq",
+                  "right_operand": "Pass"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "PassCase",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02HMKRKI38NTW069PHpR0A6Y8BxXVI9iUAc",
+                "name": "Set Variables",
+                "title": "PassCase",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "PassCase",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.output.variable_workflow_02HMKRIDCEK5F5Lq7w8g0NiGafN41Rgq3wa$",
+                      "variable_value_new": "Pass"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02HMKRKJO4EIB08Z3d7bIjbrdfQpBdJSVcH",
+            "name": "Condition Branch",
+            "title": "FailCase",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCE45V65dqwLygpt4OM28WuARijj$",
+                  "operator": "ne",
+                  "right_operand": "Pass"
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.local.variable_workflow_02HMKRIDCDX7F0yf7DwbbItK7TaNPRwbUMB$",
+                  "operator": "ne",
+                  "right_operand": "Pass"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "FailCase",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02HMKRKLKNKLV1oeU7wcRe9fzkyHACTELL8",
+                "name": "Set Variables",
+                "title": "FailCase",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "FailCase",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02HMKRICKF0TZ68H4LyxppzvHFU5jU8zOsZ.output.variable_workflow_02HMKRIDCEK5F5Lq7w8g0NiGafN41Rgq3wa$",
+                      "variable_value_new": "Fail"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02HMKRKN03VKO69n6xbaLtNdvpc7xuqitgU",
+                "name": "Completed",
+                "title": "Failed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "failed-completed",
+                  "continue_on_failure": false,
+                  "display_name": "Failed",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C": {
+      "unique_name": "definition_target_027J4SA1AJ85828p5MNjSbQsAKoaUUOCF4C",
+      "name": "DEV2-AutomateAPI",
+      "title": "DEV2-AutomateAPI",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "DEV2-AutomateAPI",
+        "host": "automate.sxo-dev2.ao-local.com",
+        "ignore_proxy": true,
+        "no_runtime_user": true,
+        "protocol": "https"
+      }
+    },
+    "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB": {
+      "unique_name": "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB",
+      "name": "PrivateDNS Target Dev2",
+      "title": "PrivateDNS Target Dev2",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "",
+        "disable_certificate_validation": true,
+        "display_name": "PrivateDNS Target Dev2",
+        "host": "automate-private.sxo-dev2.ao-local.com",
+        "ignore_proxy": true,
+        "no_runtime_user": true,
+        "path": "/internal/v2/tenants/",
+        "protocol": "https"
+      }
+    }
+  },
+  "table_types": {
+    "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw": {
+      "unique_name": "tabletype_02GYR0Y9D9WYR5daLWuGo5SXaa79rEbdacw",
+      "data_type": "datatype.tabletype",
+      "display_name": "Created_Object_Ids",
+      "columns": [
+        {
+          "name": "id",
+          "title": "id",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103",
+        "name": "XDR-1096-Update Object Limits at Org Level",
+        "title": "XDR-1096-Update Object Limits at Org Level",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "tier/tenant",
+              "scope": "input",
+              "name": "Limits Type",
+              "type": "datatype.string",
+              "description": "Limits Type are Supported Tenant Level or Tier Level. \n\nEnter tier if user want to have Limits at Tier Level \n\nEnter tenant if user want to have Limits at Tenant Level ",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": "text"
+            },
+            "unique_name": "variable_workflow_02HMF2UVJ077H2pxkZYnLUPlwOoBzGX2Sbg",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "{\n    \"is_tier_limits_enabled\": true\n}",
+              "scope": "input",
+              "name": "Request Payload for Tier",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": "json"
+            },
+            "unique_name": "variable_workflow_02HMF3ZPV883N4yNFffCDEsLEEwjzaXd5qE",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "9c48d69c-778e-583e-a1e4-11fc8bfbeea5",
+              "scope": "input",
+              "name": "Enter the Tenant ID Where you want to Set Limits",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "{\n    \"object_limits\": {\n        \"calendar\": 50,\n        \"categories\": {\n            \"basic\": 100,\n            \"xchange\": 200\n        },\n        \"data_type\": 100,\n        \"remote_meta\": 20,\n        \"rules\": {\n            \"schedule_rule\": 100,\n            \"event_rule\": 200\n        },\n        \"runs\": {\n            \"schedule_rule\": 200,\n            \"event_rule\": {\n                \"per_day\": 5000,\n                \"per_minute\": 5\n            },\n            \"loop_limit\": 500,\n            \"approval_task\": 50,\n            \"prompt_task\": 50,\n            \"max_run_time\": 30,\n            \"max_loops_in_run\": 50000\n        },\n        \"runtime_user\": 500,\n        \"target\": 50,\n        \"target_group\": 50,\n        \"variable\": 50,\n       \"webhook\":10,\n        \"workflow_limits\": {\n            \"workflow\": 500,\n            \"atomic\": 500,\n            \"activity\": {\n                \"total\": 500,\n                \"while\": 50,\n                \"for_loop\": 50,\n                \"parallel\": 50,\n                \"sub_workflow\": 100,\n                \"atomic_workflow\": 100\n            },\n            \"variable\": {\n                \"large_string\": 5,\n                \"total\": 100\n            }\n        },\n        \"xchange\": {\n            \"publish\": 50\n        }\n    }\n}",
+              "scope": "input",
+              "name": "Request Payload for Tenant",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": "text"
+            },
+            "unique_name": "variable_workflow_02GVF9B27APFR3e0bgmq50mJubdV0CuOHWm",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "Update Limit Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02GVEYSGPQ0460vAPuHM1ObosgimyKc8JHK",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "XDR-1096-Update Object Limits at Org Level",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "target_type": "web-service.endpoint",
+            "target_id": "definition_target_02GVEWHIDNRSN60pWVNpcmOa0MZR47LeVaB",
+            "execute_on_workflow_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02HMF1AEYT1Y93E2K8nkPKljBG4rEPr0ooN",
+            "name": "Condition Block",
+            "title": "XDR1096-Update Limits",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "conditions": [],
+              "continue_on_failure": false,
+              "display_name": "XDR1096-Update Limits",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_02HMF1AF8C6G81em7QelAIclkvz09CCZKyi",
+                "name": "Condition Branch",
+                "title": "Tenant Level Limits",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02HMF2UVJ077H2pxkZYnLUPlwOoBzGX2Sbg$",
+                    "operator": "eq",
+                    "right_operand": "tenant"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Tenant Level Limits",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02HMFC4QWPO276OZr83abGPWd49ghNOsIEL",
+                    "name": "HTTP Request",
+                    "title": "Update Object Limits at Tier level set to False",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "{\n    \"is_tier_limits_enabled\": false\n}",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "x-cisco-tenant-id",
+                          "value": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL$"
+                        }
+                      ],
+                      "display_name": "Update Object Limits at Tier level set to False",
+                      "method": "PATCH",
+                      "relative_url": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMFCPCE89062coEDrMfwOAB2CoS14wO5m",
+                    "name": "Sleep",
+                    "title": "Sleep for 5s",
+                    "type": "core.sleep",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Sleep for 5s",
+                      "skip_execution": false,
+                      "sleep_interval": 5
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02GVEVECW114E3iJJfUiDkbzr7c343DUhJi",
+                    "name": "HTTP Request",
+                    "title": "Update Object Limits at Org level",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02GVF9B27APFR3e0bgmq50mJubdV0CuOHWm$",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "x-cisco-tenant-id",
+                          "value": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL$"
+                        }
+                      ],
+                      "display_name": "Update Object Limits at Org level",
+                      "method": "PATCH",
+                      "relative_url": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02GVEYV33U34Y15WxnMY7qd8itOKcrG97Cb",
+                    "name": "Condition Block",
+                    "title": "Verify Update Limits API",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "conditions": [],
+                      "continue_on_failure": false,
+                      "display_name": "Verify Update Limits API",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02GVEYV38PLZC2w15N7yvSuX0EAObopyjPw",
+                        "name": "Condition Branch",
+                        "title": "PassCase",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": "$activity.definition_activity_02GVEVECW114E3iJJfUiDkbzr7c343DUhJi.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "PassCase",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02GVF4VIKX52S6JMZiHOtoTL6JT6JdVXerP",
+                            "name": "Set Variables",
+                            "title": "PassCase",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "PassCase",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.output.variable_workflow_02GVEYSGPQ0460vAPuHM1ObosgimyKc8JHK$",
+                                  "variable_value_new": "Pass"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_02GVF82I87HS97UDj5hKlnRuJetg1yxdzh6",
+                        "name": "Condition Branch",
+                        "title": "FailCase",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": "$activity.definition_activity_02GVEVECW114E3iJJfUiDkbzr7c343DUhJi.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "FailCase",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02GVF82I882XA4Cu0gqzA0ple7mcBo0owyi",
+                            "name": "Set Variables",
+                            "title": "FailCase",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "FailCase",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.output.variable_workflow_02GVEYSGPQ0460vAPuHM1ObosgimyKc8JHK$",
+                                  "variable_value_new": "Fail"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_02HMF33X8P0M93Bo9If0yDAgsnVWAuM5EeP",
+                "name": "Condition Branch",
+                "title": "Tier Level Limits",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02HMF2UVJ077H2pxkZYnLUPlwOoBzGX2Sbg$",
+                    "operator": "eq",
+                    "right_operand": "tier"
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Tier Level Limits",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_02HMF33X8QRXH6kg93Mf7hEWv9wRLDJGRKO",
+                    "name": "HTTP Request",
+                    "title": "Update Object Limits at Tier level",
+                    "type": "web-service.http_request",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "allow_auto_redirect": true,
+                      "allow_headers_redirect": false,
+                      "body": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02HMF3ZPV883N4yNFffCDEsLEEwjzaXd5qE$",
+                      "content_type": "application/json",
+                      "continue_on_error_status_code": false,
+                      "continue_on_failure": true,
+                      "custom_headers": [
+                        {
+                          "name": "x-cisco-tenant-id",
+                          "value": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL$"
+                        }
+                      ],
+                      "display_name": "Update Object Limits at Tier level",
+                      "method": "PATCH",
+                      "relative_url": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.input.variable_workflow_02GVEXUTDRJ0C2s2NhIm67QaG4eD5QGDkGL$",
+                      "runtime_user": {
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "use_workflow_target": true
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_02HMF33X8TEZB2I1KidacKSl55K5rTdU9PN",
+                    "name": "Condition Block",
+                    "title": "Verify Update Limits API",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "conditions": [],
+                      "continue_on_failure": false,
+                      "display_name": "Verify Update Limits API",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_02HMF33X8U2RV1HPHMlvz5cWuVZvTkItkZl",
+                        "name": "Condition Branch",
+                        "title": "PassCase",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": "$activity.definition_activity_02HMF33X8QRXH6kg93Mf7hEWv9wRLDJGRKO.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "PassCase",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02HMF33X8WNXC285GknFK601MxbR0vfg7qH",
+                            "name": "Set Variables",
+                            "title": "PassCase",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "PassCase",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.output.variable_workflow_02GVEYSGPQ0460vAPuHM1ObosgimyKc8JHK$",
+                                  "variable_value_new": "Pass"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_02HMF33X8ZSOB36ah09Qb3SDz5UL85NPOws",
+                        "name": "Condition Branch",
+                        "title": "FailCase",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": "$activity.definition_activity_02HMF33X8QRXH6kg93Mf7hEWv9wRLDJGRKO.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "FailCase",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_02HMF33X90JYY1QteCsnwtzoYxzhDtjH1g1",
+                            "name": "Set Variables",
+                            "title": "FailCase",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "FailCase",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103.output.variable_workflow_02GVEYSGPQ0460vAPuHM1ObosgimyKc8JHK$",
+                                  "variable_value_new": "Fail"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ],
+  "dependent_workflows": [
+    "definition_workflow_02GVEVBPE6XF47I284j9rSw97M0BaRRb103"
+  ]
+}
