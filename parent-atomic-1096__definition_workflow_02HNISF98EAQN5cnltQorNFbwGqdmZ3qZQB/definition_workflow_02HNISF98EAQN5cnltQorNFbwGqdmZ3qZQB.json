@@ -1,0 +1,96 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02HNISF98EAQN5cnltQorNFbwGqdmZ3qZQB",
+    "name": "Parent-having-atomics",
+    "title": "Parent-having-atomics",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Parent-having-atomics",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02HNISKLO0UH11yhhhijNWsadZr9VR61ns0",
+        "name": "wf01-atomic",
+        "title": "wf01-atomic",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "wf01-atomic",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_02HNI811Z7KQT6NJdH50MFUc6VJTYSnuZgh",
+          "workflow_name": "wf01-atomic"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02HNISMGT508F4uqD66VWI2AEteNXYDJHpo",
+        "name": "Copy(1)-wf01-atomic",
+        "title": "Copy(1)-wf01-atomic",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "Copy(1)-wf01-atomic",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_02HNI8MXJIXZR3PHrQ82tmYZ2uDCrWfxQh1",
+          "workflow_name": "Copy(1)-wf01-atomic"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02HNISNQI33AK2hRJvQDnt07RBicR6Rpkzn",
+        "name": "Copy(1)-wf01-atomic",
+        "title": "Copy(1)-wf01-atomic",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "Copy(1)-wf01-atomic",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_02HNI8OKSO4YL5EfTQQTEoctFaWjqWqnJBJ",
+          "workflow_name": "Copy(1)-wf01-atomic"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "atomic_workflows": [
+    "definition_workflow_02HNI811Z7KQT6NJdH50MFUc6VJTYSnuZgh",
+    "definition_workflow_02HNI8MXJIXZR3PHrQ82tmYZ2uDCrWfxQh1",
+    "definition_workflow_02HNI8OKSO4YL5EfTQQTEoctFaWjqWqnJBJ"
+  ],
+  "dependent_workflows": [
+    "definition_workflow_02HNI811Z7KQT6NJdH50MFUc6VJTYSnuZgh",
+    "definition_workflow_02HNI8MXJIXZR3PHrQ82tmYZ2uDCrWfxQh1",
+    "definition_workflow_02HNI8OKSO4YL5EfTQQTEoctFaWjqWqnJBJ"
+  ]
+}
