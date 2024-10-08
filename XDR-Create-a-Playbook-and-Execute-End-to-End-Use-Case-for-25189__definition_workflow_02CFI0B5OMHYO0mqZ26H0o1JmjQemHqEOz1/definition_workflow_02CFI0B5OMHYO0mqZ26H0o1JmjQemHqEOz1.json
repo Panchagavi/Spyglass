@@ -9,6 +9,51 @@
       {
         "schema_id": "datatype.string",
         "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "Provide Token",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02CFI39UFYR1S04xYdZ85wyjXSgmRHHnzCM",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "\"conditions\": {\n      \"operator\": \"and\",\n      \"left_operand\": {\n        \"left_operand\": \"$output.incident.description$\",\n        \"operator\": \"mw\",\n        \"right_operand\": \"*incident*\"\n      },\n      \"right_operand\": {\n        \"operator\": \"and\",\n        \"left_operand\": {\n          \"left_operand\": \"$output.incident.status$\",\n          \"operator\": \"eq\",\n          \"right_operand\": \"New\"\n        },\n        \"right_operand\": {\n          \"operator\": \"and\",\n          \"left_operand\": {\n            \"left_operand\": \"$output.incident.source$\",\n            \"operator\": \"eq\",\n            \"right_operand\": \"Umbrella\"\n          },\n          \"right_operand\": {\n            \"operator\": \"and\",\n            \"left_operand\": {\n              \"left_operand\": \"$output.incident.tlp$\",\n              \"operator\": \"eq\",\n              \"right_operand\": \"amber\"\n            },\n            \"right_operand\": {\n              \"operator\": \"and\",\n              \"left_operand\": {\n                \"left_operand\": \"$output.incident.id$\",\n                \"operator\": \"mw\",\n                \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n              },\n              \"right_operand\": {\n                \"operator\": \"and\",\n                \"left_operand\": {\n                  \"left_operand\": \"$output.source.totalCount$\",\n                  \"operator\": \"gte\",\n                  \"right_operand\": \"0\"\n                },\n                \"right_operand\": {\n                  \"operator\": \"and\",\n                  \"left_operand\": {\n                    \"left_operand\": \"$output.targets.totalCount$\",\n                    \"operator\": \"gte\",\n                    \"right_operand\": \"0\"\n                  },\n                  \"right_operand\": {\n                    \"operator\": \"and\",\n                    \"left_operand\": {\n                      \"left_operand\": \"$output.incident.scores.asset$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": \"0\"\n                    },\n                    \"right_operand\": {\n                      \"operator\": \"and\",\n                      \"left_operand\": {\n                        \"left_operand\": \"$output.incident.scores.global$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": \"500\"\n                      },\n                      \"right_operand\": {\n                        \"operator\": \"and\",\n                        \"left_operand\": {\n                          \"left_operand\": \"$output.incident.scores.ttp$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": \"0\"\n                        },\n                        \"right_operand\": {\n                          \"operator\": \"and\",\n                          \"left_operand\": {\n                            \"left_operand\": \"$output.eventsCount$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": \"0\"\n                          },\n                          \"right_operand\": {\n                            \"operator\": \"and\",\n                            \"left_operand\": {\n                              \"left_operand\": \"$output.incident.confidence$\",\n                              \"operator\": \"eq\",\n                              \"right_operand\": \"High\"\n                            },\n                            \"right_operand\": {\n                              \"operator\": \"and\",\n                              \"left_operand\": {\n                                \"left_operand\": \"$output.firstEventDate$\",\n                                \"operator\": \"ne\",\n                                \"right_operand\": \"2023-01-01T12:00:00.000Z\"\n                              },\n                              \"right_operand\": {\n                                \"operator\": \"and\",\n                                \"left_operand\": {\n                                  \"left_operand\": \"$output.indicators.totalCount$\",\n                                  \"operator\": \"gte\",\n                                  \"right_operand\": \"0\"\n                                },\n                                \"right_operand\": {\n                                  \"operator\": \"and\",\n                                  \"left_operand\": {\n                                    \"left_operand\": \"$output.observables.totalCount$\",\n                                    \"operator\": \"gte\",\n                                    \"right_operand\": \"0\"\n                                  },\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.title$\",\n                                    \"operator\": \"mw\",\n                                    \"right_operand\": \"Automation Rule and Playbook Testing-1251*\"\n                                  }\n                                }\n                              }\n                            }\n                          }\n                        }\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },",
+          "scope": "local",
+          "name": "Rule_Condition_for_Update(XDR1251)",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02EVU7XEHV8HV0N0ozDkvINLQKt4npVKJGH",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh\",\n    \"name\": \"TEST-Inc-Resposne-WorkflowLog\",\n    \"title\": \"TEST-Inc-Resposne-WorkflowLog\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"automation_rules\": {\n        \"type\": [\n          \"incident.rule_event\"\n        ]\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"TEST-Inc-Resposne-WorkflowLog\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      },\n      \"wf_metadata\": {\n        \"coa\": {\n          \"action\": [\n            \"alert\",\n            \"allow\"\n          ],\n          \"intent\": \"incident_response\",\n          \"observable_types\": [\n            \"domain\",\n            \"email\",\n            \"hostname\",\n            \"ip\",\n            \"ipv6\",\n            \"md5\",\n            \"sha1\",\n            \"sha256\",\n            \"url\",\n            \"user\",\n            \"amp_computer_guid\",\n            \"certificate_common_name\",\n            \"certificate_issuer\",\n            \"certificate_serial\",\n            \"cisco_cm_id\",\n            \"cisco_mid\",\n            \"cisco_uc_id\",\n            \"cortex_agent_id\",\n            \"crowdstrike_id\",\n            \"cybereason_id\",\n            \"darktrace_id\",\n            \"device\",\n            \"email_messageid\",\n            \"email_subject\",\n            \"file_name\",\n            \"file_path\",\n            \"imei\",\n            \"imsi\",\n            \"mac_address\",\n            \"ms_machine_id\",\n            \"mutex\",\n            \"ngfw_id\",\n            \"ngfw_name\",\n            \"odns_identity\",\n            \"odns_identity_label\",\n            \"orbital_node_id\",\n            \"pki_serial\",\n            \"process_args\",\n            \"process_hash\",\n            \"process_name\",\n            \"process_path\",\n            \"process_username\",\n            \"processor_id\",\n            \"registry_key\",\n            \"registry_name\",\n            \"registry_path\",\n            \"s1_agent_id\",\n            \"serial_number\",\n            \"swc_device_id\",\n            \"trend_micro_id\",\n            \"user_agent\"\n          ]\n        }\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_02CKB0H9YMWII4OcL75RCMkfURh1OXRj1v9\",\n        \"name\": \"To Upper\",\n        \"title\": \"To Upper\",\n        \"type\": \"core.string2upper\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"To Upper\",\n          \"skip_execution\": false,\n          \"source\": \"TEST-Inc-Resposne-WorkflowLog\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CKB0RX7NVCS1DFYTerzP66GrMPnu0wpvs\",\n        \"name\": \"Set Variables\",\n        \"title\": \"Set the Workflow Result Code\",\n        \"type\": \"core.set_multiple_variables\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Set the Workflow Result Code\",\n          \"skip_execution\": false,\n          \"variables_to_update\": [\n            {\n              \"variable_to_update\": \"$workflow.definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh.output.workflow_results_code$\",\n              \"variable_value_new\": \"$activity.definition_activity_02CKB0H9YMWII4OcL75RCMkfURh1OXRj1v9.output.error.code$\"\n            }\n          ]\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CKB1C6NPB2X7UFoW4koOuYspfOssZ5A7E\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Condition Block\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Condition Block\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_02CKB1C6VQSS51FpYS3Q4WuxV1ypHhqvZE0\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": {\n                  \"left_operand\": \"$workflow.definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh.output.workflow_results_code$\",\n                  \"operator\": \"eq\",\n                  \"right_operand\": \"200\"\n                },\n                \"operator\": \"and\",\n                \"right_operand\": {\n                  \"left_operand\": \"$activity.definition_activity_02CKB0H9YMWII4OcL75RCMkfURh1OXRj1v9.output.uppercase_text$\",\n                  \"operator\": \"eq\",\n                  \"right_operand\": \"TEST-INC-RESPOSNE-WORKFLOWLOG\"\n                }\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_02CKB1R1IDWYC4iStiuDbnOwdSlzCnZdSam\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Setting Workflow Result\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Setting Workflow Result\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh.output.workflow_results$\",\n                      \"variable_value_new\": \"✔✅ WF Executed on the Incident\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          },\n          {\n            \"unique_name\": \"definition_activity_02CKB26TK5CV87ClSO1D181DosjfHlXPc4E\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": {\n                  \"left_operand\": \"$workflow.definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh.output.workflow_results_code$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"200\"\n                },\n                \"operator\": \"or\",\n                \"right_operand\": {\n                  \"left_operand\": \"$activity.definition_activity_02CKB0H9YMWII4OcL75RCMkfURh1OXRj1v9.output.uppercase_text$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"TEST-INC-RESPOSNE-WORKFLOWLOG\"\n                }\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_02CKB26TK6D9M35Qhf59EWxyaWmPZoG6RJb\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Setting Workflow Result\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Setting Workflow Result\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh.output.workflow_results$\",\n                      \"variable_value_new\": \"❌⭕ Failed to WF Executed on the Incident\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ],\n    \"template_type\": \"template_workflow.incident_response\"\n  }\n}",
+          "scope": "local",
+          "name": "WF_import_payload_for_WorkflowLog_Test",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02CKGHPVD04X73aM62HPFvmM716mhEe0Kdp",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
           "value": "Playbook Title",
           "scope": "local",
           "name": "Playbook Title",
@@ -25,61 +70,31 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Authorization",
+          "value": "{\n  \"module_targets\": [\n    {\n      \"module_type\": \"Darktrace RESPOND \u0026 DETECT\",\n      \"external_id\": \"securex:ao:darktrace\"\n    }\n  ],\n  \"module_targets_skip_list\": [\n    \"securex:ao:darktrace\"\n  ],\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra\",\n    \"name\": \"DarkTrace-For Playbook Execution\",\n    \"title\": \"DarkTrace-For Playbook Execution\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"automation_rules\": {\n        \"type\": [\n          \"incident.rule_event\"\n        ]\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"DarkTrace-For Playbook Execution\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"target_type\": \"web-service.endpoint\",\n        \"target_id\": \"$module_target;Darktrace RESPOND \u0026 DETECT;securex:ao:darktrace$\",\n        \"execute_on_workflow_target\": true\n      },\n      \"wf_metadata\": {\n        \"coa\": {\n          \"action\": [\n            \"alert\",\n            \"allow\"\n          ],\n          \"intent\": \"incident_response\",\n          \"observable_types\": [\n            \"domain\",\n            \"email\",\n            \"hostname\",\n            \"ip\",\n            \"ipv6\",\n            \"md5\",\n            \"sha1\",\n            \"sha256\",\n            \"url\",\n            \"user\",\n            \"amp_computer_guid\",\n            \"certificate_common_name\",\n            \"certificate_issuer\",\n            \"certificate_serial\",\n            \"cisco_cm_id\",\n            \"cisco_mid\",\n            \"cisco_uc_id\",\n            \"cortex_agent_id\",\n            \"crowdstrike_id\",\n            \"cybereason_id\",\n            \"darktrace_id\",\n            \"device\",\n            \"email_messageid\",\n            \"email_subject\",\n            \"file_name\",\n            \"file_path\",\n            \"imei\",\n            \"imsi\",\n            \"mac_address\",\n            \"ms_machine_id\",\n            \"mutex\",\n            \"ngfw_id\",\n            \"ngfw_name\",\n            \"odns_identity\",\n            \"odns_identity_label\",\n            \"orbital_node_id\",\n            \"pki_serial\",\n            \"process_args\",\n            \"process_hash\",\n            \"process_name\",\n            \"process_path\",\n            \"process_username\",\n            \"processor_id\",\n            \"registry_key\",\n            \"registry_name\",\n            \"registry_path\",\n            \"s1_agent_id\",\n            \"serial_number\",\n            \"swc_device_id\",\n            \"trend_micro_id\",\n            \"user_agent\"\n          ]\n        }\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_02CIND1FKCA9U26OL459I8qCef8BUdqSe24\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request (Create Tag)\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"body\": \"{\\n  \\\"name\\\": \\\"test-tag-[$workflow.definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra.output.start_time$]\\\",\\n  \\\"data\\\": {}\\n}\",\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request (Create Tag)\",\n          \"method\": \"POST\",\n          \"relative_url\": \"/tags\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CIND1G8SNOO293lhIHa6VnAt6QHbI0bnR\",\n        \"name\": \"JSONPath Query\",\n        \"title\": \"Fetch TagID\",\n        \"type\": \"corejava.jsonpathquery\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"continue_on_failure\": true,\n          \"display_name\": \"Fetch TagID\",\n          \"input_json\": \"[$activity.definition_activity_02CIND1FKCA9U26OL459I8qCef8BUdqSe24.output.response_body$]      \",\n          \"jsonpath_queries\": [\n            {\n              \"jsonpath_query\": \"$.tid\",\n              \"jsonpath_query_name\": \"tag_ID\",\n              \"jsonpath_query_type\": \"string\",\n              \"zdate_type_format\": \"yyyy-MM-dd'T'HH:mm:ssZ\"\n            }\n          ],\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CIND1H0DAE92JcN946e1joDZ2qfEAfbpL\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request (GET ALL Tags)\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request (GET ALL Tags)\",\n          \"method\": \"GET\",\n          \"relative_url\": \"/tags\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CIND1HPJ2BB045QPN6KtDhtXNIgWcOPE3\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request (GET Tag by ID)\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request (GET Tag by ID)\",\n          \"method\": \"GET\",\n          \"relative_url\": \"/tags/[$activity.definition_activity_02CIND1G8SNOO293lhIHa6VnAt6QHbI0bnR.output.jsonpath_queries.tag_ID$]\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CIND1IGZC3G5s12WklowwQWj3Rp6esMCC\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request (Delete Tag by ID)\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request (Delete Tag by ID)\",\n          \"method\": \"DELETE\",\n          \"relative_url\": \"/tags/[$activity.definition_activity_02CIND1G8SNOO293lhIHa6VnAt6QHbI0bnR.output.jsonpath_queries.tag_ID$]\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CINDKENSJR11fAOdSqvJx4kLqXJeJ176T\",\n        \"name\": \"To Upper\",\n        \"title\": \"To Upper\",\n        \"type\": \"core.string2upper\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"To Upper\",\n          \"skip_execution\": false,\n          \"source\": \"Module Integation Details -- \\n\\nAPI Name --\\n[$workflow.definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra.target.web-service endpoint.output.metadata.sx_module_info.api_name$]\\n\\nExternal ID -- \\n[$workflow.definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra.target.web-service endpoint.output.metadata.sx_module_info.external_id$]\\n\\nModule Type --\\n[$workflow.definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra.target.web-service endpoint.output.metadata.sx_module_info.module_type$]\\n\\nTarget URL --\\n[$workflow.definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra.target.web-service endpoint.output.metadata.sx_module_info.target_url$]\\n\\nRule Type Details --\\n\\n[$rule.incident rule_event.output.incident.id$]\\n\\n[$rule.incident rule_event.output.incident.scores.global$]\\n\\n[$rule.incident rule_event.output.incident.severity$]\\n\\n[$rule.incident rule_event.output.observables.data[0].type$]\\n\\n[$rule.incident rule_event.output.observables.data[0].value$]\"\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
           "scope": "local",
-          "name": "Authorization",
+          "name": "WF_import_payload_having_module_integration",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false,
           "variable_string_format": ""
         },
-        "unique_name": "variable_workflow_02CFI33HOEDUT5BZRcVN2piOLIL5IsxCQtm",
+        "unique_name": "variable_workflow_02CJ3HA1DFSP76lFuMw7u0VmtPZyjdmINHr",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "",
+          "value": "xdr.test.iroh.site",
           "scope": "local",
-          "name": "Provide Token",
+          "name": "Evironment for Incident while Execution of Playbook",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false,
           "variable_string_format": ""
         },
-        "unique_name": "variable_workflow_02CFI39UFYR1S04xYdZ85wyjXSgmRHHnzCM",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "XDR 1251 Test Status (Trigger for 240 Score)",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02EVRD0JWHUVY5Ut6MJ0o626DiwciA4GVPw",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Pass",
-          "scope": "output",
-          "name": "Playbbok Creation Status (Positive Cases)",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02CFNULMMLCIA2u84eDmWVIQNnP9PNWXbjt",
+        "unique_name": "variable_workflow_02CFPP0VRQ9GJ7hLHGNOGePNpFUU5YelGVO",
         "object_type": "variable_workflow"
       },
       {
@@ -100,32 +115,169 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Assignment Rule Title",
-          "scope": "local",
-          "name": "Assignment Rule Title",
+          "value": "",
+          "scope": "output",
+          "name": "Playbbok_ID",
           "type": "datatype.string",
-          "description": "Assignment Rule Title",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false,
           "variable_string_format": ""
         },
-        "unique_name": "variable_workflow_02CFOVSLCS7634Hd0AbHuiSGRUa1UIcRpgg",
+        "unique_name": "variable_workflow_02CFNPNDJ58G62cKSBG2hW8EyJW4whQbZv2",
         "object_type": "variable_workflow"
       },
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "{\n  \"module_targets\": [\n    {\n      \"module_type\": \"Darktrace RESPOND \u0026 DETECT\",\n      \"external_id\": \"securex:ao:darktrace\"\n    }\n  ],\n  \"module_targets_skip_list\": [\n    \"securex:ao:darktrace\"\n  ],\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra\",\n    \"name\": \"DarkTrace-For Playbook Execution\",\n    \"title\": \"DarkTrace-For Playbook Execution\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"automation_rules\": {\n        \"type\": [\n          \"incident.rule_event\"\n        ]\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"DarkTrace-For Playbook Execution\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"target_type\": \"web-service.endpoint\",\n        \"target_id\": \"$module_target;Darktrace RESPOND \u0026 DETECT;securex:ao:darktrace$\",\n        \"execute_on_workflow_target\": true\n      },\n      \"wf_metadata\": {\n        \"coa\": {\n          \"action\": [\n            \"alert\",\n            \"allow\"\n          ],\n          \"intent\": \"incident_response\",\n          \"observable_types\": [\n            \"domain\",\n            \"email\",\n            \"hostname\",\n            \"ip\",\n            \"ipv6\",\n            \"md5\",\n            \"sha1\",\n            \"sha256\",\n            \"url\",\n            \"user\",\n            \"amp_computer_guid\",\n            \"certificate_common_name\",\n            \"certificate_issuer\",\n            \"certificate_serial\",\n            \"cisco_cm_id\",\n            \"cisco_mid\",\n            \"cisco_uc_id\",\n            \"cortex_agent_id\",\n            \"crowdstrike_id\",\n            \"cybereason_id\",\n            \"darktrace_id\",\n            \"device\",\n            \"email_messageid\",\n            \"email_subject\",\n            \"file_name\",\n            \"file_path\",\n            \"imei\",\n            \"imsi\",\n            \"mac_address\",\n            \"ms_machine_id\",\n            \"mutex\",\n            \"ngfw_id\",\n            \"ngfw_name\",\n            \"odns_identity\",\n            \"odns_identity_label\",\n            \"orbital_node_id\",\n            \"pki_serial\",\n            \"process_args\",\n            \"process_hash\",\n            \"process_name\",\n            \"process_path\",\n            \"process_username\",\n            \"processor_id\",\n            \"registry_key\",\n            \"registry_name\",\n            \"registry_path\",\n            \"s1_agent_id\",\n            \"serial_number\",\n            \"swc_device_id\",\n            \"trend_micro_id\",\n            \"user_agent\"\n          ]\n        }\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_02CIND1FKCA9U26OL459I8qCef8BUdqSe24\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request (Create Tag)\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"body\": \"{\\n  \\\"name\\\": \\\"test-tag-[$workflow.definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra.output.start_time$]\\\",\\n  \\\"data\\\": {}\\n}\",\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request (Create Tag)\",\n          \"method\": \"POST\",\n          \"relative_url\": \"/tags\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CIND1G8SNOO293lhIHa6VnAt6QHbI0bnR\",\n        \"name\": \"JSONPath Query\",\n        \"title\": \"Fetch TagID\",\n        \"type\": \"corejava.jsonpathquery\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"continue_on_failure\": true,\n          \"display_name\": \"Fetch TagID\",\n          \"input_json\": \"[$activity.definition_activity_02CIND1FKCA9U26OL459I8qCef8BUdqSe24.output.response_body$]      \",\n          \"jsonpath_queries\": [\n            {\n              \"jsonpath_query\": \"$.tid\",\n              \"jsonpath_query_name\": \"tag_ID\",\n              \"jsonpath_query_type\": \"string\",\n              \"zdate_type_format\": \"yyyy-MM-dd'T'HH:mm:ssZ\"\n            }\n          ],\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CIND1H0DAE92JcN946e1joDZ2qfEAfbpL\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request (GET ALL Tags)\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request (GET ALL Tags)\",\n          \"method\": \"GET\",\n          \"relative_url\": \"/tags\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CIND1HPJ2BB045QPN6KtDhtXNIgWcOPE3\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request (GET Tag by ID)\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request (GET Tag by ID)\",\n          \"method\": \"GET\",\n          \"relative_url\": \"/tags/[$activity.definition_activity_02CIND1G8SNOO293lhIHa6VnAt6QHbI0bnR.output.jsonpath_queries.tag_ID$]\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CIND1IGZC3G5s12WklowwQWj3Rp6esMCC\",\n        \"name\": \"HTTP Request\",\n        \"title\": \"HTTP Request (Delete Tag by ID)\",\n        \"type\": \"web-service.http_request\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"allow_auto_redirect\": true,\n          \"allow_headers_redirect\": false,\n          \"continue_on_error_status_code\": false,\n          \"continue_on_failure\": true,\n          \"display_name\": \"HTTP Request (Delete Tag by ID)\",\n          \"method\": \"DELETE\",\n          \"relative_url\": \"/tags/[$activity.definition_activity_02CIND1G8SNOO293lhIHa6VnAt6QHbI0bnR.output.jsonpath_queries.tag_ID$]\",\n          \"runtime_user\": {\n            \"target_default\": true\n          },\n          \"skip_execution\": false,\n          \"target\": {\n            \"use_workflow_target\": true\n          }\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CINDKENSJR11fAOdSqvJx4kLqXJeJ176T\",\n        \"name\": \"To Upper\",\n        \"title\": \"To Upper\",\n        \"type\": \"core.string2upper\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"To Upper\",\n          \"skip_execution\": false,\n          \"source\": \"Module Integation Details -- \\n\\nAPI Name --\\n[$workflow.definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra.target.web-service endpoint.output.metadata.sx_module_info.api_name$]\\n\\nExternal ID -- \\n[$workflow.definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra.target.web-service endpoint.output.metadata.sx_module_info.external_id$]\\n\\nModule Type --\\n[$workflow.definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra.target.web-service endpoint.output.metadata.sx_module_info.module_type$]\\n\\nTarget URL --\\n[$workflow.definition_workflow_02CIND1E0LEJR5Pqi9w5VYnX9zbXBG6hcra.target.web-service endpoint.output.metadata.sx_module_info.target_url$]\\n\\nRule Type Details --\\n\\n[$rule.incident rule_event.output.incident.id$]\\n\\n[$rule.incident rule_event.output.incident.scores.global$]\\n\\n[$rule.incident rule_event.output.incident.severity$]\\n\\n[$rule.incident rule_event.output.observables.data[0].type$]\\n\\n[$rule.incident rule_event.output.observables.data[0].value$]\"\n        },\n        \"object_type\": \"definition_activity\"\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
-          "scope": "local",
-          "name": "WF_import_payload_having_module_integration",
+          "value": "Pass",
+          "scope": "output",
+          "name": "Playbbok Creation Status (Positive Cases)",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false,
           "variable_string_format": ""
         },
-        "unique_name": "variable_workflow_02CJ3HA1DFSP76lFuMw7u0VmtPZyjdmINHr",
+        "unique_name": "variable_workflow_02CFNULMMLCIA2u84eDmWVIQNnP9PNWXbjt",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "client-c66d8604-bbdd-4a89-af7e-08a68db8d74d",
+          "scope": "input",
+          "name": "Enter the CleintID for Org where you Running",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02EPTLFTXZUSB59fBRiYQ6vZ8x0F8qZSzYc",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "XDR 1251 Test Status (Trigger for 240 Score)",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02EVRD0JWHUVY5Ut6MJ0o626DiwciA4GVPw",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Assignment Rule Description",
+          "scope": "local",
+          "name": "Assignment Rule Description",
+          "type": "datatype.string",
+          "description": "Assignment Rule Description",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02CFOW4E9M6DH3h94DjxNdWu1yMJ5N7rve8",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Automation Rule and Playbook Testing-25189",
+          "scope": "local",
+          "name": "Incident Title Condition",
+          "type": "datatype.string",
+          "description": "Incident Title Condition. Enter the Value which is will be added to condition and same value needs to be used while creating incident. ",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02CFOY627IG5A2XY2nzVelE1NfKQXtSrjfD",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Overall Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02CIZ38EKWXAS46yk7FcSPve5HhXRTG9fYt",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": {\n                                        \"left_operand\": \"$output.incident.description$\",\n                                        \"operator\": \"mw\",\n                                        \"right_operand\": \"*incident*\"\n                                      },\n                                      \"right_operand\": {\n                                        \"left_operand\": \"$output.incident.status$\",\n                                        \"operator\": \"eq\",\n                                        \"right_operand\": \"New\"\n                                      },\n                                      \"operator\": \"and\"\n                                    },\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.source$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"Umbrella\"\n                                    },\n                                    \"operator\": \"and\"\n                                  },\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.tlp$\",\n                                    \"operator\": \"eq\",\n                                    \"right_operand\": \"amber\"\n                                  },\n                                  \"operator\": \"and\"\n                                },\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.incident.id$\",\n                                  \"operator\": \"mw\",\n                                  \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                                },\n                                \"operator\": \"and\"\n                              },\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.source.totalCount$\",\n                                \"operator\": \"gte\",\n                                \"right_operand\": 0\n                              },\n                              \"operator\": \"and\"\n                            },\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.targets.totalCount$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            },\n                            \"operator\": \"and\"\n                          },\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.incident.scores.asset$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          },\n                          \"operator\": \"and\"\n                        },\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.global$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        },\n                        \"operator\": \"and\"\n                      },\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.incident.scores.ttp$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      },\n                      \"operator\": \"and\"\n                    },\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.eventsCount$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": 0\n                    },\n                    \"operator\": \"and\"\n                  },\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.incident.confidence$\",\n                    \"operator\": \"eq\",\n                    \"right_operand\": \"High\"\n                  },\n                  \"operator\": \"and\"\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.firstEventDate$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"2023-01-01\"\n                },\n                \"operator\": \"or\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.indicators.totalCount$\",\n                \"operator\": \"gte\",\n                \"right_operand\": 0\n              },\n              \"operator\": \"or\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.mitreData.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            },\n            \"operator\": \"or\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.observables.totalCount$\",\n            \"operator\": \"gte\",\n            \"right_operand\": 0\n          },\n          \"operator\": \"or\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.observables.data[*].type$\",\n          \"operator\": \"eq\",\n          \"right_operand\": \"domain\"\n        },\n        \"operator\": \"or\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.title$\",\n        \"right_operand\": \"*Automation Rule and Playbook Testing-25189*\",\n        \"operator\": \"mw\"\n      },\n      \"operator\": \"and\"\n    },",
+          "scope": "local",
+          "name": "Rule_Condition",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02CHX6PRBZUP76nIKHiro2RtDqGoTR7VlOl",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Authorization",
+          "scope": "local",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02CFI33HOEDUT5BZRcVN2piOLIL5IsxCQtm",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "OtherCase Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02CIVYWG6FH7268chyY72FprhZ6nAOuQQVW",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Playbook Description",
+          "scope": "local",
+          "name": "Playbook Description",
+          "type": "datatype.string",
+          "description": "Playbook Description",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02CFNIE5LBNEC1sU0Atrs7X1lnX6OzxoWcS",
         "object_type": "variable_workflow"
       },
       {
@@ -162,154 +314,17 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Automation Rule and Playbook Testing-25189",
+          "value": "Assignment Rule Title",
           "scope": "local",
-          "name": "Incident Title Condition",
+          "name": "Assignment Rule Title",
           "type": "datatype.string",
-          "description": "Incident Title Condition. Enter the Value which is will be added to condition and same value needs to be used while creating incident. ",
+          "description": "Assignment Rule Title",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false,
           "variable_string_format": ""
         },
-        "unique_name": "variable_workflow_02CFOY627IG5A2XY2nzVelE1NfKQXtSrjfD",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "client-c66d8604-bbdd-4a89-af7e-08a68db8d74d",
-          "scope": "input",
-          "name": "Enter the CleintID for Org where you Running",
-          "type": "datatype.string",
-          "is_required": true,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02EPTLFTXZUSB59fBRiYQ6vZ8x0F8qZSzYc",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Playbbok_ID",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02CFNPNDJ58G62cKSBG2hW8EyJW4whQbZv2",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "Overall Test Status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02CIZ38EKWXAS46yk7FcSPve5HhXRTG9fYt",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "\"conditions\": {\n      \"operator\": \"and\",\n      \"left_operand\": {\n        \"left_operand\": \"$output.incident.description$\",\n        \"operator\": \"mw\",\n        \"right_operand\": \"*incident*\"\n      },\n      \"right_operand\": {\n        \"operator\": \"and\",\n        \"left_operand\": {\n          \"left_operand\": \"$output.incident.status$\",\n          \"operator\": \"eq\",\n          \"right_operand\": \"New\"\n        },\n        \"right_operand\": {\n          \"operator\": \"and\",\n          \"left_operand\": {\n            \"left_operand\": \"$output.incident.source$\",\n            \"operator\": \"eq\",\n            \"right_operand\": \"Umbrella\"\n          },\n          \"right_operand\": {\n            \"operator\": \"and\",\n            \"left_operand\": {\n              \"left_operand\": \"$output.incident.tlp$\",\n              \"operator\": \"eq\",\n              \"right_operand\": \"amber\"\n            },\n            \"right_operand\": {\n              \"operator\": \"and\",\n              \"left_operand\": {\n                \"left_operand\": \"$output.incident.id$\",\n                \"operator\": \"mw\",\n                \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n              },\n              \"right_operand\": {\n                \"operator\": \"and\",\n                \"left_operand\": {\n                  \"left_operand\": \"$output.source.totalCount$\",\n                  \"operator\": \"gte\",\n                  \"right_operand\": \"0\"\n                },\n                \"right_operand\": {\n                  \"operator\": \"and\",\n                  \"left_operand\": {\n                    \"left_operand\": \"$output.targets.totalCount$\",\n                    \"operator\": \"gte\",\n                    \"right_operand\": \"0\"\n                  },\n                  \"right_operand\": {\n                    \"operator\": \"and\",\n                    \"left_operand\": {\n                      \"left_operand\": \"$output.incident.scores.asset$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": \"0\"\n                    },\n                    \"right_operand\": {\n                      \"operator\": \"and\",\n                      \"left_operand\": {\n                        \"left_operand\": \"$output.incident.scores.global$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": \"500\"\n                      },\n                      \"right_operand\": {\n                        \"operator\": \"and\",\n                        \"left_operand\": {\n                          \"left_operand\": \"$output.incident.scores.ttp$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": \"0\"\n                        },\n                        \"right_operand\": {\n                          \"operator\": \"and\",\n                          \"left_operand\": {\n                            \"left_operand\": \"$output.eventsCount$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": \"0\"\n                          },\n                          \"right_operand\": {\n                            \"operator\": \"and\",\n                            \"left_operand\": {\n                              \"left_operand\": \"$output.incident.confidence$\",\n                              \"operator\": \"eq\",\n                              \"right_operand\": \"High\"\n                            },\n                            \"right_operand\": {\n                              \"operator\": \"and\",\n                              \"left_operand\": {\n                                \"left_operand\": \"$output.firstEventDate$\",\n                                \"operator\": \"ne\",\n                                \"right_operand\": \"2023-01-01T12:00:00.000Z\"\n                              },\n                              \"right_operand\": {\n                                \"operator\": \"and\",\n                                \"left_operand\": {\n                                  \"left_operand\": \"$output.indicators.totalCount$\",\n                                  \"operator\": \"gte\",\n                                  \"right_operand\": \"0\"\n                                },\n                                \"right_operand\": {\n                                  \"operator\": \"and\",\n                                  \"left_operand\": {\n                                    \"left_operand\": \"$output.observables.totalCount$\",\n                                    \"operator\": \"gte\",\n                                    \"right_operand\": \"0\"\n                                  },\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.title$\",\n                                    \"operator\": \"mw\",\n                                    \"right_operand\": \"Automation Rule and Playbook Testing-1251*\"\n                                  }\n                                }\n                              }\n                            }\n                          }\n                        }\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    },",
-          "scope": "local",
-          "name": "Rule_Condition_for_Update(XDR1251)",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02EVU7XEHV8HV0N0ozDkvINLQKt4npVKJGH",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh\",\n    \"name\": \"TEST-Inc-Resposne-WorkflowLog\",\n    \"title\": \"TEST-Inc-Resposne-WorkflowLog\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": null,\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"automation_rules\": {\n        \"type\": [\n          \"incident.rule_event\"\n        ]\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"TEST-Inc-Resposne-WorkflowLog\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      },\n      \"wf_metadata\": {\n        \"coa\": {\n          \"action\": [\n            \"alert\",\n            \"allow\"\n          ],\n          \"intent\": \"incident_response\",\n          \"observable_types\": [\n            \"domain\",\n            \"email\",\n            \"hostname\",\n            \"ip\",\n            \"ipv6\",\n            \"md5\",\n            \"sha1\",\n            \"sha256\",\n            \"url\",\n            \"user\",\n            \"amp_computer_guid\",\n            \"certificate_common_name\",\n            \"certificate_issuer\",\n            \"certificate_serial\",\n            \"cisco_cm_id\",\n            \"cisco_mid\",\n            \"cisco_uc_id\",\n            \"cortex_agent_id\",\n            \"crowdstrike_id\",\n            \"cybereason_id\",\n            \"darktrace_id\",\n            \"device\",\n            \"email_messageid\",\n            \"email_subject\",\n            \"file_name\",\n            \"file_path\",\n            \"imei\",\n            \"imsi\",\n            \"mac_address\",\n            \"ms_machine_id\",\n            \"mutex\",\n            \"ngfw_id\",\n            \"ngfw_name\",\n            \"odns_identity\",\n            \"odns_identity_label\",\n            \"orbital_node_id\",\n            \"pki_serial\",\n            \"process_args\",\n            \"process_hash\",\n            \"process_name\",\n            \"process_path\",\n            \"process_username\",\n            \"processor_id\",\n            \"registry_key\",\n            \"registry_name\",\n            \"registry_path\",\n            \"s1_agent_id\",\n            \"serial_number\",\n            \"swc_device_id\",\n            \"trend_micro_id\",\n            \"user_agent\"\n          ]\n        }\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_02CKB0H9YMWII4OcL75RCMkfURh1OXRj1v9\",\n        \"name\": \"To Upper\",\n        \"title\": \"To Upper\",\n        \"type\": \"core.string2upper\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"To Upper\",\n          \"skip_execution\": false,\n          \"source\": \"TEST-Inc-Resposne-WorkflowLog\"\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CKB0RX7NVCS1DFYTerzP66GrMPnu0wpvs\",\n        \"name\": \"Set Variables\",\n        \"title\": \"Set the Workflow Result Code\",\n        \"type\": \"core.set_multiple_variables\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Set the Workflow Result Code\",\n          \"skip_execution\": false,\n          \"variables_to_update\": [\n            {\n              \"variable_to_update\": \"$workflow.definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh.output.workflow_results_code$\",\n              \"variable_value_new\": \"$activity.definition_activity_02CKB0H9YMWII4OcL75RCMkfURh1OXRj1v9.output.error.code$\"\n            }\n          ]\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_02CKB1C6NPB2X7UFoW4koOuYspfOssZ5A7E\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Condition Block\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Condition Block\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_02CKB1C6VQSS51FpYS3Q4WuxV1ypHhqvZE0\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": {\n                  \"left_operand\": \"$workflow.definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh.output.workflow_results_code$\",\n                  \"operator\": \"eq\",\n                  \"right_operand\": \"200\"\n                },\n                \"operator\": \"and\",\n                \"right_operand\": {\n                  \"left_operand\": \"$activity.definition_activity_02CKB0H9YMWII4OcL75RCMkfURh1OXRj1v9.output.uppercase_text$\",\n                  \"operator\": \"eq\",\n                  \"right_operand\": \"TEST-INC-RESPOSNE-WORKFLOWLOG\"\n                }\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_02CKB1R1IDWYC4iStiuDbnOwdSlzCnZdSam\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Setting Workflow Result\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Setting Workflow Result\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh.output.workflow_results$\",\n                      \"variable_value_new\": \"✔✅ WF Executed on the Incident\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          },\n          {\n            \"unique_name\": \"definition_activity_02CKB26TK5CV87ClSO1D181DosjfHlXPc4E\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": {\n                  \"left_operand\": \"$workflow.definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh.output.workflow_results_code$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"200\"\n                },\n                \"operator\": \"or\",\n                \"right_operand\": {\n                  \"left_operand\": \"$activity.definition_activity_02CKB0H9YMWII4OcL75RCMkfURh1OXRj1v9.output.uppercase_text$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"TEST-INC-RESPOSNE-WORKFLOWLOG\"\n                }\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_02CKB26TK6D9M35Qhf59EWxyaWmPZoG6RJb\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Setting Workflow Result\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Setting Workflow Result\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_02CKAZZOWUVBP0znG0JXXeZw8ObhzF3QMBh.output.workflow_results$\",\n                      \"variable_value_new\": \"❌⭕ Failed to WF Executed on the Incident\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ],\n    \"template_type\": \"template_workflow.incident_response\"\n  }\n}",
-          "scope": "local",
-          "name": "WF_import_payload_for_WorkflowLog_Test",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02CKGHPVD04X73aM62HPFvmM716mhEe0Kdp",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "OtherCase Test Status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02CIVYWG6FH7268chyY72FprhZ6nAOuQQVW",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Assignment Rule Description",
-          "scope": "local",
-          "name": "Assignment Rule Description",
-          "type": "datatype.string",
-          "description": "Assignment Rule Description",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02CFOW4E9M6DH3h94DjxNdWu1yMJ5N7rve8",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Playbook Description",
-          "scope": "local",
-          "name": "Playbook Description",
-          "type": "datatype.string",
-          "description": "Playbook Description",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02CFNIE5LBNEC1sU0Atrs7X1lnX6OzxoWcS",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": {\n                                        \"left_operand\": \"$output.incident.description$\",\n                                        \"operator\": \"mw\",\n                                        \"right_operand\": \"*incident*\"\n                                      },\n                                      \"right_operand\": {\n                                        \"left_operand\": \"$output.incident.status$\",\n                                        \"operator\": \"eq\",\n                                        \"right_operand\": \"New\"\n                                      },\n                                      \"operator\": \"and\"\n                                    },\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.source$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"Umbrella\"\n                                    },\n                                    \"operator\": \"and\"\n                                  },\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.tlp$\",\n                                    \"operator\": \"eq\",\n                                    \"right_operand\": \"amber\"\n                                  },\n                                  \"operator\": \"and\"\n                                },\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.incident.id$\",\n                                  \"operator\": \"mw\",\n                                  \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                                },\n                                \"operator\": \"and\"\n                              },\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.source.totalCount$\",\n                                \"operator\": \"gte\",\n                                \"right_operand\": 0\n                              },\n                              \"operator\": \"and\"\n                            },\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.targets.totalCount$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            },\n                            \"operator\": \"and\"\n                          },\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.incident.scores.asset$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          },\n                          \"operator\": \"and\"\n                        },\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.global$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        },\n                        \"operator\": \"and\"\n                      },\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.incident.scores.ttp$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      },\n                      \"operator\": \"and\"\n                    },\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.eventsCount$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": 0\n                    },\n                    \"operator\": \"and\"\n                  },\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.incident.confidence$\",\n                    \"operator\": \"eq\",\n                    \"right_operand\": \"High\"\n                  },\n                  \"operator\": \"and\"\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.firstEventDate$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"2023-01-01\"\n                },\n                \"operator\": \"or\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.indicators.totalCount$\",\n                \"operator\": \"gte\",\n                \"right_operand\": 0\n              },\n              \"operator\": \"or\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.mitreData.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            },\n            \"operator\": \"or\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.observables.totalCount$\",\n            \"operator\": \"gte\",\n            \"right_operand\": 0\n          },\n          \"operator\": \"or\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.observables.data[*].type$\",\n          \"operator\": \"eq\",\n          \"right_operand\": \"domain\"\n        },\n        \"operator\": \"or\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.title$\",\n        \"right_operand\": \"*Automation Rule and Playbook Testing-25189*\",\n        \"operator\": \"mw\"\n      },\n      \"operator\": \"and\"\n    },",
-          "scope": "local",
-          "name": "Rule_Condition",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02CHX6PRBZUP76nIKHiro2RtDqGoTR7VlOl",
+        "unique_name": "variable_workflow_02CFOVSLCS7634Hd0AbHuiSGRUa1UIcRpgg",
         "object_type": "variable_workflow"
       },
       {
@@ -325,21 +340,6 @@
           "variable_string_format": ""
         },
         "unique_name": "variable_workflow_02CIZ6APIPLY85e2QMFbcoWNyhgoKtq1vbY",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "xdr.test.iroh.site",
-          "scope": "local",
-          "name": "Evironment for Incident while Execution of Playbook",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02CFPP0VRQ9GJ7hLHGNOGePNpFUU5YelGVO",
         "object_type": "variable_workflow"
       }
     ],
@@ -3996,7 +3996,7 @@
                   "continue_on_failure": false,
                   "display_name": "Sleep for 30s",
                   "skip_execution": false,
-                  "sleep_interval": 30
+                  "sleep_interval": 40
                 },
                 "object_type": "definition_activity"
               },
@@ -5212,14 +5212,14 @@
               {
                 "unique_name": "definition_activity_02EVR53P20HXQ4i5giQnrjfkdCQAddg2uc1",
                 "name": "Sleep",
-                "title": "Sleep for 30s",
+                "title": "Sleep for 60s",
                 "type": "core.sleep",
                 "base_type": "activity",
                 "properties": {
                   "continue_on_failure": false,
-                  "display_name": "Sleep for 30s",
+                  "display_name": "Sleep for 60s",
                   "skip_execution": false,
-                  "sleep_interval": 30
+                  "sleep_interval": 60
                 },
                 "object_type": "definition_activity"
               },
@@ -6854,21 +6854,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "token",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "input",
               "name": "client_id",
               "type": "datatype.string",
@@ -6878,6 +6863,21 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02BC75FY6KJQ31bp06fvoXJ188gYh1wbUa7",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "token",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02BC75FY6K85Y7UxbMgUx2RiWsymGSVCmQm",
             "object_type": "variable_workflow"
           },
           {
@@ -7140,36 +7140,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Token",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CHYF8TSBG1M4ZYIRvOTW7jmT0LyiMJar8",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Authorization",
-              "scope": "input",
-              "name": "Authorization",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CHYF14ICJKP5Ts02Ys2LtHWcvilRfP2dl",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "Fail",
               "scope": "output",
               "name": "Playbook Creation Test Status",
@@ -7187,21 +7157,6 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Recovery TaskID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CI0Q6QOAOSP0TnfwX4cV9s3AMmFn5nt2M",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
               "name": "Playbook_ID",
               "type": "datatype.string",
               "is_required": false,
@@ -7210,6 +7165,66 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02CHYY4GY92VF1xlgdyxXQ2kuqTnHhnMFyy",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Containment Task ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CI0PNBUIJ390iRttPbuBFFLx7KNGcCvRq",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Token",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CHYF8TSBG1M4ZYIRvOTW7jmT0LyiMJar8",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Eradiation Task ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CI0Q1J4P72Z4b8u4FpyU6r41RDz9pdwJ1",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Identification Task ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CI0PDCJFLNK40rtcDYBsmutiDHTFQgvKX",
             "object_type": "variable_workflow"
           },
           {
@@ -7231,16 +7246,16 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Identification Task ID",
+              "value": "Authorization",
+              "scope": "input",
+              "name": "Authorization",
               "type": "datatype.string",
-              "is_required": false,
+              "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_02CI0PDCJFLNK40rtcDYBsmutiDHTFQgvKX",
+            "unique_name": "variable_workflow_02CHYF14ICJKP5Ts02Ys2LtHWcvilRfP2dl",
             "object_type": "variable_workflow"
           },
           {
@@ -7248,29 +7263,14 @@
             "properties": {
               "value": "",
               "scope": "output",
-              "name": "Containment Task ID",
+              "name": "Recovery TaskID",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_02CI0PNBUIJ390iRttPbuBFFLx7KNGcCvRq",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Eradiation Task ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CI0Q1J4P72Z4b8u4FpyU6r41RDz9pdwJ1",
+            "unique_name": "variable_workflow_02CI0Q6QOAOSP0TnfwX4cV9s3AMmFn5nt2M",
             "object_type": "variable_workflow"
           }
         ],
@@ -7871,6 +7871,82 @@
               {
                 "schema_id": "datatype.string",
                 "properties": {
+                  "value": "",
+                  "scope": "output",
+                  "name": "Task_ID",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false,
+                  "variable_string_format": ""
+                },
+                "unique_name": "variable_workflow_02CFN69QVQA4L7bymvWnFoT1f1R3nxLnjMX",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "Authorization",
+                  "scope": "input",
+                  "name": "Authorization",
+                  "type": "datatype.string",
+                  "is_required": true,
+                  "display_on_wizard": false,
+                  "is_invisible": false,
+                  "variable_string_format": ""
+                },
+                "unique_name": "variable_workflow_02CFN1MP10HRH6IrcclzfRISlbFXwj6XeL8",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "input",
+                  "name": "Workflow_ID",
+                  "type": "datatype.string",
+                  "description": "pass null if no workflow or else pass Valid Workflow id ",
+                  "is_required": true,
+                  "display_on_wizard": false,
+                  "is_invisible": false,
+                  "variable_string_format": ""
+                },
+                "unique_name": "variable_workflow_02CFN4TCZXZBN1rt2HcXpvKA2sS6eI2qnHN",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "Bearer ",
+                  "scope": "input",
+                  "name": "Provide Token",
+                  "type": "datatype.string",
+                  "is_required": true,
+                  "display_on_wizard": false,
+                  "is_invisible": false,
+                  "variable_string_format": ""
+                },
+                "unique_name": "variable_workflow_02CFN1V4449HT5oi0hQB4WwRq3zxw1MZzAF",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "Placeholder Task Title",
+                  "scope": "input",
+                  "name": "Task_Title",
+                  "type": "datatype.string",
+                  "is_required": true,
+                  "display_on_wizard": false,
+                  "is_invisible": false,
+                  "variable_string_format": ""
+                },
+                "unique_name": "variable_workflow_02CFN3Y1DZYTI4L2gForlOGNd41cAMbyLr1",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
                   "value": "Fail",
                   "scope": "output",
                   "name": "Task Creation",
@@ -7901,51 +7977,6 @@
               {
                 "schema_id": "datatype.string",
                 "properties": {
-                  "value": "",
-                  "scope": "output",
-                  "name": "Task_ID",
-                  "type": "datatype.string",
-                  "is_required": false,
-                  "display_on_wizard": false,
-                  "is_invisible": false,
-                  "variable_string_format": ""
-                },
-                "unique_name": "variable_workflow_02CFN69QVQA4L7bymvWnFoT1f1R3nxLnjMX",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "Bearer ",
-                  "scope": "input",
-                  "name": "Provide Token",
-                  "type": "datatype.string",
-                  "is_required": true,
-                  "display_on_wizard": false,
-                  "is_invisible": false,
-                  "variable_string_format": ""
-                },
-                "unique_name": "variable_workflow_02CFN1V4449HT5oi0hQB4WwRq3zxw1MZzAF",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "Authorization",
-                  "scope": "input",
-                  "name": "Authorization",
-                  "type": "datatype.string",
-                  "is_required": true,
-                  "display_on_wizard": false,
-                  "is_invisible": false,
-                  "variable_string_format": ""
-                },
-                "unique_name": "variable_workflow_02CFN1MP10HRH6IrcclzfRISlbFXwj6XeL8",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
                   "value": "Placeholder task description.",
                   "scope": "input",
                   "name": "Task_Description",
@@ -7956,37 +7987,6 @@
                   "variable_string_format": ""
                 },
                 "unique_name": "variable_workflow_02CFN3IGON1KY42YOU5MTp38ikZIjm02rhO",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "",
-                  "scope": "input",
-                  "name": "Workflow_ID",
-                  "type": "datatype.string",
-                  "description": "pass null if no workflow or else pass Valid Workflow id ",
-                  "is_required": true,
-                  "display_on_wizard": false,
-                  "is_invisible": false,
-                  "variable_string_format": ""
-                },
-                "unique_name": "variable_workflow_02CFN4TCZXZBN1rt2HcXpvKA2sS6eI2qnHN",
-                "object_type": "variable_workflow"
-              },
-              {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "Placeholder Task Title",
-                  "scope": "input",
-                  "name": "Task_Title",
-                  "type": "datatype.string",
-                  "is_required": true,
-                  "display_on_wizard": false,
-                  "is_invisible": false,
-                  "variable_string_format": ""
-                },
-                "unique_name": "variable_workflow_02CFN3Y1DZYTI4L2gForlOGNd41cAMbyLr1",
                 "object_type": "variable_workflow"
               }
             ],
@@ -8202,6 +8202,21 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "Authorization",
+              "scope": "input",
+              "name": "Authorization",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CHZZ30F8WSW0Klz4asuNPA4Hg7NqSphtO",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "",
               "scope": "output",
               "name": "Assignment Rule ID",
@@ -8212,21 +8227,6 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02CI036PKZ9DV3rbNAs3xb1cihTJ5kqgxlk",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Fail",
-              "scope": "output",
-              "name": "Creation of Assignment Rule",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CI00LAKCWS118urvq5G6kwVDQSSqPVAI8",
             "object_type": "variable_workflow"
           },
           {
@@ -8262,6 +8262,21 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "Creation of Assignment Rule",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CI00LAKCWS118urvq5G6kwVDQSSqPVAI8",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": {\n                                        \"left_operand\": \"$output.incident.description$\",\n                                        \"operator\": \"mw\",\n                                        \"right_operand\": \"*incident*\"\n                                      },\n                                      \"right_operand\": {\n                                        \"left_operand\": \"$output.incident.status$\",\n                                        \"operator\": \"eq\",\n                                        \"right_operand\": \"New\"\n                                      },\n                                      \"operator\": \"and\"\n                                    },\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.source$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"Umbrella\"\n                                    },\n                                    \"operator\": \"and\"\n                                  },\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.tlp$\",\n                                    \"operator\": \"eq\",\n                                    \"right_operand\": \"amber\"\n                                  },\n                                  \"operator\": \"and\"\n                                },\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.incident.id$\",\n                                  \"operator\": \"mw\",\n                                  \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                                },\n                                \"operator\": \"and\"\n                              },\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.source.totalCount$\",\n                                \"operator\": \"gte\",\n                                \"right_operand\": 0\n                              },\n                              \"operator\": \"and\"\n                            },\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.targets.totalCount$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            },\n                            \"operator\": \"and\"\n                          },\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.incident.scores.asset$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          },\n                          \"operator\": \"and\"\n                        },\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.global$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        },\n                        \"operator\": \"and\"\n                      },\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.incident.scores.ttp$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      },\n                      \"operator\": \"and\"\n                    },\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.eventsCount$\",\n                      \"operator\": \"gte\",\n                      \"right_operand\": 0\n                    },\n                    \"operator\": \"and\"\n                  },\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.incident.confidence$\",\n                    \"operator\": \"eq\",\n                    \"right_operand\": \"High\"\n                  },\n                  \"operator\": \"and\"\n                },\n                \"right_operand\": {\n                  \"left_operand\": \"$output.firstEventDate$\",\n                  \"operator\": \"ne\",\n                  \"right_operand\": \"2023-01-01\"\n                },\n                \"operator\": \"or\"\n              },\n              \"right_operand\": {\n                \"left_operand\": \"$output.indicators.totalCount$\",\n                \"operator\": \"gte\",\n                \"right_operand\": 0\n              },\n              \"operator\": \"or\"\n            },\n            \"right_operand\": {\n              \"left_operand\": \"$output.mitreData.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            },\n            \"operator\": \"or\"\n          },\n          \"right_operand\": {\n            \"left_operand\": \"$output.observables.totalCount$\",\n            \"operator\": \"gte\",\n            \"right_operand\": 0\n          },\n          \"operator\": \"or\"\n        },\n        \"right_operand\": {\n          \"left_operand\": \"$output.observables.data[*].type$\",\n          \"operator\": \"eq\",\n          \"right_operand\": \"domain\"\n        },\n        \"operator\": \"or\"\n      },\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.title$\",\n        \"right_operand\": \"*Automation Rule and Playbook Testing-25189*\",\n        \"operator\": \"mw\"\n      },\n      \"operator\": \"and\"\n    },",
               "scope": "input",
               "name": "Conditions_For_Assignment_Rule",
@@ -8287,21 +8302,6 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02CHZZD46895S5pCr050k95x91ktdU9LCYG",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Authorization",
-              "scope": "input",
-              "name": "Authorization",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CHZZ30F8WSW0Klz4asuNPA4Hg7NqSphtO",
             "object_type": "variable_workflow"
           }
         ],
@@ -8605,6 +8605,21 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-$ID\",\n              \"title\": \"SG-PR-Sep11-2-Automation Rule Testing - IncidentWF_$ID\",\n              \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"Critical\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Command and Control activities detected by DNS protection.\",\n        \"title\": \"Command and Control DNS activities\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1071\"\n            ],\n            \"short_description\": \"Application Layer Protocol\",\n            \"title\": \"Application Layer Protocol\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1071\",\n                    \"external_id\": \"T1071\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1071\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"command-and-control\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"command-and-control\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1071\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1071\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }\n",
               "scope": "input",
               "name": "Incident Payload",
@@ -8630,21 +8645,6 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02EDD9GCRBAX574rDgRmdygEP3enq7dzk6J",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Pass or Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt",
             "object_type": "variable_workflow"
           }
         ],
@@ -9006,60 +9006,15 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Content of the Playbook Execution",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CI1GP69KGD86F4yU9eFjD6OVS89SX3yV5",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
               "scope": "input",
-              "name": "Token ID",
+              "name": "Task_ID",
               "type": "datatype.string",
               "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_02CI0LDCSK87J7aSyTDwz3LybGqQRYmyssv",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Workflow Instance ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02F0A76AMM07J138I36L6orC5JpCjHreTAm",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Execution ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CI1H9KOHHNZ6y2652eIwqkR6ZBvH1rzSE",
+            "unique_name": "variable_workflow_02CI092SPTSO73yGHBDYEYG1teFiwtDNH6C",
             "object_type": "variable_workflow"
           },
           {
@@ -9080,16 +9035,16 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
+              "value": "Bearer ",
               "scope": "input",
-              "name": "Task_ID",
+              "name": "Token ID",
               "type": "datatype.string",
               "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_02CI092SPTSO73yGHBDYEYG1teFiwtDNH6C",
+            "unique_name": "variable_workflow_02CI0LDCSK87J7aSyTDwz3LybGqQRYmyssv",
             "object_type": "variable_workflow"
           },
           {
@@ -9110,6 +9065,21 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Workflow Instance ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02F0A76AMM07J138I36L6orC5JpCjHreTAm",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "Fail",
               "scope": "output",
               "name": "Execution of Playbook Test Status",
@@ -9120,6 +9090,36 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02CI0BQ88LBZ70FBbzAXCrwEdO2lNXNG81Q",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Content of the Playbook Execution",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CI1GP69KGD86F4yU9eFjD6OVS89SX3yV5",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Execution ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CI1H9KOHHNZ6y2652eIwqkR6ZBvH1rzSE",
             "object_type": "variable_workflow"
           }
         ],
@@ -9372,21 +9372,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Authorization",
-              "scope": "input",
-              "name": "Authorization",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CKGM5OFIJRH130qOCxITIoP9xNBLo5hvy",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "",
               "scope": "output",
               "name": "Workflow_Logs",
@@ -9397,22 +9382,6 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02CKGPI1DV27S3ESHXcCS7TPKDUytmtWIty",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Incident ID",
-              "type": "datatype.string",
-              "description": "Enter the Incident ID to view the recent Workflow Logs",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CKGNIY82YVL024cAk8spv0F9mFs94J7LM",
             "object_type": "variable_workflow"
           },
           {
@@ -9443,6 +9412,37 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02CKGMCAIQK4X7W2KbiesDFsEL74VNDlQdR",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Incident ID",
+              "type": "datatype.string",
+              "description": "Enter the Incident ID to view the recent Workflow Logs",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CKGNIY82YVL024cAk8spv0F9mFs94J7LM",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Authorization",
+              "scope": "input",
+              "name": "Authorization",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CKGM5OFIJRH130qOCxITIoP9xNBLo5hvy",
             "object_type": "variable_workflow"
           },
           {
@@ -9713,21 +9713,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Authorization",
-              "scope": "local",
-              "name": "Authorization",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_01TNQRVAXTCU34fMbIw4sSLw6j4wCmLoMs4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "",
               "scope": "input",
               "name": "Provide Workflow ID",
@@ -9760,6 +9745,21 @@
             "properties": {
               "value": "",
               "scope": "output",
+              "name": "Workflow Updated Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01TNRDRT70XP23fYBK8wajx9ArQEM52Tixt",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
               "name": "Workflow Status",
               "type": "datatype.string",
               "is_required": false,
@@ -9768,6 +9768,21 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_01TNQRVAXSJ2Q4j29bFFO8S54B0usxAVQ06",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Authorization",
+              "scope": "local",
+              "name": "Authorization",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01TNQRVAXTCU34fMbIw4sSLw6j4wCmLoMs4",
             "object_type": "variable_workflow"
           },
           {
@@ -9783,21 +9798,6 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_01TNQRVAXT04A7ihlljF8vudsWhZ9i0rEqP",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Workflow Updated Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_01TNRDRT70XP23fYBK8wajx9ArQEM52Tixt",
             "object_type": "variable_workflow"
           }
         ],
@@ -10154,37 +10154,6 @@
             "properties": {
               "value": "",
               "scope": "input",
-              "name": "Incident_ID",
-              "type": "datatype.string",
-              "description": "Incident_ID",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CITOMHFCESP4h2DXvXIKpwSosWDxekzJu",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Authorization",
-              "scope": "input",
-              "name": "Authorization",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CITP032G5KK07xdFXlZ54X6sgffbyXH46",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
               "name": "Task_ID",
               "type": "datatype.string",
               "description": "Task_ID",
@@ -10194,6 +10163,37 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02CITOS4HZDOS2AYSQjhtGwl3nzZYx3mm0B",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Token",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CITP633G79E1COExPEpXiWKCHATXcNeKd",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Task Title",
+              "type": "datatype.string",
+              "description": "Task Title",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CITQ1E528Q303MGnedTAkOVuvkg8F0zNx",
             "object_type": "variable_workflow"
           },
           {
@@ -10214,16 +10214,47 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Token",
+              "value": "",
+              "scope": "output",
+              "name": "Action_Status",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_02CITP633G79E1COExPEpXiWKCHATXcNeKd",
+            "unique_name": "variable_workflow_02CIU5ZTFP84R4jK5hLOtPqDDACdLC1RrlE",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "Test Status for Execution of Playbook from SXO API",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CIU8KO01ZX85ok2brVNT0vov1iBi00AmQ",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Incident_ID",
+              "type": "datatype.string",
+              "description": "Incident_ID",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CITOMHFCESP4h2DXvXIKpwSosWDxekzJu",
             "object_type": "variable_workflow"
           },
           {
@@ -10260,21 +10291,6 @@
             "schema_id": "datatype.string",
             "properties": {
               "value": "",
-              "scope": "output",
-              "name": "Action_Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CIU5ZTFP84R4jK5hLOtPqDDACdLC1RrlE",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
               "scope": "input",
               "name": "WF_ID",
               "type": "datatype.string",
@@ -10290,32 +10306,16 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Fail",
-              "scope": "output",
-              "name": "Test Status for Execution of Playbook from SXO API",
+              "value": "Authorization",
+              "scope": "input",
+              "name": "Authorization",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_02CIU8KO01ZX85ok2brVNT0vov1iBi00AmQ",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Task Title",
-              "type": "datatype.string",
-              "description": "Task Title",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CITQ1E528Q303MGnedTAkOVuvkg8F0zNx",
+            "unique_name": "variable_workflow_02CITP032G5KK07xdFXlZ54X6sgffbyXH46",
             "object_type": "variable_workflow"
           }
         ],
@@ -10855,21 +10855,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Fail",
-              "scope": "output",
-              "name": "UnLock Test Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "Bearer ",
               "scope": "input",
               "name": "Provide the Token",
@@ -10880,6 +10865,21 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "WF_UnLocked_Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd",
             "object_type": "variable_workflow"
           },
           {
@@ -10901,16 +10901,16 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
+              "value": "Fail",
               "scope": "output",
-              "name": "WF_UnLocked_Status",
+              "name": "UnLock Test Status",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd",
+            "unique_name": "variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5",
             "object_type": "variable_workflow"
           }
         ],
