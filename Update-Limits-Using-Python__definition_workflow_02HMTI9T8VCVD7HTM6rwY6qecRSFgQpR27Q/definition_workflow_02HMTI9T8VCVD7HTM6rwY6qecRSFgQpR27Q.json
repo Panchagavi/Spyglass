@@ -1,0 +1,523 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q",
+    "name": "Update Limits Using Python",
+    "title": "Update Limits Using Python",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Tenant Limit Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HU2X2LB7BPL3Nc5RYuc8nESy9autN690N",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "27fd686f-ccfe-5c35-af1c-cc51cd48d784",
+          "scope": "input",
+          "name": "tenant_id",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HNDXMTN83IR1p8MSbIeNnxX9PDDaMjTul",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Tier Limit Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HU2X60V7ZV539a7qZM1o4h0Eg6pmW1nJb",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "tenant",
+          "scope": "input",
+          "name": "limit type",
+          "type": "datatype.string",
+          "description": "supported limit type -- tenant/tier and provide only one value. \n\ntenant -- to update limits in tenant level \n\ntier -- to update limits in tier level",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HNB09WAWLOZ29MpTz9fl4MRJfcJOSiKSu",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "https://automate-private.test.cloudops.cisco.com",
+          "scope": "input",
+          "name": "Enviorment",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02HNFBVIJEF7M6Akntf5qB35S1wqqphjjCv",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Update Limits Using Python",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_02HMTLTYT4SUX7fMEZ27QzNHhZZaVogl7VR",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02HNAYM023SH803bzvf90nr2e1bkAVbE81r",
+        "name": "Condition Block",
+        "title": "Update Limits",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "conditions": [],
+          "continue_on_failure": false,
+          "display_name": "Update Limits",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02HNAYM08QSK22KgTTetIMIvBS8edMOtJpu",
+            "name": "Condition Branch",
+            "title": "Tenant Limits",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNB09WAWLOZ29MpTz9fl4MRJfcJOSiKSu$",
+                "operator": "eq",
+                "right_operand": "tenant"
+              },
+              "continue_on_failure": false,
+              "display_name": "Tenant Limits",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02HNAYVF5XUWD2lI3cALFomBgL9Sa0HWG9U",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script-Tier Limits",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Python Script-Tier Limits",
+                  "script": "import requests\nimport json\n\nurl = \"$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNFBVIJEF7M6Akntf5qB35S1wqqphjjCv$/internal/v2/tenants/$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNDXMTN83IR1p8MSbIeNnxX9PDDaMjTul$\"\n\npayload = json.dumps({\n  \"is_tier_limits_enabled\": False\n})\nheaders = {\n  'x-cisco-tenant-id': '$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNDXMTN83IR1p8MSbIeNnxX9PDDaMjTul$',\n  'Content-Type': 'application/json'\n}\n\nresponse = requests.request(\"PATCH\", url, headers=headers, data=payload)\n\nprint(response.text)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02HMTICD01BK96NjFevRnGE6amwlhPGwb9x",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script-Tenant Limits",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Execute Python Script-Tenant Limits",
+                  "script": "import requests\nimport json\n\nurl = \"$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNFBVIJEF7M6Akntf5qB35S1wqqphjjCv$/internal/v2/tenants/$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNDXMTN83IR1p8MSbIeNnxX9PDDaMjTul$\"\n\npayload = json.dumps({\n  \"object_limits\": {\n    \"calendar\": 255,\n    \"categories\": {\n      \"basic\": 255,\n      \"xchange\": 255\n    },\n    \"data_type\": 255,\n    \"remote_meta\": 20,\n    \"rules\": {\n      \"schedule_rule\": 255,\n      \"event_rule\": 255\n    },\n    \"runs\": {\n      \"schedule_rule\": 1440,\n      \"event_rule\": {\n        \"per_day\": 5000,\n        \"per_minute\": 50\n      },\n      \"loop_limit\": 1000,\n      \"approval_task\": 1000,\n      \"prompt_task\": 1000,\n      \"max_run_time\": 120,\n      \"max_loops_in_run\": 5000\n    },\n    \"runtime_user\": 1000,\n    \"target\": 1000,\n    \"target_group\": 255,\n    \"variable\": 255,\n    \"webhook\": 255,\n    \"workflow_limits\": {\n      \"workflow\": 10000,\n      \"atomic\": 5000,\n      \"activity\": {\n        \"total\": 10000,\n        \"while\": 100,\n        \"for_loop\": 100,\n        \"parallel\": 100,\n        \"sub_workflow\": 200,\n        \"atomic_workflow\": 100,\n        \"max_loop_depth\": 10\n      },\n      \"variable\": {\n        \"large_string\": 10,\n        \"total\": 255\n      }\n    },\n    \"xchange\": {\n      \"publish\": 255\n    }\n  }\n})\nheaders = {\n  'x-cisco-tenant-id': '$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNDXMTN83IR1p8MSbIeNnxX9PDDaMjTul$',\n  'Content-Type': 'application/json'\n}\n\nresponse = requests.request(\"PATCH\", url, headers=headers, data=payload)\n\nprint(response.text)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02HU2VT7UTS3D5ia7Lo6lYiOFpPGOWbwBzr",
+                "name": "JSONPath Query",
+                "title": "Fetch Status",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Status",
+                  "input_json": "$activity.definition_activity_02HMTICD01BK96NjFevRnGE6amwlhPGwb9x.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.status.state",
+                      "jsonpath_query_name": "Tenant-status",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02HU2VBQECXEA5944GO3wkBnmJ00aTmWSRd",
+                "name": "Condition Block",
+                "title": "Verify Limits Set or not ?",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "conditions": [],
+                  "continue_on_failure": false,
+                  "display_name": "Verify Limits Set or not ?",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02HU2VBQO2C0740AakBnurjIndpXcIIiiZd",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_02HU2VT7UTS3D5ia7Lo6lYiOFpPGOWbwBzr.output.jsonpath_queries.Tenant-status$",
+                        "operator": "eq",
+                        "right_operand": "upgrade-successful"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02HU2X8SR0BBY57wgmqKV754CUDSBGwgsNS",
+                        "name": "Set Variables",
+                        "title": "Pass",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Pass",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.output.variable_workflow_02HU2X2LB7BPL3Nc5RYuc8nESy9autN690N$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_02HU2WQFF5Y432Ip41ahKF2w21nBlnRaKAq",
+                    "name": "Condition Branch",
+                    "title": "FailCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_02HU2VT7UTS3D5ia7Lo6lYiOFpPGOWbwBzr.output.jsonpath_queries.Tenant-status$",
+                        "operator": "ne",
+                        "right_operand": "upgrade-successful"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "FailCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02HU2XXCEJ2LI5GuH8TQexVR66tFSL9uHr3",
+                        "name": "Set Variables",
+                        "title": "Fail",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Fail",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.output.variable_workflow_02HU2X2LB7BPL3Nc5RYuc8nESy9autN690N$",
+                              "variable_value_new": "Fail"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02HU2Y5EQP6I75JAqVrD0TNad2clDd7o4EK",
+                        "name": "Completed",
+                        "title": "Mark as Failed",
+                        "type": "logic.completed",
+                        "base_type": "activity",
+                        "properties": {
+                          "completion_type": "succeeded",
+                          "continue_on_failure": false,
+                          "display_name": "Mark as Failed",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02HNAYM0FEEZ55j3NSahxRRbM8Yys7vkxv7",
+            "name": "Condition Branch",
+            "title": "Tier Limits",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNB09WAWLOZ29MpTz9fl4MRJfcJOSiKSu$",
+                "operator": "eq",
+                "right_operand": "tier"
+              },
+              "continue_on_failure": false,
+              "display_name": "Tier Limits",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02HN9M73YG5LU1X5mejwzyJyc4PupiQrdCW",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script-Tier Limits",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Execute Python Script-Tier Limits",
+                  "script": "import requests\nimport json\n\nurl = \"$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNFBVIJEF7M6Akntf5qB35S1wqqphjjCv$/internal/v2/tenants/$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNDXMTN83IR1p8MSbIeNnxX9PDDaMjTul$\"\n\npayload = json.dumps({\n  \"is_tier_limits_enabled\": True\n})\nheaders = {\n  'x-cisco-tenant-id': '$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.input.variable_workflow_02HNDXMTN83IR1p8MSbIeNnxX9PDDaMjTul$',\n  'Content-Type': 'application/json'\n}\n\nresponse = requests.request(\"PATCH\", url, headers=headers, data=payload)\n\nprint(response.text)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02HU2YIS8XR1H7T9dGf7IvPnL5P0dcoGVgH",
+                "name": "JSONPath Query",
+                "title": "Fetch Status",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Status",
+                  "input_json": "$activity.definition_activity_02HN9M73YG5LU1X5mejwzyJyc4PupiQrdCW.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$.status.state",
+                      "jsonpath_query_name": "Tenant-status",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02HU2YC9T1WTA0pbn9Z9MN5aDY18cmR3Joo",
+                "name": "Condition Block",
+                "title": "Verify Limits Set or not ?",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "conditions": [],
+                  "continue_on_failure": false,
+                  "display_name": "Verify Limits Set or not ?",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02HU2YC9T359Q3N9jqP7Rq3o1CUFpe2Fd5x",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_02HU2YIS8XR1H7T9dGf7IvPnL5P0dcoGVgH.output.jsonpath_queries.Tenant-status$",
+                        "operator": "eq",
+                        "right_operand": "upgrade-successful"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02HU2YC9T4XSN7LdjmphE3T1fwsh71fVGf0",
+                        "name": "Set Variables",
+                        "title": "Pass",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Pass",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.output.variable_workflow_02HU2X60V7ZV539a7qZM1o4h0Eg6pmW1nJb$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_02HU2YC9T8CSZ3hCeKKbuBk7dTe6W2YDvWV",
+                    "name": "Condition Branch",
+                    "title": "FailCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$activity.definition_activity_02HU2YIS8XR1H7T9dGf7IvPnL5P0dcoGVgH.output.jsonpath_queries.Tenant-status$",
+                        "operator": "ne",
+                        "right_operand": "upgrade-successful"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "FailCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02HU2YC9T8XHI4HyNLk2PRA8AAj5LF1E2to",
+                        "name": "Set Variables",
+                        "title": "Fail",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Fail",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02HMTI9T8VCVD7HTM6rwY6qecRSFgQpR27Q.output.variable_workflow_02HU2X60V7ZV539a7qZM1o4h0Eg6pmW1nJb$",
+                              "variable_value_new": "Fail"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02HU2YC9TAJ056XjyIFIJclbaP11R9jN27L",
+                        "name": "Completed",
+                        "title": "Mark as Failed",
+                        "type": "logic.completed",
+                        "base_type": "activity",
+                        "properties": {
+                          "completion_type": "succeeded",
+                          "continue_on_failure": false,
+                          "display_name": "Mark as Failed",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02HMTJX2GESUQ40dKcntoQMiHXu8yPE69pb",
+        "name": "HTTP Request",
+        "title": "HTTP Request",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "body": "{\n    \"object_limits\": {\n        \"calendar\": 200,\n        \"categories\": {\n            \"basic\": 100,\n            \"xchange\": 200\n        },\n        \"data_type\": 100,\n        \"remote_meta\": 20,\n        \"rules\": {\n            \"schedule_rule\": 100,\n            \"event_rule\": 200\n        },\n        \"runs\": {\n            \"schedule_rule\": 5,\n            \"event_rule\": {\n                \"per_day\": 5,\n                \"per_minute\": 5\n            },\n            \"loop_limit\": 500,\n            \"approval_task\": 50,\n            \"prompt_task\": 50,\n            \"max_run_time\": 30,\n            \"max_loops_in_run\": 50000\n        },\n        \"runtime_user\": 500,\n        \"target\": 40,\n        \"target_group\": 50,\n        \"variable\": 50,\n        \"webhook\":10,\n        \"workflow_limits\": {\n            \"workflow\": 500,\n            \"atomic\": 500,\n            \"activity\": {\n                \"total\": 500,\n                \"while\": 10,\n                \"for_loop\": 10,\n                \"parallel\": 10,\n                \"sub_workflow\": 100,\n                \"atomic_workflow\": 100\n            },\n            \"variable\": {\n                \"large_string\": 5,\n                \"total\": 100\n            }\n        },\n        \"xchange\": {\n            \"publish\": 50\n        }\n    }\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "x-cisco-tenant-id",
+              "value": "0669ccd2-3326-4cfa-a7f7-093356ae55c6"
+            }
+          ],
+          "display_name": "HTTP Request",
+          "method": "PATCH",
+          "relative_url": "0669ccd2-3326-4cfa-a7f7-093356ae55c6",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": true,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_02HMTLTYT4SUX7fMEZ27QzNHhZZaVogl7VR": {
+      "unique_name": "definition_target_02HMTLTYT4SUX7fMEZ27QzNHhZZaVogl7VR",
+      "name": "INT-Private-DNS",
+      "title": "INT-Private-DNS",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "INT-Private-DNS",
+        "host": "automate-private.int.ao-local.com",
+        "ignore_proxy": true,
+        "no_runtime_user": true,
+        "path": "internal/v2/tenants",
+        "protocol": "https"
+      }
+    }
+  }
+}
