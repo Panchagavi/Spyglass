@@ -1,0 +1,352 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02ICQIV9T31MZ2JtWhpCr8k2vd2Ri4xJwGf",
+    "name": "XDR-13193-Automation",
+    "title": "XDR-13193-Automation",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "XDR-13193-Automation",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "$module_target;Cisco XDR;securex:ao:sxo;automation-apis$",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02ICQLUF3NX7Z4FxENatFWDx8RCFlDbOmRP",
+        "name": "Execute Python Script",
+        "title": "Generate Random String",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Generate Random String",
+          "script": "import string\nimport random\n\n# using random.choices() generating random strings\nres = ''.join(random.choices(string.ascii_letters,\n                             k=7)) # initializing size of string\n\nprint(str(res))",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02ICQKNC8R83B5izEm6LXzUbBooOYYpBfzk",
+        "name": "HTTP Request",
+        "title": "Add a target",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "body": "{\n  \"name\": \"target-xdr-13193-$activity.definition_activity_02ICQLUF3NX7Z4FxENatFWDx8RCFlDbOmRP.output.response_body$\",\n  \"title\": \"target-xdr-13193-$activity.definition_activity_02ICQLUF3NX7Z4FxENatFWDx8RCFlDbOmRP.output.response_body$\",\n  \"properties\": {\n    \"disable_certificate_validation\": true,\n    \"ignore_proxy\": true,\n    \"no_runtime_user\": true,\n    \"display_name\": \"target-xdr-13193-$activity.definition_activity_02ICQLUF3NX7Z4FxENatFWDx8RCFlDbOmRP.output.response_body$\",\n    \"description\": \"target-xdr-13193-$activity.definition_activity_02ICQLUF3NX7Z4FxENatFWDx8RCFlDbOmRP.output.response_body$\",\n    \"protocol\": \"https\",\n    \"host\": \"google.com\"\n  },\n  \"type\": \"web-service.endpoint\"\n}",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "Add a target",
+          "method": "POST",
+          "relative_url": "/api/v1/targets",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02ICQOAOQO9002TCNVNLMdMkdXo3YgihYtf",
+        "name": "JSONPath Query",
+        "title": "Fetch Target Details from Create Target Response",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Fetch Target Details from Create Target Response",
+          "input_json": "$activity.definition_activity_02ICQKNC8R83B5izEm6LXzUbBooOYYpBfzk.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.id",
+              "jsonpath_query_name": "target_ID",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$.name",
+              "jsonpath_query_name": "TargetName",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$.unique_name",
+              "jsonpath_query_name": "Target_UniqueName",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$..schema_id",
+              "jsonpath_query_name": "Target_SchemaID",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02ICQSCO1XSF04aTJc3OGABY7HSg84aDF3N",
+        "name": "HTTP Request",
+        "title": "Create a targetGroup",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "allow_headers_redirect": false,
+          "body": "{\n  \"title\": \"tg-xdr-13193-$activity.definition_activity_02ICQLUF3NX7Z4FxENatFWDx8RCFlDbOmRP.output.response_body$\",\n  \"targets\": [\n    {\n      \"include_all_targets\": false,\n      \"view_target_type\": \"$activity.definition_activity_02ICQOAOQO9002TCNVNLMdMkdXo3YgihYtf.output.jsonpath_queries.Target_SchemaID$\",\n      \"criteria\": [\n        {\n          \"operator\": \"eq\",\n          \"left_operand\": \"$input.display_name$\",\n          \"right_operand\": \"$activity.definition_activity_02ICQOAOQO9002TCNVNLMdMkdXo3YgihYtf.output.jsonpath_queries.TargetName$\"\n        }\n      ]\n    }\n  ],\n  \"name\": \"tg-xdr-13193-$activity.definition_activity_02ICQLUF3NX7Z4FxENatFWDx8RCFlDbOmRP.output.response_body$\",\n  \"type\": \"generic.target_group\"\n}",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "Create a targetGroup",
+          "method": "POST",
+          "relative_url": "/api/v1/target_groups",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02ICSSN5C01JA5dS2F6CJbeWprCO5oGQXIw",
+        "name": "JSONPath Query",
+        "title": "Fetch Target Group Details from Create TargetGroup Response",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Fetch Target Group Details from Create TargetGroup Response",
+          "input_json": "$activity.definition_activity_02ICQSCO1XSF04aTJc3OGABY7HSg84aDF3N.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.targets..matched_target_ids",
+              "jsonpath_query_name": "Matched_targetID",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            },
+            {
+              "jsonpath_query": "$.id",
+              "jsonpath_query_name": "Target_Group_ID",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02ICT7JCT8J7Z7DZ0AyHnzdjOOs8ojJhHpF",
+        "name": "Execute Python Script",
+        "title": "Format Matched targetID",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Format Matched targetID",
+          "script": "# Sample list\nid_list = $activity.definition_activity_02ICSSN5C01JA5dS2F6CJbeWprCO5oGQXIw.output.jsonpath_queries.Matched_targetID$\n\n# Access the first (and only) element\nid_value = id_list[0]\n\nprint(id_value)",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02ICSXQJLEZR848GkyA2WZbTBxYwLVmnk5M",
+        "name": "Group",
+        "title": "Cleanup",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Cleanup",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02ICSWQGELXFK5wjI3nLYbf5w1ugMvsfDNl",
+            "name": "HTTP Request",
+            "title": "Del a targetGroup",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Del a targetGroup",
+              "method": "DELETE",
+              "relative_url": "/api/v1/target_groups/$activity.definition_activity_02ICSSN5C01JA5dS2F6CJbeWprCO5oGQXIw.output.jsonpath_queries.Target_Group_ID$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02ICSXJDNQA281k5QB5Gk6pL5Zvp0W4lU3C",
+            "name": "Sleep",
+            "title": "Sleep for 2s",
+            "type": "core.sleep",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Sleep for 2s",
+              "skip_execution": false,
+              "sleep_interval": 2
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_02ICSX6VL4LNC75T2QlYC60WxnccYCpIwlq",
+            "name": "HTTP Request",
+            "title": "Del a target",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "allow_headers_redirect": false,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Del a target",
+              "method": "DELETE",
+              "relative_url": "/api/v1/targets/$activity.definition_activity_02ICQOAOQO9002TCNVNLMdMkdXo3YgihYtf.output.jsonpath_queries.target_ID$",
+              "runtime_user": {
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "use_workflow_target": true
+              }
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02ICSV48OOVBJ4yXIzEP07xuuwhMhsFyXwX",
+        "name": "Condition Block",
+        "title": "Condition Block",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Condition Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02ICSV4911WAM2d5coVcoaXCukyMf0u1INa",
+            "name": "Condition Branch",
+            "title": "Targets are Visible in TargetGroup",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_02ICQOAOQO9002TCNVNLMdMkdXo3YgihYtf.output.jsonpath_queries.target_ID$",
+                "operator": "eq",
+                "right_operand": "$activity.definition_activity_02ICT7JCT8J7Z7DZ0AyHnzdjOOs8ojJhHpF.output.response_body$"
+              },
+              "continue_on_failure": false,
+              "display_name": "Targets are Visible in TargetGroup",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02ICSVOYZ7MKL1jHBTsyImJwWNaU0RWgExG",
+                "name": "Completed",
+                "title": "targets are matched in targetGroup",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "succeeded",
+                  "continue_on_failure": false,
+                  "display_name": "targets are matched in targetGroup",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02ICSVYRDOFVY5gwHxwPquTcMUvnURKlbTy",
+            "name": "Condition Branch",
+            "title": "Targets are not Visible in TargetGroup",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_02ICQOAOQO9002TCNVNLMdMkdXo3YgihYtf.output.jsonpath_queries.target_ID$",
+                "operator": "eq",
+                "right_operand": "$activity.definition_activity_02ICT7JCT8J7Z7DZ0AyHnzdjOOs8ojJhHpF.output.response_body$"
+              },
+              "continue_on_failure": false,
+              "display_name": "Targets are not Visible in TargetGroup",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02ICSVYRDPCWZ1jpdoYjmLcoYrB09lJyzn8",
+                "name": "Completed",
+                "title": "targets are not matched in targetGroup",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "failed-completed",
+                  "continue_on_failure": false,
+                  "display_name": "targets are not matched in targetGroup",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "module_targets": [
+    {
+      "module_type": "Cisco XDR",
+      "external_id": "securex:ao:sxo",
+      "proxy_endpoint_metadata_id": "automation-apis"
+    }
+  ]
+}
