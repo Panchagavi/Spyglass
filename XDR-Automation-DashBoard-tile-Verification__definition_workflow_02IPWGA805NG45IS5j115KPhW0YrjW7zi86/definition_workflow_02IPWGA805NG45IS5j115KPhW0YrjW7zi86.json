@@ -1,0 +1,2037 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86",
+    "name": "XDR Automation - DashBoard tile Verification",
+    "title": "XDR Automation - DashBoard tile Verification",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "local",
+          "name": "WFRunsbyCat",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02IQ0J0JSG23M5Tbx41uZPb56Nrhhrg5iJF",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "local",
+          "name": "WFAddedbyCat",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02IQ0J5MPFRJ32tmu5kDgAcDTDX9bYY9NbD",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "local",
+          "name": "AvgRunsTime",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02IQ0I9IAUIG66Lp2TzMiEdmllpq0AAFsgi",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "local",
+          "name": "TopWorkflows",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02IQ0IF76T9VM2FFU07bOGjO6fDlkbH3BbO",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "local",
+          "name": "RunsOverTime",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": "text"
+        },
+        "unique_name": "variable_workflow_02IPZUFBKJGG431hwjwbaF0YladsZ1kqGQ3",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Overall TestStatus",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02IQ0JBEPATTU5NxK0vADxxOyL7BlBWNrDX",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "XDR Automation - DashBoard tile Verification",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "$module_target;Cisco XDR;securex:ao:sxo;automation-apis$",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script-For Current Date",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Execute Python Script-For Current Date",
+          "script": "from datetime import datetime, timedelta\n\n# Get the current date and time\ncurrent_date = datetime.now()\nnew_date = current_date+timedelta(days=1)\n\n# Print the results\nprint(new_date.strftime(\"%Y-%m-%d\"))",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02IPWRWBT0K772W8vyPOT4FFnlQdJJ4UkEG",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script-Last 24 Hours",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Execute Python Script-Last 24 Hours",
+          "script": "from datetime import datetime, timedelta\n\n# Get the current date and time\ncurrent_date = datetime.now()\n\n# Calculate the dates\nlast_24_hours = current_date - timedelta(hours=24)\n\n# Print the results\nprint(last_24_hours.strftime(\"%Y-%m-%d\"))",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02IPYGJEKEROP7dpC69bTzOGkfmtaPO1WCq",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script-Last 7 days",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Execute Python Script-Last 7 days",
+          "script": "from datetime import datetime, timedelta\n\n# Get the current date and time\ncurrent_date = datetime.now()\n\n# Calculate the dates\nlast_7_days = current_date - timedelta(days=7)\n# Print the results\nprint(last_7_days.strftime(\"%Y-%m-%d\"))",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02IPYGPFDM5102fFnPUE3WvO4Wbfb9ytmcT",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script-Last 30 days",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Execute Python Script-Last 30 days",
+          "script": "from datetime import datetime, timedelta\n\n# Get the current date and time\ncurrent_date = datetime.now()\n\n# Calculate the dates\nlast_30_days = current_date - timedelta(days=30)\n\n# Print the results\nprint(last_30_days.strftime(\"%Y-%m-%d\"))",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_02IPYZ0YK0KZH6xfWZ6XWUEIIlXEbe2568L",
+        "name": "Parallel Block",
+        "title": "Metric API Verification",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Metric API Verification",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02IPYZ0YP24IG7abHUgCz7oHLtLfC4dCLFl",
+            "name": "Parallel Branch",
+            "title": "Runs Over Time",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Runs Over Time",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02IPWGHG4IFKO5GkU6LO8UdS9jFpNQ1jPYj",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 24 hours",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{runsOverTime(input: {from_date: \\\"$activity.definition_activity_02IPWRWBT0K772W8vyPOT4FFnlQdJJ4UkEG.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" force: true}) { id count }}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 24 hours",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPZSQHKDILT37l4nQ3LZEuxUUcnV3KN2k",
+                "name": "JSONPath Query",
+                "title": "Fetch Count (24 hours)",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Count (24 hours)",
+                  "input_json": "$activity.definition_activity_02IPWGHG4IFKO5GkU6LO8UdS9jFpNQ1jPYj.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.runsOverTime..count",
+                      "jsonpath_query_name": "runsOverTime_count-24Hours",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPYZ8U0LNH72YrKV1p0K18d3dnoZWEaPH",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 7 Days",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{runsOverTime(input: {from_date: \\\"$activity.definition_activity_02IPYGJEKEROP7dpC69bTzOGkfmtaPO1WCq.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" force: true}) { id count }}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 7 Days",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ00P8OY0YH7Ps9ZbQmRR7XVkzFNeaAnD",
+                "name": "JSONPath Query",
+                "title": "Fetch Count (7 Days)",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Count (7 Days)",
+                  "input_json": "$activity.definition_activity_02IPYZ8U0LNH72YrKV1p0K18d3dnoZWEaPH.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.runsOverTime..count",
+                      "jsonpath_query_name": "runsOverTime_count-7Days",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPYZCKSXP372J5zheetDSwg4bXxMiWyGB",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 30 Days",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{runsOverTime(input: {from_date: \\\"$activity.definition_activity_02IPYGPFDM5102fFnPUE3WvO4Wbfb9ytmcT.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" force: true}) { id count }}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 30 Days",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ01CMOZ3JS4BZYdx7PqqTRD89qZHstew",
+                "name": "JSONPath Query",
+                "title": "Fetch Count (30 Days)",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Count (30 Days)",
+                  "input_json": "$activity.definition_activity_02IPYZCKSXP372J5zheetDSwg4bXxMiWyGB.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.runsOverTime..count",
+                      "jsonpath_query_name": "runsOverTime_count-30Days",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ00A2FWDKK3PTA0EbyLSHbyw6AtCLJaE",
+                "name": "Execute Python Script",
+                "title": "Array Verification using Python",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Array Verification using Python",
+                  "script": "def check_array(array):\n    \"\"\"\n    Check if the array contains only zeros.\n    Returns True if it contains any non-zero value, else False.\n    \"\"\"\n    return any(value != 0 for value in array)\n\n# Arrays to test\narray_24hours = $activity.definition_activity_02IPZSQHKDILT37l4nQ3LZEuxUUcnV3KN2k.output.jsonpath_queries.runsOverTime_count-24Hours$\narray_7Days = $activity.definition_activity_02IQ00P8OY0YH7Ps9ZbQmRR7XVkzFNeaAnD.output.jsonpath_queries.runsOverTime_count-7Days$\narray_30Days = $activity.definition_activity_02IQ01CMOZ3JS4BZYdx7PqqTRD89qZHstew.output.jsonpath_queries.runsOverTime_count-30Days$\n\n# List of arrays\narrays = [array_24hours, array_7Days, array_30Days]\n\n# Determine overall test case result\nif all(check_array(arr) for arr in arrays):\n    print(\"Pass\")\nelse:\n    print(\"Fail\")",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPZTB96O9EY2JfLrTZR8otofHtWTLOA6L",
+                "name": "Condition Block",
+                "title": "Verify Runs OverTime Tiels",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "conditions": [],
+                  "continue_on_failure": false,
+                  "display_name": "Verify Runs OverTime Tiels",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02IPZTB9CYX4L2fTKQjsiRAdb71D1HmxZOt",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02IPWGHG4IFKO5GkU6LO8UdS9jFpNQ1jPYj.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02IQ00A2FWDKK3PTA0EbyLSHbyw6AtCLJaE.output.response_body$",
+                              "operator": "eq",
+                              "right_operand": "Pass"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02IPYZ8U0LNH72YrKV1p0K18d3dnoZWEaPH.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02IPYZCKSXP372J5zheetDSwg4bXxMiWyGB.output.error.code$",
+                          "operator": "eq",
+                          "right_operand": "200"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02IPZUIUKXRV17Q5OnYiExB5br4Xr6fk8tz",
+                        "name": "Set Variables",
+                        "title": "PassCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "PassCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IPZUFBKJGG431hwjwbaF0YladsZ1kqGQ3$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_02IQ0GRXM3A7Z7bLy7Zbg5OsxKKPdP4KxHm",
+                    "name": "Condition Branch",
+                    "title": "FailCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02IPWGHG4IFKO5GkU6LO8UdS9jFpNQ1jPYj.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "200"
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02IQ00A2FWDKK3PTA0EbyLSHbyw6AtCLJaE.output.response_body$",
+                              "operator": "eq",
+                              "right_operand": "Fail"
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02IPYZ8U0LNH72YrKV1p0K18d3dnoZWEaPH.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02IPYZCKSXP372J5zheetDSwg4bXxMiWyGB.output.error.code$",
+                          "operator": "eq",
+                          "right_operand": "200"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "FailCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02IQ0GRXM4FG136JLXWaW0lPTiFanxceDvm",
+                        "name": "Set Variables",
+                        "title": "FailCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "FailCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IPZUFBKJGG431hwjwbaF0YladsZ1kqGQ3$",
+                              "variable_value_new": "Fail"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02IPZ48OF4GT763LfdE2rfKAo5c2LOmnksW",
+            "name": "Parallel Branch",
+            "title": "Top Workflow Runs",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Top Workflow Runs",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02IPZ48OF59WD21pCu7uVgshPppzeKxuaqn",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 24 hours",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{playbookROI(input: {from_date: \\\"$activity.definition_activity_02IPWRWBT0K772W8vyPOT4FFnlQdJJ4UkEG.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" force: true}) {workflow {id name} count}}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 24 hours",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ0TL36AWAQ54iyLoTlIVX47Krz2rfSNV",
+                "name": "JSONPath Query",
+                "title": "Fetch Array For 24 Hours",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Array For 24 Hours",
+                  "input_json": "$activity.definition_activity_02IPZ48OF59WD21pCu7uVgshPppzeKxuaqn.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.playbookROI",
+                      "jsonpath_query_name": "playbookROI_Array_24Hours",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPZ48OF91I02H2LpDFcIElUnHb1qtTiFI",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 7 Days",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{playbookROI(input: {from_date: \\\"$activity.definition_activity_02IPYGJEKEROP7dpC69bTzOGkfmtaPO1WCq.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" force: true}) {workflow {id name} count}}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 7 Days",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ0U52026TX4tPneT9kH4tq5BX742l3fZ",
+                "name": "JSONPath Query",
+                "title": "Fetch Array For 7 Days",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Array For 7 Days",
+                  "input_json": "$activity.definition_activity_02IPZ48OF59WD21pCu7uVgshPppzeKxuaqn.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.playbookROI",
+                      "jsonpath_query_name": "playbookROI_Array_7Days",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPZ48OF9XTX41EDK3kQgK6dbFytPK1TCz",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 30 Days",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{playbookROI(input: {from_date: \\\"$activity.definition_activity_02IPYGPFDM5102fFnPUE3WvO4Wbfb9ytmcT.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" force: true}) {workflow {id name} count}}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 30 Days",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ0UK7AAFCT6NyAaHiXMqPgv20bE5rmHf",
+                "name": "JSONPath Query",
+                "title": "Fetch Array For 30 Days",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Array For 30 Days",
+                  "input_json": "$activity.definition_activity_02IPZ48OF59WD21pCu7uVgshPppzeKxuaqn.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.playbookROI",
+                      "jsonpath_query_name": "playbookROI_Array_30Days",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ0VYUH3SXW0n1xkX0LjNiW7QImd1GLkT",
+                "name": "Condition Block",
+                "title": "Verify TopWorkflows",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "conditions": [],
+                  "continue_on_failure": false,
+                  "display_name": "Verify TopWorkflows",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02IQ0VYUR771A2ARIHT5QNVYK27tBKxpwg6",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02IPZ48OF59WD21pCu7uVgshPppzeKxuaqn.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "200"
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02IQ0TL36AWAQ54iyLoTlIVX47Krz2rfSNV.output.jsonpath_queries.playbookROI_Array_24Hours$",
+                                  "operator": "ne",
+                                  "right_operand": "[]"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02IPZ48OF91I02H2LpDFcIElUnHb1qtTiFI.output.error.code$",
+                                "operator": "eq",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02IQ0U52026TX4tPneT9kH4tq5BX742l3fZ.output.jsonpath_queries.playbookROI_Array_7Days$",
+                              "operator": "ne",
+                              "right_operand": "[]"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02IPZ48OF9XTX41EDK3kQgK6dbFytPK1TCz.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02IQ0UK7AAFCT6NyAaHiXMqPgv20bE5rmHf.output.jsonpath_queries.playbookROI_Array_30Days$",
+                          "operator": "ne",
+                          "right_operand": "[]"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02IQ0WAWOUL014QXXi0KUzBDpnTSXFiy21M",
+                        "name": "Set Variables",
+                        "title": "PassCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "PassCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0IF76T9VM2FFU07bOGjO6fDlkbH3BbO$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_02IQ0YFEN7MCR1bFEZN41LkzNrcHz7RkAw9",
+                    "name": "Condition Branch",
+                    "title": "FailCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02IPZ48OF59WD21pCu7uVgshPppzeKxuaqn.output.error.code$",
+                                  "operator": "ne",
+                                  "right_operand": "200"
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02IQ0TL36AWAQ54iyLoTlIVX47Krz2rfSNV.output.jsonpath_queries.playbookROI_Array_24Hours$",
+                                  "operator": "eq",
+                                  "right_operand": "[]"
+                                }
+                              },
+                              "operator": "or",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02IPZ48OF91I02H2LpDFcIElUnHb1qtTiFI.output.error.code$",
+                                "operator": "ne",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02IQ0U52026TX4tPneT9kH4tq5BX742l3fZ.output.jsonpath_queries.playbookROI_Array_7Days$",
+                              "operator": "eq",
+                              "right_operand": "[]"
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02IPZ48OF9XTX41EDK3kQgK6dbFytPK1TCz.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02IQ0UK7AAFCT6NyAaHiXMqPgv20bE5rmHf.output.jsonpath_queries.playbookROI_Array_30Days$",
+                          "operator": "eq",
+                          "right_operand": "[]"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "FailCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02IQ0YFEN8ICW51XSQy7t1FmnchfQWxvqOC",
+                        "name": "Set Variables",
+                        "title": "FailCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "FailCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0IF76T9VM2FFU07bOGjO6fDlkbH3BbO$",
+                              "variable_value_new": "Fail"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02IPZ4A03L7WR5w0cjl2yyzi5iHjfpc1VM7",
+            "name": "Parallel Branch",
+            "title": "workflow AddedBy Category",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "workflow AddedBy Category",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02IPZ4A03M09I7A534Nt0E0wRlFw9k7W48K",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 24 hours",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{workflowAddedByCategory(input: {from_date: \\\"$activity.definition_activity_02IPWRWBT0K772W8vyPOT4FFnlQdJJ4UkEG.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" limit: 10, force: true}) {categories {category {name category_id} count} workflows}}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 24 hours",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ15BWM55XU7hBofiRQXSrTJgBDZIFvGg",
+                "name": "JSONPath Query",
+                "title": "Fetch Array For 24 Hours",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Array For 24 Hours",
+                  "input_json": "$activity.definition_activity_02IPZ4A03M09I7A534Nt0E0wRlFw9k7W48K.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.workflowAddedByCategory",
+                      "jsonpath_query_name": "workflowAddedByCategory_Array_24Hours",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPZ4A03PNGO265UzSvahky4qSgqRG7uVh",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 7 Days",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{workflowAddedByCategory(input: {from_date: \\\"$activity.definition_activity_02IPYGJEKEROP7dpC69bTzOGkfmtaPO1WCq.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" limit: 10, force: true}) {categories {category {name category_id} count} workflows}}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 7 Days",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ15Z7NLV3G1eaQhlpiqfBxCb0oVczZc7",
+                "name": "JSONPath Query",
+                "title": "Fetch Array For 7 Days",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Array For 7 Days",
+                  "input_json": "$activity.definition_activity_02IPZ4A03PNGO265UzSvahky4qSgqRG7uVh.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.workflowAddedByCategory",
+                      "jsonpath_query_name": "workflowAddedByCategory_Array_7Days",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPZ4A03QCEC5evgZIHtCiMQbpGctzJ75T",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 30 Days",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{workflowAddedByCategory(input: {from_date: \\\"$activity.definition_activity_02IPYGPFDM5102fFnPUE3WvO4Wbfb9ytmcT.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" limit: 10, force: true}) {categories {category {name category_id} count} workflows}}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 30 Days",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ16BD3JQDP5Z6kdKjpS2qd324DYlQHMt",
+                "name": "JSONPath Query",
+                "title": "Fetch Array For 30 Days",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Array For 30 Days",
+                  "input_json": "$activity.definition_activity_02IPZ4A03QCEC5evgZIHtCiMQbpGctzJ75T.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.workflowAddedByCategory",
+                      "jsonpath_query_name": "workflowAddedByCategory_Array_30Days",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ16RH5B3S56Z9d5Zyd79ojUKDTp0jhEF",
+                "name": "Condition Block",
+                "title": "Verify Workflow Added by Category",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "conditions": [],
+                  "continue_on_failure": false,
+                  "display_name": "Verify Workflow Added by Category",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02IQ16RHEYZEZ1LVKScWDAJZDpkfLXlBRgn",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02IPZ4A03M09I7A534Nt0E0wRlFw9k7W48K.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "200"
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02IQ15BWM55XU7hBofiRQXSrTJgBDZIFvGg.output.jsonpath_queries.workflowAddedByCategory_Array_24Hours$",
+                                  "operator": "ne",
+                                  "right_operand": "[]"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02IPZ4A03PNGO265UzSvahky4qSgqRG7uVh.output.error.code$",
+                                "operator": "eq",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02IQ15Z7NLV3G1eaQhlpiqfBxCb0oVczZc7.output.jsonpath_queries.workflowAddedByCategory_Array_7Days$",
+                              "operator": "ne",
+                              "right_operand": "[]"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02IPZ4A03QCEC5evgZIHtCiMQbpGctzJ75T.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02IQ16BD3JQDP5Z6kdKjpS2qd324DYlQHMt.output.jsonpath_queries.workflowAddedByCategory_Array_30Days$",
+                          "operator": "ne",
+                          "right_operand": "[]"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02IQ18GI40I9033cTkvGNMtwdOzuNQnBMYs",
+                        "name": "Set Variables",
+                        "title": "PassCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "PassCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0J5MPFRJ32tmu5kDgAcDTDX9bYY9NbD$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_02IQ18QQ9ZZ5V2r3UxgBmuVeHk6yYp0036j",
+                    "name": "Condition Branch",
+                    "title": "FailCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02IPZ4A03M09I7A534Nt0E0wRlFw9k7W48K.output.error.code$",
+                                  "operator": "ne",
+                                  "right_operand": "200"
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02IQ15BWM55XU7hBofiRQXSrTJgBDZIFvGg.output.jsonpath_queries.workflowAddedByCategory_Array_24Hours$",
+                                  "operator": "eq",
+                                  "right_operand": "[]"
+                                }
+                              },
+                              "operator": "or",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02IPZ4A03PNGO265UzSvahky4qSgqRG7uVh.output.error.code$",
+                                "operator": "ne",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02IQ15Z7NLV3G1eaQhlpiqfBxCb0oVczZc7.output.jsonpath_queries.workflowAddedByCategory_Array_7Days$",
+                              "operator": "eq",
+                              "right_operand": "[]"
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02IPZ4A03QCEC5evgZIHtCiMQbpGctzJ75T.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02IQ16BD3JQDP5Z6kdKjpS2qd324DYlQHMt.output.jsonpath_queries.workflowAddedByCategory_Array_30Days$",
+                          "operator": "eq",
+                          "right_operand": "[]"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "FailCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02IQ18QQA1DAL5rJNLoCkdayiKq9NQHyJ7r",
+                        "name": "Set Variables",
+                        "title": "FailCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "FailCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0J5MPFRJ32tmu5kDgAcDTDX9bYY9NbD$",
+                              "variable_value_new": "Fail"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02IPZ4BUJIKTW6zE1ZNy79Q7dYfZFK6Vely",
+            "name": "Parallel Branch",
+            "title": "Average Workflow Runtime",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Average Workflow Runtime",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02IPZ4BUJJENL0RsrUZFHC5h1an3CYGRbK9",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 24 hours",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{playbookAverageRuntime(input: {from_date: \\\"$activity.definition_activity_02IPWRWBT0K772W8vyPOT4FFnlQdJJ4UkEG.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" limit: 10, force: true}) { id avg_time }}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 24 hours",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ0JIB5VELC4l2Xc1C5Ta0DImeTvYqVyH",
+                "name": "JSONPath Query",
+                "title": "Fetch Count (24 hours)",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Count (24 hours)",
+                  "input_json": "$activity.definition_activity_02IPZ4BUJJENL0RsrUZFHC5h1an3CYGRbK9.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.playbookAverageRuntime..avg_time",
+                      "jsonpath_query_name": "AvgRunsTime_count-24Hours",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPZ4BUJKXX10j1vM7v9GvuiE7pGiuOCah",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 7 Days",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{playbookAverageRuntime(input: {from_date: \\\"$activity.definition_activity_02IPYGJEKEROP7dpC69bTzOGkfmtaPO1WCq.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" limit: 10, force: true}) { id avg_time }}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 7 Days",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ0KG6YAIM76YkKHngQULviZzdZSxtUpS",
+                "name": "JSONPath Query",
+                "title": "Fetch Count (7 Days)",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Count (7 Days)",
+                  "input_json": "$activity.definition_activity_02IPZ4BUJKXX10j1vM7v9GvuiE7pGiuOCah.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.playbookAverageRuntime..avg_time",
+                      "jsonpath_query_name": "AvgRunsTime_count-7Days",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPZ4BUJNSG71HhZQ1mPEimTU5LhkM8PAQ",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 30 Days",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{playbookAverageRuntime(input: {from_date: \\\"$activity.definition_activity_02IPYGPFDM5102fFnPUE3WvO4Wbfb9ytmcT.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" limit: 10, force: true}) { id avg_time }}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 30 Days",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ0LJLCTV6S1XyCyTf6nFngBcnmiwdwwg",
+                "name": "JSONPath Query",
+                "title": "Fetch Count (30 Days)",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Count (30 Days)",
+                  "input_json": "$activity.definition_activity_02IPZ4BUJNSG71HhZQ1mPEimTU5LhkM8PAQ.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.playbookAverageRuntime..avg_time",
+                      "jsonpath_query_name": "AvgRunsTime_count-30Days",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ0MBCA6T2D3q6SBBJ39dgaimADCOfIse",
+                "name": "Execute Python Script",
+                "title": "Array Verification using Python",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Array Verification using Python",
+                  "script": "def check_array(array):\n    \"\"\"\n    Check if the array contains only zeros.\n    Returns True if it contains any non-zero value, else False.\n    \"\"\"\n    return any(value != 0 for value in array)\n\n# Arrays to test\narray_24hours = $activity.definition_activity_02IQ0JIB5VELC4l2Xc1C5Ta0DImeTvYqVyH.output.jsonpath_queries.AvgRunsTime_count-24Hours$\narray_7Days = $activity.definition_activity_02IQ0KG6YAIM76YkKHngQULviZzdZSxtUpS.output.jsonpath_queries.AvgRunsTime_count-7Days$\narray_30Days = $activity.definition_activity_02IQ0LJLCTV6S1XyCyTf6nFngBcnmiwdwwg.output.jsonpath_queries.AvgRunsTime_count-30Days$\n\n# List of arrays\narrays = [array_24hours, array_7Days, array_30Days]\n\n# Determine overall test case result\nif all(check_array(arr) for arr in arrays):\n    print(\"Pass\")\nelse:\n    print(\"Fail\")",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ0NX1BXJNQ4r37LFDaIp9OBa2TmuwemP",
+                "name": "Condition Block",
+                "title": "Verify Average Runs OverTime",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "conditions": [],
+                  "continue_on_failure": false,
+                  "display_name": "Verify Average Runs OverTime",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02IQ0NX1KX3915YqsjSl9N0hisieaqhqp2D",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02IPZ4BUJJENL0RsrUZFHC5h1an3CYGRbK9.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02IPZ4BUJKXX10j1vM7v9GvuiE7pGiuOCah.output.error.code$",
+                              "operator": "eq",
+                              "right_operand": "200"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02IPZ4BUJNSG71HhZQ1mPEimTU5LhkM8PAQ.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02IQ0MBCA6T2D3q6SBBJ39dgaimADCOfIse.output.response_body$",
+                          "operator": "eq",
+                          "right_operand": "Pass"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02IQ0P74RTL390Yh7k9qElLL7Tbw8R8aRjb",
+                        "name": "Set Variables",
+                        "title": "PassCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "PassCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0I9IAUIG66Lp2TzMiEdmllpq0AAFsgi$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_02IQ0POSGOHXB0o3tLKZs49mGsxmDIWgNRo",
+                    "name": "Condition Branch",
+                    "title": "FailCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_02IPZ4BUJJENL0RsrUZFHC5h1an3CYGRbK9.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "200"
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02IPZ4BUJKXX10j1vM7v9GvuiE7pGiuOCah.output.error.code$",
+                              "operator": "ne",
+                              "right_operand": "200"
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02IPZ4BUJNSG71HhZQ1mPEimTU5LhkM8PAQ.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02IQ0MBCA6T2D3q6SBBJ39dgaimADCOfIse.output.response_body$",
+                          "operator": "eq",
+                          "right_operand": "Fail"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "FailCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02IQ0POSGPSDX1qJoW4pE06aii7ox0PvgFT",
+                        "name": "Set Variables",
+                        "title": "FailCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "FailCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0I9IAUIG66Lp2TzMiEdmllpq0AAFsgi$",
+                              "variable_value_new": "Fail"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02IPZ94C16JRL4WJ3qT5ffqwC3fq7RGsGMT",
+            "name": "Parallel Branch",
+            "title": "Workflow runs by category",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Workflow runs by category",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02IPZ94C1789R4yofAPmYAUukKFrZ3UpOhY",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 24 hours",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{playbookCategoryPerDay(input: {from_date: \\\"$activity.definition_activity_02IPWRWBT0K772W8vyPOT4FFnlQdJJ4UkEG.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" limit: 10, force: true}) {id categories { category { category_id name } count} }}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 24 hours",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ10G283SOA32bbrLQqmjHAgsJ8BkHb7d",
+                "name": "JSONPath Query",
+                "title": "Fetch Array (24 hours)",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Array (24 hours)",
+                  "input_json": "$activity.definition_activity_02IPZ94C1789R4yofAPmYAUukKFrZ3UpOhY.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.playbookCategoryPerDay",
+                      "jsonpath_query_name": "playbookCategoryPerDay-24Hours",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPZ94C18S017OEZ1jbVa8KTMekFGbjK3b",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 7 Days",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{playbookCategoryPerDay(input: {from_date: \\\"$activity.definition_activity_02IPYGJEKEROP7dpC69bTzOGkfmtaPO1WCq.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" limit: 10, force: true}) {id categories { category { category_id name } count} }}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 7 Days",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ1139E520M6r1FnHn39LzEUKpkVT2Lcl",
+                "name": "JSONPath Query",
+                "title": "Fetch Array (7 Days)",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Array (7 Days)",
+                  "input_json": "$activity.definition_activity_02IPZ94C18S017OEZ1jbVa8KTMekFGbjK3b.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.playbookCategoryPerDay",
+                      "jsonpath_query_name": "playbookCategoryPerDay-7Days",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IPZ94C1BBF15MqG287zSQITiKaceAMUv6",
+                "name": "HTTP Request",
+                "title": "Metric API-Runs Over Time - 30 Days",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "allow_headers_redirect": false,
+                  "body": "{\"query\":\"{playbookCategoryPerDay(input: {from_date: \\\"$activity.definition_activity_02IPYGPFDM5102fFnPUE3WvO4Wbfb9ytmcT.output.response_body$\\\" to_date: \\\"$activity.definition_activity_02IPYT8O9PBFN409vLmh8BRpvy90nCVsyx5.output.response_body$\\\" limit: 10, force: true}) {id categories { category { category_id name } count} }}\"}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": false,
+                  "display_name": "Metric API-Runs Over Time - 30 Days",
+                  "method": "POST",
+                  "relative_url": "/metrics/api/v1/metrics",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ11FRE82Y446LWZqRegZW6nufwmXzFbJ",
+                "name": "JSONPath Query",
+                "title": "Fetch Array (30 Days)",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Fetch Array (30 Days)",
+                  "input_json": "$activity.definition_activity_02IPZ94C1BBF15MqG287zSQITiKaceAMUv6.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "data.playbookCategoryPerDay",
+                      "jsonpath_query_name": "playbookCategoryPerDay-30Days",
+                      "jsonpath_query_type": "string",
+                      "zdate_type_format": "yyyy-MM-dd'T'HH:mm:ssZ"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ11WORUQ8B2glEr7pmIBu2xJSt76ROG1",
+                "name": "Condition Block",
+                "title": "Verify Workflow Runs by Category",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "conditions": [],
+                  "continue_on_failure": false,
+                  "display_name": "Verify Workflow Runs by Category",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02IQ11WP1WDIL5twBJKxrFRNZci0izRpsp8",
+                    "name": "Condition Branch",
+                    "title": "PassCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02IPZ94C1789R4yofAPmYAUukKFrZ3UpOhY.output.error.code$",
+                                  "operator": "eq",
+                                  "right_operand": "200"
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02IQ10G283SOA32bbrLQqmjHAgsJ8BkHb7d.output.jsonpath_queries.playbookCategoryPerDay-24Hours$",
+                                  "operator": "ne",
+                                  "right_operand": "[]"
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02IPZ94C18S017OEZ1jbVa8KTMekFGbjK3b.output.error.code$",
+                                "operator": "eq",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02IQ1139E520M6r1FnHn39LzEUKpkVT2Lcl.output.jsonpath_queries.playbookCategoryPerDay-7Days$",
+                              "operator": "ne",
+                              "right_operand": "[]"
+                            }
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02IPZ94C1BBF15MqG287zSQITiKaceAMUv6.output.error.code$",
+                            "operator": "eq",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02IQ11FRE82Y446LWZqRegZW6nufwmXzFbJ.output.jsonpath_queries.playbookCategoryPerDay-30Days$",
+                          "operator": "ne",
+                          "right_operand": "[]"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "PassCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02IQ13DQ4I2YQ0n5TNE2v0Dpi4p5iETpNRv",
+                        "name": "Set Variables",
+                        "title": "PassCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "PassCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0J0JSG23M5Tbx41uZPb56Nrhhrg5iJF$",
+                              "variable_value_new": "Pass"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  },
+                  {
+                    "unique_name": "definition_activity_02IQ13OTWLIW41ZOzDvBruhGitjsnKtGptt",
+                    "name": "Condition Branch",
+                    "title": "FailCase",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_02IPZ94C1789R4yofAPmYAUukKFrZ3UpOhY.output.error.code$",
+                                  "operator": "ne",
+                                  "right_operand": "200"
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_02IQ10G283SOA32bbrLQqmjHAgsJ8BkHb7d.output.jsonpath_queries.playbookCategoryPerDay-24Hours$",
+                                  "operator": "eq",
+                                  "right_operand": "[]"
+                                }
+                              },
+                              "operator": "or",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_02IPZ94C18S017OEZ1jbVa8KTMekFGbjK3b.output.error.code$",
+                                "operator": "ne",
+                                "right_operand": "200"
+                              }
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_02IQ1139E520M6r1FnHn39LzEUKpkVT2Lcl.output.jsonpath_queries.playbookCategoryPerDay-7Days$",
+                              "operator": "eq",
+                              "right_operand": "[]"
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_02IPZ94C1BBF15MqG287zSQITiKaceAMUv6.output.error.code$",
+                            "operator": "ne",
+                            "right_operand": "200"
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_02IQ11FRE82Y446LWZqRegZW6nufwmXzFbJ.output.jsonpath_queries.playbookCategoryPerDay-30Days$",
+                          "operator": "eq",
+                          "right_operand": "[]"
+                        }
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "FailCase",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02IQ13OTWMHUT6nrnb6HNJGc5Ritx0MUqyV",
+                        "name": "Set Variables",
+                        "title": "FailCase",
+                        "type": "core.set_multiple_variables",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "FailCase",
+                          "skip_execution": false,
+                          "variables_to_update": [
+                            {
+                              "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0J0JSG23M5Tbx41uZPb56Nrhhrg5iJF$",
+                              "variable_value_new": "Fail"
+                            }
+                          ]
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02IQ19R5QE6OE0Fz47g3z0Gy1phQLm8juFS",
+        "name": "Condition Block",
+        "title": "Verify all Tests",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "conditions": [],
+          "continue_on_failure": false,
+          "display_name": "Verify all Tests",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02IQ19R617XNC3FXPLDWUFQhqNxJk2RsPZF",
+            "name": "Condition Branch",
+            "title": "PassCases",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0I9IAUIG66Lp2TzMiEdmllpq0AAFsgi$",
+                        "operator": "eq",
+                        "right_operand": "Pass"
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IPZUFBKJGG431hwjwbaF0YladsZ1kqGQ3$",
+                        "operator": "eq",
+                        "right_operand": "Pass"
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0IF76T9VM2FFU07bOGjO6fDlkbH3BbO$",
+                      "operator": "eq",
+                      "right_operand": "Pass"
+                    }
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0J5MPFRJ32tmu5kDgAcDTDX9bYY9NbD$",
+                    "operator": "eq",
+                    "right_operand": "Pass"
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0J0JSG23M5Tbx41uZPb56Nrhhrg5iJF$",
+                  "operator": "eq",
+                  "right_operand": "Pass"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "PassCases",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02IQ1AU3JKP6R0njR4VbnavNDMp6BK5QtVv",
+                "name": "Set Variables",
+                "title": "PassCase",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "PassCase",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.output.variable_workflow_02IQ0JBEPATTU5NxK0vADxxOyL7BlBWNrDX$",
+                      "variable_value_new": "Pass"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02IQ1B2FGXJ7T6RdktRiscPMfYmABuJh8dW",
+            "name": "Condition Branch",
+            "title": "FailCases",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0I9IAUIG66Lp2TzMiEdmllpq0AAFsgi$",
+                        "operator": "ne",
+                        "right_operand": "Pass"
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IPZUFBKJGG431hwjwbaF0YladsZ1kqGQ3$",
+                        "operator": "ne",
+                        "right_operand": "Pass"
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0IF76T9VM2FFU07bOGjO6fDlkbH3BbO$",
+                      "operator": "ne",
+                      "right_operand": "Pass"
+                    }
+                  },
+                  "operator": "or",
+                  "right_operand": {
+                    "left_operand": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0J5MPFRJ32tmu5kDgAcDTDX9bYY9NbD$",
+                    "operator": "ne",
+                    "right_operand": "Pass"
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.local.variable_workflow_02IQ0J0JSG23M5Tbx41uZPb56Nrhhrg5iJF$",
+                  "operator": "ne",
+                  "right_operand": "Pass"
+                }
+              },
+              "continue_on_failure": false,
+              "display_name": "FailCases",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02IQ1B2FGY7ZO4fnTqpl4d0EFcTEpFd1abT",
+                "name": "Set Variables",
+                "title": "FailCase",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "FailCase",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_02IPWGA805NG45IS5j115KPhW0YrjW7zi86.output.variable_workflow_02IQ0JBEPATTU5NxK0vADxxOyL7BlBWNrDX$",
+                      "variable_value_new": "Fail"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_02IQ1BNBYYLYC1ti9TbbOfKoi2DcxZZIcbl",
+                "name": "Completed",
+                "title": "MarkAsFailed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "failed-completed",
+                  "continue_on_failure": false,
+                  "display_name": "MarkAsFailed",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "module_targets": [
+    {
+      "module_type": "Cisco XDR",
+      "external_id": "securex:ao:sxo",
+      "proxy_endpoint_metadata_id": "automation-apis"
+    }
+  ]
+}
