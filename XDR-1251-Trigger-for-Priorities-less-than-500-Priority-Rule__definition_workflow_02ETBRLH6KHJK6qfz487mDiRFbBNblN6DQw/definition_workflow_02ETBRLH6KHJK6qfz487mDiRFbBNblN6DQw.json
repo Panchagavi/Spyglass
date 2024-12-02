@@ -9,81 +9,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": {\n                                          \"left_operand\": \"$output.incident.description$\",\n                                          \"operator\": \"mw\",\n                                          \"right_operand\": \"*incident*\"\n                                        },\n                                        \"operator\": \"and\",\n                                        \"right_operand\": {\n                                          \"left_operand\": \"$output.incident.status$\",\n                                          \"operator\": \"eq\",\n                                          \"right_operand\": \"New\"\n                                        }\n                                      },\n                                      \"operator\": \"and\",\n                                      \"right_operand\": {\n                                        \"left_operand\": \"$output.incident.source$\",\n                                        \"operator\": \"eq\",\n                                        \"right_operand\": \"Umbrella\"\n                                      }\n                                    },\n                                    \"operator\": \"and\",\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.tlp$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"amber\"\n                                    }\n                                  },\n                                  \"operator\": \"and\",\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.id$\",\n                                    \"operator\": \"mw\",\n                                    \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                                  }\n                                },\n                                \"operator\": \"and\",\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.source.totalCount$\",\n                                  \"operator\": \"gte\",\n                                  \"right_operand\": 0\n                                }\n                              },\n                              \"operator\": \"and\",\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.targets.totalCount$\",\n                                \"operator\": \"gte\",\n                                \"right_operand\": 0\n                              }\n                            },\n                            \"operator\": \"and\",\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.incident.scores.asset$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            }\n                          },\n                          \"operator\": \"and\",\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.incident.scores.global$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          }\n                        },\n                        \"operator\": \"and\",\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.ttp$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        }\n                      },\n                      \"operator\": \"and\",\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.eventsCount$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      }\n                    },\n                    \"operator\": \"and\",\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.incident.confidence$\",\n                      \"operator\": \"eq\",\n                      \"right_operand\": \"High\"\n                    }\n                  },\n                  \"operator\": \"or\",\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.firstEventDate$\",\n                    \"operator\": \"ne\",\n                    \"right_operand\": \"2023-01-01\"\n                  }\n                },\n                \"operator\": \"or\",\n                \"right_operand\": {\n                  \"left_operand\": \"$output.indicators.totalCount$\",\n                  \"operator\": \"gte\",\n                  \"right_operand\": 0\n                }\n              },\n            \"operator\": \"or\",\n            \"right_operand\": {\n              \"left_operand\": \"$output.observables.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            }\n          },\n          \"operator\": \"or\",\n          \"right_operand\": {\n            \"left_operand\": \"$output.observables.data[*].type$\",\n            \"operator\": \"eq\",\n            \"right_operand\": \"domain\"\n          }\n        },\n        \"operator\": \"and\",\n        \"right_operand\": {\n          \"left_operand\": \"$output.incident.scores.global$\",\n          \"operator\": \"lte\",\n          \"right_operand\": \"500\"\n        }\n      },\n      \"operator\": \"and\",\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.title$\",\n        \"operator\": \"mw\",\n        \"right_operand\": \"Automation Rule Testing*\"\n      }\n    },",
-          "scope": "local",
-          "name": "Condition for Rule having Score Less than 500",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02EV5B4UI4GMZ4OSz3GN6zZ1Z80cACTuPo0",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "Overall Status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02EUZ3MWI90RX14PTYvAstcfwBmJwPYEB5I",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Provide Token",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02ETBRLHONAAA5svsLafIavouDzWFvrOVdw",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": {\n                                          \"left_operand\": \"$output.incident.description$\",\n                                          \"operator\": \"mw\",\n                                          \"right_operand\": \"*incident*\"\n                                        },\n                                        \"operator\": \"and\",\n                                        \"right_operand\": {\n                                          \"left_operand\": \"$output.incident.status$\",\n                                          \"operator\": \"eq\",\n                                          \"right_operand\": \"New\"\n                                        }\n                                      },\n                                      \"operator\": \"and\",\n                                      \"right_operand\": {\n                                        \"left_operand\": \"$output.incident.source$\",\n                                        \"operator\": \"eq\",\n                                        \"right_operand\": \"Umbrella\"\n                                      }\n                                    },\n                                    \"operator\": \"and\",\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.tlp$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"amber\"\n                                    }\n                                  },\n                                  \"operator\": \"and\",\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.id$\",\n                                    \"operator\": \"mw\",\n                                    \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                                  }\n                                },\n                                \"operator\": \"and\",\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.source.totalCount$\",\n                                  \"operator\": \"gte\",\n                                  \"right_operand\": 0\n                                }\n                              },\n                              \"operator\": \"and\",\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.targets.totalCount$\",\n                                \"operator\": \"gte\",\n                                \"right_operand\": 0\n                              }\n                            },\n                            \"operator\": \"and\",\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.incident.scores.asset$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            }\n                          },\n                          \"operator\": \"and\",\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.incident.scores.global$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          }\n                        },\n                        \"operator\": \"and\",\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.ttp$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        }\n                      },\n                      \"operator\": \"and\",\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.eventsCount$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      }\n                    },\n                    \"operator\": \"and\",\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.incident.confidence$\",\n                      \"operator\": \"eq\",\n                      \"right_operand\": \"High\"\n                    }\n                  },\n                  \"operator\": \"or\",\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.firstEventDate$\",\n                    \"operator\": \"ne\",\n                    \"right_operand\": \"2023-01-01\"\n                  }\n                },\n                \"operator\": \"or\",\n                \"right_operand\": {\n                  \"left_operand\": \"$output.indicators.totalCount$\",\n                  \"operator\": \"gte\",\n                  \"right_operand\": 0\n                }\n              },\n            \"operator\": \"or\",\n            \"right_operand\": {\n              \"left_operand\": \"$output.observables.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            }\n          },\n          \"operator\": \"or\",\n          \"right_operand\": {\n            \"left_operand\": \"$output.observables.data[*].type$\",\n            \"operator\": \"eq\",\n            \"right_operand\": \"domain\"\n          }\n        },\n        \"operator\": \"and\",\n        \"right_operand\": {\n          \"left_operand\": \"$output.incident.scores.global$\",\n          \"operator\": \"gte\",\n          \"right_operand\": \"500\"\n        }\n      },\n      \"operator\": \"and\",\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.title$\",\n        \"operator\": \"mw\",\n        \"right_operand\": \"Automation Rule Testing*\"\n      }\n    },",
-          "scope": "local",
-          "name": "Condition for Rule having Score greater than 500",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02EV5B9N2394N12M8uvdfECV759DBkJzquj",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "Trigger WF when Incidnt Less Than 500 test Status (160 Score)",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02EUZ3CYYZ7UB4wXywTz3Ix8Sba4PAhypNZ",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "Fail",
           "scope": "output",
           "name": "Trigger WF when Incidnt above Than 500 test Status (1000 Score)",
@@ -114,17 +39,61 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "Trigger WF when Incidnt Less Than 500 test Status (240 Score)",
+          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": {\n                                          \"left_operand\": \"$output.incident.description$\",\n                                          \"operator\": \"mw\",\n                                          \"right_operand\": \"*incident*\"\n                                        },\n                                        \"operator\": \"and\",\n                                        \"right_operand\": {\n                                          \"left_operand\": \"$output.incident.status$\",\n                                          \"operator\": \"eq\",\n                                          \"right_operand\": \"New\"\n                                        }\n                                      },\n                                      \"operator\": \"and\",\n                                      \"right_operand\": {\n                                        \"left_operand\": \"$output.incident.source$\",\n                                        \"operator\": \"eq\",\n                                        \"right_operand\": \"Umbrella\"\n                                      }\n                                    },\n                                    \"operator\": \"and\",\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.tlp$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"amber\"\n                                    }\n                                  },\n                                  \"operator\": \"and\",\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.id$\",\n                                    \"operator\": \"mw\",\n                                    \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                                  }\n                                },\n                                \"operator\": \"and\",\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.source.totalCount$\",\n                                  \"operator\": \"gte\",\n                                  \"right_operand\": 0\n                                }\n                              },\n                              \"operator\": \"and\",\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.targets.totalCount$\",\n                                \"operator\": \"gte\",\n                                \"right_operand\": 0\n                              }\n                            },\n                            \"operator\": \"and\",\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.incident.scores.asset$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            }\n                          },\n                          \"operator\": \"and\",\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.incident.scores.global$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          }\n                        },\n                        \"operator\": \"and\",\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.ttp$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        }\n                      },\n                      \"operator\": \"and\",\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.eventsCount$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      }\n                    },\n                    \"operator\": \"and\",\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.incident.confidence$\",\n                      \"operator\": \"eq\",\n                      \"right_operand\": \"High\"\n                    }\n                  },\n                  \"operator\": \"or\",\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.firstEventDate$\",\n                    \"operator\": \"ne\",\n                    \"right_operand\": \"2023-01-01\"\n                  }\n                },\n                \"operator\": \"or\",\n                \"right_operand\": {\n                  \"left_operand\": \"$output.indicators.totalCount$\",\n                  \"operator\": \"gte\",\n                  \"right_operand\": 0\n                }\n              },\n            \"operator\": \"or\",\n            \"right_operand\": {\n              \"left_operand\": \"$output.observables.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            }\n          },\n          \"operator\": \"or\",\n          \"right_operand\": {\n            \"left_operand\": \"$output.observables.data[*].type$\",\n            \"operator\": \"eq\",\n            \"right_operand\": \"domain\"\n          }\n        },\n        \"operator\": \"and\",\n        \"right_operand\": {\n          \"left_operand\": \"$output.incident.scores.global$\",\n          \"operator\": \"gte\",\n          \"right_operand\": \"500\"\n        }\n      },\n      \"operator\": \"and\",\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.title$\",\n        \"operator\": \"mw\",\n        \"right_operand\": \"Automation Rule Testing*\"\n      }\n    },",
+          "scope": "local",
+          "name": "Condition for Rule having Score greater than 500",
           "type": "datatype.string",
-          "description": "Trigger WF when Incidnt Less Than 500 test Status",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false,
           "variable_string_format": ""
         },
-        "unique_name": "variable_workflow_02ETBRLHONOGZ3lLx7nYuOBQZ3XkuKVLFeX",
+        "unique_name": "variable_workflow_02EV5B9N2394N12M8uvdfECV759DBkJzquj",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Overall Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02EUZ3MWI90RX14PTYvAstcfwBmJwPYEB5I",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Trigger WF when Incidnt Less Than 500 test Status (494 Score)",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02EUZ35FC30DQ0qWqhI72NT2CNBgSm5uwdy",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Trigger WF when Incidnt Less Than 500 test Status (160 Score)",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02EUZ3CYYZ7UB4wXywTz3Ix8Sba4PAhypNZ",
         "object_type": "variable_workflow"
       },
       {
@@ -147,6 +116,22 @@
         "properties": {
           "value": "Fail",
           "scope": "output",
+          "name": "Trigger WF when Incidnt Less Than 500 test Status (240 Score)",
+          "type": "datatype.string",
+          "description": "Trigger WF when Incidnt Less Than 500 test Status",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02ETBRLHONOGZ3lLx7nYuOBQZ3XkuKVLFeX",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
           "name": "Trigger WF when Incidnt above Than 500 test Status (628 Score)",
           "type": "datatype.string",
           "is_required": false,
@@ -160,16 +145,31 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "Trigger WF when Incidnt Less Than 500 test Status (494 Score)",
+          "value": "\"conditions\": {\n      \"left_operand\": {\n        \"left_operand\": {\n          \"left_operand\": {\n            \"left_operand\": {\n              \"left_operand\": {\n                \"left_operand\": {\n                  \"left_operand\": {\n                    \"left_operand\": {\n                      \"left_operand\": {\n                        \"left_operand\": {\n                          \"left_operand\": {\n                            \"left_operand\": {\n                              \"left_operand\": {\n                                \"left_operand\": {\n                                  \"left_operand\": {\n                                    \"left_operand\": {\n                                      \"left_operand\": {\n                                          \"left_operand\": \"$output.incident.description$\",\n                                          \"operator\": \"mw\",\n                                          \"right_operand\": \"*incident*\"\n                                        },\n                                        \"operator\": \"and\",\n                                        \"right_operand\": {\n                                          \"left_operand\": \"$output.incident.status$\",\n                                          \"operator\": \"eq\",\n                                          \"right_operand\": \"New\"\n                                        }\n                                      },\n                                      \"operator\": \"and\",\n                                      \"right_operand\": {\n                                        \"left_operand\": \"$output.incident.source$\",\n                                        \"operator\": \"eq\",\n                                        \"right_operand\": \"Umbrella\"\n                                      }\n                                    },\n                                    \"operator\": \"and\",\n                                    \"right_operand\": {\n                                      \"left_operand\": \"$output.incident.tlp$\",\n                                      \"operator\": \"eq\",\n                                      \"right_operand\": \"amber\"\n                                    }\n                                  },\n                                  \"operator\": \"and\",\n                                  \"right_operand\": {\n                                    \"left_operand\": \"$output.incident.id$\",\n                                    \"operator\": \"mw\",\n                                    \"right_operand\": \"https://private.intel*iroh.site:443/ctia/incident/incident*\"\n                                  }\n                                },\n                                \"operator\": \"and\",\n                                \"right_operand\": {\n                                  \"left_operand\": \"$output.source.totalCount$\",\n                                  \"operator\": \"gte\",\n                                  \"right_operand\": 0\n                                }\n                              },\n                              \"operator\": \"and\",\n                              \"right_operand\": {\n                                \"left_operand\": \"$output.targets.totalCount$\",\n                                \"operator\": \"gte\",\n                                \"right_operand\": 0\n                              }\n                            },\n                            \"operator\": \"and\",\n                            \"right_operand\": {\n                              \"left_operand\": \"$output.incident.scores.asset$\",\n                              \"operator\": \"gte\",\n                              \"right_operand\": 0\n                            }\n                          },\n                          \"operator\": \"and\",\n                          \"right_operand\": {\n                            \"left_operand\": \"$output.incident.scores.global$\",\n                            \"operator\": \"gte\",\n                            \"right_operand\": 0\n                          }\n                        },\n                        \"operator\": \"and\",\n                        \"right_operand\": {\n                          \"left_operand\": \"$output.incident.scores.ttp$\",\n                          \"operator\": \"gte\",\n                          \"right_operand\": 0\n                        }\n                      },\n                      \"operator\": \"and\",\n                      \"right_operand\": {\n                        \"left_operand\": \"$output.eventsCount$\",\n                        \"operator\": \"gte\",\n                        \"right_operand\": 0\n                      }\n                    },\n                    \"operator\": \"and\",\n                    \"right_operand\": {\n                      \"left_operand\": \"$output.incident.confidence$\",\n                      \"operator\": \"eq\",\n                      \"right_operand\": \"High\"\n                    }\n                  },\n                  \"operator\": \"or\",\n                  \"right_operand\": {\n                    \"left_operand\": \"$output.firstEventDate$\",\n                    \"operator\": \"ne\",\n                    \"right_operand\": \"2023-01-01\"\n                  }\n                },\n                \"operator\": \"or\",\n                \"right_operand\": {\n                  \"left_operand\": \"$output.indicators.totalCount$\",\n                  \"operator\": \"gte\",\n                  \"right_operand\": 0\n                }\n              },\n            \"operator\": \"or\",\n            \"right_operand\": {\n              \"left_operand\": \"$output.observables.totalCount$\",\n              \"operator\": \"gte\",\n              \"right_operand\": 0\n            }\n          },\n          \"operator\": \"or\",\n          \"right_operand\": {\n            \"left_operand\": \"$output.observables.data[*].type$\",\n            \"operator\": \"eq\",\n            \"right_operand\": \"domain\"\n          }\n        },\n        \"operator\": \"and\",\n        \"right_operand\": {\n          \"left_operand\": \"$output.incident.scores.global$\",\n          \"operator\": \"lte\",\n          \"right_operand\": \"500\"\n        }\n      },\n      \"operator\": \"and\",\n      \"right_operand\": {\n        \"left_operand\": \"$output.incident.title$\",\n        \"operator\": \"mw\",\n        \"right_operand\": \"Automation Rule Testing*\"\n      }\n    },",
+          "scope": "local",
+          "name": "Condition for Rule having Score Less than 500",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false,
           "variable_string_format": ""
         },
-        "unique_name": "variable_workflow_02EUZ35FC30DQ0qWqhI72NT2CNBgSm5uwdy",
+        "unique_name": "variable_workflow_02EV5B4UI4GMZ4OSz3GN6zZ1Z80cACTuPo0",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide Token",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02ETBRLHONAAA5svsLafIavouDzWFvrOVdw",
         "object_type": "variable_workflow"
       }
     ],
@@ -1721,7 +1721,7 @@
               "continue_on_failure": true,
               "display_name": "SX- Incident Creation",
               "input": {
-                "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT": "{\n  \"source\": \"Umbrella\",\n  \"type\": \"bundle\",\n  \"incidents\": [\n    {\n      \"id\": \"transient:incident-2\",\n      \"title\": \"CA-6.10-PR-Jan8-Automation Rule Testing - IncidentWF_02IBLPTQBYDYU6XGg13hVGGjKzDPOfDlQpj\",\n      \"description\": \"SG-Standalone-In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n      \"type\": \"incident\",\n      \"source\": \"Umbrella\",\n      \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n      \"status\": \"New\",\n      \"promotion_method\": \"Automated\",\n      \"severity\": \"Critical\",\n      \"confidence\": \"High\",\n      \"incident_time\": {\n        \"opened\": \"2024-10-29T20:11:26.309505881Z\"\n      }\n    }\n  ],\n  \"sightings\": [\n    {\n      \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n      \"id\": \"transient:sighting-1\",\n      \"observables\": [\n        {\n          \"value\": \"examplebotnetdomain.com\",\n          \"type\": \"domain\"\n        }\n      ],\n      \"observed_time\": {\n        \"start_time\": \"2022-09-13T14:21:20.000Z\",\n        \"end_time\": \"2022-09-13T14:21:20.000Z\"\n      },\n      \"severity\": \"Low\",\n      \"source\": \"Umbrella Reporting API\",\n      \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n      \"targets\": [\n        {\n          \"type\": \"endpoint\",\n          \"observables\": [\n            {\n              \"value\": \"41137871\",\n              \"type\": \"odns_identity\"\n            },\n            {\n              \"value\": \"ksimek-WS\",\n              \"type\": \"odns_identity_label\"\n            },\n            {\n              \"value\": \"35.169.125.172\",\n              \"type\": \"ip\"\n            },\n            {\n              \"value\": \"ksimek-WS\",\n              \"type\": \"hostname\"\n            }\n          ],\n          \"observed_time\": {\n            \"start_time\": \"2022-09-13T14:21:20.000Z\",\n            \"end_time\": \"2022-09-13T14:21:20.000Z\"\n          }\n        }\n      ],\n      \"type\": \"sighting\"\n    }\n  ],\n  \"indicators\": [\n    {\n      \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n      \"valid_time\": {\n        \"start_time\": \"2022-04-01T00:00:00.000Z\"\n      },\n      \"producer\": \"Umbrella\",\n      \"type\": \"indicator\",\n      \"source\": \"Umbrella\",\n      \"external_ids\": [\n        \"securex:umbrella-threat-hunt-c\u0026c\"\n      ],\n      \"short_description\": \"Command and Control activities detected by DNS protection.\",\n      \"title\": \"Command and Control DNS activities\",\n      \"id\": \"transient:indicator-umbrella-c\u0026c\",\n      \"tlp\": \"green\"\n    }\n  ],\n  \"attack_patterns\": [\n    {\n      \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n      \"type\": \"attack-pattern\",\n      \"source\": \"MITRE Enterprise ATT\u0026CK\",\n      \"external_ids\": [\n        \"T1071\"\n      ],\n      \"short_description\": \"Application Layer Protocol\",\n      \"title\": \"Application Layer Protocol\",\n      \"external_references\": [\n        {\n          \"source_name\": \"mitre-attack\",\n          \"url\": \"https://attack.mitre.org/techniques/T1071\",\n          \"external_id\": \"T1071\"\n        }\n      ],\n      \"source_uri\": \"https://attack.mitre.org\",\n      \"id\": \"transient:attack-pattern-T1071\",\n      \"kill_chain_phases\": [\n        {\n          \"kill_chain_name\": \"mitre-attack\",\n          \"phase_name\": \"command-and-control\"\n        },\n        {\n          \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n          \"phase_name\": \"command-and-control\"\n        }\n      ]\n    }\n  ],\n  \"relationships\": [\n    {\n      \"type\": \"relationship\",\n      \"id\": \"transient:relationship-indicator-T1071\",\n      \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n      \"target_ref\": \"transient:attack-pattern-T1071\",\n      \"relationship_type\": \"indicates\"\n    },\n    {\n      \"type\": \"relationship\",\n      \"id\": \"transient:relationship-sighting-indicator\",\n      \"source_ref\": \"transient:sighting-1\",\n      \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n      \"relationship_type\": \"sighting-of\"\n    },\n    {\n      \"type\": \"relationship\",\n      \"id\": \"transient:relationship-sighting-incident\",\n      \"source_ref\": \"transient:sighting-1\",\n      \"target_ref\": \"transient:incident-2\",\n      \"relationship_type\": \"member-of\"\n    }\n  ]\n}",
+                "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT": "{\n  \"source\": \"Umbrella\",\n  \"type\": \"bundle\",\n  \"incidents\": [\n    {\n      \"id\": \"transient:incident-2\",\n      \"title\": \"Automation Rule Testing PR Incidnet which is having score 910-$ID\",\n      \"description\": \"SG-Standalone-In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n      \"type\": \"incident\",\n      \"source\": \"Umbrella\",\n      \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n      \"status\": \"New\",\n      \"promotion_method\": \"Automated\",\n      \"severity\": \"Critical\",\n      \"confidence\": \"High\",\n      \"incident_time\": {\n        \"opened\": \"2024-10-29T20:11:26.309505881Z\"\n      }\n    }\n  ],\n  \"sightings\": [\n    {\n      \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n      \"id\": \"transient:sighting-1\",\n      \"observables\": [\n        {\n          \"value\": \"examplebotnetdomain.com\",\n          \"type\": \"domain\"\n        }\n      ],\n      \"observed_time\": {\n        \"start_time\": \"2022-09-13T14:21:20.000Z\",\n        \"end_time\": \"2022-09-13T14:21:20.000Z\"\n      },\n      \"severity\": \"Low\",\n      \"source\": \"Umbrella Reporting API\",\n      \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n      \"targets\": [\n        {\n          \"type\": \"endpoint\",\n          \"observables\": [\n            {\n              \"value\": \"41137871\",\n              \"type\": \"odns_identity\"\n            },\n            {\n              \"value\": \"ksimek-WS\",\n              \"type\": \"odns_identity_label\"\n            },\n            {\n              \"value\": \"35.169.125.172\",\n              \"type\": \"ip\"\n            },\n            {\n              \"value\": \"ksimek-WS\",\n              \"type\": \"hostname\"\n            }\n          ],\n          \"observed_time\": {\n            \"start_time\": \"2022-09-13T14:21:20.000Z\",\n            \"end_time\": \"2022-09-13T14:21:20.000Z\"\n          }\n        }\n      ],\n      \"type\": \"sighting\"\n    }\n  ],\n  \"indicators\": [\n    {\n      \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n      \"valid_time\": {\n        \"start_time\": \"2022-04-01T00:00:00.000Z\"\n      },\n      \"producer\": \"Umbrella\",\n      \"type\": \"indicator\",\n      \"source\": \"Umbrella\",\n      \"external_ids\": [\n        \"securex:umbrella-threat-hunt-c\u0026c\"\n      ],\n      \"short_description\": \"Command and Control activities detected by DNS protection.\",\n      \"title\": \"Command and Control DNS activities\",\n      \"id\": \"transient:indicator-umbrella-c\u0026c\",\n      \"tlp\": \"green\"\n    }\n  ],\n  \"attack_patterns\": [\n    {\n      \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n      \"type\": \"attack-pattern\",\n      \"source\": \"MITRE Enterprise ATT\u0026CK\",\n      \"external_ids\": [\n        \"T1071\"\n      ],\n      \"short_description\": \"Application Layer Protocol\",\n      \"title\": \"Application Layer Protocol\",\n      \"external_references\": [\n        {\n          \"source_name\": \"mitre-attack\",\n          \"url\": \"https://attack.mitre.org/techniques/T1071\",\n          \"external_id\": \"T1071\"\n        }\n      ],\n      \"source_uri\": \"https://attack.mitre.org\",\n      \"id\": \"transient:attack-pattern-T1071\",\n      \"kill_chain_phases\": [\n        {\n          \"kill_chain_name\": \"mitre-attack\",\n          \"phase_name\": \"command-and-control\"\n        },\n        {\n          \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n          \"phase_name\": \"command-and-control\"\n        }\n      ]\n    }\n  ],\n  \"relationships\": [\n    {\n      \"type\": \"relationship\",\n      \"id\": \"transient:relationship-indicator-T1071\",\n      \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n      \"target_ref\": \"transient:attack-pattern-T1071\",\n      \"relationship_type\": \"indicates\"\n    },\n    {\n      \"type\": \"relationship\",\n      \"id\": \"transient:relationship-sighting-indicator\",\n      \"source_ref\": \"transient:sighting-1\",\n      \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n      \"relationship_type\": \"sighting-of\"\n    },\n    {\n      \"type\": \"relationship\",\n      \"id\": \"transient:relationship-sighting-incident\",\n      \"source_ref\": \"transient:sighting-1\",\n      \"target_ref\": \"transient:incident-2\",\n      \"relationship_type\": \"member-of\"\n    }\n  ]\n}",
                 "variable_workflow_02EDD9GCRBAX574rDgRmdygEP3enq7dzk6J": ""
               },
               "runtime_user": {
@@ -2871,6 +2871,21 @@
           {
             "schema_id": "datatype.string",
             "properties": {
+              "value": "Authorization",
+              "scope": "local",
+              "name": "Authorization",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01TDNHLQE0CFD5Py2Wa6hZY7tAg0VXtS2BY",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
               "value": "Generic WF- ",
               "scope": "input",
               "name": "Provide WF Name",
@@ -2881,51 +2896,6 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_01TDNKTV4E8ZL1grru2uqTjehv3g3ddlvOA",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Token",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_01TDNHLQE03O00CiG7txybBnguqEWZzoaGQ",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Workflow Name",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02EW5715JOLOQ7VXda4Guag4ZmTxHbD7Ez4",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Workflow ID",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo",
             "object_type": "variable_workflow"
           },
           {
@@ -2948,6 +2918,51 @@
             "properties": {
               "value": "",
               "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01TDNHLQDZVAG2pFLc7fFzzYBc3C4U9I5HB",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Token",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01TDNHLQE03O00CiG7txybBnguqEWZzoaGQ",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Workflow ID",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01TDNHLQDZ2IU1p9dVTjzl5bO2sJuwTiGUo",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
               "name": "Pass Value",
               "type": "datatype.string",
               "is_required": false,
@@ -2961,31 +2976,16 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Authorization",
-              "scope": "local",
-              "name": "Authorization",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_01TDNHLQE0CFD5Py2Wa6hZY7tAg0VXtS2BY",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "",
               "scope": "output",
-              "name": "Pass or Fail",
+              "name": "Workflow Name",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_01TDNHLQDZVAG2pFLc7fFzzYBc3C4U9I5HB",
+            "unique_name": "variable_workflow_02EW5715JOLOQ7VXda4Guag4ZmTxHbD7Ez4",
             "object_type": "variable_workflow"
           }
         ],
@@ -3270,31 +3270,16 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Fail",
-              "scope": "output",
-              "name": "UnLock Test Status",
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide the Token",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "WF_UnLocked_Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd",
+            "unique_name": "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck",
             "object_type": "variable_workflow"
           },
           {
@@ -3316,16 +3301,31 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide the Token",
+              "value": "",
+              "scope": "output",
+              "name": "WF_UnLocked_Status",
               "type": "datatype.string",
               "is_required": false,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_02CZUIKT15OAS2QBrFJR41WkaFXVSoSTRck",
+            "unique_name": "variable_workflow_02CZUIKT166HD1lJuHe4AGwB8e0OKoMJYGd",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Fail",
+              "scope": "output",
+              "name": "UnLock Test Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02CZUIKT16DDF0RnhzTGfLTdOCDHhbib8P5",
             "object_type": "variable_workflow"
           }
         ],
@@ -3615,21 +3615,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-$ID\",\n              \"title\": \"SG-PR-Sep11-2-Automation Rule Testing - IncidentWF_$ID\",\n              \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"Critical\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Command and Control activities detected by DNS protection.\",\n        \"title\": \"Command and Control DNS activities\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1071\"\n            ],\n            \"short_description\": \"Application Layer Protocol\",\n            \"title\": \"Application Layer Protocol\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1071\",\n                    \"external_id\": \"T1071\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1071\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"command-and-control\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"command-and-control\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1071\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1071\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }\n",
-              "scope": "input",
-              "name": "Incident Payload",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "",
               "scope": "output",
               "name": "Pass or Fail",
@@ -3640,6 +3625,21 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_025XVBQ4XDWTI6w12ilYBIIdxxfnoAF1cmt",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "{\n    \"source\": \"Umbrella\",\n    \"type\": \"bundle\",\n      \"incidents\":[\n          {\n              \"id\": \"transient:incident-$ID\",\n              \"title\": \"SG-PR-Sep11-2-Automation Rule Testing - IncidentWF_$ID\",\n              \"description\": \"In this scenario, the incident is submitted with only one technique but no tactic. In such a case, the tactics must be inferred at import from the submitted techniques, and the incident shall present the inferred tactics with these techniques in the financial risk tab.\",\n              \"type\": \"incident\",\n              \"source\": \"Umbrella\",\n              \"short_description\": \"A device is involved in excessive malicious Command and Control communication, which is already flagged by Umbrella.\",\n              \"status\": \"New\",\n              \"promotion_method\": \"Automated\",\n              \"severity\": \"Critical\",\n              \"confidence\": \"High\",\n              \"incident_time\":{\"opened\": \"$Time\"}\n          }\n\n      ],\n      \"sightings\":[\n        {\n              \"description\": \"DNS request for 'examplebotnetdomain.com' made by 'ksimek-WS' (Roaming Computers)\",\n              \"id\": \"transient:sighting-1\",\n              \"observables\":\n              [\n                  {\n                      \"value\": \"examplebotnetdomain.com\",\n                      \"type\": \"domain\"\n                  }\n              ],\n              \"observed_time\":\n              {\n                  \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                  \"end_time\": \"2022-09-13T14:21:20.000Z\"\n              },\n              \"severity\": \"Low\",\n              \"source\": \"Umbrella Reporting API\",\n              \"source_uri\": \"https://dashboard.umbrella.com/o/1869975/#/reports/activity?encodedFilters=eyJzZWxlY3RlZERhdGVSYW5nZUlkeCI6MCwiZG9tYWluIjoiZXhhbXBsZWJvdG5ldGRvbWFpbi5jb20ifQ==\",\n              \"targets\":\n              [\n                  {\n                      \"type\": \"endpoint\",\n                      \"observables\":\n                      [\n                          {\n                              \"value\": \"41137871\",\n                              \"type\": \"odns_identity\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"odns_identity_label\"\n                          },\n                          {\n                              \"value\": \"35.169.125.172\",\n                              \"type\": \"ip\"\n                          },\n                          {\n                              \"value\": \"ksimek-WS\",\n                              \"type\": \"hostname\"\n                          }\n                      ],\n                      \"observed_time\":\n                      {\n                          \"start_time\": \"2022-09-13T14:21:20.000Z\",\n                          \"end_time\": \"2022-09-13T14:21:20.000Z\"\n                      }\n                  }\n              ],\n            \"type\": \"sighting\"\n        }\n      ],\n    \"indicators\": [\n      {\n        \"description\": \"Several activities that reflect Command and Control behavior were detected on the same target in limited amount of time\",\n        \"valid_time\": {\n          \"start_time\": \"2022-04-01T00:00:00.000Z\"\n        },\n        \"producer\": \"Umbrella\",\n        \"type\": \"indicator\",\n        \"source\": \"Umbrella\",\n        \"external_ids\": [\n          \"securex:umbrella-threat-hunt-c\u0026c\"\n        ],\n        \"short_description\": \"Command and Control activities detected by DNS protection.\",\n        \"title\": \"Command and Control DNS activities\",\n        \"id\": \"transient:indicator-umbrella-c\u0026c\",\n        \"tlp\": \"green\"\n      }\n    ],\n    \"attack_patterns\": [\n        {\n            \"description\": \"Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \\n\\nAdversaries may utilize many different protocols, including those used for web browsing, transferring files, electronic mail, or DNS. For connections that occur internally within an enclave (such as those between a proxy or pivot node and other nodes), commonly used protocols are SMB, SSH, or RDP. \",\n            \"type\": \"attack-pattern\",\n            \"source\": \"MITRE Enterprise ATT\u0026CK\",\n            \"external_ids\": [\n                \"T1071\"\n            ],\n            \"short_description\": \"Application Layer Protocol\",\n            \"title\": \"Application Layer Protocol\",\n            \"external_references\": [\n                {\n                    \"source_name\": \"mitre-attack\",\n                    \"url\": \"https://attack.mitre.org/techniques/T1071\",\n                    \"external_id\": \"T1071\"\n                }\n            ],\n            \"source_uri\": \"https://attack.mitre.org\",\n            \"id\": \"transient:attack-pattern-T1071\",\n            \"kill_chain_phases\": [\n                {\n                    \"kill_chain_name\": \"mitre-attack\",\n                    \"phase_name\": \"command-and-control\"\n                },\n                {\n                    \"kill_chain_name\": \"lockheed-martin-cyber-kill-chain\",\n                    \"phase_name\": \"command-and-control\"\n                }\n            ]\n        }\n    ],\n    \"relationships\": [\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-indicator-T1071\",\n        \"source_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"target_ref\": \"transient:attack-pattern-T1071\",\n        \"relationship_type\": \"indicates\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-indicator\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:indicator-umbrella-c\u0026c\",\n        \"relationship_type\": \"sighting-of\"\n      },\n      {\n        \"type\": \"relationship\",\n        \"id\": \"transient:relationship-sighting-incident\",\n        \"source_ref\": \"transient:sighting-1\",\n        \"target_ref\": \"transient:incident-2\",\n        \"relationship_type\": \"member-of\"\n      }\n    ]\n  }\n",
+              "scope": "input",
+              "name": "Incident Payload",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_025XVBQ4XDCWA6CIc3NJnrtB74GGidZMJGT",
             "object_type": "variable_workflow"
           }
         ],
@@ -4355,69 +4355,6 @@
           {
             "schema_id": "datatype.integer",
             "properties": {
-              "value": 30,
-              "scope": "input",
-              "name": "Max sleep interval",
-              "type": "datatype.integer",
-              "description": "Max sleep interval is 300s. user should provide between 30 to 300",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02F1PQMH5NPMC5CZgB2MdKsC0U8nUkBveYd",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Method",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02EQQCILX6BDB67XZfLWNT2e7OUqp1K2AWI",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "HTTP API Response (Initial)",
-              "type": "datatype.string",
-              "description": "Enter null or []",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02EQOFSUYBI931wsNmhR1IOVKnj9l914B3B",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "HTTP API Request EndPoint",
-              "type": "datatype.string",
-              "description": "Enter the EndPoint Which you want hit and get the response",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02EQOHIG7MBJZ6yzPZziDWOcCFdWpWoSrJP",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.integer",
-            "properties": {
               "value": 10,
               "scope": "local",
               "name": "Sleep Interval",
@@ -4428,21 +4365,6 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02EQOF8B54F7P0H9RPduryXEO1xB2G6Rebl",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Toekn with Bearer ",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_02EQR6G1IMD1M5fRCqUja6BUg1jfJX09XbU",
             "object_type": "variable_workflow"
           },
           {
@@ -4465,6 +4387,37 @@
             "properties": {
               "value": "",
               "scope": "input",
+              "name": "HTTP API Request EndPoint",
+              "type": "datatype.string",
+              "description": "Enter the EndPoint Which you want hit and get the response",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02EQOHIG7MBJZ6yzPZziDWOcCFdWpWoSrJP",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Method",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02EQQCILX6BDB67XZfLWNT2e7OUqp1K2AWI",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
               "name": "Expected HTTP API Responce",
               "type": "datatype.string",
               "description": "This is should be [] or null based on the api response. ",
@@ -4474,6 +4427,53 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_02ETC9OG74EBH2BRKdOIov09EaXH7gb4Cf2",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.integer",
+            "properties": {
+              "value": 30,
+              "scope": "input",
+              "name": "Max sleep interval",
+              "type": "datatype.integer",
+              "description": "Max sleep interval is 300s. user should provide between 30 to 300",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02F1PQMH5NPMC5CZgB2MdKsC0U8nUkBveYd",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "HTTP API Response (Initial)",
+              "type": "datatype.string",
+              "description": "Enter null or []",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02EQOFSUYBI931wsNmhR1IOVKnj9l914B3B",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Toekn with Bearer ",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_02EQR6G1IMD1M5fRCqUja6BUg1jfJX09XbU",
             "object_type": "variable_workflow"
           }
         ],
@@ -4701,21 +4701,6 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Token",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_01UI14NPSPU7K4lnWpU0bRq4sAvBh6mrbpD",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
               "value": "Authorization",
               "scope": "local",
               "name": "Authorization",
@@ -4746,16 +4731,16 @@
           {
             "schema_id": "datatype.string",
             "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "Instances whole Payload",
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Token",
               "type": "datatype.string",
-              "is_required": false,
+              "is_required": true,
               "display_on_wizard": false,
               "is_invisible": false,
               "variable_string_format": ""
             },
-            "unique_name": "variable_workflow_01UJCX408QPTU6sQRcRQVhUxy2CNGkTkscO",
+            "unique_name": "variable_workflow_01UI14NPSPU7K4lnWpU0bRq4sAvBh6mrbpD",
             "object_type": "variable_workflow"
           },
           {
@@ -4771,6 +4756,21 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_01UJBPR11MC7U4Y6MzbHSuwvme3HRaEhSH9",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "Instances whole Payload",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01UJCX408QPTU6sQRcRQVhUxy2CNGkTkscO",
             "object_type": "variable_workflow"
           },
           {
@@ -5189,21 +5189,6 @@
             "base_type": "workflow",
             "variables": [
               {
-                "schema_id": "datatype.string",
-                "properties": {
-                  "value": "",
-                  "scope": "output",
-                  "name": "Date_from",
-                  "type": "datatype.string",
-                  "is_required": false,
-                  "display_on_wizard": false,
-                  "is_invisible": false,
-                  "variable_string_format": ""
-                },
-                "unique_name": "variable_workflow_01R8RS9ZFVD7X2X7XZxO19myE297M4vT3z4",
-                "object_type": "variable_workflow"
-              },
-              {
                 "schema_id": "datatype.integer",
                 "properties": {
                   "value": -86400,
@@ -5216,6 +5201,21 @@
                   "variable_string_format": ""
                 },
                 "unique_name": "variable_workflow_01UUWH1B7IEKO1TJ1QqEMHZi1hBfP3P0TLG",
+                "object_type": "variable_workflow"
+              },
+              {
+                "schema_id": "datatype.string",
+                "properties": {
+                  "value": "",
+                  "scope": "output",
+                  "name": "Date_from",
+                  "type": "datatype.string",
+                  "is_required": false,
+                  "display_on_wizard": false,
+                  "is_invisible": false,
+                  "variable_string_format": ""
+                },
+                "unique_name": "variable_workflow_01R8RS9ZFVD7X2X7XZxO19myE297M4vT3z4",
                 "object_type": "variable_workflow"
               },
               {
@@ -5388,6 +5388,81 @@
             "properties": {
               "value": "",
               "scope": "output",
+              "name": "wf_Instance Status",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01UHIWF2FAOX32myrDBYsUF5EeKAYjIYpYm",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "false",
+              "scope": "output",
+              "name": "Pass or Fail",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01UHIWF2FDHP2114BtNfVaEYtDbvaPbLdlR",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
+              "name": "wf_started_by_trigger_id",
+              "type": "datatype.string",
+              "is_required": false,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_026YWOOG19ZFQ5VndQh55LoFIMfHbK9ntrT",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "input",
+              "name": "Provide wf_instance_id to Verify the instance Status",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01UHIWF2FAC1I6NcWQbTZtnauM5pR4JBWUt",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "Bearer ",
+              "scope": "input",
+              "name": "Provide Token",
+              "type": "datatype.string",
+              "is_required": true,
+              "display_on_wizard": false,
+              "is_invisible": false,
+              "variable_string_format": ""
+            },
+            "unique_name": "variable_workflow_01UHIWF2F9XOP26sLAfDsuW82C9UR1zPLX2",
+            "object_type": "variable_workflow"
+          },
+          {
+            "schema_id": "datatype.string",
+            "properties": {
+              "value": "",
+              "scope": "output",
               "name": "Action Status",
               "type": "datatype.string",
               "is_required": false,
@@ -5411,81 +5486,6 @@
               "variable_string_format": ""
             },
             "unique_name": "variable_workflow_01UHIWF2F7F8M7P97oYSK4M291OeID1P4mu",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "input",
-              "name": "Provide wf_instance_id to Verify the instance Status",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_01UHIWF2FAC1I6NcWQbTZtnauM5pR4JBWUt",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "false",
-              "scope": "output",
-              "name": "Pass or Fail",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_01UHIWF2FDHP2114BtNfVaEYtDbvaPbLdlR",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "Bearer ",
-              "scope": "input",
-              "name": "Provide Token",
-              "type": "datatype.string",
-              "is_required": true,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_01UHIWF2F9XOP26sLAfDsuW82C9UR1zPLX2",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "wf_Instance Status",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_01UHIWF2FAOX32myrDBYsUF5EeKAYjIYpYm",
-            "object_type": "variable_workflow"
-          },
-          {
-            "schema_id": "datatype.string",
-            "properties": {
-              "value": "",
-              "scope": "output",
-              "name": "wf_started_by_trigger_id",
-              "type": "datatype.string",
-              "is_required": false,
-              "display_on_wizard": false,
-              "is_invisible": false,
-              "variable_string_format": ""
-            },
-            "unique_name": "variable_workflow_026YWOOG19ZFQ5VndQh55LoFIMfHbK9ntrT",
             "object_type": "variable_workflow"
           }
         ],
@@ -5728,11 +5728,6 @@
   "module_targets": [
     {
       "module_type": "Cisco XDR",
-      "external_id": "securex:ao:iroh_api",
-      "proxy_endpoint_metadata_id": "platform-apis"
-    },
-    {
-      "module_type": "Cisco XDR",
       "external_id": "securex:ao:conure",
       "proxy_endpoint_metadata_id": "conure-apis"
     },
@@ -5740,6 +5735,11 @@
       "module_type": "Cisco XDR",
       "external_id": "securex:ao:sxo",
       "proxy_endpoint_metadata_id": "automation-apis"
+    },
+    {
+      "module_type": "Cisco XDR",
+      "external_id": "securex:ao:iroh_api",
+      "proxy_endpoint_metadata_id": "platform-apis"
     }
   ]
 }
