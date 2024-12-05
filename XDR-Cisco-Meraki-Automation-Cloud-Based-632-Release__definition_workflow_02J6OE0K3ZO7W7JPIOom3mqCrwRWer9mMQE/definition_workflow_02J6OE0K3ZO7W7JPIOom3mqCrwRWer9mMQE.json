@@ -9,51 +9,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "Atomics WF Execution Using ModuleTarget Test Status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02J6RHFF0E8TH4Q6t1kyms5zu9HPX7R5TlS",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Enter the Target ID for Cisco Meraki Cloud Based",
-          "type": "datatype.string",
-          "is_required": true,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02J6OEEROF5KO4pMvZ8PVApons8pOewudSV",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "Fail",
-          "scope": "output",
-          "name": "Duplicated Atomic WF Execution Using ModuleTarget Test Status",
-          "type": "datatype.string",
-          "is_required": false,
-          "display_on_wizard": false,
-          "is_invisible": false,
-          "variable_string_format": ""
-        },
-        "unique_name": "variable_workflow_02J6RHPHSH1VD27NSzXCrwqX0YSRTk45EqM",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "",
           "scope": "input",
           "name": "Provide Module Instaance ID for Cisco Meraki",
@@ -84,16 +39,16 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "Cisco Meraki - Get Organizations",
-          "scope": "local",
-          "name": "Meraki Atomic Workflow Name",
+          "value": "Fail",
+          "scope": "output",
+          "name": "Duplicated Atomic WF Execution Using ModuleTarget Test Status",
           "type": "datatype.string",
           "is_required": false,
           "display_on_wizard": false,
           "is_invisible": false,
           "variable_string_format": ""
         },
-        "unique_name": "variable_workflow_02J6OIY7IFQ9P0QBihsPW1InhTHfxTRbhPx",
+        "unique_name": "variable_workflow_02J6RHPHSH1VD27NSzXCrwqX0YSRTk45EqM",
         "object_type": "variable_workflow"
       },
       {
@@ -109,6 +64,51 @@
           "variable_string_format": ""
         },
         "unique_name": "variable_workflow_02J6RI7XLYCOQ5uzjkdzWmzJRVIrUL7bbQf",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Enter the Target ID for Cisco Meraki Cloud Based",
+          "type": "datatype.string",
+          "is_required": true,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02J6OEEROF5KO4pMvZ8PVApons8pOewudSV",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Fail",
+          "scope": "output",
+          "name": "Atomics WF Execution Using ModuleTarget Test Status",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02J6RHFF0E8TH4Q6t1kyms5zu9HPX7R5TlS",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Cisco Meraki - Get Organizations",
+          "scope": "local",
+          "name": "Meraki Atomic Workflow Name",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02J6OIY7IFQ9P0QBihsPW1InhTHfxTRbhPx",
         "object_type": "variable_workflow"
       }
     ],
@@ -242,14 +242,14 @@
                           "right_operand": {
                             "left_operand": "$activity.definition_activity_02J6RNIL7DEKG5RRVRj4uNHoefpAAcEbZLZ.output.jsonpath_queries.Module_API_Name$",
                             "operator": "eq",
-                            "right_operand": "Cisco Meraki Dashboard API"
+                            "right_operand": "Cisco Meraki API"
                           }
                         },
                         "operator": "and",
                         "right_operand": {
                           "left_operand": "$activity.definition_activity_02J6RNIL7DEKG5RRVRj4uNHoefpAAcEbZLZ.output.jsonpath_queries.Module_Type$",
                           "operator": "eq",
-                          "right_operand": "Meraki"
+                          "right_operand": "Cisco Meraki"
                         }
                       },
                       "operator": "and",
@@ -973,43 +973,51 @@
                             "left_operand": {
                               "left_operand": {
                                 "left_operand": {
-                                  "left_operand": "$activity.definition_activity_02J6R88PNR0EZ22hrxrzOBSl3xfWoSLIsiS.output.error.code$",
-                                  "operator": "eq",
-                                  "right_operand": "200"
+                                  "left_operand": {
+                                    "left_operand": "$activity.definition_activity_02J6R88PNR0EZ22hrxrzOBSl3xfWoSLIsiS.output.error.code$",
+                                    "operator": "eq",
+                                    "right_operand": "200"
+                                  },
+                                  "operator": "and",
+                                  "right_operand": {
+                                    "left_operand": "$activity.definition_activity_02J6RA0QACAHB02laykf3r2emSRTdp47THn.output.error.code$",
+                                    "operator": "eq",
+                                    "right_operand": "200"
+                                  }
                                 },
                                 "operator": "and",
                                 "right_operand": {
-                                  "left_operand": "$activity.definition_activity_02J6RA0QACAHB02laykf3r2emSRTdp47THn.output.error.code$",
+                                  "left_operand": "$activity.definition_activity_02J6RD1CQK4P27XK521SIkRM0UFqJRBybbb.output.error.code$",
                                   "operator": "eq",
                                   "right_operand": "200"
                                 }
                               },
                               "operator": "and",
                               "right_operand": {
-                                "left_operand": "$activity.definition_activity_02J6RD1CQK4P27XK521SIkRM0UFqJRBybbb.output.error.code$",
+                                "left_operand": "$activity.definition_activity_02J6RD1CQQVMC5Fz4YKj3XRx1OIp9DRPPoj.output.error.code$",
                                 "operator": "eq",
                                 "right_operand": "200"
                               }
                             },
                             "operator": "and",
                             "right_operand": {
-                              "left_operand": "$activity.definition_activity_02J6RD1CQQVMC5Fz4YKj3XRx1OIp9DRPPoj.output.error.code$",
+                              "left_operand": "$activity.definition_activity_02J6RD1CQUQB43FuKnCuSOibgA6rmWfUJG9.output.error.code$",
                               "operator": "eq",
                               "right_operand": "200"
                             }
                           },
                           "operator": "and",
                           "right_operand": {
-                            "left_operand": "$activity.definition_activity_02J6RD1CQUQB43FuKnCuSOibgA6rmWfUJG9.output.error.code$",
+                            "left_operand": "$activity.definition_activity_02J6RE4JDPSXC2ehabbbJgaCijGWA4laruV.output.error.code$",
                             "operator": "eq",
                             "right_operand": "200"
                           }
                         },
                         "operator": "and",
                         "right_operand": {
-                          "left_operand": "$activity.definition_activity_02J6RE4JDPSXC2ehabbbJgaCijGWA4laruV.output.error.code$",
+                          "left_operand": "$activity.definition_activity_02J6RD1CQTZWH6X3LvmfwoHl7ouOmuSDkqX.output.jsonpath_queries.Instance_Status$",
                           "operator": "eq",
-                          "right_operand": "200"
+                          "right_operand": "success"
                         }
                       },
                       "continue_on_failure": false,
