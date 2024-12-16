@@ -1,0 +1,291 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_02JG2NG4C942P78L316p42SwvId0Rc1WxS9",
+    "name": "Copy(1)-C3303443 Workflow",
+    "title": "Copy(1)-C3303443 Workflow",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "c1",
+          "scope": "local",
+          "name": "Str",
+          "type": "datatype.string",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02JG2NG4IVXYN7dN7NkaZWj4AF8e5PGBXxj",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "value": 3600,
+          "scope": "local",
+          "name": "Int",
+          "type": "datatype.integer",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02JG2NG4IVNQP6R31G3geJvEY6KIR3FkkUG",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.date",
+        "properties": {
+          "value": "2024-03-04T10:00:00+05:00",
+          "scope": "local",
+          "name": "Date",
+          "type": "datatype.date",
+          "is_required": false,
+          "display_on_wizard": false,
+          "is_invisible": false,
+          "variable_string_format": ""
+        },
+        "unique_name": "variable_workflow_02JG2NG4IW5391cJ8jyTXJhzmCxIM9Z9uap",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Copy(1)-C3303443 Workflow",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_02JG2NG6LDF6D6hgRBJi1EIA98yIGGpPuWz",
+        "name": "Group",
+        "title": "Group",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Group",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02JG2NG7VVTBL2doHWqWhRvzHJViRn90wzc",
+            "name": "To Upper",
+            "title": "To Upper",
+            "type": "core.string2upper",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "To Upper",
+              "skip_execution": false,
+              "source": "$workflow.definition_workflow_02JG2NG4C942P78L316p42SwvId0Rc1WxS9.local.variable_workflow_02JG2NG4IVXYN7dN7NkaZWj4AF8e5PGBXxj$"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02JG2NG8P97OK4BUuOrO2RnJEMXkUbYrCfq",
+        "name": "Parallel Block",
+        "title": "Parallel Block",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Parallel Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_02JG2NG9G6F515PmQVHe42uHA4DmDyv3sIa",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02JG2NGAEIPI42Q7ckmT4J9uPCLQwLWaUxx",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02JG2NGB64EJP4U3lR0kTi542kVaDBmKVk8",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_02JG2NG4C942P78L316p42SwvId0Rc1WxS9.local.variable_workflow_02JG2NG4IVXYN7dN7NkaZWj4AF8e5PGBXxj$",
+                        "operator": "eq",
+                        "right_operand": "c1"
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02JG2NGC6OVF81TfBlQ6S9uobaxGzkqzd68",
+                        "name": "To Lower",
+                        "title": "To Lower",
+                        "type": "core.string2lower",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "To Lower",
+                          "skip_execution": false,
+                          "source": "$activity.definition_activity_02JG2NG7VVTBL2doHWqWhRvzHJViRn90wzc.output.uppercase_text$"
+                        },
+                        "object_type": "definition_activity"
+                      },
+                      {
+                        "unique_name": "definition_activity_02JG2NGD8V3DG2LRH7O4oYTtUJgbeCKn9OU",
+                        "name": "To Upper",
+                        "title": "To Upper",
+                        "type": "core.string2upper",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "To Upper",
+                          "skip_execution": false,
+                          "source": "$activity.definition_activity_02JG2NGC6OVF81TfBlQ6S9uobaxGzkqzd68.output.lowercase_text$"
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_02JG2NGEA0GNU6nYeXzOAmsBI82nAnE6J7S",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_02JG2NGFO45ZR2bEkuu0Enz0rwoUBiiOjTG",
+                "name": "Condition Block",
+                "title": "Condition Block",
+                "type": "logic.if_else",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Condition Block",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "blocks": [
+                  {
+                    "unique_name": "definition_activity_02JG2NGGK4XGE72YxlQWOwLugeyGWbTNkFr",
+                    "name": "Condition Branch",
+                    "title": "Condition Branch",
+                    "type": "logic.condition_block",
+                    "base_type": "activity",
+                    "properties": {
+                      "condition": {
+                        "left_operand": "$workflow.definition_workflow_02JG2NG4C942P78L316p42SwvId0Rc1WxS9.local.variable_workflow_02JG2NG4IVNQP6R31G3geJvEY6KIR3FkkUG$",
+                        "operator": "eq",
+                        "right_operand": 3600
+                      },
+                      "continue_on_failure": false,
+                      "display_name": "Condition Branch",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_02JG2NGHLGNEC58PM8hIxTgGD7bA9DK4UV4",
+                        "name": "Calculate Date",
+                        "title": "Calculate Date",
+                        "type": "core.calculate_date",
+                        "base_type": "activity",
+                        "properties": {
+                          "adjustment": 3600,
+                          "continue_on_failure": false,
+                          "display_name": "Calculate Date",
+                          "original_date": "$workflow.definition_workflow_02JG2NG4C942P78L316p42SwvId0Rc1WxS9.local.variable_workflow_02JG2NG4IW5391cJ8jyTXJhzmCxIM9Z9uap$",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_02JG2NGIHHQQ80kGm3gUV9oNHDYPPOYHQiU",
+        "name": "Group",
+        "title": "Group",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Group",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_02JG2NGJSEKW93CouYcowRlBivu0NwRbvnj",
+            "name": "To Upper",
+            "title": "To Upper",
+            "type": "core.string2upper",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "To Upper",
+              "skip_execution": false,
+              "source": "$activity.definition_activity_02JG2NG7VVTBL2doHWqWhRvzHJViRn90wzc.output.uppercase_text$"
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
